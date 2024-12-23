@@ -222,7 +222,7 @@
 &nbsp;Search
 </button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/posts" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> Back to posts </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <div class="invisible"></div> <div class="invisible"></div> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm"> <time datetime="2024-06-18T00:00:00.000Z"> June 18, 2024 </time> </div> 
 &bull;
-<div class="font-base text-sm"> 14 min read </div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> My BSc Thesis, ClaudesLens </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#introduction" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Introduction </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#bayeslens" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> BayesLens </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#claudeslens" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> ClaudesLens </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#neural-networks" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Neural Networks </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-neuron" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Neuron </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-network" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Network </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#computer-vision" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Computer Vision </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#images" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Images </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#entropy" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Entropy </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#uncertainty-in-information-theory" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Uncertainty in Information Theory </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#entropy-based-uncertainty-quantification-framework" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Entropy-based Uncertainty Quantification Framework </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#proposed-metrics" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Proposed Metrics </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#pi-perturbation-index" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> PI: Perturbation Index </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#psi-perturbation-stability-index" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> PSI: Perturbation Stability Index </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#mapping-entropy-categorically" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Mapping entropy categorically </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#conclusion" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Conclusion </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#acknowledgements" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Acknowledgements </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#footnote-label" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Footnotes </a>  </li> </ul> </li> </ul> </nav> </details> <article class="animate"> <p><img src="/images/posts/logo.png" alt=""></p>
+<div class="font-base text-sm"> 16 min read </div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> My BSc Thesis, ClaudesLens </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#introduction" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Introduction </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#bayeslens" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> BayesLens </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#claudeslens" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> ClaudesLens </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#neural-networks" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Neural Networks </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-neuron" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Neuron </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-network" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Network </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#computer-vision" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Computer Vision </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#images" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Images </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#entropy" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Entropy </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#uncertainty-in-information-theory" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Uncertainty in Information Theory </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#entropy-based-uncertainty-quantification-framework" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Entropy-based Uncertainty Quantification Framework </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#proposed-metrics" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Proposed Metrics </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#pi-perturbation-index" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> PI: Perturbation Index </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#psi-perturbation-stability-index" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> PSI: Perturbation Stability Index </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#mapping-entropy-categorically" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Mapping entropy categorically </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#results" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Results </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#conclusion" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Conclusion </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#acknowledgements" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Acknowledgements </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#footnote-label" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Footnotes </a>  </li> </ul> </li> </ul> </nav> </details> <article class="animate"> <p><img src="/images/posts/logo.png" alt=""></p>
 <p style="font-weight:bold; text-align:center;"> ClaudesLens </p>
 <p style="font-size:15px; font-weight:italic; text-align:center;"> Dubitatio dictat animas nostras </p>
 <h1 id="introduction">Introduction</h1>
@@ -237,14 +237,14 @@
 <p>Originally, we wanted to create “Uncertainty-Aware Attention Mechanisms”.
 What we specifically had in mind was to create a transformer model that used Bayesian Neural Networks (BNNs) <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>.
 Even more ambitiously, apply this to self-driving cars.</p>
-<p>Needless to say, this was a bit too ambitious for a BSc thesis, so we had to scale down our project a bit.
-We didn’t have the prerequisite knowledge or the compute to do such a task within that time frame.</p>
-<p>Enough about what we <em>wanted</em> to do and what we <em>did</em>.</p>
-<p>So about ~1/3 into the project, our supervisor wanted us to explore the <em>entropy</em> of predictions, and we got promising results right from the start.</p>
+<p>Needless to say, this was a bit too ambitious for a BSc thesis, we didn’t have the prerequisite knowledge or the compute to do such a task within that time frame.
+So we had to scale down our project a bit.</p>
+<p>About ~1/3 into the project, our supervisor wanted us to explore the <em>entropy</em> of predictions, and we got promising results right from the start.</p>
 <p>This was the start of <strong>ClaudesLens</strong>.</p>
 <h3 id="claudeslens">ClaudesLens</h3>
 <p>From the results of using entropy as a measure of uncertainty — which in itself is nothing new — we decided to explore this further.</p>
-<p>Let’s start what lies at the heart of this project: <strong>Neural Networks</strong>.</p>
+<p>I’m going to explain what we did and our proposed framework.</p>
+<p>Let’s start what lies at the heart of this project, <strong>neural networks</strong>.</p>
 <h1 id="neural-networks">Neural Networks</h1>
 <p>There are many ways to explain neural networks, in this post I will use a mathematical approach which will let us view the entire network as a single function.</p>
 <h3 id="the-neuron">The Neuron</h3>
@@ -523,7 +523,7 @@ Why does the neuron have a bias input?</p>
 <details>
 <summary><b>Answer</b></summary>
 <blockquote>
-The bias input allows the neuron to shift the activation function to the left or right, which can be crucial for the learning process.
+The bias input allows the neuron to shift the activation function to the left or right, this can be useful in certain cases.
 </blockquote>
 </details>
 <h3 id="the-network">The Network</h3>
@@ -547,7 +547,7 @@ $$
 z = \mathbf{w} \cdot \mathbf{x} + b.
 \end{equation}
 $$</p>
-<p>But only using one neuron will only get us so far, if we instead have multiple neurons and try to mimic the structure of the brain, we can get something more powerful.</p>
+<p>But only using one neuron will only get us so far, if we instead have <strong>multiple neurons</strong> and try to <strong>mimic the structure of the brain</strong>, we can get something more powerful.</p>
 <p>A <em>layer</em> is a collection of neurons, <strong>stacked on top of each other</strong>.
 Very often when we are referring to a layer, are we referring to a <em>fully connected layer</em>, where each neuron in the layer is connected to all the neurons in the previous layer.</p>
 <p>In the case of a network, we can now talk about the input layer and the output layer.</p>
@@ -884,9 +884,10 @@ $$</p>
 <p>where the dot indicates that the activation function $f$ is applied element-wise.</p>
 <p>So the final output is therefore,
 $$
-\begin{equation}
-\mathbf{y} = f.(\mathbf{W_2} \mathbf{a} + \mathbf{b_2}). = f.(\mathbf{W_2} f.(\mathbf{W_1} \mathbf{x} + \mathbf{b_1}) + \mathbf{b_2}).
-\end{equation}
+\begin{align}
+\mathbf{y} &#x26;= f.(\mathbf{W_2} \mathbf{a} + \mathbf{b_2}) \newline
+&#x26;= f.(\mathbf{W_2} f.(\mathbf{W_1} \mathbf{x} + \mathbf{b_1}) + \mathbf{b_2}). \nonumber
+\end{align}
 $$</p>
 <p><strong>Exercise</strong>:
 Is it necessary to apply the same activation function to all layers in a neural network?</p>
@@ -903,18 +904,19 @@ I highly encourage you to read about it, it is one of the most important concept
 <h1 id="computer-vision">Computer Vision</h1>
 <p>Now that we have a basic understanding of neural networks, we can move on to computer vision.</p>
 <p>Computer vision is a field of computer science that focuses on <strong>replicating</strong> parts of the complexity of the <strong>human vision system</strong> and enabling computers to <strong>identify and process objects in images and videos</strong> in the same way that humans do.</p>
-<p>The most important thing that we will cover here is how we represent images numerically so we can feed them into as input to neural networks.</p>
+<p>The most important thing that we will cover here is how we represent images numerically, so we can feed them into as input to neural networks.</p>
 <h3 id="images">Images</h3>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/5/56/RGB_channels_separation.png" alt="">
 <strong>Figure 3:</strong> An RBG image with its corresponding channels. <a href="https://commons.wikimedia.org/wiki/File:RGB_channels_separation.png">Source</a></p>
 <p>Images are represented as a grid of pixels, where each pixel needs to be represented in a numerical way.</p>
 <p>For most images, we represent each pixel as a 3-dimensional vector, where each element corresponds to the intensity of the color channels red, green, and blue (RGB). This is called a <em>channel</em>.</p>
-<p>So, a single pixel in an image is represented as a vector, therefore a whole image can be represented as a 3-dimensional tensor.</p>
+<p>So, a single pixel in an image is represented as a vector, therefore a whole image can be represented as a 3-dimensional <strong>tensor</strong>.
+We will just think of a tensor as a <strong>matrix of matrices</strong>, as long as the input has the numerical properties for matrix and vector operations.</p>
 <h1 id="entropy">Entropy</h1>
 <p>Now that we have covered the basics of neural networks and computer vision (in our use case that is), we can move on to the main topic of this thesis: <strong>Entropy</strong>.</p>
 <h3 id="uncertainty-in-information-theory">Uncertainty in Information Theory</h3>
 <p>Now, when we are talking about entropy, we are talking about the <strong>information kind</strong> of entropy.
-Thanks to the great work of Claude Shannon, we have a way to quantify the uncertainty of a random variable. <sup><a href="#user-content-fn-5" id="user-content-fnref-5" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup></p>
+Thanks to the great work of Claude Shannon, we have a way to quantify the <em>uncertainty</em> of a random variable. <sup><a href="#user-content-fn-5" id="user-content-fnref-5" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup></p>
 <p>The entropy of a random variable $X$ is defined as,
 $$
 \begin{equation}
@@ -922,8 +924,8 @@ H(X) = -\sum_{x \in \chi} p(x) \log p(x),
 \end{equation}
 $$</p>
 <p>where $p(x) = P(X = x)$.</p>
-<p>If I were to explain Shannon-Entropy in an intuitive way.
-If we have no uncertainty or very little, i.e., imagine an unfair coin with 99% probability of landing on heads. You <strong>won’t be surprised</strong> if it lands on heads.</p>
+<p>If I were to explain Shannon-Entropy in an intuitive way.</p>
+<p>Imagine if we have no uncertainty or very little, i.e., imagine an unfair coin with 99% probability of landing on heads. You <strong>won’t be surprised</strong> if it lands on heads.</p>
 <p>However, if we have a fair coin, if I flip it 100 times and 99 of them are heads, you would be <strong>very surprised</strong>.</p>
 <p>This is what Shannon-Entropy captures, how <em>surprised</em> you are about the outcome of a random variable.</p>
 <p>There is a more elegant way it is presented (and especially used!) in classical information theory. But I will leave that for yourself to read and discover :).</p>
@@ -945,10 +947,11 @@ $$
 &#x26;\quad \text{Thus } H(X) \;=\; -\sum_{x \in \chi} p(x)\,\log p(x) \;\ge\; 0. \newline
 &#x26;\textbf{Upper Bound (}H(X) \le \log |\chi|\textbf): \newline
 &#x26;\quad \text{Using the concavity of the } \log \text{ function and by Jensen's inequality, we have} \newline
-&#x26;\quad -\sum_{x \in \chi} p(x)\,\log p(x) \;\le\; \log\Bigl(\lvert \chi \rvert \Bigr). \newline \\
+&#x26;\quad -\sum_{x \in \chi} p(x)\,\log p(x) \;\le\; \log\Bigl(\lvert \chi \rvert \Bigr). \newline \newline
 &#x26;\quad \text{Alternatively, we can argue that for fixed } \lvert \chi \rvert, \newline
 &#x26;\quad \text{the uniform distribution } p(x) = \frac{1}{|\chi|} \text{ maximizes the entropy,} \newline
-&#x26;\quad \text{yielding } H(X) = -\sum_{x \in \chi} \frac{1}{|\chi|}\,\log \Bigl(\tfrac{1}{|\chi|}\Bigr) = \log\Bigl(\lvert \chi \rvert\Bigr). \newline \\
+&#x26;\quad \text{yielding } H(X) = -\sum_{x \in \chi} \frac{1}{|\chi|}\,\log \Bigl(\tfrac{1}{|\chi|}\Bigr) = \log\Bigl(\lvert \chi \rvert\Bigr). \newline \newline
+&#x26;\quad \text{Note, one could also solve this using Lagrange multipliers to find this maximum.} \newline \newline
 &#x26;\text{Hence, combining both bounds, we have } 0 \le H(X) \le \log |\chi|. \newline
 \end{align*}
 $$
@@ -957,7 +960,7 @@ $$
 </details>
 <h1 id="entropy-based-uncertainty-quantification-framework">Entropy-based Uncertainty Quantification Framework</h1>
 <p>From what we have seen, we can view a neural network as a <strong>function</strong>.</p>
-<p>In our case — since we’re dealing with classification — our function spits out a <strong>probability vector</strong> where each element corresponds to the probability of the input belonging to a specific class.</p>
+<p>In our case — since we’re dealing with classification — our function spits out a <strong>probability vector</strong> where each element corresponds to the probability of the input belonging to a specific class (refer back to Figure 2 if you think this is unclear).</p>
 <p>Therefore, the best prediction is,
 $$
 \begin{equation}
@@ -1013,7 +1016,7 @@ Meaning that the first layer of the network is now stochastic, instead of all th
 <h3 id="proposed-metrics">Proposed Metrics</h3>
 <p>With this entropy-based uncertainty quantification framework, we propose two metrics to quantify the uncertainty of a neural network model.</p>
 <h4 id="pi-perturbation-index">PI: Perturbation Index</h4>
-<p>In image classification — one of the most common and fundamental tasks in computer vision — accuracy is a common metric to evaluate the performance of a model.</p>
+<p>In image classification — one of the most common and fundamental tasks in computer vision — <strong>accuracy</strong> is a common metric to evaluate the performance of a model.</p>
 <p>Accuracy is defined as,</p>
 <p>$$
 \begin{equation}
@@ -1029,10 +1032,11 @@ $$</p>
 \end{cases}
 \end{equation}
 $$</p>
-<p>Simply, accuracy is the fraction of correct predictions over the total number of predictions.</p>
-<p>It is therefore natural to imagine that perturbing the weights of a model will affect the accuracy of the model.
-However, a robust model should be able to handle these perturbations and still perform well.
-The Perturbation Index (PI) is therefore defined as,</p>
+<p>Simply, accuracy is the <strong>fraction of correct predictions</strong> over the total number of predictions.</p>
+<p>It is therefore natural to imagine that <strong>perturbing the weights</strong> of a model <strong>will affect the accuracy</strong> of the model.
+However, a <strong>robust</strong> model should be able to handle these (small) perturbations and <strong>still perform well</strong>.
+This is the idea behind the Perturbation Index (PI).</p>
+<p>The Perturbation Index (PI) is therefore defined as,</p>
 <p>$$
 \begin{equation}
 \pi_{\sigma} = \text{Acc}(\mathcal{F}(\mathbf{x}; \mathbf{W}_{\sigma})) - \text{Acc}(\mathcal{F}(\mathbf{x}, \mathbf{W})).
@@ -1045,10 +1049,11 @@ Should you calculate the PI for a single image, a batch of images, or the entire
 <summary><b>Answer</b></summary>
 <blockquote>
 The most meaningful way to calculate the PI is to calculate it for the entire dataset.
+You can of course calculate it for a single image or a batch of images, but the most meaningful interpretation is when you calculate it for the entire dataset.
 </blockquote>
 </details>
 <h4 id="psi-perturbation-stability-index">PSI: Perturbation Stability Index</h4>
-<p>But PI doesn’t tell us anything about the inherent uncertainty of the model.</p>
+<p>But PI doesn’t tell us anything about the <em>inherent uncertainty</em> of the model.</p>
 <p>As we discussed, we can empirically calculate the entropy, in mathematical terms,</p>
 <p>$$
 \begin{equation}
@@ -1065,11 +1070,11 @@ In simpler terms, there <strong>should be a negative correlation</strong> betwee
 $$</p>
 <p>Now, this might look confusing at a first glance, but let me break it down.</p>
 <p>Across the dataset, do samples with <strong>higher entropy</strong> also have <strong>more errors</strong>?
-This is why we calculate the sample-level correlation between them.</p>
+We hypothesize that this should be the case, this is why we calculate the sample-level (over our $N$ samples/random draws) correlation between them.</p>
 <p>Note, that by doing this, we,</p>
 <ul>
-<li>Reward the model if higher entropy → more errors.</li>
 <li>Penalizes it if higher entropy → more correct predictions.</li>
+<li>Penalizes the model <strong>less</strong> if higher entropy → more errors.</li>
 </ul>
 <p>Essentially, if the model <strong>“knows when it is uncertain”</strong> (this is very handwavey), it gets a higher PSI.</p>
 <p>We also include the accuracy in the calculation, as we want to penalize the model if it is affected by the perturbation.</p>
@@ -1082,11 +1087,35 @@ p_{\sigma} = P(\hat{y_{\sigma}} = Y | H_{\sigma}(\mathbf{x}) = h), \quad \text{ 
 \end{equation}
 $$</p>
 <p>The function mapping $\mathbf{x} \mapsto h$ can be understood as the probability of making a correct prediction within all draws from the data, which have <strong>the same entropy as $\mathbf{x}$</strong>.
-This means we can categorize images based on their entropy and gain insight into the model’s predictions without seeing the ground truth label.</p>
+This means we can <strong>categorize images based on their entropy</strong> and gain insight into the model’s predictions without seeing the ground truth label.</p>
+<h1 id="results">Results</h1>
+<p>Now, during the majority of the project and the results section in our report, we adopted our framework to three different models to investigate <strong>whether our hypothesis held</strong>.
+<strong>TLDR, yes</strong>, so I won’t bore you with those results and graphs.</p>
+<p>I instead want to focus on the <em>potential</em> applications.</p>
+<p>Near the end of our thesis, our supervisor wanted us to check the different entropies of the images in our dataset (MNIST in our case).
+From our framework, the <strong>higher entropy</strong> digits should have <strong>higher classification errors</strong>, on average.</p>
+<p>So we tested this!</p>
+<p><img src="/images/posts/claudesresult.png" alt="">
+<strong>Figure 4:</strong> Highest (left) and lowest (right) entropy of the digit four for a specific model.</p>
+<p>From Figure 4, we can see that, if that specific model is presented with the digit four, the ones that resemble the one on the right (lowest entropy) <strong>will most likely be classified correctly</strong>.
+Compared to the four on the left (highest entropy), which <strong>will most likely be classified incorrectly</strong>.</p>
+<p><strong>Note</strong>, we are talking about the <strong>inherent uncertainty of the model</strong> here, not the entropy of the input itself.
+This just means that this specific models <strong>prefers</strong> digit fours that have the characteristics of the one on the right, to the one on the left.</p>
+<p><strong>Exercise</strong>:</p>
+<details>
+<summary><b>Why do you think the model prefers the digit four on the right?</b></summary>
+<blockquote>
+While there is no right answer (i.e., we haven't proved this), we hypothesize two things.
+<ol>
+<li>There are more digit fours that resemble the one on the right in the dataset.</li>
+<li>The right digit four has a more unique shape (i.e., characteristic crossover lines for drawing a four), which the model has learned to classify and indicate fours.</li>
+</ol>
+</blockquote>
+</details>
 <h1 id="conclusion">Conclusion</h1>
-<p>I hope you’ve understood this framework of quantifying uncertainty in neural networks.</p>
+<p>I hope you’ve understood this framework of quantifying uncertainty in neural networks and enjoyed this post :).</p>
 <p>I’ve started to see a lot more people talk about uncertainty quantification <sup><a href="#user-content-fn-6" id="user-content-fnref-6" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup> this year.
-Which makes me happy, it is an interesting field.</p>
+Which makes me happy, it is an interesting field with a lot of potential applications.</p>
 <p>My closing statement is that, don’t forget that statistics is an exact science making sense of an uncertain and inexact world <sup><a href="#user-content-fn-7" id="user-content-fnref-7" data-footnote-ref="" aria-describedby="footnote-label">7</a></sup>.</p>
 <h1 id="acknowledgements">Acknowledgements</h1>
 <p>I want to thank my supervisor, my group members, and the people that proofread this blog post.</p>
