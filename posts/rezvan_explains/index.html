@@ -223,14 +223,13 @@
 </button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/posts" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> Back to posts </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <div class="invisible"></div> <div class="invisible"></div> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm"> <time datetime="2024-11-11T00:00:00.000Z"> November 11, 2024 </time> </div> 
 &bull;
 <div class="font-base text-sm">
-Last modified:  <time datetime="2025-01-14T21:32:53.000Z"> January 14, 2025 </time> </div> 
+Last modified:  <time datetime="2025-01-16T14:35:37.000Z"> January 16, 2025 </time> </div> 
 &bull;
-<div class="font-base text-sm"> 38 min read </div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Rezvan Explains: Classical Machine Learning </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#preqrequisites-and-notation" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Preqrequisites and Notation </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#colab-and-repository" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Colab and Repository </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#what-why-and-how" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> What, Why, and How? </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#statistics-vs-machine-learning" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Statistics VS. Machine Learning </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#humble-beginnings" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Humble Beginnings </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#different-types-of-learning" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Different Types of Learning </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#supervised-learning" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Supervised Learning </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-classification-task" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Classification Task </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-classification-learning-problem" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Classification Learning Problem </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#metrics" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Metrics </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#different-approaches" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Different Approaches </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#generative-models" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Generative Models </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#bayes-optimal-classifier" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Bayes Optimal Classifier </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#maximum-likelihood-estimate" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Maximum Likelihood Estimate </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#bayes-optimal-classifier-summary" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Bayes Optimal Classifier Summary </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#naive-bayes-classifier" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Naive Bayes Classifier </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#linear-discriminant-analysis-lda" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Linear Discriminant Analysis (LDA) </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#summary-generative-models" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Summary Generative Models </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#discriminative-models" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Discriminative Models </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#logistic-regression" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Logistic Regression </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#support-vector-machines-svms" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Support Vector Machines (SVMs) </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#maximum-margin-principle" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Maximum Margin Principle </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#computing-the-margin" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Computing the Margin </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#why-is-maximize-the-margin-a-good-idea" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Why is Maximize the Margin a Good Idea? </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#soft-margin" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Soft-Margin </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#convex-optimization" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> (Convex) Optimization </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#standard-form-of-convex-optimization" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Standard Form of Convex Optimization </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#duality-and-kkt-conditions" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Duality and KKT Conditions </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#svms-continued" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> SVMs Continued </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#deriving-the-dual-problem" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Deriving the Dual Problem </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#gradient-descent" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Gradient Descent </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#generative-vs-discriminative-models" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Generative VS. Discriminative Models </a>  </li> </ul> </li> </ul> </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#footnote-label" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Footnotes </a>  </li> </ul> </nav> </details> <article class="animate"> <p><img src="/images/posts/re_header.jpg" alt=""></p>
+<div class="font-base text-sm"> 45 min read </div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Rezvan Explains: Classical Machine Learning </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#preqrequisites-and-notation" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Preqrequisites and Notation </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#colab-and-repository" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Colab and Repository </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#what-why-and-how" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> What, Why, and How? </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#statistics-vs-machine-learning" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Statistics VS. Machine Learning </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#humble-beginnings" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Humble Beginnings </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#different-types-of-learning" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Different Types of Learning </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#supervised-learning" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Supervised Learning </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-classification-task" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Classification Task </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-classification-learning-problem" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Classification Learning Problem </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#metrics" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Metrics </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#different-approaches" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Different Approaches </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#generative-models" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Generative Models </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#bayes-optimal-classifier" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Bayes Optimal Classifier </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#maximum-likelihood-estimate" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Maximum Likelihood Estimate </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#bayes-optimal-classifier-summary" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Bayes Optimal Classifier Summary </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#naive-bayes-classifier" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Naive Bayes Classifier </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#linear-discriminant-analysis-lda" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Linear Discriminant Analysis (LDA) </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#summary-generative-models" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Summary Generative Models </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#discriminative-models" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Discriminative Models </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#logistic-regression" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Logistic Regression </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#support-vector-machines-svms" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Support Vector Machines (SVMs) </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#maximum-margin-principle" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Maximum Margin Principle </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#computing-the-margin" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Computing the Margin </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#why-is-maximize-the-margin-a-good-idea" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Why is Maximize the Margin a Good Idea? </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#soft-margin" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Soft-Margin </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#convex-optimization" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> (Convex) Optimization </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#standard-form-of-convex-optimization" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Standard Form of Convex Optimization </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#duality-and-kkt-conditions" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Duality and KKT Conditions </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#svms-continued" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> SVMs Continued </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#deriving-the-dual-problem" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Deriving the Dual Problem </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#gradient-descent-and-variants" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Gradient Descent and variants </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#k-nearest-neighbors" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> $k$-Nearest Neighbors </a>  </li> </ul> </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-regression-task" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Regression Task </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-regression-learning-problem" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Regression Learning Problem </a>  </li> </ul> </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#footnote-label" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Footnotes </a>  </li> </ul> </nav> </details> <article class="animate"> <p><img src="/images/posts/re_header.jpg" alt=""></p>
 <p style="font-weight:bold; text-align:center;"> Rezvan Explains: Classical Machine Learning</p>
 <p style="font-size:15px; font-weight:italic; text-align:center;"> Veni, disce mecum </p>
 <p>As of writing this, last night as I was going to sleep, I was lying in bed and thought about the future.
-After some rambling I came up with this (hopefully) series, <strong>Rezvan Explains</strong>.</p>
-<p>I took a course called <a href="https://www.cityu.edu.hk/catalogue/ug/current/course/CS4487.htm">machine learning</a> during my exchange semester @ CityUHK taught by <a href="https://kedema.org">Kede Ma</a> (wonderful professor and I highly recommend taking the course).
+After some rambling I came up with this (hopefully) series, <strong>Rezvan Explains</strong>. I took a course called <a href="https://www.cityu.edu.hk/catalogue/ug/current/course/CS4487.htm">machine learning</a> during my exchange semester @ CityUHK taught by <a href="https://kedema.org">Kede Ma</a> (wonderful professor and I highly recommend taking the course).
 This post is very inspired by his course but, I want to add my touch on the topic.</p>
 <p>My goal for this part is to build your <strong>intuition</strong> when it comes to machine learning.
 I believe most people getting started with AI nowadays don’t want to understand the foundations modern deep learning is built upon.</p>
@@ -280,7 +279,23 @@ I believe most people getting started with AI nowadays don’t want to understan
 
 
 
-<table><thead><tr><th><strong>Symbol</strong></th><th><strong>Meaning</strong></th></tr></thead><tbody><tr><td>$$\mathbb{R}$$</td><td>Real Numbers</td></tr><tr><td>$$\mathbb{R}^N$$</td><td>N-dimensional Real Space</td></tr><tr><td>$$\mathbf{X}$$</td><td>Input Space</td></tr><tr><td>$$\mathbf{Y}$$</td><td>Output Space</td></tr><tr><td>$$\mathcal{D}$$</td><td>Dataset</td></tr><tr><td>$$\mathbf{x}$$</td><td>Feature Vector</td></tr><tr><td>$$y$$</td><td>Class Label</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>Symbol</strong></th><th><strong>Meaning</strong></th></tr></thead><tbody><tr><td>$M$</td><td>Number of Examples in Dataset</td></tr><tr><td>$N$</td><td>Number of Features in Training Sample</td></tr><tr><td>$\mathcal{D}$</td><td>Dataset of $M$ Examples</td></tr><tr><td>$\mathbf{x}$</td><td>$N$-dimensional Feature Vector</td></tr><tr><td>$y$</td><td>Class Label</td></tr><tr><td>$\mathbf{x}^{(i)}$</td><td>$i$-th Feature Vector in Dataset in $\mathcal{D}$</td></tr><tr><td>$\mathbf{x}^{(i)}_j$</td><td>$j$-th Feature in $i$-th Feature Vector in $\mathcal{D}$</td></tr><tr><td>$y^{(i)}$</td><td>$i$-th Class Label in Dataset in $\mathcal{D}$ corresponding to $\mathbf{x}^{(i)}$</td></tr><tr><td>$\mathbf{X}$</td><td>Input Space</td></tr><tr><td>$\mathbf{Y}$</td><td>Output Space</td></tr><tr><td>$| \mathbf{Y} |$</td><td>Number of Classes in Output Space</td></tr></tbody></table>
 <h2 id="colab-and-repository">Colab and Repository</h2>
 <p>One last note before we begin, this blog post will have an accompanying <a href="https://colab.research.google.com/drive/1zces_TBL9JReCO0Z1AAOEHDoIGCJLVJf#scrollTo=-T78tkkgmDP_">Google Colab Notebook</a> and a <a href="https://github.com/rezaarezvan/rezvan-explains">GitHub Repository</a>.</p>
 <p>All the plots and code will be available in the notebook, so if you want to follow along, I recommend opening it up as you read this post.</p>
@@ -10219,6 +10234,25 @@ L 347.596094 284.308406
 \sigma(z) = \frac{1}{1 + e^{-z}}, \quad z \in \mathbb{R}
 \end{equation}
 $$</p>
+<p><strong>Exercise</strong>:
+What is the derivative of the sigmoid function?</p>
+<details>
+<summary><b>Answer</b></summary>
+<blockquote>
+$$
+\begin{equation}
+\begin{aligned}
+\sigma(z) &#x26;= \frac{1}{1 + e^{-z}} \newline
+\frac{d}{dz} \sigma(z) &#x26;= \frac{d}{dz} \left(1 + e^{-z}\right)^{-1} \newline
+&#x26;= -1 \cdot \left(1 + e^{-z}\right)^{-2} \cdot -e^{-z} \biggr\rvert \text{ Chain rule} \newline
+&#x26;= \frac{e^{-z}}{\left(1 + e^{-z}\right)^2} \newline
+&#x26;= \frac{1}{1 + e^{-z}} \cdot \frac{e^{-z}}{1 + e^{-z}} \newline
+&#x26;= \sigma(z) \cdot \left(1 - \sigma(z)\right)
+\end{aligned}
+\end{equation}
+$$
+</blockquote>
+</details>
 <p>Thus, given a feature vector $\mathbf{x}$ the probability of the classes are,</p>
 <p>$$
 \begin{equation}
@@ -13115,28 +13149,23 @@ Also, the <strong>data is uncertain</strong>, maximizing the margin allows the m
 <p>But what does this mean? Much of machine learning can be written as an optimization problem,</p>
 <p>$$
 \begin{equation}
-\underset{\mathbf{\theta}}{\min} \ell(\mathcal{D}; \mathbf{\theta}) = \underset{\mathbf{\theta}}{\min} \frac{1}{M} \sum_{i = 1}^M \ell(\mathbf{x}^{(i)}, y^{(i)}; \mathbf{\theta})
+\underset{\mathbf{\theta}}{\min} \ \ell(\mathcal{D}; \mathbf{\theta}) = \underset{\mathbf{\theta}}{\min} \frac{1}{M} \sum_{i = 1}^M \ell(\mathbf{x}^{(i)}, y^{(i)}; \mathbf{\theta})
 \end{equation}
 $$</p>
 <p>where $\mathbf{\theta}$ is our parameter vector to be optimized, $\ell(\cdot)$ is our <strong>loss function</strong>, and $\mathcal{D}$ is our dataset.</p>
-<p>For example, in logistic regression, we have,</p>
-<p>$$
-\begin{equation}
-\underset{\mathbf{w}, b}{\min} \sum_{i=1}^{N} \log \sigma\left(y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b)\right)
-\end{equation}
-$$</p>
 <p><strong>Exercise</strong>:
-Can we view our generative models (Naive Bayes, LDA) as optimization problems?</p>
+What is the loss function for logistic regression?</p>
 <details>
 <summary><b>Answer</b></summary>
 <blockquote>
-Yes, we can view our generative models as optimization problems.
-<p>For example, in LDA we have,</p>
-<p>$$
-\begin{equation}
-\underset{\mathbf{\mu}, \mathbf{\Sigma}}{\max} \sum_{i=1}^{N} \log p(\mathbf{x}^{(i)} | y^{(i)}; \mathbf{\mu}, \mathbf{\Sigma})
-\end{equation}
-$$</p>
+$$
+\begin{aligned}
+\ell(\mathbf{x}^{(i)}, y^{(i)}; \mathbf{w}, b) &#x26; = \log \sigma(y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b)) \newline
+&#x26; = \log \left(\frac{1}{1 + \exp(-y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b))}\right) \newline
+&#x26; = \log(1) - \log(1 + \exp(-y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b))) \biggr\rvert \log(a/b) = \log(a) - \log(b) \newline
+&#x26; = -\log(1 + \exp(-y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b))) \biggr\rvert \log(1) = 0 \newline
+\end{aligned}
+$$
 </blockquote>
 </details>
 <p>When solving optimization problems, it is important to know which <em>type</em> of problem we have.</p>
@@ -13452,18 +13481,182 @@ $$
 \end{aligned}
 \end{equation}
 $$</p>
-<p>Comparing to the dual form with soft margins.
-We can see that the only difference lies in the constraint on $\lambda_i$. In the hard margin case, we do not have an upper-bound, this is due to the $\xi_i$ term (slackness term), we get the upper-bound $C$. With hard margins, we assume the data is perfectly separable, i.e., no mistakes in classification.
-We can think of the hard margin case as a special case of the soft margin. If $C \to \infty$ we get the hard margin case.</p>
-<p>NOTE: No closed form solution for SVMs, only quadratic programming/optimization problem.</p>
-<p>Let’s see if linear regression is different, oh it is, look, a closed form solution.</p>
-<p>However, both methods can be solved using gradient descent.</p>
-<h6 id="gradient-descent">Gradient Descent</h6>
-<h5 id="generative-vs-discriminative-models">Generative VS. Discriminative Models</h5>
-<p>Discriminative - learn to directly discriminate the classes
-apart using the features</p>
-<p>Generative - learn models of how the features are generated
-from different classes</p>
+<p>We can see that the only difference lies in the constraint on $\lambda_i$.
+In the hard margin case, we do not have an upper-bound, this is due to the $\xi_i$ term (slackness term), we get the upper-bound $C$.
+With hard margins, we assume the data is perfectly separable, i.e., no mistakes in classification.</p>
+<p>We can think of the hard margin case as a special case of the soft margin. If $C \to \infty$ we get the hard margin case.</p>
+<p>However, I lied earlier, SVMs do not have a truly closed form solution, only quadratic programming/optimization problem.
+These optimization problems are well studied and methods to solve them exists but beyond our scope.</p>
+<h6 id="gradient-descent-and-variants">Gradient Descent and variants</h6>
+<p>But there is another way to find the best parameters, that we also can use for logistic regression.</p>
+<p><strong>Gradient descent</strong> is an optimization algorithm used to minimize some function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient,</p>
+<p>$$
+\begin{equation}
+\mathbf{\theta} = \mathbf{\theta} - \alpha \nabla \ell(\mathbf{\theta}),
+\end{equation}
+$$</p>
+<p>where $\alpha$ is the <strong>learning rate</strong> and $\nabla \ell(\mathbf{\theta})$ is the gradient of the loss function evaluated at $\mathbf{\theta}$.</p>
+<p><strong>Figure 11:</strong> Gradient descent.</p>
+<p>Gradient descent picks an initial point $\mathbf{\theta}^{(0)}$ and iteratively performs,</p>
+<p>$$
+\begin{equation}
+\begin{aligned}
+\mathbf{\theta}^{(t+1)} &#x26; = \mathbf{\theta}^{(t)} - \alpha \nabla \ell(\mathcal{D}; \mathbf{\theta}^{(t)}) \newline
+&#x26; = \mathbf{\theta}^{(t)} - \alpha \frac{1}{M} \sum_{i=1}^{M} \nabla \ell(\mathbf{x}^{(i)}, y^{(i)}; \mathbf{\theta}^{(t)}).
+\end{aligned}
+\end{equation}
+$$</p>
+<p>But when do we stop?</p>
+<p>We can stop when $\Vert \mathbf{\theta}^{(t+1)} - \mathbf{\theta}^{(t)} \Vert_2 \leq \epsilon$ for some small $\epsilon$.
+Intuitively, this means that we are not moving much anymore, i.e., we are close to (some) optimum.</p>
+<p>Similarly, we can stop if $\Vert \nabla \ell(\mathcal{D}; \mathbf{\theta}^{(t)}) \Vert_2 \leq \epsilon$.
+Again, this can intuitively be interpreted as we are not moving much anymore.</p>
+<p><strong>Figure 12:</strong> Gradient descent example.</p>
+<p>Our initial point matters a lot, as viewed in <strong>Figure 12</strong>.
+Therefore, we can run gradient descent multiple times with different initial points and pick the best one.</p>
+<p><strong>Figure 13:</strong> Gradient descent example.</p>
+<p>Our <em>learning rate</em> matters too of course, if we choose a too big $\alpha$, gradient descent might move too quickly and risk never converging.
+If we choose a too small $\alpha$, gradient descent might take too long to converge.</p>
+<p>However, there is a drawback to gradient descent, <strong>the computational cost</strong>.
+For each iteration, we need to compute the gradient for all samples, this can be very expensive for large datasets.</p>
+<p><strong>Stochastic gradient descent</strong> (SGD) is a variant of gradient descent that only uses a (random) single sample to compute the gradient.
+At the $t$-th iteration, we randomly sample a single input-output pair and compute the gradient,</p>
+<p>$$
+\begin{equation}
+\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} - \alpha \nabla \ell(\mathbf{x}^{(i)}, y^{(i)}; \mathbf{\theta}^{(t)}).
+\end{equation}
+$$</p>
+<p><strong>Figure 14:</strong> Stochastic gradient descent VS. Gradient descent.</p>
+<p><strong>Exercise</strong>:
+What is the expected value of SGD over all samples?</p>
+<details>
+<summary><b>Answer</b></summary>
+<blockquote>
+The expected value of SGD over all samples is the same as the gradient descent,
+<p>$$
+\begin{equation}
+\begin{aligned}
+\mathbb{E}[\ell(\mathbf{x}, y; \mathbf{\theta}^{(t+1)})] &#x26; = \frac{1}{M} \sum_{i=1}^{M} \ell(\mathbf{x}^{(i)}, y^{(i)}; \mathbf{\theta}^{(t+1)}) \newline
+&#x26; = \nabla \ell(\mathcal{D}; \mathbf{\theta}^{(t)}).
+\end{aligned}
+\end{equation}
+$$</p>
+</blockquote>
+</details>
+<p><strong>Mini-batch gradient descent</strong> is a compromise between gradient descent and SGD.
+At the $t$-th iteration, we randomly sample a mini-batch $\mathcal{B} \subset \mathcal{D}$ and compute the gradient,</p>
+<p>$$
+\begin{equation}
+\begin{aligned}
+\mathbf{\theta}^{(t+1)} &#x26; = \mathbf{\theta}^{(t)} - \alpha \nabla \ell(\mathcal{B}; \mathbf{\theta}^{(t)}) \newline
+&#x26; = \mathbf{\theta}^{(t)} - \alpha \frac{1}{|\mathcal{B}|} \sum_{(\mathbf{x}^{(i)}, y^{(i)}) \in \mathcal{B}} \nabla \ell(\mathbf{x}^{(i)}, y^{(i)}; \mathbf{\theta}^{(t)}).
+\end{aligned}
+\end{equation}
+$$</p>
+<p>Let’s now derive the gradient descent update rule for logistic regression.
+Remember that the loss function for logistic regression is,</p>
+<p>$$
+\begin{equation}
+\ell(\mathbf{x}, y; \mathbf{w}, b) = -\log(1 + \exp(-y(\mathbf{w}^T \mathbf{x} + b))).
+\end{equation}
+$$</p>
+<p>We can rewrite our MLE problem (which has no closed-form solution) as an optimization problem,</p>
+<p>$$
+\begin{equation}
+\begin{aligned}
+\underset{\mathbf{w}, b}{\max} &#x26; \quad \sum_{i=1}^{M} -\log(1 + \exp(-y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b))) \newline
+\underset{\mathbf{w}, b}{\min} &#x26; \quad \sum_{i=1}^{M} \log(1 + \exp(-y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b))).
+\end{aligned}
+\end{equation}
+$$</p>
+<p>Simply using the negative sign to convert the maximization problem to a minimization problem.</p>
+<p>Let’s see how the gradient behaves for a single training example $(\mathbf{x}, y)$.
+The partial derivative of the loss function with respect to the $j$-th component $w_j$,</p>
+<p>$$
+\begin{equation}
+\begin{aligned}
+\frac{\partial \ell(\mathbf{x}, y; \mathbf{w}, b)}{\partial w_j} &#x26; = \frac{\partial}{\partial w_j} \left[-\log(\sigma(y(\mathbf{w}^T \mathbf{x} + b)))\right] \newline
+&#x26; = -\frac{1}{\sigma(y(\mathbf{w}^T \mathbf{x} + b))} \frac{\partial}{\partial w_j} \sigma(y(\mathbf{w}^T \mathbf{x} + b)) \biggr\rvert \text{ Chain rule} \newline
+&#x26; = -\frac{1}{\sigma(y(\mathbf{w}^T \mathbf{x} + b))} \sigma(y(\mathbf{w}^T \mathbf{x} + b)) (1 - \sigma(y(\mathbf{w}^T \mathbf{x} + b))) \frac{\partial}{\partial w_j} y(\mathbf{w}^T \mathbf{x} + b) \biggr\rvert \text{ Chain rule} \newline
+&#x26; = (\sigma(y(\mathbf{w}^T \mathbf{x} + b)) - 1) \frac{\partial}{\partial w_j} y(\mathbf{w}^T \mathbf{x} + b) \newline
+&#x26; = (\sigma(y(\mathbf{w}^T \mathbf{x} + b)) - 1) y \frac{\partial}{\partial w_j} (\mathbf{w}^T \mathbf{x} + b) \newline
+&#x26; = (\sigma(y(\mathbf{w}^T \mathbf{x} + b)) - 1) y x_j.
+\end{aligned}
+\end{equation}
+$$</p>
+<p>The partial derivative of the loss function with respect to $b$,</p>
+<p>$$
+\begin{equation}
+\begin{aligned}
+\frac{\partial \ell(\mathbf{x}, y; \mathbf{w}, b)}{\partial b} &#x26; = \frac{\partial}{\partial b} \left[-\log(\sigma(y(\mathbf{w}^T \mathbf{x} + b)))\right] \newline
+&#x26; = -\frac{1}{\sigma(y(\mathbf{w}^T \mathbf{x} + b))} \frac{\partial}{\partial b} \sigma(y(\mathbf{w}^T \mathbf{x} + b)) \text{ Chain rule} \newline
+&#x26; = -\frac{1}{\sigma(y(\mathbf{w}^T \mathbf{x} + b))} \sigma(y(\mathbf{w}^T \mathbf{x} + b)) (1 - \sigma(y(\mathbf{w}^T \mathbf{x} + b))) \frac{\partial}{\partial b} y(\mathbf{w}^T \mathbf{x} + b) \text{ Chain rule} \newline
+&#x26; = (\sigma(y(\mathbf{w}^T \mathbf{x} + b)) - 1) y \frac{\partial}{\partial b} (\mathbf{w}^T \mathbf{x} + b) \newline
+&#x26; = (\sigma(y(\mathbf{w}^T \mathbf{x} + b)) - 1) y.
+\end{aligned}
+\end{equation}
+$$</p>
+<p>Thus, the (vectorized) gradient descent update rules for logistic regression are,</p>
+<p>$$
+\begin{equation}
+\begin{aligned}
+\mathbf{w}^{(t+1)} &#x26; = \mathbf{w}^{(t)} - \alpha \frac{1}{M} \sum_{i=1}^{M} (\sigma(y^{(i)}(\mathbf{w}^{(t)T} \mathbf{x}^{(i)} + b^{(t)}) - 1) y^{(i)} \mathbf{x}^{(i)} \newline
+b^{(t+1)} &#x26; = b^{(t)} - \alpha \frac{1}{M} \sum_{i=1}^{M} (\sigma(y^{(i)}(\mathbf{w}^{(t)T} \mathbf{x}^{(i)} + b^{(t)}) - 1) y^{(i)}.
+\end{aligned}
+\end{equation}
+$$</p>
+<h6 id="k-nearest-neighbors">$k$-Nearest Neighbors</h6>
+<p>Well, this detour to derive the dual problem for SVMs was quite long along with understanding gradient descent has taken quite a bit of time.
+But let’s introduce another geometric approach to classification, $k$-Nearest Neighbors (KNN).</p>
+<p>The idea is to store all the data $\mathcal{D} = {(\mathbf{x}^{(i)}, y^{(i)})}_{i=1}^{M}$ and when we want to classify a new point $\mathbf{x}$ we use a majority vote over its $k$-nearest neighbors $\mathcal{N}_k(\mathbf{x}) \subset \mathcal{D}$.
+KNNs therefore require a distance function $d : \mathcal{X} \times \mathcal{X} \to \mathbb{R}$ and the number of neighbors $k$.</p>
+<p>Therefore, the classification function is,</p>
+<p>$$
+\begin{equation}
+f_{\text{KNN}}(\mathbf{x}) = \underset{y \in \mathcal{Y}}{\text{argmax}} \sum_{i \in \mathcal{N}_k(\mathbf{x})} \mathbb{I}[y^{(i)} = y],
+\end{equation}
+$$</p>
+<p>where $\mathbb{I}$ is the indicator function.</p>
+<p>(Brute force) KNNs work by computing the distance $d_i = d(\mathbf{x}^{(i)}, \mathbf{x})$ from the target point $\mathbf{x}$ to all other points in the dataset $\mathbf{x}^{(i)}$.
+We then sort the distances $\{d_i, i = 1, \ldots, M\}$ and take the $k$-nearest neighbors to create the set $\mathcal{N}_k(\mathbf{x})$.</p>
+<h4 id="the-regression-task">The Regression Task</h4>
+<p>Okay, we are finally done with classification, but what if our target variable is <strong>continuous</strong>?</p>
+<blockquote>
+<p>Given a feature vector $\mathbf{x} \in \mathbf{X} = \mathbb{R}^N$, predict its corresponding output value $y \in \mathbf{Y} = \mathbb{R}$.</p>
+</blockquote>
+<p>Let’s take a moment to think about the difference between classification and regression.</p>
+<p>In classification, we need to find a hyperplane that <strong>separates the classes (data) from each other</strong>.
+While in regression we need to find a <strong>function that best fits the data</strong>.</p>
+<p>While <em>curve fitting</em> is not the same as regression, it is a good analogy.
+Given $M$ points from some underlying function (assuming it exists and has negligible noise) our goal is to find this function.</p>
+<p><strong>Exercise</strong>:
+Here are four questions we need to answer to understand curve fitting (and by extension regression),</p>
+<ol>
+<li>Does a small subset of points work, or is the more data the better?</li>
+<li>Do the locations of the points (on the curve) matter?</li>
+<li>Given the same set of $M$ points, is the curve(s) unique?</li>
+<li>If (3) is false, how do we measure the quality of the curve(s)?</li>
+</ol>
+<details>
+<summary><b>Answers</b></summary>
+<blockquote>
+1. More data is better, as it gives us a better approximation of the underlying function.
+2. Yes, the locations of the points matter, as they determine the shape of the curve, i.e., they need to be representative of the underlying function.
+3. Estimating a continuous function from a finite set of points is an ill-posed problem and rarely has a unique solution.
+4. We can measure the quality of the curve(s) by how well it fits the data, i.e., the error between the predicted and actual values.
+</blockquote>
+</details>
+<h4 id="the-regression-learning-problem">The Regression Learning Problem</h4>
+<blockquote>
+<p>Given a data set of example pairs $\mathcal{D} = \{(\mathbf{x}^{(i)}, y^{(i)), i = 1, \ldots, M}\}$ where $\mathbf{x}^{(i)} \in \mathbb{R}^{N}$ is a feature vector and $y^{(i)} \in \mathbb{R}$ is the output, learn a function $f : \mathbb{R}^{N} \mapsto \mathbb{R}$ that accurately predicts $y$ for any feature vector $\mathbf{x}$.</p>
+</blockquote>
+<p>For the error measure, we will use the <strong>mean squared error (MSE)</strong>,</p>
+<blockquote>
+<p>Given a data set of example pairs $\mathcal{D} = \{(\mathbf{x}^{(i)}, y^{(i)), i = 1, \ldots, M}\}$ and a function $f : \mathbb{R}^{N} \mapsto \mathbb{R}$, the mean squared error of $f$ on $\mathcal{D}$ is,
+$$
+\text{MSE}(\mathcal{D}, f) = \frac{1}{M} \sum_{i=1}^M (y^{(i)} - f(\mathbf{x}^{(i)}))^2.
+$$</p>
+</blockquote>
 <section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
 <ol>
 <li id="user-content-fn-1">
