@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/icon" href="/favicon.ico"><meta name="generator" content="Astro v5.1.1"><!-- Canonical URL --><link rel="canonical" href="https://rezvan.xyz/posts/rezvan_explains_diff/"><!-- Primary Meta Tags --><title>Rezvan Explains: Diffusion Models | rezarezvan.com</title><meta name="title" content="Rezvan Explains: Diffusion Models | rezarezvan.com"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://rezvan.xyz/posts/rezvan_explains_diff/"><meta property="og:title" content="Rezvan Explains: Diffusion Models | rezarezvan.com"><meta property="og:description"><meta property="og:image" content="https://rezvan.xyz/favicon.ico"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://rezvan.xyz/posts/rezvan_explains_diff/"><meta property="twitter:title" content="Rezvan Explains: Diffusion Models | rezarezvan.com"><meta property="twitter:description"><meta property="twitter:image" content="https://rezvan.xyz/favicon.ico"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/icon" href="/favicon.ico"><meta name="generator" content="Astro v5.1.1"><!-- Canonical URL --><link rel="canonical" href="https://rezvan.xyz/chalmers/dat410/dat410/"><!-- Primary Meta Tags --><title>Part 1 - Introduction | Design of AI systems | rezarezvan.com</title><meta name="title" content="Part 1 - Introduction | Design of AI systems | rezarezvan.com"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://rezvan.xyz/chalmers/dat410/dat410/"><meta property="og:title" content="Part 1 - Introduction | Design of AI systems | rezarezvan.com"><meta property="og:description"><meta property="og:image" content="https://rezvan.xyz/favicon.ico"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://rezvan.xyz/chalmers/dat410/dat410/"><meta property="twitter:title" content="Part 1 - Introduction | Design of AI systems | rezarezvan.com"><meta property="twitter:description"><meta property="twitter:image" content="https://rezvan.xyz/favicon.ico"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
     function renderKaTeX() {
         if (typeof renderMathInElement !== "undefined") {
             renderMathInElement(document.body, {
@@ -220,128 +220,119 @@
 [data-astro-image]{width:100%;height:auto;-o-object-fit:var(--fit);object-fit:var(--fit);-o-object-position:var(--pos);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
 </style></head> <body> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto max-w-screen-sm px-3"> <div class="flex flex-wrap justify-between gap-y-4"> <div class="flex flex-col gap-y-2"> <a href="/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out">  <div class="font-semibold"> rezarezvan.com </div>  </a> <div class="flex gap-x-2"> <button id="light-theme-button" aria-label="Light theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <button id="dark-theme-button" aria-label="Dark theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <button id="system-theme-button" aria-label="System theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect> <line x1="8" y1="21" x2="16" y2="21"></line> <line x1="12" y1="17" x2="12" y2="21"></line> </svg> </button> </div> </div> <nav class="flex items-center gap-1 text-sm"> <a href="/posts" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> posts </a> <span>/</span> <a href="/chalmers" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> chalmers </a> <span>/</span> <a href="/cityu" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cityu </a> <span>/</span> <a href="/pdf/cv/cv.pdf" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cv </a> <span>/</span> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
 &nbsp;Search
-</button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/posts" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> Back to posts </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <div class="invisible"></div> <div class="invisible"></div> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm"> <time datetime="2025-01-21T00:00:00.000Z"> January 21, 2025 </time> </div> 
+</button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/chalmers/dat410" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> 
+Back to Design of AI systems </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <div class="invisible"></div> <div class="invisible"></div> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm">DAT410</div>
 &bull;
-<div class="font-base text-sm">
-Last modified:  <time datetime="2025-01-20T18:36:11.000Z"> January 20, 2025 </time> </div> 
+<div class="font-base text-sm"> <time datetime="2025-01-21T00:00:00.000Z"> January 21, 2025 </time> </div> 
 &bull;
-<div class="font-base text-sm"> 5 min read </div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Rezvan Explains: Diffusion Models </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#preqrequisites-and-notation" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Preqrequisites and Notation </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#variational-auto-encoder-vae" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Variational Auto-Encoder (VAE) </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#footnote-label" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Footnotes </a>  </li> </ul> </nav> </details> <article class="animate"> <p><img src="/images/posts/re_header.jpg" alt=""></p>
-<p style="font-weight:bold; text-align:center;"> Rezvan Explains: Classical Machine Learning</p>
-<p style="font-size:15px; font-weight:italic; text-align:center;"> Veni, disce mecum </p>
-<p>As of writing this, last night as I was going to sleep, I was lying in bed and thought about the future.
-After some rambling I came up with this (hopefully) series, <strong>Rezvan Explains</strong>. I took a course called <a href="https://www.cityu.edu.hk/catalogue/ug/current/course/CS4487.htm">machine learning</a> during my exchange semester @ CityUHK taught by <a href="https://kedema.org">Kede Ma</a> (wonderful professor and I highly recommend taking the course).
-This post is very inspired by his course but, I want to add my touch on the topic.</p>
-<p>My goal for this part is to build your <strong>intuition</strong> when it comes to machine learning.
-I believe most people getting started with AI nowadays don’t want to understand the foundations modern deep learning is built upon.</p>
-<h2 id="preqrequisites-and-notation">Preqrequisites and Notation</h2>
-<p>This post will assume that you know about:</p>
-<ul>
-<li>Linear Algebra</li>
-<li>Multivariable and Matrix Calculus</li>
-<li>Probability and Statistics</li>
-</ul>
-<p>If you don’t feel comfortable with these topics, read up and come back when ready.</p>
-<p>These are the notations that we will use, there is no need to go through them the first time you’re reading this, it’s meant as a <strong>reference</strong>.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table><thead><tr><th><strong>Symbol</strong></th><th><strong>Meaning</strong></th></tr></thead><tbody><tr><td>$M$</td><td>Number of Examples in Dataset</td></tr><tr><td>$N$</td><td>Number of Features in Training Sample</td></tr><tr><td>$\mathcal{D}$</td><td>Dataset of $M$ Examples</td></tr><tr><td>$\mathbf{x}$</td><td>$N$-dimensional Feature Vector</td></tr><tr><td>$y$</td><td>Class Label</td></tr><tr><td>$\mathbf{x}^{(i)}$</td><td>$i$-th Feature Vector in Dataset in $\mathcal{D}$</td></tr><tr><td>$\mathbf{x}^{(i)}_j$</td><td>$j$-th Feature in $i$-th Feature Vector in $\mathcal{D}$</td></tr><tr><td>$y^{(i)}$</td><td>$i$-th Class Label in Dataset in $\mathcal{D}$ corresponding to $\mathbf{x}^{(i)}$</td></tr><tr><td>$\mathbf{X}$</td><td>Input Space</td></tr><tr><td>$\mathbf{Y}$</td><td>Output Space</td></tr><tr><td>$| \mathbf{Y} |$</td><td>Number of Classes in Output Space</td></tr></tbody></table>
-<h2 id="variational-auto-encoder-vae">Variational Auto-Encoder (VAE)</h2>
-<p>The Variational Auto-Encoder (VAE) consists of two models (realized by (deep) neural networks).</p>
-<p>The first model is the <strong>encoder</strong> and the second model is the <strong>decoder</strong>.
-The input vector (typically an image) is denoted by $\mathbf{x}$, and the output vector (also typically an imagehatmathbfx) is denoted by $\hat{\mathbf{x}}$.</p>
-<p>The intermediate state/vector is called <strong>the latent variable</strong></p>
-<p><img src="/images/posts/VAE.png" alt="">
-<strong>Figure 1</strong>: VAE Architecture <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
-<p><strong>The job of the encoder is to extract a meaningful representation for $\mathbf{x}$, wheras the job of the decoder is to generate a new image from the latent variable $\mathbf{z}$</strong>.</p>
-<p>The latent variable $\mathbf{z}$ has two special roles in the VAE:</p>
-<ol>
-<li>Encapsulate information that can be used to describe $\mathbf{x}$.
-<ul>
-<li>This encoding could be lossy but the main objective is to <strong>preserve as much information of $\mathbf{x}$ as possible</strong>.</li>
-</ul>
-</li>
-<li>The latent variable serves as a “seed” from which the output $\hat{\mathbf{x}}$ is generated.
-<ul>
-<li>Two different $\mathbf{z}$‘s should (in theory) generate two different $\hat{\mathbf{x}}$‘s.</li>
-</ul>
-</li>
-</ol>
-<p><strong>Definition 1.1 Latent Variable</strong>:</p>
+<div class="font-base text-sm">5 min read</div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Part 1 - Introduction </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#footnote-label" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Footnotes </a>  </li> </ul> </nav> </details> <article class="animate"> <h3 id="computer-science-and-early-ai">Computer Science and early AI</h3>
+<p>Let’s start with some history.</p>
+<p>In 1936, Alan Turing published a paper called <strong>“On Computable Numbers, with an Application to the Entscheidungsproblem”</strong> <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>.
+This paper is considered the foundation of computer science.
+In it, Turing describes a theoretical machine — which Turing called an “a-machine” — that can read, write, and move on an infinite tape.
+This machine is now known as the <strong>Turing machine</strong>.</p>
+<p><img src="/images/school/DAT410/TM.png" alt="">
+<strong>Figure 1:</strong> A Turing machine.</p>
+<p>From this the main insight of computer science was born, the <strong>Church-Turing thesis</strong>.
+The thesis states that any function that can be computed by an algorithm can be computed by a Turing machine.</p>
+<p>The paper was well-received and Turing was invited to the United States to realize his machine.</p>
+<p>Turing helped realize his machine, but he also published a very important paper in 1950 called <strong>“Computing Machinery and Intelligence”</strong> <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>.</p>
+<p>Turing introduced (the now famous) <strong>Turing test</strong>.
+The test is a measure of a machine’s ability to exhibit intelligent behavior equivalent to, or indistinguishable from, that of a human.</p>
+<p>From this comes a very famous quote,</p>
 <blockquote>
-<p>In a probabilistic model, latent variables $\mathbf{z}$ are variables that we do not observe and hence are not part of the training dataset, although they are port of the model.</p>
+<p>“I believe that at the end of the century the use of words and general educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted” — Alan Turing <em>Computing Machinery and Intelligence (1950)</em></p>
 </blockquote>
-<p>The <strong>variational</strong> in VAE is from calculus of variations, i.e., studies the optimization problems over functions.
-We are trying to search for the <strong>optimal probability distributions that describe $\mathbf{x}$ and $\mathbf{z}$</strong>.</p>
-<p>Consider the following distributions,</p>
-<ul>
-<li>$p(\mathbf{x})$: The true distribution of our data, we don’t (and never will) know this. The objective of generative models is find ways to draw samples from $p(\mathbf{x})$ (approximations). <strong>If we knew $p(\mathbf{x})$ we could just draw sample $\mathbf{x}$ that maximizes $\log p(\mathbf{x})$</strong>.</li>
-<li>$p(\mathbf{z})$: The distribution of latent variable. Typically, we will model it as a zero-mean unit-variance (multivariate) Gaussian distribution $\mathcal{N}(0, I)$. The reason is that <strong>linear transformations of Gaussians remain Gaussian</strong>. Secondly, <strong>any distribution can be generated by mapping a Gaussian through a sufficiently complex function</strong> <sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>.</li>
-<li>$p(\mathbf{z} | \mathbf{x})$: The <strong>conditional</strong> distribution associated with the <strong>encoder</strong>. Same as $p(\mathbf{x})$, we don’t know this distribution. <strong>$p(\mathbf{z} | \mathbf{x})$ itself is not the encoder</strong>, but **the encoder has to do something so that it will behave consistently with $p(\mathbf{z} | \mathbf{x})$.</li>
-<li>$p(\mathbf{x} | \mathbf{z})$: The <strong>conditional</strong> distribution associated with the <strong>decoder</strong>. Again, we don’t know this distribution.</li>
-</ul>
-<p>When we switch from classical parametric models to deep neural networks, our notation of latent variables changes.</p>
-<p><strong>Definition 1.2 Deep Latent Variable Model</strong>:</p>
+<p>While it is hard to say exactly when the field of AI was born, Turing definitely played a big part in its creation and development.</p>
 <blockquote>
-<p>Deep Latent Variables are latent variables whose distribution $p(\mathbf{z})$, $p(\mathbf{x} | \mathbf{z})$, or $p(\mathbf{z} | \mathbf{x})$ are parameterized by deep neural networks.</p>
+<p>“Every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it.
+An attempt will be made to find how to make machines use language, form abstractions and concepts, solve kinds of problems now reserved for humans, and improve themselves.
+We think that a significant advance can be made in one or more of these problems if a carefully selected group of scientists work on it together for a summer.” — John McCarthy <em>Dartmouth Workshop (1956)</em></p>
+</blockquote>
+<p><img src="/images/school/DAT410/GM.png" alt="">
+<strong>Figure 2:</strong> Algorithmic view of chess.</p>
+<p>AI was rapidly developed in the 1950s and 1960s.
+It even had some early success, for example with games like chess, where the rules are clear and the number of possible moves is limited (although computationally infeasible at the time).</p>
+<p><img src="/images/school/DAT410/DG.png" alt="">
+<strong>Figure 3:</strong> Picture of dogs.</p>
+<p>However, AI had failure with much of the rest.</p>
+<p>There are two cases which AI can hit,</p>
+<ol>
+<li>The problem is hard to write rules and constraints for.</li>
+<li>The problem can be written in rules and constraints, but it is infeasible to solve.</li>
+</ol>
+<p>Consider the case as shown in Figure 3, it is difficult to write rules for what a dog looks like.</p>
+<p>In parallel to Turing, McCarthy and others efforts in AI, the field of <strong>computer science</strong> was also developing with the invention of the Turing machine.</p>
+<p><strong>Basic computing</strong> took off and solved basic problems with sophisticated technology (word processing, spreadsheets, networking, etc.).</p>
+<p>Of course the need for <strong>advanced computing</strong> also grew.
+A mix of human insight and data; prior knowledge (math, physics, etc.) to implement a solution reliant on data (simulation, optimization, etc.).</p>
+<p>It is no surprise that the field of AI and computing slowly began to merge and find common problems to solve.
+<strong>Classical rule-based AI</strong> relies on human insight to write rules and constraints and computer power to solve them.</p>
+<p>From this a lot of other interdisciplinary fields emerged (e.g. <strong>data science</strong>, <strong>machine learning-based AI</strong>, etc.).</p>
+<p>However, it is worth noting that, <strong>data science</strong> is a field that investigates to understand data and predict (new) data.
+While AI is a field that works with systems that perform “intelligent” tasks.</p>
+<p>Below are some traditionally seen “AI methods” (Russel and Norvig, 2020) <sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>,</p>
+<ul>
+<li>Problem-solving ($\approx$ search)
+<ul>
+<li>Search</li>
+<li>Local search</li>
+<li>Adversarial search (e.g., games)</li>
+<li>Constraint satisfaction (CSP)</li>
+</ul>
+</li>
+<li>Knowledge, reasoning, and planning
+<ul>
+<li>Propositional logic</li>
+<li>First-order logic</li>
+<li>Inference</li>
+<li>Planning/acting</li>
+<li>Knowledge representation</li>
+</ul>
+</li>
+<li>Uncertain knowledge and reasoning
+<ul>
+<li>Probability distribution and Bayes theorem</li>
+<li>Bayesian networks (= graphical models)</li>
+<li>Inference</li>
+<li>Markov chain and sequential decision-making</li>
+<li>Utility theory</li>
+<li>Game theory</li>
+</ul>
+</li>
+<li>Learning
+<ul>
+<li>Learning from examples (decision trees, neural networks, support vector machines)</li>
+<li>Learning logical models</li>
+<li>Learning probabilistic models</li>
+<li>Reinforcement learning</li>
+</ul>
+</li>
+<li>Communicating, perceiving, and acting
+<ul>
+<li>Natural language processing (NLP)</li>
+<li>Image recognition</li>
+<li>Robotics</li>
+</ul>
+</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<p>When we talk about AI today, we often include <em>many different forms of advanced computing</em>.</p>
+<p>Therefore, when <strong>modelling</strong> (AI) problems, we need to consider if advanced or basic computing is needed and how we should handle our data (statistical and data science approach or AI approach).
+<strong>Different applications require different approaches</strong>.</p>
+<blockquote>
+<p>It all begins with creating models based on our data and problems.</p>
 </blockquote>
 <section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
 <ol>
 <li id="user-content-fn-1">
-<p><a href="https://arxiv.org/pdf/2403.18103">Chan, Stanley. “Tutorial on diffusion models for imaging and vision.”</a> <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<p><a href="https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf">https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf</a> <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p><a href="https://www.csee.umbc.edu/courses/471/papers/turing.pdf">https://www.csee.umbc.edu/courses/471/papers/turing.pdf</a> <a href="#user-content-fnref-2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
 <li id="user-content-fn-3">
-<p><a href="https://arxiv.org/pdf/1606.05908">Doersch, Carl. “Tutorial on variational autoencoders.”</a> <a href="#user-content-fnref-3" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+<p><a href="https://www.amazon.com/Artificial-Intelligence-Modern-Approach-4th/dp/0134610997">https://www.amazon.com/Artificial-Intelligence-Modern-Approach-4th/dp/0134610997</a> <a href="#user-content-fnref-3" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section> <div class="mt-24"> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <div class="invisible"></div> <div class="invisible"></div> </div> </div> <div class="mt-24"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezvan.xyz" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </article> </div>  </main> <footer class="animate"> <div class="mx-auto max-w-screen-sm px-3"> <div class="relative"> <div class="absolute -top-12 right-0"> <button id="back-to-top" class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm">Back to top</div> </button> </div> </div> <div class="flex items-center justify-between"> <div>&copy; 2025 • rezarezvan.com</div> <div class="flex flex-wrap items-center gap-1.5"></div> </div> </div> </footer> <aside data-pagefind-ignore> <div id="backdrop" class="bg-[rgba(0, 0, 0, 0.5] invisible fixed left-0 top-0 z-50 flex h-screen w-full justify-center p-6 backdrop-blur-sm" data-astro-transition-persist="astro-3snakcvo-2"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="mr-2 pb-1 pt-4 text-right text-xs dark:prose-invert">
