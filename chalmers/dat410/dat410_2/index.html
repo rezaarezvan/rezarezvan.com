@@ -1,0 +1,547 @@
+<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/icon" href="/favicon.ico"><meta name="generator" content="Astro v5.1.1"><!-- Canonical URL --><link rel="canonical" href="https://rezvan.xyz/chalmers/dat410/dat410_2/"><!-- Primary Meta Tags --><title>Part 2 - Recommender Systems | Design of AI systems | rezarezvan.com</title><meta name="title" content="Part 2 - Recommender Systems | Design of AI systems | rezarezvan.com"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://rezvan.xyz/chalmers/dat410/dat410_2/"><meta property="og:title" content="Part 2 - Recommender Systems | Design of AI systems | rezarezvan.com"><meta property="og:description"><meta property="og:image" content="https://rezvan.xyz/favicon.ico"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://rezvan.xyz/chalmers/dat410/dat410_2/"><meta property="twitter:title" content="Part 2 - Recommender Systems | Design of AI systems | rezarezvan.com"><meta property="twitter:description"><meta property="twitter:image" content="https://rezvan.xyz/favicon.ico"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+    function renderKaTeX() {
+        if (typeof renderMathInElement !== "undefined") {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                ],
+            });
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", renderKaTeX);
+    document.addEventListener("astro:after-swap", renderKaTeX);
+</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.BScVxmeO.js"></script><script>
+    function init() {
+        preloadTheme();
+        onScroll();
+        animate();
+        updateThemeButtons();
+        addCopyCodeButtons();
+        setGiscusTheme();
+
+        const backToTop = document.getElementById("back-to-top");
+        backToTop?.addEventListener("click", (event) => scrollToTop(event));
+
+        const backToPrev = document.getElementById("back-to-prev");
+        backToPrev?.addEventListener("click", () => window.history.back());
+
+        const lightThemeButton = document.getElementById("light-theme-button");
+        lightThemeButton?.addEventListener("click", () => {
+            localStorage.setItem("theme", "light");
+            toggleTheme(false);
+            updateThemeButtons();
+        });
+
+        const darkThemeButton = document.getElementById("dark-theme-button");
+        darkThemeButton?.addEventListener("click", () => {
+            localStorage.setItem("theme", "dark");
+            toggleTheme(true);
+            updateThemeButtons();
+        });
+
+        const systemThemeButton = document.getElementById(
+            "system-theme-button",
+        );
+        systemThemeButton?.addEventListener("click", () => {
+            localStorage.setItem("theme", "system");
+            toggleTheme(
+                window.matchMedia("(prefers-color-scheme: dark)").matches,
+            );
+            updateThemeButtons();
+        });
+
+        window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", (event) => {
+                if (localStorage.theme === "system") {
+                    toggleTheme(event.matches);
+                }
+            });
+
+        document.addEventListener("scroll", onScroll);
+    }
+
+    function updateThemeButtons() {
+        const theme = localStorage.getItem("theme");
+        const lightThemeButton = document.getElementById("light-theme-button");
+        const darkThemeButton = document.getElementById("dark-theme-button");
+        const systemThemeButton = document.getElementById(
+            "system-theme-button",
+        );
+
+        function removeActiveButtonTheme(button) {
+            button?.classList.remove("bg-black/5");
+            button?.classList.remove("dark:bg-white/5");
+        }
+
+        function addActiveButtonTheme(button) {
+            button?.classList.add("bg-black/5");
+            button?.classList.add("dark:bg-white/5");
+        }
+
+        removeActiveButtonTheme(lightThemeButton);
+        removeActiveButtonTheme(darkThemeButton);
+        removeActiveButtonTheme(systemThemeButton);
+
+        if (theme === "light") {
+            addActiveButtonTheme(lightThemeButton);
+        } else if (theme === "dark") {
+            addActiveButtonTheme(darkThemeButton);
+        } else {
+            addActiveButtonTheme(systemThemeButton);
+        }
+    }
+
+    function animate() {
+        const animateElements = document.querySelectorAll(".animate");
+
+        animateElements.forEach((element, index) => {
+            setTimeout(() => {
+                element.classList.add("show");
+            }, index * 100);
+        });
+    }
+
+    function onScroll() {
+        if (window.scrollY > 0) {
+            document.documentElement.classList.add("scrolled");
+        } else {
+            document.documentElement.classList.remove("scrolled");
+        }
+    }
+
+    function scrollToTop(event) {
+        event.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }
+
+    function toggleTheme(dark) {
+        const css = document.createElement("style");
+
+        css.appendChild(
+            document.createTextNode(
+                `* {
+             -webkit-transition: none !important;
+             -moz-transition: none !important;
+             -o-transition: none !important;
+             -ms-transition: none !important;
+             transition: none !important;
+          }
+        `,
+            ),
+        );
+
+        document.head.appendChild(css);
+
+        if (dark) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+
+        window.getComputedStyle(css).opacity;
+        document.head.removeChild(css);
+
+        setGiscusTheme();
+    }
+
+    function preloadTheme() {
+        const userTheme = localStorage.theme;
+
+        if (userTheme === "light" || userTheme === "dark") {
+            toggleTheme(userTheme === "dark");
+        } else {
+            toggleTheme(
+                window.matchMedia("(prefers-color-scheme: dark)").matches,
+            );
+        }
+    }
+
+    function addCopyCodeButtons() {
+        let copyButtonLabel = "📋";
+        let codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+        async function copyCode(codeBlock, copyButton) {
+            const codeText = codeBlock.innerText;
+            const buttonText = copyButton.innerText;
+            const textToCopy = codeText.replace(buttonText, "");
+
+            await navigator.clipboard.writeText(textToCopy);
+            copyButton.innerText = "✅";
+
+            setTimeout(() => {
+                copyButton.innerText = copyButtonLabel;
+            }, 2000);
+        }
+
+        for (let codeBlock of codeBlocks) {
+            const wrapper = document.createElement("div");
+            wrapper.style.position = "relative";
+
+            const copyButton = document.createElement("button");
+            copyButton.innerText = copyButtonLabel;
+            copyButton.classList = "copy-code";
+
+            codeBlock.setAttribute("tabindex", "0");
+            codeBlock.appendChild(copyButton);
+
+            codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+            wrapper.appendChild(codeBlock);
+
+            copyButton?.addEventListener("click", async () => {
+                await copyCode(codeBlock, copyButton);
+            });
+        }
+    }
+
+    const setGiscusTheme = () => {
+        const giscus = document.querySelector(".giscus-frame");
+
+        const isDark = document.documentElement.classList.contains("dark");
+
+        if (giscus) {
+            const url = new URL(giscus.src);
+            url.searchParams.set("theme", isDark ? "dark" : "light");
+            giscus.src = url.toString();
+        }
+    };
+
+    document.addEventListener("DOMContentLoaded", () => init());
+    document.addEventListener("astro:after-swap", () => init());
+    preloadTheme();
+</script><link rel="stylesheet" href="/_astro/_subject_.BUximwJU.css">
+<link rel="stylesheet" href="/_astro/index.C_mQFtof.css">
+<style>summary[data-astro-cid-xvrfupwn]{cursor:pointer;border-top-left-radius:.5rem;border-top-right-radius:.5rem;padding:.375rem .75rem;font-weight:500;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}summary[data-astro-cid-xvrfupwn]:hover{background-color:#0000000d}summary[data-astro-cid-xvrfupwn]:hover:is(.dark *){background-color:#ffffff0d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]{background-color:#0000000d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]:is(.dark *){background-color:#ffffff0d}
+[data-astro-image]{width:100%;height:auto;-o-object-fit:var(--fit);object-fit:var(--fit);-o-object-position:var(--pos);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+</style></head> <body> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto max-w-screen-sm px-3"> <div class="flex flex-wrap justify-between gap-y-4"> <div class="flex flex-col gap-y-2"> <a href="/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out">  <div class="font-semibold"> rezarezvan.com </div>  </a> <div class="flex gap-x-2"> <button id="light-theme-button" aria-label="Light theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <button id="dark-theme-button" aria-label="Dark theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <button id="system-theme-button" aria-label="System theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect> <line x1="8" y1="21" x2="16" y2="21"></line> <line x1="12" y1="17" x2="12" y2="21"></line> </svg> </button> </div> </div> <nav class="flex items-center gap-1 text-sm"> <a href="/posts" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> posts </a> <span>/</span> <a href="/chalmers" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> chalmers </a> <span>/</span> <a href="/cityu" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cityu </a> <span>/</span> <a href="/pdf/cv/cv.pdf" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cv </a> <span>/</span> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+&nbsp;Search
+</button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/chalmers/dat410" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> 
+Back to Design of AI systems </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/chalmers/dat410/dat410" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 1 - Introduction </div> </a> <div class="invisible"></div> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm">DAT410</div>
+&bull;
+<div class="font-base text-sm"> <time datetime="2025-01-28T00:00:00.000Z"> January 28, 2025 </time> </div> 
+&bull;
+<div class="font-base text-sm">
+Last modified:  <time datetime="2025-01-28T16:59:51.000Z"> January 28, 2025 </time> </div> 
+&bull;
+<div class="font-base text-sm">9 min read</div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Part 2 - Recommender Systems </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#footnote-label" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Footnotes </a>  </li> </ul> </nav> </details> <article class="animate"> <h3 id="introduction">Introduction</h3>
+<p>Recommender systems are used (all over the internet) to serve ads, suggest purchases, rank posts on social media and much more.</p>
+<p>Image you’re running a book web store (totally not an example of Amazon).
+You have a catalogue of 100 000 books which we need to display to our users.</p>
+<p><strong>Which books should you display in order to maximize sales?</strong></p>
+<h3 id="the-uniform-strategy">The uniform strategy</h3>
+<p>A traditional strategy is to display books that sell well overall or the books that are on sale.</p>
+<p><strong>On average</strong>, these books are likely to sell, but not to every user.</p>
+<p>Can we do better?</p>
+<p><strong>Note</strong>, if you can’t interact with your users then this is the best strategy (probably).</p>
+<h3 id="the-personalized-strategy">The personalized strategy</h3>
+<p>Recommender systems try to personalize the display policy, each user is assigned <strong>their own</strong> recommendations.</p>
+<h4 id="why-is-the-individual-preferable">Why is the individual preferable?</h4>
+<p>Say that the probability of buying a book (can be different books for different users) is 60%.
+The average sales of any <strong>single</strong> book (probably) is lower than 60%.</p>
+<p><img src="/images/school/DAT410/avgvsper.png" alt="">
+<strong>Figure 1</strong>: The average sales of a book is lower than the probability of a user buying a book.</p>
+<p>But, how do we figure out users’ preferences, and how do we distinguish between users?</p>
+<p>To <strong>distinguish</strong> between users, we must know something about them.
+We could <strong>ask them directly</strong> what they like, but this is not always a good indicator of what they <em>actually</em> like.</p>
+<p>However, we can collect data <strong>passively</strong> and make our own judgment.</p>
+<p>For example, a book web store needs to collect purchase logs (which is high-dimensional data, time, price, book, etc.).</p>
+<p>Based on our logs, we can try to <strong>predict</strong> future purchases (given certain parameters).</p>
+<p><strong>Recommender systems attempt to solve this problem</strong>.</p>
+<h3 id="objectives--proxies">Objectives &#x26; Proxies</h3>
+<p>Let’s define our <strong>objective</strong>, our objective can look a lot different, depending on <strong>who and why a recommender system is needed</strong>.
+But an objective should encapsulate <strong>what we want to achieve</strong> from our system, it should also be subject of evaluation, are we doing well?</p>
+<h4 id="delayed-objectives">Delayed objectives</h4>
+<p>However, some objectives are <strong>delayed</strong> (long-term) and are hard(er) to optimize directly.</p>
+<p>They are often hard to,</p>
+<ol>
+<li>Specify — e.g., user engagement, how do we define engagement?.</li>
+<li>Measure — e.g., user satisfaction, how do we measure satisfaction?.</li>
+<li>Optimize — e.g., causation, profit is multivariate and hard to optimize.</li>
+</ol>
+<p>Let’s go back to our book web store example.</p>
+<p>Let’s think of a simple but feasible objective, as we have seen that just “maximizing profit” is too naive and hard to optimize (delayed objective).</p>
+<p>We can reformulate our objective a bit, instead of maximizing for profit, we can maximize sales in certain categories/genres.
+This is a much more achievable objective, and we can measure it directly (sales numbers).</p>
+<h3 id="proxies">Proxies</h3>
+<p>But let’s think a bit harder about the objective <strong>maximizing profit</strong>.</p>
+<p>We can measure profit directly, what it is hard to understand the effect of recommendations on profit (causation).</p>
+<p>So, let’s reformulate, profit comes from subscriptions, which, again, we can measure directly.
+But what is the effect of recommendations on subscriptions (causation again)?</p>
+<p>Subscriptions may be related to users’ engagement. Let’s stop here for now, do you see how we have made <strong>proxies</strong> for our objective?</p>
+<p>A common proxy for user engagement is <strong>user ratings</strong>.
+We can assume that, if a user is likely to rate a product highly, they are more likely to engage with it.</p>
+<blockquote>
+<p>The length of service of subscribers is related to the number of movies they watch and enjoy.
+If subscribers fail to find movies that interest and engage them, they tend to abandon the service.
+Connecting subscribers to movies that they will love is therefore critical to both the subscribers and the company. <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
+</blockquote>
+<p>Ratings are easy to, <strong>specify</strong>, <strong>measure</strong>, and <strong>optimize</strong>.
+How can we recommend products <strong>that will be highly rated</strong>?</p>
+<p>We can abstract the problem, first <strong>predict</strong> the ratings, then pick highly rated products.</p>
+<p>Recall our abstraction chain.</p>
+<p>Maximize profit → Maximize engagement → Maximize ratings → Maximize predicted ratings.</p>
+<h3 id="learn-to-recommend">Learn to recommend</h3>
+<p>So, our baseline is to recommend the highest rated product overall.
+Personalization builds on the idea that the best recommendation is not the same for all users.</p>
+<p>Predicting which product will be highly rated by a specific user allows us to personalize our recommendations.</p>
+<p>A prediction task is perfect for AI.</p>
+<p>We look for a (personal $\theta$) mapping $f$ between our books $X$ and their corresponding ratings $Y$,</p>
+<p>$$
+f_{\theta}: X \rightarrow Y \newline
+f_{\theta}(x) = ?
+$$</p>
+<p>We don’t know this mapping, but we have data (purchase logs) that we can use to approximate $f(x)$ (using supervised machine learning).</p>
+<p><img src="/images/school/DAT410/logs.png" alt="">
+<strong>Figure 2</strong>: Simplified purchase logs.</p>
+<p>From Figure 2, we can observe which genre each user likes (binary in this case).</p>
+<p>Now, let’s let the users giver ratings in the range $[0-5]$.</p>
+<p>For example,</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Users</th><th>Book 1</th><th>Book 2</th><th>Book 3</th><th>Book 4</th><th>Book 5</th></tr></thead><tbody><tr><td>$Y_1$</td><td>5</td><td>5</td><td>?</td><td>0</td><td>0</td></tr><tr><td>$Y_2$</td><td>5</td><td>?</td><td>4</td><td>0</td><td>0</td></tr><tr><td>$Y_3$</td><td>0</td><td>?</td><td>0</td><td>5</td><td>5</td></tr><tr><td>$Y_4$</td><td>0</td><td>0</td><td>?</td><td>4</td><td>?</td></tr></tbody></table>
+<p><em>$y_{i j}$ = Score for item $j$ by user $i$</em></p>
+<p>Assume we know something about our books,</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Features</th><th>$X_1$</th><th>$X_2$</th><th>$X_3$</th><th>$X_4$</th><th>$X_5$</th></tr></thead><tbody><tr><td>Suspense</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr><tr><td>Romance</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td></tr></tbody></table>
+<p><em>$x_{i j}$ = Feature $j$ for item $i$</em></p>
+<p>What if we knew something about what users like? Let’s call this matrix for $\Theta$,</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>Suspense</th><th>Romance</th></tr></thead><tbody><tr><td>$\Theta_1$</td><td>5</td><td>0</td></tr><tr><td>$\Theta_2$</td><td>4</td><td>0</td></tr><tr><td>$\Theta_3$</td><td>0</td><td>5</td></tr><tr><td>$\Theta_4$</td><td>0</td><td>4</td></tr></tbody></table>
+<p><em>$\theta_{i j}$ = User $i$‘s preference for feature $j$</em></p>
+<h4 id="formalizing-recommender-systems">Formalizing recommender systems</h4>
+<p>Most recommender systems are based on user ratings $Y$, user preferences $\Theta$, and product features $X$.
+Different systems make different assumptions about the relationship between these.</p>
+<p>A common assumption is that $Y \sim f(X; \Theta)$ has a particular form.</p>
+<p>For example, a linear model,</p>
+<p>$$
+Y = \Theta X
+$$</p>
+<p>where $X \in \mathbb{R}^{d \times m}$, $\Theta \in \mathbb{R}^{n \times d}$, and $Y \in \mathbb{R}^{n \times m}$.</p>
+<p>If we assume a linear model — where each user has their own linear rating function — every book feature (e.g., genre) <strong>contributes linearly</strong> to rating.</p>
+<p>$$
+Y_{i j} = \sum_{k=1}^{d} \theta_{i k} x_{k j}
+$$</p>
+<p>Since this is a linear (regression) model, we can find the optimal parameters for each user by minimizing the squared error <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>,</p>
+<p>$$
+\underset{\theta_1, \ldots, \theta_n}{\min} \ \frac{1}{2} \sum_{j = 1}^m \sum_{i = 1}^n (\theta_i^T x_j - y_{i j})^2
+$$</p>
+<p>However, most users do not rate all products, therefore $Y$ has <strong>missing data</strong>, thus all $y_{i j}$ are not known.</p>
+<p>Let $r(i, j) = 1$ that user $i$ rated product $j$ and $r(i, j) = 0$ otherwise, with this we can limit our objective to only rated products,</p>
+<p>$$
+\underset{\mathbf{\theta}}{\min} \ \frac{1}{2} \sum_{j = 1}^m \sum_{i: r(i, j) = 1} (\theta_i^T x_j - y_{i j})^2
+$$</p>
+<p>But, we have two problems with this approach,</p>
+<ol>
+<li><strong>Non-uniform missigness</strong>
+<ul>
+<li>In real-world data, most of $Y$ is missing and not even uniformly missing.</li>
+</ul>
+</li>
+<li><strong>High dimensionality</strong>
+<ul>
+<li>We often have more products than user ratings, thus, separate linear models for each user <strong>will overfit</strong> if we have <strong>more features</strong> than ratings for that user.</li>
+</ul>
+</li>
+</ol>
+<h5 id="regularization">Regularization</h5>
+<p>We can of course mitigate overfitting by adding a regularization term to our objective,</p>
+<p>$$
+\underset{\mathbf{\theta}}{\min} \ \frac{1}{2} \sum_{j = 1}^m \sum_{i: r(i, j) = 1} (\theta_i^T x_j - y_{i j})^2 + \lambda \sum_{i = 1}^m \theta_i^2.
+$$</p>
+<p>Here we have used the L2-norm as our regularization term <sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>.
+Note, we could of course also use the L1-norm as our regularization term.</p>
+<h3 id="limitations-of-content-based-filtering-and-alternatives">Limitations of content-based filtering and alternatives</h3>
+<p>However, we assumed that we have access (prior knowledge) to the features of our products.
+Also, the fact that we <strong>need enough ratings</strong> for user $i$ to begin fitting for $\theta_i$.
+Lastly, the fact that separate regressions ignore the fact that a lot of users behave similarly.</p>
+<p>Thus, let’s think about a different approach.
+Instead of “similar products get similar ratings from users” → “users with similar histories give similar scores to the same products”.</p>
+<p>Thus, we go from user product and product feature data to only user product data needed.</p>
+<p>But we can’t do linear regression anymore. Let’s do a quick dimensional analysis of $Y = \Theta X$.</p>
+<p>$\Theta$ has many ($n$) rows (users), but few ($d$) columns (features).</p>
+<p>$X$ has few ($d$) rows (features), but many ($m$) columns (products).</p>
+<p>Thus, we can optimize over $\Theta$ and $X$ simultaneously, in a <strong>matrix decomposition</strong> manner,</p>
+<p>$$
+\underset{\Theta \in \mathbb{R}^{n \times d}, X \in \mathbb{R}^{d \times m}}{\min} \ \frac{1}{2} \sum_{j = 1}^m \sum_{i: r(i, j) = 1} (\theta_i^T x_j - y_{i j})^2 + \text{regularization}.
+$$</p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p><a href="https://www.netflixprize.com/assets/GrandPrize2009_BPC_BellKor.pdf">Netflix Prize</a> <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p><a href="https://en.wikipedia.org/wiki/Least_squares">Least Squares</a> <a href="#user-content-fnref-2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-3">
+<p><a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">Regularization</a> <a href="#user-content-fnref-3" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section> <div class="mt-24"> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/chalmers/dat410/dat410" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 1 - Introduction </div> </a> <div class="invisible"></div> </div> </div> <div class="mt-24"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezvan.xyz" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </article> </div>  </main> <footer class="animate"> <div class="mx-auto max-w-screen-sm px-3"> <div class="relative"> <div class="absolute -top-12 right-0"> <button id="back-to-top" class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm">Back to top</div> </button> </div> </div> <div class="flex items-center justify-between"> <div>&copy; 2025 • rezarezvan.com</div> <div class="flex flex-wrap items-center gap-1.5"></div> </div> </div> </footer> <aside data-pagefind-ignore> <div id="backdrop" class="bg-[rgba(0, 0, 0, 0.5] invisible fixed left-0 top-0 z-50 flex h-screen w-full justify-center p-6 backdrop-blur-sm" data-astro-transition-persist="astro-3snakcvo-2"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="mr-2 pb-1 pt-4 text-right text-xs dark:prose-invert">
+Press <span class="prose text-xs dark:prose-invert"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> </aside> <script>
+  const magnifyingGlass = document.getElementById("magnifying-glass");
+  const backdrop = document.getElementById("backdrop");
+
+  function openPagefind() {
+    const searchDiv = document.getElementById("search");
+    const search = searchDiv.querySelector("input");
+    setTimeout(() => {
+      search.focus();
+    }, 0);
+    backdrop?.classList.remove("invisible");
+    backdrop?.classList.add("visible");
+  }
+
+  function closePagefind() {
+    const search = document.getElementById("search");
+    search.value = "";
+    backdrop?.classList.remove("visible");
+    backdrop?.classList.add("invisible");
+  }
+
+  // open pagefind
+  magnifyingGlass?.addEventListener("click", () => {
+    openPagefind();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "/") {
+      e.preventDefault();
+      openPagefind();
+    } else if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      e.preventDefault();
+      openPagefind();
+    }
+  });
+
+  // close pagefind
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" || e.keyCode === 27) {
+      closePagefind();
+    }
+  });
+
+  // close pagefind when searched result(link) clicked
+  document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("pagefind-ui__result-link")) {
+      closePagefind();
+    }
+  });
+
+  backdrop?.addEventListener("click", (event) => {
+    if (!event.target.closest("#pagefind-container")) {
+      closePagefind();
+    }
+  });
+
+  // prevent form submission
+  const form = document.getElementById("form");
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+</script>  </body></html>
