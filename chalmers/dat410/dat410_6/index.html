@@ -1,0 +1,492 @@
+<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/icon" href="/favicon.ico"><meta name="generator" content="Astro v5.1.1"><!-- Canonical URL --><link rel="canonical" href="https://rezvan.xyz/chalmers/dat410/dat410_6/"><!-- Primary Meta Tags --><title>Part 6 - Game-playing Systems | Design of AI systems | rezarezvan.com</title><meta name="title" content="Part 6 - Game-playing Systems | Design of AI systems | rezarezvan.com"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://rezvan.xyz/chalmers/dat410/dat410_6/"><meta property="og:title" content="Part 6 - Game-playing Systems | Design of AI systems | rezarezvan.com"><meta property="og:description"><meta property="og:image" content="https://rezvan.xyz/favicon.ico"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://rezvan.xyz/chalmers/dat410/dat410_6/"><meta property="twitter:title" content="Part 6 - Game-playing Systems | Design of AI systems | rezarezvan.com"><meta property="twitter:description"><meta property="twitter:image" content="https://rezvan.xyz/favicon.ico"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+    function renderKaTeX() {
+        if (typeof renderMathInElement !== "undefined") {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                ],
+            });
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", renderKaTeX);
+    document.addEventListener("astro:after-swap", renderKaTeX);
+</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.BScVxmeO.js"></script><script>
+    function init() {
+        preloadTheme();
+        onScroll();
+        animate();
+        updateThemeButtons();
+        addCopyCodeButtons();
+        setGiscusTheme();
+
+        const backToTop = document.getElementById("back-to-top");
+        backToTop?.addEventListener("click", (event) => scrollToTop(event));
+
+        const backToPrev = document.getElementById("back-to-prev");
+        backToPrev?.addEventListener("click", () => window.history.back());
+
+        const lightThemeButton = document.getElementById("light-theme-button");
+        lightThemeButton?.addEventListener("click", () => {
+            localStorage.setItem("theme", "light");
+            toggleTheme(false);
+            updateThemeButtons();
+        });
+
+        const darkThemeButton = document.getElementById("dark-theme-button");
+        darkThemeButton?.addEventListener("click", () => {
+            localStorage.setItem("theme", "dark");
+            toggleTheme(true);
+            updateThemeButtons();
+        });
+
+        const systemThemeButton = document.getElementById(
+            "system-theme-button",
+        );
+        systemThemeButton?.addEventListener("click", () => {
+            localStorage.setItem("theme", "system");
+            toggleTheme(
+                window.matchMedia("(prefers-color-scheme: dark)").matches,
+            );
+            updateThemeButtons();
+        });
+
+        window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", (event) => {
+                if (localStorage.theme === "system") {
+                    toggleTheme(event.matches);
+                }
+            });
+
+        document.addEventListener("scroll", onScroll);
+    }
+
+    function updateThemeButtons() {
+        const theme = localStorage.getItem("theme");
+        const lightThemeButton = document.getElementById("light-theme-button");
+        const darkThemeButton = document.getElementById("dark-theme-button");
+        const systemThemeButton = document.getElementById(
+            "system-theme-button",
+        );
+
+        function removeActiveButtonTheme(button) {
+            button?.classList.remove("bg-black/5");
+            button?.classList.remove("dark:bg-white/5");
+        }
+
+        function addActiveButtonTheme(button) {
+            button?.classList.add("bg-black/5");
+            button?.classList.add("dark:bg-white/5");
+        }
+
+        removeActiveButtonTheme(lightThemeButton);
+        removeActiveButtonTheme(darkThemeButton);
+        removeActiveButtonTheme(systemThemeButton);
+
+        if (theme === "light") {
+            addActiveButtonTheme(lightThemeButton);
+        } else if (theme === "dark") {
+            addActiveButtonTheme(darkThemeButton);
+        } else {
+            addActiveButtonTheme(systemThemeButton);
+        }
+    }
+
+    function animate() {
+        const animateElements = document.querySelectorAll(".animate");
+
+        animateElements.forEach((element, index) => {
+            setTimeout(() => {
+                element.classList.add("show");
+            }, index * 100);
+        });
+    }
+
+    function onScroll() {
+        if (window.scrollY > 0) {
+            document.documentElement.classList.add("scrolled");
+        } else {
+            document.documentElement.classList.remove("scrolled");
+        }
+    }
+
+    function scrollToTop(event) {
+        event.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }
+
+    function toggleTheme(dark) {
+        const css = document.createElement("style");
+
+        css.appendChild(
+            document.createTextNode(
+                `* {
+             -webkit-transition: none !important;
+             -moz-transition: none !important;
+             -o-transition: none !important;
+             -ms-transition: none !important;
+             transition: none !important;
+          }
+        `,
+            ),
+        );
+
+        document.head.appendChild(css);
+
+        if (dark) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+
+        window.getComputedStyle(css).opacity;
+        document.head.removeChild(css);
+
+        setGiscusTheme();
+    }
+
+    function preloadTheme() {
+        const userTheme = localStorage.theme;
+
+        if (userTheme === "light" || userTheme === "dark") {
+            toggleTheme(userTheme === "dark");
+        } else {
+            toggleTheme(
+                window.matchMedia("(prefers-color-scheme: dark)").matches,
+            );
+        }
+    }
+
+    function addCopyCodeButtons() {
+        let copyButtonLabel = "📋";
+        let codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+        async function copyCode(codeBlock, copyButton) {
+            const codeText = codeBlock.innerText;
+            const buttonText = copyButton.innerText;
+            const textToCopy = codeText.replace(buttonText, "");
+
+            await navigator.clipboard.writeText(textToCopy);
+            copyButton.innerText = "✅";
+
+            setTimeout(() => {
+                copyButton.innerText = copyButtonLabel;
+            }, 2000);
+        }
+
+        for (let codeBlock of codeBlocks) {
+            const wrapper = document.createElement("div");
+            wrapper.style.position = "relative";
+
+            const copyButton = document.createElement("button");
+            copyButton.innerText = copyButtonLabel;
+            copyButton.classList = "copy-code";
+
+            codeBlock.setAttribute("tabindex", "0");
+            codeBlock.appendChild(copyButton);
+
+            codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+            wrapper.appendChild(codeBlock);
+
+            copyButton?.addEventListener("click", async () => {
+                await copyCode(codeBlock, copyButton);
+            });
+        }
+    }
+
+    const setGiscusTheme = () => {
+        const giscus = document.querySelector(".giscus-frame");
+
+        const isDark = document.documentElement.classList.contains("dark");
+
+        if (giscus) {
+            const url = new URL(giscus.src);
+            url.searchParams.set("theme", isDark ? "dark" : "light");
+            giscus.src = url.toString();
+        }
+    };
+
+    document.addEventListener("DOMContentLoaded", () => init());
+    document.addEventListener("astro:after-swap", () => init());
+    preloadTheme();
+</script><link rel="stylesheet" href="/_astro/_subject_.WmXrNcmP.css">
+<link rel="stylesheet" href="/_astro/index.D1_kxFz5.css">
+<style>summary[data-astro-cid-xvrfupwn]{cursor:pointer;border-top-left-radius:.5rem;border-top-right-radius:.5rem;padding:.375rem .75rem;font-weight:500;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}summary[data-astro-cid-xvrfupwn]:hover{background-color:#0000000d}summary[data-astro-cid-xvrfupwn]:hover:is(.dark *){background-color:#ffffff0d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]{background-color:#0000000d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]:is(.dark *){background-color:#ffffff0d}
+[data-astro-image]{width:100%;height:auto;-o-object-fit:var(--fit);object-fit:var(--fit);-o-object-position:var(--pos);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+</style></head> <body> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto max-w-screen-sm px-3"> <div class="flex flex-wrap justify-between gap-y-4"> <div class="flex flex-col gap-y-2"> <a href="/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out">  <div class="font-semibold"> rezarezvan.com </div>  </a> <div class="flex gap-x-2"> <button id="light-theme-button" aria-label="Light theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <button id="dark-theme-button" aria-label="Dark theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <button id="system-theme-button" aria-label="System theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect> <line x1="8" y1="21" x2="16" y2="21"></line> <line x1="12" y1="17" x2="12" y2="21"></line> </svg> </button> </div> </div> <nav class="flex items-center gap-1 text-sm"> <a href="/posts" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> posts </a> <span>/</span> <a href="/chalmers" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> chalmers </a> <span>/</span> <a href="/cityu" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cityu </a> <span>/</span> <a href="/pdf/cv/cv.pdf" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cv </a> <span>/</span> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+&nbsp;Search
+</button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/chalmers/dat410" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> 
+Back to Design of AI systems </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/chalmers/dat410/dat410_5" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 5 - Computer Vision and Remote Sensing </div> </a> <div class="invisible"></div> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm">DAT410</div>
+&bull;
+<div class="font-base text-sm"> <time datetime="2025-02-25T00:00:00.000Z"> February 25, 2025 </time> </div> 
+&bull;
+<div class="font-base text-sm">9 min read</div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Part 6 - Game-playing Systems </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#introduction" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Introduction </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#formalizing-games" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Formalizing Games </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#minimax-optimization" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Minimax optimization </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#minimax-planning" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Minimax Planning </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#learning-to-play" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Learning to Play </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#exploration" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Exploration </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#monte-carlo-tree-search" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Monte Carlo Tree Search </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#tree-policies" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Tree Policies </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#greedy-policies" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Greedy policies </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#epsilon-greedy-policies" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> $\epsilon$-greedy policies </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#upper-confidence-bounds-ucb" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Upper Confidence Bounds (UCB) </a>  </li> </ul> </li> </ul> </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#function-approximation" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Function Approximation </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#markov-property" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Markov Property </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#non-markov-long-games" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Non-Markov (Long) Games </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#conclusion" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Conclusion </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#footnote-label" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Footnotes </a>  </li> </ul> </nav> </details> <article class="animate"> <h2 id="introduction">Introduction</h2>
+<p>Games are a very human thing to play (and design).
+So it is a very natural thing to approach them as systems that can be designed and analyzed.</p>
+<p>One of the earliest examples is the mechanical Turk, a chess-playing machine that was actually a hoax <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>.</p>
+<p>Then in the 1900s, we had the first computer programs that could play chess.
+Most famously, IBM’s Deep Blue that beat the world champion Garry Kasparov in 1997 <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Deep_Blue.jpg" alt="">
+<strong>Figure 1:</strong> Deep Blue chess computer</p>
+<p>A more modern game-playing system is OpenAI Five, a team of five AI agents that can play the game Dota 2 <sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>.</p>
+<h2 id="formalizing-games">Formalizing Games</h2>
+<p>But to approach games as systems, we first need to formalize them.
+One of the most common games (and easiest to formalize) are <strong>zero-sum games</strong>.</p>
+<blockquote>
+<p>A zero-sum game is a mathematical representation of a situation in which each participant’s gain or loss of utility is exactly balanced by the losses or gains of the utility of the other participants.</p>
+</blockquote>
+<p>Or, in other (simpler) words, one player winning implies one player losing.</p>
+<p>Games are inherently about <strong>actions</strong>, our goal is to select actions that improve our chances of winning.</p>
+<p>To win, we need to account for good and bad features when selecting actions.</p>
+<p>Think of Tic-Tac-Toe, to play <strong>optimally</strong>, we must pick the best <strong>path</strong>, but which is it?</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Tic-tac-toe-game-1.svg" alt="">
+<strong>Figure 2:</strong> Tic-Tac-Toe game</p>
+<p>We need to (formalize) and introduce <strong>search trees</strong>.</p>
+<p><img src="/images/school/DAT410/ST.png" alt="">
+<strong>Figure 3:</strong> Search tree</p>
+<p>At some point in the tree, an <strong>end state</strong> is reached, we call these <strong>terminal nodes</strong>.</p>
+<p>The <strong>value</strong> of a terminal node is the <strong>utility</strong> of the game, i.e., if it leads to a win, loss, or draw.</p>
+<p>A search tree can be used to enumerate <strong>possible futures</strong>.
+By identifying good futures (wins), we can <strong>backtrack</strong>, <strong>which actions</strong> do we have to take to reach that future?</p>
+<p>However, <strong>a plan is only a plan</strong>, we can’t control the opponent’s actions, thus, the answer is also dependent on the opponent’s actions.</p>
+<p>Let’s, for now, assume that our opponent has a <strong>fixed, known policy</strong> $\pi$.</p>
+<p>Thus, for each position,</p>
+<ol>
+<li>Compute the probability of reaching winning states.
+<ul>
+<li>Based on the probability of the future states.</li>
+</ul>
+</li>
+<li>Execute the action(s) with the highest success rate.</li>
+</ol>
+<p>But, if our opponent is <strong>adaptive</strong>, i.e., <strong>used to be</strong> suboptimal but changes to being optimal, our probabilities will change.</p>
+<h3 id="minimax-optimization">Minimax optimization</h3>
+<p>To guarantee success against the best possible opponent, we formulate the following strategy,</p>
+<blockquote>
+<p><strong>Minimize the maximum</strong> success of your opponent (worst-case scenario).</p>
+</blockquote>
+<p>Assume that we <em>knew</em> the best possible move and that our opponent <em>will</em> play that move.
+Then we proceed as before, count future success rate of each action and act accordingly.</p>
+<p>But what is the best move?</p>
+<p>Let’s formalize it, four our purposes, a decision process describes an <strong>agent</strong> taking <strong>actions</strong> $A_t$, according to a <strong>policy</strong> $\pi$ in <strong>states</strong> $S_t$, <strong>observed through</strong> $X_t$.
+Which transitions according to the <strong>dynamics</strong> $p(S_t | S_{&#x3C;t}, A_{&#x3C;t})$.</p>
+<p>We will often have a designated <strong>reward</strong> $R_t$, a function of $X_t$ that we want to optimize.</p>
+<p>In two-player games, there are two agents with (potentially) <strong>different</strong> policies, $\pi$ (player) and $\mu$ (opponent).</p>
+<p>$\bar{R}(\pi, \mu)$ denotes the <strong>average reward</strong> (e.g., win rate) of $\pi$ against $\mu$.</p>
+<p>Minimax play for $\pi$ against $\mu$ <strong>optimizes</strong>,</p>
+<p>$$
+\underset{\pi}{\min} \ \underbrace{{\underset{\mu}{\max} \ \bar{R}(\pi, \mu)}}_{\text{Strongest Opponent}}.
+$$</p>
+<h3 id="minimax-planning">Minimax Planning</h3>
+<p>In search trees, minimax planning select the next action at time $t$ by examining the <strong>best path</strong> $A_t, \ldots, A_T$ for the player and the best path $B_{t + 1}, \ldots, B_T$ for the opponent until end $T$,</p>
+<p>$$
+\underset{A_t, \ldots, A_T}{\min} \ \underset{B_{t + 1}, \ldots, B_T}{\max} \ \bar{R}(A, B).
+$$</p>
+<p>However, this is <strong>computationally infeasible</strong> for most games, as the search tree grows exponentially with the number of actions.
+For Tic-Tac-Toe the total number of possible states (boards) &#x3C; 20000, but for chess, it is $\approx 10^{120}$.</p>
+<p>One strategy is to truncate at finite depth, that means, we limit ourselves to only looking $d$ steps ahead.
+The drawback of this approach is, how do we value non-terminal nodes?</p>
+<p>For humans, it is easy to see that some moves are better than others, but how do we <strong>quantify</strong> this?
+In early systems, we actually used <strong>human knowledge</strong> to assign values to non-terminal nodes.</p>
+<h2 id="learning-to-play">Learning to Play</h2>
+<p>As mentioned, the two problems with large state space are,</p>
+<ol>
+<li>It is infeasible to <strong>explore</strong> every state.
+<ul>
+<li>We can’t look at every possible future (in a feasible time span).</li>
+</ul>
+</li>
+<li>It is infeasible to <strong>store</strong> the value of each state.
+<ul>
+<li>We can’t store the value of every possible future (in a feasible memory space).</li>
+</ul>
+</li>
+</ol>
+<p>Let’s tackle each problem.</p>
+<h3 id="exploration">Exploration</h3>
+<p>One way to tackle the exploration problem is to <strong>sample</strong> the state space, i.e., we only try a subset of actions.
+But how do we make sure we don’t leave out good ones?</p>
+<h4 id="monte-carlo-tree-search">Monte Carlo Tree Search</h4>
+<p>Monte-Carlo methods deal with <strong>random sampling</strong>.</p>
+<p>Instead of searching exhaustively, our search based on <strong>experiments</strong> with <strong>randomly selected actions</strong>.</p>
+<p>Essentially, we try playing <em>something</em> and <strong>remember</strong> what happened.</p>
+<p>The MCTS algorithm is based on four steps,</p>
+<ol>
+<li>Selection
+<ul>
+<li>Finding <strong>unexplored</strong> nodes (state-action pairs that haven’t been tried).</li>
+<li>Based on <strong>what we know so far</strong>, traverse down until an <strong>unexplored child node</strong> is reached.</li>
+<li>We use a <strong>tree policy</strong> for selection.</li>
+</ul>
+</li>
+<li>Expansion
+<ul>
+<li>Once we have selected node, we <strong>expand</strong> it.</li>
+<li>We add a <strong>new child node</strong> to the tree.</li>
+<li>Now we need to <strong>evaluate</strong> this new node.</li>
+</ul>
+</li>
+<li>Simulation/Rollout
+<ul>
+<li>We <strong>simulate</strong> the game from the new node.</li>
+<li>Based on our <strong>simulation policy</strong> (usually a simple random policy), we continue playing until we hit a <strong>terminal node</strong>.</li>
+<li>At the terminal node, we know the value!</li>
+</ul>
+</li>
+<li>Backpropagation
+<ul>
+<li>We <strong>update</strong> the value of the nodes we traversed.</li>
+<li>We <strong>backpropagate</strong> the value of the terminal node to the root node.</li>
+<li>Statistics of our nodes are updated, $N(v)$ - number of times visited, $Q(v)$ - total reward starting from $v$, also called <strong>Q-value</strong>.</li>
+</ul>
+</li>
+</ol>
+<h4 id="tree-policies">Tree Policies</h4>
+<p>Just selecting nodes randomly is very inefficient, the <strong>statistics</strong> we collect can be used to improve our selection during MCTS (and thus the action we choose to play in the end).</p>
+<p>How can we <strong>balance</strong> trying new things (exploration) and using our prior knowledge (exploitation)?</p>
+<h5 id="greedy-policies">Greedy policies</h5>
+<p>A <strong>greedy</strong> policy selects the <strong>best action</strong> according to some metric.</p>
+<p>For example, the highest average reward accumulated so far,</p>
+<p>$$
+A = \underset{a}{\arg \max} \ \frac{Q(v_a)}{N(v_a)}.
+$$</p>
+<p>However, this leads to <strong>no exploration</strong>, but this is good when $Q$ is a very good approximation of the value.</p>
+<h5 id="epsilon-greedy-policies">$\epsilon$-greedy policies</h5>
+<p>A $\epsilon$-greedy policy chooses the greedy action with probability $1 - \epsilon$ and a random action with probability $\epsilon$.</p>
+<p>Trades off exploration and exploitation (a bit).</p>
+<p>However, there’s a problem, we may try an action <strong>known to be bad</strong>, by chance.</p>
+<h5 id="upper-confidence-bounds-ucb">Upper Confidence Bounds (UCB)</h5>
+<p>The UCB is a popular heuristic, bound on the true $Q$-value for an action $a$ in node $v$,</p>
+<p>$$
+Q(v_a) \leq \hat{Q}_t(v_a) + \hat{U}_t(v_a),
+$$</p>
+<p>where $Q(v_a)$ is the true value, $\hat{Q}_t(v_a)$ is the estimated value, and $\hat{U}_t(v_a)$ is the uncertainty.</p>
+<p>We act greedily,</p>
+<p>$$
+a_t = \underset{a}{\arg \max} [\hat{Q}_t(v_a) + \hat{U}_t(v_a)].
+$$</p>
+<p>We can define $\hat{U}_t(v_a)$ as,</p>
+<p>$$
+\hat{U}_t(v_a) = c \sqrt{\frac{\log N(v)}{N(v_a)}},
+$$</p>
+<p>where $c$ is a hyperparameter that controls the balance between exploration and exploitation.
+If you are wondering where this comes from, it is derived from the Hoeffding inequality <sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>.</p>
+<p>The application of UCB to search trees is called UCT (Upper Confidence Trees).
+One variant is defined as (but there are many),</p>
+<p>$$
+\text{UCT}(v_i, v) = \frac{Q(v_i)}{N(v_i)} + c \sqrt{\frac{\log N(v)}{N(v_i)}}.
+$$</p>
+<p>MCTS is repeat until sufficient statistics have been gathered, each potential action $a$ has statistics $N(v_a)$ and $Q(v_a)$.</p>
+<p>We now can <strong>choose the action corresponding to the most visited state</strong>.</p>
+<h2 id="function-approximation">Function Approximation</h2>
+<p>Remember the second problem with large state spaces, we can’t store the value of every possible future.</p>
+<p>The problem of many/high-dimensional states is common in AI problems, e.g., image classification, speech recognition, etc.</p>
+<p>Intuitively, the details of each state matter less, the more information there is.
+A lot of states are <strong>similar</strong> to each other.</p>
+<p>As humans, we recognize these similarities, and <strong>disregard</strong> irrelevant information.</p>
+<p>A very natural thing from <strong>machine learning</strong> is function approximation, we can learn a function that approximates the $Q$-value.</p>
+<p>During <strong>backpropagation</strong>, we don’t just update counters $N,Q$, but also the parameters of neural nets predicting the $Q$-value.</p>
+<p>Since we now don’t need any human intervention or knowledge, <strong>self-play</strong> is possible.</p>
+<h2 id="markov-property">Markov Property</h2>
+<p>One last thing to mention is the <strong>Markov property</strong>.</p>
+<p>In Chess, Go, Tic-Tac-Toe, the <strong>history</strong> of a game does not influence transitions, <strong>states are Markovian</strong>,</p>
+<p>$$
+p(S_t | S_1, \ldots, S_{t-1}, A_1, \ldots, A_{t-1}) = p(S_t | S_{t-1}, A_{t-1}).
+$$</p>
+<p>For example, if you move a chess piece from E2 to E4, nothing else happens.
+The set of valid moves can be read of the board beforehand.</p>
+<h3 id="non-markov-long-games">Non-Markov (Long) Games</h3>
+<p>When Markovianity doesn’t hold, <strong>long</strong> games becomes hard.</p>
+<p>We have to <strong>memorize/summarize</strong> history to predict the future.
+Although, this is starting to be addressed more by modern systems.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Use machine learning where it helps!</p>
+<p>It is a great tool at condensing information and extracting relevant patterns.</p>
+<p>AlphaGO <strong>combined</strong> traditional MCTS with ML, and it <strong>beat</strong> the world champion <sup><a href="#user-content-fn-5" id="user-content-fnref-5" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>.</p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p><a href="https://en.wikipedia.org/wiki/Mechanical_Turk">Wikipedia: Mechanical Turk</a> <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p><a href="https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)">Wikipedia: Deep Blue</a> <a href="#user-content-fnref-2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-3">
+<p><a href="https://openai.com/research/openai-five/">OpenAI: OpenAI Five</a> <a href="#user-content-fnref-3" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-4">
+<p><a href="https://en.wikipedia.org/wiki/Hoeffding%27s_inequality">Wikipedia: Hoeffding’s inequality</a> <a href="#user-content-fnref-4" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-5">
+<p><a href="https://en.wikipedia.org/wiki/AlphaGo">Wikipedia: AlphaGo</a> <a href="#user-content-fnref-5" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section> <div class="mt-24"> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/chalmers/dat410/dat410_5" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 5 - Computer Vision and Remote Sensing </div> </a> <div class="invisible"></div> </div> </div> <div class="mt-24"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezvan.xyz" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </article> </div>  </main> <footer class="animate"> <div class="mx-auto max-w-screen-sm px-3"> <div class="relative"> <div class="absolute -top-12 right-0"> <button id="back-to-top" class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm">Back to top</div> </button> </div> </div> <div class="flex items-center justify-between"> <div>&copy; 2025 • rezarezvan.com</div> <div class="flex flex-wrap items-center gap-1.5"></div> </div> </div> </footer> <aside data-pagefind-ignore> <div id="backdrop" class="bg-[rgba(0, 0, 0, 0.5] invisible fixed left-0 top-0 z-50 flex h-screen w-full justify-center p-6 backdrop-blur-sm" data-astro-transition-persist="astro-3snakcvo-2"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="mr-2 pb-1 pt-4 text-right text-xs dark:prose-invert">
+Press <span class="prose text-xs dark:prose-invert"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> </aside> <script>
+  const magnifyingGlass = document.getElementById("magnifying-glass");
+  const backdrop = document.getElementById("backdrop");
+
+  function openPagefind() {
+    const searchDiv = document.getElementById("search");
+    const search = searchDiv.querySelector("input");
+    setTimeout(() => {
+      search.focus();
+    }, 0);
+    backdrop?.classList.remove("invisible");
+    backdrop?.classList.add("visible");
+  }
+
+  function closePagefind() {
+    const search = document.getElementById("search");
+    search.value = "";
+    backdrop?.classList.remove("visible");
+    backdrop?.classList.add("invisible");
+  }
+
+  // open pagefind
+  magnifyingGlass?.addEventListener("click", () => {
+    openPagefind();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "/") {
+      e.preventDefault();
+      openPagefind();
+    } else if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      e.preventDefault();
+      openPagefind();
+    }
+  });
+
+  // close pagefind
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" || e.keyCode === 27) {
+      closePagefind();
+    }
+  });
+
+  // close pagefind when searched result(link) clicked
+  document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("pagefind-ui__result-link")) {
+      closePagefind();
+    }
+  });
+
+  backdrop?.addEventListener("click", (event) => {
+    if (!event.target.closest("#pagefind-container")) {
+      closePagefind();
+    }
+  });
+
+  // prevent form submission
+  const form = document.getElementById("form");
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+</script>  </body></html>
