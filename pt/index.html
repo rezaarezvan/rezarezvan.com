@@ -23,7 +23,7 @@
 
         // Load the ONNX model (update the URL to where your model is hosted)
         async function loadModel() {
-            session = await ort.InferenceSession.create('https://rezarezvan.com/pt/mnist.onnx');
+            session = await ort.InferenceSession.create('mnist.onnx');
             console.log('ONNX model loaded.');
         }
 
