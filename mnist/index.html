@@ -429,7 +429,7 @@
 
                     try {
                         console.log("Attempting to load local PyTorch (ONNX model): mnist.onnx");
-                        session = await ort.InferenceSession.create('mnist/mnist.onnx');
+                        session = await ort.InferenceSession.create('mnist.onnx');
                         console.log("Local PyTorch (ONNX model) loaded successfully");
                         updateStatus('PyTorch (ONNX Runtime model) loaded. Draw a digit (0-9).');
                     } catch (localError) {
@@ -437,7 +437,7 @@
                         updateStatus("Error loading PyTorch (ONNX model). Falling back to TensorFlow.js");
                         currentBackend = 'tensorflow';
                         document.getElementById('backend').value = 'tensorflow';
-                        model = await tf.loadLayersModel('mnist/tfjs_mnist_model/model.json');
+                        model = await tf.loadLayersModel('./tfjs_mnist_model/model.json');
                         console.log("Fallback to TensorFlow.js successful");
                         updateStatus('TensorFlow.js model loaded (fallback). Draw a digit (0-9).');
                     }
