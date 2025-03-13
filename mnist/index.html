@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNIST Digit Classifier</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.18.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .model-select {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        select {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            background-color: white;
+            font-size: 16px;
+        }
+
+        .canvas-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        #canvas {
+            border: 2px solid #2c3e50;
+            border-radius: 4px;
+            cursor: crosshair;
+            background-color: white;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .result-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #prediction {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .confidence-bar {
+            height: 20px;
+            background-color: #eee;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background-color: #2ecc71;
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+
+        .confidence-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .status {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .digit-confidence {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .digit {
+            width: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .confidence-container {
+            flex-grow: 1;
+            margin: 0 10px;
+        }
+
+        .percentage {
+            width: 50px;
+            text-align: right;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            #canvas {
+                width: 90%;
+                height: auto;
+            }
+        }
+
+        #loadingOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loadingOverlay">
+        <div>
+            <div class="spinner"></div>
+            <p style="text-align: center; margin-top: 10px;">Loading model...</p>
+        </div>
+    </div>
+
+    <h1>MNIST Digit Classifier</h1>
+
+    <div class="container">
+        <div class="model-select">
+            <label for="backend">Choose Backend: </label>
+            <select id="backend" onchange="changeBackend()">
+                <option value="tensorflow">TensorFlow.js</option>
+                <option value="pytorch">PyTorch (ONNX Runtime)</option>
+            </select>
+        </div>
+
+        <div class="status" id="status">Model loaded. Draw a digit (0-9) in the canvas.</div>
+
+        <div class="canvas-container">
+            <canvas id="canvas" width="280" height="280"></canvas>
+        </div>
+
+        <div class="controls">
+            <button onclick="clearCanvas()">Clear</button>
+        </div>
+
+        <div class="result-container">
+            <div id="prediction">Prediction: -</div>
+
+            <div id="confidenceContainer">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let model; // TensorFlow model
+        let session; // ONNX session
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let currentBackend = 'tensorflow';
+        let predictionTimeout = null;
+        let confidenceBarsCreated = false;
+
+        async function init() {
+            setupCanvas();
+            createConfidenceBars();
+            setTimeout(hideLoading, 10000);
+
+            try {
+                await loadBackend(currentBackend);
+            } catch (err) {
+                console.error("Error during initialization:", err);
+                updateStatus("Error loading model. Please check console for details.");
+            } finally {
+                hideLoading();
+            }
+        }
+
+        function setupCanvas() {
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', endDrawing);
+            canvas.addEventListener('mouseout', endDrawing);
+
+            canvas.addEventListener('touchstart', handleTouchStart);
+            canvas.addEventListener('touchmove', handleTouchMove);
+            canvas.addEventListener('touchend', endDrawing);
+
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function handleTouchStart(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent('mousedown', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+
+        function handleTouchMove(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent('mousemove', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            draw(e);
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            ctx.lineWidth = 20;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = 'black';
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+
+            if (predictionTimeout) clearTimeout(predictionTimeout);
+            predictionTimeout = setTimeout(predict, 25);
+        }
+
+        function endDrawing() {
+            isDrawing = false;
+            ctx.beginPath();
+            predict();
+        }
+
+        function clearCanvas() {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            document.getElementById('prediction').innerText = 'Prediction: -';
+
+            if (confidenceBarsCreated) {
+                updateConfidenceBars(Array(10).fill(0));
+            }
+        }
+
+        function createConfidenceBars() {
+            const container = document.getElementById('confidenceContainer');
+            container.innerHTML = '';
+
+            for (let i = 0; i < 10; i++) {
+                const digitConfidence = document.createElement('div');
+                digitConfidence.className = 'digit-confidence';
+
+                const digit = document.createElement('div');
+                digit.className = 'digit';
+                digit.innerText = i;
+
+                const confidenceContainer = document.createElement('div');
+                confidenceContainer.className = 'confidence-container';
+
+                const confidenceBar = document.createElement('div');
+                confidenceBar.className = 'confidence-bar';
+
+                const confidenceFill = document.createElement('div');
+                confidenceFill.className = 'confidence-fill';
+                confidenceFill.id = `confidence-fill-${i}`;
+                confidenceFill.style.width = '0%';
+
+                const percentage = document.createElement('div');
+                percentage.className = 'percentage';
+                percentage.id = `percentage-${i}`;
+                percentage.innerText = '0%';
+
+                confidenceBar.appendChild(confidenceFill);
+                confidenceContainer.appendChild(confidenceBar);
+
+                digitConfidence.appendChild(digit);
+                digitConfidence.appendChild(confidenceContainer);
+                digitConfidence.appendChild(percentage);
+
+                container.appendChild(digitConfidence);
+            }
+
+            confidenceBarsCreated = true;
+        }
+
+        function updateConfidenceBars(confidences) {
+            let normalizedConfidences = confidences;
+            console.log("Updating confidence bars with normalized values:", normalizedConfidences);
+
+            // Find the max confidence for scaling
+            const maxConfidence = Math.max(...normalizedConfidences);
+
+            for (let i = 0; i < 10; i++) {
+                const confidenceFill = document.getElementById(`confidence-fill-${i}`);
+                const percentage = document.getElementById(`percentage-${i}`);
+
+                if (confidenceFill && percentage) {
+                    const scaledValue = maxConfidence > 0 ?
+                        (normalizedConfidences[i] / maxConfidence) * 100 : 0;
+
+                    const displayValue = (normalizedConfidences[i] * 100).toFixed(1);
+
+                    confidenceFill.style.width = `${scaledValue}%`;
+                    percentage.innerText = `${displayValue}%`;
+
+                    if (normalizedConfidences[i] === maxConfidence) {
+                        confidenceFill.style.backgroundColor = '#e74c3c'; // Red for highest confidence
+                    } else {
+                        confidenceFill.style.backgroundColor = '#2ecc71'; // Green for others
+                    }
+                } else {
+                    console.error(`Could not find elements for digit ${i}`);
+                }
+            }
+        }
+
+        async function changeBackend() {
+            showLoading();
+            currentBackend = document.getElementById('backend').value;
+            try {
+                await loadBackend(currentBackend);
+            } catch (error) {
+                console.error("Failed to change backend:", error);
+                updateStatus(`Error changing to ${currentBackend} backend: ${error.message}`);
+            } finally {
+                hideLoading();
+                clearCanvas();
+            }
+        }
+
+        async function loadBackend(backend) {
+            console.log(`Loading ${backend} backend...`);
+            updateStatus(`Loading ${backend === 'tensorflow' ? 'TensorFlow.js' : 'PyTorch (ONNX Runtime)'} model...`);
+
+            try {
+                if (backend === 'tensorflow') {
+                    console.log("Loading TensorFlow.js model...");
+                    model = await tf.loadLayersModel('./tfjs_mnist_model/model.json');
+                    console.log("TensorFlow.js model loaded successfully");
+                    session = null;
+                    updateStatus('TensorFlow.js model loaded. Draw a digit (0-9).');
+                } else {
+                    console.log("Loading PyTorch (ONNX Runtime model)...");
+                    model = null;
+
+                    try {
+                        console.log("Attempting to load local PyTorch (ONNX model): mnist.onnx");
+                        session = await ort.InferenceSession.create('mnist/mnist.onnx');
+                        console.log("Local PyTorch (ONNX model) loaded successfully");
+                        updateStatus('PyTorch (ONNX Runtime model) loaded. Draw a digit (0-9).');
+                    } catch (localError) {
+                        console.error("Failed to load local PyTorch (ONNX model):", localError);
+                        updateStatus("Error loading PyTorch (ONNX model). Falling back to TensorFlow.js");
+                        currentBackend = 'tensorflow';
+                        document.getElementById('backend').value = 'tensorflow';
+                        model = await tf.loadLayersModel('mnist/tfjs_mnist_model/model.json');
+                        console.log("Fallback to TensorFlow.js successful");
+                        updateStatus('TensorFlow.js model loaded (fallback). Draw a digit (0-9).');
+                    }
+                }
+
+                return true;
+            } catch (error) {
+                console.error("Error loading model:", error);
+                updateStatus(`Error loading model: ${error.message}`);
+                throw error;
+            }
+        }
+
+        function updateStatus(message) {
+            console.log("Status update:", message);
+            document.getElementById('status').innerText = message;
+        }
+
+        function showLoading() {
+            document.getElementById('loadingOverlay').style.display = 'flex';
+        }
+
+        function hideLoading() {
+            console.log("Hiding loading overlay");
+            document.getElementById('loadingOverlay').style.display = 'none';
+        }
+
+        function preprocessCanvasTF() {
+            return tf.tidy(() => {
+                let tensor = tf.browser.fromPixels(canvas, 1)
+                    .resizeNearestNeighbor([28, 28])
+                    .cast('float32')
+                    .div(255.0)
+                    .expandDims(0);
+
+                return tensor;
+            });
+        }
+
+        function preprocessCanvasPyTorch() {
+            const offscreenCanvas = document.createElement('canvas');
+            offscreenCanvas.width = 28;
+            offscreenCanvas.height = 28;
+            const offscreenCtx = offscreenCanvas.getContext('2d');
+
+            offscreenCtx.fillStyle = 'white';
+            offscreenCtx.fillRect(0, 0, 28, 28);
+            offscreenCtx.drawImage(canvas, 0, 0, 280, 280, 0, 0, 28, 28);
+
+            const imageData = offscreenCtx.getImageData(0, 0, 28, 28);
+            const data = imageData.data;
+
+            const inputData = new Float32Array(28 * 28);
+            for (let i = 0; i < data.length; i += 4) {
+                const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                inputData[i / 4] = (255 - avg) / 255.0; // Invert and normalize
+            }
+
+            console.log("Preparing PyTorch (ONNX) tensor with shape [1, 1, 28, 28]");
+            return new ort.Tensor('float32', inputData, [1, 1, 28, 28]);
+        }
+
+        function softmax(logits) {
+            const maxLogit = Math.max(...logits);
+            const scores = logits.map(l => Math.exp(l - maxLogit));
+            const sum = scores.reduce((a, b) => a + b, 0);
+            return scores.map(s => s / sum);
+        }
+
+        async function predict() {
+            if ((!model && !session)) {
+                console.log("No model loaded for prediction");
+                updateStatus('Model not loaded yet. Please wait or refresh the page.');
+                return;
+            }
+
+            if (predictionTimeout) {
+                clearTimeout(predictionTimeout);
+                predictionTimeout = null;
+            }
+
+            if (!confidenceBarsCreated) {
+                createConfidenceBars();
+            }
+
+            try {
+                let confidences;
+                let prediction;
+
+                if (currentBackend === 'tensorflow' && model) {
+                    console.log("Running TensorFlow prediction");
+                    const tensor = preprocessCanvasTF();
+                    const predictions = model.predict(tensor);
+                    confidences = await predictions.data();
+                    prediction = confidences.indexOf(Math.max(...confidences));
+                    console.log("Raw confidence values:", confidences);
+                    tensor.dispose();
+                    predictions.dispose();
+                } else if (currentBackend === 'pytorch' && session) {
+                    console.log("Running PyTorch (ONNX) prediction");
+                    const tensor = preprocessCanvasPyTorch();
+                    const feeds = {
+                        'input': tensor
+                    };
+                    console.log("Running PyTorch (ONNX) model with input name: 'input'");
+                    const results = await session.run(feeds);
+                    console.log("PyTorch (ONNX) results:", results);
+                    let outputData;
+                    const outputKeys = Object.keys(results);
+                    console.log("Available output keys:", outputKeys);
+
+                    if (outputKeys.length > 0) {
+                        const outputTensor = results[outputKeys[0]];
+                        console.log("Output tensor:", outputTensor);
+
+                        if (outputTensor && outputTensor.data) {
+                            outputData = outputTensor.data;
+                            console.log("Raw output data:", [...outputData]);
+
+                            if (Math.max(...outputData) > 1 || Math.min(...outputData) < 0) {
+                                confidences = softmax(Array.from(outputData));
+                            } else {
+                                confidences = Array.from(outputData);
+                            }
+                        } else {
+                            throw new Error("Invalid output tensor structure");
+                        }
+                    } else {
+                        throw new Error("No outputs found in PyTorch (ONNX) model results");
+                    }
+
+                    prediction = confidences.indexOf(Math.max(...confidences));
+                } else {
+                    console.log("Missing model for prediction");
+                    return;
+                }
+
+                console.log("Prediction result:", prediction, "Confidences:", confidences);
+
+                document.getElementById('prediction').innerText = `Prediction: ${prediction}`;
+                updateConfidenceBars(confidences);
+
+            } catch (error) {
+                console.error('Prediction error:', error);
+                updateStatus(`Prediction error: ${error.message}`);
+            }
+        }
+        window.addEventListener('load', init);
+    </script>
+</body>
+
+</html>
