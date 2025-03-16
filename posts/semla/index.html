@@ -221,8 +221,11 @@
 &nbsp;Search
 </button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/posts" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> Back to posts </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <div class="invisible"></div> <div class="invisible"></div> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm"> <time datetime="2025-03-15T00:00:00.000Z"> March 15, 2025 </time> </div> 
 &bull;
-<div class="font-base text-sm"> 4 min read </div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Rezvan Explains: SemlaFlow </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#prerequisites-and-notation" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Prerequisites and Notation </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#why-3d-molecular-generation-matters" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Why 3D Molecular Generation Matters </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-semla-architecture" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Semla Architecture </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#flow-matching-the-perfect-training-framework" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Flow Matching: The Perfect Training Framework </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#performance-analysis-orders-of-magnitude-faster" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Performance Analysis: Orders of Magnitude Faster </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#novel-evaluation-metrics-beyond-simple-validity" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Novel Evaluation Metrics: Beyond Simple Validity </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#footnote-label" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Footnotes </a>  </li> </ul> </nav> </details> <article class="animate"> <p><img src="/images/posts/semlaflow-header.jpg" alt=""></p>
-<p style="font-weight:bold; text-align:center;"> Rezvan Explains: SemlaFlow for 3D Molecular Generation</p>
+<div class="font-base text-sm">
+Last modified:  <time datetime="2025-03-15T18:40:14.000Z"> March 15, 2025 </time> </div> 
+&bull;
+<div class="font-base text-sm"> 9 min read </div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Rezvan Explains: SemlaFlow </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#prerequisites-and-notation" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Prerequisites and Notation </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#why-3d-molecular-generation-matters" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Why 3D Molecular Generation Matters </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#equivariant-architectures-respecting-3d-symmetry-in-molecules" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Equivariant Architectures: Respecting 3D Symmetry in Molecules </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#flow-matching" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Flow Matching </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#diffusion-vs-flow-matching" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Diffusion vs Flow Matching </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#equivariant-optimal-transport" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Equivariant Optimal Transport </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-semla-architecture-latent-graph-attention-for-speed" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Semla Architecture: Latent Graph Attention for Speed </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-problem-quadratic-complexity" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Problem: Quadratic Complexity </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-solution-compressed-message-passing" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Solution: Compressed Message Passing </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#performance-analysis-orders-of-magnitude-faster" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Performance Analysis: Orders of Magnitude Faster </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#novel-evaluation-metrics-beyond-simple-validity" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Novel Evaluation Metrics: Beyond Simple Validity </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#final-thoughts" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Final Thoughts </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#footnote-label" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Footnotes </a>  </li> </ul> </nav> </details> <article class="animate"> <p><img src="/images/posts/semlaflow-header.jpg" alt=""></p>
+<p style="font-weight:bold; text-align:center;"> Rezvan Explains: SemlaFlow</p>
 <p style="font-size:15px; font-weight:italic; text-align:center;"> Moleculas fingere artificium est </p>
 <h2 id="prerequisites-and-notation">Prerequisites and Notation</h2>
 
@@ -266,37 +269,84 @@
 <h2 id="why-3d-molecular-generation-matters">Why 3D Molecular Generation Matters</h2>
 <p>Generating 3D molecular structures is fundamentally more challenging than 2D graph generation because:</p>
 <ol>
-<li>The distribution must respect physical constraints</li>
-<li>The representation must be $E(3)$-invariant (same molecule regardless of rotation/translation)</li>
-<li>Valid molecules require matching both topological and geometrical properties</li>
+<li>The distribution must respect <strong>physical constraints</strong>.</li>
+<li>The representation must be <strong>$E(3)$-invariant</strong> (same molecule regardless of rotation/translation)</li>
+<li><strong>Valid molecules</strong> require matching both <strong>topological and geometrical</strong> properties</li>
 </ol>
 <p>Previous approaches like diffusion models (MiDi, EQGAT-diff) have achieved impressive results but require hundreds or thousands of model evaluations, making them impractical for real-world drug discovery workflows.</p>
-<h2 id="the-semla-architecture">The Semla Architecture</h2>
-<p>At the heart of SemlaFlow is the Semla architecture that introduces a approach to <strong>equivariant message passing</strong>.
-Instead of computing full pairwise messages in the original feature space (which scales <strong>quadratically</strong> with feature dimension), Semla projects features into a lower-dimensional latent space,</p>
+<h2 id="equivariant-architectures-respecting-3d-symmetry-in-molecules">Equivariant Architectures: Respecting 3D Symmetry in Molecules</h2>
+<p>A core idea behind SemlaFlow is the use of an <strong>equivariant neural network architecture</strong> tailored for molecules in 3D space.
+<strong>Equivariant</strong> means the model’s behavior respects the symmetries of physical space.
+For molecules, rotating or translating a molecule in 3D shouldn’t change the molecule’s identity or properties — so our model shouldn’t have to “re-learn” the same molecule in every orientation.</p>
+<p>Semla is $\mathrm{E}(3)$-equivariant, meaning it treats translations, rotations, and reflections in 3D appropriately, and also handles permutations of atoms <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup> <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>.
+Ensuring these symmetries provides a strong inductive bias and improves sample efficiency <sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup> — the model isn’t wasting capacity learning arbitrary coordinate frames.</p>
+<p><strong>Why does this matter?</strong> In 3D molecular generation, the goal is to output a molecule’s structure (its atoms and their 3D coordinates).
+An equivariant model sees a rotated molecule as essentially the <strong>same molecule</strong>, so it can focus on learning meaningful chemistry instead of orientation.
+A non-equivariant model might need many examples of the same molecular shape in different orientations to learn it well, whereas an equivariant model can learn it once.</p>
+<p>Semla treats molecular geometry in a novel way, rather than having a single special “coordinate” tensor and separate latent features, <strong>it treats coordinates as just another set of learnable equivariant features</strong> <sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>.</p>
+<p>In practice, this means the model can <strong>maintain multiple geometric feature vectors per atom</strong> (not just one set of coordinates),</p>
+<p>$$
+\mathbf{x_i} \in \mathbb{R}^{d_{\text{equi}} \times 3}
+$$</p>
+<p>where each atom $i$ has multiple vectors that transform under 3D rotations.
+This gives the network more expressivity to capture complex geometry.</p>
+<p>To <strong>keep training stable</strong>, Semla uses careful <strong>normalization on both invariant scalars and equivariant vectors</strong> <sup><a href="#user-content-fn-4" id="user-content-fnref-4-2" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup> <sup><a href="#user-content-fn-5" id="user-content-fnref-5" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>.</p>
+<p>It also <strong>recenters coordinates</strong> to <strong>enforce translational invariance</strong> (essentially making sure the molecule’s centroid is at the origin) <sup><a href="#user-content-fn-4" id="user-content-fnref-4-3" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>.
+These details ensure that even as the network gets deep, it maintains physical symmetry and produces well-behaved outputs.</p>
+<h2 id="flow-matching">Flow Matching</h2>
+<p>Another big leap in SemlaFlow comes from its <strong>flow matching</strong> generative modeling approach.</p>
+<h3 id="diffusion-vs-flow-matching">Diffusion vs Flow Matching</h3>
+<p><strong>Diffusion models</strong> generate data by <strong>gradually refining random noise</strong> into a sample.
+You start with pure noise and then apply tiny denoising steps to finally get a molecule.
+This often works great for quality, but it’s slow — each tiny step is an expensive neural network pass <sup><a href="#user-content-fn-6" id="user-content-fnref-6" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup>.</p>
+<p><strong>Flow matching</strong>, on the other hand, directly learns a <strong>continuous transport</strong> from noise to data.
+The model <strong>learns to match an ideal “flow”</strong> that <strong>carries a random initial state toward a real molecule in one continuous go</strong> <sup><a href="#user-content-fn-7" id="user-content-fnref-7" data-footnote-ref="" aria-describedby="footnote-label">7</a></sup> <sup><a href="#user-content-fn-8" id="user-content-fnref-8" data-footnote-ref="" aria-describedby="footnote-label">8</a></sup>.</p>
+<p>Concretely,</p>
+<ol>
+<li><strong>Interpolation</strong>: We take a real molecule $\mathbf{z}_1$ (atoms, bonds, coordinates) and a random noise sample $\mathbf{z}_0$.
+We pick a time $t \in [0,1]$ and form an interpolated sample $\mathbf{z}_t$, mixing noise with real data.</li>
+<li><strong>Denoising Loss</strong>: The model sees $\mathbf{z_t}$ and predicts $\mathbf{z_1}$.
+We train via a mean-squared error (for coordinates) plus cross-entropy (for discrete types like atoms/bonds),
+$$
+\mathcal{L_{\text{SemlaFlow}}} = \lambda_x \mathcal{L_{\text{MSE}}} (\tilde{x_1}, x_1) + \lambda_a \mathcal{L_{\text{CE}}} (\tilde{a_1}, a_1) + \lambda_b \mathcal{L_{\text{CE}}} (\tilde{b_1}, b_1) + \lambda_c \mathcal{L_{\text{CE}}} (\tilde{c_1}, c_1)
+$$</li>
+</ol>
+<p>where $\mathbf{\tilde{x}_1}, \mathbf{\tilde{a}_1}, \mathbf{\tilde{b}_1}, \mathbf{\tilde{c}_1}$ are the predicted coordinates, atom types, bond types, and charges, respectively.</p>
+<p>At <strong>sampling time</strong>,</p>
+<ol>
+<li>We draw random noise $\mathbf{z}_0$.</li>
+<li>We <strong>integrate</strong> the learned vector field from $t=0$ to $t=1$.
+Because the model learned a <strong>straight path</strong> (note, this does not hold in general for flow matching models, but because of <strong>optimal transport</strong>) to data, we need far fewer steps than a diffusion model.</li>
+</ol>
+<h3 id="equivariant-optimal-transport">Equivariant Optimal Transport</h3>
+<p>SemlaFlow further simplifies training by <strong>optimally aligning</strong> the noise and data molecules (via rotation/permutation) before interpolation <sup><a href="#user-content-fn-9" id="user-content-fnref-9" data-footnote-ref="" aria-describedby="footnote-label">9</a></sup>.
+This means each generated atom is matched to its closest real atom, preventing the model from having to guess which random point corresponds to which real atom.
+By combining <strong>equivariant</strong> modeling with <strong>optimal transport</strong>, SemlaFlow effectively shortens the path the model must learn to traverse.</p>
+<h2 id="the-semla-architecture-latent-graph-attention-for-speed">The Semla Architecture: Latent Graph Attention for Speed</h2>
+<p>At the heart of SemlaFlow is the Semla architecture that introduces a novel approach to <strong>equivariant message passing</strong>.</p>
+<h3 id="the-problem-quadratic-complexity">The Problem: Quadratic Complexity</h3>
+<p>In a naive graph neural network, each atom (node) exchanges messages with every other atom.
+If you have $N$ atoms, and each has a feature dimension $d$, the cost can scale like $\mathcal{O}(N^2 , d^2)$.
+That quickly becomes prohibitive for big molecules.</p>
+<h3 id="the-solution-compressed-message-passing">The Solution: Compressed Message Passing</h3>
+<p>Semla solves this by performing message passing in a <strong>compressed latent space</strong> <sup><a href="#user-content-fn-4" id="user-content-fnref-4-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>.
+Before computing pairwise interactions, each atom’s high-dimensional feature vector $\mathbf{h_i} \in \mathbb{R}^{d_{\text{inv}}}$ is projected down to a smaller size $d_l \ll d_{\text{inv}}$ via a learned linear map,</p>
 <p>$$
 \begin{align}
 \begin{split}
 \mathbf{m_{i,j}}^{(\text{inv})}, \mathbf{m_{i,j}}^{(\text{equi})} &#x26; = \Omega_\theta(\mathbf{\tilde{h_i}}, \mathbf{\tilde{h_j}}, \mathbf{\tilde{x_i}} \cdot \mathbf{\tilde{x_j}}), \newline
 \mathbf{\tilde{h_k}} &#x26; = \mathbf{W_{\theta}}^3 \phi_{\text{inv}} (\mathbf{h_k}^{ff}), \newline
-\mathbf{\tilde{x_k}} &#x26; = \phi_{\text{equi}} (\mathbf{x}_k^{ff}).
+\mathbf{\tilde{x_k}} &#x26; = \phi_{\text{equi}} (\mathbf{x_k}^{ff}).
 \end{split}
 \end{align}
 $$</p>
-<p>This approach is brilliantly simple yet effective. By computing attention in a compressed latent space (with dimension $d_l \ll d_{\text{inv}}$), Semla achieves 3-5× faster inference while maintaining or improving generative quality.</p>
-<h2 id="flow-matching-the-perfect-training-framework">Flow Matching: The Perfect Training Framework</h2>
-<p>SemlaFlow employs <strong>conditional flow matching</strong> <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>, which learns a <strong>vector field to transport noise to data samples</strong>.
-SemlaFlow uses this framework to align noise vectors with the data manifold, improving sample quality and reducing training time.
-The final loss function is a combination of MSE and cross-entropy losses,</p>
-<p>$$
-\mathcal{L_{\text{SemlaFlow}}} = \lambda_x \mathcal{L_{\text{MSE}}} (\tilde{x_1}, x_1) + \lambda_a \mathcal{L_{\text{CE}}} (\tilde{a_1}, a_1) + \lambda_b \mathcal{L_{\text{CE}}} (\tilde{b_1}, b_1) + \lambda_c \mathcal{L_{\text{CE}}} (\tilde{c_1}, c_1),
-$$</p>
-<p>where $\mathbf{\tilde{x}_1}, \mathbf{\tilde{a}_1}, \mathbf{\tilde{b}_1}, \mathbf{\tilde{c}_1}$ are the predicted coordinates, atom types, bond types, and charges, respectively.</p>
-<p>The approach jointly generates coordinates, atom types, bond types, and charges in a single model.
-Combined with <strong>equivariant optimal transport</strong> <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>
-for noise alignment, this results in remarkably efficient sampling.</p>
+<p>By computing attention in a compressed latent space (with dimension $d_l \approx 64$ compared to $d_{\text{inv}} = 384$), Semla achieves 3-5× faster inference while maintaining or improving generative quality.</p>
+<p>After computing messages in latent space, Semla expands them back into high-dimensional features via <strong>multi-head attention</strong>.
+Each invariant message vector is split into heads that attend to different chunks of features, while a separate mechanism updates the <strong>equivariant</strong> (3D) features by summing up direction vectors between atoms (weighted by the attention scores) <sup><a href="#user-content-fn-4" id="user-content-fnref-4-5" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>.</p>
+<p>All these architectural optimizations let Semla handle bigger molecules with more parameters, yet still <strong>run faster</strong> than smaller or older networks.</p>
 <h2 id="performance-analysis-orders-of-magnitude-faster">Performance Analysis: Orders of Magnitude Faster</h2>
-<p>The numbers speak for themselves:</p>
+<p>The numbers speak for themselves,</p>
+<p><strong>Table 1</strong>: SemlaFlow Performance on Standard Benchmarks (Table 3 from the paper <sup><a href="#user-content-fn-2" id="user-content-fnref-2-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>)</p>
 
 
 
@@ -331,22 +381,64 @@ for noise alignment, this results in remarkably efficient sampling.</p>
 
 
 <table><thead><tr><th>Model</th><th>Mol Stability ↑</th><th>Valid ↑</th><th>Sample Time (s) ↓</th><th>NFE</th></tr></thead><tbody><tr><td>EQGAT-diff</td><td>93.4</td><td>94.6</td><td>2293.0</td><td>500</td></tr><tr><td>SemlaFlow100</td><td>97.3</td><td>93.9</td><td>99.3</td><td>100</td></tr><tr><td>SemlaFlow20</td><td>95.3</td><td>93.0</td><td>20.3</td><td>20</td></tr></tbody></table>
-<p>The most striking result: SemlaFlow with just 20 sampling steps generates better molecules than EQGAT-diff with 500 steps, while being <strong>112× faster</strong>. This isn’t just an incremental improvement—it’s the difference between practical and impractical for drug discovery pipelines.</p>
+<p>The most striking result: SemlaFlow with just 20 sampling steps generates better molecules than EQGAT-diff with 500 steps, while being <strong>112× faster</strong>.
+This isn’t just an incremental improvement—it’s the difference between practical and impractical for drug discovery pipelines.</p>
+<p>On standard benchmarks:</p>
+<ul>
+<li><strong>QM9</strong> (small molecules): SemlaFlow hits ~99% validity and ~99.7% stability</li>
+<li><strong>GEOM-Drugs</strong> (larger, drug-like molecules): >97% stability — higher than many baselines<sup><a href="#user-content-fn-2" id="user-content-fnref-2-3" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup></li>
+</ul>
 <h2 id="novel-evaluation-metrics-beyond-simple-validity">Novel Evaluation Metrics: Beyond Simple Validity</h2>
-<p>One insight I particularly appreciate from this work is the introduction of energy per atom and strain energy metrics. Traditional metrics like “validity” are insufficient, as RDKit considers many chemically nonsensical structures “valid” (e.g., a carbon with only two bonds).</p>
+<p>One insight I particularly appreciate from this work is the introduction of energy per atom and strain energy metrics.
+Traditional metrics like “validity” are insufficient, as RDKit considers many chemically nonsensical structures “valid” (e.g., a carbon with only two bonds).</p>
 <p>By measuring:</p>
 <ol>
-<li>Energy per atom (overall molecular energy)</li>
-<li>Strain energy (difference between generated and optimized conformations)</li>
+<li><strong>Energy per atom</strong> (overall molecular energy)</li>
+<li><strong>Strain energy</strong> (difference between generated and optimized conformations)</li>
 </ol>
-<p>We get a much more realistic assessment of chemical quality. SemlaFlow outperforms previous methods on these metrics, demonstrating its ability to generate not just valid but physically realistic structures.</p>
+<p>We get a much more realistic assessment of chemical quality.
+SemlaFlow outperforms previous methods on these metrics, demonstrating its ability to generate not just valid but physically realistic structures.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>SemlaFlow is a meaningful advance in AI-driven molecular design, combining <strong>geometric intelligence</strong> (via equivariance) with <strong>algorithmic efficiency</strong> (via flow matching and latent attention).
+By generating 3D molecules two orders of magnitude faster than traditional diffusion models<sup><a href="#user-content-fn-2" id="user-content-fnref-2-4" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup> — yet often with better physical plausibility — it opens new horizons for virtual screening, large-scale de novo design, and interactive drug discovery.</p>
+<p>It demonstrates that respecting the structure of 3D data (through $E(3)$ symmetry) and adopting a more direct generative framework (flow matching) can yield both <strong>speed</strong> and <strong>quality</strong>.
+Equivariant models like SemlaFlow also reinforce the importance of domain symmetries: a little bit of physics in your network design goes a long way.</p>
+<p>Exciting future directions might include,</p>
+<ul>
+<li><strong>Pocket-conditioned ligand generation</strong> for structure-based drug design</li>
+<li><strong>Reinforcement learning</strong> optimization loops that rely on rapid sampling</li>
+<li><strong>Fine-tuning</strong> these flows for specific property targets</li>
+<li>Applying the latent attention approach to other 3D domains like materials science or protein design</li>
+</ul>
+<p>In sum, SemlaFlow sets a new standard for 3D molecule generation, showing that <strong>flow matching</strong> plus the right geometric priors can be a powerful alternative to diffusion models.</p>
 <section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
 <ol>
 <li id="user-content-fn-1">
-<p><a href="https://arxiv.org/abs/2210.02747">Flow Matching for Generative Modeling</a> <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<p><a href="https://arxiv.org/abs/2102.09844">E(n) Equivariant Graph Neural Networks</a> <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
 <li id="user-content-fn-2">
-<p><a href="https://arxiv.org/abs/2306.15030">Equivariant flow matching</a> <a href="#user-content-fnref-2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+<p><a href="https://arxiv.org/abs/2406.07266">SemlaFlow — Efficient 3D Molecular Generation with Latent Attention and Equivariant Flow Matching</a> <a href="#user-content-fnref-2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a> <a href="#user-content-fnref-2-2" data-footnote-backref="" aria-label="Back to reference 2-2" class="data-footnote-backref">↩<sup>2</sup></a> <a href="#user-content-fnref-2-3" data-footnote-backref="" aria-label="Back to reference 2-3" class="data-footnote-backref">↩<sup>3</sup></a> <a href="#user-content-fnref-2-4" data-footnote-backref="" aria-label="Back to reference 2-4" class="data-footnote-backref">↩<sup>4</sup></a></p>
+</li>
+<li id="user-content-fn-3">
+<p><a href="https://arxiv.org/pdf/2106.07148">On the Sample Complexity of Learning under Invariance and Geometric Stability</a> <a href="#user-content-fnref-3" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-4">
+<p><a href="https://arxiv.org/abs/2309.17296">Navigating the Design Space of Equivariant Diffusion-Based Generative Models for De Novo 3D Molecule Generation</a> <a href="#user-content-fnref-4" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a> <a href="#user-content-fnref-4-2" data-footnote-backref="" aria-label="Back to reference 4-2" class="data-footnote-backref">↩<sup>2</sup></a> <a href="#user-content-fnref-4-3" data-footnote-backref="" aria-label="Back to reference 4-3" class="data-footnote-backref">↩<sup>3</sup></a> <a href="#user-content-fnref-4-4" data-footnote-backref="" aria-label="Back to reference 4-4" class="data-footnote-backref">↩<sup>4</sup></a> <a href="#user-content-fnref-4-5" data-footnote-backref="" aria-label="Back to reference 4-5" class="data-footnote-backref">↩<sup>5</sup></a></p>
+</li>
+<li id="user-content-fn-5">
+<p><a href="https://arxiv.org/abs/2302.09048">MiDi: Mixed Graph and 3D Denoising Diffusion for Molecule Generation</a> <a href="#user-content-fnref-5" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-6">
+<p><a href="https://arxiv.org/pdf/2006.11239">Denoising Diffusion Probabilistic Models</a> <a href="#user-content-fnref-6" data-footnote-backref="" aria-label="Back to reference 6" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-7">
+<p><a href="https://arxiv.org/abs/2209.15571">Building Normalizing Flows with Stochastic Interpolants</a> <a href="#user-content-fnref-7" data-footnote-backref="" aria-label="Back to reference 7" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-8">
+<p><a href="https://arxiv.org/abs/2210.02747">Flow Matching for Generative Modeling</a> <a href="#user-content-fnref-8" data-footnote-backref="" aria-label="Back to reference 8" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-9">
+<p><a href="https://arxiv.org/abs/2306.15030">Equivariant flow matching</a> <a href="#user-content-fnref-9" data-footnote-backref="" aria-label="Back to reference 9" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section> <div class="mt-24"> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <div class="invisible"></div> <div class="invisible"></div> </div> </div> <div class="mt-24"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezvan.xyz" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </article> </div>  </main> <footer class="animate"> <div class="mx-auto max-w-screen-sm px-3"> <div class="relative"> <div class="absolute -top-12 right-0"> <button id="back-to-top" class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm">Back to top</div> </button> </div> </div> <div class="flex items-center justify-between"> <div>&copy; 2025 • rezarezvan.com</div> <div class="flex flex-wrap items-center gap-1.5"></div> </div> </div> </footer> <aside data-pagefind-ignore> <div id="backdrop" class="bg-[rgba(0, 0, 0, 0.5] invisible fixed left-0 top-0 z-50 flex h-screen w-full justify-center p-6 backdrop-blur-sm" data-astro-transition-persist="astro-3snakcvo-2"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="mr-2 pb-1 pt-4 text-right text-xs dark:prose-invert">
