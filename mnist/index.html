@@ -7,6 +7,10 @@
     <title>MNIST Digit Classifier</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.18.0/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <script type="module">
+        import mnistModel from "./mnist.js";
+        window.mnistModel = mnistModel;
+    </script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -206,6 +210,7 @@
             <select id="backend" onchange="changeBackend()">
                 <option value="tensorflow">TensorFlow.js</option>
                 <option value="pytorch">PyTorch (ONNX Runtime)</option>
+                <option value="tinygrad">TinyGrad (WebGPU)</option>
             </select>
         </div>
 
@@ -230,6 +235,7 @@
     <script>
         let model; // TensorFlow model
         let session; // ONNX session
+        let tinyNet; // TinyGrad model
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
         let isDrawing = false;
@@ -414,7 +420,7 @@
 
         async function loadBackend(backend) {
             console.log(`Loading ${backend} backend...`);
-            updateStatus(`Loading ${backend === 'tensorflow' ? 'TensorFlow.js' : 'PyTorch (ONNX Runtime)'} model...`);
+            updateStatus(`Loading ${backend === 'tensorflow' ? 'TensorFlow.js' : backend === 'pytorch' ? 'PyTorch (ONNX Runtime)' : 'TinyGrad (WebGPU)'} model...`);
 
             try {
                 if (backend === 'tensorflow') {
@@ -422,19 +428,44 @@
                     model = await tf.loadLayersModel('./tfjs_mnist_model/model.json');
                     console.log("TensorFlow.js model loaded successfully");
                     session = null;
+                    tinyNet = null;
                     updateStatus('TensorFlow.js model loaded. Draw a digit (0-9).');
-                } else {
-                    console.log("Loading PyTorch (ONNX Runtime model)...");
+                } else if (backend === 'pytorch') {
+                    console.log("Loading PyTorch (ONNX Runtime) model...");
                     model = null;
 
                     try {
-                        console.log("Attempting to load local PyTorch (ONNX model): mnist.onnx");
+                        console.log("Attempting to load ONNX model: mnist.onnx");
                         session = await ort.InferenceSession.create('mnist.onnx');
-                        console.log("Local PyTorch (ONNX model) loaded successfully");
-                        updateStatus('PyTorch (ONNX Runtime model) loaded. Draw a digit (0-9).');
+                        console.log("ONNX model loaded successfully");
+                        tinyNet = null;
+                        updateStatus('PyTorch (ONNX Runtime) model loaded. Draw a digit (0-9).');
                     } catch (localError) {
-                        console.error("Failed to load local PyTorch (ONNX model):", localError);
-                        updateStatus("Error loading PyTorch (ONNX model). Falling back to TensorFlow.js");
+                        console.error("Failed to load ONNX model:", localError);
+                        updateStatus("Error loading ONNX model. Falling back to TensorFlow.js");
+                        currentBackend = 'tensorflow';
+                        document.getElementById('backend').value = 'tensorflow';
+                        model = await tf.loadLayersModel('./tfjs_mnist_model/model.json');
+                        console.log("Fallback to TensorFlow.js successful");
+                        updateStatus('TensorFlow.js model loaded (fallback). Draw a digit (0-9).');
+                    }
+                } else if (backend === 'tinygrad') {
+                    console.log("Loading TinyGrad (WebGPU) model...");
+                    model = null;
+                    session = null;
+
+                    try {
+                        if (!window.mnistModel) {
+                            throw new Error("TinyGrad model not available. Make sure mnist.js is properly imported.");
+                        }
+
+                        console.log("Attempting to load TinyGrad model");
+                        tinyNet = await window.mnistModel.load('./mnist.js.safetensors');
+                        console.log("TinyGrad model loaded successfully");
+                        updateStatus('TinyGrad (WebGPU) model loaded. Draw a digit (0-9).');
+                    } catch (localError) {
+                        console.error("Failed to load TinyGrad model:", localError);
+                        updateStatus("Error loading TinyGrad model. Falling back to TensorFlow.js");
                         currentBackend = 'tensorflow';
                         document.getElementById('backend').value = 'tensorflow';
                         model = await tf.loadLayersModel('./tfjs_mnist_model/model.json');
@@ -500,6 +531,28 @@
             return new ort.Tensor('float32', inputData, [1, 1, 28, 28]);
         }
 
+        function preprocessCanvasTinyGrad() {
+            const offscreenCanvas = document.createElement('canvas');
+            offscreenCanvas.width = 28;
+            offscreenCanvas.height = 28;
+            const offscreenCtx = offscreenCanvas.getContext('2d');
+
+            offscreenCtx.fillStyle = 'black';
+            offscreenCtx.fillRect(0, 0, 28, 28);
+            offscreenCtx.drawImage(canvas, 0, 0, 280, 280, 0, 0, 28, 28);
+
+            const imageData = offscreenCtx.getImageData(0, 0, 28, 28);
+            const data = imageData.data;
+
+            const inputData = new Float32Array(28 * 28);
+            for (let i = 0; i < data.length; i += 4) {
+                const gray = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                inputData[i / 4] = gray / 255.0;
+            }
+
+            console.log("Actual pixel values:", inputData.slice(300, 320));
+            return inputData;
+        }
         function softmax(logits) {
             const maxLogit = Math.max(...logits);
             const scores = logits.map(l => Math.exp(l - maxLogit));
@@ -507,23 +560,27 @@
             return scores.map(s => s / sum);
         }
 
+        let predictionInProgress = false;
         async function predict() {
-            if ((!model && !session)) {
-                console.log("No model loaded for prediction");
-                updateStatus('Model not loaded yet. Please wait or refresh the page.');
-                return;
-            }
+            if (predictionInProgress) return;
 
-            if (predictionTimeout) {
-                clearTimeout(predictionTimeout);
-                predictionTimeout = null;
-            }
-
-            if (!confidenceBarsCreated) {
-                createConfidenceBars();
-            }
-
+            predictionInProgress = true;
             try {
+                if ((!model && !session && !tinyNet)) {
+                    console.log("No model loaded for prediction");
+                    updateStatus('Model not loaded yet. Please wait or refresh the page.');
+                    return;
+                }
+
+                if (predictionTimeout) {
+                    clearTimeout(predictionTimeout);
+                    predictionTimeout = null;
+                }
+
+                if (!confidenceBarsCreated) {
+                    createConfidenceBars();
+                }
+
                 let confidences;
                 let prediction;
 
@@ -539,24 +596,19 @@
                 } else if (currentBackend === 'pytorch' && session) {
                     console.log("Running PyTorch (ONNX) prediction");
                     const tensor = preprocessCanvasPyTorch();
-                    const feeds = {
-                        'input': tensor
-                    };
+                    const feeds = {'input': tensor};
                     console.log("Running PyTorch (ONNX) model with input name: 'input'");
                     const results = await session.run(feeds);
                     console.log("PyTorch (ONNX) results:", results);
                     let outputData;
                     const outputKeys = Object.keys(results);
                     console.log("Available output keys:", outputKeys);
-
                     if (outputKeys.length > 0) {
                         const outputTensor = results[outputKeys[0]];
                         console.log("Output tensor:", outputTensor);
-
                         if (outputTensor && outputTensor.data) {
                             outputData = outputTensor.data;
                             console.log("Raw output data:", [...outputData]);
-
                             if (Math.max(...outputData) > 1 || Math.min(...outputData) < 0) {
                                 confidences = softmax(Array.from(outputData));
                             } else {
@@ -568,6 +620,24 @@
                     } else {
                         throw new Error("No outputs found in PyTorch (ONNX) model results");
                     }
+                    prediction = confidences.indexOf(Math.max(...confidences));
+                }  // When processing TinyGrad results
+                else if (currentBackend === 'tinygrad' && tinyNet) {
+                    console.log("Running TinyGrad (WebGPU) prediction");
+                    const inputData = preprocessCanvasTinyGrad();
+                    console.log("Input data sample:", inputData.slice(0, 10));
+                    await new Promise(resolve => setTimeout(resolve, 10));
+                    const results = await tinyNet(inputData);
+                    console.log("Raw TinyGrad results:", results);
+
+                    // Convert logits to probabilities using softmax
+                    const rawValues = Array.from(results[0]);
+                    if (rawValues.some(val => val < 0)) {
+                        console.log("Converting raw logits to probabilities with softmax");
+                        confidences = softmax(rawValues);
+                    } else {
+                        confidences = rawValues;
+                    }
 
                     prediction = confidences.indexOf(Math.max(...confidences));
                 } else {
@@ -576,15 +646,16 @@
                 }
 
                 console.log("Prediction result:", prediction, "Confidences:", confidences);
-
                 document.getElementById('prediction').innerText = `Prediction: ${prediction}`;
                 updateConfidenceBars(confidences);
-
             } catch (error) {
                 console.error('Prediction error:', error);
                 updateStatus(`Prediction error: ${error.message}`);
+            } finally {
+                predictionInProgress = false;
             }
         }
+
         window.addEventListener('load', init);
     </script>
 </body>
