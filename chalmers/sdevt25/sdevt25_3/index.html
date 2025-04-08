@@ -1,0 +1,592 @@
+<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/icon" href="/favicon.ico"><meta name="generator" content="Astro v5.5.5"><!-- Canonical URL --><link rel="canonical" href="https://rezvan.xyz/chalmers/sdevt25/sdevt25_3/"><!-- Primary Meta Tags --><title>Part 3 - Itô Calculus | stochastic differential equations and deep generative models | rezarezvan.com</title><meta name="title" content="Part 3 - Itô Calculus | stochastic differential equations and deep generative models | rezarezvan.com"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://rezvan.xyz/chalmers/sdevt25/sdevt25_3/"><meta property="og:title" content="Part 3 - Itô Calculus | stochastic differential equations and deep generative models | rezarezvan.com"><meta property="og:description"><meta property="og:image" content="https://rezvan.xyz/favicon.ico"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://rezvan.xyz/chalmers/sdevt25/sdevt25_3/"><meta property="twitter:title" content="Part 3 - Itô Calculus | stochastic differential equations and deep generative models | rezarezvan.com"><meta property="twitter:description"><meta property="twitter:image" content="https://rezvan.xyz/favicon.ico"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+    function renderKaTeX() {
+        if (typeof renderMathInElement !== "undefined") {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                ],
+            });
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", renderKaTeX);
+    document.addEventListener("astro:after-swap", renderKaTeX);
+</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script>
+    function init() {
+        preloadTheme();
+        onScroll();
+        animate();
+        updateThemeButtons();
+        addCopyCodeButtons();
+        setGiscusTheme();
+
+        const backToTop = document.getElementById("back-to-top");
+        backToTop?.addEventListener("click", (event) => scrollToTop(event));
+
+        const backToPrev = document.getElementById("back-to-prev");
+        backToPrev?.addEventListener("click", () => window.history.back());
+
+        const lightThemeButton = document.getElementById("light-theme-button");
+        lightThemeButton?.addEventListener("click", () => {
+            localStorage.setItem("theme", "light");
+            toggleTheme(false);
+            updateThemeButtons();
+        });
+
+        const darkThemeButton = document.getElementById("dark-theme-button");
+        darkThemeButton?.addEventListener("click", () => {
+            localStorage.setItem("theme", "dark");
+            toggleTheme(true);
+            updateThemeButtons();
+        });
+
+        const systemThemeButton = document.getElementById(
+            "system-theme-button",
+        );
+        systemThemeButton?.addEventListener("click", () => {
+            localStorage.setItem("theme", "system");
+            toggleTheme(
+                window.matchMedia("(prefers-color-scheme: dark)").matches,
+            );
+            updateThemeButtons();
+        });
+
+        window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", (event) => {
+                if (localStorage.theme === "system") {
+                    toggleTheme(event.matches);
+                }
+            });
+
+        document.addEventListener("scroll", onScroll);
+    }
+
+    function updateThemeButtons() {
+        const theme = localStorage.getItem("theme");
+        const lightThemeButton = document.getElementById("light-theme-button");
+        const darkThemeButton = document.getElementById("dark-theme-button");
+        const systemThemeButton = document.getElementById(
+            "system-theme-button",
+        );
+
+        function removeActiveButtonTheme(button) {
+            button?.classList.remove("bg-black/5");
+            button?.classList.remove("dark:bg-white/5");
+        }
+
+        function addActiveButtonTheme(button) {
+            button?.classList.add("bg-black/5");
+            button?.classList.add("dark:bg-white/5");
+        }
+
+        removeActiveButtonTheme(lightThemeButton);
+        removeActiveButtonTheme(darkThemeButton);
+        removeActiveButtonTheme(systemThemeButton);
+
+        if (theme === "light") {
+            addActiveButtonTheme(lightThemeButton);
+        } else if (theme === "dark") {
+            addActiveButtonTheme(darkThemeButton);
+        } else {
+            addActiveButtonTheme(systemThemeButton);
+        }
+    }
+
+    function animate() {
+        const animateElements = document.querySelectorAll(".animate");
+
+        animateElements.forEach((element, index) => {
+            setTimeout(() => {
+                element.classList.add("show");
+            }, index * 100);
+        });
+    }
+
+    function onScroll() {
+        if (window.scrollY > 0) {
+            document.documentElement.classList.add("scrolled");
+        } else {
+            document.documentElement.classList.remove("scrolled");
+        }
+    }
+
+    function scrollToTop(event) {
+        event.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }
+
+    function toggleTheme(dark) {
+        const css = document.createElement("style");
+
+        css.appendChild(
+            document.createTextNode(
+                `* {
+             -webkit-transition: none !important;
+             -moz-transition: none !important;
+             -o-transition: none !important;
+             -ms-transition: none !important;
+             transition: none !important;
+          }
+        `,
+            ),
+        );
+
+        document.head.appendChild(css);
+
+        if (dark) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+
+        window.getComputedStyle(css).opacity;
+        document.head.removeChild(css);
+
+        setGiscusTheme();
+    }
+
+    function preloadTheme() {
+        const userTheme = localStorage.theme;
+
+        if (userTheme === "light" || userTheme === "dark") {
+            toggleTheme(userTheme === "dark");
+        } else {
+            toggleTheme(
+                window.matchMedia("(prefers-color-scheme: dark)").matches,
+            );
+        }
+    }
+
+    function addCopyCodeButtons() {
+        let copyButtonLabel = "📋";
+        let codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+        async function copyCode(codeBlock, copyButton) {
+            const codeText = codeBlock.innerText;
+            const buttonText = copyButton.innerText;
+            const textToCopy = codeText.replace(buttonText, "");
+
+            await navigator.clipboard.writeText(textToCopy);
+            copyButton.innerText = "✅";
+
+            setTimeout(() => {
+                copyButton.innerText = copyButtonLabel;
+            }, 2000);
+        }
+
+        for (let codeBlock of codeBlocks) {
+            const wrapper = document.createElement("div");
+            wrapper.style.position = "relative";
+
+            const copyButton = document.createElement("button");
+            copyButton.innerText = copyButtonLabel;
+            copyButton.classList = "copy-code";
+
+            codeBlock.setAttribute("tabindex", "0");
+            codeBlock.appendChild(copyButton);
+
+            codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+            wrapper.appendChild(codeBlock);
+
+            copyButton?.addEventListener("click", async () => {
+                await copyCode(codeBlock, copyButton);
+            });
+        }
+    }
+
+    const setGiscusTheme = () => {
+        const giscus = document.querySelector(".giscus-frame");
+
+        const isDark = document.documentElement.classList.contains("dark");
+
+        if (giscus) {
+            const url = new URL(giscus.src);
+            url.searchParams.set("theme", isDark ? "dark" : "light");
+            giscus.src = url.toString();
+        }
+    };
+
+    document.addEventListener("DOMContentLoaded", () => init());
+    document.addEventListener("astro:after-swap", () => init());
+    preloadTheme();
+</script><link rel="stylesheet" href="/_astro/_subject_.WmXrNcmP.css">
+<link rel="stylesheet" href="/_astro/index.C6eUsQXi.css">
+<style>summary[data-astro-cid-xvrfupwn]{cursor:pointer;border-top-left-radius:.5rem;border-top-right-radius:.5rem;padding:.375rem .75rem;font-weight:500;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}summary[data-astro-cid-xvrfupwn]:hover{background-color:#0000000d}summary[data-astro-cid-xvrfupwn]:hover:is(.dark *){background-color:#ffffff0d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]{background-color:#0000000d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]:is(.dark *){background-color:#ffffff0d}
+</style></head> <body> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto max-w-screen-sm px-3"> <div class="flex flex-wrap justify-between gap-y-4"> <div class="flex flex-col gap-y-2"> <a href="/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out">  <div class="font-semibold"> rezarezvan.com </div>  </a> <div class="flex gap-x-2"> <button id="light-theme-button" aria-label="Light theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <button id="dark-theme-button" aria-label="Dark theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <button id="system-theme-button" aria-label="System theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect> <line x1="8" y1="21" x2="16" y2="21"></line> <line x1="12" y1="17" x2="12" y2="21"></line> </svg> </button> </div> </div> <nav class="flex items-center gap-1 text-sm"> <a href="/posts" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> posts </a> <span>/</span> <a href="/chalmers" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> chalmers </a> <span>/</span> <a href="/cityu" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cityu </a> <span>/</span> <a href="/pdf/cv/cv.pdf" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cv </a> <span>/</span> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+&nbsp;Search
+</button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/chalmers/sdevt25" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> 
+Back to stochastic differential equations and deep generative models </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/chalmers/sdevt25/sdevt25_2" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 2 - Brownian Motion and Itô Integrals </div> </a> <div class="invisible"></div> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm">SDEVT25</div>
+&bull;
+<div class="font-base text-sm"> <time datetime="2025-04-07T00:00:00.000Z"> April 07, 2025 </time> </div> 
+&bull;
+<div class="font-base text-sm">9 min read</div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Part 3 - Itô Calculus </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#introduction" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Introduction </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-classical-chain-rule" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Classical Chain Rule </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#integral-form-of-the-chain-rule" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Integral Form of the Chain Rule </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#derivation-of-the-integral-form" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Derivation of the Integral Form </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#solving-odes" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Solving ODEs </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#itô-stochastic-calculus" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Itô Stochastic Calculus </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-itô-formula" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Itô Formula </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#a-toy-example" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> A Toy Example </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#vector-version" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Vector Version </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#stratonovich-sdes" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Stratonovich SDEs </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#stratonovich-vs-itô" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Stratonovich VS. Itô </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#sketch-of-proof" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Sketch of Proof </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#summary" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Summary </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#footnote-label" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Footnotes </a>  </li> </ul> </nav> </details> <article class="animate"> <h2 id="introduction">Introduction</h2>
+<p>Recall that we study SDEs of the form,</p>
+<p>$$
+\begin{align*}
+dx(t) &#x26; = \underbrace{f(x(t), t) \ dt}_{\text{drift}} + \underbrace{L(x(t), t) \ d\beta(t)}_{\text{diffusion}}, \newline
+x(t) - x(t_0) &#x26; = \underbrace{\int_{t_0}^{t} f(x(s), s) \ ds}_{\text{mean square Riemann Integral}} + \underbrace{\int_{t_0}^{t} L(x(s), s) \ d\beta(s)}_{\text{Itô Integral}},
+\end{align*}
+$$</p>
+<p>where $x(t)$ is a stochastic process and $\beta(t)$ is a Brownian motion.</p>
+<p>We define the Itô integral (of the diffusion term) as,</p>
+<p>$$
+\int_{t_0}^{t} L(x(s), s) \ d\beta(s) = \underset{\substack{n \to \infty \newline |P| \to 0}}{\text{l.i.m}} \sum_{i=0}^{n-1} L(x(t_i), t_i) (\beta(t_{i + 1}) - \beta(t_i)).
+$$</p>
+<p>Under suitable regularity conditions (e.g., $f$ and $L$ Lipschitz <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>), the above SDE has a solution $x(t)$.</p>
+<blockquote>
+<p>Properties of SDEs</p>
+<ul>
+<li>The solution $x(t)$ is a unique and continuous stochastic process, in the mean square sense.</li>
+<li>In short, $x(t)$ inherits properties of the Brownian motion and is generally <strong>not</strong> mean square <strong>differentiable</strong>.</li>
+</ul>
+</blockquote>
+<h2 id="the-classical-chain-rule">The Classical Chain Rule</h2>
+<p>Suppose $x(t)$ satisfies the ordinary differential equation (ODE),</p>
+<p>$$
+\frac{dx(t)}{dt} = f(x(t)),
+$$</p>
+<blockquote>
+<p>The Chain Rule</p>
+<p>If $\phi(x)$ is a differentiable function, then,
+$$
+\frac{d \phi(x(t))}{dt} = \underbrace{\frac{d \phi(x(t))}{dx}}_{\phi^{\prime}(x(t))} \underbrace{\frac{d x(t)}{dt}}_{x^{\prime}(t)} = \phi^{\prime}(x) f(x(t)).
+$$</p>
+</blockquote>
+<h3 id="integral-form-of-the-chain-rule">Integral Form of the Chain Rule</h3>
+<p>Suppose $x(t)$ satisfies the (same) ODE,</p>
+<p>$$
+\begin{align*}
+dx(t) &#x26; = f(x(t)) \ dt, \newline
+x(t) - x(t_0) &#x26; = \int_{t_0}^{t} f(x(s)) \ ds.
+\end{align*}
+$$</p>
+<blockquote>
+<p>The Chain Rule</p>
+<p>If $\phi(x)$ is a differentiable function, then,
+$$
+\begin{align*}
+\phi(x(t)) - \phi(x(0)) &#x26; = \int_{0}^{t} \frac{d \phi(x(s))}{ds} \ ds = \int_{0}^{t} \phi^{\prime}(x(s)) dx(s) \newline
+&#x26; = \int_{0}^{t} \phi^{\prime}(x(s)) f(x(s)) \ ds \newline
+d \phi(x(t)) &#x26; = \phi^{\prime}(x(t)) \ dx(t) = \phi^{\prime}(x(t)) f(x(t)) \ dt.
+\end{align*}
+$$</p>
+</blockquote>
+<h3 id="derivation-of-the-integral-form">Derivation of the Integral Form</h3>
+<p>Consider a partition, $a = t_0 &#x3C; t_1 &#x3C; \ldots &#x3C; t_n = b$ such that $t_{i+1} - t_i = \Delta t = \frac{b - a}{n} $ for $i = 1, 2, \ldots, n$.</p>
+<p>It follows that,</p>
+<p>$$
+\phi(x(b)) - \phi(x(a)) = \sum_{i=0}^{n-1} \phi(x(t_{i + 1})) - \phi(x(t_i)).
+$$</p>
+<p>We have $n$ terms and $\Delta t = \frac{b - a}{n} \Rightarrow \mathcal{O}(\Delta t^2)$ can be ignored as $n \to \infty$.</p>
+<p>Using $dx(t) = f(x(t)) dt$ (the ODE) and its Taylor expansion, we get,</p>
+<p>$$
+\begin{align*}
+x(t_{i + 1}) &#x26; = x(t_i) + f(x(t_i)) \Delta t + \mathcal{O}(\Delta t^2), \newline
+\phi(x(t_{i + 1})) &#x26; = \phi(x(t_i)) + \phi^{\prime}(x(t_i))(x(t_{i + 1}) - x(t_i)) + \mathcal{O}(\Delta t^2).
+\end{align*}
+$$</p>
+<p>Thus, we conclude that,
+$$
+\phi(x(b)) - \phi(x(a)) = \sum_{i=0}^{n-1} \phi^{\prime}(x(t_i)) f(x(t_i)) \Delta t  = \int_{a}^{b} \phi^{\prime}(x(t)) f(x(t)) \ dt.
+$$</p>
+<p>Recall that the ODE $dx(t) = f(x(t)) \ dt$ and that all $\mathcal{O}(\Delta t^2)$ terms can be ignored, as $n \to \infty$,</p>
+<p>$$
+\begin{align*}
+d\phi(x(t)) &#x26; = \phi^{\prime}(x(t)) \ dx(t) + \frac{1}{2} \phi^{\prime \prime}(x(t)) (dx(t))^2 + \mathcal{O}((dx(t))^3) \newline
+&#x26; = \phi^{\prime}(x(t)) \ dx(t) \newline
+&#x26; = \phi^{\prime}(x(t)) f(x(t)) \ dt.
+\end{align*}
+$$</p>
+<h3 id="solving-odes">Solving ODEs</h3>
+<p>The chain rule is useful in various contexts, but we note that it yields <strong>a new ODE</strong>,</p>
+<p>$$
+\begin{align*}
+dx(t) &#x26; = f(x(t)) \ dt, \newline
+d\phi(x(t)) &#x26; = \phi^{\prime}(x(t)) \ dx(t) \newline
+&#x26; = \phi^{\prime}(x(t)) f(x(t)) \ dt.
+\end{align*}
+$$</p>
+<p>We can use this to solve ODEs.</p>
+<blockquote>
+<p>Solving $dx(t) = -cx(t) \ dt$ where $x(0) = 1$.</p>
+<p>We introduce $\phi(x(t)) = \log x(t)$. The chain rule implies,
+$$
+d\phi(x(t)) = \frac{dx(t)}{x(t)} = -c \ dt.
+$$
+This implies that $\phi(x(t)) = -ct$ and hence,
+$$
+x(t) = \exp(-ct).
+$$</p>
+</blockquote>
+<h2 id="itô-stochastic-calculus">Itô Stochastic Calculus</h2>
+<p>Suppose $x(t)$ is described (in the Itô sense) by the SDE,</p>
+<p>$$
+dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t).
+$$</p>
+<p>The “chain rule” for $\phi(x(t))$ is called the <strong>Itô formula</strong>.</p>
+<p>To present a short derivation, we recall that,</p>
+<p>$$
+\int_{a}^{b} g(t) \ (d\beta(t))^2 = \int_{a}^{b} g(t) \ dt.
+$$</p>
+<p>It is also easy to verify that all other higher-order terms vanish, e.g.,</p>
+<p>$$
+\int_{a}^{b} g(t) \ dt \ d\beta(t) = 0.
+$$</p>
+<h3 id="the-itô-formula">The Itô Formula</h3>
+<p><strong>The Itô formula</strong> can thus be formally derived as,</p>
+<p>$$
+\begin{align*}
+d \phi(x(t)) &#x26; = \phi^{\prime}(x(t)) \ dx(t) + \frac{1}{2} \phi^{\prime \prime}(x(t)) (dx(t))^2 + \mathcal{O}((dx(t))^3) \newline
+&#x26; = \phi^{\prime}(x(t)) \left( f(x(t), t) \ dt + L(x(t), t) \ d\beta(t) \right) + \frac{1}{2} \phi^{\prime \prime}(x(t)) (L(x(t), t))^2 dt
+\end{align*}
+$$</p>
+<p>The Itô formula can be generalized to vector-valued states and $\phi, f$ and $L$ may all be time-dependent.</p>
+<p>Let’s present a scalar version where $\phi$ depends on state and time, i.e., $\phi(x(t), t)$.</p>
+<blockquote>
+<p>The Itô formula</p>
+<p>Suppose $x(t)$ is a scalar Itô process that obeys the SDE,
+$$
+dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t).
+$$
+The scalar function $\phi(x(t), t)$ can then be described by the SDE,
+$$
+d \phi(x(t), t) = \frac{\partial \phi}{\partial t} dt + \frac{\partial \phi}{\partial x} dx(t) + \frac{1}{2} \frac{\partial^2 \phi}{\partial x^2} L(x(t))^2 dt.
+$$</p>
+</blockquote>
+<p>We can use this to solve SDEs.</p>
+<blockquote>
+<p>Solving $dx(t) = -cx(t) \ dt + x(t) \ d\beta(t)$ where $x(0) = 1$.</p>
+<p>We introduce $\phi(x(t), t) = \log x(t) + ct$. The Itô formula implies,
+$$
+d \phi(x(t), t) = \frac{dx(t)}{x(t)} - \frac{(dx(t))^2}{2 (x(t))^2} = -c \ dt + d\beta(t) - \frac{1}{2} dt.
+$$
+This implies that $\phi(x(t), t) = -(c + \frac{1}{2}) t + \beta(t)$ and hence,
+$$
+x(t) = \exp\left(-\left(c + \frac{1}{2}\right) t + \beta(t)\right).
+$$</p>
+</blockquote>
+<h3 id="a-toy-example">A Toy Example</h3>
+<blockquote>
+<p>Squared Brownian Motion</p>
+<p>Suppose x(0) = 0 and $dx(t) = d\beta(t)$ such that $x(t) = \beta(t)$.
+For $\phi(x(t)) = x^2(t)$, the Itô formula specifies that,
+$$
+d \phi(x(t)) = 2 x(t) \ dx(t) + (dx(t))^2 = 2 \beta(t) d\beta(t) + dt.
+$$
+$$
+\Rightarrow \int_{0}^{t} d \phi(x(s)) = \beta^2(t) = \int_{0}^{t} 2 \beta(s) d\beta(s) + t.
+$$
+<strong>Note</strong>, for differentiable functions we get,
+$$
+\int_{0}^{t} f(s) df(s) = \int_{0}^{t} f(s) f^{\prime}(s) ds = \frac{1}{2} \int_{0}^{t} \frac{d f^2(s)}{ds} ds = \frac{f^2(t) - f^2(0)}{2},
+$$</p>
+</blockquote>
+<p>whereas the Itô formula yields and extra $t$ term.</p>
+<p>Starting from the SDE $(x(t) = \beta(t))$,
+$$
+dx(t) = d\beta(t),
+$$</p>
+<p>we have derived an SDE for $\phi(x(t)) = \beta^2(t)$,
+$$
+d(\Beta^2(t)) = 2 \beta(t) d\beta(t) + t.
+$$</p>
+<p><img src="/images/school/SDEVT25/beta_beta_squared.svg" alt="">
+<strong>Figure 1</strong>: Brownian motion and its square.</p>
+<p>To verify the result, let us use the definition of the Itô integrals,</p>
+<blockquote>
+<p>Squared Brownian Motion</p>
+<p>The Itô formula implies that,
+$$
+\begin{equation}
+\int_{a}^{b} d \beta^2(t) = \int_{a}^{b} 2 \beta(t) d\beta(t) + \int_{a}^{b} dt.
+\end{equation}
+$$
+Using a partition, $a = t_0 &#x3C; t_1 &#x3C; \ldots &#x3C; t_n = b$, the first integral is,
+$$
+\begin{align*}
+\sum_{i=0}^{n-1} \underbrace{(\beta^2(t_{i + 1}) - \beta^2(t_i))}_{a^2 - b^2} &#x26; = \sum_{i=0}^{n-1} (\beta(t_{i + 1}) + \beta(t_i)) (\beta(t_{i + 1}) - \beta(t_i)) \newline
+&#x26; = \sum_{i=0}^{n-1} 2 \beta(t_i) (\beta(t_{i + 1}) - \beta(t_i)) + (\beta(t_{i + 1}) - \beta(t_i))^2,
+\end{align*}
+$$</p>
+</blockquote>
+<p>This converges (in mean square) to the right-hand side of (1) as $n \to \infty$.</p>
+<p>We can also visualize the nonlinear function $\phi(x(t))$ as a function of $x(t)$.</p>
+<blockquote>
+<p>Squared Brownian Motion</p>
+<p>We visualize $\beta^2(t)$ as a function of $\beta(t)$.</p>
+<p>Sum of the previous two integrals is the second-order Taylor expansion with respect to $\beta(t_{i + 1})$.</p>
+<p>The quadratic term converges in mean square to $b - a = 1$ as $n \to \infty$.</p>
+</blockquote>
+<p><img src="/images/school/SDEVT25/beta_squared_second_order_taylor.svg" alt="">
+<strong>Figure 2</strong>: Squared Brownian motion as a function of Brownian motion.
+Notice how the quadratic term ensures that the Taylor expansion converges to the point heightwise.</p>
+<h3 id="vector-version">Vector Version</h3>
+<p>Consider a multi-dimensional SDE,</p>
+<p>$$
+\begin{equation}
+d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \ dt + \mathbf{L}(\mathbf{x}(t), t) d\beta(t),
+\end{equation}
+$$</p>
+<p>where $\mathbf{x}$ and $\mathbf{f}$ are $n \times 1$, $\mathbf{L}$ is $n \times m$ and $\beta(t)$ is $m \times 1$ with independent Brownian elements.</p>
+<p>It follows that,</p>
+<p>$$
+d \phi(\mathbf{x}(t), t) = \frac{\partial \phi(\mathbf{x}(t), t)}{\partial t} dt + \sum_i \frac{\partial \phi(\mathbf{x}(t), t)}{\partial x_i(t)} dx_i(t) \newline + \frac{1}{2} \sum_{i,j} \frac{\partial^2 \phi(\mathbf{x}(t), t)}{\partial x_i(t) \partial x_j(t)} dx_i(t) d x_j(t).
+$$</p>
+<p>All higher-order terms vanish expect $(d\beta(t))^2 = dt$.</p>
+<p>We can express the relation on a more compact form,</p>
+<p>$$
+\begin{align*}
+d \phi(\mathbf{x}(t), t) &#x26; = \frac{\partial \phi(\mathbf{x}(t), t)}{\partial t} dt + \sum_i \frac{\partial \phi(\mathbf{x}(t), t)}{\partial x_i(t)} dx_i(t) \newline &#x26; + \frac{1}{2} \sum_{i,j} \frac{\partial^2 \phi(\mathbf{x}(t), t)}{\partial x_i(t) \partial x_j(t)} dx_i(t) d x_j(t) \newline
+&#x26; = \frac{\partial \phi}{\partial t} dt + (\nabla_{\mathbf{x}} \phi)^T d\mathbf{x}(t) + \frac{1}{2} d\mathbf{x}(t)^T \nabla_{\mathbf{x}} \nabla_{\mathbf{x}}^T \phi \ d\mathbf{x}(t).
+\end{align*}
+$$</p>
+<p>Using the expression for the SDE,
+$$
+\begin{align*}
+d \phi(\mathbf{x}(t), t) &#x26; = \frac{\partial \phi}{\partial t} dt + (\nabla_{\mathbf{x}} \phi)^T d \mathbf{x}(t) + \frac{1}{2} d \beta^T \mathbf{L}^T \nabla_{\mathbf{x}} \nabla_{\mathbf{x}}^T \phi \mathbf{L} \ d\beta \newline
+&#x26; = \frac{\partial \phi}{\partial t} dt + (\nabla_{\mathbf{x}} \phi)^T d \mathbf{x}(t) + \frac{1}{2} tr \{\mathbf{L}^T \nabla_{\mathbf{x}} \nabla_{\mathbf{x}}^T \phi \mathbf{L} \} dt
+\end{align*}
+$$</p>
+<blockquote>
+<p>The Itô formula for vector states</p>
+<p>Consider a multi-dimensional SDE,
+$$
+\begin{equation}
+d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \ dt + \mathbf{L}(\mathbf{x}(t), t) \ d\beta(t).
+\end{equation}
+$$
+where $\mathbf{x}$ and $\mathbf{f}$ are $n \times 1$, $\mathbf{L}$ is $n \times m$ and $\beta(t)$ is $m \times 1$ with independent Brownian elements.
+Under suitable regularity, the scalar function $\phi(\mathbf{x}(t), t)$ satisfies,
+$$
+d \phi(\mathbf{x}(t), t) = \frac{\partial \phi}{\partial t} dt + (\nabla_{\mathbf{x}} \phi)^T d \mathbf{x}(t) + \frac{1}{2} tr \{\mathbf{L}^T \nabla_{\mathbf{x}} \nabla_{\mathbf{x}}^T \phi \mathbf{L} \} dt.
+$$</p>
+</blockquote>
+<h2 id="stratonovich-sdes">Stratonovich SDEs</h2>
+<p>Most SDEs are described using Itô integrals,
+$$
+\int_{a}^{b} L(x(t)) \ d\beta(t) \triangleq \underset{n \to \infty}{\text{l.i.m}} \sum_{i=0}^{n-1} L(x(t_i)) (\beta(t_{i + 1}) - \beta(t_i)),
+$$</p>
+<p>but it is not the only option.</p>
+<blockquote>
+<p>The Stratonovich Integral</p>
+<p>The stochastic integral of Stratonovich is defined as,
+$$
+\int_{a}^{b} L(x(t)) \circ d\beta(t) = \underset{n \to \infty}{\text{l.i.m}} \sum_{i=0}^{n-1} \frac{L(x(t_{i + 1})) + L(x(t_i))}{2} (\beta(t_{i + 1}) - \beta(t_i)).
+$$</p>
+</blockquote>
+<p>One advantage of Stratonovich is that the chain rule holds!</p>
+<h3 id="stratonovich-vs-itô">Stratonovich VS. Itô</h3>
+<blockquote>
+<p>Converting SDEs</p>
+<p>The Stratonovich SDE,
+$$
+dx(t) = f(x(t)) \ dt + L(x(t)) \circ d\beta(t),
+$$
+is equivalent to the Itô SDE,
+$$
+dx(t) = \left( f(x(t)) + \frac{1}{2} L^{\prime}(x(t)) L(x(t)) \right) dt + L(x(t)) \ d\beta(t).
+$$</p>
+</blockquote>
+<p>Hence, we can use results from Itô SDEs (e.g., Euler-Maruyama or the Itô formula) also on Stratonovich SDEs.
+We will always assume Itô SDEs, but for completeness, one can write, e.g., “in the Itô sense” or “in the Stratonovich sense”.</p>
+<h3 id="sketch-of-proof">Sketch of Proof</h3>
+<p>Consider the Stratonovich SDE,
+$$
+dx(t) = f(x(t)) \ dt + L(x(t)) \circ d\beta(t).
+$$</p>
+<p>The conversion to an Itô SDE follows from $(\Delta \beta_i \triangleq \beta(t_{i + 1} - \beta(t_i))$,</p>
+<p>$$
+\begin{align*}
+\int L(x(t)) \circ d\beta(t) &#x26; = \underset{n \to \infty}{\text{l.i.m}} \sum_{i=0}^{n-1} \frac{L(x(t_{i + 1})) + L(x(t_i))}{2} \Delta \beta_i \newline
+\text{\{Taylor Expansion\}} &#x26; = \underset{n \to \infty}{\text{l.i.m}} \sum_{i=0}^{n-1} \left( L(x(t_i)) + \frac{1}{2} L^{\prime}(x(t_i))(x(t_{i + 1}) - x(t_i)) \right) \Delta \beta_i \newline
+&#x26; = \underset{n \to \infty}{\text{l.i.m}} \sum_{i=0}^{n-1} L(x(t_i)) \Delta \beta_i + \frac{1}{2} L^{\prime}(x(t_i)) L(x(t_i)) \Delta \beta_i^2
+\end{align*}
+$$</p>
+<h2 id="summary">Summary</h2>
+<blockquote>
+<p>The Itô formula</p>
+<p>Suppose $x(t)$ is a scalar Itô process that obeys the SDE,
+$$
+dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t).
+$$
+The scalar function $\phi(x(t), t)$ can then be described by the SDE,
+$$
+d \phi(x(t), t) = \frac{\partial \phi}{\partial t} dt + \frac{\partial \phi}{\partial x} dx(t) + \frac{1}{2} \frac{\partial^2 \phi}{\partial x^2} L(x(t))^2 dt.
+$$
+The Itô formula is essential for understanding and working with SDEs.</p>
+</blockquote>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p><a href="https://en.wikipedia.org/wiki/Lipschitz_continuity">Wikipedia, Lipschitz function</a> <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section> <div class="mt-24"> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/chalmers/sdevt25/sdevt25_2" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 2 - Brownian Motion and Itô Integrals </div> </a> <div class="invisible"></div> </div> </div> <div class="mt-24"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezvan.xyz" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </article> </div>  </main> <footer class="animate"> <div class="mx-auto max-w-screen-sm px-3"> <div class="relative"> <div class="absolute -top-12 right-0"> <button id="back-to-top" class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm">Back to top</div> </button> </div> </div> <div class="flex items-center justify-between"> <div>&copy; 2025 • rezarezvan.com</div> <div class="flex flex-wrap items-center gap-1.5"></div> </div> </div> </footer> <aside data-pagefind-ignore> <div id="backdrop" class="bg-[rgba(0, 0, 0, 0.5] invisible fixed left-0 top-0 z-50 flex h-screen w-full justify-center p-6 backdrop-blur-sm" data-astro-transition-persist="astro-3snakcvo-2"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="mr-2 pb-1 pt-4 text-right text-xs dark:prose-invert">
+Press <span class="prose text-xs dark:prose-invert"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> </aside> <script>
+  const magnifyingGlass = document.getElementById("magnifying-glass");
+  const backdrop = document.getElementById("backdrop");
+
+  function openPagefind() {
+    const searchDiv = document.getElementById("search");
+    const search = searchDiv.querySelector("input");
+    setTimeout(() => {
+      search.focus();
+    }, 0);
+    backdrop?.classList.remove("invisible");
+    backdrop?.classList.add("visible");
+  }
+
+  function closePagefind() {
+    const search = document.getElementById("search");
+    search.value = "";
+    backdrop?.classList.remove("visible");
+    backdrop?.classList.add("invisible");
+  }
+
+  // open pagefind
+  magnifyingGlass?.addEventListener("click", () => {
+    openPagefind();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "/") {
+      e.preventDefault();
+      openPagefind();
+    } else if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      e.preventDefault();
+      openPagefind();
+    }
+  });
+
+  // close pagefind
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" || e.keyCode === 27) {
+      closePagefind();
+    }
+  });
+
+  // close pagefind when searched result(link) clicked
+  document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("pagefind-ui__result-link")) {
+      closePagefind();
+    }
+  });
+
+  backdrop?.addEventListener("click", (event) => {
+    if (!event.target.closest("#pagefind-container")) {
+      closePagefind();
+    }
+  });
+
+  // prevent form submission
+  const form = document.getElementById("form");
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+</script>  </body></html>
