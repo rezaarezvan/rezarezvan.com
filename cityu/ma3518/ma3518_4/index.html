@@ -1,413 +1,153 @@
-<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/icon" href="/favicon.ico"><meta name="generator" content="Astro v5.5.5"><!-- Canonical URL --><link rel="canonical" href="https://rezvan.xyz/cityu/ma3518/ma3518_4/"><!-- Primary Meta Tags --><title>Part 4 - Simple Linear Regression | applied statistics | rezarezvan.com</title><meta name="title" content="Part 4 - Simple Linear Regression | applied statistics | rezarezvan.com"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://rezvan.xyz/cityu/ma3518/ma3518_4/"><meta property="og:title" content="Part 4 - Simple Linear Regression | applied statistics | rezarezvan.com"><meta property="og:description"><meta property="og:image" content="https://rezvan.xyz/favicon.ico"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://rezvan.xyz/cityu/ma3518/ma3518_4/"><meta property="twitter:title" content="Part 4 - Simple Linear Regression | applied statistics | rezarezvan.com"><meta property="twitter:description"><meta property="twitter:image" content="https://rezvan.xyz/favicon.ico"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+<!DOCTYPE html><html lang="en-US"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v5.7.0"><meta name="robots" content="index, follow"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="rezarezvan.com" href="https://rezaarezvan.com/rss.xml"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
     function renderKaTeX() {
-        if (typeof renderMathInElement !== "undefined") {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    { left: "$$", right: "$$", display: true },
-                    { left: "$", right: "$", display: false },
-                ],
-            });
-        }
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        })
+      }
     }
 
-    document.addEventListener("DOMContentLoaded", renderKaTeX);
-    document.addEventListener("astro:after-swap", renderKaTeX);
-</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script>
+    document.addEventListener('DOMContentLoaded', renderKaTeX)
+    document.addEventListener('astro:after-swap', renderKaTeX)
+  </script><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/favicon.ico"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="rezvan-blog"><link rel="manifest" href="/site.webmanifest"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.BZs-2RF_.js"></script><script>
     function init() {
-        preloadTheme();
-        onScroll();
-        animate();
-        updateThemeButtons();
-        addCopyCodeButtons();
-        setGiscusTheme();
-
-        const backToTop = document.getElementById("back-to-top");
-        backToTop?.addEventListener("click", (event) => scrollToTop(event));
-
-        const backToPrev = document.getElementById("back-to-prev");
-        backToPrev?.addEventListener("click", () => window.history.back());
-
-        const lightThemeButton = document.getElementById("light-theme-button");
-        lightThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "light");
-            toggleTheme(false);
-            updateThemeButtons();
-        });
-
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        darkThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "dark");
-            toggleTheme(true);
-            updateThemeButtons();
-        });
-
-        const systemThemeButton = document.getElementById(
-            "system-theme-button",
-        );
-        systemThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "system");
-            toggleTheme(
-                window.matchMedia("(prefers-color-scheme: dark)").matches,
-            );
-            updateThemeButtons();
-        });
-
-        window
-            .matchMedia("(prefers-color-scheme: dark)")
-            .addEventListener("change", (event) => {
-                if (localStorage.theme === "system") {
-                    toggleTheme(event.matches);
-                }
-            });
-
-        document.addEventListener("scroll", onScroll);
-    }
-
-    function updateThemeButtons() {
-        const theme = localStorage.getItem("theme");
-        const lightThemeButton = document.getElementById("light-theme-button");
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        const systemThemeButton = document.getElementById(
-            "system-theme-button",
-        );
-
-        function removeActiveButtonTheme(button) {
-            button?.classList.remove("bg-black/5");
-            button?.classList.remove("dark:bg-white/5");
-        }
-
-        function addActiveButtonTheme(button) {
-            button?.classList.add("bg-black/5");
-            button?.classList.add("dark:bg-white/5");
-        }
-
-        removeActiveButtonTheme(lightThemeButton);
-        removeActiveButtonTheme(darkThemeButton);
-        removeActiveButtonTheme(systemThemeButton);
-
-        if (theme === "light") {
-            addActiveButtonTheme(lightThemeButton);
-        } else if (theme === "dark") {
-            addActiveButtonTheme(darkThemeButton);
-        } else {
-            addActiveButtonTheme(systemThemeButton);
-        }
-    }
-
-    function animate() {
-        const animateElements = document.querySelectorAll(".animate");
-
-        animateElements.forEach((element, index) => {
-            setTimeout(() => {
-                element.classList.add("show");
-            }, index * 100);
-        });
-    }
-
-    function onScroll() {
-        if (window.scrollY > 0) {
-            document.documentElement.classList.add("scrolled");
-        } else {
-            document.documentElement.classList.remove("scrolled");
-        }
-    }
-
-    function scrollToTop(event) {
-        event.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    }
-
-    function toggleTheme(dark) {
-        const css = document.createElement("style");
-
-        css.appendChild(
-            document.createTextNode(
-                `* {
-             -webkit-transition: none !important;
-             -moz-transition: none !important;
-             -o-transition: none !important;
-             -ms-transition: none !important;
-             transition: none !important;
-          }
-        `,
-            ),
-        );
-
-        document.head.appendChild(css);
-
-        if (dark) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-
-        window.getComputedStyle(css).opacity;
-        document.head.removeChild(css);
-
-        setGiscusTheme();
-    }
-
-    function preloadTheme() {
-        const userTheme = localStorage.theme;
-
-        if (userTheme === "light" || userTheme === "dark") {
-            toggleTheme(userTheme === "dark");
-        } else {
-            toggleTheme(
-                window.matchMedia("(prefers-color-scheme: dark)").matches,
-            );
-        }
-    }
-
-    function addCopyCodeButtons() {
-        let copyButtonLabel = "📋";
-        let codeBlocks = Array.from(document.querySelectorAll("pre"));
-
-        async function copyCode(codeBlock, copyButton) {
-            const codeText = codeBlock.innerText;
-            const buttonText = copyButton.innerText;
-            const textToCopy = codeText.replace(buttonText, "");
-
-            await navigator.clipboard.writeText(textToCopy);
-            copyButton.innerText = "✅";
-
-            setTimeout(() => {
-                copyButton.innerText = copyButtonLabel;
-            }, 2000);
-        }
-
-        for (let codeBlock of codeBlocks) {
-            const wrapper = document.createElement("div");
-            wrapper.style.position = "relative";
-
-            const copyButton = document.createElement("button");
-            copyButton.innerText = copyButtonLabel;
-            copyButton.classList = "copy-code";
-
-            codeBlock.setAttribute("tabindex", "0");
-            codeBlock.appendChild(copyButton);
-
-            codeBlock.parentNode.insertBefore(wrapper, codeBlock);
-            wrapper.appendChild(codeBlock);
-
-            copyButton?.addEventListener("click", async () => {
-                await copyCode(codeBlock, copyButton);
-            });
-        }
+      setGiscusTheme()
     }
 
     const setGiscusTheme = () => {
-        const giscus = document.querySelector(".giscus-frame");
+      const giscus = document.querySelector('.giscus-frame')
 
-        const isDark = document.documentElement.classList.contains("dark");
+      const isDark = document.documentElement.classList.contains('dark')
 
-        if (giscus) {
-            const url = new URL(giscus.src);
-            url.searchParams.set("theme", isDark ? "dark" : "light");
-            giscus.src = url.toString();
-        }
-    };
+      if (giscus) {
+        const url = new URL(giscus.src)
+        url.searchParams.set('theme', isDark ? 'dark' : 'light')
+        giscus.src = url.toString()
+      }
+    }
 
-    document.addEventListener("DOMContentLoaded", () => init());
-    document.addEventListener("astro:after-swap", () => init());
-    preloadTheme();
-</script><link rel="stylesheet" href="/_astro/_subject_.WmXrNcmP.css">
-<link rel="stylesheet" href="/_astro/index.C6eUsQXi.css">
-<style>summary[data-astro-cid-xvrfupwn]{cursor:pointer;border-top-left-radius:.5rem;border-top-right-radius:.5rem;padding:.375rem .75rem;font-weight:500;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}summary[data-astro-cid-xvrfupwn]:hover{background-color:#0000000d}summary[data-astro-cid-xvrfupwn]:hover:is(.dark *){background-color:#ffffff0d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]{background-color:#0000000d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]:is(.dark *){background-color:#ffffff0d}
-</style></head> <body> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto max-w-screen-sm px-3"> <div class="flex flex-wrap justify-between gap-y-4"> <div class="flex flex-col gap-y-2"> <a href="/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out">  <div class="font-semibold"> rezarezvan.com </div>  </a> <div class="flex gap-x-2"> <button id="light-theme-button" aria-label="Light theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <button id="dark-theme-button" aria-label="Dark theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <button id="system-theme-button" aria-label="System theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect> <line x1="8" y1="21" x2="16" y2="21"></line> <line x1="12" y1="17" x2="12" y2="21"></line> </svg> </button> </div> </div> <nav class="flex items-center gap-1 text-sm"> <a href="/posts" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> posts </a> <span>/</span> <a href="/chalmers" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> chalmers </a> <span>/</span> <a href="/cityu" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cityu </a> <span>/</span> <a href="/pdf/cv/cv.pdf" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cv </a> <span>/</span> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+    document.addEventListener('DOMContentLoaded', () => init())
+    document.addEventListener('astro:after-swap', () => init())
+  </script><title>Part 4 - Simple Linear Regression | rezarezvan.com</title><meta name="title" content="Part 4 - Simple Linear Regression | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com"><meta property="og:title" content="Part 4 - Simple Linear Regression"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.comundefined"><meta property="og:image:alt" content="Part 4 - Simple Linear Regression"><meta property="og:type" content="website"><meta property="og:locale" content="en-US"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezaarezvan.com/cityu/ma3518/ma3518_4/"><meta name="twitter:title" content="Part 4 - Simple Linear Regression"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.comundefined"><meta name="twitter:image:alt" content="Part 4 - Simple Linear Regression"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/index.CMAis0x6.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <header class="bg-background/50 sticky top-0 z-10 backdrop-blur-md" data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 p-4"> <a href="/" target="_self" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center gap-2 text-xl font-medium"> rezarezvan.com </a> <div class="flex items-center gap-2 md:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex"> <a href="/blog" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/chalmers" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> chalmers<span>/</span>  </a><a href="/cityu" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> cityu<span>/</span>  </a><a href="/about" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> about<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
 &nbsp;Search
-</button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/cityu/ma3518" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> 
-Back to applied statistics </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/cityu/ma3518/ma3518_3" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 3 - Confidence Interval and Hypothesis Testing </div> </a> <a href="/cityu/ma3518/ma3518_5" class="group relative flex flex-grow flex-row-reverse flex-nowrap rounded-lg border border-black/15 px-4 py-4 pr-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 19 12 12 19" class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 5 - Multiple Linear Regression </div> </a> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm">MA3518</div>
-&bull;
-<div class="font-base text-sm"> <time datetime="2024-11-07T00:00:00.000Z"> November 07, 2024 </time> </div> 
-&bull;
-<div class="font-base text-sm">
-Last modified:  <time datetime="2024-11-16T11:34:57.000Z"> November 16, 2024 </time> </div> 
-&bull;
-<div class="font-base text-sm">12 min read</div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Part 4 - Simple Linear Regression </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#introduction" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Introduction </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#simple-linear-regression" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Simple Linear Regression </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#least-squares-estimator" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Least Squares Estimator </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#inferences" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Inferences </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#confidence-interval" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Confidence Interval </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#confidence-interval-on-the-mean-response" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Confidence Interval on the Mean Response </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#prediction-of-new-observations" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Prediction of new observations </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#analysis-of-variance-anova" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Analysis of Variance (ANOVA) </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#analysis-of-variance-table" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Analysis of Variance Table </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#coefficient-of-determination" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Coefficient of Determination </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#connection-to-correlation-coefficient" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Connection to correlation coefficient </a>  </li> </ul> </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#example" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Example </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#diagnostic-tools-for-model-checking" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Diagnostic Tools for Model Checking </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#leverage-points" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Leverage Points </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#standardized-residuals" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Standardized Residuals </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#outliers" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Outliers </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#cooks-distance" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Cook’s Distance </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#normality-of-errors" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Normality of Errors </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#non-constant-variance" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Non-constant Variance </a>  </li> </ul> </li> </ul> </nav> </details> <article class="animate"> <h3 id="introduction">Introduction</h3>
-<p>The main objective of many statistical investigations is to make predictions.</p>
-<p>For instance, an engineer may wish to predict the amount of oxide that will form on the surface of a metal baked in an oven for one hour at 200$^{\circ}$C, or the amount of deformation of a ring subjected to a certain compressive force.</p>
-<p>Usually, such predictions require a formula which relates the dependent variable whose value we want to predict (or called response) to one or more other variables, usually called predictors (or regressors).</p>
-<p>The collection of statistical tools for this is called <strong>regression analysis</strong>.</p>
-<h3 id="simple-linear-regression">Simple Linear Regression</h3>
-<p>The simplest form of regression analysis is <strong>simple linear regression</strong>, which involves a single predictor and a single response variable.</p>
-<p>$$
+</button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Z5JIkC" prefix="r5" component-url="/_astro/mobile-menu.C9T2c5u4.js" component-export="default" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;data-astro-transition-persist&quot;:[0,&quot;astro-lci6dfah-2&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" data-astro-transition-persist="astro-lci6dfah-2" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r5R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem('theme') ?? ''
+    if (['dark', 'light'].includes(localStorageTheme)) {
+      return localStorageTheme
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })()
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark')
+  } else {
+    document.documentElement.classList.add('dark')
+  }
+
+  window.localStorage.setItem('theme', theme)
+</script> <script type="module">function a(){const e=document.documentElement;e.classList.add("disable-transitions"),e.classList.toggle("dark"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("disable-transitions")});const t=e.classList.contains("dark");localStorage.setItem("theme",t?"dark":"light")}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme"),t=document.documentElement;t.classList.add("disable-transitions"),window.getComputedStyle(t).getPropertyValue("opacity"),e==="dark"?t.classList.add("dark"):t.classList.remove("dark"),requestAnimationFrame(()=>{t.classList.remove("disable-transitions")}),s()});</script> </div> </div> </header> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/cityu"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:graduation-cap">   <symbol id="ai:lucide:graduation-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol><use href="#ai:lucide:graduation-cap"></use>  </svg> CityU </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/cityu/ma3518"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:book-open">   <symbol id="ai:lucide:book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z"/></symbol><use href="#ai:lucide:book-open"></use>  </svg> Applied Statistics </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> Part 4 - Simple Linear Regression </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 text-4xl leading-tight font-medium text-pretty sm:text-5xl"> Part 4 - Simple Linear Regression </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground">MA3518</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>November 7, 2024</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>12 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/cityu/ma3518/ma3518_5" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Part 5 - Multiple Linear Regression </span> </div>  </a> <a href="/cityu/ma3518/ma3518_3" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Part 3 - Confidence Interval and Hypothesis Testing </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <details open class="group col-start-2 rounded-xl border p-4 xl:sticky xl:top-20 xl:col-start-1 xl:mr-8 xl:ml-auto xl:h-[calc(100vh-5rem)] xl:max-w-fit xl:rounded-none xl:border-none xl:p-0"> <summary class="flex cursor-pointer items-center justify-between text-xl font-medium group-open:pb-4 xl:hidden"> <span>Table of Contents</span> <svg width="1em" height="1em" class="size-5 shrink-0 transition-transform group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg> </summary> <astro-island uid="Z1LupDE" prefix="r8" component-url="/_astro/scroll-area.DmWfVO5M.js" component-export="ScrollArea" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;className&quot;:[0,&quot;flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]&quot;],&quot;type&quot;:[0,&quot;always&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot> <ul class="flex list-none flex-col gap-y-2 px-4 xl:mr-8" id="table-of-contents"> <li class="hidden text-lg font-medium xl:block">Table of Contents</li> <li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#introduction" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Introduction </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#simple-linear-regression" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Simple Linear Regression </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#least-squares-estimator" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Least Squares Estimator </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#inferences" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Inferences </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#confidence-interval" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Confidence Interval </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#confidence-interval-on-the-mean-response" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Confidence Interval on the Mean Response </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#prediction-of-new-observations" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Prediction of new observations </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#analysis-of-variance-anova" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Analysis of Variance (ANOVA) </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#analysis-of-variance-table" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Analysis of Variance Table </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#coefficient-of-determination" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Coefficient of Determination </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#connection-to-correlation-coefficient" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Connection to correlation coefficient </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#example" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Example </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#diagnostic-tools-for-model-checking" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Diagnostic Tools for Model Checking </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#leverage-points" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Leverage Points </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#standardized-residuals" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Standardized Residuals </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#outliers" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Outliers </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#cooks-distance" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Cook’s Distance </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#normality-of-errors" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Normality of Errors </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#non-constant-variance" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Non-constant Variance </a> </li> </ul> </astro-slot></div></div><div data-orientation="vertical" data-slot="scroll-area-scrollbar" class="flex touch-none p-px transition-colors select-none h-full w-2.5 border-l border-l-transparent" style="position:absolute;top:0;right:0;bottom:var(--radix-scroll-area-corner-height);--radix-scroll-area-thumb-height:18px"></div></div><!--astro:end--></astro-island> </details> <script type="module">function s(){const t=document.querySelector("header"),c=t?t.offsetHeight:0,a=new IntersectionObserver(e=>{e.forEach(o=>{const r=o.target.querySelector("h2, h3, h4, h5, h6");if(!r)return;const d=r.getAttribute("id"),n=document.querySelector(`#table-of-contents li a[href="#${d}"]`);if(!n)return;const i=o.isIntersecting?"add":"remove";n.classList[i]("text-foreground")})},{rootMargin:`-${c}px 0px 0px 0px`});document.querySelectorAll(".prose section").forEach(e=>{a.observe(e)})}document.addEventListener("astro:page-load",s);document.addEventListener("astro:after-swap",s);</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
+
+
+<meta charset="utf-8">
+<title>MA3518_4</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" rel="stylesheet">
+
+
+<section><h3 id="introduction">Introduction</h3><p>The main objective of many statistical investigations is to make predictions.</p><p>For instance, an engineer may wish to predict the amount of oxide that will form on the surface of a metal baked in an oven for one hour at 200$^{\circ}$C, or the amount of deformation of a ring subjected to a certain compressive force.</p><p>Usually, such predictions require a formula which relates the dependent variable whose value we want to predict (or called response) to one or more other variables, usually called predictors (or regressors).</p><p>The collection of statistical tools for this is called <strong>regression analysis</strong>.</p></section>
+<section><h3 id="simple-linear-regression">Simple Linear Regression</h3><p>The simplest form of regression analysis is <strong>simple linear regression</strong>, which involves a single predictor and a single response variable.</p><p>$$
 Y = \beta_0 + \beta_1 X + e
-$$</p>
-<p>where:</p>
-<ul>
+$$</p><p>where:</p><ul>
 <li>$Y$ is the response variable.</li>
 <li>$X$ is the predictor variable.</li>
 <li>$\beta_0$ is the intercept.</li>
 <li>$\beta_1$ is the slope.</li>
-</ul>
-<p>Assume that $\mathbb{E}(e) = 0$ and $\text{Var}(e) = \sigma^2$.</p>
-<p>Suppose we fix $X = x$, meaning</p>
-<p>$$
+</ul><p>Assume that $\mathbb{E}(e) = 0$ and $\text{Var}(e) = \sigma^2$.</p><p>Suppose we fix $X = x$, meaning</p><p>$$
 Y = \beta_0 + \beta_1 x + e,
-$$</p>
-<p>with mean $\mathbb{E}(Y) = \beta_0 + \beta_1 x$ and variance $\text{Var}(Y) = \sigma^2$ ($Y$ is normal if $e$ is normal).</p>
-<p>The linear function $\beta_0 + \beta_1 x$ is thus the function giving the mean value of $Y$ for each possible value of $X$.</p>
-<p>It is called the regression function (or regression line) and will be denoted as,
+$$</p><p>with mean $\mathbb{E}(Y) = \beta_0 + \beta_1 x$ and variance $\text{Var}(Y) = \sigma^2$ ($Y$ is normal if $e$ is normal).</p><p>The linear function $\beta_0 + \beta_1 x$ is thus the function giving the mean value of $Y$ for each possible value of $X$.</p><p>It is called the regression function (or regression line) and will be denoted as,
 $$
 \mu_{Y | X = x} = \mathbb{E}(Y | X = x) = \beta_0 + \beta_1 x.
-$$</p>
-<p>The slope $\beta_1$ is the change in mean of $Y$ for one unit change in $X$, the intercept $\beta_0$ is the mean value of $Y$ when $X = 0$.</p>
-<h3 id="least-squares-estimator">Least Squares Estimator</h3>
-<p>Gauss proposed estimating $\beta_0$ and $\beta_1$ to minimize the sum of the squares of the vertical deviations between the observed responses and the fitted line.</p>
-<p>These deviations are called the residuals.</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Linear_regression.svg/438px-Linear_regression.svg.png" alt="">
+$$</p><p>The slope $\beta_1$ is the change in mean of $Y$ for one unit change in $X$, the intercept $\beta_0$ is the mean value of $Y$ when $X = 0$.</p></section>
+<section><h3 id="least-squares-estimator">Least Squares Estimator</h3><p>Gauss proposed estimating $\beta_0$ and $\beta_1$ to minimize the sum of the squares of the vertical deviations between the observed responses and the fitted line.</p><p>These deviations are called the residuals.</p><p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Linear_regression.svg/438px-Linear_regression.svg.png" alt="">
 <strong>Figure 1</strong>: The residuals are the vertical distances between the data points and the fitted line.
-<a href="https://en.wikipedia.org/wiki/Linear_regression">Source</a></p>
-<p>For any “candidate” straight line $Y = a + bX$, we can write $R(a, b) = \sum_{i = 1}^N (Y_i - (a + bX_i))^2$.</p>
-<p>The minimizers are $(\hat{\beta_0}, \hat{\beta_1})$, with</p>
-<p>$$
+<a href="https://en.wikipedia.org/wiki/Linear_regression" rel="nofollow noreferrer noopener" target="_blank">Source</a></p><p>For any “candidate” straight line $Y = a + bX$, we can write $R(a, b) = \sum_{i = 1}^N (Y_i - (a + bX_i))^2$.</p><p>The minimizers are $(\hat{\beta_0}, \hat{\beta_1})$, with</p><p>$$
 \hat{\beta_1}= \frac{\sum_i X_i Y_i - \frac{\left(\sum_i X_i\right) \left(\sum_i Y_i\right)}{n}}{\sum_i X_i^2 - \frac{\left(\sum_i X_i\right)^2}{n}}
-$$</p>
-<p>and</p>
-<p>$$
+$$</p><p>and</p><p>$$
 \hat{\beta_0}= \bar{Y} - \hat{\beta}_1 \bar{X},
-$$</p>
-<p>where $\bar{X} = \frac{1}{n} \sum_i X_i$ and $\bar{Y} = \frac{1}{n} \sum_i Y_i$.</p>
-<p>We can clean up this by defining the following quantities:</p>
-<p>$$
+$$</p><p>where $\bar{X} = \frac{1}{n} \sum_i X_i$ and $\bar{Y} = \frac{1}{n} \sum_i Y_i$.</p><p>We can clean up this by defining the following quantities:</p><p>$$
 \begin{align*}
 S_{XX} = \sum_i (X_i - \bar{X})^2 \left(= \sum_i X_i^2 - \frac{\left(\sum_i X_i\right)^2}{n}\right) \newline
 S_{XY} = \sum_i (X_i - \bar{X})(Y_i - \bar{Y}) \left(= \sum_i X_i Y_i - \frac{\left(\sum_i X_i\right) \left(\sum_i Y_i\right)}{n}\right) \newline
 \end{align*}
-$$</p>
-<p>Thus, we have,</p>
-<p>$$
+$$</p><p>Thus, we have,</p><p>$$
 \hat{\beta_1}= \frac{S_{XY}}{S_{XX}}
-$$</p>
-<p>and</p>
-<p>$$
+$$</p><p>and</p><p>$$
 \hat{\beta_0}= \bar{Y} - \hat{\beta}_1 \bar{X}.
-$$</p>
-<p>The variance $\sigma^2$ of the error term $e = Y - (\beta_0 + \beta_1 X)$ is another unknown parameter.</p>
-<p>The residuals,</p>
-<p>$$
+$$</p><p>The variance $\sigma^2$ of the error term $e = Y - (\beta_0 + \beta_1 X)$ is another unknown parameter.</p><p>The residuals,</p><p>$$
 \hat{e_i} = y_i - (\hat{\beta_0} + \hat{\beta_1} x_i) = y_i - \hat{y}_i, \quad i = 1, \ldots, n,
-$$</p>
-<p>can be regarded as a ‘sample’</p>
-<p>First, it can be checked that,</p>
-<p>$$
+$$</p><p>can be regarded as a ‘sample’</p><p>First, it can be checked that,</p><p>$$
 \bar{e} = \frac{1}{n} \sum_i \hat{e}_i = \bar{y} - \hat{\beta}_0 - \hat{\beta}_1 \bar{x} = 0.
-$$</p>
-<p>(by definition of the estimated coefficient $\hat{\beta}_0$ and $\hat{\beta}_1$).</p>
-<p>Therefore, an <strong>unbiased</strong> estimate of $\sigma^2$ is,</p>
-<p>$$
+$$</p><p>(by definition of the estimated coefficient $\hat{\beta}_0$ and $\hat{\beta}_1$).</p><p>Therefore, an <strong>unbiased</strong> estimate of $\sigma^2$ is,</p><p>$$
 s^2 = \frac{1}{n - 2} \sum_i \hat{e}_i^2.
-$$</p>
-<h3 id="inferences">Inferences</h3>
-<p>From now on we will assume that the value of the predictors are deterministic (or we condition on X).</p>
-<p>We note that $Y_i | (X_i = x_i) \sim N(\beta_0 + \beta_1 x_i, \sigma^2)$.</p>
-<p>Then, because $\sum_i (x_i - \bar{x}) = 0$, we can write,</p>
-<p>$$
+$$</p></section>
+<section><h3 id="inferences">Inferences</h3><p>From now on we will assume that the value of the predictors are deterministic (or we condition on X).</p><p>We note that $Y_i | (X_i = x_i) \sim N(\beta_0 + \beta_1 x_i, \sigma^2)$.</p><p>Then, because $\sum_i (x_i - \bar{x}) = 0$, we can write,</p><p>$$
 \hat{\beta_1} = \frac{S_{xY}}{s_{xx}} = \frac{\sum_i (x_i - \bar{x})}{s_{xx}} Y_i.
-$$</p>
-<p>The sampling distribution of $\hat{\beta_1}$ is normal with mean $\beta_1$ and variance $\sigma^2 / s_{xx}$.</p>
-<p>Now we can write,
+$$</p><p>The sampling distribution of $\hat{\beta_1}$ is normal with mean $\beta_1$ and variance $\sigma^2 / s_{xx}$.</p><p>Now we can write,
 $$
 \hat{\beta_0} = \sum_i \frac{Y_i}{n} - \hat{\beta_1} \bar{x},
-$$</p>
-<p>which is again a linear combination of normal random variables (the $Y_i$‘s and $\hat{\beta}_1$).</p>
-<p>Thus, the estimator of $\beta_0$ is also normally distributed.</p>
-<p>The sampling distribution of $\hat{\beta_0}$ is normal with mean $\beta_0$ and variance $\sigma^2 \left(\frac{1}{n} + \frac{\bar{x}^2}{s_{xx}}\right)$.</p>
-<h4 id="confidence-interval">Confidence Interval</h4>
-<p>If we have the hypothesis,</p>
-<p>$$
+$$</p><p>which is again a linear combination of normal random variables (the $Y_i$‘s and $\hat{\beta}_1$).</p><p>Thus, the estimator of $\beta_0$ is also normally distributed.</p><p>The sampling distribution of $\hat{\beta_0}$ is normal with mean $\beta_0$ and variance $\sigma^2 \left(\frac{1}{n} + \frac{\bar{x}^2}{s_{xx}}\right)$.</p><section><h4 id="confidence-interval">Confidence Interval</h4><p>If we have the hypothesis,</p><p>$$
 H_0: \beta_1 = 0 \quad \text{vs.} \quad H_1: \beta_1 \neq 0,
-$$</p>
-<p>We have $\sqrt{s_{xx}} \frac{\hat{\beta}_1 - \beta_1}{\sigma} \sim N(0, 1)$.</p>
-<p>Replacing $\sigma$ with its estimator $S$, we find,</p>
-<p>$$
+$$</p><p>We have $\sqrt{s_{xx}} \frac{\hat{\beta}_1 - \beta_1}{\sigma} \sim N(0, 1)$.</p><p>Replacing $\sigma$ with its estimator $S$, we find,</p><p>$$
 \frac{\hat{\beta_1} - \beta_1}{S / \sqrt{s_{xx}}} \sim t_{n - 2}.
-$$</p>
-<p>The rejection region is then,</p>
-<p>$$
+$$</p><p>The rejection region is then,</p><p>$$
 \text{reject } H_0 \text{ if } \hat{\beta_1} \notin \left[-t_{n - 2, 1 - \alpha / 2} \frac{s}{\sqrt{s_{xx}}}, t_{n - 2, 1 - \alpha / 2} \frac{s}{\sqrt{s_{xx}}}\right].
-$$</p>
-<p>The $p$-value is,
+$$</p><p>The $p$-value is,
 $$
 p = 1 - P(T \in [-|t_0|, |t_0|]) = 2P(T > |t_0|).
-$$</p>
-<p>where $t_0 = \frac{\hat{\beta_1}}{s / \sqrt{s_{xx}}}$ and $T$ is a random variable with distribution $t_{n - 2}$.</p>
-<p>So, the CI for $\beta_1$ is,</p>
-<p>$$
+$$</p><p>where $t_0 = \frac{\hat{\beta_1}}{s / \sqrt{s_{xx}}}$ and $T$ is a random variable with distribution $t_{n - 2}$.</p><p>So, the CI for $\beta_1$ is,</p><p>$$
 \left[\hat{\beta_1} - t_{n - 2, 1 - \alpha / 2} \frac{s}{\sqrt{s_{xx}}}, \hat{\beta_1} + t_{n - 2, 1 - \alpha / 2} \frac{s}{\sqrt{s_{xx}}}\right].
-$$</p>
-<h5 id="confidence-interval-on-the-mean-response">Confidence Interval on the Mean Response</h5>
-<p>For a specified value of $X$, say, $x$, we want a confidence interval for,</p>
-<p>$$
+$$</p><section><h5 id="confidence-interval-on-the-mean-response">Confidence Interval on the Mean Response</h5><p>For a specified value of $X$, say, $x$, we want a confidence interval for,</p><p>$$
 y(x) = \mu_{Y | X = x} = \beta_0 + \beta_1 x.
-$$</p>
-<p>we have an estimator,</p>
-<p>$$
+$$</p><p>we have an estimator,</p><p>$$
 \hat{y}(x) = \hat{\mu}_{Y | X = x} = \hat{\beta}_0 + \hat{\beta}_1 x.
-$$</p>
-<p>and</p>
-<p>$$
+$$</p><p>and</p><p>$$
 \hat{y}(x) \sim N\left(\mu_{Y | X = x}, \sigma^2 \left(\frac{1}{n} + \frac{(x - \bar{x})^2}{s_{xx}}\right)\right).
-$$</p>
-<p>Replacing the unkown $\sigma$ by its estimator $S$, we get,</p>
-<p>$$
+$$</p><p>Replacing the unkown $\sigma$ by its estimator $S$, we get,</p><p>$$
 \frac{\hat{\mu_{Y | X = x}} - \mu_{Y | X = x}}{S \sqrt{\frac{1}{n} + \frac{(x - \bar{x})^2}{s_{xx}}} } \sim t_{n - 2}.
-$$</p>
-<p>and the CI is,</p>
-<p>$$
+$$</p><p>and the CI is,</p><p>$$
 \left[\hat{\mu_{Y | X = x}} - t_{n - 2, 1 - \alpha / 2} S \sqrt{\frac{1}{n} + \frac{(x - \bar{x})^2}{s_{xx}}}, \hat{\mu_{Y | X = x}} + t_{n - 2, 1 - \alpha / 2} S \sqrt{\frac{1}{n} + \frac{(x - \bar{x})^2}{s_{xx}}}\right].
-$$</p>
-<h4 id="prediction-of-new-observations">Prediction of new observations</h4>
-<p>An important application is predicting new or future observations $Y$ corresponding to a specified level $X = x$.</p>
-<p>This is different to estimating the mean response.</p>
-<p>$\mu_{Y | X = x}$ at $X = x$, a predicted value is $\hat{y}(x) = \beta_0 + \beta_1 x$.</p>
-<p>We can derive,</p>
-<p>$$
+$$</p></section></section><section><h4 id="prediction-of-new-observations">Prediction of new observations</h4><p>An important application is predicting new or future observations $Y$ corresponding to a specified level $X = x$.</p><p>This is different to estimating the mean response.</p><p>$\mu_{Y | X = x}$ at $X = x$, a predicted value is $\hat{y}(x) = \beta_0 + \beta_1 x$.</p><p>We can derive,</p><p>$$
 Y | (X = x) - \hat{y(x)} \sim N(0, \sigma^2 \left(1 + \frac{1}{n} + \frac{(x - \bar{x})^2}{s_{xx}}\right)),
-$$</p>
-<p>which leads to the following prediction interval,</p>
-<p>$$
+$$</p><p>which leads to the following prediction interval,</p><p>$$
 \left[\hat{y}(x) - t_{n - 2, 1 - \alpha / 2} S \sqrt{1 + \frac{1}{n} + \frac{(x - \bar{x})^2}{s_{xx}}}, \hat{y}(x) + t_{n - 2, 1 - \alpha / 2} S \sqrt{1 + \frac{1}{n} + \frac{(x - \bar{x})^2}{s_{xx}}}\right].
-$$</p>
-<p><strong>Remarks</strong></p>
-<ol>
+$$</p><p><strong>Remarks</strong></p><ol>
 <li>
 <p>A prediction interval for $Y$ at $X = x$ will always be <em>longer</em> than the CI for $\mu_{Y | X = x}$ because there is much more variability in one observation than in an average.</p>
 </li>
 <li>
 <p>As $n$ gets larger ($n \to \infty$), the width of CI for $\mu_{Y | X = x}$ decreases to 0, buy this is not the case for the prediction interval.</p>
 </li>
-</ol>
-<h3 id="analysis-of-variance-anova">Analysis of Variance (ANOVA)</h3>
-<p>The most interesting test for simple linear regression is probably,</p>
-<p>$$
+</ol></section></section>
+<section><h3 id="analysis-of-variance-anova">Analysis of Variance (ANOVA)</h3><p>The most interesting test for simple linear regression is probably,</p><p>$$
 H_0 : \beta_1 = 0 \quad \text{vs.} \quad H_1 : \beta_1 \neq 0.
-$$</p>
-<p>We previously used $t$-test,</p>
-<p>$$
+$$</p><p>We previously used $t$-test,</p><p>$$
 \frac{\hat{\beta_1}}{s / \sqrt{s_{xx}}} \sim t_{n - 2}.
-$$</p>
-<p>There is an alternative (and equivalent) test, the $F$-test based on analysis of variance.</p>
-<p>Firstly, let’s define some quantities,</p>
-<p>$$
+$$</p><p>There is an alternative (and equivalent) test, the $F$-test based on analysis of variance.</p><p>Firstly, let’s define some quantities,</p><p>$$
 \begin{align*}
 SST = \sum_i (y_i - \bar{y})^2 \newline
 SS_{\text{reg}} = \sum_i (\hat{y}_i - \bar{y})^2 \newline
 RSS = \sum_i (y_i - \hat{y}_i)^2 = \sum_i \hat{e}_i^2
 \end{align*}
-$$</p>
-<p>where $SST$ is the total sum of squares, $SS_{\text{reg}}$ is the regression sum of squares, and $RSS$ is the residual sum of squares.</p>
-<p>For the $F$-test, we use,</p>
-<p>$$
+$$</p><p>where $SST$ is the total sum of squares, $SS_{\text{reg}}$ is the regression sum of squares, and $RSS$ is the residual sum of squares.</p><p>For the $F$-test, we use,</p><p>$$
 F = \frac{SS_{\text{reg}} / 1}{RSS / (n - 2)} \sim F(1, n - 2) \text{ under } H_0.
-$$</p>
-<p>We reject $H_0$ if $F > F_{1 - \alpha, 1, n - 2}$.</p>
-<h4 id="analysis-of-variance-table">Analysis of Variance Table</h4>
-<p>The ANOVA table is a table that shows the sources of variation in an experiment.</p>
+$$</p><p>We reject $H_0$ if $F > F_{1 - \alpha, 1, n - 2}$.</p><section><h4 id="analysis-of-variance-table">Analysis of Variance Table</h4><p>The ANOVA table is a table that shows the sources of variation in an experiment.</p>
 
 
 
@@ -440,21 +180,9 @@ $$</p>
 
 
 
-
-<table><thead><tr><th>Source of Variation</th><th>Degrees of Freedom (df)</th><th>Sum of Squares (SS)</th><th>Mean Square (MS)</th><th>F-statistic</th></tr></thead><tbody><tr><td>Regression</td><td>1</td><td>$SS_{\text{reg}}$</td><td>$SS_{\text{reg}}/1$</td><td>$F = \frac{MS_{\text{reg}}/1}{RSS/(n - 2)}$</td></tr><tr><td>Residual</td><td>$n - 2$</td><td>$RSS$</td><td>$RSS/(n - 2)$</td><td></td></tr><tr><td>Total</td><td>$n - 1$</td><td>$SST$</td><td></td><td></td></tr></tbody></table>
-<h4 id="coefficient-of-determination">Coefficient of Determination</h4>
-<p>Suppose $SST \simeq SS_{\text{reg}}$ and $RSS \simeq 0$.</p>
-<p>Almost the whole variation is due to error, and the regression is not significant.</p>
-<p>The coefficient of determination is defined as,</p>
-<p>$$
+<table><thead><tr><th>Source of Variation</th><th>Degrees of Freedom (df)</th><th>Sum of Squares (SS)</th><th>Mean Square (MS)</th><th>F-statistic</th></tr></thead><tbody><tr><td>Regression</td><td>1</td><td>$SS_{\text{reg}}$</td><td>$SS_{\text{reg}}/1$</td><td>$F = \frac{MS_{\text{reg}}/1}{RSS/(n - 2)}$</td></tr><tr><td>Residual</td><td>$n - 2$</td><td>$RSS$</td><td>$RSS/(n - 2)$</td><td></td></tr><tr><td>Total</td><td>$n - 1$</td><td>$SST$</td><td></td><td></td></tr></tbody></table></section><section><h4 id="coefficient-of-determination">Coefficient of Determination</h4><p>Suppose $SST \simeq SS_{\text{reg}}$ and $RSS \simeq 0$.</p><p>Almost the whole variation is due to error, and the regression is not significant.</p><p>The coefficient of determination is defined as,</p><p>$$
 R^2 = \frac{SS_{\text{reg}}}{SST},
-$$</p>
-<p>which represents the proportion of the variability in the responses that is explained by the predictor.</p>
-<p>A value of $R^2$ near 1 indicates a <em>good</em> fit to the data.</p>
-<p>A value of $R^2$ near 0 indicates a <em>poor</em> fit to the data.</p>
-<h5 id="connection-to-correlation-coefficient">Connection to correlation coefficient</h5>
-<p>We can derive the following relationship,</p>
-<p>$$
+$$</p><p>which represents the proportion of the variability in the responses that is explained by the predictor.</p><p>A value of $R^2$ near 1 indicates a <em>good</em> fit to the data.</p><p>A value of $R^2$ near 0 indicates a <em>poor</em> fit to the data.</p><section><h5 id="connection-to-correlation-coefficient">Connection to correlation coefficient</h5><p>We can derive the following relationship,</p><p>$$
 \begin{align*}
 R^2 &#x26; = \frac{SS_{\text{reg}}}{SST} \newline
 &#x26; = \frac{SST - RSS}{s_{yy}} \newline
@@ -462,44 +190,19 @@ R^2 &#x26; = \frac{SS_{\text{reg}}}{SST} \newline
 &#x26; = \frac{s^2_{xy}}{s_{xx} s_{yy}} \newline
 &#x26; = \frac{\left(\sum_i (x_i - \bar{x})(y_i - \bar{y})\right)^2}{\sum_i (x_i - \bar{x})^2 \sum_i (y_i - \bar{y})^2}.
 \end{align*}
-$$</p>
-<p>Except for its sign (positive or negative linear relationship), the sample correlation is the square root of the coefficient of determination.</p>
-<h3 id="example">Example</h3>
-<p>A food processing center needs to be able to switch from one type of package to another quickly to react to changes in order patterns.
+$$</p><p>Except for its sign (positive or negative linear relationship), the sample correlation is the square root of the coefficient of determination.</p></section></section></section>
+<section><h3 id="example">Example</h3><p>A food processing center needs to be able to switch from one type of package to another quickly to react to changes in order patterns.
 Consultants have developed a new method for changing the production line.
-We have a sample of 48 change-over times using the new method, and an independent sample of 72 change-over times for the existing method.</p>
-<p>We model the relationship between $Y$, the change-over time and $X$, the dummy variable for the new method.</p>
-<p>We consider the simple linear regression model,</p>
-<p>$$
+We have a sample of 48 change-over times using the new method, and an independent sample of 72 change-over times for the existing method.</p><p>We model the relationship between $Y$, the change-over time and $X$, the dummy variable for the new method.</p><p>We consider the simple linear regression model,</p><p>$$
 Y = \beta_0 + \beta_1 X + e,
-$$</p>
-<p>where $Y = $ change over time and $x$ is the dummy variable (i.e., x = 1 for the new change-over method and 0 for the existing method).</p>
-<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="r"><code><span class="line"><span style="color:var(--astro-code-foreground)">changeover_times</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-function)">read.table</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-string-expression)">"changeover_times.txt"</span><span style="color:var(--astro-code-foreground)">, header</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)">TRUE</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">attach</span><span style="color:var(--astro-code-foreground)">(changeover_times)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:var(--astro-code-foreground)">m1</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-function)">lm</span><span style="color:var(--astro-code-foreground)">(Changeover</span><span style="color:var(--astro-code-token-keyword)">~</span><span style="color:var(--astro-code-foreground)">New)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">summary</span><span style="color:var(--astro-code-foreground)">(m1)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">par</span><span style="color:var(--astro-code-foreground)">(mfrow</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-function)">c</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-constant)">2</span><span style="color:var(--astro-code-foreground)">,</span><span style="color:var(--astro-code-token-constant)">2</span><span style="color:var(--astro-code-foreground)">))</span></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">plot</span><span style="color:var(--astro-code-foreground)">(New,Changeover,xlab</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-string-expression)">"Dummy variable, New"</span><span style="color:var(--astro-code-foreground)">,ylab</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-string-expression)">"Change Over Time"</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">abline</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-function)">lsfit</span><span style="color:var(--astro-code-foreground)">(New,Changeover))</span></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">boxplot</span><span style="color:var(--astro-code-foreground)">(Changeover</span><span style="color:var(--astro-code-token-keyword)">~</span><span style="color:var(--astro-code-foreground)">New,xlab</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-string-expression)">"Dummy variable, New"</span><span style="color:var(--astro-code-foreground)">,ylab</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-string-expression)">"Change Over Time"</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">boxplot</span><span style="color:var(--astro-code-foreground)">(Changeover</span><span style="color:var(--astro-code-token-keyword)">~</span><span style="color:var(--astro-code-foreground)">Method,ylab</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-string-expression)">"Change Over Time"</span><span style="color:var(--astro-code-foreground)">,xlab</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-string-expression)">"Method"</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:var(--astro-code-token-comment)"># p-value</span></span>
-<span class="line"><span style="color:var(--astro-code-foreground)">pval</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-constant)">2</span><span style="color:var(--astro-code-token-keyword)">*</span><span style="color:var(--astro-code-token-function)">pt</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-token-constant)">2.254</span><span style="color:var(--astro-code-foreground)">,df</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)">118</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-foreground)">pval</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:var(--astro-code-token-comment)"># equivalently, using two sample test</span></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">t.test</span><span style="color:var(--astro-code-foreground)">(Changeover[New</span><span style="color:var(--astro-code-token-keyword)">==</span><span style="color:var(--astro-code-token-constant)">0</span><span style="color:var(--astro-code-foreground)">],Changeover[New</span><span style="color:var(--astro-code-token-keyword)">==</span><span style="color:var(--astro-code-token-constant)">1</span><span style="color:var(--astro-code-foreground)">],var.equal </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> TRUE</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">t.test</span><span style="color:var(--astro-code-foreground)">(Changeover[New</span><span style="color:var(--astro-code-token-keyword)">==</span><span style="color:var(--astro-code-token-constant)">0</span><span style="color:var(--astro-code-foreground)">],Changeover[New</span><span style="color:var(--astro-code-token-keyword)">==</span><span style="color:var(--astro-code-token-constant)">1</span><span style="color:var(--astro-code-foreground)">],var.equal </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> FALSE</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">detach</span><span style="color:var(--astro-code-foreground)">(changeover_times)</span></span></code></pre>
-<h3 id="diagnostic-tools-for-model-checking">Diagnostic Tools for Model Checking</h3>
-<p>So far we have assumed independence, linearity, constant variance and normal error.
-But, we will now look at some techniques and tools to check these assumptions.</p>
-<p>We will discuss the following,</p>
-<ul>
+$$</p><p>where $Y = $ change over time and $x$ is the dummy variable (i.e., x = 1 for the new change-over method and 0 for the existing method).</p><div class="expressive-code"><link rel="stylesheet" href="/_astro/ec.mfnqe.css"><script type="module" src="/_astro/ec.8zarh.js"></script><figure class="frame"><figcaption class="header"></figcaption><pre data-language="r" class="wrap" style="--ecMaxLine:74ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">changeover_times</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">read.table</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#032F62;--1:#9ECBFF">"changeover_times.txt"</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#AE4B07;--1:#FFAB70">header</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">TRUE</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">attach</span><span style="--0:#24292E;--1:#E1E4E8">(changeover_times)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">m1</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">lm</span><span style="--0:#24292E;--1:#E1E4E8">(Changeover</span><span style="--0:#BF3441;--1:#F97583">~</span><span style="--0:#24292E;--1:#E1E4E8">New)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">summary</span><span style="--0:#24292E;--1:#E1E4E8">(m1)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">7</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">par</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#AE4B07;--1:#FFAB70">mfrow</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">c</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">2</span><span style="--0:#24292E;--1:#E1E4E8">,</span><span style="--0:#005CC5;--1:#79B8FF">2</span><span style="--0:#24292E;--1:#E1E4E8">))</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">8</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">plot</span><span style="--0:#24292E;--1:#E1E4E8">(New,Changeover,</span><span style="--0:#AE4B07;--1:#FFAB70">xlab</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#032F62;--1:#9ECBFF">"Dummy variable, New"</span><span style="--0:#24292E;--1:#E1E4E8">,</span><span style="--0:#AE4B07;--1:#FFAB70">ylab</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#032F62;--1:#9ECBFF">"Change Over Time"</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">9</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">abline</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">lsfit</span><span style="--0:#24292E;--1:#E1E4E8">(New,Changeover))</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">10</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">boxplot</span><span style="--0:#24292E;--1:#E1E4E8">(Changeover</span><span style="--0:#BF3441;--1:#F97583">~</span><span style="--0:#24292E;--1:#E1E4E8">New,</span><span style="--0:#AE4B07;--1:#FFAB70">xlab</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#032F62;--1:#9ECBFF">"Dummy variable, New"</span><span style="--0:#24292E;--1:#E1E4E8">,</span><span style="--0:#AE4B07;--1:#FFAB70">ylab</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#032F62;--1:#9ECBFF">"Change Over Time"</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">11</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">boxplot</span><span style="--0:#24292E;--1:#E1E4E8">(Changeover</span><span style="--0:#BF3441;--1:#F97583">~</span><span style="--0:#24292E;--1:#E1E4E8">Method,</span><span style="--0:#AE4B07;--1:#FFAB70">ylab</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#032F62;--1:#9ECBFF">"Change Over Time"</span><span style="--0:#24292E;--1:#E1E4E8">,</span><span style="--0:#AE4B07;--1:#FFAB70">xlab</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#032F62;--1:#9ECBFF">"Method"</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">12</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">13</div></div><div class="code"><span style="--0:#616972;--1:#99A0A6"># p-value</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">14</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">pval</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">2</span><span style="--0:#BF3441;--1:#F97583">*</span><span style="--0:#005CC5;--1:#79B8FF">pt</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#005CC5;--1:#79B8FF">2.254</span><span style="--0:#24292E;--1:#E1E4E8">,</span><span style="--0:#AE4B07;--1:#FFAB70">df</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">118</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">15</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">pval</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">16</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">17</div></div><div class="code"><span style="--0:#616972;--1:#99A0A6"># equivalently, using two sample test</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">18</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">t.test</span><span style="--0:#24292E;--1:#E1E4E8">(Changeover[New</span><span style="--0:#BF3441;--1:#F97583">==</span><span style="--0:#005CC5;--1:#79B8FF">0</span><span style="--0:#24292E;--1:#E1E4E8">],Changeover[New</span><span style="--0:#BF3441;--1:#F97583">==</span><span style="--0:#005CC5;--1:#79B8FF">1</span><span style="--0:#24292E;--1:#E1E4E8">],</span><span style="--0:#AE4B07;--1:#FFAB70">var.equal</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">TRUE</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">19</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">t.test</span><span style="--0:#24292E;--1:#E1E4E8">(Changeover[New</span><span style="--0:#BF3441;--1:#F97583">==</span><span style="--0:#005CC5;--1:#79B8FF">0</span><span style="--0:#24292E;--1:#E1E4E8">],Changeover[New</span><span style="--0:#BF3441;--1:#F97583">==</span><span style="--0:#005CC5;--1:#79B8FF">1</span><span style="--0:#24292E;--1:#E1E4E8">],</span><span style="--0:#AE4B07;--1:#FFAB70">var.equal</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">FALSE</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">20</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">21</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">detach</span><span style="--0:#24292E;--1:#E1E4E8">(changeover_times)</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="changeover_times<-read.table(&#x22;changeover_times.txt&#x22;, header=TRUE)attach(changeover_times)m1<-lm(Changeover~New)summary(m1)par(mfrow=c(2,2))plot(New,Changeover,xlab=&#x22;Dummy variable, New&#x22;,ylab=&#x22;Change Over Time&#x22;)abline(lsfit(New,Changeover))boxplot(Changeover~New,xlab=&#x22;Dummy variable, New&#x22;,ylab=&#x22;Change Over Time&#x22;)boxplot(Changeover~Method,ylab=&#x22;Change Over Time&#x22;,xlab=&#x22;Method&#x22;)# p-valuepval<-2*pt(-2.254,df=118)pval# equivalently, using two sample testt.test(Changeover[New==0],Changeover[New==1],var.equal = TRUE)t.test(Changeover[New==0],Changeover[New==1],var.equal = FALSE)detach(changeover_times)"><div></div></button></div></figure></div></section>
+<section><h3 id="diagnostic-tools-for-model-checking">Diagnostic Tools for Model Checking</h3><p>So far we have assumed independence, linearity, constant variance and normal error.
+But, we will now look at some techniques and tools to check these assumptions.</p><p>We will discuss the following,</p><ul>
 <li>Leverage points
 <ul>
 <li>If they exist, determine if they are bad leverage points.</li>
@@ -509,151 +212,110 @@ But, we will now look at some techniques and tools to check these assumptions.</
 <li>Outliers</li>
 <li>Examine assumption of constant variance</li>
 <li>Examine whether the errors are normally distributed</li>
-</ul>
-<h4 id="leverage-points">Leverage Points</h4>
-<p>A leverage point is a point whose $x$-value is distant from the other $x$-values.</p>
-<p>A point is a <em>bad leverage point</em> if its $y$-value does not follow the pattern set by the other data points.
-In other words, a bad leverage point is a leverage point which is also an <em>outlier</em>.</p>
-<p>The mathematical definition of leverage is,</p>
-<p>$$
+</ul><section><h4 id="leverage-points">Leverage Points</h4><p>A leverage point is a point whose $x$-value is distant from the other $x$-values.</p><p>A point is a <em>bad leverage point</em> if its $y$-value does not follow the pattern set by the other data points.
+In other words, a bad leverage point is a leverage point which is also an <em>outlier</em>.</p><p>The mathematical definition of leverage is,</p><p>$$
 \hat{y_i} = \sum_{j = 1}^n h_{ij} y_j,
-$$</p>
-<p>where $h_{ij} = \left[\frac{1}{n} + \frac{(x_i - \bar{x})(x_j - \bar{x})}{S_{xx}}\right]$.</p>
-<p>We can see that, if we sum up $h_{ij}$ for all $j$,</p>
-<p>$$
+$$</p><p>where $h_{ij} = \left[\frac{1}{n} + \frac{(x_i - \bar{x})(x_j - \bar{x})}{S_{xx}}\right]$.</p><p>We can see that, if we sum up $h_{ij}$ for all $j$,</p><p>$$
 \sum_{j = 1}^n h_{ij} = 1.
-$$</p>
-<p>Thus,</p>
-<p>$$
+$$</p><p>Thus,</p><p>$$
 h_{ii} = \frac{1}{n} + \frac{(x_i - \bar{x})^2}{\sum_{j = 1}^n (x_j - \bar{x})^2},
-$$</p>
-<p>is called the <strong>leverage</strong> of the $i$-th data point.
-If $h_{ii} \approx 1, \hat{y_i} \approx y_i$.</p>
-<p>A popular rule of thumb for detecting leverage points is,</p>
-<p>$$
+$$</p><p>is called the <strong>leverage</strong> of the $i$-th data point.
+If $h_{ii} \approx 1, \hat{y_i} \approx y_i$.</p><p>A popular rule of thumb for detecting leverage points is,</p><p>$$
 h_{ii} > 2 \times \text{average}(h_{ii}). = 2 \times \frac{2}{n} = \frac{4}{n}.
-$$</p>
-<p>When dealing with bad leverage points, after finding them we will remove them and then fit a different model.</p>
-<h4 id="standardized-residuals">Standardized Residuals</h4>
-<p>It can be shown that,</p>
-<p>$$
+$$</p><p>When dealing with bad leverage points, after finding them we will remove them and then fit a different model.</p></section><section><h4 id="standardized-residuals">Standardized Residuals</h4><p>It can be shown that,</p><p>$$
 \text{Var}(\hat{e_i}) = \sigma^2 (1 - h_{ii}).
-$$</p>
-<p>This is reasonable since $h_{ii} \approx 1$ implies that $\hat{y_i} \approx y_i$ and thus $\hat{e_i}$ is small.</p>
-<p>The standardized residuals are defined as,</p>
-<p>$$
+$$</p><p>This is reasonable since $h_{ii} \approx 1$ implies that $\hat{y_i} \approx y_i$ and thus $\hat{e_i}$ is small.</p><p>The standardized residuals are defined as,</p><p>$$
 r_i = \frac{\hat{e_i}}{s \sqrt{1 - h_{ii}}}.
-$$</p>
-<p>where $s = \sqrt{\frac{1}{n - 2} \sum_{j = 1}^n \hat{e_j}^2}$.</p>
-<h5 id="outliers">Outliers</h5>
-<p>The common practice of labelling points as <strong>outliers</strong> is,</p>
-<blockquote>
+$$</p><p>where $s = \sqrt{\frac{1}{n - 2} \sum_{j = 1}^n \hat{e_j}^2}$.</p><section><h5 id="outliers">Outliers</h5><p>The common practice of labelling points as <strong>outliers</strong> is,</p><blockquote>
 <p>If the standardized residual for the point falls <em>outside</em> the interval from -2 to 2, it is considered an outlier.
 In very large data sets, we change this interval to -4 to 4.</p>
-</blockquote>
-<p>In R, we can use the following code to find the leverage and standardized residuals,</p>
-<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="r"><code><span class="line"><span style="color:var(--astro-code-foreground)">leverage</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-function)">hatvalues</span><span style="color:var(--astro-code-foreground)">(m1)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-comment)"># or influence(m1)$hat</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:var(--astro-code-foreground)">stdres</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-function)">rstandard</span><span style="color:var(--astro-code-foreground)">(m1)</span></span>
-<span class="line"><span style="color:var(--astro-code-foreground)">res</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-foreground)">m1</span><span style="color:var(--astro-code-token-keyword)">$</span><span style="color:var(--astro-code-foreground)">residuals</span></span>
-<span class="line"><span style="color:var(--astro-code-token-comment)"># or residuals(m1)</span></span></code></pre>
-<h5 id="cooks-distance">Cook’s Distance</h5>
-<p>Cook’s distance is a measure of the influence of each observation on the fitted values.</p>
-<p>It is defined as,</p>
-<p>$$
+</blockquote><p>In R, we can use the following code to find the leverage and standardized residuals,</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="r" class="wrap" style="--ecMaxLine:23ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">leverage</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">hatvalues</span><span style="--0:#24292E;--1:#E1E4E8">(m1)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#616972;--1:#99A0A6"># or influence(m1)$hat</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">stdres</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">rstandard</span><span style="--0:#24292E;--1:#E1E4E8">(m1)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">res</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#24292E;--1:#E1E4E8">m1</span><span style="--0:#BF3441;--1:#F97583">$</span><span style="--0:#24292E;--1:#E1E4E8">residuals</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code"><span style="--0:#616972;--1:#99A0A6"># or residuals(m1)</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="leverage<-hatvalues(m1)# or influence(m1)$hatstdres<-rstandard(m1)res<-m1$residuals# or residuals(m1)"><div></div></button></div></figure></div></section><section><h5 id="cooks-distance">Cook’s Distance</h5><p>Cook’s distance is a measure of the influence of each observation on the fitted values.</p><p>It is defined as,</p><p>$$
 D_i = \frac{\sum_{j = 1}^n (\hat{y_{j(i)}} - \hat{y_j})^2}{2S^2} = \frac{r_i^2 h_{ii}}{2(1 - h_{ii})^2}.
-$$</p>
-<p>where $\hat{y_{j(i)}}$ denotes the $j$-th fitted value when the $i$-th observation is deleted.
-A recommended cutoff is $4/(n - 2)$.</p>
-<h4 id="normality-of-errors">Normality of Errors</h4>
-<p>Usually the approximation $\hat{e_i} \approx e_i$ is accurate enough to justify use of a QQ-plot.</p>
-<h4 id="non-constant-variance">Non-constant Variance</h4>
-<p>What do we do if the variance is not constant?</p>
-<p>We can use a transformation, the transformation is used to overcome problems due to non-constant variance but also due to nonlinearity.</p>
-<p>The methods that we will discuss deal with positive variables only.</p>
-<p>There is no general rule of transformation, if for example we have count data, this is often modelled by the Poisson distribution.
-Thus, the appropriate transformation is square root.</p>
-<p>For overcoming nonlinearity, we need to think a bit more.</p>
-<p>Suppose the true model is $Y = g(\beta_0 + \beta_1x + e)$ for an unknown monotone function $g$.</p>
-<p>We can rewrite this as,</p>
-<p>$$
+$$</p><p>where $\hat{y_{j(i)}}$ denotes the $j$-th fitted value when the $i$-th observation is deleted.
+A recommended cutoff is $4/(n - 2)$.</p></section></section><section><h4 id="normality-of-errors">Normality of Errors</h4><p>Usually the approximation $\hat{e_i} \approx e_i$ is accurate enough to justify use of a QQ-plot.</p></section><section><h4 id="non-constant-variance">Non-constant Variance</h4><p>What do we do if the variance is not constant?</p><p>We can use a transformation, the transformation is used to overcome problems due to non-constant variance but also due to nonlinearity.</p><p>The methods that we will discuss deal with positive variables only.</p><p>There is no general rule of transformation, if for example we have count data, this is often modelled by the Poisson distribution.
+Thus, the appropriate transformation is square root.</p><p>For overcoming nonlinearity, we need to think a bit more.</p><p>Suppose the true model is $Y = g(\beta_0 + \beta_1x + e)$ for an unknown monotone function $g$.</p><p>We can rewrite this as,</p><p>$$
 g^{-1}(Y) = \beta_0 + \beta_1 x + e.
-$$</p>
-<p>For <em>possible</em> $g$, we can consider the family of <strong>scaled power transformations</strong>,</p>
-<p>$$
+$$</p><p>For <em>possible</em> $g$, we can consider the family of <strong>scaled power transformations</strong>,</p><p>$$
 \psi_s(Y, \lambda) =
 \begin{cases}
 (Y^{\lambda} - 1) / \lambda, &#x26; \text{if } \lambda \neq 0, \newline
 \log(Y), &#x26; \text{if } \lambda = 0.
 \end{cases}
-$$</p>
-<p>So, the procedure will be,</p>
-<ol>
+$$</p><p>So, the procedure will be,</p><ol>
 <li>Fit a linear regression model $y_i = \beta_0 + \beta_1 x_i + e_i$.</li>
 <li>Estimate $g^{-1}$ by plotting $\hat{y_i} = \hat{\beta}_0 + \hat{\beta}_1 x_i$ against $x_i$.</li>
 <li>Mathematically, we <em>minimize</em> $\sum_i (\hat{y_i} - \alpha_0 - \alpha_1 \psi(y_i, \lambda))^2$ over $(\alpha_0, \alpha_1, \lambda)$.</li>
-</ol> <div class="mt-24"> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/cityu/ma3518/ma3518_3" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 3 - Confidence Interval and Hypothesis Testing </div> </a> <a href="/cityu/ma3518/ma3518_5" class="group relative flex flex-grow flex-row-reverse flex-nowrap rounded-lg border border-black/15 px-4 py-4 pr-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 19 12 12 19" class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 5 - Multiple Linear Regression </div> </a> </div> </div> <div class="mt-24"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezvan.xyz" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </article> </div>  </main> <footer class="animate"> <div class="mx-auto max-w-screen-sm px-3"> <div class="relative"> <div class="absolute -top-12 right-0"> <button id="back-to-top" class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm">Back to top</div> </button> </div> </div> <div class="flex items-center justify-between"> <div>&copy; 2025 • rezarezvan.com</div> <div class="flex flex-wrap items-center gap-1.5"></div> </div> </div> </footer> <aside data-pagefind-ignore> <div id="backdrop" class="bg-[rgba(0, 0, 0, 0.5] invisible fixed left-0 top-0 z-50 flex h-screen w-full justify-center p-6 backdrop-blur-sm" data-astro-transition-persist="astro-3snakcvo-2"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="mr-2 pb-1 pt-4 text-right text-xs dark:prose-invert">
-Press <span class="prose text-xs dark:prose-invert"><kbd class="">Esc</kbd></span> or click anywhere to close
-</div> </div> </div> </aside> <script>
-  const magnifyingGlass = document.getElementById("magnifying-glass");
-  const backdrop = document.getElementById("backdrop");
+</ol></section></section>
 
-  function openPagefind() {
-    const searchDiv = document.getElementById("search");
-    const search = searchDiv.querySelector("input");
-    setTimeout(() => {
-      search.focus();
-    }, 0);
-    backdrop?.classList.remove("invisible");
-    backdrop?.classList.add("visible");
-  }
 
-  function closePagefind() {
-    const search = document.getElementById("search");
-    search.value = "";
-    backdrop?.classList.remove("visible");
-    backdrop?.classList.add("invisible");
-  }
+</body></html> </article> <div class="col-start-2"> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/cityu/ma3518/ma3518_5" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Part 5 - Multiple Linear Regression </span> </div>  </a> <a href="/cityu/ma3518/ma3518_3" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Part 3 - Confidence Interval and Hypothesis Testing </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </div> <div class="col-start-2"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </section> <button data-slot="button" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 group fixed right-8 bottom-8 z-50 hidden" id="scroll-to-top" title="Scroll to top" aria-label="Scroll to top"> <svg width="1em" height="1em" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" data-icon="lucide:arrow-up">   <symbol id="ai:lucide:arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></symbol><use href="#ai:lucide:arrow-up"></use>  </svg> </button> <script type="module">document.addEventListener("astro:page-load",()=>{const o=document.getElementById("scroll-to-top"),t=document.querySelector("footer");o&&t&&(o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),window.addEventListener("scroll",()=>{const e=t.getBoundingClientRect().top<=window.innerHeight;o.classList.toggle("hidden",window.scrollY<=300||e)}))});</script>  </div> </main> <footer class="py-4"> <div class="mx-auto flex max-w-3xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between"> <div class="flex flex-wrap items-center justify-center gap-x-2 text-center"> <span class="text-muted-foreground text-sm">
+&copy; 2025 • rezarezvan.com </span> </div> </div> </footer> <div id="backdrop" class="invisible fixed top-0 left-0 z-50 flex h-screen w-full justify-center bg-[rgba(0,0,0,0.5)] p-6 backdrop-blur-sm" data-astro-transition-persist="astro-t6dxx5el-4"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="dark:prose-invert mr-2 pt-4 pb-1 text-right text-xs">
+Press <span class="prose dark:prose-invert text-xs"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const magnifyingGlass = document.getElementById('magnifying-glass')
+    const backdrop = document.getElementById('backdrop')
 
-  // open pagefind
-  magnifyingGlass?.addEventListener("click", () => {
-    openPagefind();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "/") {
-      e.preventDefault();
-      openPagefind();
-    } else if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-      e.preventDefault();
-      openPagefind();
+    function openPagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      setTimeout(() => {
+        search.focus()
+      }, 0)
+      backdrop?.classList.remove('invisible')
+      backdrop?.classList.add('visible')
     }
-  });
 
-  // close pagefind
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" || e.keyCode === 27) {
-      closePagefind();
+    function closePagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      if (search) {
+        search.value = ''
+      }
+      backdrop?.classList.remove('visible')
+      backdrop?.classList.add('invisible')
     }
-  });
 
-  // close pagefind when searched result(link) clicked
-  document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("pagefind-ui__result-link")) {
-      closePagefind();
-    }
-  });
+    // open pagefind
+    magnifyingGlass?.addEventListener('click', () => {
+      openPagefind()
+    })
 
-  backdrop?.addEventListener("click", (event) => {
-    if (!event.target.closest("#pagefind-container")) {
-      closePagefind();
-    }
-  });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/') {
+        e.preventDefault()
+        openPagefind()
+      } else if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        openPagefind()
+      }
+    })
 
-  // prevent form submission
-  const form = document.getElementById("form");
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
-</script>  </body></html>
+    // close pagefind
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePagefind()
+      }
+    })
+
+    // close pagefind when searched result(link) clicked
+    document.addEventListener('click', (event) => {
+      if (event.target.classList.contains('pagefind-ui__result-link')) {
+        closePagefind()
+      }
+    })
+
+    backdrop?.addEventListener('click', (event) => {
+      if (!event.target.closest('#pagefind-container')) {
+        closePagefind()
+      }
+    })
+
+    // prevent form submission
+    const form = document.getElementById('form')
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault()
+    })
+  })
+</script>  </div> </body></html>

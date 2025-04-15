@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="en-US"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v5.7.0"><meta name="robots" content="index, follow"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="rezarezvan.com" href="https://rezaarezvan.com/rss.xml"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+    function renderKaTeX() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        })
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', renderKaTeX)
+    document.addEventListener('astro:after-swap', renderKaTeX)
+  </script><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/favicon.ico"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="rezvan-blog"><link rel="manifest" href="/site.webmanifest"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.BZs-2RF_.js"></script><script>
+    function init() {
+      setGiscusTheme()
+    }
+
+    const setGiscusTheme = () => {
+      const giscus = document.querySelector('.giscus-frame')
+
+      const isDark = document.documentElement.classList.contains('dark')
+
+      if (giscus) {
+        const url = new URL(giscus.src)
+        url.searchParams.set('theme', isDark ? 'dark' : 'light')
+        giscus.src = url.toString()
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => init())
+    document.addEventListener('astro:after-swap', () => init())
+  </script><title>My BSc Thesis, ClaudesLens | rezarezvan.com</title><meta name="title" content="My BSc Thesis, ClaudesLens | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com"><meta property="og:title" content="My BSc Thesis, ClaudesLens"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.comundefined"><meta property="og:image:alt" content="My BSc Thesis, ClaudesLens"><meta property="og:type" content="website"><meta property="og:locale" content="en-US"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezaarezvan.com/blog/claudeslens/"><meta name="twitter:title" content="My BSc Thesis, ClaudesLens"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.comundefined"><meta name="twitter:image:alt" content="My BSc Thesis, ClaudesLens"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/index.CMAis0x6.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <header class="bg-background/50 sticky top-0 z-10 backdrop-blur-md" data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 p-4"> <a href="/" target="_self" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center gap-2 text-xl font-medium"> rezarezvan.com </a> <div class="flex items-center gap-2 md:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex"> <a href="/blog" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/chalmers" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> chalmers<span>/</span>  </a><a href="/cityu" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> cityu<span>/</span>  </a><a href="/about" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> about<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+&nbsp;Search
+</button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="1xFTDb" prefix="r1" component-url="/_astro/mobile-menu.C9T2c5u4.js" component-export="default" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;data-astro-transition-persist&quot;:[0,&quot;astro-lci6dfah-2&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" data-astro-transition-persist="astro-lci6dfah-2" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r1R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem('theme') ?? ''
+    if (['dark', 'light'].includes(localStorageTheme)) {
+      return localStorageTheme
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })()
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark')
+  } else {
+    document.documentElement.classList.add('dark')
+  }
+
+  window.localStorage.setItem('theme', theme)
+</script> <script type="module">function a(){const e=document.documentElement;e.classList.add("disable-transitions"),e.classList.toggle("dark"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("disable-transitions")});const t=e.classList.contains("dark");localStorage.setItem("theme",t?"dark":"light")}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme"),t=document.documentElement;t.classList.add("disable-transitions"),window.getComputedStyle(t).getPropertyValue("opacity"),e==="dark"?t.classList.add("dark"):t.classList.remove("dark"),requestAnimationFrame(()=>{t.classList.remove("disable-transitions")}),s()});</script> </div> </div> </header> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/blog"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:archive">   <symbol id="ai:lucide:archive" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8m-10 4h4"/></g></symbol><use href="#ai:lucide:archive"></use>  </svg> Blog </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> My BSc Thesis, ClaudesLens </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 text-4xl leading-tight font-medium text-pretty sm:text-5xl"> My BSc Thesis, ClaudesLens </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span>June 18, 2024</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>16 min read</span> </div> </div> <div class="flex flex-wrap justify-center gap-2"> <span class="text-muted-foreground text-sm">
+No tags available
+</span> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/blog/links" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Links </span> </div>  </a> <a href="/blog/programming_principles" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Programming Principles </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <details open class="group col-start-2 rounded-xl border p-4 xl:sticky xl:top-20 xl:col-start-1 xl:mr-8 xl:ml-auto xl:h-[calc(100vh-5rem)] xl:max-w-fit xl:rounded-none xl:border-none xl:p-0"> <summary class="flex cursor-pointer items-center justify-between text-xl font-medium group-open:pb-4 xl:hidden"> <span>Table of Contents</span> <svg width="1em" height="1em" class="size-5 shrink-0 transition-transform group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg> </summary> <astro-island uid="2ctc3I" prefix="r4" component-url="/_astro/scroll-area.DmWfVO5M.js" component-export="ScrollArea" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;className&quot;:[0,&quot;flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]&quot;],&quot;type&quot;:[0,&quot;always&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot> <ul class="flex list-none flex-col gap-y-2 px-4 xl:mr-8" id="table-of-contents"> <li class="hidden text-lg font-medium xl:block">Table of Contents</li> <li class="text-foreground/60 px-4 text-sm xl:p-0"> <a href="#introduction" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Introduction </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#bayeslens" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> BayesLens </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#claudeslens" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> ClaudesLens </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0"> <a href="#neural-networks" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Neural Networks </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#the-neuron" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> The Neuron </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#the-network" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> The Network </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0"> <a href="#computer-vision" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Computer Vision </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#images" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Images </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0"> <a href="#entropy" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Entropy </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#uncertainty-in-information-theory" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Uncertainty in Information Theory </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0"> <a href="#entropy-based-uncertainty-quantification-framework" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Entropy-based Uncertainty Quantification Framework </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#proposed-metrics" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Proposed Metrics </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#pi-perturbation-index" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> PI: Perturbation Index </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#psi-perturbation-stability-index" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> PSI: Perturbation Stability Index </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#mapping-entropy-categorically" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Mapping entropy categorically </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0"> <a href="#results" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Results </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0"> <a href="#conclusion" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Conclusion </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0"> <a href="#acknowledgements" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Acknowledgements </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0"> <a href="#footnote-label" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Footnotes </a> </li> </ul> </astro-slot></div></div><div data-orientation="vertical" data-slot="scroll-area-scrollbar" class="flex touch-none p-px transition-colors select-none h-full w-2.5 border-l border-l-transparent" style="position:absolute;top:0;right:0;bottom:var(--radix-scroll-area-corner-height);--radix-scroll-area-thumb-height:18px"></div></div><!--astro:end--></astro-island> </details> <script type="module">function s(){const t=document.querySelector("header"),c=t?t.offsetHeight:0,a=new IntersectionObserver(e=>{e.forEach(o=>{const r=o.target.querySelector("h2, h3, h4, h5, h6");if(!r)return;const d=r.getAttribute("id"),n=document.querySelector(`#table-of-contents li a[href="#${d}"]`);if(!n)return;const i=o.isIntersecting?"add":"remove";n.classList[i]("text-foreground")})},{rootMargin:`-${c}px 0px 0px 0px`});document.querySelectorAll(".prose section").forEach(e=>{a.observe(e)})}document.addEventListener("astro:page-load",s);document.addEventListener("astro:after-swap",s);</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
+
+
+<meta charset="utf-8">
+<title>ClaudesLens</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" rel="stylesheet">
+
+
+<p><img src="/images/posts/logo.png" alt=""></p>
+<p style="font-weight:bold; text-align:center;"> ClaudesLens </p>
+<p style="font-size:15px; font-weight:italic; text-align:center;"> Dubitatio dictat animas nostras </p>
+<section><h1 id="introduction">Introduction</h1><p>I finally finished my undergrad and would like to make a blog post about what I have been working on these past ~6 months.</p><p>The title of our thesis is:</p><blockquote>
+<p>ClaudesLens: Uncertainty Quantification in Computer Vision Models</p>
+</blockquote><p>Which you can read <a href="https://arxiv.org/abs/2406.13008" rel="nofollow noreferrer noopener" target="_blank">here.</a></p><p>However, before I dive into the project and what we did, let me tell you what we <em>wanted</em> to do.</p><section><h3 id="bayeslens">BayesLens</h3><p>Originally, we wanted to create “Uncertainty-Aware Attention Mechanisms”.
+What we specifically had in mind was to create a transformer model that used Bayesian Neural Networks (BNNs) <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>.
+Even more ambitiously, apply this to self-driving cars.</p><p>Needless to say, this was a bit too ambitious for a BSc thesis, we didn’t have the prerequisite knowledge or the compute to do such a task within that time frame.
+So we had to scale down our project a bit.</p><p>About ~1/3 into the project, our supervisor wanted us to explore the <em>entropy</em> of predictions, and we got promising results right from the start.</p><p>This was the start of <strong>ClaudesLens</strong>.</p></section><section><h3 id="claudeslens">ClaudesLens</h3><p>From the results of using entropy as a measure of uncertainty — which in itself is nothing new — we decided to explore this further.</p><p>I’m going to explain what we did and our proposed framework.</p><p>Let’s start what lies at the heart of this project, <strong>neural networks</strong>.</p></section></section>
+<section><h1 id="neural-networks">Neural Networks</h1><p>There are many ways to explain neural networks, in this post I will use a mathematical approach which will let us view the entire network as a single function.</p><section><h3 id="the-neuron">The Neuron</h3><p>At the core of a neural network lies the neuron, which is inspired by the biological neuron <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>.</p><p>Each neuron takes in one or more scalars $x_j$ as input and outputs a single scalar $y$.
+Each input $x_j$ is scaled by an associated weight denoted as $w_j$. The neuron also has a special input called the bias,
+$b$.</p><p>The neuron has two stages it goes through, <strong>summation</strong> and <strong>activation</strong>.</p><img src="/images/posts/neuron.svg" style="width: 100%; height: auto;"><p><strong>Figure 1:</strong> A single neuron with <em>n</em> inputs and one output, showcasing the summation and activation components.</p><p>The summation stage is where the neuron calculates the <strong>weighted sum</strong> of the inputs and the bias:
+$$
+\begin{equation}
+z = \sum_{j=1}^{n} w_j x_j + b
+\end{equation}
+$$</p><p>The activation function, denoted as $f$, calculates the neuron’s output $y = f(z)$ based on the weighted summation.</p><p>Activation functions introduce <strong>non-linearity</strong>, enabling neural networks to approximate complex, non-linear functions.</p><p><strong>Exercise</strong>:
+Why does the neuron have a bias input?</p><details>
+<summary><b>Answer</b></summary>
+<blockquote>
+The bias input allows the neuron to shift the activation function to the left or right, this can be useful in certain cases.
+</blockquote>
+</details></section><section><h3 id="the-network">The Network</h3><p>Let’s write the equation for a single neuron in a more compact form.</p><p>We can represent the inputs of a neuron as a vector,
+$$
+\begin{equation}
+\mathbf{x} = \left[x_1, x_2, \ldots, x_n\right],
+\end{equation}
+$$</p><p>where each element corresponds to an input to the neuron.</p><p>Similarly, we can represent the associated weights as a vector,
+$$
+\begin{equation}
+\mathbf{w} = \left[w_1, w_2, \ldots, w_n\right],
+\end{equation}
+$$</p><p>with this the summation can be simplified to a dot product,
+$$
+\begin{equation}
+z = \mathbf{w} \cdot \mathbf{x} + b.
+\end{equation}
+$$</p><p>But only using one neuron will only get us so far, if we instead have <strong>multiple neurons</strong> and try to <strong>mimic the structure of the brain</strong>, we can get something more powerful.</p><p>A <em>layer</em> is a collection of neurons, <strong>stacked on top of each other</strong>.
+Very often when we are referring to a layer, are we referring to a <em>fully connected layer</em>, where each neuron in the layer is connected to all the neurons in the previous layer.</p><p>In the case of a network, we can now talk about the input layer and the output layer.</p><img src="/images/posts/nn.svg" style="width: 100%; height: auto;"><p><strong>Figure 2:</strong> A simple neural network with one hidden layer.</p><p>As we see in Figure 2, we now have multiple neurons with numerous inter-neuron connections, along with multiple outputs.</p><p>The matrix-vector equation,
+$$
+\begin{equation}
+\mathbf{a} = \mathbf{W_1} \mathbf{x} + \mathbf{b_1} = [a_1, a_2, \ldots, a_m],
+\end{equation}
+$$</p><p>yields each output of each neuron in the <em>hidden layer</em> (intermediate layers between the input and output layers).</p><p><strong>Note</strong>, I’m <strong>explicitly leaving out</strong> the required transpose operations out of the equations, in reality we need our matrix and vectors to match dimension, but our theory and intuition will still hold.</p><p>$\mathbf{W_1}$ is the <em>weight matrix</em> with rows $\mathbf{w_i} = [w_{i, 1}, w_{i, 2}, \ldots, w_{i, n}]$ corresponding to the weights of the $i$-th neuron in the hidden layer.</p><p>The bias values are represented by $\mathbf{b_1} = [b_1, b_2, \ldots, b_m]$.</p><p>In the case of several layers, we work with multiple weight matrices and bias vectors, which we index as $\mathbf{W_j}$ and $\mathbf{b_j}$, respectively.</p><p>So, given an input $\mathbf{x}$, the output of the hidden layer (i.e., Figure 2) is given by,
+$$
+\begin{equation}
+\mathbf{a} = f.(\mathbf{W_1} \mathbf{x} + \mathbf{b_1}),
+\end{equation}
+$$</p><p>where the dot indicates that the activation function $f$ is applied element-wise.</p><p>So the final output is therefore,
+$$
+\begin{align}
+\mathbf{y} &#x26;= f.(\mathbf{W_2} \mathbf{a} + \mathbf{b_2}) \newline
+&#x26;= f.(\mathbf{W_2} f.(\mathbf{W_1} \mathbf{x} + \mathbf{b_1}) + \mathbf{b_2}). \nonumber
+\end{align}
+$$</p><p><strong>Exercise</strong>:
+Is it necessary to apply the same activation function to all layers in a neural network?</p><details>
+<summary><b>Answer</b></summary>
+<blockquote>
+No, it is not necessary to apply the same activation function to all layers.
+Different activation functions can be used in different layers, depending on the problem at hand.
+</blockquote>
+</details><p>This is the basic structure of a neural network, I will not go into more detail about the <em>training process</em>, but I will mention that these weights and biases are <em>learned</em> (from the data) through an optimization process called <em>backpropagation</em> <sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>.</p><p>There are a ton of resources to understand these concepts, even we tried to explain these concepts in our thesis.
+I highly encourage you to read about it, it is one of the most important concepts of modern deep learning <sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>.</p></section></section>
+<section><h1 id="computer-vision">Computer Vision</h1><p>Now that we have a basic understanding of neural networks, we can move on to computer vision.</p><p>Computer vision is a field of computer science that focuses on <strong>replicating</strong> parts of the complexity of the <strong>human vision system</strong> and enabling computers to <strong>identify and process objects in images and videos</strong> in the same way that humans do.</p><p>The most important thing that we will cover here is how we represent images numerically, so we can feed them into as input to neural networks.</p><section><h3 id="images">Images</h3><p><img src="https://upload.wikimedia.org/wikipedia/commons/5/56/RGB_channels_separation.png" alt="">
+<strong>Figure 3:</strong> An RBG image with its corresponding channels. <a href="https://commons.wikimedia.org/wiki/File:RGB_channels_separation.png" rel="nofollow noreferrer noopener" target="_blank">Source</a></p><p>Images are represented as a grid of pixels, where each pixel needs to be represented in a numerical way.</p><p>For most images, we represent each pixel as a 3-dimensional vector, where each element corresponds to the intensity of the color channels red, green, and blue (RGB). This is called a <em>channel</em>.</p><p>So, a single pixel in an image is represented as a vector, therefore a whole image can be represented as a 3-dimensional <strong>tensor</strong>.
+We will just think of a tensor as a <strong>matrix of matrices</strong>, as long as the input has the numerical properties for matrix and vector operations.</p></section></section>
+<section><h1 id="entropy">Entropy</h1><p>Now that we have covered the basics of neural networks and computer vision (in our use case that is), we can move on to the main topic of this thesis, <strong>entropy</strong>.</p><section><h3 id="uncertainty-in-information-theory">Uncertainty in Information Theory</h3><p>Now, when we are talking about entropy, we are talking about the <strong>information kind</strong> of entropy.
+Thanks to the great work of Claude Shannon, we have a way to quantify the <em>uncertainty</em> of a random variable. <sup><a href="#user-content-fn-5" id="user-content-fnref-5" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup></p><p>The entropy of a random variable $X$ is defined as,
+$$
+\begin{equation}
+H(X) = -\sum_{x \in \chi} p(x) \log p(x),
+\end{equation}
+$$</p><p>where $p(x) = P(X = x)$.</p><p>If I were to explain Shannon-Entropy in an intuitive way.</p><p>Imagine if we have no uncertainty or very little, i.e., imagine an unfair coin with 99% probability of landing on heads. You <strong>won’t be surprised</strong> if it lands on heads.</p><p>However, if we have a fair coin, if I flip it 100 times and 99 of them are heads, you would be <strong>very surprised</strong>.</p><p>This is what Shannon-Entropy captures, how <em>surprised</em> you are about the outcome of a random variable.</p><p>There is a more elegant way it is presented (and especially used!) in classical information theory. But I will leave that for yourself to read and discover :).</p><p><strong>Exercise</strong>:
+Does Shannon-Entropy have a lower and upper bound?</p><details>
+<summary><b>Answer</b></summary>
+<blockquote>
+Yes, the lower bound of entropy is 0 and the upper bound is $\log |\chi|$.
+Where $|\chi|$ is the cardinality or the number of elements in the set $\chi$.<details>
+<summary><b>Proof</b></summary>
+$$
+\begin{align*}
+&#x26;\textbf{We show } 0 \leq H(X) \leq \log |\chi|. \newline
+&#x26;\textbf{Lower Bound (}H(X) \ge 0\textbf): \newline
+&#x26;\quad H(X) = -\sum_{x \in \chi} p(x)\,\log p(x). \newline
+&#x26;\quad \text{Note that for any } 0 &#x3C; p(x) \le 1,\, -\log p(x) \ge 0,\text{ hence each term } p(x)\,\bigl(-\log p(x)\bigr) \ge 0. \newline
+&#x26;\quad \text{Thus } H(X) \;=\; -\sum_{x \in \chi} p(x)\,\log p(x) \;\ge\; 0. \newline
+&#x26;\textbf{Upper Bound (}H(X) \le \log |\chi|\textbf): \newline
+&#x26;\quad \text{Using the concavity of the } \log \text{ function and by Jensen's inequality, we have} \newline
+&#x26;\quad -\sum_{x \in \chi} p(x)\,\log p(x) \;\le\; \log\Bigl(\lvert \chi \rvert \Bigr). \newline \newline
+&#x26;\quad \text{Alternatively, we can argue that for fixed } \lvert \chi \rvert, \newline
+&#x26;\quad \text{the uniform distribution } p(x) = \frac{1}{|\chi|} \text{ maximizes the entropy,} \newline
+&#x26;\quad \text{yielding } H(X) = -\sum_{x \in \chi} \frac{1}{|\chi|}\,\log \Bigl(\tfrac{1}{|\chi|}\Bigr) = \log\Bigl(\lvert \chi \rvert\Bigr). \newline \newline
+&#x26;\quad \text{Note, one could also solve this using Lagrange multipliers to find this maximum.} \newline \newline
+&#x26;\text{Hence, combining both bounds, we have } 0 \le H(X) \le \log |\chi|. \newline
+\end{align*}
+$$
+</details>
+</blockquote>
+</details></section></section>
+<section><h1 id="entropy-based-uncertainty-quantification-framework">Entropy-based Uncertainty Quantification Framework</h1><p>From what we have seen, we can view a neural network as a <strong>function</strong>.</p><p>In our case — since we’re dealing with classification — our function spits out a <strong>probability vector</strong> where each element corresponds to the probability of the input belonging to a specific class (refer back to Figure 2 if you think this is unclear).</p><p>Therefore, the best prediction is,
+$$
+\begin{equation}
+\hat{y} = \arg\max(\mathcal{F}(\mathbf{x}, \mathbf{W})),
+\end{equation}
+$$</p><p>where the $\arg\max$ function returns the <strong>index</strong> of the <strong>maximum element</strong> in the vector.</p><p>$\mathcal{F}$ is our neural network that takes the inputs $\mathbf{x}$ (image) and $\mathbf{W}$ (<strong>final learned</strong> weights).</p><p>But this is deterministic, there is no uncertainty (no surprise), given the same input we will <strong>always</strong> get the same output.</p><p>So, let us introduce some uncertainty, let’s make our network <strong>stochastic</strong>.</p><p>To make the network stochastic, we need to introduce some <strong>randomness somewhere</strong> in the network.</p><p>I want to emphasize that you can do this in a lot of different ways and “inject” the randomness at different stages in a neural network.
+We chose the most straightforward and primitive ways, <strong>adding random noise to the input image or all weights</strong>.</p><p>So, the <strong>perturbed weight matrix</strong> is given by,</p><p>$$
+\begin{equation}
+\mathbf{W}_{\sigma} = \mathbf{W} + \sigma \mathbf{N},
+\end{equation}
+$$</p><p>where $N \sim \mathcal{N}(0, 1)$ is a matrix — with the same shape of $\mathbf{W}$ — of random numbers drawn from a normal distribution.
+$\sigma$ is a hyperparameter scalar that weights the amount of noise added to the weights.</p><p>Now, the output becomes stochastic,</p><p>$$
+\begin{equation}
+\hat{y_{\sigma}} = \arg\max(\mathcal{F}(\mathbf{x}; \mathbf{W}_{\sigma})),
+\end{equation}
+$$</p><p>note the difference from our original equation, we no longer treat $\mathbf{W}$ as an input, but rather a parameter of the function $\mathcal{F}$.</p><p>By perturbing the weights and creating a single prediction <strong>constitues a random experiment</strong>.
+It is therefore meaningful to examine the <strong>probability distribution</strong> of the random variable $\mathcal{F}(\mathbf{x}; \mathbf{W}_{\sigma})$ for a fixed input.</p><p>By repeating the experiment for a fixed input $\mathbf{x}$ and creating samples of $\mathcal{F}(\mathbf{x}; \mathbf{W_{\sigma}})$ but drawing different samples of $\mathbf{W_{\sigma}}^{(i)}, i = 1, \ldots, N$ we can empirically calculate the <strong>entropy</strong> $H_{\sigma}(\mathbf{x})$ <strong>entropy distribution</strong>.</p><p>With this framework, we want to search for the <strong>underlying distribution of the model</strong> and the <strong>properties of the distribution</strong>.</p><p><strong>Exercise</strong>:
+What is the difference between the entropy of the model and the entropy of the prediction?</p><details>
+<summary><b>Answer</b></summary>
+<blockquote>
+The entropy of the model is the entropy of <b>multiple predictions</b> given the same fixed input $\mathbf{x}$, whereas the entropy of the prediction is the <b>entropy of the probability vector</b> for a <b>single prediction</b>.
+</blockquote>
+</details><p><strong>Exercise</strong>:
+Is there a difference if you add noise to the input image instead of the weights?</p><details>
+<summary><b>Answer</b></summary>
+<blockquote>
+Yes and no.<p>Adding noise to the input image will perturb the image itself, which is different from perturbing the weights.
+However, conceptually, the idea is the same.</p><p>We can view the noise to the input image as corresponding weights in the first layer of the network.
+Meaning that the first layer of the network is now stochastic, instead of all the weights in the network.</p></blockquote>
+</details><section><h3 id="proposed-metrics">Proposed Metrics</h3><p>With this entropy-based uncertainty quantification framework, we propose two metrics to quantify the uncertainty of a neural network model.</p><section><h4 id="pi-perturbation-index">PI: Perturbation Index</h4><p>In image classification — one of the most common and fundamental tasks in computer vision — <strong>accuracy</strong> is a common metric to evaluate the performance of a model.</p><p>Accuracy is defined as,</p><p>$$
+\begin{equation}
+\text{Acc}(f) = \frac{1}{N} \sum_{i=1}^{N} \mathbb{I}[y^{(i)} = f(\mathbf{x}^{(i)})],
+\end{equation}
+$$</p><p>where $y^{(i)}$ is the true label of the $i$-th image, $f(\mathbf{x}^{(i)})$ is the predicted label of the $i$-th image and $\mathbb{I}[\cdot]$ is the indicator function defined as,</p><p>$$
+\begin{equation}
+\mathbb{I}[A] = \begin{cases}
+1 &#x26; \text{if } A \text{ is true}, \newline
+0 &#x26; \text{otherwise}.
+\end{cases}
+\end{equation}
+$$</p><p>Simply, accuracy is the <strong>fraction of correct predictions</strong> over the total number of predictions.</p><p>It is therefore natural to imagine that <strong>perturbing the weights</strong> of a model <strong>will affect the accuracy</strong> of the model.
+However, a <strong>robust</strong> model should be able to handle these (small) perturbations and <strong>still perform well</strong>.
+This is the idea behind the Perturbation Index (PI).</p><p>The Perturbation Index (PI) is therefore defined as,</p><p>$$
+\begin{equation}
+\pi_{\sigma} = \text{Acc}(\mathcal{F}(\mathbf{x}; \mathbf{W}_{\sigma})) - \text{Acc}(\mathcal{F}(\mathbf{x}, \mathbf{W})).
+\end{equation}
+$$</p><p>$\pi_{\sigma}$ is the difference in accuracy between the perturbed and the original model.</p><p><strong>Exercise</strong>:
+Should you calculate the PI for a single image, a batch of images, or the entire dataset?</p><details>
+<summary><b>Answer</b></summary>
+<blockquote>
+The most meaningful way to calculate the PI is to calculate it for the entire dataset.
+You can of course calculate it for a single image or a batch of images, but the most meaningful interpretation is when you calculate it for the entire dataset.
+</blockquote>
+</details></section><section><h4 id="psi-perturbation-stability-index">PSI: Perturbation Stability Index</h4><p>But PI doesn’t tell us anything about the <em>inherent uncertainty</em> of the model.</p><p>As we discussed, we can empirically calculate the entropy, in mathematical terms,</p><p>$$
+\begin{equation}
+H_{\sigma}(\mathbf{x}) = \lim_{n \to \infty} - \sum_{c \in \mathcal{C}} p_c^{(n)} \log p_c^{(n)},
+\end{equation}
+$$</p><p>where $p_c^{(n)}$ is the proportion of predictions $\hat{y_{\sigma}}$ equal to the class index $c$ out of all $C$ classes in the $n$ samples of $\hat{y}_{\sigma}$ for a given input $\mathbf{x}$.</p><p>If the model generates varying predictions under perturbation, this might suggest uncertainty in the classification.
+In simpler terms, there <strong>should be a negative correlation</strong> between <strong>prediction stability</strong> and the <strong>Shannon-Entropy</strong> of the model.</p><p>$$
+\begin{equation}
+\psi_{\sigma} = \text{Acc}(\mathcal{F}(\mathbf{x}; \mathbf{W_{\sigma}})) - \text{Corr}(\mathbb{I}[\hat{y_{\sigma}} = Y], H_{\sigma}(\mathbf{x})).
+\end{equation}
+$$</p><p>Now, this might look confusing at a first glance, but let me break it down.</p><p>Across the dataset, do samples with <strong>higher entropy</strong> also have <strong>more errors</strong>?
+We hypothesize that this should be the case, this is why we calculate the sample-level (over our $N$ samples/random draws) correlation between them.</p><p>Note, that by doing this, we,</p><ul>
+<li>Penalizes the model if higher entropy → more correct predictions.</li>
+<li>Penalizes the model <strong>less</strong> if higher entropy → more errors.</li>
+</ul><p>Essentially, if the model <strong>“knows when it is uncertain”</strong> (this is very handwavey), it gets a higher PSI.</p><p>We also include the accuracy in the calculation, as we want to penalize the model if it is affected by the perturbation.</p></section></section><section><h3 id="mapping-entropy-categorically">Mapping entropy categorically</h3><p>A very important part of this framework is that the input $\mathbf{x}$ is <strong>fixed</strong>.
+Do images (given same perturbation level) with the <strong>same entropy</strong> yield similar predictions?</p><p>$$
+\begin{equation}
+p_{\sigma} = P(\hat{y_{\sigma}} = Y | H_{\sigma}(\mathbf{x}) = h), \quad \text{ where } h = H(\mathbf{x}).
+\end{equation}
+$$</p><p>The function mapping $\mathbf{x} \mapsto h$ can be understood as the probability of making a correct prediction within all draws from the data, which have <strong>the same entropy as $\mathbf{x}$</strong>.
+This means we can <strong>categorize images based on their entropy</strong> and gain insight into the model’s predictions without seeing the ground truth label.</p></section></section>
+<section><h1 id="results">Results</h1><p>Now, during the majority of the project and the results section in our report, we adopted our framework to three different models to investigate <strong>whether our hypothesis held</strong>.</p><p><strong>In short, yes</strong>, so I won’t bore you with those results and graphs.
+I instead want to focus on the <em>potential</em> applications.</p><p>Near the end of our thesis, our supervisor wanted us to check the different entropies of the images in our dataset (MNIST in our case).
+From our framework, the <strong>higher entropy</strong> digits should have <strong>higher classification errors</strong>, on average.</p><p>So we tested this!</p><p><img src="/images/posts/claudesresult.png" alt="">
+<strong>Figure 4:</strong> Highest (left) and lowest (right) entropy of the digit four for a specific model.</p><p>From Figure 4, we can see that, if that specific model is presented with a digit four that resemble the one on the right (lowest entropy) <strong>will most likely be classified correctly</strong>.
+Compared to the four on the left (highest entropy), which <strong>will most likely be classified incorrectly</strong>.</p><p><strong>Note</strong>, we are talking about the <strong>inherent uncertainty of the model</strong> here, not the entropy of the input itself.
+This just means that this specific models <strong>prefers</strong> digit fours that have the characteristics of the one on the right, to the one on the left.</p><p><strong>Exercise</strong>:</p><details>
+<summary><b>Why do you think the model prefers the digit four on the right?</b></summary>
+<blockquote>
+While there is no right answer (i.e., we haven't proved this), we hypothesize two things.<ol>
+<li>There are more digit fours that resemble the one on the right in the dataset.</li>
+<li>The right digit four has a more unique shape (i.e., characteristic crossover lines for drawing a four), which the model has learned to classify and indicate fours.</li>
+</ol></blockquote>
+</details></section>
+<section><h1 id="conclusion">Conclusion</h1><p>I hope you’ve understood this framework of quantifying uncertainty in neural networks and enjoyed this post :).</p><p>I’ve started to see a lot more people talk about uncertainty quantification <sup><a href="#user-content-fn-6" id="user-content-fnref-6" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup> this year.
+Which makes me happy, it is an interesting field with a lot of potential applications.</p><p>My closing statement is that, don’t forget that statistics is an exact science making sense of an uncertain and inexact world <sup><a href="#user-content-fn-7" id="user-content-fnref-7" data-footnote-ref="" aria-describedby="footnote-label">7</a></sup>.</p></section>
+<section><h1 id="acknowledgements">Acknowledgements</h1><p>I want to thank my supervisor, my group members, and the people that proofread this blog post.</p></section>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p><a href="https://link.springer.com/book/10.1007/978-1-4612-0745-0" rel="nofollow noreferrer noopener" target="_blank">Radford M. Neal “Bayesian learning for neural networks.”</a> <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p><a href="https://www.cs.cmu.edu/~./epxing/Class/10715/reading/Rosenblatt.perceptron.pdf" rel="nofollow noreferrer noopener" target="_blank">Frank Rosenblatt. “The perceptron: a probabilistic model for information storage and organization in the brain.”</a> <a href="#user-content-fnref-2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-3">
+<p><a href="https://www.nature.com/articles/323533a0" rel="nofollow noreferrer noopener" target="_blank">David E. Rumelhart, Geoffrey E. Hinton, Ronald J. Williams, “Learning representations by back-propagating errors.”</a> <a href="#user-content-fnref-3" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-4">
+<p><a href="https://karpathy.medium.com/yes-you-should-understand-backprop-e2f06eab496b" rel="nofollow noreferrer noopener" target="_blank">Andrej Karpathy, “Yes you should understand backprop.”</a> <a href="#user-content-fnref-4" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-5">
+<p><a href="https://ieeexplore.ieee.org/document/6773024" rel="nofollow noreferrer noopener" target="_blank">Claude E. Shannon, “A mathematical theory of communication.”</a> <a href="#user-content-fnref-5" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-6">
+<p><a href="https://github.com/xjdr-alt/entropix" rel="nofollow noreferrer noopener" target="_blank">Entropix</a> <a href="#user-content-fnref-6" data-footnote-backref="" aria-label="Back to reference 6" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-7">
+<p><a href="https://x.com/MoritzSchauer/status/1778091483226128700" rel="nofollow noreferrer noopener" target="_blank">Original Tweet</a> <a href="#user-content-fnref-7" data-footnote-backref="" aria-label="Back to reference 7" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+
+
+</body></html> </article> <div class="col-start-2"> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/blog/links" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Links </span> </div>  </a> <a href="/blog/programming_principles" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Programming Principles </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </div> <div class="col-start-2"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </section> <button data-slot="button" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 group fixed right-8 bottom-8 z-50 hidden" id="scroll-to-top" title="Scroll to top" aria-label="Scroll to top"> <svg width="1em" height="1em" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" data-icon="lucide:arrow-up">   <symbol id="ai:lucide:arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></symbol><use href="#ai:lucide:arrow-up"></use>  </svg> </button> <script type="module">document.addEventListener("astro:page-load",()=>{const o=document.getElementById("scroll-to-top"),t=document.querySelector("footer");o&&t&&(o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),window.addEventListener("scroll",()=>{const e=t.getBoundingClientRect().top<=window.innerHeight;o.classList.toggle("hidden",window.scrollY<=300||e)}))});</script>  </div> </main> <footer class="py-4"> <div class="mx-auto flex max-w-3xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between"> <div class="flex flex-wrap items-center justify-center gap-x-2 text-center"> <span class="text-muted-foreground text-sm">
+&copy; 2025 • rezarezvan.com </span> </div> </div> </footer> <div id="backdrop" class="invisible fixed top-0 left-0 z-50 flex h-screen w-full justify-center bg-[rgba(0,0,0,0.5)] p-6 backdrop-blur-sm" data-astro-transition-persist="astro-t6dxx5el-4"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="dark:prose-invert mr-2 pt-4 pb-1 text-right text-xs">
+Press <span class="prose dark:prose-invert text-xs"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const magnifyingGlass = document.getElementById('magnifying-glass')
+    const backdrop = document.getElementById('backdrop')
+
+    function openPagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      setTimeout(() => {
+        search.focus()
+      }, 0)
+      backdrop?.classList.remove('invisible')
+      backdrop?.classList.add('visible')
+    }
+
+    function closePagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      if (search) {
+        search.value = ''
+      }
+      backdrop?.classList.remove('visible')
+      backdrop?.classList.add('invisible')
+    }
+
+    // open pagefind
+    magnifyingGlass?.addEventListener('click', () => {
+      openPagefind()
+    })
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/') {
+        e.preventDefault()
+        openPagefind()
+      } else if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        openPagefind()
+      }
+    })
+
+    // close pagefind
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePagefind()
+      }
+    })
+
+    // close pagefind when searched result(link) clicked
+    document.addEventListener('click', (event) => {
+      if (event.target.classList.contains('pagefind-ui__result-link')) {
+        closePagefind()
+      }
+    })
+
+    backdrop?.addEventListener('click', (event) => {
+      if (!event.target.closest('#pagefind-container')) {
+        closePagefind()
+      }
+    })
+
+    // prevent form submission
+    const form = document.getElementById('form')
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault()
+    })
+  })
+</script>  </div> </body></html>

@@ -1,239 +1,68 @@
-<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/icon" href="/favicon.ico"><meta name="generator" content="Astro v5.5.5"><!-- Canonical URL --><link rel="canonical" href="https://rezvan.xyz/cityu/cs4487/cs4487_10/"><!-- Primary Meta Tags --><title>Part 10 - Neural Networks and Deep Learning Part 2 | machine learning | rezarezvan.com</title><meta name="title" content="Part 10 - Neural Networks and Deep Learning Part 2 | machine learning | rezarezvan.com"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://rezvan.xyz/cityu/cs4487/cs4487_10/"><meta property="og:title" content="Part 10 - Neural Networks and Deep Learning Part 2 | machine learning | rezarezvan.com"><meta property="og:description"><meta property="og:image" content="https://rezvan.xyz/favicon.ico"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://rezvan.xyz/cityu/cs4487/cs4487_10/"><meta property="twitter:title" content="Part 10 - Neural Networks and Deep Learning Part 2 | machine learning | rezarezvan.com"><meta property="twitter:description"><meta property="twitter:image" content="https://rezvan.xyz/favicon.ico"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+<!DOCTYPE html><html lang="en-US"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v5.7.0"><meta name="robots" content="index, follow"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="rezarezvan.com" href="https://rezaarezvan.com/rss.xml"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
     function renderKaTeX() {
-        if (typeof renderMathInElement !== "undefined") {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    { left: "$$", right: "$$", display: true },
-                    { left: "$", right: "$", display: false },
-                ],
-            });
-        }
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        })
+      }
     }
 
-    document.addEventListener("DOMContentLoaded", renderKaTeX);
-    document.addEventListener("astro:after-swap", renderKaTeX);
-</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script>
+    document.addEventListener('DOMContentLoaded', renderKaTeX)
+    document.addEventListener('astro:after-swap', renderKaTeX)
+  </script><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/favicon.ico"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="rezvan-blog"><link rel="manifest" href="/site.webmanifest"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.BZs-2RF_.js"></script><script>
     function init() {
-        preloadTheme();
-        onScroll();
-        animate();
-        updateThemeButtons();
-        addCopyCodeButtons();
-        setGiscusTheme();
-
-        const backToTop = document.getElementById("back-to-top");
-        backToTop?.addEventListener("click", (event) => scrollToTop(event));
-
-        const backToPrev = document.getElementById("back-to-prev");
-        backToPrev?.addEventListener("click", () => window.history.back());
-
-        const lightThemeButton = document.getElementById("light-theme-button");
-        lightThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "light");
-            toggleTheme(false);
-            updateThemeButtons();
-        });
-
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        darkThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "dark");
-            toggleTheme(true);
-            updateThemeButtons();
-        });
-
-        const systemThemeButton = document.getElementById(
-            "system-theme-button",
-        );
-        systemThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "system");
-            toggleTheme(
-                window.matchMedia("(prefers-color-scheme: dark)").matches,
-            );
-            updateThemeButtons();
-        });
-
-        window
-            .matchMedia("(prefers-color-scheme: dark)")
-            .addEventListener("change", (event) => {
-                if (localStorage.theme === "system") {
-                    toggleTheme(event.matches);
-                }
-            });
-
-        document.addEventListener("scroll", onScroll);
-    }
-
-    function updateThemeButtons() {
-        const theme = localStorage.getItem("theme");
-        const lightThemeButton = document.getElementById("light-theme-button");
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        const systemThemeButton = document.getElementById(
-            "system-theme-button",
-        );
-
-        function removeActiveButtonTheme(button) {
-            button?.classList.remove("bg-black/5");
-            button?.classList.remove("dark:bg-white/5");
-        }
-
-        function addActiveButtonTheme(button) {
-            button?.classList.add("bg-black/5");
-            button?.classList.add("dark:bg-white/5");
-        }
-
-        removeActiveButtonTheme(lightThemeButton);
-        removeActiveButtonTheme(darkThemeButton);
-        removeActiveButtonTheme(systemThemeButton);
-
-        if (theme === "light") {
-            addActiveButtonTheme(lightThemeButton);
-        } else if (theme === "dark") {
-            addActiveButtonTheme(darkThemeButton);
-        } else {
-            addActiveButtonTheme(systemThemeButton);
-        }
-    }
-
-    function animate() {
-        const animateElements = document.querySelectorAll(".animate");
-
-        animateElements.forEach((element, index) => {
-            setTimeout(() => {
-                element.classList.add("show");
-            }, index * 100);
-        });
-    }
-
-    function onScroll() {
-        if (window.scrollY > 0) {
-            document.documentElement.classList.add("scrolled");
-        } else {
-            document.documentElement.classList.remove("scrolled");
-        }
-    }
-
-    function scrollToTop(event) {
-        event.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    }
-
-    function toggleTheme(dark) {
-        const css = document.createElement("style");
-
-        css.appendChild(
-            document.createTextNode(
-                `* {
-             -webkit-transition: none !important;
-             -moz-transition: none !important;
-             -o-transition: none !important;
-             -ms-transition: none !important;
-             transition: none !important;
-          }
-        `,
-            ),
-        );
-
-        document.head.appendChild(css);
-
-        if (dark) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-
-        window.getComputedStyle(css).opacity;
-        document.head.removeChild(css);
-
-        setGiscusTheme();
-    }
-
-    function preloadTheme() {
-        const userTheme = localStorage.theme;
-
-        if (userTheme === "light" || userTheme === "dark") {
-            toggleTheme(userTheme === "dark");
-        } else {
-            toggleTheme(
-                window.matchMedia("(prefers-color-scheme: dark)").matches,
-            );
-        }
-    }
-
-    function addCopyCodeButtons() {
-        let copyButtonLabel = "📋";
-        let codeBlocks = Array.from(document.querySelectorAll("pre"));
-
-        async function copyCode(codeBlock, copyButton) {
-            const codeText = codeBlock.innerText;
-            const buttonText = copyButton.innerText;
-            const textToCopy = codeText.replace(buttonText, "");
-
-            await navigator.clipboard.writeText(textToCopy);
-            copyButton.innerText = "✅";
-
-            setTimeout(() => {
-                copyButton.innerText = copyButtonLabel;
-            }, 2000);
-        }
-
-        for (let codeBlock of codeBlocks) {
-            const wrapper = document.createElement("div");
-            wrapper.style.position = "relative";
-
-            const copyButton = document.createElement("button");
-            copyButton.innerText = copyButtonLabel;
-            copyButton.classList = "copy-code";
-
-            codeBlock.setAttribute("tabindex", "0");
-            codeBlock.appendChild(copyButton);
-
-            codeBlock.parentNode.insertBefore(wrapper, codeBlock);
-            wrapper.appendChild(codeBlock);
-
-            copyButton?.addEventListener("click", async () => {
-                await copyCode(codeBlock, copyButton);
-            });
-        }
+      setGiscusTheme()
     }
 
     const setGiscusTheme = () => {
-        const giscus = document.querySelector(".giscus-frame");
+      const giscus = document.querySelector('.giscus-frame')
 
-        const isDark = document.documentElement.classList.contains("dark");
+      const isDark = document.documentElement.classList.contains('dark')
 
-        if (giscus) {
-            const url = new URL(giscus.src);
-            url.searchParams.set("theme", isDark ? "dark" : "light");
-            giscus.src = url.toString();
-        }
-    };
+      if (giscus) {
+        const url = new URL(giscus.src)
+        url.searchParams.set('theme', isDark ? 'dark' : 'light')
+        giscus.src = url.toString()
+      }
+    }
 
-    document.addEventListener("DOMContentLoaded", () => init());
-    document.addEventListener("astro:after-swap", () => init());
-    preloadTheme();
-</script><link rel="stylesheet" href="/_astro/_subject_.WmXrNcmP.css">
-<link rel="stylesheet" href="/_astro/index.C6eUsQXi.css">
-<style>summary[data-astro-cid-xvrfupwn]{cursor:pointer;border-top-left-radius:.5rem;border-top-right-radius:.5rem;padding:.375rem .75rem;font-weight:500;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}summary[data-astro-cid-xvrfupwn]:hover{background-color:#0000000d}summary[data-astro-cid-xvrfupwn]:hover:is(.dark *){background-color:#ffffff0d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]{background-color:#0000000d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]:is(.dark *){background-color:#ffffff0d}
-</style></head> <body> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto max-w-screen-sm px-3"> <div class="flex flex-wrap justify-between gap-y-4"> <div class="flex flex-col gap-y-2"> <a href="/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out">  <div class="font-semibold"> rezarezvan.com </div>  </a> <div class="flex gap-x-2"> <button id="light-theme-button" aria-label="Light theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <button id="dark-theme-button" aria-label="Dark theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <button id="system-theme-button" aria-label="System theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect> <line x1="8" y1="21" x2="16" y2="21"></line> <line x1="12" y1="17" x2="12" y2="21"></line> </svg> </button> </div> </div> <nav class="flex items-center gap-1 text-sm"> <a href="/posts" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> posts </a> <span>/</span> <a href="/chalmers" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> chalmers </a> <span>/</span> <a href="/cityu" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cityu </a> <span>/</span> <a href="/pdf/cv/cv.pdf" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cv </a> <span>/</span> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+    document.addEventListener('DOMContentLoaded', () => init())
+    document.addEventListener('astro:after-swap', () => init())
+  </script><title>Part 10 - Neural Networks and Deep Learning Part 2 | rezarezvan.com</title><meta name="title" content="Part 10 - Neural Networks and Deep Learning Part 2 | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com"><meta property="og:title" content="Part 10 - Neural Networks and Deep Learning Part 2"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.comundefined"><meta property="og:image:alt" content="Part 10 - Neural Networks and Deep Learning Part 2"><meta property="og:type" content="website"><meta property="og:locale" content="en-US"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezaarezvan.com/cityu/cs4487/cs4487_10/"><meta name="twitter:title" content="Part 10 - Neural Networks and Deep Learning Part 2"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.comundefined"><meta name="twitter:image:alt" content="Part 10 - Neural Networks and Deep Learning Part 2"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/index.CMAis0x6.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <header class="bg-background/50 sticky top-0 z-10 backdrop-blur-md" data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 p-4"> <a href="/" target="_self" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center gap-2 text-xl font-medium"> rezarezvan.com </a> <div class="flex items-center gap-2 md:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex"> <a href="/blog" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/chalmers" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> chalmers<span>/</span>  </a><a href="/cityu" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> cityu<span>/</span>  </a><a href="/about" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> about<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
 &nbsp;Search
-</button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/cityu/cs4487" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> 
-Back to machine learning </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/cityu/cs4487/cs4487_9" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 9 - Neural Networks and Deep Learning </div> </a> <a href="/cityu/cs4487/cs4487_11" class="group relative flex flex-grow flex-row-reverse flex-nowrap rounded-lg border border-black/15 px-4 py-4 pr-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 19 12 12 19" class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 11 - High-Level and Low-Level Vision Applications </div> </a> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm">CS4487</div>
-&bull;
-<div class="font-base text-sm"> <time datetime="2024-11-13T00:00:00.000Z"> November 13, 2024 </time> </div> 
-&bull;
-<div class="font-base text-sm">
-Last modified:  <time datetime="2024-11-26T14:28:49.000Z"> November 26, 2024 </time> </div> 
-&bull;
-<div class="font-base text-sm">21 min read</div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Part 10 - Neural Networks and Deep Learning Part 2 </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#training-deep-neural-networks" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Training Deep Neural Networks </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#gradient-descent-gd" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Gradient Descent (GD) </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#stochastic-gradient-descent-sgd" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Stochastic Gradient Descent (SGD) </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#optimization-techniques" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Optimization Techniques </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#more-problems-with-sgd" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> More Problems with SGD </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#momentum" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Momentum </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#sgd-with-momentum" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> SGD with Momentum </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#nesterov-momentum" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Nesterov Momentum </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#sgd-with-nesterov-momentum" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> SGD with Nesterov Momentum </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#adaptive-learning-rate-methods" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Adaptive Learning Rate Methods </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#adagrad" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> AdaGrad </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#rmsprop-leaky-adagrad" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> RMSProp: “Leaky AdaGrad” </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#adam-adaptive-moments" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Adam: ADAptive Moments </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#adamw-adaptive-moments-with-weight-decay" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> AdamW: ADAptive Moments with Weight Decay </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#other-emerging-optimization-techniques" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Other Emerging Optimization Techniques </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#regularization" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Regularization </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#data-augmentation" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Data Augmentation </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#emerging-data-augmentation-techniques" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Emerging Data Augmentation Techniques </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#other-regularization-techniques" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Other Regularization Techniques </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#early-stopping" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Early Stopping </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#dropout" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Dropout </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#dropout-at-test-time" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Dropout at Test Time </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#stochastic-depth" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Stochastic Depth </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#batch-normalization" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Batch Normalization </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#batch-normalization-at-test-time" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Batch Normalization at Test Time </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#layer-normalization" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Layer Normalization </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#group-normalization" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Group Normalization </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#practical-tricks--tips" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Practical Tricks &amp; Tips </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#data--pre-procesing" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Data  Pre-Procesing </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#pca-as-whitening" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> PCA as Whitening </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#weight-initialization" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Weight Initialization </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#learning-rate-decay" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Learning Rate Decay </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#transfer-learning" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Transfer Learning </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#choosing-hyperparameters" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Choosing Hyperparameters </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#summary" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Summary </a>  </li> </ul> </nav> </details> <article class="animate"> <h3 id="training-deep-neural-networks">Training Deep Neural Networks</h3>
-<p>As we discussed last time, training neural networks is a highly non-convex optimization problem in high dimensional space.
-In the loss landscape, we will have lots of plateaus, saddle points and local optimas that can hinder our training process.</p>
-<p>So far, we have learned about Gradient Descent (GD) and Stochastic Gradient Descent (SGD, along with its mini-batch version) as optimization techniques.</p>
-<h4 id="gradient-descent-gd">Gradient Descent (GD)</h4>
-<p>Recall the algorithm for (batch) Gradient Descent:</p>
-<ol>
+</button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="IsA9h" prefix="r3" component-url="/_astro/mobile-menu.C9T2c5u4.js" component-export="default" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;data-astro-transition-persist&quot;:[0,&quot;astro-lci6dfah-2&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" data-astro-transition-persist="astro-lci6dfah-2" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r3R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem('theme') ?? ''
+    if (['dark', 'light'].includes(localStorageTheme)) {
+      return localStorageTheme
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })()
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark')
+  } else {
+    document.documentElement.classList.add('dark')
+  }
+
+  window.localStorage.setItem('theme', theme)
+</script> <script type="module">function a(){const e=document.documentElement;e.classList.add("disable-transitions"),e.classList.toggle("dark"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("disable-transitions")});const t=e.classList.contains("dark");localStorage.setItem("theme",t?"dark":"light")}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme"),t=document.documentElement;t.classList.add("disable-transitions"),window.getComputedStyle(t).getPropertyValue("opacity"),e==="dark"?t.classList.add("dark"):t.classList.remove("dark"),requestAnimationFrame(()=>{t.classList.remove("disable-transitions")}),s()});</script> </div> </div> </header> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/cityu"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:graduation-cap">   <symbol id="ai:lucide:graduation-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol><use href="#ai:lucide:graduation-cap"></use>  </svg> CityU </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/cityu/cs4487"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:book-open">   <symbol id="ai:lucide:book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z"/></symbol><use href="#ai:lucide:book-open"></use>  </svg> Machine Learning </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> Part 10 - Neural Networks and Deep Learning Part 2 </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 text-4xl leading-tight font-medium text-pretty sm:text-5xl"> Part 10 - Neural Networks and Deep Learning Part 2 </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground">CS4487</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>November 13, 2024</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>21 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/cityu/cs4487/cs4487_11" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Part 11 - High-Level and Low-Level Vision Applications </span> </div>  </a> <a href="/cityu/cs4487/cs4487_9" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Part 9 - Neural Networks and Deep Learning </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <details open class="group col-start-2 rounded-xl border p-4 xl:sticky xl:top-20 xl:col-start-1 xl:mr-8 xl:ml-auto xl:h-[calc(100vh-5rem)] xl:max-w-fit xl:rounded-none xl:border-none xl:p-0"> <summary class="flex cursor-pointer items-center justify-between text-xl font-medium group-open:pb-4 xl:hidden"> <span>Table of Contents</span> <svg width="1em" height="1em" class="size-5 shrink-0 transition-transform group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg> </summary> <astro-island uid="S6OPo" prefix="r7" component-url="/_astro/scroll-area.DmWfVO5M.js" component-export="ScrollArea" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;className&quot;:[0,&quot;flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]&quot;],&quot;type&quot;:[0,&quot;always&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot> <ul class="flex list-none flex-col gap-y-2 px-4 xl:mr-8" id="table-of-contents"> <li class="hidden text-lg font-medium xl:block">Table of Contents</li> <li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#training-deep-neural-networks" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Training Deep Neural Networks </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#gradient-descent-gd" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Gradient Descent (GD) </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#stochastic-gradient-descent-sgd" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Stochastic Gradient Descent (SGD) </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#optimization-techniques" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Optimization Techniques </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#more-problems-with-sgd" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> More Problems with SGD </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#momentum" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Momentum </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#sgd-with-momentum" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> SGD with Momentum </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#nesterov-momentum" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Nesterov Momentum </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#sgd-with-nesterov-momentum" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> SGD with Nesterov Momentum </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#adaptive-learning-rate-methods" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Adaptive Learning Rate Methods </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#adagrad" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> AdaGrad </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#rmsprop-leaky-adagrad" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> RMSProp: “Leaky AdaGrad” </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#adam-adaptive-moments" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Adam: ADAptive Moments </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#adamw-adaptive-moments-with-weight-decay" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> AdamW: ADAptive Moments with Weight Decay </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#other-emerging-optimization-techniques" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Other Emerging Optimization Techniques </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#regularization" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Regularization </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#data-augmentation" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Data Augmentation </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#emerging-data-augmentation-techniques" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Emerging Data Augmentation Techniques </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#other-regularization-techniques" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Other Regularization Techniques </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#early-stopping" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Early Stopping </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#dropout" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Dropout </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#dropout-at-test-time" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Dropout at Test Time </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#stochastic-depth" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Stochastic Depth </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#batch-normalization" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Batch Normalization </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#batch-normalization-at-test-time" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Batch Normalization at Test Time </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#layer-normalization" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Layer Normalization </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#group-normalization" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Group Normalization </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#practical-tricks--tips" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Practical Tricks &amp; Tips </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#data--pre-procesing" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Data  Pre-Procesing </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#pca-as-whitening" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> PCA as Whitening </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#weight-initialization" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Weight Initialization </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#learning-rate-decay" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Learning Rate Decay </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#transfer-learning" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Transfer Learning </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#choosing-hyperparameters" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Choosing Hyperparameters </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#summary" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Summary </a> </li> </ul> </astro-slot></div></div><div data-orientation="vertical" data-slot="scroll-area-scrollbar" class="flex touch-none p-px transition-colors select-none h-full w-2.5 border-l border-l-transparent" style="position:absolute;top:0;right:0;bottom:var(--radix-scroll-area-corner-height);--radix-scroll-area-thumb-height:18px"></div></div><!--astro:end--></astro-island> </details> <script type="module">function s(){const t=document.querySelector("header"),c=t?t.offsetHeight:0,a=new IntersectionObserver(e=>{e.forEach(o=>{const r=o.target.querySelector("h2, h3, h4, h5, h6");if(!r)return;const d=r.getAttribute("id"),n=document.querySelector(`#table-of-contents li a[href="#${d}"]`);if(!n)return;const i=o.isIntersecting?"add":"remove";n.classList[i]("text-foreground")})},{rootMargin:`-${c}px 0px 0px 0px`});document.querySelectorAll(".prose section").forEach(e=>{a.observe(e)})}document.addEventListener("astro:page-load",s);document.addEventListener("astro:after-swap",s);</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
+
+
+<meta charset="utf-8">
+<title>CS4487_10</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" rel="stylesheet">
+
+
+<section><h3 id="training-deep-neural-networks">Training Deep Neural Networks</h3><p>As we discussed last time, training neural networks is a highly non-convex optimization problem in high dimensional space.
+In the loss landscape, we will have lots of plateaus, saddle points and local optimas that can hinder our training process.</p><p>So far, we have learned about Gradient Descent (GD) and Stochastic Gradient Descent (SGD, along with its mini-batch version) as optimization techniques.</p><section><h4 id="gradient-descent-gd">Gradient Descent (GD)</h4><p>Recall the algorithm for (batch) Gradient Descent:</p><ol>
 <li><strong>Require</strong>: Learning Rate $\alpha^{(t)}$</li>
 <li><strong>Require</strong>: Initial Parameter $\mathbf{\theta}^{(0)}$</li>
 <li><strong>while</strong> stopping criterion not met <strong>do</strong></li>
@@ -242,14 +71,10 @@ In the loss landscape, we will have lots of plateaus, saddle points and local op
 <li>$\quad$ Apply update: $\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} - \alpha^{(t)} \mathbf{g}^{(t)}$</li>
 <li>$\quad$ $t = t + 1$</li>
 <li><strong>end while</strong></li>
-</ol>
-<ul>
+</ol><ul>
 <li>Pros: Gradient estimates are stable</li>
 <li>Cons: Need to compute gradients over the entire training set for one update.</li>
-</ul>
-<h4 id="stochastic-gradient-descent-sgd">Stochastic Gradient Descent (SGD)</h4>
-<p>Recall the algorithm for Stochastic Gradient Descent:</p>
-<ol>
+</ul></section><section><h4 id="stochastic-gradient-descent-sgd">Stochastic Gradient Descent (SGD)</h4><p>Recall the algorithm for Stochastic Gradient Descent:</p><ol>
 <li><strong>Require</strong>: Learning Rate $\alpha^{(t)}$</li>
 <li><strong>Require</strong>: Initial Parameter $\mathbf{\theta}^{(0)}$</li>
 <li><strong>while</strong> stopping criterion not met <strong>do</strong></li>
@@ -259,37 +84,16 @@ In the loss landscape, we will have lots of plateaus, saddle points and local op
 <li>$\quad$ Apply update: $\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} - \alpha^{(t)} \mathbf{g}^{(t)}$</li>
 <li>$\quad$ $t = t + 1$</li>
 <li><strong>end while</strong></li>
-</ol>
-<ul>
+</ol><ul>
 <li>Pros: Computation time per update does not depend on $M$, allowing convergence on extremely large datasets.</li>
 <li>Cons: Gradient estimates can be noisy, use mini-batches to mitigate this.</li>
-</ul>
-<h3 id="optimization-techniques">Optimization Techniques</h3>
-<p>We will discuss other optimization techniques that can help us train deep neural networks more effectively.</p>
-<h4 id="more-problems-with-sgd">More Problems with SGD</h4>
-<p>What if the loss changes quickly in one direction and slowly in another (i.e., error surface has high curvature)?
-SGD will have a hard time converging in this case.</p>
-<p>As we know, gradient descent gains very slow progress along a shallow direction and starts to jitter along steep direction.</p>
-<h4 id="momentum">Momentum</h4>
-<p>How do we solve this problem? One way is to use <strong>momentum</strong>.</p>
-<p>We introduce a new variable $\mathbf{v}$, the velocity.</p>
-<p>We think of $\mathbf{v}$ as the direction and speed by which the parameters move as the learning dynamics progress.</p>
-<p>The velocity is an <strong>exponentially decaying moving average</strong> of the negative gradients,</p>
-<p>$$
+</ul></section></section>
+<section><h3 id="optimization-techniques">Optimization Techniques</h3><p>We will discuss other optimization techniques that can help us train deep neural networks more effectively.</p><section><h4 id="more-problems-with-sgd">More Problems with SGD</h4><p>What if the loss changes quickly in one direction and slowly in another (i.e., error surface has high curvature)?
+SGD will have a hard time converging in this case.</p><p>As we know, gradient descent gains very slow progress along a shallow direction and starts to jitter along steep direction.</p></section><section><h4 id="momentum">Momentum</h4><p>How do we solve this problem? One way is to use <strong>momentum</strong>.</p><p>We introduce a new variable $\mathbf{v}$, the velocity.</p><p>We think of $\mathbf{v}$ as the direction and speed by which the parameters move as the learning dynamics progress.</p><p>The velocity is an <strong>exponentially decaying moving average</strong> of the negative gradients,</p><p>$$
 \mathbf{v}^{(t + 1)} = \rho \mathbf{v}^{(t)} - \alpha^{(t)} \nabla_{\mathbf{\theta}} \ell(f(\mathbf{x}^{(i)}; \mathbf{\theta}), y^{(i)})
-$$</p>
-<p>where $\rho \in [0, 1)$.</p>
-<p>Update rule: $\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} + \mathbf{v}^{(t+1)}$</p>
-<p>Let’s take a closer look at the velocity term,</p>
-<p>$$
+$$</p><p>where $\rho \in [0, 1)$.</p><p>Update rule: $\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} + \mathbf{v}^{(t+1)}$</p><p>Let’s take a closer look at the velocity term,</p><p>$$
 \mathbf{v}^{(t + 1)} = \rho \mathbf{v}^{(t)} - \alpha^{(t)} \nabla_{\mathbf{\theta}} \ell(f(\mathbf{x}^{(i)}; \mathbf{\theta}), y^{(i)})
-$$</p>
-<p>We can see that the velocity <strong>accumulates</strong> the previous gradients.</p>
-<p>But, what is the role of $rho$?</p>
-<p>If $rho$ is larger than $\alpha^{(t)}$, the current update is more affected by the previous gradients.</p>
-<p>We usually set $rho$ to a high value, e.g., 0.9.</p>
-<h5 id="sgd-with-momentum">SGD with Momentum</h5>
-<ol>
+$$</p><p>We can see that the velocity <strong>accumulates</strong> the previous gradients.</p><p>But, what is the role of $rho$?</p><p>If $rho$ is larger than $\alpha^{(t)}$, the current update is more affected by the previous gradients.</p><p>We usually set $rho$ to a high value, e.g., 0.9.</p><section><h5 id="sgd-with-momentum">SGD with Momentum</h5><ol>
 <li><strong>Require</strong>: Learning Rate $\alpha^{(t)}$</li>
 <li><strong>Require</strong>: Momentum $\rho$</li>
 <li><strong>Require</strong>: Initial Parameter $\mathbf{\theta}^{(0)}$</li>
@@ -301,25 +105,14 @@ $$</p>
 <li>$\quad$ Apply update: $\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} + \mathbf{v}^{(t+1)}$</li>
 <li>$\quad$ $t = t + 1$</li>
 <li><strong>end while</strong></li>
-</ol>
-<h4 id="nesterov-momentum">Nesterov Momentum</h4>
-<p>Another approach that we can take, is to use <strong>Nesterov Momentum</strong>.</p>
-<p>First take a step in the direction of the accumulated gradient, then calculate the gradient and make a correction.</p>
-<p>Let’s write it out.</p>
-<p>Recall the velocity term in the momentum update,</p>
-<p>$$
+</ol></section></section><section><h4 id="nesterov-momentum">Nesterov Momentum</h4><p>Another approach that we can take, is to use <strong>Nesterov Momentum</strong>.</p><p>First take a step in the direction of the accumulated gradient, then calculate the gradient and make a correction.</p><p>Let’s write it out.</p><p>Recall the velocity term in the momentum update,</p><p>$$
 \mathbf{v}^{(t + 1)} = \rho \mathbf{v}^{(t)} - \alpha^{(t)} \nabla_{\mathbf{\theta}} \ell(f(\mathbf{x}^{(i)}; \mathbf{\theta}), y^{(i)})
-$$</p>
-<p>Nesterov Momentum changes the update rule to,</p>
-<p>$$
+$$</p><p>Nesterov Momentum changes the update rule to,</p><p>$$
 \begin{align*}
 \tilde{\mathbf{\theta}} = \mathbf{\theta}^{(t)} + \rho \mathbf{v}^{(t)} \newline
 \mathbf{v}^{(t + 1)} = \rho \mathbf{v}^{(t)} - \alpha^{(t)} \nabla_{\mathbf{\theta}} \ell(f(\mathbf{x}^{(i)}; \tilde{\mathbf{\theta}}), y^{(i)}) \newline
 \end{align*}
-$$</p>
-<p>Update: $\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} + \mathbf{v}^{(t+1)}$</p>
-<h5 id="sgd-with-nesterov-momentum">SGD with Nesterov Momentum</h5>
-<ol>
+$$</p><p>Update: $\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} + \mathbf{v}^{(t+1)}$</p><section><h5 id="sgd-with-nesterov-momentum">SGD with Nesterov Momentum</h5><ol>
 <li><strong>Require</strong>: Learning Rate $\alpha^{(t)}$</li>
 <li><strong>Require</strong>: Momentum $\rho$</li>
 <li><strong>Require</strong>: Initial Parameter $\mathbf{\theta}^{(0)}$</li>
@@ -332,20 +125,7 @@ $$</p>
 <li>$\quad$ Apply update: $\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} + \mathbf{v}^{(t+1)}$</li>
 <li>$\quad$ $t = t + 1$</li>
 <li><strong>end while</strong></li>
-</ol>
-<h4 id="adaptive-learning-rate-methods">Adaptive Learning Rate Methods</h4>
-<p>Till now we have assigned the same learning rate to all parameters $\theta_j$‘s.</p>
-<p>But, if $\theta_j$‘s vary in importance and convergence speed, is this really a good idea?</p>
-<p>Probably not.</p>
-<h5 id="adagrad">AdaGrad</h5>
-<p>One way to address this issue is to use <strong>AdaGrad</strong>.</p>
-<p>Idea: Scale the gradient of a model parameter by the square root of sum of squares of all its historical values.</p>
-<p>Or in other words, progress along “steep” directions (with large partial derivatives) are damped.</p>
-<p>Progress along “flat” directions (with small partial derivatives) are accelerated.</p>
-<p>Here is a conceptual question that is quite important.</p>
-<p>What will happen to the gradient magnitude over a long time?</p>
-<p>It will decay to zero.</p>
-<ol>
+</ol></section></section><section><h4 id="adaptive-learning-rate-methods">Adaptive Learning Rate Methods</h4><p>Till now we have assigned the same learning rate to all parameters $\theta_j$‘s.</p><p>But, if $\theta_j$‘s vary in importance and convergence speed, is this really a good idea?</p><p>Probably not.</p><section><h5 id="adagrad">AdaGrad</h5><p>One way to address this issue is to use <strong>AdaGrad</strong>.</p><p>Idea: Scale the gradient of a model parameter by the square root of sum of squares of all its historical values.</p><p>Or in other words, progress along “steep” directions (with large partial derivatives) are damped.</p><p>Progress along “flat” directions (with small partial derivatives) are accelerated.</p><p>Here is a conceptual question that is quite important.</p><p>What will happen to the gradient magnitude over a long time?</p><p>It will decay to zero.</p><ol>
 <li><strong>Require</strong>: Initial Learning Rate $\alpha$</li>
 <li><strong>Require</strong>: Initial Parameter $\mathbf{\theta}^{(0)}$</li>
 <li>Initialize $\mathbf{r}^{(0)} = 0$</li>
@@ -357,13 +137,8 @@ $$</p>
 <li>$\quad$ Apply update: $\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} + \Delta \mathbf{\theta}$</li>
 <li>$\quad$ $t = t + 1$</li>
 <li><strong>end while</strong></li>
-</ol>
-<h4 id="rmsprop-leaky-adagrad">RMSProp: “Leaky AdaGrad”</h4>
-<p>AdaGrad is good when the objective is convex, however, it may not be the best choice for non-convex problems.</p>
-<p>AdaGrad might shrink the learning rate too aggressievly sometimes as well, but we can overcome these problems.</p>
-<p>We can adapt it to perform better in non-convex settings by accumulating an exponentially decaying average of the gradient.
-This is an idea that we will see time and time again in deep learning.</p>
-<ol>
+</ol></section></section><section><h4 id="rmsprop-leaky-adagrad">RMSProp: “Leaky AdaGrad”</h4><p>AdaGrad is good when the objective is convex, however, it may not be the best choice for non-convex problems.</p><p>AdaGrad might shrink the learning rate too aggressievly sometimes as well, but we can overcome these problems.</p><p>We can adapt it to perform better in non-convex settings by accumulating an exponentially decaying average of the gradient.
+This is an idea that we will see time and time again in deep learning.</p><ol>
 <li><strong>Require</strong>: Global Learning Rate $\alpha$</li>
 <li><strong>Require</strong>: Decay Rate $\rho$</li>
 <li><strong>Require</strong>: Initial Parameter $\mathbf{\theta}^{(0)}$</li>
@@ -376,11 +151,7 @@ This is an idea that we will see time and time again in deep learning.</p>
 <li>$\quad$ Apply update: $\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} + \Delta \mathbf{\theta}$</li>
 <li>$\quad$ $t = t + 1$</li>
 <li><strong>end while</strong></li>
-</ol>
-<h4 id="adam-adaptive-moments">Adam: ADAptive Moments</h4>
-<p>Adam is currently <strong>the</strong> default optimization algorithm for training deep neural networks.</p>
-<p>Adam is like RMSProp with momentum but with bias correction terms for the first (mean) and second (uncentered variance) moments.</p>
-<ol>
+</ol></section><section><h4 id="adam-adaptive-moments">Adam: ADAptive Moments</h4><p>Adam is currently <strong>the</strong> default optimization algorithm for training deep neural networks.</p><p>Adam is like RMSProp with momentum but with bias correction terms for the first (mean) and second (uncentered variance) moments.</p><ol>
 <li><strong>Require</strong>: Global Learning Rate $\alpha$</li>
 <li><strong>Require</strong>: Decay Rates $\rho_1, \rho_2$</li>
 <li><strong>Require</strong>: Initial Parameter $\mathbf{\theta}^{(0)}$</li>
@@ -394,16 +165,8 @@ This is an idea that we will see time and time again in deep learning.</p>
 <li>$\quad$ Compute and apply update: $\Delta \mathbf{\theta} = -\frac{\hat{\mathbf{s}}}{\delta + \sqrt{\hat{\mathbf{r}}}}, \mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} + \Delta \mathbf{\theta}$</li>
 <li>$\quad$ $t = t + 1$</li>
 <li><strong>end while</strong></li>
-</ol>
-<h4 id="adamw-adaptive-moments-with-weight-decay">AdamW: ADAptive Moments with Weight Decay</h4>
-<p>AdamW is an extension of Adam, and has gained popularity, especially in training transformer-based deep models.</p>
-<p>Weight decay (which is just a fancy word for $\ell_2$-regularization and ridge regularization) is a regularization technique to prevent ovefitting.
-It is just adding a $\Vert \mathbf{\theta} \Vert_2^2$ term to the loss function.</p>
-<p>AdamW applies weight decay as a separate regularization term during the update step, decoupling it from the adaptive learning rate mechanism.</p>
-<p>AdamW addresses the issue of large weights being incorrectly penalized by weight decay.</p>
-<p>It also provides improved regularization and better generalization compared to original Adam.</p>
-<p>$\colorbox{pink}{\text{Adam}}$ VS. $\colorbox{lime}{\text{AdamW}}$</p>
-<ol>
+</ol></section><section><h4 id="adamw-adaptive-moments-with-weight-decay">AdamW: ADAptive Moments with Weight Decay</h4><p>AdamW is an extension of Adam, and has gained popularity, especially in training transformer-based deep models.</p><p>Weight decay (which is just a fancy word for $\ell_2$-regularization and ridge regularization) is a regularization technique to prevent ovefitting.
+It is just adding a $\Vert \mathbf{\theta} \Vert_2^2$ term to the loss function.</p><p>AdamW applies weight decay as a separate regularization term during the update step, decoupling it from the adaptive learning rate mechanism.</p><p>AdamW addresses the issue of large weights being incorrectly penalized by weight decay.</p><p>It also provides improved regularization and better generalization compared to original Adam.</p><p>$\colorbox{pink}{\text{Adam}}$ VS. $\colorbox{lime}{\text{AdamW}}$</p><ol>
 <li><strong>Require</strong>: Global Learning Rate $\alpha$</li>
 <li><strong>Require</strong>: Decay Rates $\rho_1, \rho_2$</li>
 <li><strong>Require</strong>: Weight Decay $\lambda$</li>
@@ -418,24 +181,15 @@ It is just adding a $\Vert \mathbf{\theta} \Vert_2^2$ term to the loss function.
 <li>$\quad$ Compute and apply update: $\Delta \mathbf{\theta} = -\frac{\hat{\mathbf{s}}}{\delta + \sqrt{\hat{\mathbf{r}}}} \colorbox{lime}{$- \lambda \mathbf{\theta}^{(t)}$}$, $\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} + \Delta \mathbf{\theta}$</li>
 <li>$\quad$ $t = t + 1$</li>
 <li><strong>end while</strong></li>
-</ol>
-<h4 id="other-emerging-optimization-techniques">Other Emerging Optimization Techniques</h4>
-<ul>
+</ol></section><section><h4 id="other-emerging-optimization-techniques">Other Emerging Optimization Techniques</h4><ul>
 <li>AdaBelief, unlike Adam, AdaBelief divides by the exponentially decaying moving average of variance of the gradients.</li>
-</ul>
-<p>In Adam: $\mathbf{r}^{(t+1)} = \rho_2 \mathbf{r}^{(t)} + (1 - \rho_2) \mathbf{g}^{(t)} \odot \mathbf{g}^{(t)}$
-In AdaBelief: $\mathbf{r}^{(t+1)} = \rho_2 \mathbf{r}^{(t)} + (1 - \rho_2) (\mathbf{g}^{(t)} - \mathbf{m}^{(t)}) \odot (\mathbf{g}^{(t)} - \mathbf{s}^{(t + 1)})^2$</p>
-<ul>
+</ul><p>In Adam: $\mathbf{r}^{(t+1)} = \rho_2 \mathbf{r}^{(t)} + (1 - \rho_2) \mathbf{g}^{(t)} \odot \mathbf{g}^{(t)}$
+In AdaBelief: $\mathbf{r}^{(t+1)} = \rho_2 \mathbf{r}^{(t)} + (1 - \rho_2) (\mathbf{g}^{(t)} - \mathbf{m}^{(t)}) \odot (\mathbf{g}^{(t)} - \mathbf{s}^{(t + 1)})^2$</p><ul>
 <li>AdaHessian: Second-order optimization technique that incorporates the curvature of the loss function via adaptive estimates of the Hessian diagonals
 Since calculating the Hessian is a computationally expensive operation, it can be approximated with a Hessian vector product.</li>
-</ul>
-<h3 id="regularization">Regularization</h3>
-<p>We’ve discussed regularization before, but this has mostly been in the loss function.
-However, when it comes to preventing overfit for models, we can apply regularization elsewhere, for example, in the data.</p>
-<h4 id="data-augmentation">Data Augmentation</h4>
-<p>If we artificially permute the data to increase the dataset size, we will have more data to train on!</p>
-<p>Common ways to do this are,</p>
-<ul>
+</ul></section></section>
+<section><h3 id="regularization">Regularization</h3><p>We’ve discussed regularization before, but this has mostly been in the loss function.
+However, when it comes to preventing overfit for models, we can apply regularization elsewhere, for example, in the data.</p><section><h4 id="data-augmentation">Data Augmentation</h4><p>If we artificially permute the data to increase the dataset size, we will have more data to train on!</p><p>Common ways to do this are,</p><ul>
 <li>Horizontal flipping
 <ul>
 <li>As the name suggests, we flip the image horizontally.</li>
@@ -478,13 +232,8 @@ However, when it comes to preventing overfit for models, we can apply regulariza
 </li>
 </ul>
 </li>
-</ul>
-<p>But we have to be careful about the transformation we choose, it has to be <strong>label preserving</strong>.</p>
-<p>For example, if we are dealing with text, we simply can not flip the characters, a ‘b’ will become a ‘d’.
-If we are working with the MNIST dataset, we can not perform a 180$^\circ$ rotation, a ‘6’ will become a ‘9’.</p>
-<h4 id="emerging-data-augmentation-techniques">Emerging Data Augmentation Techniques</h4>
-<p>There are a few emerging data augmentation techniques that are worth mentioning.</p>
-<ul>
+</ul><p>But we have to be careful about the transformation we choose, it has to be <strong>label preserving</strong>.</p><p>For example, if we are dealing with text, we simply can not flip the characters, a ‘b’ will become a ‘d’.
+If we are working with the MNIST dataset, we can not perform a 180$^\circ$ rotation, a ‘6’ will become a ‘9’.</p></section><section><h4 id="emerging-data-augmentation-techniques">Emerging Data Augmentation Techniques</h4><p>There are a few emerging data augmentation techniques that are worth mentioning.</p><ul>
 <li>Cutout
 <ul>
 <li>Idea: Randomly remove a square region of pixels in an image during training.
@@ -515,113 +264,29 @@ If we are working with the MNIST dataset, we can not perform a 180$^\circ$ rotat
 </li>
 </ul>
 </li>
-</ul>
-<h4 id="other-regularization-techniques">Other Regularization Techniques</h4>
-<p>We can also apply regularization to the training process itself. Here are a few examples.</p>
-<h5 id="early-stopping">Early Stopping</h5>
-<p>As the name suggests, we do not want to train a network to have a too small training error.</p>
-<p>Recall that overfitting, with a large and complex model, means that it is easier to (over)fit the training samples into them.</p>
-<p>To prevent this, we use the validation error to decide when to stop training.</p>
-<p>We can think of early stopping as a type of regularization, why?</p>
-<p>The <strong>effective</strong> complexity of the network starts out small, as the weights are initialized small</p>
-<p>The effect complexity grows during training, as the weights get larger and larger.</p>
-<p>Early stopping then represents a way of limiting the effective network complexity.</p>
-<p>In practice, when we are training we also output the validation error, to get a sense of both.</p>
-<p>Every time the validation error improves, we want to save this checkpoint.</p>
-<p>When the validation error plateaus for some time (or starts to increase for some time), we should stop.</p>
-<p>The number of training steps (i.e., epochs) is also a hyperparameter that we can tune.</p>
-<h5 id="dropout">Dropout</h5>
-<p>Dropout is a regularization technique that is applied to the network itself.</p>
-<p>In each update step, randomly sample a different <strong>binary</strong> mask to all the input and hidden units.</p>
-<p>Multiply the mask with the units and do the update as usual, typical dropout probabilities are 0.8/0.5 for input/hidden units.</p>
-<p>This is especially useful for fully connected layers, less so for convolutional layers.</p>
-<p>But why is this even a good idea, don’t we want more units and parameters to represent the data?</p>
-<p>This is true, but we want <strong>representative</strong> parameters, this forces the network to avoid having <strong>redundant</strong> or <strong>dependent</strong> representations.
-I.e., prevents co-adaptation of features, in which a feature is only helpful in the context/presence of several other specific features (although, this can be useful in some cases).</p>
-<p>We also train a large ensemble of models (that share parameters), each binary mask corresponds to one model.</p>
-<p>But how do we make a final decision?</p>
-<p>At test time all the neurons are active always (usually).
-We scale the activations so that for each neuron, the output at test time = <em>expected</em> output at training time.</p>
-<p>We can also use mask sampling (not as common).
-We randomly sample some (typically, 10-20) masks, for each mask, we apply it to the trained model to get a prediction, then we take the majority vote (i.e., average) over the predicitons.</p>
-<h5 id="dropout-at-test-time">Dropout at Test Time</h5>
-<p>So, as we can see, dropout makes our output random!</p>
-<p>$$
+</ul></section><section><h4 id="other-regularization-techniques">Other Regularization Techniques</h4><p>We can also apply regularization to the training process itself. Here are a few examples.</p><section><h5 id="early-stopping">Early Stopping</h5><p>As the name suggests, we do not want to train a network to have a too small training error.</p><p>Recall that overfitting, with a large and complex model, means that it is easier to (over)fit the training samples into them.</p><p>To prevent this, we use the validation error to decide when to stop training.</p><p>We can think of early stopping as a type of regularization, why?</p><p>The <strong>effective</strong> complexity of the network starts out small, as the weights are initialized small</p><p>The effect complexity grows during training, as the weights get larger and larger.</p><p>Early stopping then represents a way of limiting the effective network complexity.</p><p>In practice, when we are training we also output the validation error, to get a sense of both.</p><p>Every time the validation error improves, we want to save this checkpoint.</p><p>When the validation error plateaus for some time (or starts to increase for some time), we should stop.</p><p>The number of training steps (i.e., epochs) is also a hyperparameter that we can tune.</p></section><section><h5 id="dropout">Dropout</h5><p>Dropout is a regularization technique that is applied to the network itself.</p><p>In each update step, randomly sample a different <strong>binary</strong> mask to all the input and hidden units.</p><p>Multiply the mask with the units and do the update as usual, typical dropout probabilities are 0.8/0.5 for input/hidden units.</p><p>This is especially useful for fully connected layers, less so for convolutional layers.</p><p>But why is this even a good idea, don’t we want more units and parameters to represent the data?</p><p>This is true, but we want <strong>representative</strong> parameters, this forces the network to avoid having <strong>redundant</strong> or <strong>dependent</strong> representations.
+I.e., prevents co-adaptation of features, in which a feature is only helpful in the context/presence of several other specific features (although, this can be useful in some cases).</p><p>We also train a large ensemble of models (that share parameters), each binary mask corresponds to one model.</p><p>But how do we make a final decision?</p><p>At test time all the neurons are active always (usually).
+We scale the activations so that for each neuron, the output at test time = <em>expected</em> output at training time.</p><p>We can also use mask sampling (not as common).
+We randomly sample some (typically, 10-20) masks, for each mask, we apply it to the trained model to get a prediction, then we take the majority vote (i.e., average) over the predicitons.</p></section><section><h5 id="dropout-at-test-time">Dropout at Test Time</h5><p>So, as we can see, dropout makes our output random!</p><p>$$
 \mathbf{y} = f_{\mathbf{W}} (\mathbf{x}, \mathbf{z})
-$$</p>
-<p>where $\mathbf{z}$ is the random mask.</p>
-<p>We want to “average out” the randomness at test time.</p>
-<p>$$
+$$</p><p>where $\mathbf{z}$ is the random mask.</p><p>We want to “average out” the randomness at test time.</p><p>$$
 \mathbf{y} = f_W (\mathbf{x}) = \mathbb{E}_z [f_W (\mathbf{x}, \mathbf{z})] = \int_z f_W (\mathbf{x}, \mathbf{z}) p(\mathbf{z}) d\mathbf{z}
-$$</p>
-<p>Consider a single neuron, $a = w_1 x_1 + w_2 x_2$.</p>
-<p>At test time, we have $\mathbb{E}[a] = w_1 x_1 + w_2 x_2$.</p>
-<p>At training time (with a dropout probability of 0.5), we have,</p>
-<p>$$
+$$</p><p>Consider a single neuron, $a = w_1 x_1 + w_2 x_2$.</p><p>At test time, we have $\mathbb{E}[a] = w_1 x_1 + w_2 x_2$.</p><p>At training time (with a dropout probability of 0.5), we have,</p><p>$$
 \begin{align*}
 \mathbb{E}[a] &#x26;= \frac{1}{4}(w_1 x_1 + w_2 x_2) + \frac{1}{4}(w_1 x_1 + w_2 0) \newline
 &#x26;+ \frac{1}{4}(w_1 0 + w_2 x_2) + \frac{1}{4}(w_1 0 + w_2 0) \newline
 &#x26;= \frac{1}{2}(w_1 x_1 + w_2 x_2)
 \end{align*}
-$$</p>
-<p>At test time, we multiply by the dropout probability to get the expected value.</p>
-<p>However, this is quite tedious, as we need to change the test time.</p>
-<p>A more common way is the “inverted dropout”, where we instead scale the activations at training time.</p>
-<p>Thus, the test time remains the same.</p>
-<h4 id="stochastic-depth">Stochastic Depth</h4>
-<p>Similar to Droput, in each iteration, Stochastic Depth randomly drops a subset of <em>layers</em> with some survival probabilities and bypasses them with the identity function.</p>
-<p>At test time, all layers are activated and re-calibrated by multiplying the corresponding survival probabilities.</p>
-<p>This reduces training time substantially and improves generalization as an implicit model ensemble.</p>
-<h4 id="batch-normalization">Batch Normalization</h4>
-<p>The idea of batch normalization is to adjust activations to lie within a desired operating range, while maintaining their relative values.</p>
-<p>Given a mini-batch $\mathcal{B} = \{(\mathbf{x}^{(i)}, y^{(i)}, i = 1, \ldots, M\}$.</p>
-<p>We compute the per-channel (i.e., feature) mean, $\mu_j = \frac{1}{M} \sum_{i = 1}^M x_j^{(i)}$ and,</p>
-<p>compute the per-channel variance, $\sigma_j^2 = \frac{1}{M} \sum_{i = 1}^M (x_j^{(i)} - \mu_j)^2$.</p>
-<p>Normalize $\mathbf{x}^{(i)}$ across the channel/feature, $\hat{x}_j^{(i)} = \frac{x_j^{(i)} - \mu_j}{\sqrt{\sigma_j^2 + \epsilon}}$.</p>
-<p>But we have a issue, what if a zero mean and unit variance are too hard of a constraint?</p>
-<p>The answer is more learnable parameters (as usual), we incorporate learnable scale and shift parameters $\gamma$ and $\beta$ such that,</p>
-<p>$$
+$$</p><p>At test time, we multiply by the dropout probability to get the expected value.</p><p>However, this is quite tedious, as we need to change the test time.</p><p>A more common way is the “inverted dropout”, where we instead scale the activations at training time.</p><p>Thus, the test time remains the same.</p></section></section><section><h4 id="stochastic-depth">Stochastic Depth</h4><p>Similar to Droput, in each iteration, Stochastic Depth randomly drops a subset of <em>layers</em> with some survival probabilities and bypasses them with the identity function.</p><p>At test time, all layers are activated and re-calibrated by multiplying the corresponding survival probabilities.</p><p>This reduces training time substantially and improves generalization as an implicit model ensemble.</p></section><section><h4 id="batch-normalization">Batch Normalization</h4><p>The idea of batch normalization is to adjust activations to lie within a desired operating range, while maintaining their relative values.</p><p>Given a mini-batch $\mathcal{B} = \{(\mathbf{x}^{(i)}, y^{(i)}, i = 1, \ldots, M\}$.</p><p>We compute the per-channel (i.e., feature) mean, $\mu_j = \frac{1}{M} \sum_{i = 1}^M x_j^{(i)}$ and,</p><p>compute the per-channel variance, $\sigma_j^2 = \frac{1}{M} \sum_{i = 1}^M (x_j^{(i)} - \mu_j)^2$.</p><p>Normalize $\mathbf{x}^{(i)}$ across the channel/feature, $\hat{x}_j^{(i)} = \frac{x_j^{(i)} - \mu_j}{\sqrt{\sigma_j^2 + \epsilon}}$.</p><p>But we have a issue, what if a zero mean and unit variance are too hard of a constraint?</p><p>The answer is more learnable parameters (as usual), we incorporate learnable scale and shift parameters $\gamma$ and $\beta$ such that,</p><p>$$
 z_j^{(i)} = \gamma_j \hat{x}_j^{(i)} + \beta_j
-$$</p>
-<h5 id="batch-normalization-at-test-time">Batch Normalization at Test Time</h5>
-<p>Mean and variance estimates depend on mini-batch at train time, but we can not do this at test time.</p>
-<p>What’s the solution? We keep exponentially decaying the moving average of values seen during training and use them for testing.</p>
-<p>During testing, batch normalization becomes a linear operator, which means it can be fused with the previous (convolutional) layer.</p>
-<p>We usually use batch normalization after convolutional layers and before nonlinearity.</p>
-<p>So remember, it behaves <strong>differently</strong> during training and testing, this can be a source for lots of pesky bugs.</p>
-<h4 id="layer-normalization">Layer Normalization</h4>
-<p>Layer normalization is similar to batch normalization, but it normalizes across the feature dimension.</p>
-<p>Since we are normalizing across the channel dimension, we get the same behavior at training and testing time.</p>
-<p>Layer normalization for convolutional layers normalizes along both channel and spatial dimensions.</p>
-<h4 id="group-normalization">Group Normalization</h4>
-<p>Group normalization is a compromise between batch and layer normalization.</p>
-<p>It divides the channels into groups and computes the mean and variance within each group.</p>
-<p>Group normalization is more stable than batch normalization when the batch size is small.</p>
-<h3 id="practical-tricks--tips">Practical Tricks &#x26; Tips</h3>
-<p>We will discuss some practical tips and tricks that can help you train deep neural networks more effectively.</p>
-<h4 id="data--pre-procesing">Data  Pre-Procesing</h4>
-<p>Data pre-processing is a crucial step in training deep neural networks.</p>
-<p>Assume $\mathbf{X} \in \mathbb{R}^{M \times N}$ is the data matrix (each example in a row).</p>
-<p>We can make the data zero-centered by subtracting the mean of each feature,</p>
-<p>$$
+$$</p><section><h5 id="batch-normalization-at-test-time">Batch Normalization at Test Time</h5><p>Mean and variance estimates depend on mini-batch at train time, but we can not do this at test time.</p><p>What’s the solution? We keep exponentially decaying the moving average of values seen during training and use them for testing.</p><p>During testing, batch normalization becomes a linear operator, which means it can be fused with the previous (convolutional) layer.</p><p>We usually use batch normalization after convolutional layers and before nonlinearity.</p><p>So remember, it behaves <strong>differently</strong> during training and testing, this can be a source for lots of pesky bugs.</p></section></section><section><h4 id="layer-normalization">Layer Normalization</h4><p>Layer normalization is similar to batch normalization, but it normalizes across the feature dimension.</p><p>Since we are normalizing across the channel dimension, we get the same behavior at training and testing time.</p><p>Layer normalization for convolutional layers normalizes along both channel and spatial dimensions.</p></section><section><h4 id="group-normalization">Group Normalization</h4><p>Group normalization is a compromise between batch and layer normalization.</p><p>It divides the channels into groups and computes the mean and variance within each group.</p><p>Group normalization is more stable than batch normalization when the batch size is small.</p></section></section>
+<section><h3 id="practical-tricks--tips">Practical Tricks &#x26; Tips</h3><p>We will discuss some practical tips and tricks that can help you train deep neural networks more effectively.</p><section><h4 id="data--pre-procesing">Data  Pre-Procesing</h4><p>Data pre-processing is a crucial step in training deep neural networks.</p><p>Assume $\mathbf{X} \in \mathbb{R}^{M \times N}$ is the data matrix (each example in a row).</p><p>We can make the data zero-centered by subtracting the mean of each feature,</p><p>$$
 \mathbf{X} = \mathbf{X} - \mathbf{1} \mu
-$$</p>
-<p>where $\mu = \frac{1}{M} \mathbf{X}^T \mathbf{1}$.</p>
-<p>We can also normalize the data by dividing by the standard deviation of each feature,</p>
-<p>$$
+$$</p><p>where $\mu = \frac{1}{M} \mathbf{X}^T \mathbf{1}$.</p><p>We can also normalize the data by dividing by the standard deviation of each feature,</p><p>$$
 \mathbf{X} = \mathbf{X} \oslash \sigma
-$$</p>
-<p>where $\sigma = \sqrt{\frac{1}{M} \mathbf{X}^T \mathbf{X}}$.</p>
-<p>In practice, we may also want to PCA (Principal Component Analysis) the data.</p>
-<p>The data is first centered, then projected into the eigenbasis, followed by divding every dimension by the corresponding eigenvalue.</p>
-<p>We call the first step for decorrelation and the second step for whitening.</p>
-<h5 id="pca-as-whitening">PCA as Whitening</h5>
-<p>Recall the eigendeomposition,</p>
-<p>$$
+$$</p><p>where $\sigma = \sqrt{\frac{1}{M} \mathbf{X}^T \mathbf{X}}$.</p><p>In practice, we may also want to PCA (Principal Component Analysis) the data.</p><p>The data is first centered, then projected into the eigenbasis, followed by divding every dimension by the corresponding eigenvalue.</p><p>We call the first step for decorrelation and the second step for whitening.</p><section><h5 id="pca-as-whitening">PCA as Whitening</h5><p>Recall the eigendeomposition,</p><p>$$
 \mathbf{C} = \frac{1}{M} \mathbf{X}^T \mathbf{X} = \frac{1}{M} \sum_{i = 1}^M \mathbf{x}^{(i)} (\mathbf{x}^{(i)})^T = \mathbf{U} \mathbf{\Sigma}^2 \mathbf{U}^T
-$$</p>
-<p>Defining $\hat{\mathbf{x}^{(i)}} = \mathbf{\Sigma}^{-1} \mathbf{U}^T \mathbf{x}^{(i)}$, we have,</p>
-<p>$$
+$$</p><p>Defining $\hat{\mathbf{x}^{(i)}} = \mathbf{\Sigma}^{-1} \mathbf{U}^T \mathbf{x}^{(i)}$, we have,</p><p>$$
 \begin{align*}
 \hat{\mathbf{C}} &#x26;= \frac{1}{M} \sum_{i = 1}^M \hat{\mathbf{x}^{(i)}} (\hat{\mathbf{x}^{(i)}})^T \newline
 &#x26;= \frac{1}{M} \sum_{i = 1}^M \mathbf{\Sigma}^{-1} \mathbf{U}^T \mathbf{x}^{(i)} (\mathbf{x}^{(i)})^T \mathbf{U} \mathbf{\Sigma}^{-1} \newline
@@ -629,10 +294,7 @@ $$</p>
 &#x26;= \mathbf{\Sigma}^{-1} \mathbf{U}^T \mathbf{U} \mathbf{\Sigma}^2 \mathbf{U}^T \mathbf{U} \mathbf{\Sigma}^{-1} \newline
 &#x26;= \mathbf{I}
 \end{align*}
-$$</p>
-<p>In practice, for color (RGB) images, we only do this for the center, it is not common to do PCA whitening for the entire image.</p>
-<p>But, we can three variants.</p>
-<ul>
+$$</p><p>In practice, for color (RGB) images, we only do this for the center, it is not common to do PCA whitening for the entire image.</p><p>But, we can three variants.</p><ul>
 <li>Subtract the mean image.
 <ul>
 <li>Mean image = [3, height, width] array.</li>
@@ -648,39 +310,17 @@ $$</p>
 <li>Mean and std along each channel = $2 \times 3$ numbers.</li>
 </ul>
 </li>
-</ul>
-<p>As we lightly discussed earlier, we typically train our network several times on the entire dataset, one complete pass through the data is calle an <em>epoch</em>.</p>
-<p>Also, never forget to <strong>shuffle</strong> your training data per epoch, since otherwise the training sequence can introduce bias.</p>
-<h4 id="weight-initialization">Weight Initialization</h4>
-<p>Weight initialization is another crucial step in training deep neural networks.</p>
-<p>Constant (including all zero) initialization is a bad idea and wrong.</p>
-<p>Why? If every neuron in the netwrok computes the same output, then all of them will also compute the same gradients during backpropagation and undergo the exact same parameter updates.</p>
-<p>Small random initialization is a good idea, but we have to be careful.
-It works okay for small networks, but for deeper and more complex networks this doesn’t work well.</p>
-<p>The current recommendation for initializing CNNs with ReLU, for example is,</p>
-<p>$$
+</ul><p>As we lightly discussed earlier, we typically train our network several times on the entire dataset, one complete pass through the data is calle an <em>epoch</em>.</p><p>Also, never forget to <strong>shuffle</strong> your training data per epoch, since otherwise the training sequence can introduce bias.</p></section></section><section><h4 id="weight-initialization">Weight Initialization</h4><p>Weight initialization is another crucial step in training deep neural networks.</p><p>Constant (including all zero) initialization is a bad idea and wrong.</p><p>Why? If every neuron in the netwrok computes the same output, then all of them will also compute the same gradients during backpropagation and undergo the exact same parameter updates.</p><p>Small random initialization is a good idea, but we have to be careful.
+It works okay for small networks, but for deeper and more complex networks this doesn’t work well.</p><p>The current recommendation for initializing CNNs with ReLU, for example is,</p><p>$$
 w = np.random.randn(n) \times \sqrt{\frac{2}{n}}
-$$</p>
-<p>where <code>randn</code> is Gaussian and $n$ is the number of input channels.</p>
-<p>Proper initialization is an active research area, and there are many other initialization techniques.</p>
-<h4 id="learning-rate-decay">Learning Rate Decay</h4>
-<p>SGD, AdaGrad, RMSProp, and Adam all have learning rate as a hyperparameter, but which learning rate should we choose?</p>
-<ul>
+$$</p><p>where <code>randn</code> is Gaussian and $n$ is the number of input channels.</p><p>Proper initialization is an active research area, and there are many other initialization techniques.</p></section><section><h4 id="learning-rate-decay">Learning Rate Decay</h4><p>SGD, AdaGrad, RMSProp, and Adam all have learning rate as a hyperparameter, but which learning rate should we choose?</p><ul>
 <li>If we have a very high learning rate, our loss will diverge.</li>
 <li>If we have a high learning rate, our loss will quickly drop then plateau.</li>
 <li>If we have a low learning rate, our loss will slowly drop, but we may get stuck in a local minima.</li>
-</ul>
-<p>Which one should we choose? All of them, we first start with a high learning rate and decay it over time.</p>
-<p>We can do this stepwise, i.e., we reduce the learning rate at a few fixed points, for example, multiply $\alpha$ by 0.1 after every 30 epochs.</p>
-<p>There are also some other common <em>schedulers</em> for learning rate decay.</p>
-<ul>
+</ul><p>Which one should we choose? All of them, we first start with a high learning rate and decay it over time.</p><p>We can do this stepwise, i.e., we reduce the learning rate at a few fixed points, for example, multiply $\alpha$ by 0.1 after every 30 epochs.</p><p>There are also some other common <em>schedulers</em> for learning rate decay.</p><ul>
 <li>Cosine: $\alpha^{(t)} = \frac{1}{2} \alpha^{(0)} \left(1 + \cos \left(\frac{t}{T} \pi \right) \right)$</li>
 <li>Linear: $\alpha^{(t)} = \alpha^{(0)} \left(1 - \frac{t}{T} \right)$</li>
-</ul>
-<p>where $t$ is the epoch index and $T$ is the total number of epochs.</p>
-<h4 id="transfer-learning">Transfer Learning</h4>
-<p>Transfer learning is a technique where we use a pre-trained model on a different task as a starting point for training a new model.</p>
-<p>Deep features are fairly transferable, and open source pre-trained models are everywhere, so this is a common practice</p>
+</ul><p>where $t$ is the epoch index and $T$ is the total number of epochs.</p></section><section><h4 id="transfer-learning">Transfer Learning</h4><p>Transfer learning is a technique where we use a pre-trained model on a different task as a starting point for training a new model.</p><p>Deep features are fairly transferable, and open source pre-trained models are everywhere, so this is a common practice</p>
 
 
 
@@ -700,11 +340,7 @@ $$</p>
 
 
 
-
-<table><thead><tr><th></th><th>Very Similar Dataset</th><th>Very Different Dataset</th></tr></thead><tbody><tr><td>Very Little Data</td><td>Use Linear classifier on top layer</td><td>You’re in trouble… Try linear classifier from different stages</td></tr><tr><td>Quite a lot of data</td><td>Finetune a few layers</td><td>Finetune a large number of layers</td></tr></tbody></table>
-<h4 id="choosing-hyperparameters">Choosing Hyperparameters</h4>
-<p>Choosing hyperparameters is a crucial step in training deep neural networks.</p>
-<ol>
+<table><thead><tr><th></th><th>Very Similar Dataset</th><th>Very Different Dataset</th></tr></thead><tbody><tr><td>Very Little Data</td><td>Use Linear classifier on top layer</td><td>You’re in trouble… Try linear classifier from different stages</td></tr><tr><td>Quite a lot of data</td><td>Finetune a few layers</td><td>Finetune a large number of layers</td></tr></tbody></table></section><section><h4 id="choosing-hyperparameters">Choosing Hyperparameters</h4><p>Choosing hyperparameters is a crucial step in training deep neural networks.</p><ol>
 <li>Check initial loss.
 <ul>
 <li>Turn off weight decay and sanity check loss at initialization.
@@ -761,9 +397,8 @@ $$</p>
 </ul>
 </li>
 <li>Go to (5)</li>
-</ol>
-<h3 id="summary">Summary</h3>
-<ul>
+</ol></section></section>
+<section><h3 id="summary">Summary</h3><ul>
 <li>Improve your training error
 <ul>
 <li>Network architectures</li>
@@ -778,67 +413,76 @@ $$</p>
 <li>Choosing Hyperparameters</li>
 </ul>
 </li>
-</ul> <div class="mt-24"> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/cityu/cs4487/cs4487_9" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 9 - Neural Networks and Deep Learning </div> </a> <a href="/cityu/cs4487/cs4487_11" class="group relative flex flex-grow flex-row-reverse flex-nowrap rounded-lg border border-black/15 px-4 py-4 pr-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 19 12 12 19" class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 11 - High-Level and Low-Level Vision Applications </div> </a> </div> </div> <div class="mt-24"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezvan.xyz" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </article> </div>  </main> <footer class="animate"> <div class="mx-auto max-w-screen-sm px-3"> <div class="relative"> <div class="absolute -top-12 right-0"> <button id="back-to-top" class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm">Back to top</div> </button> </div> </div> <div class="flex items-center justify-between"> <div>&copy; 2025 • rezarezvan.com</div> <div class="flex flex-wrap items-center gap-1.5"></div> </div> </div> </footer> <aside data-pagefind-ignore> <div id="backdrop" class="bg-[rgba(0, 0, 0, 0.5] invisible fixed left-0 top-0 z-50 flex h-screen w-full justify-center p-6 backdrop-blur-sm" data-astro-transition-persist="astro-3snakcvo-2"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="mr-2 pb-1 pt-4 text-right text-xs dark:prose-invert">
-Press <span class="prose text-xs dark:prose-invert"><kbd class="">Esc</kbd></span> or click anywhere to close
-</div> </div> </div> </aside> <script>
-  const magnifyingGlass = document.getElementById("magnifying-glass");
-  const backdrop = document.getElementById("backdrop");
+</ul></section>
 
-  function openPagefind() {
-    const searchDiv = document.getElementById("search");
-    const search = searchDiv.querySelector("input");
-    setTimeout(() => {
-      search.focus();
-    }, 0);
-    backdrop?.classList.remove("invisible");
-    backdrop?.classList.add("visible");
-  }
 
-  function closePagefind() {
-    const search = document.getElementById("search");
-    search.value = "";
-    backdrop?.classList.remove("visible");
-    backdrop?.classList.add("invisible");
-  }
+</body></html> </article> <div class="col-start-2"> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/cityu/cs4487/cs4487_11" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Part 11 - High-Level and Low-Level Vision Applications </span> </div>  </a> <a href="/cityu/cs4487/cs4487_9" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Part 9 - Neural Networks and Deep Learning </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </div> <div class="col-start-2"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </section> <button data-slot="button" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 group fixed right-8 bottom-8 z-50 hidden" id="scroll-to-top" title="Scroll to top" aria-label="Scroll to top"> <svg width="1em" height="1em" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" data-icon="lucide:arrow-up">   <symbol id="ai:lucide:arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></symbol><use href="#ai:lucide:arrow-up"></use>  </svg> </button> <script type="module">document.addEventListener("astro:page-load",()=>{const o=document.getElementById("scroll-to-top"),t=document.querySelector("footer");o&&t&&(o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),window.addEventListener("scroll",()=>{const e=t.getBoundingClientRect().top<=window.innerHeight;o.classList.toggle("hidden",window.scrollY<=300||e)}))});</script>  </div> </main> <footer class="py-4"> <div class="mx-auto flex max-w-3xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between"> <div class="flex flex-wrap items-center justify-center gap-x-2 text-center"> <span class="text-muted-foreground text-sm">
+&copy; 2025 • rezarezvan.com </span> </div> </div> </footer> <div id="backdrop" class="invisible fixed top-0 left-0 z-50 flex h-screen w-full justify-center bg-[rgba(0,0,0,0.5)] p-6 backdrop-blur-sm" data-astro-transition-persist="astro-t6dxx5el-4"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="dark:prose-invert mr-2 pt-4 pb-1 text-right text-xs">
+Press <span class="prose dark:prose-invert text-xs"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const magnifyingGlass = document.getElementById('magnifying-glass')
+    const backdrop = document.getElementById('backdrop')
 
-  // open pagefind
-  magnifyingGlass?.addEventListener("click", () => {
-    openPagefind();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "/") {
-      e.preventDefault();
-      openPagefind();
-    } else if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-      e.preventDefault();
-      openPagefind();
+    function openPagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      setTimeout(() => {
+        search.focus()
+      }, 0)
+      backdrop?.classList.remove('invisible')
+      backdrop?.classList.add('visible')
     }
-  });
 
-  // close pagefind
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" || e.keyCode === 27) {
-      closePagefind();
+    function closePagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      if (search) {
+        search.value = ''
+      }
+      backdrop?.classList.remove('visible')
+      backdrop?.classList.add('invisible')
     }
-  });
 
-  // close pagefind when searched result(link) clicked
-  document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("pagefind-ui__result-link")) {
-      closePagefind();
-    }
-  });
+    // open pagefind
+    magnifyingGlass?.addEventListener('click', () => {
+      openPagefind()
+    })
 
-  backdrop?.addEventListener("click", (event) => {
-    if (!event.target.closest("#pagefind-container")) {
-      closePagefind();
-    }
-  });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/') {
+        e.preventDefault()
+        openPagefind()
+      } else if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        openPagefind()
+      }
+    })
 
-  // prevent form submission
-  const form = document.getElementById("form");
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
-</script>  </body></html>
+    // close pagefind
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePagefind()
+      }
+    })
+
+    // close pagefind when searched result(link) clicked
+    document.addEventListener('click', (event) => {
+      if (event.target.classList.contains('pagefind-ui__result-link')) {
+        closePagefind()
+      }
+    })
+
+    backdrop?.addEventListener('click', (event) => {
+      if (!event.target.closest('#pagefind-container')) {
+        closePagefind()
+      }
+    })
+
+    // prevent form submission
+    const form = document.getElementById('form')
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault()
+    })
+  })
+</script>  </div> </body></html>

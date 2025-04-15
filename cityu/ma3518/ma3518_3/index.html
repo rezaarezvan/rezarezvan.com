@@ -1,318 +1,124 @@
-<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/icon" href="/favicon.ico"><meta name="generator" content="Astro v5.5.5"><!-- Canonical URL --><link rel="canonical" href="https://rezvan.xyz/cityu/ma3518/ma3518_3/"><!-- Primary Meta Tags --><title>Part 3 - Confidence Interval and Hypothesis Testing | applied statistics | rezarezvan.com</title><meta name="title" content="Part 3 - Confidence Interval and Hypothesis Testing | applied statistics | rezarezvan.com"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://rezvan.xyz/cityu/ma3518/ma3518_3/"><meta property="og:title" content="Part 3 - Confidence Interval and Hypothesis Testing | applied statistics | rezarezvan.com"><meta property="og:description"><meta property="og:image" content="https://rezvan.xyz/favicon.ico"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://rezvan.xyz/cityu/ma3518/ma3518_3/"><meta property="twitter:title" content="Part 3 - Confidence Interval and Hypothesis Testing | applied statistics | rezarezvan.com"><meta property="twitter:description"><meta property="twitter:image" content="https://rezvan.xyz/favicon.ico"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+<!DOCTYPE html><html lang="en-US"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v5.7.0"><meta name="robots" content="index, follow"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="rezarezvan.com" href="https://rezaarezvan.com/rss.xml"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
     function renderKaTeX() {
-        if (typeof renderMathInElement !== "undefined") {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    { left: "$$", right: "$$", display: true },
-                    { left: "$", right: "$", display: false },
-                ],
-            });
-        }
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        })
+      }
     }
 
-    document.addEventListener("DOMContentLoaded", renderKaTeX);
-    document.addEventListener("astro:after-swap", renderKaTeX);
-</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script>
+    document.addEventListener('DOMContentLoaded', renderKaTeX)
+    document.addEventListener('astro:after-swap', renderKaTeX)
+  </script><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/favicon.ico"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="rezvan-blog"><link rel="manifest" href="/site.webmanifest"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.BZs-2RF_.js"></script><script>
     function init() {
-        preloadTheme();
-        onScroll();
-        animate();
-        updateThemeButtons();
-        addCopyCodeButtons();
-        setGiscusTheme();
-
-        const backToTop = document.getElementById("back-to-top");
-        backToTop?.addEventListener("click", (event) => scrollToTop(event));
-
-        const backToPrev = document.getElementById("back-to-prev");
-        backToPrev?.addEventListener("click", () => window.history.back());
-
-        const lightThemeButton = document.getElementById("light-theme-button");
-        lightThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "light");
-            toggleTheme(false);
-            updateThemeButtons();
-        });
-
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        darkThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "dark");
-            toggleTheme(true);
-            updateThemeButtons();
-        });
-
-        const systemThemeButton = document.getElementById(
-            "system-theme-button",
-        );
-        systemThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "system");
-            toggleTheme(
-                window.matchMedia("(prefers-color-scheme: dark)").matches,
-            );
-            updateThemeButtons();
-        });
-
-        window
-            .matchMedia("(prefers-color-scheme: dark)")
-            .addEventListener("change", (event) => {
-                if (localStorage.theme === "system") {
-                    toggleTheme(event.matches);
-                }
-            });
-
-        document.addEventListener("scroll", onScroll);
-    }
-
-    function updateThemeButtons() {
-        const theme = localStorage.getItem("theme");
-        const lightThemeButton = document.getElementById("light-theme-button");
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        const systemThemeButton = document.getElementById(
-            "system-theme-button",
-        );
-
-        function removeActiveButtonTheme(button) {
-            button?.classList.remove("bg-black/5");
-            button?.classList.remove("dark:bg-white/5");
-        }
-
-        function addActiveButtonTheme(button) {
-            button?.classList.add("bg-black/5");
-            button?.classList.add("dark:bg-white/5");
-        }
-
-        removeActiveButtonTheme(lightThemeButton);
-        removeActiveButtonTheme(darkThemeButton);
-        removeActiveButtonTheme(systemThemeButton);
-
-        if (theme === "light") {
-            addActiveButtonTheme(lightThemeButton);
-        } else if (theme === "dark") {
-            addActiveButtonTheme(darkThemeButton);
-        } else {
-            addActiveButtonTheme(systemThemeButton);
-        }
-    }
-
-    function animate() {
-        const animateElements = document.querySelectorAll(".animate");
-
-        animateElements.forEach((element, index) => {
-            setTimeout(() => {
-                element.classList.add("show");
-            }, index * 100);
-        });
-    }
-
-    function onScroll() {
-        if (window.scrollY > 0) {
-            document.documentElement.classList.add("scrolled");
-        } else {
-            document.documentElement.classList.remove("scrolled");
-        }
-    }
-
-    function scrollToTop(event) {
-        event.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    }
-
-    function toggleTheme(dark) {
-        const css = document.createElement("style");
-
-        css.appendChild(
-            document.createTextNode(
-                `* {
-             -webkit-transition: none !important;
-             -moz-transition: none !important;
-             -o-transition: none !important;
-             -ms-transition: none !important;
-             transition: none !important;
-          }
-        `,
-            ),
-        );
-
-        document.head.appendChild(css);
-
-        if (dark) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-
-        window.getComputedStyle(css).opacity;
-        document.head.removeChild(css);
-
-        setGiscusTheme();
-    }
-
-    function preloadTheme() {
-        const userTheme = localStorage.theme;
-
-        if (userTheme === "light" || userTheme === "dark") {
-            toggleTheme(userTheme === "dark");
-        } else {
-            toggleTheme(
-                window.matchMedia("(prefers-color-scheme: dark)").matches,
-            );
-        }
-    }
-
-    function addCopyCodeButtons() {
-        let copyButtonLabel = "📋";
-        let codeBlocks = Array.from(document.querySelectorAll("pre"));
-
-        async function copyCode(codeBlock, copyButton) {
-            const codeText = codeBlock.innerText;
-            const buttonText = copyButton.innerText;
-            const textToCopy = codeText.replace(buttonText, "");
-
-            await navigator.clipboard.writeText(textToCopy);
-            copyButton.innerText = "✅";
-
-            setTimeout(() => {
-                copyButton.innerText = copyButtonLabel;
-            }, 2000);
-        }
-
-        for (let codeBlock of codeBlocks) {
-            const wrapper = document.createElement("div");
-            wrapper.style.position = "relative";
-
-            const copyButton = document.createElement("button");
-            copyButton.innerText = copyButtonLabel;
-            copyButton.classList = "copy-code";
-
-            codeBlock.setAttribute("tabindex", "0");
-            codeBlock.appendChild(copyButton);
-
-            codeBlock.parentNode.insertBefore(wrapper, codeBlock);
-            wrapper.appendChild(codeBlock);
-
-            copyButton?.addEventListener("click", async () => {
-                await copyCode(codeBlock, copyButton);
-            });
-        }
+      setGiscusTheme()
     }
 
     const setGiscusTheme = () => {
-        const giscus = document.querySelector(".giscus-frame");
+      const giscus = document.querySelector('.giscus-frame')
 
-        const isDark = document.documentElement.classList.contains("dark");
+      const isDark = document.documentElement.classList.contains('dark')
 
-        if (giscus) {
-            const url = new URL(giscus.src);
-            url.searchParams.set("theme", isDark ? "dark" : "light");
-            giscus.src = url.toString();
-        }
-    };
+      if (giscus) {
+        const url = new URL(giscus.src)
+        url.searchParams.set('theme', isDark ? 'dark' : 'light')
+        giscus.src = url.toString()
+      }
+    }
 
-    document.addEventListener("DOMContentLoaded", () => init());
-    document.addEventListener("astro:after-swap", () => init());
-    preloadTheme();
-</script><link rel="stylesheet" href="/_astro/_subject_.WmXrNcmP.css">
-<link rel="stylesheet" href="/_astro/index.C6eUsQXi.css">
-<style>summary[data-astro-cid-xvrfupwn]{cursor:pointer;border-top-left-radius:.5rem;border-top-right-radius:.5rem;padding:.375rem .75rem;font-weight:500;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}summary[data-astro-cid-xvrfupwn]:hover{background-color:#0000000d}summary[data-astro-cid-xvrfupwn]:hover:is(.dark *){background-color:#ffffff0d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]{background-color:#0000000d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]:is(.dark *){background-color:#ffffff0d}
-</style></head> <body> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto max-w-screen-sm px-3"> <div class="flex flex-wrap justify-between gap-y-4"> <div class="flex flex-col gap-y-2"> <a href="/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out">  <div class="font-semibold"> rezarezvan.com </div>  </a> <div class="flex gap-x-2"> <button id="light-theme-button" aria-label="Light theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <button id="dark-theme-button" aria-label="Dark theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <button id="system-theme-button" aria-label="System theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect> <line x1="8" y1="21" x2="16" y2="21"></line> <line x1="12" y1="17" x2="12" y2="21"></line> </svg> </button> </div> </div> <nav class="flex items-center gap-1 text-sm"> <a href="/posts" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> posts </a> <span>/</span> <a href="/chalmers" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> chalmers </a> <span>/</span> <a href="/cityu" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cityu </a> <span>/</span> <a href="/pdf/cv/cv.pdf" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cv </a> <span>/</span> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+    document.addEventListener('DOMContentLoaded', () => init())
+    document.addEventListener('astro:after-swap', () => init())
+  </script><title>Part 3 - Confidence Interval and Hypothesis Testing | rezarezvan.com</title><meta name="title" content="Part 3 - Confidence Interval and Hypothesis Testing | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com"><meta property="og:title" content="Part 3 - Confidence Interval and Hypothesis Testing"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.comundefined"><meta property="og:image:alt" content="Part 3 - Confidence Interval and Hypothesis Testing"><meta property="og:type" content="website"><meta property="og:locale" content="en-US"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezaarezvan.com/cityu/ma3518/ma3518_3/"><meta name="twitter:title" content="Part 3 - Confidence Interval and Hypothesis Testing"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.comundefined"><meta name="twitter:image:alt" content="Part 3 - Confidence Interval and Hypothesis Testing"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/index.CMAis0x6.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <header class="bg-background/50 sticky top-0 z-10 backdrop-blur-md" data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 p-4"> <a href="/" target="_self" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center gap-2 text-xl font-medium"> rezarezvan.com </a> <div class="flex items-center gap-2 md:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex"> <a href="/blog" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/chalmers" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> chalmers<span>/</span>  </a><a href="/cityu" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> cityu<span>/</span>  </a><a href="/about" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> about<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
 &nbsp;Search
-</button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/cityu/ma3518" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> 
-Back to applied statistics </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/cityu/ma3518/ma3518_2" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 2 - Basic Statistical Concepts and Tools </div> </a> <a href="/cityu/ma3518/ma3518_4" class="group relative flex flex-grow flex-row-reverse flex-nowrap rounded-lg border border-black/15 px-4 py-4 pr-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 19 12 12 19" class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 4 - Simple Linear Regression </div> </a> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm">MA3518</div>
-&bull;
-<div class="font-base text-sm"> <time datetime="2024-09-19T00:00:00.000Z"> September 19, 2024 </time> </div> 
-&bull;
-<div class="font-base text-sm">
-Last modified:  <time datetime="2024-10-26T15:34:18.000Z"> October 26, 2024 </time> </div> 
-&bull;
-<div class="font-base text-sm">13 min read</div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Part 3 - Confidence Interval and Hypothesis Testing </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#inferences-for-meanproportion" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Inferences for mean/proportion </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#confidence-interval-on-the-mean-of-a-normal-distribution-variance-known" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Confidence Interval on the mean of a Normal Distribution, variance known </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#confidence-interval-on-the-mean-of-an-arbitrary-distribution-variance-known" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Confidence Interval on the mean of an arbitrary distribution, variance known </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#confidence-interval-on-the-mean-of-a-normal-distribution-variance-unknown" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Confidence interval on the mean of a normal distribution, variance unknown </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#confidence-interval-on-the-mean-summary" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Confidence Interval on the mean: Summary </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#confidence-interval-on-the-proportion" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Confidence Interval on the proportion </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#hypotheses-testing-for-the-mean" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Hypotheses testing for the mean </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#hypotheses-testing-for-the-mean-p-value" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Hypotheses testing for the mean: $p$-value </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#hypotheses-testing-for-the-mean-one-sided" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Hypotheses testing for the mean: one-sided </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#hypotheses-testing-for-the-mean-other-cases" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Hypotheses testing for the mean: other cases </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#hypotheses-testing-for-the-proportion" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Hypotheses testing for the proportion </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#r-code-for-finding-z_1---alpha2" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> R code for finding $z_${1 - \alpha/2}$ </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#example" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Example </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#built-in-functions-in-r-for-finding-the-ci-of-proportion-estimate" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Built-in functions in R for finding the CI of proportion estimate </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#built-in-functions-in-r-for-finding-the-ci-of-mean-estimate" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Built-in functions in R for finding the CI of mean estimate </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#inferences-for-difference-of-means" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Inferences for difference of means </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#two-sample-test" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Two-sample test </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#two-sample-test-known-variances" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Two-sample test: known variances </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#two-sample-test-unknown-equal-variances" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Two-sample test: unknown equal variances </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#two-sample-test-unknown-unequal-variances" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Two-sample test: unknown unequal variances </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#example-1" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Example </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#paired-data-for-difference-of-means" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Paired data for difference of means </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#inferences-for-variance" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Inferences for variance </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#inferences-for-ratio-of-variancestest-of-equality-of-variances" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Inferences for ratio of variances/test of equality of variances </a>  </li> </ul> </nav> </details> <article class="animate"> <h3 id="inferences-for-meanproportion">Inferences for mean/proportion</h3>
-<p>Let’s recap what a confidence interval is,</p>
-<blockquote>
+</button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Z5JIkC" prefix="r5" component-url="/_astro/mobile-menu.C9T2c5u4.js" component-export="default" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;data-astro-transition-persist&quot;:[0,&quot;astro-lci6dfah-2&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" data-astro-transition-persist="astro-lci6dfah-2" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r5R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem('theme') ?? ''
+    if (['dark', 'light'].includes(localStorageTheme)) {
+      return localStorageTheme
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })()
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark')
+  } else {
+    document.documentElement.classList.add('dark')
+  }
+
+  window.localStorage.setItem('theme', theme)
+</script> <script type="module">function a(){const e=document.documentElement;e.classList.add("disable-transitions"),e.classList.toggle("dark"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("disable-transitions")});const t=e.classList.contains("dark");localStorage.setItem("theme",t?"dark":"light")}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme"),t=document.documentElement;t.classList.add("disable-transitions"),window.getComputedStyle(t).getPropertyValue("opacity"),e==="dark"?t.classList.add("dark"):t.classList.remove("dark"),requestAnimationFrame(()=>{t.classList.remove("disable-transitions")}),s()});</script> </div> </div> </header> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/cityu"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:graduation-cap">   <symbol id="ai:lucide:graduation-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol><use href="#ai:lucide:graduation-cap"></use>  </svg> CityU </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/cityu/ma3518"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:book-open">   <symbol id="ai:lucide:book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z"/></symbol><use href="#ai:lucide:book-open"></use>  </svg> Applied Statistics </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> Part 3 - Confidence Interval and Hypothesis Testing </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 text-4xl leading-tight font-medium text-pretty sm:text-5xl"> Part 3 - Confidence Interval and Hypothesis Testing </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground">MA3518</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>September 19, 2024</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>13 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/cityu/ma3518/ma3518_4" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Part 4 - Simple Linear Regression </span> </div>  </a> <a href="/cityu/ma3518/ma3518_2" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Part 2 - Basic Statistical Concepts and Tools </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <details open class="group col-start-2 rounded-xl border p-4 xl:sticky xl:top-20 xl:col-start-1 xl:mr-8 xl:ml-auto xl:h-[calc(100vh-5rem)] xl:max-w-fit xl:rounded-none xl:border-none xl:p-0"> <summary class="flex cursor-pointer items-center justify-between text-xl font-medium group-open:pb-4 xl:hidden"> <span>Table of Contents</span> <svg width="1em" height="1em" class="size-5 shrink-0 transition-transform group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg> </summary> <astro-island uid="Z16SLR9" prefix="r8" component-url="/_astro/scroll-area.DmWfVO5M.js" component-export="ScrollArea" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;className&quot;:[0,&quot;flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]&quot;],&quot;type&quot;:[0,&quot;always&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot> <ul class="flex list-none flex-col gap-y-2 px-4 xl:mr-8" id="table-of-contents"> <li class="hidden text-lg font-medium xl:block">Table of Contents</li> <li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#inferences-for-meanproportion" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Inferences for mean/proportion </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#confidence-interval-on-the-mean-of-a-normal-distribution-variance-known" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Confidence Interval on the mean of a Normal Distribution, variance known </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#confidence-interval-on-the-mean-of-an-arbitrary-distribution-variance-known" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Confidence Interval on the mean of an arbitrary distribution, variance known </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#confidence-interval-on-the-mean-of-a-normal-distribution-variance-unknown" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Confidence interval on the mean of a normal distribution, variance unknown </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#confidence-interval-on-the-mean-summary" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Confidence Interval on the mean: Summary </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#confidence-interval-on-the-proportion" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Confidence Interval on the proportion </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#hypotheses-testing-for-the-mean" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Hypotheses testing for the mean </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#hypotheses-testing-for-the-mean-p-value" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Hypotheses testing for the mean: $p$-value </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#hypotheses-testing-for-the-mean-one-sided" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Hypotheses testing for the mean: one-sided </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#hypotheses-testing-for-the-mean-other-cases" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Hypotheses testing for the mean: other cases </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#hypotheses-testing-for-the-proportion" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Hypotheses testing for the proportion </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#r-code-for-finding-z_1---alpha2" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> R code for finding $z_${1 - \alpha/2}$ </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#example" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Example </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#built-in-functions-in-r-for-finding-the-ci-of-proportion-estimate" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Built-in functions in R for finding the CI of proportion estimate </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#built-in-functions-in-r-for-finding-the-ci-of-mean-estimate" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Built-in functions in R for finding the CI of mean estimate </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#inferences-for-difference-of-means" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Inferences for difference of means </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#two-sample-test" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Two-sample test </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#two-sample-test-known-variances" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Two-sample test: known variances </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#two-sample-test-unknown-equal-variances" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Two-sample test: unknown equal variances </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#two-sample-test-unknown-unequal-variances" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Two-sample test: unknown unequal variances </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#example-1" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Example </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#paired-data-for-difference-of-means" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Paired data for difference of means </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#inferences-for-variance" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Inferences for variance </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#inferences-for-ratio-of-variancestest-of-equality-of-variances" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Inferences for ratio of variances/test of equality of variances </a> </li> </ul> </astro-slot></div></div><div data-orientation="vertical" data-slot="scroll-area-scrollbar" class="flex touch-none p-px transition-colors select-none h-full w-2.5 border-l border-l-transparent" style="position:absolute;top:0;right:0;bottom:var(--radix-scroll-area-corner-height);--radix-scroll-area-thumb-height:18px"></div></div><!--astro:end--></astro-island> </details> <script type="module">function s(){const t=document.querySelector("header"),c=t?t.offsetHeight:0,a=new IntersectionObserver(e=>{e.forEach(o=>{const r=o.target.querySelector("h2, h3, h4, h5, h6");if(!r)return;const d=r.getAttribute("id"),n=document.querySelector(`#table-of-contents li a[href="#${d}"]`);if(!n)return;const i=o.isIntersecting?"add":"remove";n.classList[i]("text-foreground")})},{rootMargin:`-${c}px 0px 0px 0px`});document.querySelectorAll(".prose section").forEach(e=>{a.observe(e)})}document.addEventListener("astro:page-load",s);document.addEventListener("astro:after-swap",s);</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
+
+
+<meta charset="utf-8">
+<title>MA3518_3</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" rel="stylesheet">
+
+
+<section><h3 id="inferences-for-meanproportion">Inferences for mean/proportion</h3><p>Let’s recap what a confidence interval is,</p><blockquote>
 <p>A confidence interval of level $100(1 - \alpha)%$ means that we are $100(1 - \alpha)%$ confident that the <em>true</em> value of the parameter is included into the interval.</p>
-</blockquote>
-<p>When dealing with confidence intervals, we will often encounter different “types” of situations. Let’s review these.</p>
-<h3 id="confidence-interval-on-the-mean-of-a-normal-distribution-variance-known">Confidence Interval on the mean of a Normal Distribution, variance known</h3>
-<p>Suppose we have a <strong>normal distribution</strong> with unknown mean $\mu$ and known variance $\sigma^2$.</p>
-<p>We have thus a random sample $X_1, X_2, \ldots, X_n$, such that, for all $i$,
+</blockquote><p>When dealing with confidence intervals, we will often encounter different “types” of situations. Let’s review these.</p></section>
+<section><h3 id="confidence-interval-on-the-mean-of-a-normal-distribution-variance-known">Confidence Interval on the mean of a Normal Distribution, variance known</h3><p>Suppose we have a <strong>normal distribution</strong> with unknown mean $\mu$ and known variance $\sigma^2$.</p><p>We have thus a random sample $X_1, X_2, \ldots, X_n$, such that, for all $i$,
 $$
 X_i \sim N(\mu, \sigma^2)
-$$</p>
-<p>with $\mu$ unknown and $\sigma$ a known constant.</p>
-<p>We would like a confidence interval for $\mu$.</p>
-<p>We know that,
+$$</p><p>with $\mu$ unknown and $\sigma$ a known constant.</p><p>We would like a confidence interval for $\mu$.</p><p>We know that,
 $$
 \bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i \sim N\left(\mu, \frac{\sigma^2}{n}\right)
-$$</p>
-<p>we can <em>standardize</em> this to,
+$$</p><p>we can <em>standardize</em> this to,
 $$
 Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}} = \sqrt{n} \frac{\bar{X} - \mu}{\sigma} \sim N(0, 1)
-$$</p>
-<p>So, because $Z \sim N(0, 1)$,
+$$</p><p>So, because $Z \sim N(0, 1)$,
 $$
 P(-z_{1 - \alpha/2} \leq Z \leq z_{1 - \alpha/2}) = 1 - \alpha
-$$</p>
-<p>Thus,
+$$</p><p>Thus,
 $$
 P\left(-z_{1 - \alpha/2} \leq \sqrt{n} \frac{\bar{X} - \mu}{\sigma} \leq z_{1 - \alpha/2}\right) = 1 - \alpha
-$$</p>
-<p>Re-arranging this, we get,
+$$</p><p>Re-arranging this, we get,
 $$
 P\left(\bar{X} - z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}} \leq \mu \leq \bar{X} + z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}\right) = 1 - \alpha
-$$</p>
-<p>Let’s call them $L$ and $U$ for lower and upper, finally, the interval is,
+$$</p><p>Let’s call them $L$ and $U$ for lower and upper, finally, the interval is,
 $$
 [L, U] = \left[\bar{x} - z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}, \bar{x} + z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}\right]
-$$</p>
-<h3 id="confidence-interval-on-the-mean-of-an-arbitrary-distribution-variance-known">Confidence Interval on the mean of an arbitrary distribution, variance known</h3>
-<p>Let us recap the central limit theorem.</p>
-<p>The Central Limit (CLT) implies if $n$ is large enough,
+$$</p></section>
+<section><h3 id="confidence-interval-on-the-mean-of-an-arbitrary-distribution-variance-known">Confidence Interval on the mean of an arbitrary distribution, variance known</h3><p>Let us recap the central limit theorem.</p><p>The Central Limit (CLT) implies if $n$ is large enough,
 $$
 Z = \sqrt{n} \frac{\bar{X} - \mu}{\sigma} \sim N(0, 1)
-$$</p>
-<p>Thus,
+$$</p><p>Thus,
 $$
 P\left(-z_{1 - \alpha/2} \leq \sqrt{n} \frac{\bar{X} - \mu}{\sigma} \leq z_{1 - \alpha/2}\right) \simeq 1 - \alpha
-$$</p>
-<p>Which yields the (same) interval,
+$$</p><p>Which yields the (same) interval,
 $$
 [L, U] = \left[\bar{x} - z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}, \bar{x} + z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}\right]
-$$</p>
-<h3 id="confidence-interval-on-the-mean-of-a-normal-distribution-variance-unknown">Confidence interval on the mean of a normal distribution, variance unknown</h3>
-<p>In the case we do not have the variance, we need to sample it!</p>
-<p>Recall the <em>sample variance</em>,
+$$</p></section>
+<section><h3 id="confidence-interval-on-the-mean-of-a-normal-distribution-variance-unknown">Confidence interval on the mean of a normal distribution, variance unknown</h3><p>In the case we do not have the variance, we need to sample it!</p><p>Recall the <em>sample variance</em>,
 $$
 S^2 = \frac{1}{n - 1} \sum_{i = 1}^n (X_i - \bar{X})^2
-$$</p>
-<p>A natural procedure is thus to,
+$$</p><p>A natural procedure is thus to,
 $$
 T = \sqrt{n} \frac{\bar{X} - \mu}{S}
-$$</p>
-<p><em>In a normal population</em>, the <strong>exact</strong> distribution of $T$ is $T \sim t_{n - 1}$.</p>
-<p>We can write,
+$$</p><p><em>In a normal population</em>, the <strong>exact</strong> distribution of $T$ is $T \sim t_{n - 1}$.</p><p>We can write,
 $$
 P(-t_{n - 1;1 - \alpha/2} \leq \sqrt{n} \frac{\bar{X} - \mu}{S} \leq t_{n - 1;1 - \alpha/2}) = 1 - \alpha
-$$</p>
-<p>or,
+$$</p><p>or,
 $$
 P\left(\bar{X} - t_{n - 1;1 - \alpha/2} \frac{S}{\sqrt{n}} \leq \mu \leq \bar{X} + t_{n - 1;1 - \alpha/2} \frac{S}{\sqrt{n}}\right) = 1 - \alpha
-$$</p>
-<p>Which yields us the interval,
+$$</p><p>Which yields us the interval,
 $$
 [L, U] = \left[\bar{x} - t_{n - 1;1 - \alpha/2} \frac{s}{\sqrt{n}}, \bar{x} + t_{n - 1;1 - \alpha/2} \frac{s}{\sqrt{n}}\right]
-$$</p>
-<p><em>In large samples</em>,
+$$</p><p><em>In large samples</em>,
 $$
 T \simeq N(0, 1)
-$$</p>
-<p>Consequently, an <strong>approximate</strong> confidence interval of level $100(1 - \alpha)%$ for $\mu$ is,
+$$</p><p>Consequently, an <strong>approximate</strong> confidence interval of level $100(1 - \alpha)%$ for $\mu$ is,
 $$
 [L, U] = \left[\bar{x} - z_{1 - \alpha/2} \frac{s}{\sqrt{n}}, \bar{x} + z_{1 - \alpha/2} \frac{s}{\sqrt{n}}\right]
-$$</p>
-<h3 id="confidence-interval-on-the-mean-summary">Confidence Interval on the mean: Summary</h3>
-<p><em>Is the population normal?</em></p>
-<ul>
+$$</p></section>
+<section><h3 id="confidence-interval-on-the-mean-summary">Confidence Interval on the mean: Summary</h3><p><em>Is the population normal?</em></p><ul>
 <li>If yes, is $\sigma$ known?
 <ul>
 <li>If yes, use an **exact $z$-confidence interval:
@@ -334,560 +140,371 @@ $$</p>
 <li>$[L, U] = \left[\bar{x} - z_{1 - \alpha/2} \frac{s}{\sqrt{n}}, \bar{x} + z_{1 - \alpha/2} \frac{s}{\sqrt{n}}\right]$</li>
 </ul>
 </li>
-</ul>
-<h3 id="confidence-interval-on-the-proportion">Confidence Interval on the proportion</h3>
-<p>The random variable to study is,
+</ul></section>
+<section><h3 id="confidence-interval-on-the-proportion">Confidence Interval on the proportion</h3><p>The random variable to study is,
 $$
 X =
 \begin{cases}
 1 &#x26; \text{If the individual has the characteristic of interest} \newline
 0 &#x26; \text{If not}
 \end{cases}
-$$</p>
-<p>$X_1, X_2, \ldots, X_n$ is a set of $n$ independent Bern($p$) random variables.</p>
-<p>Thus,
+$$</p><p>$X_1, X_2, \ldots, X_n$ is a set of $n$ independent Bern($p$) random variables.</p><p>Thus,
 $$
 Y = \sum_{i = 1}^n X_i \sim B(n, p)
-$$</p>
-<p>and the <em>sample proportion</em> is,
+$$</p><p>and the <em>sample proportion</em> is,
 $$
 \hat{P} = \frac{Y}{n}
-$$</p>
-<p>We also know that,
+$$</p><p>We also know that,
 $$
 \sqrt{n} \frac{\hat{P} - p}{\sqrt{p(1 - p)}} \sim N(0, 1)
-$$</p>
-<p>if $n$ is large.</p>
-<p>Approximate two-sided confidence interval of level $100(1 - \alpha)%$ for $p$ is given by,
+$$</p><p>if $n$ is large.</p><p>Approximate two-sided confidence interval of level $100(1 - \alpha)%$ for $p$ is given by,
 $$
 \left[\hat{p} - z_{1 - \alpha/2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}, \hat{p} + z_{1 - \alpha/2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}\right]
-$$</p>
-<h3 id="hypotheses-testing-for-the-mean">Hypotheses testing for the mean</h3>
-<p>Let’s recall hypothesis testing. The <strong>null hypothesis</strong> is usually of the form,
+$$</p></section>
+<section><h3 id="hypotheses-testing-for-the-mean">Hypotheses testing for the mean</h3><p>Let’s recall hypothesis testing. The <strong>null hypothesis</strong> is usually of the form,
 $$
 H_0 : \mu = \mu_0
-$$</p>
-<p>The alternative hypothesis can be a <em>two-sided alternative</em>,
+$$</p><p>The alternative hypothesis can be a <em>two-sided alternative</em>,
 $$
 H_a : \mu \neq \mu_0
-$$</p>
-<p>or <em>one-sided alternatives</em>,
+$$</p><p>or <em>one-sided alternatives</em>,
 $$
 H_a : \mu > \mu_0 \quad \text{or} \quad H_a : \mu &#x3C; \mu_0
-$$</p>
-<p>Remember, we have two important cases</p>
-<ol>
+$$</p><p>Remember, we have two important cases</p><ol>
 <li>Rejecting $H_0$ when it is true: <strong>type I error</strong>.</li>
 <li>Failing to reject H_0 when it is false: <strong>type II error</strong>.</li>
-</ol>
-<p>$$
+</ol><p>$$
 P(\text{Type I error}) = P(\text{reject } H_0 | H_0 \text{ is true }) = \alpha \newline
 P(\text{Type II error}) = P(\text{fail to reject } H_0 | H_0 \text{ is false }) = \beta
-$$</p>
-<p>Note that $\beta$ depends on the (unknown) value of $\mu$ under the alternative.</p>
-<p>Assume for the moment that <em>the population is normal with known</em> $\sigma$.
+$$</p><p>Note that $\beta$ depends on the (unknown) value of $\mu$ under the alternative.</p><p>Assume for the moment that <em>the population is normal with known</em> $\sigma$.
 $$
 \bar{X} \sim N(\mu, \frac{\sigma^2}{n})
-$$</p>
-<p><em>At significance level</em> $\alpha$, we are after two constants $\ell$ and $u$ such that,
+$$</p><p><em>At significance level</em> $\alpha$, we are after two constants $\ell$ and $u$ such that,
 $$
 \alpha = P(\bar{X} \notin [\ell, u] \text{ when } \mu = \mu_0) = P\left(Z \notin \left[\sqrt{n} \frac{\ell - \mu_0}{\sigma}, \sqrt{n} \frac{u - \mu_0}{\sigma}\right]\right)
-$$</p>
-<p>Thus,
+$$</p><p>Thus,
 $$
 \sqrt{n} \frac{\ell - \mu_0}{\sigma} = z_{\alpha/2} = -z_{1 - \alpha/2}
-$$</p>
-<p>and,
+$$</p><p>and,
 $$
 \sqrt{n} \frac{u - \mu_0}{\sigma} = z_{1 - \alpha/2}
-$$</p>
-<p>This yields,
+$$</p><p>This yields,
 $$
 \ell = \mu_0 - z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}} \newline
 u = \mu_0 + z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}.
-$$</p>
-<p>The decision rule is then,
+$$</p><p>The decision rule is then,
 $$
 \text{Reject } H_0 \text{ if } \bar{x} \notin [\mu_0 - z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}, \mu_0 + z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}]
-$$</p>
-<h3 id="hypotheses-testing-for-the-mean-p-value">Hypotheses testing for the mean: $p$-value</h3>
-<p>The $p$-value is the probability that the test statistic will take on a value that is at least <strong>as extreme as</strong> the observed value when $H_0$ is true. (extreme is to be understood in the direction of the alternative).</p>
-<p>When testing $H_0 : \mu = \mu_0$ against $H_a : \mu \neq \mu_0$, the $p$-value will be the probability of finding the random variable $\bar{X}$ more different to $\mu_0$ than the <em>observed</em> $\bar{x}$, that is,
+$$</p></section>
+<section><h3 id="hypotheses-testing-for-the-mean-p-value">Hypotheses testing for the mean: $p$-value</h3><p>The $p$-value is the probability that the test statistic will take on a value that is at least <strong>as extreme as</strong> the observed value when $H_0$ is true. (extreme is to be understood in the direction of the alternative).</p><p>When testing $H_0 : \mu = \mu_0$ against $H_a : \mu \neq \mu_0$, the $p$-value will be the probability of finding the random variable $\bar{X}$ more different to $\mu_0$ than the <em>observed</em> $\bar{x}$, that is,
 $$
 \begin{align*}
 p &#x26; = P(\bar{X} \notin [\mu_0 \pm |\bar{x} - \mu_0|] \text{ when } \mu = \mu_0) \newline
 &#x26; = 1 - P(\bar{X} \in [\mu_0 \pm |\bar{x} - \mu_0|] \text{ when } \mu = \mu_0)
 \end{align*}
-$$</p>
-<p>Let us define,
+$$</p><p>Let us define,
 $$
 z_0 = \sqrt{n} \frac{\bar{x} - \mu_0}{\sigma}
-$$</p>
-<p>as the “observed value of the test statistic”.</p>
-<p>As we know that $Z = \sqrt{n} \frac{\bar{X} - \mu_0}{\sigma} \sim N(0, 1)$, we can write,
+$$</p><p>as the “observed value of the test statistic”.</p><p>As we know that $Z = \sqrt{n} \frac{\bar{X} - \mu_0}{\sigma} \sim N(0, 1)$, we can write,
 $$
 \begin{align*}
 p &#x26; = 1 - P(\sqrt{n} \frac{\bar{X} - \mu_0}{\sigma} \in \left[\sqrt{n} \frac{\mu_0 \pm |\bar{x} - \mu_0| - \mu_0}{\sigma}\right]) \newline
 &#x26; = 1 - P(Z \in [-|z_0|, |z_0|]) = 2(1 - \phi(|z_0|))
 \end{align*}
-$$</p>
-<p>Operationally, since a $p$-value is computed, we typically compare it to a predefined significance level $\alpha$ to make a decision:
+$$</p><p>Operationally, since a $p$-value is computed, we typically compare it to a predefined significance level $\alpha$ to make a decision:
 $$
 \begin{cases}
 \text{if } p &#x3C; \alpha, \text{ reject } H_0 \newline
 \text{if } p \geq \alpha, \text{ do not reject } H_0
 \end{cases}
-$$</p>
-<h3 id="hypotheses-testing-for-the-mean-one-sided">Hypotheses testing for the mean: one-sided</h3>
-<p>With $H_a : \mu > \mu_0$ we are after a constant $u$ such that,
+$$</p></section>
+<section><h3 id="hypotheses-testing-for-the-mean-one-sided">Hypotheses testing for the mean: one-sided</h3><p>With $H_a : \mu > \mu_0$ we are after a constant $u$ such that,
 $$
 P(\bar{X} > u \text{ when } \mu = \mu_0) = \alpha
-$$</p>
-<p>As we know that $Z = \sqrt{n} \frac{\bar{X} - \mu_0}{\sigma} \sim N(0, 1)$, the decision rule is <strong>reject $H_0$ if $\bar{x} > \mu_0 + z_{1 - \alpha} \frac{\sigma}{\sqrt{n}}$</strong>.</p>
-<p>Again with $z_0 = \sqrt{n} \frac{\bar{x} - \mu_0}{\sigma}$, the $p$-value is,
+$$</p><p>As we know that $Z = \sqrt{n} \frac{\bar{X} - \mu_0}{\sigma} \sim N(0, 1)$, the decision rule is <strong>reject $H_0$ if $\bar{x} > \mu_0 + z_{1 - \alpha} \frac{\sigma}{\sqrt{n}}$</strong>.</p><p>Again with $z_0 = \sqrt{n} \frac{\bar{x} - \mu_0}{\sigma}$, the $p$-value is,
 $$
 p = P(\bar{X} > \bar{x} \text{ when } \mu = \mu_0) = P(Z > \sqrt{n} \frac{\bar{x} - \mu_0}{\sigma}) = 1 - \phi(z_0)
-$$</p>
-<p>With $H_a : \mu &#x3C; \mu_0$, we are after a constant $\ell$ such that,
+$$</p><p>With $H_a : \mu &#x3C; \mu_0$, we are after a constant $\ell$ such that,
 $$
 P(\bar{X} &#x3C; \ell \text{ when } \mu = \mu_0) = \alpha
-$$</p>
-<p>The decision rule is <strong>reject $H_0$ if $\bar{x} &#x3C; \mu_0 - z_{1 - \alpha} \frac{\sigma}{\sqrt{n}}$</strong>.</p>
-<p>The $p$-value is,
+$$</p><p>The decision rule is <strong>reject $H_0$ if $\bar{x} &#x3C; \mu_0 - z_{1 - \alpha} \frac{\sigma}{\sqrt{n}}$</strong>.</p><p>The $p$-value is,
 $$
 p = P(\bar{X} &#x3C; \bar{x} \text{ when } \mu = \mu_0) = P(Z &#x3C; \sqrt{n} \frac{\bar{x} - \mu_0}{\sigma}) = \phi(z_0)
-$$</p>
-<h3 id="hypotheses-testing-for-the-mean-other-cases">Hypotheses testing for the mean: other cases</h3>
-<p>Say we have a normal population with unknown standard deviation.</p>
-<p>Specifically, for the two-sided test $H_0 : \mu = \mu_0$ against $H_a : \mu \neq \mu_0$, the decision rule is,
+$$</p></section>
+<section><h3 id="hypotheses-testing-for-the-mean-other-cases">Hypotheses testing for the mean: other cases</h3><p>Say we have a normal population with unknown standard deviation.</p><p>Specifically, for the two-sided test $H_0 : \mu = \mu_0$ against $H_a : \mu \neq \mu_0$, the decision rule is,
 $$
 \text{reject } H_0 \text{ if } \bar{x} \notin [\mu_0 - t_{n - 1;1 - \alpha/2} \frac{s}{\sqrt{n}}, \mu_0 + t_{n - 1;1 - \alpha/2} \frac{s}{\sqrt{n}}]
-$$</p>
-<p>and from the observed value of the test statistic,
+$$</p><p>and from the observed value of the test statistic,
 $$
 t_0 = \sqrt{n} \frac{\bar{x} - \mu_0}{s}
-$$</p>
-<p>we can compute the $p$-value,
+$$</p><p>we can compute the $p$-value,
 $$
 p = 1 - P(T \in [-|t_0|, |t_0|]) = 2P(T > |t_0|) \text{ where } T \sim t_{n - 1}
-$$</p>
-<p>If we have non-normal populations with known or unknown standard deviation,
+$$</p><p>If we have non-normal populations with known or unknown standard deviation,
 $$
 \text{reject } H_0 \text{ if } \bar{x} \notin \left[\mu_0 - z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}, \mu_0 + z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}\right]
-$$</p>
-<p>or,
+$$</p><p>or,
 $$
 \text{reject } H_0 \text{ if } \bar{x} \notin \left[\mu_0 - z_{1 - \alpha/2} \frac{s}{\sqrt{n}}, \mu_0 + z_{1 - \alpha/2} \frac{s}{\sqrt{n}}\right]
-$$</p>
-<p>The associated <strong>approximate $p$-value</strong> will be given by,
+$$</p><p>The associated <strong>approximate $p$-value</strong> will be given by,
 $$
 p = 2(1 - \phi(|z_0|)),
-$$</p>
-<p>with $z_0 = \sqrt{n} \frac{\bar{x} - \mu_0}{\sigma}$ or $z_0 = \sqrt{n} \frac{\bar{x} - \mu_0}{s}$.</p>
-<h3 id="hypotheses-testing-for-the-proportion">Hypotheses testing for the proportion</h3>
-<p>Large-sample confidence interval for $p$,
+$$</p><p>with $z_0 = \sqrt{n} \frac{\bar{x} - \mu_0}{\sigma}$ or $z_0 = \sqrt{n} \frac{\bar{x} - \mu_0}{s}$.</p></section>
+<section><h3 id="hypotheses-testing-for-the-proportion">Hypotheses testing for the proportion</h3><p>Large-sample confidence interval for $p$,
 $$
 \left[\hat{p} - z_{1 - \alpha/2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}, \hat{p} + z_{1 - \alpha/2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}\right]
-$$</p>
-<p>The decision rule at (approximate) level $\alpha$ is,
+$$</p><p>The decision rule at (approximate) level $\alpha$ is,
 $$
 \text{reject } H_0 \text{ if } \hat{p} \notin \left[p_0 - z_{1 - \alpha/2} \sqrt{\frac{p_0(1 - p_0)}{n}}, p_0 + z_{1 - \alpha/2} \sqrt{\frac{p_0(1 - p_0)}{n}}\right]
-$$</p>
-<p>The (approximate) $p$-value for this test is,
+$$</p><p>The (approximate) $p$-value for this test is,
 $$
 p = 2(1 - \phi(|z_0|))
-$$</p>
-<p>where $z_0 = \sqrt{n} \frac{\hat{p} - p_0}{\sqrt{p_0(1 - p_0)}}$.</p>
-<h3 id="r-code-for-finding-z_1---alpha2">R code for finding $z_{1 - \alpha/2}$</h3>
-<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="r"><code><span class="line"><span style="color:var(--astro-code-foreground)">alpha</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-constant)">0.05</span></span>
-<span class="line"><span style="color:var(--astro-code-foreground)">zstar</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-function)">qnorm</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-constant)">1</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">alpha</span><span style="color:var(--astro-code-token-keyword)">/</span><span style="color:var(--astro-code-token-constant)">2</span><span style="color:var(--astro-code-foreground)">)</span></span></code></pre>
-<h4 id="example">Example</h4>
-<blockquote>
+$$</p><p>where $z_0 = \sqrt{n} \frac{\hat{p} - p_0}{\sqrt{p_0(1 - p_0)}}$.</p></section>
+<section><h3 id="r-code-for-finding-z_1---alpha2">R code for finding $z_{1 - \alpha/2}$</h3><div class="expressive-code"><link rel="stylesheet" href="/_astro/ec.mfnqe.css"><script type="module" src="/_astro/ec.8zarh.js"></script><figure class="frame"><figcaption class="header"></figcaption><pre data-language="r" class="wrap" style="--ecMaxLine:23ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">alpha</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">0.05</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">zstar</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">qnorm</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">1</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#24292E;--1:#E1E4E8">alpha</span><span style="--0:#BF3441;--1:#F97583">/</span><span style="--0:#005CC5;--1:#79B8FF">2</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="alpha<-0.05zstar<-qnorm(1-alpha/2)"><div></div></button></div></figure></div><section><h4 id="example">Example</h4><blockquote>
 <p>Suppose 53 people among 100 surveyed is for the proposition, find the 95% confidence interval for the proportion of people in favor of the proposition.</p>
-</blockquote>
-<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="r"><code><span class="line"><span style="color:var(--astro-code-foreground)">n</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-constant)">100</span></span>
-<span class="line"><span style="color:var(--astro-code-foreground)">phat</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-constant)">53</span><span style="color:var(--astro-code-token-keyword)">/</span><span style="color:var(--astro-code-foreground)">n</span></span>
-<span class="line"><span style="color:var(--astro-code-foreground)">SE</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-function)">sqrt</span><span style="color:var(--astro-code-foreground)">(phat</span><span style="color:var(--astro-code-token-keyword)">*</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-constant)">1</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">phat)</span><span style="color:var(--astro-code-token-keyword)">/</span><span style="color:var(--astro-code-foreground)">n)</span></span>
-<span class="line"><span style="color:var(--astro-code-foreground)">alpha</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-constant)">0.05</span></span>
-<span class="line"><span style="color:var(--astro-code-foreground)">zstar</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-function)">qnorm</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-constant)">1</span><span style="color:var(--astro-code-token-keyword)"> -</span><span style="color:var(--astro-code-foreground)"> alpha</span><span style="color:var(--astro-code-token-keyword)">/</span><span style="color:var(--astro-code-token-constant)">2</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-function)"> c</span><span style="color:var(--astro-code-foreground)">(phat</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">zstar</span><span style="color:var(--astro-code-token-keyword)">*</span><span style="color:var(--astro-code-foreground)">SE, phat</span><span style="color:var(--astro-code-token-keyword)">+</span><span style="color:var(--astro-code-foreground)">zstar</span><span style="color:var(--astro-code-token-keyword)">*</span><span style="color:var(--astro-code-foreground)">SE)</span></span>
-<span class="line"><span style="color:var(--astro-code-foreground)">[</span><span style="color:var(--astro-code-token-constant)">1</span><span style="color:var(--astro-code-foreground)">] </span><span style="color:var(--astro-code-token-constant)">0.432178</span><span style="color:var(--astro-code-token-constant)"> 0.6278216</span></span></code></pre>
-<h3 id="built-in-functions-in-r-for-finding-the-ci-of-proportion-estimate">Built-in functions in R for finding the CI of proportion estimate</h3>
-<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="r"><code><span class="line"><span style="color:var(--astro-code-token-function)">prop.test</span><span style="color:var(--astro-code-foreground)">(x</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)">53</span><span style="color:var(--astro-code-foreground)">, n</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)">100</span><span style="color:var(--astro-code-foreground)">, conf.level</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)">0.95</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)">   1</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">sample proportions test with continuity correction</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> data</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-constant)">  53</span><span style="color:var(--astro-code-foreground)"> out of </span><span style="color:var(--astro-code-token-constant)">100</span><span style="color:var(--astro-code-foreground)">, null probability </span><span style="color:var(--astro-code-token-constant)">0.5</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> X</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">squared </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 0.25</span><span style="color:var(--astro-code-foreground)">, df </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 1</span><span style="color:var(--astro-code-foreground)">, p</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">value </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 0.6171</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> alternative hypothesis</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)"> true p is not equal to </span><span style="color:var(--astro-code-token-constant)">0.5</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)"> 95</span><span style="color:var(--astro-code-foreground)"> percent confidence interval</span><span style="color:var(--astro-code-token-keyword)">:</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)">   0.4280225</span><span style="color:var(--astro-code-token-constant)"> 0.6296465</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> sample estimates</span><span style="color:var(--astro-code-token-keyword)">:</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)">   p</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)"> 0.53</span></span></code></pre>
-<h3 id="built-in-functions-in-r-for-finding-the-ci-of-mean-estimate">Built-in functions in R for finding the CI of mean estimate</h3>
-<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="r"><code><span class="line"><span style="color:var(--astro-code-foreground)">x</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-function)">c</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-constant)">175</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">185</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">170</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">184</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">175</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">t.test</span><span style="color:var(--astro-code-foreground)">(x, conf.level</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)">0.90</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> 	One Sample t</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">test</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> data</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)">  x</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> t </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 61.567</span><span style="color:var(--astro-code-foreground)">, df </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 4</span><span style="color:var(--astro-code-foreground)">, p</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">value </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 4.169e-07</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> alternative hypothesis</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)"> true mean is not equal to </span><span style="color:var(--astro-code-token-constant)">0</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)"> 90</span><span style="color:var(--astro-code-foreground)"> percent confidence interval</span><span style="color:var(--astro-code-token-keyword)">:</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)">   171.6434</span><span style="color:var(--astro-code-token-constant)"> 183.9566</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> sample estimates</span><span style="color:var(--astro-code-token-keyword)">:</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> mean of x</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)">  177.8</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">t.test</span><span style="color:var(--astro-code-foreground)">(x, conf.level</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)">0.90</span><span style="color:var(--astro-code-foreground)">, alt</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-string-expression)">"less"</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)">   One Sample t</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">test</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> data</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)">  x</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> t </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 61.567</span><span style="color:var(--astro-code-foreground)">, df </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 4</span><span style="color:var(--astro-code-foreground)">, p</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">value </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 1</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> alternative hypothesis</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)"> true mean is less than </span><span style="color:var(--astro-code-token-constant)">0</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)"> 90</span><span style="color:var(--astro-code-foreground)"> percent confidence interval</span><span style="color:var(--astro-code-token-keyword)">:</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-keyword)">   -</span><span style="color:var(--astro-code-token-constant)">Inf</span><span style="color:var(--astro-code-token-constant)"> 182.2278</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> sample estimates</span><span style="color:var(--astro-code-token-keyword)">:</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> mean of x</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)">  177.8</span></span></code></pre>
-<h3 id="inferences-for-difference-of-means">Inferences for difference of means</h3>
-<p>In many situations it is quite common to be interested in *comparing two ‘populations’ in regard to a parameter of interest.</p>
-<p>The two ‘populations’ may be:</p>
-<ul>
+</blockquote><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="r" class="wrap" style="--ecMaxLine:33ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">n</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">100</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">phat</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">53</span><span style="--0:#BF3441;--1:#F97583">/</span><span style="--0:#24292E;--1:#E1E4E8">n</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">SE</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">sqrt</span><span style="--0:#24292E;--1:#E1E4E8">(phat</span><span style="--0:#BF3441;--1:#F97583">*</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">1</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#24292E;--1:#E1E4E8">phat)</span><span style="--0:#BF3441;--1:#F97583">/</span><span style="--0:#24292E;--1:#E1E4E8">n)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">alpha</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">0.05</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">zstar</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">qnorm</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">1</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#24292E;--1:#E1E4E8"> alpha</span><span style="--0:#BF3441;--1:#F97583">/</span><span style="--0:#005CC5;--1:#79B8FF">2</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">c</span><span style="--0:#24292E;--1:#E1E4E8">(phat</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#24292E;--1:#E1E4E8">zstar</span><span style="--0:#BF3441;--1:#F97583">*</span><span style="--0:#24292E;--1:#E1E4E8">SE, phat</span><span style="--0:#BF3441;--1:#F97583">+</span><span style="--0:#24292E;--1:#E1E4E8">zstar</span><span style="--0:#BF3441;--1:#F97583">*</span><span style="--0:#24292E;--1:#E1E4E8">SE)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">7</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">[</span><span style="--0:#005CC5;--1:#79B8FF">1</span><span style="--0:#24292E;--1:#E1E4E8">] </span><span style="--0:#005CC5;--1:#79B8FF">0.432178</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">0.6278216</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="n<-100phat<-53/nSE<-sqrt(phat*(1-phat)/n)alpha<-0.05zstar<-qnorm(1 - alpha/2)> c(phat-zstar*SE, phat+zstar*SE)[1] 0.432178 0.6278216"><div></div></button></div></figure></div></section></section>
+<section><h3 id="built-in-functions-in-r-for-finding-the-ci-of-proportion-estimate">Built-in functions in R for finding the CI of proportion estimate</h3><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="r" class="wrap" style="--ecMaxLine:56ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">prop.test</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#AE4B07;--1:#FFAB70">x</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">53</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#AE4B07;--1:#FFAB70">n</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">100</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#AE4B07;--1:#FFAB70">conf.level</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">0.95</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">   </span><span style="--0:#005CC5;--1:#79B8FF">1</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#24292E;--1:#E1E4E8">sample proportions test with continuity correction</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> data</span><span style="--0:#BF3441;--1:#F97583">:</span><span style="--0:#24292E;--1:#E1E4E8">  </span><span style="--0:#005CC5;--1:#79B8FF">53</span><span style="--0:#24292E;--1:#E1E4E8"> out of </span><span style="--0:#005CC5;--1:#79B8FF">100</span><span style="--0:#24292E;--1:#E1E4E8">, null probability </span><span style="--0:#005CC5;--1:#79B8FF">0.5</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> X</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#AE4B07;--1:#FFAB70">squared</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">0.25</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#AE4B07;--1:#FFAB70">df</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">1</span><span style="--0:#24292E;--1:#E1E4E8">, p</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#AE4B07;--1:#FFAB70">value</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">0.6171</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> alternative hypothesis</span><span style="--0:#BF3441;--1:#F97583">:</span><span style="--0:#24292E;--1:#E1E4E8"> true p is not equal to </span><span style="--0:#005CC5;--1:#79B8FF">0.5</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">7</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">95</span><span style="--0:#24292E;--1:#E1E4E8"> percent confidence interval</span><span style="--0:#BF3441;--1:#F97583">:</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">8</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">   </span><span style="--0:#005CC5;--1:#79B8FF">0.4280225</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">0.6296465</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">9</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> sample estimates</span><span style="--0:#BF3441;--1:#F97583">:</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">10</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">   p</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">11</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">0.53</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="prop.test(x=53, n=100, conf.level=0.95)>   1-sample proportions test with continuity correction>> data:  53 out of 100, null probability 0.5> X-squared = 0.25, df = 1, p-value = 0.6171> alternative hypothesis: true p is not equal to 0.5> 95 percent confidence interval:>   0.4280225 0.6296465> sample estimates:>   p> 0.53"><div></div></button></div></figure></div></section>
+<section><h3 id="built-in-functions-in-r-for-finding-the-ci-of-mean-estimate">Built-in functions in R for finding the CI of mean estimate</h3><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="r" class="wrap" style="--ecMaxLine:53ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">x</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">c</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">175</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">185</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">170</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">184</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">175</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">t.test</span><span style="--0:#24292E;--1:#E1E4E8">(x, </span><span style="--0:#AE4B07;--1:#FFAB70">conf.level</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">0.90</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">   One Sample t</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#24292E;--1:#E1E4E8">test</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> data</span><span style="--0:#BF3441;--1:#F97583">:</span><span style="--0:#24292E;--1:#E1E4E8">  x</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#AE4B07;--1:#FFAB70">t</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">61.567</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#AE4B07;--1:#FFAB70">df</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">4</span><span style="--0:#24292E;--1:#E1E4E8">, p</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#AE4B07;--1:#FFAB70">value</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">4.169e-07</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">7</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> alternative hypothesis</span><span style="--0:#BF3441;--1:#F97583">:</span><span style="--0:#24292E;--1:#E1E4E8"> true mean is not equal to </span><span style="--0:#005CC5;--1:#79B8FF">0</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">8</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">90</span><span style="--0:#24292E;--1:#E1E4E8"> percent confidence interval</span><span style="--0:#BF3441;--1:#F97583">:</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">9</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">   </span><span style="--0:#005CC5;--1:#79B8FF">171.6434</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">183.9566</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">10</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> sample estimates</span><span style="--0:#BF3441;--1:#F97583">:</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">11</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> mean of x</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">12</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">  </span><span style="--0:#005CC5;--1:#79B8FF">177.8</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">13</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">14</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">15</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">t.test</span><span style="--0:#24292E;--1:#E1E4E8">(x, </span><span style="--0:#AE4B07;--1:#FFAB70">conf.level</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">0.90</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#AE4B07;--1:#FFAB70">alt</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#032F62;--1:#9ECBFF">"less"</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">16</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">   One Sample t</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#24292E;--1:#E1E4E8">test</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">17</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">18</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> data</span><span style="--0:#BF3441;--1:#F97583">:</span><span style="--0:#24292E;--1:#E1E4E8">  x</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">19</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#AE4B07;--1:#FFAB70">t</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">61.567</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#AE4B07;--1:#FFAB70">df</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">4</span><span style="--0:#24292E;--1:#E1E4E8">, p</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#AE4B07;--1:#FFAB70">value</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">1</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">20</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> alternative hypothesis</span><span style="--0:#BF3441;--1:#F97583">:</span><span style="--0:#24292E;--1:#E1E4E8"> true mean is less than </span><span style="--0:#005CC5;--1:#79B8FF">0</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">21</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">90</span><span style="--0:#24292E;--1:#E1E4E8"> percent confidence interval</span><span style="--0:#BF3441;--1:#F97583">:</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">22</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">   </span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#005CC5;--1:#79B8FF">Inf</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">182.2278</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">23</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> sample estimates</span><span style="--0:#BF3441;--1:#F97583">:</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">24</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> mean of x</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">25</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">  </span><span style="--0:#005CC5;--1:#79B8FF">177.8</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="x<-c(175, 185, 170, 184, 175)t.test(x, conf.level=0.90)>   One Sample t-test>> data:  x> t = 61.567, df = 4, p-value = 4.169e-07> alternative hypothesis: true mean is not equal to 0> 90 percent confidence interval:>   171.6434 183.9566> sample estimates:> mean of x>  177.8t.test(x, conf.level=0.90, alt=&#x22;less&#x22;)>   One Sample t-test>> data:  x> t = 61.567, df = 4, p-value = 1> alternative hypothesis: true mean is less than 0> 90 percent confidence interval:>   -Inf 182.2278> sample estimates:> mean of x>  177.8"><div></div></button></div></figure></div></section>
+<section><h3 id="inferences-for-difference-of-means">Inferences for difference of means</h3><p>In many situations it is quite common to be interested in *comparing two ‘populations’ in regard to a parameter of interest.</p><p>The two ‘populations’ may be:</p><ul>
 <li>Produced items using an existing and a new technique.</li>
 <li>Success rates in two groups of individuals.</li>
 <li>Health test results for patients who received a drug and for patients who received a placebo.</li>
-</ul>
-<h4 id="two-sample-test">Two-sample test</h4>
-<p>$X_{11}, X_{12}, \ldots, X_{1n_1}$ is a sample from population 1.
-$X_{21}, X_{22}, \ldots, X_{2n_2}$ is a sample from population 2.</p>
-<p>The samples are <strong>independent</strong> (i.e., observations in sample 1 are by no means linked to the observations in sample 2, they concern different individuals).</p>
-<p>What we would like to know is whether $\mu_1 = \mu_2$ or not.</p>
-<p>So,
+</ul><section><h4 id="two-sample-test">Two-sample test</h4><p>$X_{11}, X_{12}, \ldots, X_{1n_1}$ is a sample from population 1.
+$X_{21}, X_{22}, \ldots, X_{2n_2}$ is a sample from population 2.</p><p>The samples are <strong>independent</strong> (i.e., observations in sample 1 are by no means linked to the observations in sample 2, they concern different individuals).</p><p>What we would like to know is whether $\mu_1 = \mu_2$ or not.</p><p>So,
 $$
 H_0 : \mu_1 = \mu_2
-$$</p>
-<p>We compute the sample means $\bar{x}_1$ and $\bar{x}_2$.</p>
-<ul>
+$$</p><p>We compute the sample means $\bar{x}_1$ and $\bar{x}_2$.</p><ul>
 <li>If $\bar{x}_1 \simeq \bar{x}_2$, then H_0 is probably acceptable.</li>
 <li>If $\bar{x}_1$ is considerably different to $\bar{x}_2$, that is evidence that $H_0$ is not true and we are tempted to reject it.</li>
-</ul>
-<p>Note that the alternative hypothesis can be,
+</ul><p>Note that the alternative hypothesis can be,
 $$
 H_1 : \mu_1 \neq \mu_2 \ | \ \text{two-sided alternative}
-$$</p>
-<p>or,
+$$</p><p>or,
 $$
 H_1 : \mu_1 > \mu_2 \quad \text{or} \quad H_1 : \mu_1 &#x3C; \mu_2 \ | \ \text{one-sided alternative}
-$$</p>
-<p>We know that,
+$$</p><p>We know that,
 $$
 \bar{X_1} = \frac{1}{n_1} \sum_{i = 1}^{n_1} X_{1i} \sim N\left(\mu_1, \frac{\sigma_1^2}{n_1}\right)
-$$</p>
-<p>and,
+$$</p><p>and,
 $$
 \bar{X_2} = \frac{1}{n_2} \sum_{i = 1}^{n_2} X_{2i} \sim N\left(\mu_2, \frac{\sigma_2^2}{n_2}\right)
-$$</p>
-<p>we deduce the <em>sampling distribution</em> of $\bar{X_1} - \bar{X_2}$,
+$$</p><p>we deduce the <em>sampling distribution</em> of $\bar{X_1} - \bar{X_2}$,
 $$
 \bar{X_1} - \bar{X_2} \sim N\left(\mu_1 - \mu_2, \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}\right)
-$$</p>
-<p>Now, testing for $H_0 : \mu_1 = \mu_2$ exactly amounts to for $H_0 : \mu_1 - \mu_2 = 0$, with $\bar{X_1} - \bar{X_2}$ as an estimator for $\mu_1 - \mu_2$.</p>
-<h4 id="two-sample-test-known-variances">Two-sample test: known variances</h4>
-<p>Suppose that $\sigma_1$ and $\sigma_2$ are known.</p>
-<p>For the two-sided test (with $H_a : \mu_1 - \mu_2 \neq 0$), at significance level $\alpha$, the decision rule is,
+$$</p><p>Now, testing for $H_0 : \mu_1 = \mu_2$ exactly amounts to for $H_0 : \mu_1 - \mu_2 = 0$, with $\bar{X_1} - \bar{X_2}$ as an estimator for $\mu_1 - \mu_2$.</p></section><section><h4 id="two-sample-test-known-variances">Two-sample test: known variances</h4><p>Suppose that $\sigma_1$ and $\sigma_2$ are known.</p><p>For the two-sided test (with $H_a : \mu_1 - \mu_2 \neq 0$), at significance level $\alpha$, the decision rule is,
 $$
 \text{Reject } H_0 \text{ if } \bar{x_1} - \bar{x_2} \notin \left[-z_{1 - \alpha/2} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}, z_{1 - \alpha/2} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}\right]
-$$</p>
-<p>$p$-value is,
+$$</p><p>$p$-value is,
 $$
 p = 2(1 - \phi(|z_0|)),
-$$</p>
-<p>where $z_0 = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}}$.</p>
-<p>Similarly, for the one-sided test $H_A : \mu_1 > \mu_2$, the decision rule is,
+$$</p><p>where $z_0 = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}}$.</p><p>Similarly, for the one-sided test $H_A : \mu_1 > \mu_2$, the decision rule is,
 $$
 \text{reject } H_0 \text{ if } \bar{x_1} - \bar{x_2} > z_{1 - \alpha} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}
-$$</p>
-<p>and the $p$-value is,
+$$</p><p>and the $p$-value is,
 $$
 p = 1 - \phi(z_0)
-$$</p>
-<p>while for the one-sided test $H_A : \mu_1 &#x3C; \mu_2$, the decision rule is,
+$$</p><p>while for the one-sided test $H_A : \mu_1 &#x3C; \mu_2$, the decision rule is,
 $$
 \text{reject } H_0 \text{ if } \bar{x_1} - \bar{x_2} &#x3C; -z_{1 - \alpha} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}
-$$</p>
-<p>and the $p$-value is,
+$$</p><p>and the $p$-value is,
 $$
 p = \phi(z_0)
-$$</p>
-<p>$100(1 - \alpha)%$ two-sided confidence interval for $\mu_1 - \mu_2$ is,
+$$</p><p>$100(1 - \alpha)%$ two-sided confidence interval for $\mu_1 - \mu_2$ is,
 $$
 \left[(\bar{x_1} - \bar{x_2}) - z_{1 - \alpha/2} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}, (\bar{x_1} - \bar{x_2}) + z_{1 - \alpha/2} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}\right]
-$$</p>
-<p>$100(1 - \alpha)%$ one-sided confidence intervals for $\mu_1 - \mu_2$ are,
+$$</p><p>$100(1 - \alpha)%$ one-sided confidence intervals for $\mu_1 - \mu_2$ are,
 $$
 \left(-\infty, (\bar{x_1} - \bar{x_2}) + z_{1 - \alpha} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}\right]
-$$</p>
-<p>and,
+$$</p><p>and,
 $$
 \left[(\bar{x_1} - \bar{x_2}) - z_{1 - \alpha} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}, +\infty\right]
-$$</p>
-<h4 id="two-sample-test-unknown-equal-variances">Two-sample test: unknown equal variances</h4>
-<p>Assume now $\sigma_1 = \sigma_2 = \sigma$, but $\sigma$ is unknown.</p>
-<p>We can estimate $\sigma^2$ by the <strong>pooled variance estimator</strong>,
+$$</p></section><section><h4 id="two-sample-test-unknown-equal-variances">Two-sample test: unknown equal variances</h4><p>Assume now $\sigma_1 = \sigma_2 = \sigma$, but $\sigma$ is unknown.</p><p>We can estimate $\sigma^2$ by the <strong>pooled variance estimator</strong>,
 $$
 S_{p}^2 = \frac{\sum_{i = 1}^{n_1} \left(X_{1i} - \bar{X_1}\right)^2 + \sum_{i = 1}^{n_2} \left(X_{2i} - \bar{X_2}\right)^2}{n_1 + n_2 - 2}
-$$</p>
-<p>Where $S_1^2$ and $S_2^2$ are the sample variances of the two samples,
+$$</p><p>Where $S_1^2$ and $S_2^2$ are the sample variances of the two samples,
 $$
 S_1^2 = \frac{1}{n_1 - 1} \sum_{i = 1}^{n_1} (X_{1i} - \bar{X_1})^2
-$$</p>
-<p>and,
+$$</p><p>and,
 $$
 S_2^2 = \frac{1}{n_2 - 1} \sum_{i = 1}^{n_2} (X_{2i} - \bar{X_2})^2
-$$</p>
-<p>For the two-sided test (with $H_a : \mu_1 - \mu_2 \neq 0$), at significance level $\alpha$, at significance level $\alpha$, the decision rule is,
+$$</p><p>For the two-sided test (with $H_a : \mu_1 - \mu_2 \neq 0$), at significance level $\alpha$, at significance level $\alpha$, the decision rule is,
 $$
 \text{reject } H_0 \text{ if } \bar{x_1} - \bar{x_2} \notin \left[-t_{n_1 + n_2 - 2;1 - \alpha/2} s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}, t_{n_1 + n_2 - 2;1 - \alpha/2} s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}\right]
-$$</p>
-<p>The $p$-value is given by,
+$$</p><p>The $p$-value is given by,
 $$
 p = 2P(T > |t_0|)
-$$</p>
-<p>with $T \sim t_{n_1 + n_2 - 2}$, and where $t_0$ is the observed value of the test statistic,
+$$</p><p>with $T \sim t_{n_1 + n_2 - 2}$, and where $t_0$ is the observed value of the test statistic,
 $$
 t_0 = \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}
-$$</p>
-<p>This test is known as the <strong>two-sample $t$-test</strong>.</p>
-<p>A $100(1 - \alpha)%$ two-sided confidence interval for $\mu_1 - \mu_2$ is,
+$$</p><p>This test is known as the <strong>two-sample $t$-test</strong>.</p><p>A $100(1 - \alpha)%$ two-sided confidence interval for $\mu_1 - \mu_2$ is,
 $$
 \left[(\bar{x_1} - \bar{x_2}) - t_{n_1 + n_2 - 2;1 - \alpha/2} s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}, (\bar{x_1} - \bar{x_2}) + t_{n_1 + n_2 - 2;1 - \alpha/2} s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}\right]
-$$</p>
-<h4 id="two-sample-test-unknown-unequal-variances">Two-sample test: unknown unequal variances</h4>
-<p><strong>There is no exact result available.</strong> An approximate result can be applied,
+$$</p></section><section><h4 id="two-sample-test-unknown-unequal-variances">Two-sample test: unknown unequal variances</h4><p><strong>There is no exact result available.</strong> An approximate result can be applied,
 $$
 \frac{(\bar{X_1} - \bar{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}} \sim t_{\nu}
-$$</p>
-<p>where the number of degrees of freedom is,
+$$</p><p>where the number of degrees of freedom is,
 $$
 \nu = \frac{\left(\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}\right)^2}{\frac{\left(\frac{S_1^2}{n_1}\right)^2}{n_1 - 1} + \frac{\left(\frac{S_2^2}{n_2}\right)^2}{n_2 - 1}}
-$$</p>
-<p>(rounded down to the nearest integer).</p>
-<p>This is called <strong>Welch’s two sample $t$-test</strong>.</p>
-<h4 id="example-1">Example</h4>
-<blockquote>
+$$</p><p>(rounded down to the nearest integer).</p><p>This is called <strong>Welch’s two sample $t$-test</strong>.</p></section><section><h4 id="example-1">Example</h4><blockquote>
 <p>6 subjects were given a drug (treatment group, $\mu_2$) and an additional 6 subjects a placebo (control group, $\mu_1$). Their reaction time to a stimulus was measured (in ms). Perform a two sample $t$-test for comparing the means of the treatment and control groups</p>
-</blockquote>
-<p>Let’s use a one-sided test.
+</blockquote><p>Let’s use a one-sided test.
 $$
 H_0 : \mu_1 = \mu_2 \quad \text{vs} \quad H_1 : \mu_1 &#x3C; \mu_2
-$$</p>
-<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="r"><code><span class="line"><span style="color:var(--astro-code-foreground)">control</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-function)">c</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-constant)">91</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">87</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">99</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">77</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">88</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">91</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-foreground)">treat</span><span style="color:var(--astro-code-token-keyword)">&#x3C;-</span><span style="color:var(--astro-code-token-function)">c</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-constant)">101</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">110</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">103</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">93</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">99</span><span style="color:var(--astro-code-foreground)">, </span><span style="color:var(--astro-code-token-constant)">104</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">t.test</span><span style="color:var(--astro-code-foreground)">(control, treat, alternative</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-string-expression)">"less"</span><span style="color:var(--astro-code-foreground)">, var.equal</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)">TRUE</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)">  Two Sample t</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">test</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> data</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)">  control and treat</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> t </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-keyword)"> -</span><span style="color:var(--astro-code-token-constant)">3.4456</span><span style="color:var(--astro-code-foreground)">, df </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 10</span><span style="color:var(--astro-code-foreground)">, p</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">value </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 0.003136</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> alternative hypothesis</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)"> true difference </span><span style="color:var(--astro-code-token-keyword)">in</span><span style="color:var(--astro-code-foreground)"> means is less than </span><span style="color:var(--astro-code-token-constant)">0</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)"> 95</span><span style="color:var(--astro-code-foreground)"> percent confidence interval</span><span style="color:var(--astro-code-token-keyword)">:</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-keyword)">   -</span><span style="color:var(--astro-code-token-constant)">Inf</span><span style="color:var(--astro-code-token-keyword)"> -</span><span style="color:var(--astro-code-token-constant)">6.082744</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> sample estimates</span><span style="color:var(--astro-code-token-keyword)">:</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> mean of x mean of y</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)"> 88.83333</span><span style="color:var(--astro-code-token-constant)"> 101.66667</span></span></code></pre>
-<p>We can also do a Welch test,</p>
-<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="r"><code><span class="line"><span style="color:var(--astro-code-token-function)">t.test</span><span style="color:var(--astro-code-foreground)">(control, treat, alternative</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-string-expression)">"less"</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)">  Welch Two Sample t</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">test</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> data</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)">  control and treat</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> t </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-keyword)"> -</span><span style="color:var(--astro-code-token-constant)">3.4456</span><span style="color:var(--astro-code-foreground)">, df </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 9.4797</span><span style="color:var(--astro-code-foreground)">, p</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">value </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)"> 0.003391</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> alternative hypothesis</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)"> true difference </span><span style="color:var(--astro-code-token-keyword)">in</span><span style="color:var(--astro-code-foreground)"> means is less than </span><span style="color:var(--astro-code-token-constant)">0</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)"> 95</span><span style="color:var(--astro-code-foreground)"> percent confidence interval</span><span style="color:var(--astro-code-token-keyword)">:</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-keyword)">   -</span><span style="color:var(--astro-code-token-constant)">Inf</span><span style="color:var(--astro-code-token-keyword)"> -</span><span style="color:var(--astro-code-token-constant)">6.044949</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> sample estimates</span><span style="color:var(--astro-code-token-keyword)">:</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-foreground)"> mean of x mean of y</span></span>
-<span class="line"><span style="color:var(--astro-code-token-keyword)">></span><span style="color:var(--astro-code-token-constant)"> 88.83333</span><span style="color:var(--astro-code-token-constant)"> 101.66667</span></span></code></pre>
-<h3 id="paired-data-for-difference-of-means">Paired data for difference of means</h3>
-<p>Two sample $t$-test cannot be used when we deal with “before and after” data, and numerous situations where the data are naturally paired (and thus, not independent).</p>
-<p>Let $(X_{11}, X_{21}), (X_{12}, X_{22}), \ldots, (X_{1n}, X_{2n})$ be a random sample of $n$ pairs of observations drawn from two subpopulations $X_1$ and $X_2$, with respective means $\mu_1$ and $\mu_2$.</p>
-<p>An easy way is just to consider the <strong>diffrences</strong>.
+$$</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="r" class="wrap" style="--ecMaxLine:65ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">control</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">c</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">91</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">87</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">99</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">77</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">88</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">91</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">treat</span><span style="--0:#BF3441;--1:#F97583">&#x3C;-</span><span style="--0:#005CC5;--1:#79B8FF">c</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">101</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">110</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">103</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">93</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">99</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">104</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">t.test</span><span style="--0:#24292E;--1:#E1E4E8">(control, treat, </span><span style="--0:#AE4B07;--1:#FFAB70">alternative</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#032F62;--1:#9ECBFF">"less"</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#AE4B07;--1:#FFAB70">var.equal</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">TRUE</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">  Two Sample t</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#24292E;--1:#E1E4E8">test</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> data</span><span style="--0:#BF3441;--1:#F97583">:</span><span style="--0:#24292E;--1:#E1E4E8">  control and treat</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">7</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#AE4B07;--1:#FFAB70">t</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#005CC5;--1:#79B8FF">3.4456</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#AE4B07;--1:#FFAB70">df</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">10</span><span style="--0:#24292E;--1:#E1E4E8">, p</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#AE4B07;--1:#FFAB70">value</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">0.003136</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">8</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> alternative hypothesis</span><span style="--0:#BF3441;--1:#F97583">:</span><span style="--0:#24292E;--1:#E1E4E8"> true difference </span><span style="--0:#BF3441;--1:#F97583">in</span><span style="--0:#24292E;--1:#E1E4E8"> means is less than </span><span style="--0:#005CC5;--1:#79B8FF">0</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">9</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">95</span><span style="--0:#24292E;--1:#E1E4E8"> percent confidence interval</span><span style="--0:#BF3441;--1:#F97583">:</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">10</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">   </span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#005CC5;--1:#79B8FF">Inf</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#005CC5;--1:#79B8FF">6.082744</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">11</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> sample estimates</span><span style="--0:#BF3441;--1:#F97583">:</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">12</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> mean of x mean of y</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">13</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">88.83333</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">101.66667</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="control<-c(91, 87, 99, 77, 88, 91)treat<-c(101, 110, 103, 93, 99, 104)t.test(control, treat, alternative=&#x22;less&#x22;, var.equal=TRUE)>  Two Sample t-test>> data:  control and treat> t = -3.4456, df = 10, p-value = 0.003136> alternative hypothesis: true difference in means is less than 0> 95 percent confidence interval:>   -Inf -6.082744> sample estimates:> mean of x mean of y> 88.83333 101.66667"><div></div></button></div></figure></div><p>We can also do a Welch test,</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="r" class="wrap" style="--ecMaxLine:65ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">t.test</span><span style="--0:#24292E;--1:#E1E4E8">(control, treat, </span><span style="--0:#AE4B07;--1:#FFAB70">alternative</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#032F62;--1:#9ECBFF">"less"</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">  Welch Two Sample t</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#24292E;--1:#E1E4E8">test</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> data</span><span style="--0:#BF3441;--1:#F97583">:</span><span style="--0:#24292E;--1:#E1E4E8">  control and treat</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#AE4B07;--1:#FFAB70">t</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#005CC5;--1:#79B8FF">3.4456</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#AE4B07;--1:#FFAB70">df</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">9.4797</span><span style="--0:#24292E;--1:#E1E4E8">, p</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#AE4B07;--1:#FFAB70">value</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">0.003391</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> alternative hypothesis</span><span style="--0:#BF3441;--1:#F97583">:</span><span style="--0:#24292E;--1:#E1E4E8"> true difference </span><span style="--0:#BF3441;--1:#F97583">in</span><span style="--0:#24292E;--1:#E1E4E8"> means is less than </span><span style="--0:#005CC5;--1:#79B8FF">0</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">7</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">95</span><span style="--0:#24292E;--1:#E1E4E8"> percent confidence interval</span><span style="--0:#BF3441;--1:#F97583">:</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">8</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8">   </span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#005CC5;--1:#79B8FF">Inf</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#005CC5;--1:#79B8FF">6.044949</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">9</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> sample estimates</span><span style="--0:#BF3441;--1:#F97583">:</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">10</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> mean of x mean of y</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">11</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">88.83333</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">101.66667</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="t.test(control, treat, alternative=&#x22;less&#x22;)>  Welch Two Sample t-test>> data:  control and treat> t = -3.4456, df = 9.4797, p-value = 0.003391> alternative hypothesis: true difference in means is less than 0> 95 percent confidence interval:>   -Inf -6.044949> sample estimates:> mean of x mean of y> 88.83333 101.66667"><div></div></button></div></figure></div></section></section>
+<section><h3 id="paired-data-for-difference-of-means">Paired data for difference of means</h3><p>Two sample $t$-test cannot be used when we deal with “before and after” data, and numerous situations where the data are naturally paired (and thus, not independent).</p><p>Let $(X_{11}, X_{21}), (X_{12}, X_{22}), \ldots, (X_{1n}, X_{2n})$ be a random sample of $n$ pairs of observations drawn from two subpopulations $X_1$ and $X_2$, with respective means $\mu_1$ and $\mu_2$.</p><p>An easy way is just to consider the <strong>diffrences</strong>.
 $$
 D_i = X_{i1} - X_{i2}
-$$</p>
-<p>We have just a sample $D_1, D_2, \ldots, D_n$ from a distribution with mean,
+$$</p><p>We have just a sample $D_1, D_2, \ldots, D_n$ from a distribution with mean,
 $$
 \mu_D = \mu_1 - \mu_2
-$$</p>
-<p>Testing for $H_0 : \mu_1 = \mu_2$ is just $H_0 : \mu_D = 0$.
-This can be accomplished by performing the usual one sample test for mean.</p>
-<p>So, in R we can,</p>
-<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="r"><code><span class="line"><span style="color:var(--astro-code-token-function)">t.test</span><span style="color:var(--astro-code-foreground)">(x,y, paired</span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-token-constant)">TRUE</span><span style="color:var(--astro-code-foreground)">)</span></span>
-<span class="line"><span style="color:var(--astro-code-token-comment)"># or</span></span>
-<span class="line"><span style="color:var(--astro-code-token-function)">t.test</span><span style="color:var(--astro-code-foreground)">(x</span><span style="color:var(--astro-code-token-keyword)">-</span><span style="color:var(--astro-code-foreground)">y)</span></span></code></pre>
-<h3 id="inferences-for-variance">Inferences for variance</h3>
-<p>We know that,
+$$</p><p>Testing for $H_0 : \mu_1 = \mu_2$ is just $H_0 : \mu_D = 0$.
+This can be accomplished by performing the usual one sample test for mean.</p><p>So, in R we can,</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="r" class="wrap" style="--ecMaxLine:24ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">t.test</span><span style="--0:#24292E;--1:#E1E4E8">(x,y, </span><span style="--0:#AE4B07;--1:#FFAB70">paired</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">TRUE</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#616972;--1:#99A0A6"># or</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">t.test</span><span style="--0:#24292E;--1:#E1E4E8">(x</span><span style="--0:#BF3441;--1:#F97583">-</span><span style="--0:#24292E;--1:#E1E4E8">y)</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="t.test(x,y, paired=TRUE)# ort.test(x-y)"><div></div></button></div></figure></div></section>
+<section><h3 id="inferences-for-variance">Inferences for variance</h3><p>We know that,
 $$
 S^2 = \frac{1}{n - 1} \sum_{i = 1}^n (X_i - \bar{X})^2
-$$</p>
-<p>and is a natural estimator for the population variance $\sigma^2$.</p>
-<p>In general, little can be said about the distribution of $S^2$. However, <strong>when the population is normal</strong>, that is $X \sim N(\mu, \sigma^2)$, then,
+$$</p><p>and is a natural estimator for the population variance $\sigma^2$.</p><p>In general, little can be said about the distribution of $S^2$. However, <strong>when the population is normal</strong>, that is $X \sim N(\mu, \sigma^2)$, then,
 $$
 \frac{(n - 1)S^2}{\sigma^2} \sim \chi^2_{n - 1}
-$$</p>
-<p>Let $\chi^2_{\nu; \alpha}$ be the value such that,
+$$</p><p>Let $\chi^2_{\nu; \alpha}$ be the value such that,
 $$
 P(X > \chi^2_{\nu; \alpha}) = \alpha
-$$</p>
-<p>for $X \sim \chi^2_{\nu}$.</p>
-<p>As we know that,
+$$</p><p>for $X \sim \chi^2_{\nu}$.</p><p>As we know that,
 $$
 \frac{(n - 1)S^2}{\sigma^2} \sim \chi^2_{n - 1}
-$$</p>
-<p>we can write,
+$$</p><p>we can write,
 $$
 P(\chi^2_{n - 1;1 - \alpha/2} \leq \frac{(n - 1)S^2}{\sigma^2} \leq \chi^2_{n - 1;\alpha/2}) = 1 - \alpha
-$$</p>
-<p>which can be re-arranged to,
+$$</p><p>which can be re-arranged to,
 $$
 P\left(\frac{(n - 1)S^2}{\chi^2_{n - 1;\alpha/2}} \leq \sigma^2 \leq \frac{(n - 1)S^2}{\chi^2_{n - 1;1 - \alpha/2}}\right) = 1 - \alpha
-$$</p>
-<p>Which gives us the interval,
+$$</p><p>Which gives us the interval,
 $$
 \left[\frac{(n - 1)S^2}{\chi^2_{n - 1;\alpha/2}}, \frac{(n - 1)S^2}{\chi^2_{n - 1;1 - \alpha/2}}\right]
-$$</p>
-<p>Now, $H_0 : \sigma^2 = \sigma_0^2$ against $H_a : \sigma^2 \neq \sigma_0^2$.
-It is natural to reject $H_0$ whenever $s^2$ is too distant from $\sigma_0^2$.</p>
-<p>We are after two constants $\ell$ and $u$ such that,
+$$</p><p>Now, $H_0 : \sigma^2 = \sigma_0^2$ against $H_a : \sigma^2 \neq \sigma_0^2$.
+It is natural to reject $H_0$ whenever $s^2$ is too distant from $\sigma_0^2$.</p><p>We are after two constants $\ell$ and $u$ such that,
 $$
 \alpha = P(S^2 \notin [\ell, u] \text{ when } \sigma^2 = \sigma_0^2) = P\left(\frac{(n - 1)S^2}{\sigma_0^2} \notin \left[\frac{(n - 1)S^2}{u}, \frac{(n - 1)S^2}{\ell}\right]\right)
-$$</p>
-<p>This yields,
+$$</p><p>This yields,
 $$
 \ell = \frac{\chi^2_{n - 1;\alpha/2} \sigma_0^2}{n - 1} \newline
 u = \frac{\chi^2_{n - 1;1 - \alpha/2} \sigma_0^2}{n - 1}
-$$</p>
-<p>The decision rule is then,
+$$</p><p>The decision rule is then,
 $$
 \text{Reject } H_0 \text{ if } s^2 \notin \left[\frac{\chi^2_{n - 1;\alpha/2} \sigma_0^2}{n - 1}, \frac{\chi^2_{n - 1;1 - \alpha/2} \sigma_0^2}{n - 1}\right]
-$$</p>
-<p>One-sided CI,
+$$</p><p>One-sided CI,
 $$
 \left[0, \frac{(n - 1)S^2}{\chi^2_{n - 1;\alpha}}\right] \newline
 \left[\frac{(n - 1)S^2}{\chi^2_{n - 1;1 - \alpha}}, +\infty\right]
-$$</p>
-<p>One-sided test,
+$$</p><p>One-sided test,
 $$
 \text{For } H_a : \sigma^2 > \sigma_0^2, \text{ reject } H_0 \text{ if } s^2 > \frac{\chi^2_{n - 1;\alpha} \sigma_0^2}{n - 1} \newline
 \text{For } H_a : \sigma^2 &#x3C; \sigma_0^2, \text{ reject } H_0 \text{ if } s^2 &#x3C; \frac{\chi^2_{n - 1;1 - \alpha} \sigma_0^2}{n - 1}
-$$</p>
-<p>The $p$-value is,
+$$</p><p>The $p$-value is,
 $$
 P(S^2 > s^2) = 1 - P\left(\frac{(n - 1) S^2}{\sigma^2_0} \leq \frac{(n - 1) s^2}{\sigma^2_0}\right) = 1 - P\left(\chi^2_{n - 1} \leq \frac{(n - 1) s^2}{\sigma^2_0}\right) \newline
 P(S^2 &#x3C; s^2 = P\left(\frac{(n - 1) S^2}{\sigma^2_0} \leq \frac{(n - 1) s^2}{\sigma^2_0}\right) = P\left(\chi^2_{n - 1} \leq \frac{(n - 1) s^2}{\sigma^2_0}\right)
-$$</p>
-<h3 id="inferences-for-ratio-of-variancestest-of-equality-of-variances">Inferences for ratio of variances/test of equality of variances</h3>
-<p>Let $X_{11}, X_{12}, \ldots, X_{1n}$ is a sample from population 1.
-Let $X_{21}, X_{22}, \ldots, X_{2n}$ is a sample from population 2.</p>
-<p>The samples are <strong>independent</strong>, and we would like to whether $\sigma_1^2 = \sigma_2^2$ or not.</p>
-<p>Define the sample variances,
+$$</p></section>
+<section><h3 id="inferences-for-ratio-of-variancestest-of-equality-of-variances">Inferences for ratio of variances/test of equality of variances</h3><p>Let $X_{11}, X_{12}, \ldots, X_{1n}$ is a sample from population 1.
+Let $X_{21}, X_{22}, \ldots, X_{2n}$ is a sample from population 2.</p><p>The samples are <strong>independent</strong>, and we would like to whether $\sigma_1^2 = \sigma_2^2$ or not.</p><p>Define the sample variances,
 $$
 S_1^2 = \frac{1}{n_1 - 1} \sum_{i = 1}^{n_1} (X_{1i} - \bar{X_1})^2 \newline
 S_2^2 = \frac{1}{n_2 - 1} \sum_{i = 1}^{n_2} (X_{2i} - \bar{X_2})^2
-$$</p>
-<p>We can use the test statistic,
+$$</p><p>We can use the test statistic,
 $$
 F = \frac{S_1^2}{S_2^2}
-$$</p>
-<p>In general, there is no known exact distribution for F. Fortunately, if $X_{1i} \sim N(\mu_1, \sigma_1^2)$ and $X_{2i} \sim N(\mu_2, \sigma_2^2)$, F has an F(n_1 - 1, n_2 - 1) distribution if the null ($\sigma_1^2 = \sigma_2^2$) is true.</p>
-<p>$H_0 : \sigma_1^2 = \sigma_2^2$ against $H_a : \sigma_1^2 \neq \sigma_2^2$.</p>
-<p>It is natural to reject $H_0$ whenever $F$ is too big or too small,</p>
-<p>The decision rule is,
+$$</p><p>In general, there is no known exact distribution for F. Fortunately, if $X_{1i} \sim N(\mu_1, \sigma_1^2)$ and $X_{2i} \sim N(\mu_2, \sigma_2^2)$, F has an F(n_1 - 1, n_2 - 1) distribution if the null ($\sigma_1^2 = \sigma_2^2$) is true.</p><p>$H_0 : \sigma_1^2 = \sigma_2^2$ against $H_a : \sigma_1^2 \neq \sigma_2^2$.</p><p>It is natural to reject $H_0$ whenever $F$ is too big or too small,</p><p>The decision rule is,
 $$
 \text{Reject } H_0 \text{ if } F \notin \left[\frac{1}{F_{n_1 - 1, n_2 - 1;1 - \alpha/2}}, F_{n_1 - 1, n_2 - 1;\alpha/2}\right]
-$$</p>
-<p>Two-sided CI for $\frac{\sigma_1^2}{\sigma_2^2}$,
+$$</p><p>Two-sided CI for $\frac{\sigma_1^2}{\sigma_2^2}$,
 $$
 P(F_{n_1 - 1, n_2 - 1;1 - \alpha/2} \leq \frac{\sigma_1^2}{\sigma_2^2} \leq F_{n_1 - 1, n_2 - 1;\alpha/2}) = 1 - \alpha
-$$</p>
-<p>Which yields us the interval,
+$$</p><p>Which yields us the interval,
 $$
 \left[\frac{S_1^2}{S_2^2 F_{n_1 - 1, n_2 - 1;\alpha/2}}, \frac{S_1^2}{S_2^2 F_{n_1 - 1, n_2 - 1;1 - \alpha/2}}\right]
-$$</p>
-<p>One-sided CI,
+$$</p><p>One-sided CI,
 $$
 \left[0, \frac{S_1^2}{S_2^2 F_{n_1 - 1, n_2 - 1;\alpha}}\right] \newline
 \left[\frac{S_1^2}{S_2^2 F_{n_1 - 1, n_2 - 1;1 - \alpha}}, +\infty\right]
-$$</p>
-<p>One-sided test,
+$$</p><p>One-sided test,
 $$
 \text{For } H_a : \sigma_1^2 > \sigma_2^2, \text{ reject } H_0 \text{ if } F > F_{n_1 - 1, n_2 - 1;1 - \alpha} \newline
 \text{For } H_a : \sigma_1^2 &#x3C; \sigma_2^2, \text{ reject } H_0 \text{ if } F &#x3C; F_{n_1 - 1, n_2 - 1;\alpha}
-$$</p>
-<p>The $p$-value is,
+$$</p><p>The $p$-value is,
 $$
 P(F > f) = 1 - P(F(n_1 - 1, n_2 - 1) \leq f) \newline
 P(F &#x3C; f) = P(F(n_1 - 1, n_2 - 1) \leq f)
-$$</p> <div class="mt-24"> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/cityu/ma3518/ma3518_2" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 2 - Basic Statistical Concepts and Tools </div> </a> <a href="/cityu/ma3518/ma3518_4" class="group relative flex flex-grow flex-row-reverse flex-nowrap rounded-lg border border-black/15 px-4 py-4 pr-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 19 12 12 19" class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 4 - Simple Linear Regression </div> </a> </div> </div> <div class="mt-24"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezvan.xyz" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </article> </div>  </main> <footer class="animate"> <div class="mx-auto max-w-screen-sm px-3"> <div class="relative"> <div class="absolute -top-12 right-0"> <button id="back-to-top" class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm">Back to top</div> </button> </div> </div> <div class="flex items-center justify-between"> <div>&copy; 2025 • rezarezvan.com</div> <div class="flex flex-wrap items-center gap-1.5"></div> </div> </div> </footer> <aside data-pagefind-ignore> <div id="backdrop" class="bg-[rgba(0, 0, 0, 0.5] invisible fixed left-0 top-0 z-50 flex h-screen w-full justify-center p-6 backdrop-blur-sm" data-astro-transition-persist="astro-3snakcvo-2"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="mr-2 pb-1 pt-4 text-right text-xs dark:prose-invert">
-Press <span class="prose text-xs dark:prose-invert"><kbd class="">Esc</kbd></span> or click anywhere to close
-</div> </div> </div> </aside> <script>
-  const magnifyingGlass = document.getElementById("magnifying-glass");
-  const backdrop = document.getElementById("backdrop");
+$$</p></section>
 
-  function openPagefind() {
-    const searchDiv = document.getElementById("search");
-    const search = searchDiv.querySelector("input");
-    setTimeout(() => {
-      search.focus();
-    }, 0);
-    backdrop?.classList.remove("invisible");
-    backdrop?.classList.add("visible");
-  }
 
-  function closePagefind() {
-    const search = document.getElementById("search");
-    search.value = "";
-    backdrop?.classList.remove("visible");
-    backdrop?.classList.add("invisible");
-  }
+</body></html> </article> <div class="col-start-2"> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/cityu/ma3518/ma3518_4" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Part 4 - Simple Linear Regression </span> </div>  </a> <a href="/cityu/ma3518/ma3518_2" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Part 2 - Basic Statistical Concepts and Tools </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </div> <div class="col-start-2"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </section> <button data-slot="button" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 group fixed right-8 bottom-8 z-50 hidden" id="scroll-to-top" title="Scroll to top" aria-label="Scroll to top"> <svg width="1em" height="1em" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" data-icon="lucide:arrow-up">   <symbol id="ai:lucide:arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></symbol><use href="#ai:lucide:arrow-up"></use>  </svg> </button> <script type="module">document.addEventListener("astro:page-load",()=>{const o=document.getElementById("scroll-to-top"),t=document.querySelector("footer");o&&t&&(o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),window.addEventListener("scroll",()=>{const e=t.getBoundingClientRect().top<=window.innerHeight;o.classList.toggle("hidden",window.scrollY<=300||e)}))});</script>  </div> </main> <footer class="py-4"> <div class="mx-auto flex max-w-3xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between"> <div class="flex flex-wrap items-center justify-center gap-x-2 text-center"> <span class="text-muted-foreground text-sm">
+&copy; 2025 • rezarezvan.com </span> </div> </div> </footer> <div id="backdrop" class="invisible fixed top-0 left-0 z-50 flex h-screen w-full justify-center bg-[rgba(0,0,0,0.5)] p-6 backdrop-blur-sm" data-astro-transition-persist="astro-t6dxx5el-4"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="dark:prose-invert mr-2 pt-4 pb-1 text-right text-xs">
+Press <span class="prose dark:prose-invert text-xs"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const magnifyingGlass = document.getElementById('magnifying-glass')
+    const backdrop = document.getElementById('backdrop')
 
-  // open pagefind
-  magnifyingGlass?.addEventListener("click", () => {
-    openPagefind();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "/") {
-      e.preventDefault();
-      openPagefind();
-    } else if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-      e.preventDefault();
-      openPagefind();
+    function openPagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      setTimeout(() => {
+        search.focus()
+      }, 0)
+      backdrop?.classList.remove('invisible')
+      backdrop?.classList.add('visible')
     }
-  });
 
-  // close pagefind
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" || e.keyCode === 27) {
-      closePagefind();
+    function closePagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      if (search) {
+        search.value = ''
+      }
+      backdrop?.classList.remove('visible')
+      backdrop?.classList.add('invisible')
     }
-  });
 
-  // close pagefind when searched result(link) clicked
-  document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("pagefind-ui__result-link")) {
-      closePagefind();
-    }
-  });
+    // open pagefind
+    magnifyingGlass?.addEventListener('click', () => {
+      openPagefind()
+    })
 
-  backdrop?.addEventListener("click", (event) => {
-    if (!event.target.closest("#pagefind-container")) {
-      closePagefind();
-    }
-  });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/') {
+        e.preventDefault()
+        openPagefind()
+      } else if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        openPagefind()
+      }
+    })
 
-  // prevent form submission
-  const form = document.getElementById("form");
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
-</script>  </body></html>
+    // close pagefind
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePagefind()
+      }
+    })
+
+    // close pagefind when searched result(link) clicked
+    document.addEventListener('click', (event) => {
+      if (event.target.classList.contains('pagefind-ui__result-link')) {
+        closePagefind()
+      }
+    })
+
+    backdrop?.addEventListener('click', (event) => {
+      if (!event.target.closest('#pagefind-container')) {
+        closePagefind()
+      }
+    })
+
+    // prevent form submission
+    const form = document.getElementById('form')
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault()
+    })
+  })
+</script>  </div> </body></html>

@@ -1,308 +1,112 @@
-<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/icon" href="/favicon.ico"><meta name="generator" content="Astro v5.5.5"><!-- Canonical URL --><link rel="canonical" href="https://rezvan.xyz/cityu/cs4487/cs4487_4/"><!-- Primary Meta Tags --><title>Part 4 - Duality and SVM | machine learning | rezarezvan.com</title><meta name="title" content="Part 4 - Duality and SVM | machine learning | rezarezvan.com"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://rezvan.xyz/cityu/cs4487/cs4487_4/"><meta property="og:title" content="Part 4 - Duality and SVM | machine learning | rezarezvan.com"><meta property="og:description"><meta property="og:image" content="https://rezvan.xyz/favicon.ico"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://rezvan.xyz/cityu/cs4487/cs4487_4/"><meta property="twitter:title" content="Part 4 - Duality and SVM | machine learning | rezarezvan.com"><meta property="twitter:description"><meta property="twitter:image" content="https://rezvan.xyz/favicon.ico"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+<!DOCTYPE html><html lang="en-US"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v5.7.0"><meta name="robots" content="index, follow"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="rezarezvan.com" href="https://rezaarezvan.com/rss.xml"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
     function renderKaTeX() {
-        if (typeof renderMathInElement !== "undefined") {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    { left: "$$", right: "$$", display: true },
-                    { left: "$", right: "$", display: false },
-                ],
-            });
-        }
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        })
+      }
     }
 
-    document.addEventListener("DOMContentLoaded", renderKaTeX);
-    document.addEventListener("astro:after-swap", renderKaTeX);
-</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script>
+    document.addEventListener('DOMContentLoaded', renderKaTeX)
+    document.addEventListener('astro:after-swap', renderKaTeX)
+  </script><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/favicon.ico"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="rezvan-blog"><link rel="manifest" href="/site.webmanifest"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.BZs-2RF_.js"></script><script>
     function init() {
-        preloadTheme();
-        onScroll();
-        animate();
-        updateThemeButtons();
-        addCopyCodeButtons();
-        setGiscusTheme();
-
-        const backToTop = document.getElementById("back-to-top");
-        backToTop?.addEventListener("click", (event) => scrollToTop(event));
-
-        const backToPrev = document.getElementById("back-to-prev");
-        backToPrev?.addEventListener("click", () => window.history.back());
-
-        const lightThemeButton = document.getElementById("light-theme-button");
-        lightThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "light");
-            toggleTheme(false);
-            updateThemeButtons();
-        });
-
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        darkThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "dark");
-            toggleTheme(true);
-            updateThemeButtons();
-        });
-
-        const systemThemeButton = document.getElementById(
-            "system-theme-button",
-        );
-        systemThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "system");
-            toggleTheme(
-                window.matchMedia("(prefers-color-scheme: dark)").matches,
-            );
-            updateThemeButtons();
-        });
-
-        window
-            .matchMedia("(prefers-color-scheme: dark)")
-            .addEventListener("change", (event) => {
-                if (localStorage.theme === "system") {
-                    toggleTheme(event.matches);
-                }
-            });
-
-        document.addEventListener("scroll", onScroll);
-    }
-
-    function updateThemeButtons() {
-        const theme = localStorage.getItem("theme");
-        const lightThemeButton = document.getElementById("light-theme-button");
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        const systemThemeButton = document.getElementById(
-            "system-theme-button",
-        );
-
-        function removeActiveButtonTheme(button) {
-            button?.classList.remove("bg-black/5");
-            button?.classList.remove("dark:bg-white/5");
-        }
-
-        function addActiveButtonTheme(button) {
-            button?.classList.add("bg-black/5");
-            button?.classList.add("dark:bg-white/5");
-        }
-
-        removeActiveButtonTheme(lightThemeButton);
-        removeActiveButtonTheme(darkThemeButton);
-        removeActiveButtonTheme(systemThemeButton);
-
-        if (theme === "light") {
-            addActiveButtonTheme(lightThemeButton);
-        } else if (theme === "dark") {
-            addActiveButtonTheme(darkThemeButton);
-        } else {
-            addActiveButtonTheme(systemThemeButton);
-        }
-    }
-
-    function animate() {
-        const animateElements = document.querySelectorAll(".animate");
-
-        animateElements.forEach((element, index) => {
-            setTimeout(() => {
-                element.classList.add("show");
-            }, index * 100);
-        });
-    }
-
-    function onScroll() {
-        if (window.scrollY > 0) {
-            document.documentElement.classList.add("scrolled");
-        } else {
-            document.documentElement.classList.remove("scrolled");
-        }
-    }
-
-    function scrollToTop(event) {
-        event.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    }
-
-    function toggleTheme(dark) {
-        const css = document.createElement("style");
-
-        css.appendChild(
-            document.createTextNode(
-                `* {
-             -webkit-transition: none !important;
-             -moz-transition: none !important;
-             -o-transition: none !important;
-             -ms-transition: none !important;
-             transition: none !important;
-          }
-        `,
-            ),
-        );
-
-        document.head.appendChild(css);
-
-        if (dark) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-
-        window.getComputedStyle(css).opacity;
-        document.head.removeChild(css);
-
-        setGiscusTheme();
-    }
-
-    function preloadTheme() {
-        const userTheme = localStorage.theme;
-
-        if (userTheme === "light" || userTheme === "dark") {
-            toggleTheme(userTheme === "dark");
-        } else {
-            toggleTheme(
-                window.matchMedia("(prefers-color-scheme: dark)").matches,
-            );
-        }
-    }
-
-    function addCopyCodeButtons() {
-        let copyButtonLabel = "📋";
-        let codeBlocks = Array.from(document.querySelectorAll("pre"));
-
-        async function copyCode(codeBlock, copyButton) {
-            const codeText = codeBlock.innerText;
-            const buttonText = copyButton.innerText;
-            const textToCopy = codeText.replace(buttonText, "");
-
-            await navigator.clipboard.writeText(textToCopy);
-            copyButton.innerText = "✅";
-
-            setTimeout(() => {
-                copyButton.innerText = copyButtonLabel;
-            }, 2000);
-        }
-
-        for (let codeBlock of codeBlocks) {
-            const wrapper = document.createElement("div");
-            wrapper.style.position = "relative";
-
-            const copyButton = document.createElement("button");
-            copyButton.innerText = copyButtonLabel;
-            copyButton.classList = "copy-code";
-
-            codeBlock.setAttribute("tabindex", "0");
-            codeBlock.appendChild(copyButton);
-
-            codeBlock.parentNode.insertBefore(wrapper, codeBlock);
-            wrapper.appendChild(codeBlock);
-
-            copyButton?.addEventListener("click", async () => {
-                await copyCode(codeBlock, copyButton);
-            });
-        }
+      setGiscusTheme()
     }
 
     const setGiscusTheme = () => {
-        const giscus = document.querySelector(".giscus-frame");
+      const giscus = document.querySelector('.giscus-frame')
 
-        const isDark = document.documentElement.classList.contains("dark");
+      const isDark = document.documentElement.classList.contains('dark')
 
-        if (giscus) {
-            const url = new URL(giscus.src);
-            url.searchParams.set("theme", isDark ? "dark" : "light");
-            giscus.src = url.toString();
-        }
-    };
+      if (giscus) {
+        const url = new URL(giscus.src)
+        url.searchParams.set('theme', isDark ? 'dark' : 'light')
+        giscus.src = url.toString()
+      }
+    }
 
-    document.addEventListener("DOMContentLoaded", () => init());
-    document.addEventListener("astro:after-swap", () => init());
-    preloadTheme();
-</script><link rel="stylesheet" href="/_astro/_subject_.WmXrNcmP.css">
-<link rel="stylesheet" href="/_astro/index.C6eUsQXi.css">
-<style>summary[data-astro-cid-xvrfupwn]{cursor:pointer;border-top-left-radius:.5rem;border-top-right-radius:.5rem;padding:.375rem .75rem;font-weight:500;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}summary[data-astro-cid-xvrfupwn]:hover{background-color:#0000000d}summary[data-astro-cid-xvrfupwn]:hover:is(.dark *){background-color:#ffffff0d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]{background-color:#0000000d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]:is(.dark *){background-color:#ffffff0d}
-</style></head> <body> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto max-w-screen-sm px-3"> <div class="flex flex-wrap justify-between gap-y-4"> <div class="flex flex-col gap-y-2"> <a href="/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out">  <div class="font-semibold"> rezarezvan.com </div>  </a> <div class="flex gap-x-2"> <button id="light-theme-button" aria-label="Light theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <button id="dark-theme-button" aria-label="Dark theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <button id="system-theme-button" aria-label="System theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect> <line x1="8" y1="21" x2="16" y2="21"></line> <line x1="12" y1="17" x2="12" y2="21"></line> </svg> </button> </div> </div> <nav class="flex items-center gap-1 text-sm"> <a href="/posts" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> posts </a> <span>/</span> <a href="/chalmers" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> chalmers </a> <span>/</span> <a href="/cityu" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cityu </a> <span>/</span> <a href="/pdf/cv/cv.pdf" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cv </a> <span>/</span> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+    document.addEventListener('DOMContentLoaded', () => init())
+    document.addEventListener('astro:after-swap', () => init())
+  </script><title>Part 4 - Duality and SVM | rezarezvan.com</title><meta name="title" content="Part 4 - Duality and SVM | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com"><meta property="og:title" content="Part 4 - Duality and SVM"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.comundefined"><meta property="og:image:alt" content="Part 4 - Duality and SVM"><meta property="og:type" content="website"><meta property="og:locale" content="en-US"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezaarezvan.com/cityu/cs4487/cs4487_4/"><meta name="twitter:title" content="Part 4 - Duality and SVM"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.comundefined"><meta name="twitter:image:alt" content="Part 4 - Duality and SVM"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/index.CMAis0x6.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <header class="bg-background/50 sticky top-0 z-10 backdrop-blur-md" data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 p-4"> <a href="/" target="_self" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center gap-2 text-xl font-medium"> rezarezvan.com </a> <div class="flex items-center gap-2 md:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex"> <a href="/blog" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/chalmers" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> chalmers<span>/</span>  </a><a href="/cityu" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> cityu<span>/</span>  </a><a href="/about" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> about<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
 &nbsp;Search
-</button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/cityu/cs4487" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> 
-Back to machine learning </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/cityu/cs4487/cs4487_3" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 3 - Optimization and Convexity </div> </a> <a href="/cityu/cs4487/cs4487_5" class="group relative flex flex-grow flex-row-reverse flex-nowrap rounded-lg border border-black/15 px-4 py-4 pr-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 19 12 12 19" class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 5 - Regression </div> </a> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm">CS4487</div>
-&bull;
-<div class="font-base text-sm"> <time datetime="2024-10-02T00:00:00.000Z"> October 02, 2024 </time> </div> 
-&bull;
-<div class="font-base text-sm">
-Last modified:  <time datetime="2024-10-02T16:24:17.000Z"> October 02, 2024 </time> </div> 
-&bull;
-<div class="font-base text-sm">14 min read</div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Part 4 - Duality and SVM </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#review" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Review </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#convex-set" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Convex Set </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#convex-function" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Convex Function </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#first-order-condition" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> First Order Condition </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#second-order-condition" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Second-Order Condition </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#convex-optimization-problems" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Convex Optimization Problems </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#optimization-problem-in-standard-form" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Optimization Problem in Standard Form </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#optimal-and-locally-optimal-points" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Optimal and Locally Optimal Points </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#examples" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Examples </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#feasibility-problem" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Feasibility Problem </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#convex-optimization-problem-in-standard-form" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Convex Optimization Problem in Standard Form </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#example" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Example </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#local-and-global-optima-in-convex-optimization" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Local and Global Optima in Convex Optimization </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#duality" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Duality </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#lagrangian" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Lagrangian </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#lagrange-dual-function" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Lagrange Dual Function </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#least-norm-solution-of-linear-equations" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Least-Norm Solution of Linear Equations </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#standard-form-linear-programming" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Standard Form Linear Programming </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#the-dual-problem" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> The Dual Problem </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#complementary-slackness" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Complementary Slackness </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#karush-kuhn-tucker-kkt-conditions" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Karush-Kuhn-Tucker (KKT) Conditions </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#support-vector-machine-svm" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Support Vector Machine (SVM) </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#svm-with-transformed-input" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> SVM with Transformed Input </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#svl-from-primal-to-dual" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> SVL: From Primal to Dual </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#svm-the-dual-problem" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> SVM: The Dual Problem </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#interpretation-of-alpha_i" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Interpretation of $\alpha_i$ </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#kernel-function" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Kernel Function </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#example-polynomial-kernel" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Example: Polynomial Kernel </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#kernel-trick" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Kernel Trick </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#rbf-kernel" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> RBF Kernel </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#kernel-svm-summary" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Kernel SVM: Summary </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#sequential-minimal-optimization-smo" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Sequential Minimal Optimization (SMO) </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#solving-svm-coordinate-descent" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Solving SVM: Coordinate Descent </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#solving-svm-sequential-minimal-optimization-smo" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Solving SVM: Sequential Minimal Optimization (SMO) </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#smo" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> SMO </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#classification-summary" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Classification Summary </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#regulatization-and-overfitting" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Regulatization and Overfitting </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#other-things" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Other Things </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#which-classifier-is-best" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Which Classifier is Best? </a>  </li> </ul> </nav> </details> <article class="animate"> <h3 id="review">Review</h3>
-<p>Let’s review over what we covered last time.</p>
-<h4 id="convex-set">Convex Set</h4>
-<p>Recall that a <strong>line segment</strong> between $\mathbf{x}^{(1)}$ and $\mathbf{x}^{(2)}$ all points,
+</button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Z2dJ8uD" prefix="r4" component-url="/_astro/mobile-menu.C9T2c5u4.js" component-export="default" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;data-astro-transition-persist&quot;:[0,&quot;astro-lci6dfah-2&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" data-astro-transition-persist="astro-lci6dfah-2" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r4R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem('theme') ?? ''
+    if (['dark', 'light'].includes(localStorageTheme)) {
+      return localStorageTheme
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })()
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark')
+  } else {
+    document.documentElement.classList.add('dark')
+  }
+
+  window.localStorage.setItem('theme', theme)
+</script> <script type="module">function a(){const e=document.documentElement;e.classList.add("disable-transitions"),e.classList.toggle("dark"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("disable-transitions")});const t=e.classList.contains("dark");localStorage.setItem("theme",t?"dark":"light")}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme"),t=document.documentElement;t.classList.add("disable-transitions"),window.getComputedStyle(t).getPropertyValue("opacity"),e==="dark"?t.classList.add("dark"):t.classList.remove("dark"),requestAnimationFrame(()=>{t.classList.remove("disable-transitions")}),s()});</script> </div> </div> </header> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/cityu"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:graduation-cap">   <symbol id="ai:lucide:graduation-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol><use href="#ai:lucide:graduation-cap"></use>  </svg> CityU </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/cityu/cs4487"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:book-open">   <symbol id="ai:lucide:book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z"/></symbol><use href="#ai:lucide:book-open"></use>  </svg> Machine Learning </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> Part 4 - Duality and SVM </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 text-4xl leading-tight font-medium text-pretty sm:text-5xl"> Part 4 - Duality and SVM </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground">CS4487</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>October 2, 2024</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>14 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/cityu/cs4487/cs4487_5" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Part 5 - Regression </span> </div>  </a> <a href="/cityu/cs4487/cs4487_3" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Part 3 - Optimization and Convexity </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <details open class="group col-start-2 rounded-xl border p-4 xl:sticky xl:top-20 xl:col-start-1 xl:mr-8 xl:ml-auto xl:h-[calc(100vh-5rem)] xl:max-w-fit xl:rounded-none xl:border-none xl:p-0"> <summary class="flex cursor-pointer items-center justify-between text-xl font-medium group-open:pb-4 xl:hidden"> <span>Table of Contents</span> <svg width="1em" height="1em" class="size-5 shrink-0 transition-transform group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg> </summary> <astro-island uid="2gc51a" prefix="r7" component-url="/_astro/scroll-area.DmWfVO5M.js" component-export="ScrollArea" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;className&quot;:[0,&quot;flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]&quot;],&quot;type&quot;:[0,&quot;always&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot> <ul class="flex list-none flex-col gap-y-2 px-4 xl:mr-8" id="table-of-contents"> <li class="hidden text-lg font-medium xl:block">Table of Contents</li> <li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#review" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Review </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#convex-set" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Convex Set </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#convex-function" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Convex Function </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#first-order-condition" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> First Order Condition </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#second-order-condition" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Second-Order Condition </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#convex-optimization-problems" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Convex Optimization Problems </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#optimization-problem-in-standard-form" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Optimization Problem in Standard Form </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#optimal-and-locally-optimal-points" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Optimal and Locally Optimal Points </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#examples" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Examples </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#feasibility-problem" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Feasibility Problem </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#convex-optimization-problem-in-standard-form" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Convex Optimization Problem in Standard Form </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#example" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Example </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#local-and-global-optima-in-convex-optimization" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Local and Global Optima in Convex Optimization </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#duality" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Duality </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#lagrangian" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Lagrangian </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#lagrange-dual-function" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Lagrange Dual Function </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#least-norm-solution-of-linear-equations" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Least-Norm Solution of Linear Equations </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#standard-form-linear-programming" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Standard Form Linear Programming </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#the-dual-problem" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> The Dual Problem </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#complementary-slackness" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Complementary Slackness </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#karush-kuhn-tucker-kkt-conditions" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Karush-Kuhn-Tucker (KKT) Conditions </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#support-vector-machine-svm" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Support Vector Machine (SVM) </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#svm-with-transformed-input" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> SVM with Transformed Input </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#svl-from-primal-to-dual" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> SVL: From Primal to Dual </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#svm-the-dual-problem" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> SVM: The Dual Problem </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#interpretation-of-alpha_i" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Interpretation of $\alpha_i$ </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#kernel-function" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Kernel Function </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#example-polynomial-kernel" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Example: Polynomial Kernel </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#kernel-trick" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Kernel Trick </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#rbf-kernel" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> RBF Kernel </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#kernel-svm-summary" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Kernel SVM: Summary </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#sequential-minimal-optimization-smo" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Sequential Minimal Optimization (SMO) </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#solving-svm-coordinate-descent" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Solving SVM: Coordinate Descent </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#solving-svm-sequential-minimal-optimization-smo" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Solving SVM: Sequential Minimal Optimization (SMO) </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#smo" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> SMO </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#classification-summary" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Classification Summary </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#regulatization-and-overfitting" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Regulatization and Overfitting </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#other-things" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Other Things </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#which-classifier-is-best" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Which Classifier is Best? </a> </li> </ul> </astro-slot></div></div><div data-orientation="vertical" data-slot="scroll-area-scrollbar" class="flex touch-none p-px transition-colors select-none h-full w-2.5 border-l border-l-transparent" style="position:absolute;top:0;right:0;bottom:var(--radix-scroll-area-corner-height);--radix-scroll-area-thumb-height:18px"></div></div><!--astro:end--></astro-island> </details> <script type="module">function s(){const t=document.querySelector("header"),c=t?t.offsetHeight:0,a=new IntersectionObserver(e=>{e.forEach(o=>{const r=o.target.querySelector("h2, h3, h4, h5, h6");if(!r)return;const d=r.getAttribute("id"),n=document.querySelector(`#table-of-contents li a[href="#${d}"]`);if(!n)return;const i=o.isIntersecting?"add":"remove";n.classList[i]("text-foreground")})},{rootMargin:`-${c}px 0px 0px 0px`});document.querySelectorAll(".prose section").forEach(e=>{a.observe(e)})}document.addEventListener("astro:page-load",s);document.addEventListener("astro:after-swap",s);</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
+
+
+<meta charset="utf-8">
+<title>CS4487_4</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" rel="stylesheet">
+
+
+<section><h3 id="review">Review</h3><p>Let’s review over what we covered last time.</p><section><h4 id="convex-set">Convex Set</h4><p>Recall that a <strong>line segment</strong> between $\mathbf{x}^{(1)}$ and $\mathbf{x}^{(2)}$ all points,
 $$
 \mathbf{x} = \alpha \mathbf{x}^{(1)} + (1 - \alpha) \mathbf{x}^{(2)}
-$$</p>
-<p>So, a <strong>convex set</strong>, contains line segment between any two points in the set,
+$$</p><p>So, a <strong>convex set</strong>, contains line segment between any two points in the set,
 $$
 \mathbf{x}^{(1)}, \mathbf{x}^{(2)} \in \chi, 0 \leq \alpha \leq 1 \Rightarrow \alpha \mathbf{x}^{(1)} + (1 - \alpha) \mathbf{x}^{(2)} \in \chi.
-$$</p>
-<h4 id="convex-function">Convex Function</h4>
-<p>$f : \mathbb{R}^N \rightarrow \mathbb{R}$ is convex if $dom(f)$ is a convex set and,</p>
-<p>$$
+$$</p></section><section><h4 id="convex-function">Convex Function</h4><p>$f : \mathbb{R}^N \rightarrow \mathbb{R}$ is convex if $dom(f)$ is a convex set and,</p><p>$$
 f(\alpha \mathbf{x}^{(1)} + (1 - \alpha) \mathbf{x}^{(2)}) \leq \alpha f(\mathbf{x}^{(1)}) + (1 - \alpha) f(\mathbf{x}^{(2)})
-$$</p>
-<p>for all $\mathbf{x}^{(1)}, \mathbf{x}^{(2)} \in dom(f)$ and $0 \leq \alpha \leq 1$.</p>
-<p>Also, remember that $f$ is concave if $-f$ is convex.</p>
-<h4 id="first-order-condition">First Order Condition</h4>
-<p>$f$ is <strong>differentiable</strong> if the gradient,
+$$</p><p>for all $\mathbf{x}^{(1)}, \mathbf{x}^{(2)} \in dom(f)$ and $0 \leq \alpha \leq 1$.</p><p>Also, remember that $f$ is concave if $-f$ is convex.</p></section><section><h4 id="first-order-condition">First Order Condition</h4><p>$f$ is <strong>differentiable</strong> if the gradient,
 $$
 \nabla f(\mathbf{x}) =
 \begin{bmatrix}
 \frac{\partial f(\mathbf{x})}{\partial x_1}, \frac{\partial f(\mathbf{x})}{\partial x_2}, \ldots, \frac{\partial f(\mathbf{x})}{\partial x_N}
 \end{bmatrix}^T
-$$</p>
-<p>exists at each $\mathbf{x} \in dom(f)$.</p>
-<p>The <strong>first-order condition</strong> is that, differentiable $f$ with convex domain is convex if and only if,
+$$</p><p>exists at each $\mathbf{x} \in dom(f)$.</p><p>The <strong>first-order condition</strong> is that, differentiable $f$ with convex domain is convex if and only if,
 $$
 f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x})^T (\mathbf{y} - \mathbf{x}) \quad \forall \mathbf{x}, \mathbf{y} \in dom(f).
-$$</p>
-<p>First-order approximation of $f$ is global underestimator.</p>
-<h4 id="second-order-condition">Second-Order Condition</h4>
-<p>$f$ is <strong>twice differentiable</strong> if the Hessian $\nabla^2 f(\mathbf{x})$ exists at each $\mathbf{x} \in \mathbb{S}^N$,
+$$</p><p>First-order approximation of $f$ is global underestimator.</p></section><section><h4 id="second-order-condition">Second-Order Condition</h4><p>$f$ is <strong>twice differentiable</strong> if the Hessian $\nabla^2 f(\mathbf{x})$ exists at each $\mathbf{x} \in \mathbb{S}^N$,
 $$
 \nabla^2 f(\mathbf{x})_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}.
-$$</p>
-<p>exists at each $\mathbf{x} \in dom(f)$.</p>
-<p>The <strong>second-order condition</strong> is that, twice differentiable $f$ with convex domain is convex if and only if,
+$$</p><p>exists at each $\mathbf{x} \in dom(f)$.</p><p>The <strong>second-order condition</strong> is that, twice differentiable $f$ with convex domain is convex if and only if,
 $$
 \nabla^2 f(\mathbf{x}) \succeq 0
-$$</p>
-<p>This means that the Hessian matrix is positive semidefinite,
+$$</p><p>This means that the Hessian matrix is positive semidefinite,
 $$
 \mathbf{A} \succeq 0 \Leftrightarrow \forall \mathbf{x}, \mathbf{x}^T \mathbf{A} \mathbf{x} \geq 0.
-$$</p>
-<h3 id="convex-optimization-problems">Convex Optimization Problems</h3>
-<p>To understand what a convex optimization problem is, we need to understand optimization problems in standard form.</p>
-<h4 id="optimization-problem-in-standard-form">Optimization Problem in Standard Form</h4>
-<p>$$
+$$</p></section></section>
+<section><h3 id="convex-optimization-problems">Convex Optimization Problems</h3><p>To understand what a convex optimization problem is, we need to understand optimization problems in standard form.</p><section><h4 id="optimization-problem-in-standard-form">Optimization Problem in Standard Form</h4><p>$$
 \begin{aligned}
 \underset{\mathbf{x}}{\text{minimize}} &#x26; \quad f_0(\mathbf{x}) \newline
 \text{subject to} &#x26; \quad f_i(\mathbf{x}) \leq 0, \quad i = 1, \ldots, r \newline
 &#x26; \quad h_i(\mathbf{x}) = 0, \quad i = 1, \ldots, s
 \end{aligned}
-$$</p>
-<p>where,</p>
-<ul>
+$$</p><p>where,</p><ul>
 <li>$\mathbf{x} \in \mathbb{R}^N$ is the optimization variable,</li>
 <li>$f_0 : \mathbb{R}^N \rightarrow \mathbb{R}$ is the objective function or cost function,</li>
 <li>$f_i : \mathbb{R}^N \rightarrow \mathbb{R}$, $i = 1, \ldots, r$, are the inequality constraint functions,</li>
 <li>$h_i : \mathbb{R}^N \rightarrow \mathbb{R}$, $i = 1, \ldots, s$, are the equality constraint functions.</li>
-</ul>
-<p>The <strong>optimal value</strong> of the optimization problem is,
+</ul><p>The <strong>optimal value</strong> of the optimization problem is,
 $$
 p^{\star} = \min \{f_0(\mathbf{x} | f_i(\mathbf{x}) \leq 0, i = 1, \ldots, r, h_i(\mathbf{x}) = 0, i = 1, \ldots, s)\}
-$$</p>
-<p>Note,</p>
-<ul>
+$$</p><p>Note,</p><ul>
 <li>$p^{\star} = \infty$ if the problem is infeasible (no $\mathbf{x}$ satisfies the constraints).</li>
 <li>$p^{\star} = -\infty$ if the problem is unbounded (the objective function can be made arbitrarily small).</li>
-</ul>
-<h4 id="optimal-and-locally-optimal-points">Optimal and Locally Optimal Points</h4>
-<p>A point $\mathbf{x}^{\star}$ is <strong>feasible</strong> if $\mathbf{x} \in dom(f_0)$, and it satisfies the constraints.
-A feasible $\mathbf{x}^{\star}$ is <strong>optimal</strong> if $f_0(\mathbf{x}^{\star}) = p^{\star}$.</p>
-<p>$\mathbf{x}$ is locally optimal if there is a $R > 0$ such that $\mathbf{x}$ is optimal for,
+</ul></section><section><h4 id="optimal-and-locally-optimal-points">Optimal and Locally Optimal Points</h4><p>A point $\mathbf{x}^{\star}$ is <strong>feasible</strong> if $\mathbf{x} \in dom(f_0)$, and it satisfies the constraints.
+A feasible $\mathbf{x}^{\star}$ is <strong>optimal</strong> if $f_0(\mathbf{x}^{\star}) = p^{\star}$.</p><p>$\mathbf{x}$ is locally optimal if there is a $R > 0$ such that $\mathbf{x}$ is optimal for,
 $$
 \begin{aligned}
 \underset{z}{\text{minimize}} &#x26; \quad f_0(\mathbf{z}) \newline
@@ -310,9 +114,7 @@ $$
 &#x26; \quad h_i(\mathbf{z}) = 0, \quad i = 1, \ldots, s \newline
 &#x26; \quad \Vert \mathbf{z} - \mathbf{x} \Vert_2 \leq R
 \end{aligned}
-$$</p>
-<h5 id="examples">Examples</h5>
-<ul>
+$$</p><section><h5 id="examples">Examples</h5><ul>
 <li>$f_0(x) = -\log x, dom(f_0) = \mathbb{R}_{++}$
 <ul>
 <li>$p^{\star} = -\infty$</li>
@@ -328,187 +130,132 @@ $$</p>
 <li>$p^{\star} = -\infty$ locally optimum at $x = 1$.</li>
 </ul>
 </li>
-</ul>
-<h4 id="feasibility-problem">Feasibility Problem</h4>
-<p>$$
+</ul></section></section><section><h4 id="feasibility-problem">Feasibility Problem</h4><p>$$
 \begin{aligned}
 \text{find} &#x26; \quad \mathbf{x} \newline
 \text{subject to} &#x26; \quad f_i(\mathbf{x}) \leq 0, \quad i = 1, \ldots, r \newline
 &#x26; \quad h_i(\mathbf{x}) = 0, \quad i = 1, \ldots, s
 \end{aligned}
-$$</p>
-<p>can be considered a special case of the general problem with $f_0(\mathbf{x}) = 0$,
+$$</p><p>can be considered a special case of the general problem with $f_0(\mathbf{x}) = 0$,
 $$
 \begin{aligned}
 \underset{\mathbf{x}}{\text{minimize}} &#x26; \quad 0 \newline
 \text{subject to} &#x26; \quad f_i(\mathbf{x}) \leq 0, \quad i = 1, \ldots, r \newline
 &#x26; \quad h_i(\mathbf{x}) = 0, \quad i = 1, \ldots, s
 \end{aligned}
-$$</p>
-<p>$p^{\star} = 0$ if constraints are feasible, any feasible $\mathbf{x}$ is optimal.
-Otherwise, $p^{\star} = \infty$ if the constraints are infeasible.</p>
-<h4 id="convex-optimization-problem-in-standard-form">Convex Optimization Problem in Standard Form</h4>
-<p>$$
+$$</p><p>$p^{\star} = 0$ if constraints are feasible, any feasible $\mathbf{x}$ is optimal.
+Otherwise, $p^{\star} = \infty$ if the constraints are infeasible.</p></section><section><h4 id="convex-optimization-problem-in-standard-form">Convex Optimization Problem in Standard Form</h4><p>$$
 \begin{aligned}
 \text{minimize} &#x26; \quad f_0(\mathbf{x}) \newline
 \text{subject to} &#x26; \quad f_i(\mathbf{x}) \leq 0, \quad i = 1, \ldots, r \newline
 &#x26; \quad \mathbf{a_i}^T \mathbf{x} = b_i, \quad i = 1, \ldots, s
 \end{aligned}
-$$</p>
-<p>where,</p>
-<ul>
+$$</p><p>where,</p><ul>
 <li>$f_0, f_1, \ldots, f_r$ are convex functions,</li>
 <li>Equality constraints are affine functions.</li>
-</ul>
-<p>We often write this as,
+</ul><p>We often write this as,
 $$
 \begin{aligned}
 \underset{\mathbf{x}}{\text{minimize}} &#x26; \quad f_0(\mathbf{x}) \newline
 \text{subject to} &#x26; \quad f_i(\mathbf{x}) \leq 0, \quad i = 1, \ldots, r \newline
 &#x26; \quad \mathbf{A}\mathbf{x} = \mathbf{b}
 \end{aligned}.
-$$</p>
-<p>Important property to note, a feasible set of a convex optimization problem is a convex set.</p>
-<h5 id="example">Example</h5>
-<p>$$
+$$</p><p>Important property to note, a feasible set of a convex optimization problem is a convex set.</p><section><h5 id="example">Example</h5><p>$$
 \begin{aligned}
 \text{minimize} &#x26; \quad f_0(\mathbf{x}) = x_1^2 + x_2^2 \newline
 \text{subject to} &#x26; \quad f_1(\mathbf{x}) = \frac{x_1}{1 + x_2^2} \leq 0 \newline
 &#x26; \quad h_1(\mathbf{x}) = (x_1 + x_2)^2 = 0
 \end{aligned}
-$$</p>
-<p>Let’s take a look at each component here.</p>
-<p>$f_0$ is convex, feasible set $\newline{(x_1, x_2) | x_1 = -x_2 \leq 0\newline}$ is convex.
-However, this is not a convex problem (in standard form), $f_1$ is not convex and $h_1$ is not affine.</p>
-<p>Let’s write it as a convex problem in standard form,
+$$</p><p>Let’s take a look at each component here.</p><p>$f_0$ is convex, feasible set $\newline{(x_1, x_2) | x_1 = -x_2 \leq 0\newline}$ is convex.
+However, this is not a convex problem (in standard form), $f_1$ is not convex and $h_1$ is not affine.</p><p>Let’s write it as a convex problem in standard form,
 $$
 \begin{aligned}
 \text{minimize} &#x26; \quad f_0(\mathbf{x}) = x_1^2 + x_2^2 \newline
 \text{subject to} &#x26; \quad f_1(\mathbf{x}) = x_1 \leq 0 \ \bigg\rvert \ \cdot (1 + x_2^2) \newline
 &#x26; \quad h_1(\mathbf{x}) = x_1 + x_2 = 0 \ \bigg\rvert \ \sqrt{} \newline
 \end{aligned}
-$$</p>
-<h4 id="local-and-global-optima-in-convex-optimization">Local and Global Optima in Convex Optimization</h4>
-<blockquote>
+$$</p></section></section><section><h4 id="local-and-global-optima-in-convex-optimization">Local and Global Optima in Convex Optimization</h4><blockquote>
 <p>Any locally optimal point of is (globally) optimal.</p>
-</blockquote>
-<p><strong>Proof</strong>.
+</blockquote><p><strong>Proof</strong>.
 Suppose $\mathbf{x}$ is locally optimal and $\mathbf{y}$ is optimal with $f_0(\mathbf{y}) &#x3C; f_0(\mathbf{x})$.
 Locally optimal $\mathbf{x}$ means there is a $R > 0$ such that,
 $$
 \mathbf{z} \text{ feasible, } \Vert \mathbf{z} - \mathbf{x} \Vert_2 \leq R \Rightarrow f_0(\mathbf{z}) \geq f_0(\mathbf{x}).
-$$</p>
-<p>Consider $\mathbf{z} = \alpha \mathbf{y} + (1 - \alpha) \mathbf{x}$, with $\alpha = \frac{R}{2 \Vert \mathbf{y} - \mathbf{x} \Vert_2}$.
-Thus, $\Vert \mathbf{y} - \mathbf{x} \Vert_2 > R$, so $0 &#x3C; \alpha &#x3C; \frac{1}{2}$.</p>
-<p>$\mathbf{z}$ is a convex combination of two feasible points, hence feasible.
+$$</p><p>Consider $\mathbf{z} = \alpha \mathbf{y} + (1 - \alpha) \mathbf{x}$, with $\alpha = \frac{R}{2 \Vert \mathbf{y} - \mathbf{x} \Vert_2}$.
+Thus, $\Vert \mathbf{y} - \mathbf{x} \Vert_2 > R$, so $0 &#x3C; \alpha &#x3C; \frac{1}{2}$.</p><p>$\mathbf{z}$ is a convex combination of two feasible points, hence feasible.
 $\Vert \mathbf{z} - \mathbf{x} \Vert_2 = \frac{R}{2}$, and,
 $$
 f_0(\mathbf{z}) \leq \alpha f_0(\mathbf{y}) + (1 - \alpha) f_0(\mathbf{x}) &#x3C; f_0(\mathbf{x}),
-$$</p>
-<p>which contradicts our assumption that $\mathbf{x}$ is locally optimal.</p>
-<h3 id="duality">Duality</h3>
-<p>To understand duality, we need to understand the <strong>Lagrangian</strong>.</p>
-<h4 id="lagrangian">Lagrangian</h4>
-<p>Given the optimization problem in standard form (not necessarily convex),
+$$</p><p>which contradicts our assumption that $\mathbf{x}$ is locally optimal.</p></section></section>
+<section><h3 id="duality">Duality</h3><p>To understand duality, we need to understand the <strong>Lagrangian</strong>.</p><section><h4 id="lagrangian">Lagrangian</h4><p>Given the optimization problem in standard form (not necessarily convex),
 $$
 \begin{aligned}
 \underset{\mathbf{x}}{\text{min}} &#x26; \quad f_0(\mathbf{x}) \newline
 \text{subject to} &#x26; \quad f_i(\mathbf{x}) \leq 0, \quad i = 1, \ldots, r \newline
 &#x26; \quad h_i(\mathbf{x}) = 0, \quad i = 1, \ldots, s
 \end{aligned}
-$$</p>
-<p>We have the variable $\mathbf{x} \in \mathbb{R}^N$, domain $\Chi$ and the optimal value $p^{\star}$.</p>
-<p><strong>Lagrangian</strong> $\mathbf{L} : \mathbb{R}^N \times \mathbb{R}^r \times \mathbb{R}^s \rightarrow \mathbb{R}$, with $dom(L) = \Chi \times \mathbb{R}^r \times \mathbb{R}^s$,
+$$</p><p>We have the variable $\mathbf{x} \in \mathbb{R}^N$, domain $\Chi$ and the optimal value $p^{\star}$.</p><p><strong>Lagrangian</strong> $\mathbf{L} : \mathbb{R}^N \times \mathbb{R}^r \times \mathbb{R}^s \rightarrow \mathbb{R}$, with $dom(L) = \Chi \times \mathbb{R}^r \times \mathbb{R}^s$,
 $$
 \mathbf{L}(\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}) = f_0(\mathbf{x}) + \sum_{i=1}^r \lambda_i f_i(\mathbf{x}) + \sum_{i=1}^s \nu_i h_i(\mathbf{x}).
-$$</p>
-<p>This can be interpreted as the weighted sum of the objective and the constraints functions.</p>
-<p>$\lambda_i$ is Lagrange multiplier associated with $f_i(\mathbf{x}) \leq 0$.
-$\nu_i$ is Lagrange multiplier associated with $h_i(\mathbf{x}) = 0$.</p>
-<h4 id="lagrange-dual-function">Lagrange Dual Function</h4>
-<p>The <strong>Lagrange dual function</strong> $g : \mathbb{R}^r \times \mathbb{R}^s \rightarrow \mathbb{R}$ is,
+$$</p><p>This can be interpreted as the weighted sum of the objective and the constraints functions.</p><p>$\lambda_i$ is Lagrange multiplier associated with $f_i(\mathbf{x}) \leq 0$.
+$\nu_i$ is Lagrange multiplier associated with $h_i(\mathbf{x}) = 0$.</p></section><section><h4 id="lagrange-dual-function">Lagrange Dual Function</h4><p>The <strong>Lagrange dual function</strong> $g : \mathbb{R}^r \times \mathbb{R}^s \rightarrow \mathbb{R}$ is,
 $$
 g(\mathbf{\lambda}, \mathbf{\nu}) = \underset{\mathbf{x} \in \Chi}{\text{inf}} \mathbf{L}(\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}) = \underset{\mathbf{x} \in \Chi}{\text{inf}} \left( f_0(\mathbf{x}) + \sum_{i=1}^r \lambda_i f_i(\mathbf{x}) + \sum_{i=1}^s \nu_i h_i(\mathbf{x}) \right).
-$$</p>
-<p>$g$ is concave and can be $-\infty$ for some $\mathbf{\lambda}$ and $\mathbf{\nu}$.</p>
-<blockquote>
+$$</p><p>$g$ is concave and can be $-\infty$ for some $\mathbf{\lambda}$ and $\mathbf{\nu}$.</p><blockquote>
 <p><strong>Lower Bound Property</strong>. If $\mathbf{\lambda} \geq 0$, then $g(\mathbf{\lambda}, \mathbf{\nu}) \leq p^{\star}$.</p>
-</blockquote>
-<p><strong>Proof</strong>. If $\mathbf{\tilde{x}}$ is feasible and $\mathbf{\lambda} \geq 0$, then,
+</blockquote><p><strong>Proof</strong>. If $\mathbf{\tilde{x}}$ is feasible and $\mathbf{\lambda} \geq 0$, then,
 $$
 f_0(\mathbf{\tilde{x}}) \geq \mathbf{L}(\mathbf{\tilde{x}}, \mathbf{\lambda}, \mathbf{\nu}) \geq \underset{\mathbf{x} \in \Chi}{\text{inf}} \mathbf{L}(\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}) = g(\mathbf{\lambda}, \mathbf{\nu}).
-$$</p>
-<p>Minimizing over all feasible $\mathbf{\tilde{x}}$ gives $p^{\star} \geq g(\mathbf{\lambda}, \mathbf{\nu})$.</p>
-<h4 id="least-norm-solution-of-linear-equations">Least-Norm Solution of Linear Equations</h4>
-<p>Given a linear system $\mathbf{A}\mathbf{x} = \mathbf{b}$, the least-norm solution is,
+$$</p><p>Minimizing over all feasible $\mathbf{\tilde{x}}$ gives $p^{\star} \geq g(\mathbf{\lambda}, \mathbf{\nu})$.</p></section><section><h4 id="least-norm-solution-of-linear-equations">Least-Norm Solution of Linear Equations</h4><p>Given a linear system $\mathbf{A}\mathbf{x} = \mathbf{b}$, the least-norm solution is,
 $$
 \begin{aligned}
 \underset{\mathbf{x}}{\text{minimize}} &#x26; \quad \mathbf{x}^T \mathbf{x} \newline
 \text{subject to} &#x26; \quad \mathbf{A}\mathbf{x} = \mathbf{b}
 \end{aligned}
-$$</p>
-<p>Firstly, let’s write this in standard form,
+$$</p><p>Firstly, let’s write this in standard form,
 $$
 \begin{aligned}
 \underset{\mathbf{x}}{\text{minimize}} &#x26; \quad \mathbf{x}^T \mathbf{x} \newline
 \text{subject to} &#x26; \quad \mathbf{A}\mathbf{x} - \mathbf{b} = 0
 \end{aligned}
-$$</p>
-<p>Therefore, the Lagrangian is $\mathbf{L}(\mathbf{x}, \mathbf{\nu}) = \mathbf{x}^T \mathbf{x} + \mathbf{\nu}^T (\mathbf{A}\mathbf{x} - \mathbf{b})$.</p>
-<p>To minimize $\mathbf{L}$ over $\mathbf{x}$, set gradient equal to zero,
+$$</p><p>Therefore, the Lagrangian is $\mathbf{L}(\mathbf{x}, \mathbf{\nu}) = \mathbf{x}^T \mathbf{x} + \mathbf{\nu}^T (\mathbf{A}\mathbf{x} - \mathbf{b})$.</p><p>To minimize $\mathbf{L}$ over $\mathbf{x}$, set gradient equal to zero,
 $$
 \nabla_{\mathbf{x}} \mathbf{L}(\mathbf{x}, \mathbf{\nu}) = 2\mathbf{x} + \mathbf{A}^T \mathbf{\nu} = 0 \Rightarrow \mathbf{x} = -\frac{1}{2} \mathbf{A}^T \mathbf{\nu}.
-$$</p>
-<p>Plug in $\mathbf{L}$ to obtain $g$,
+$$</p><p>Plug in $\mathbf{L}$ to obtain $g$,
 $$
 g(\mathbf{\nu}) = \mathbf{L}(-\frac{1}{2} \mathbf{A}^T \mathbf{\nu}, \mathbf{\nu}) = \frac{1}{4} \mathbf{\nu}^T \mathbf{A} \mathbf{A}^T \mathbf{\nu} - \mathbf{b}^T \mathbf{\nu}.
-$$</p>
-<p>which is a concave function of $\mathbf{\nu}$.</p>
-<p>Using the lower bound property, $p^{\star} \geq -\frac{1}{4} \mathbf{\nu}^T \mathbf{A} \mathbf{A}^T \mathbf{\nu} - \mathbf{b}^T \mathbf{\nu}$ for all $\mathbf{\nu}$.</p>
-<h4 id="standard-form-linear-programming">Standard Form Linear Programming</h4>
-<p>$$
+$$</p><p>which is a concave function of $\mathbf{\nu}$.</p><p>Using the lower bound property, $p^{\star} \geq -\frac{1}{4} \mathbf{\nu}^T \mathbf{A} \mathbf{A}^T \mathbf{\nu} - \mathbf{b}^T \mathbf{\nu}$ for all $\mathbf{\nu}$.</p></section><section><h4 id="standard-form-linear-programming">Standard Form Linear Programming</h4><p>$$
 \begin{aligned}
 \underset{\mathbf{x}}{\text{minimize}} &#x26; \quad \mathbf{c}^T \mathbf{x} \newline
 \text{subject to} &#x26; \quad \mathbf{A}\mathbf{x} = \mathbf{b}, \quad \mathbf{x} \succeq 0 \newline
 \end{aligned}
-$$</p>
-<p>Let’s write this in standard form,
+$$</p><p>Let’s write this in standard form,
 $$
 \begin{aligned}
 \underset{\mathbf{x}}{\text{minimize}} &#x26; \quad \mathbf{c}^T \mathbf{x} \newline
 \text{subject to} &#x26; \quad \mathbf{A}\mathbf{x} - \mathbf{b} = 0 \newline
 &#x26; \quad -\mathbf{x} \preceq 0
 \end{aligned}
-$$</p>
-<p>The Lagrangian is,
+$$</p><p>The Lagrangian is,
 $$
 \begin{aligned}
 \mathbf{L}(\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}) &#x26; = \mathbf{c}^T \mathbf{x} + \mathbf{\nu}^T (\mathbf{A}\mathbf{x} - \mathbf{b}) - \mathbf{\lambda}^T \mathbf{x} \newline
 &#x26; = -\mathbf{b}^T \mathbf{\nu} + (\mathbf{A}^T \mathbf{\nu} - \mathbf{\lambda} + \mathbf{c})^T \mathbf{x}.
 \end{aligned}
-$$</p>
-<p>$\mathbf{L}$ is affine in $\mathbf{x}$, hence,
+$$</p><p>$\mathbf{L}$ is affine in $\mathbf{x}$, hence,
 $$
 g(\mathbf{\lambda}, \mathbf{\nu}) = \underset{\mathbf{x}}{\text{inf}} \ \mathbf{L}(\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}) =
 \begin{cases}
 -\mathbf{b}^T \mathbf{\nu} &#x26; \mathbf{A}^T \mathbf{\nu} - \mathbf{\lambda} + \mathbf{c} = 0 \newline
 -\infty &#x26; \text{otherwise}
 \end{cases}
-$$</p>
-<p>$g$ is linear on $\newline{(\mathbf{\lambda}, \mathbf{\nu}) | \mathbf{A}^T \mathbf{\nu} - \mathbf{\lambda} + \mathbf{c} = 0\newline}$, hence concave.</p>
-<p>Using the lower bound property, $p^{\star} \geq -\mathbf{b}^T \mathbf{\nu}$ if $\mathbf{A}^T \mathbf{\nu} + \mathbf{c} \succeq 0$.</p>
-<h4 id="the-dual-problem">The Dual Problem</h4>
-<p>The <strong>Lagrange dual problem</strong> is,
+$$</p><p>$g$ is linear on $\newline{(\mathbf{\lambda}, \mathbf{\nu}) | \mathbf{A}^T \mathbf{\nu} - \mathbf{\lambda} + \mathbf{c} = 0\newline}$, hence concave.</p><p>Using the lower bound property, $p^{\star} \geq -\mathbf{b}^T \mathbf{\nu}$ if $\mathbf{A}^T \mathbf{\nu} + \mathbf{c} \succeq 0$.</p></section><section><h4 id="the-dual-problem">The Dual Problem</h4><p>The <strong>Lagrange dual problem</strong> is,
 $$
 \begin{aligned}
 \underset{\mathbf{\lambda}, \mathbf{\nu}}{\text{max}} &#x26; \quad g(\mathbf{\lambda}, \mathbf{\nu}) \newline
 \text{subject to} &#x26; \quad \mathbf{\lambda} \geq 0
 \end{aligned}
-$$</p>
-<p>$\mathbf{\lambda}, \mathbf{\nu}$ are dual feasible if $\mathbf{\lambda} \succeq 0$, $(\mathbf{\lambda}, \mathbf{\nu}) \in dom(g)$.</p>
-<p>Find the best lower bound $p^{\star}$, obtained from Lagrange dual problem.</p>
-<p>This is a convex optimization problem, the optimal value is denoted $d^{\star}$.</p>
-<ul>
+$$</p><p>$\mathbf{\lambda}, \mathbf{\nu}$ are dual feasible if $\mathbf{\lambda} \succeq 0$, $(\mathbf{\lambda}, \mathbf{\nu}) \in dom(g)$.</p><p>Find the best lower bound $p^{\star}$, obtained from Lagrange dual problem.</p><p>This is a convex optimization problem, the optimal value is denoted $d^{\star}$.</p><ul>
 <li>
 <p>If we have <strong>weak duality</strong>: $d^{\star} \leq p^{\star}$.</p>
 <ul>
@@ -523,9 +270,7 @@ $$</p>
 <li>(Usually) holds for convex problems, e.g, SVM.</li>
 </ul>
 </li>
-</ul>
-<h4 id="complementary-slackness">Complementary Slackness</h4>
-<p>Assuming strong duality holds, $\mathbf{x}^{\star}$ is <strong>primal optimal</strong>, $(\mathbf{\lambda}^{\star}, \mathbf{\nu}^{\star})$ is <strong>dual optimal</strong>.
+</ul></section><section><h4 id="complementary-slackness">Complementary Slackness</h4><p>Assuming strong duality holds, $\mathbf{x}^{\star}$ is <strong>primal optimal</strong>, $(\mathbf{\lambda}^{\star}, \mathbf{\nu}^{\star})$ is <strong>dual optimal</strong>.
 $$
 \begin{aligned}
 f_0(\mathbf{x}^{\star}) &#x26; = g(\mathbf{\lambda}^{\star}, \mathbf{\nu}^{\star}) \newline
@@ -533,15 +278,10 @@ f_0(\mathbf{x}^{\star}) &#x26; = g(\mathbf{\lambda}^{\star}, \mathbf{\nu}^{\star
 &#x26; \leq f_0(\mathbf{x}^{\star}) + \sum_{i=1}^r \lambda_i^{\star} f_i(\mathbf{x}^{\star}) + \sum_{i=1}^s \nu_i^{\star} h_i(\mathbf{x}^{\star}) \newline
 &#x26; \leq f_0(\mathbf{x}^{\star}).
 \end{aligned}
-$$</p>
-<p>Hence, the two inequalites hold with equality, $\mathbf{x}^{\star}$ not only minimizes $f_0(\mathbf{x})$ but also minimizes $\mathbf{L}(\mathbf{x}, \mathbf{\lambda}^{\star}, \mathbf{\nu}^{\star})$.</p>
-<p>$\lambda_i^{\star} f_i(\mathbf{x}^{\star}) = 0$ for all $i = 1, \ldots, r$. (Complementary slackness)
+$$</p><p>Hence, the two inequalites hold with equality, $\mathbf{x}^{\star}$ not only minimizes $f_0(\mathbf{x})$ but also minimizes $\mathbf{L}(\mathbf{x}, \mathbf{\lambda}^{\star}, \mathbf{\nu}^{\star})$.</p><p>$\lambda_i^{\star} f_i(\mathbf{x}^{\star}) = 0$ for all $i = 1, \ldots, r$. (Complementary slackness)
 $$
 \lambda_i^{\star} > 0 \Rightarrow f_i(\mathbf{x}^{\star}) = 0. \quad f_i(\mathbf{x}^{\star}) &#x3C; 0 \Rightarrow \lambda_i^{\star} = 0.
-$$</p>
-<h4 id="karush-kuhn-tucker-kkt-conditions">Karush-Kuhn-Tucker (KKT) Conditions</h4>
-<p>The following four conditions are called KKT conditions (for a problem with differentiable $f_i$ and $h_i$).</p>
-<ol>
+$$</p></section><section><h4 id="karush-kuhn-tucker-kkt-conditions">Karush-Kuhn-Tucker (KKT) Conditions</h4><p>The following four conditions are called KKT conditions (for a problem with differentiable $f_i$ and $h_i$).</p><ol>
 <li>Primal Constraint
 <ul>
 <li>$f_i(\mathbf{x}^{\star}) \leq 0, i = 1, \ldots, r, h_i(\mathbf{x}^{\star}) = 0, i = 1, \ldots, s$.</li>
@@ -562,147 +302,94 @@ $$</p>
 <li>$\nabla f_0(\mathbf{x}) + \sum_{i = 1}^r \lambda_i \nabla f_i(\mathbf{x}) + \sum_{i = 1}^s \nu_i \nabla h_i(\mathbf{x}) = 0$.</li>
 </ul>
 </li>
-</ol>
-<p>If strong duality holds and $\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}$ are optimal, then they must satisfy the KKT conditions.</p>
-<h3 id="support-vector-machine-svm">Support Vector Machine (SVM)</h3>
-<p>Recall from last time, we assumed the data is linearly separable, what if the data is separable, but not linearly separable?</p>
-<p>A smart idea is to transform the input space.
-Map $\mathbf{x} \in \mathbb{R}^N$ to a new high-dimensional space $\mathbf{z} \in \mathbb{R}^L$, $z = \phi(\mathbf{x})$, where $\phi$ is the transform function.</p>
-<p>Then, we can learn the linear classifier in this new space.</p>
-<h4 id="svm-with-transformed-input">SVM with Transformed Input</h4>
-<p>Given a training set $\mathcal{D} = \{\mathbf{x}^{(i)}, y^{(i)}\}_{i=1}^M$, the original SVM,
+</ol><p>If strong duality holds and $\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}$ are optimal, then they must satisfy the KKT conditions.</p></section></section>
+<section><h3 id="support-vector-machine-svm">Support Vector Machine (SVM)</h3><p>Recall from last time, we assumed the data is linearly separable, what if the data is separable, but not linearly separable?</p><p>A smart idea is to transform the input space.
+Map $\mathbf{x} \in \mathbb{R}^N$ to a new high-dimensional space $\mathbf{z} \in \mathbb{R}^L$, $z = \phi(\mathbf{x})$, where $\phi$ is the transform function.</p><p>Then, we can learn the linear classifier in this new space.</p><section><h4 id="svm-with-transformed-input">SVM with Transformed Input</h4><p>Given a training set $\mathcal{D} = \{\mathbf{x}^{(i)}, y^{(i)}\}_{i=1}^M$, the original SVM,
 $$
 \underset{\mathbf{w}, b}{\arg\min} \frac{1}{2} \mathbf{w}^T \mathbf{w} \quad \text{subject to} \quad y^{(i)} (\mathbf{w}^T \mathbf{x}^{(i)} + b) \geq 1, \quad 1 \leq i \leq M.
-$$</p>
-<p>The transformed SVM,
+$$</p><p>The transformed SVM,
 $$
 \underset{\mathbf{w}, b}{\arg\min} \frac{1}{2} \mathbf{w}^T \mathbf{w} \quad \text{subject to} \quad y^{(i)} (\mathbf{w}^T \phi(\mathbf{x}^{(i)}) + b) \geq 1, \quad 1 \leq i \leq M.
-$$</p>
-<p>The hyperplane $\mathbf{w} \in \mathbb{R}^L$ is now in the high-dimensional space.</p>
-<p>If $L$ is very large, calculating the feature vector $\phi(\mathbf{x})$ could be time-consuming.
-Also, optimization could be very inefficient in high-dimensional space.</p>
-<h4 id="svl-from-primal-to-dual">SVL: From Primal to Dual</h4>
-<p>Recall the primal form of SVM,
+$$</p><p>The hyperplane $\mathbf{w} \in \mathbb{R}^L$ is now in the high-dimensional space.</p><p>If $L$ is very large, calculating the feature vector $\phi(\mathbf{x})$ could be time-consuming.
+Also, optimization could be very inefficient in high-dimensional space.</p></section><section><h4 id="svl-from-primal-to-dual">SVL: From Primal to Dual</h4><p>Recall the primal form of SVM,
 $$
 \begin{aligned}
 \underset{\mathbf{w}, b}{\min} &#x26; \quad \frac{1}{2} \Vert \mathbf{w} \Vert_2^2  + C \sum_{i=1}^M \xi_i \newline
 \text{subject to} &#x26; \quad y^{(i)} (\mathbf{w}^T \mathbf{x}^{(i)} + b) \geq 1 - \xi_i, \quad \xi_i, i = 1, \ldots, M \newline
 &#x26; \quad \xi_i \geq 0, i = 1, \ldots, M
 \end{aligned}
-$$</p>
-<p>Firstly, rewrite in standard form,
+$$</p><p>Firstly, rewrite in standard form,
 $$
 \begin{aligned}
 \underset{\mathbf{w}, b, \xi}{\min} &#x26; \quad \frac{1}{2} \Vert \mathbf{w} \Vert_2^2  + C \sum_{i=1}^M \xi_i \newline
 \text{subject to} &#x26; \quad -(y^{(i)} (\mathbf{w}^T \mathbf{x}^{(i)} + b) - 1 + \xi_i) \leq 0, \quad i = 1, \ldots, M \newline
 &#x26; \quad -\xi_i \leq 0, i = 1, \ldots, M
 \end{aligned}
-$$</p>
-<p>Note, we do not have any equality constraints here, only inequality constraints.</p>
-<p>We form the Lagrangian,
+$$</p><p>Note, we do not have any equality constraints here, only inequality constraints.</p><p>We form the Lagrangian,
 $$
 \mathbf{L}(\mathbf{w}, b, \mathbf{\xi}, \mathbf{\alpha}, \mathbf{\beta}) = \frac{1}{2} \Vert \mathbf{w} \Vert_2^2 + C \sum_{i=1}^M \xi_i - \sum_{i=1}^M \alpha_i [y^{(i)} (\mathbf{w}^T \mathbf{x}^{(i)} + b) - 1 + \xi_i] - \sum_{i=1}^M \beta_i \xi_i
-$$</p>
-<p>Taking the gradient of $\mathbf{L}$ with respect to $\mathbf{w}, b, \xi_i$ and setting to zero,
+$$</p><p>Taking the gradient of $\mathbf{L}$ with respect to $\mathbf{w}, b, \xi_i$ and setting to zero,
 $$
 \nabla_{\mathbf{w}} \mathbf{L} = \mathbf{w} - \sum_{i=1}^M \alpha_i y^{(i)} \mathbf{x}^{(i)} = 0 \newline
 \nabla_b \mathbf{L} = \sum_{i=1}^M \alpha_i y^{(i)} = 0 \newline
 \nabla_{\xi_i} \mathbf{L} = C - \alpha_i - \beta_i = 0, \quad i = 1, \ldots, M
-$$</p>
-<p>Plugging back into $\mathbf{L}$,
+$$</p><p>Plugging back into $\mathbf{L}$,
 $$
 g(\mathbf{\alpha}) = \sum_{i=1}^M \alpha_i - \frac{1}{2} \sum_{i,j=1}^M y^{(i)} y^{(j)} \alpha_i \alpha_j \mathbf{x}^{(i)T} \mathbf{x}^{(j)}
-$$</p>
-<h4 id="svm-the-dual-problem">SVM: The Dual Problem</h4>
-<p>Put this together with the constraints and eliminate $\beta_i$,
+$$</p></section><section><h4 id="svm-the-dual-problem">SVM: The Dual Problem</h4><p>Put this together with the constraints and eliminate $\beta_i$,
 $$
 \begin{aligned}
 \underset{\mathbf{\alpha}}{\max} &#x26; \quad \sum_{i=1}^M \alpha_i - \frac{1}{2} \sum_{i,j=1}^M y^{(i)} y^{(j)} \alpha_i \alpha_j \mathbf{x}^{(i)T} \mathbf{x}^{(j)} \newline
 \text{subject to} &#x26; \quad \sum_{i=1}^M \alpha_i y^{(i)} = 0 \newline
 &#x26; \quad 0 \leq \alpha_i \leq C, \quad i = 1, \ldots, M
 \end{aligned}
-$$</p>
-<p>$\alpha_i$ corresponds to the $i$-th training sample $(\mathbf{x}^{(i)}, y^{(i)})$.</p>
-<p>Recover $\mathbf{w}$ as a sum of the training points $\mathbf{w} = \sum_{i=1}^M \alpha_i y^{(i)} \mathbf{x}^{(i)}$.</p>
-<p>Thus, classifyiing a new point $\mathbf{x}^{\star}$ is,
+$$</p><p>$\alpha_i$ corresponds to the $i$-th training sample $(\mathbf{x}^{(i)}, y^{(i)})$.</p><p>Recover $\mathbf{w}$ as a sum of the training points $\mathbf{w} = \sum_{i=1}^M \alpha_i y^{(i)} \mathbf{x}^{(i)}$.</p><p>Thus, classifyiing a new point $\mathbf{x}^{\star}$ is,
 $$
 y^{\star} = \text{sign}(\mathbf{w}^T \mathbf{x}^{\star} + b) = \text{sign} \left( \sum_{i=1}^M \alpha_i y^{(i)} \mathbf{x}^{(i)T} \mathbf{x}^{\star} + b \right)
-$$</p>
-<h5 id="interpretation-of-alpha_i">Interpretation of $\alpha_i$</h5>
-<p>Combining complementary slackness with primal feasibility and dual feasibility, we can show that,
+$$</p><section><h5 id="interpretation-of-alpha_i">Interpretation of $\alpha_i$</h5><p>Combining complementary slackness with primal feasibility and dual feasibility, we can show that,
 $$
 \alpha_i = 0 \Rightarrow y^{(i)} ((\mathbf{x}^{(i)})^T \mathbf{w}^{\star} + b^{\star}) \geq 1
-$$</p>
-<p>I.e, the sample $(\mathbf{x}^{(i)})$ is not on the margin.</p>
-<p>$$
+$$</p><p>I.e, the sample $(\mathbf{x}^{(i)})$ is not on the margin.</p><p>$$
 0 &#x3C; \alpha_i &#x3C; C \Rightarrow y^{(i)} ((\mathbf{x}^{(i)})^T \mathbf{w}^{\star} + b^{\star}) = 1
-$$</p>
-<p>I.e, the sample $(\mathbf{x}^{(i)})$ is on the margin.</p>
-<p>$$
+$$</p><p>I.e, the sample $(\mathbf{x}^{(i)})$ is on the margin.</p><p>$$
 \alpha_i = C \Rightarrow y^{(i)} ((\mathbf{x}^{(i)})^T \mathbf{w}^{\star} + b^{\star}) \leq 1
-$$</p>
-<p>I.e, the sample $(\mathbf{x}^{(i)})$ violates the margin.</p>
-<h4 id="kernel-function">Kernel Function</h4>
-<p>Dual SVM with transformed input,
+$$</p><p>I.e, the sample $(\mathbf{x}^{(i)})$ violates the margin.</p></section></section><section><h4 id="kernel-function">Kernel Function</h4><p>Dual SVM with transformed input,
 $$
 \begin{aligned}
 \underset{\mathbf{\alpha}}{\max} &#x26; \quad \sum_{i=1}^M \alpha_i - \frac{1}{2} \sum_{i,j=1}^M y^{(i)} y^{(j)} \alpha_i \alpha_j \phi(\mathbf{x}^{(i)})^T \phi(\mathbf{x}^{(j)}) \newline
 \text{subject to} &#x26; \quad \sum_{i=1}^M \alpha_i y^{(i)} = 0 \newline
 &#x26; \quad 0 \leq \alpha_i \leq C, \quad i = 1, \ldots, M
 \end{aligned}
-$$</p>
-<p>Completely written in terms of inner product $\phi(\mathbf{x}^{(i)})^T \phi(\mathbf{x}^{(j)})$.</p>
-<p>Rather than explicitly calculate the high-dimensional $\phi(\mathbf{x})$, we only need to calculate the inner product between the two vectors.</p>
-<p>Let the <strong>kernel function</strong> $\mathcal{K}(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) = \phi(\mathbf{x}^{(i)})^T \phi(\mathbf{x}^{(j)})$.</p>
-<p>This is much less expensive to compute than explicitly calculating the high-dimensional feature vector and the inner product.</p>
-<h5 id="example-polynomial-kernel">Example: Polynomial Kernel</h5>
-<p>Let the input vector $\mathbf{x} = [x_1, \ldots, x_N]^T \in \mathbb{R}^N$.</p>
-<p>Kernel between two vector is a $p$-th order polynomial,
+$$</p><p>Completely written in terms of inner product $\phi(\mathbf{x}^{(i)})^T \phi(\mathbf{x}^{(j)})$.</p><p>Rather than explicitly calculate the high-dimensional $\phi(\mathbf{x})$, we only need to calculate the inner product between the two vectors.</p><p>Let the <strong>kernel function</strong> $\mathcal{K}(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) = \phi(\mathbf{x}^{(i)})^T \phi(\mathbf{x}^{(j)})$.</p><p>This is much less expensive to compute than explicitly calculating the high-dimensional feature vector and the inner product.</p><section><h5 id="example-polynomial-kernel">Example: Polynomial Kernel</h5><p>Let the input vector $\mathbf{x} = [x_1, \ldots, x_N]^T \in \mathbb{R}^N$.</p><p>Kernel between two vector is a $p$-th order polynomial,
 $$
 \mathcal{K}(\mathbf{x}, \mathbf{x}^{\prime}) = (\mathbf{x}^T \mathbf{x}^{\prime})^p = (\sum_{i=1}^N x_i x_i^{\prime})^p
-$$</p>
-<p>For example, p = 2,
+$$</p><p>For example, p = 2,
 $$
 \mathcal{K}(\mathbf{x}, \mathbf{x}^{\prime}) = (\mathbf{x}^T \mathbf{x}^{\prime})^2 = \sum_{i=1}^N \sum_{j=1}^N (x_i x_i^{\prime} x_j x_j^{\prime}) = \phi(\mathbf{x})^T \phi(\mathbf{x}^{\prime})
-$$</p>
-<p>Transformed space is the quadratic terms of input $\mathbf{x}$.
+$$</p><p>Transformed space is the quadratic terms of input $\mathbf{x}$.
 $$
 \phi(\mathbf{x}) = [x_1 x_1, x_1 x_2, \ldots, x_2, x_1, x_2 x_2, \ldots, x_N x_1, \ldots, x_N x_N]
-$$</p>
-<p>Comparison of number of multiplications,</p>
-<ul>
+$$</p><p>Comparison of number of multiplications,</p><ul>
 <li>Explicit calculation: $O(N^2)$</li>
 <li>Kernel calculation: $O(N)$</li>
-</ul>
-<h4 id="kernel-trick">Kernel Trick</h4>
-<p>Replacing the inner product with a kernel function in optimization is called the <strong>kernel trick</strong>.</p>
-<p>Turns linear classifier into a non-linear classifier.
-The shape of the decision boundary is determined by the kernel function.</p>
-<p><strong>Kernel SVM</strong>,
+</ul></section></section><section><h4 id="kernel-trick">Kernel Trick</h4><p>Replacing the inner product with a kernel function in optimization is called the <strong>kernel trick</strong>.</p><p>Turns linear classifier into a non-linear classifier.
+The shape of the decision boundary is determined by the kernel function.</p><p><strong>Kernel SVM</strong>,
 $$
 \begin{aligned}
 \underset{\mathbf{\alpha}}{\max} &#x26; \quad \sum_{i=1}^M \alpha_i - \frac{1}{2} \sum_{i,j=1}^M y^{(i)} y^{(j)} \alpha_i \alpha_j \mathcal{K}(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) \newline
 \text{subject to} &#x26; \quad \sum_{i=1}^M \alpha_i y^{(i)} = 0 \newline
 &#x26; \quad 0 \leq \alpha_i \leq C, \quad i = 1, \ldots, M
 \end{aligned}
-$$</p>
-<p>Our prediction is,
+$$</p><p>Our prediction is,
 $$
 y^{\star} = \text{sign} \left( \sum_{i=1}^M \alpha_i y^{(i)} \mathcal{K}(\mathbf{x}^{(i)}, \mathbf{x}^{\star}) + b \right)
-$$</p>
-<h4 id="rbf-kernel">RBF Kernel</h4>
-<p>The <strong>Radial Basis Function (RBF) kernel</strong> is a popular kernel function,
+$$</p></section><section><h4 id="rbf-kernel">RBF Kernel</h4><p>The <strong>Radial Basis Function (RBF) kernel</strong> is a popular kernel function,
 $$
 \mathcal{K}(\mathbf{x}, \mathbf{x}^{\prime}) = e^{-\gamma \Vert \mathbf{x} - \mathbf{x}^{\prime} \Vert^2}
-$$</p>
-<p>Which resembles a Gaussian.</p>
-<p>Gamma $\gamma > 0$ is the inverse bandwidth parameter of the kernel.
-It controls the smoothness of the function.</p>
-<p>Small $\gamma \rightarrow$ wide Gaussian $\rightarrow$ smooth function.
-Large $\gamma \rightarrow$ thin Gaussian $\rightarrow$ wiggly function.</p>
-<p>Corresponds to feature transform function of infinite dimension.</p>
-<h3 id="kernel-svm-summary">Kernel SVM: Summary</h3>
-<ul>
+$$</p><p>Which resembles a Gaussian.</p><p>Gamma $\gamma > 0$ is the inverse bandwidth parameter of the kernel.
+It controls the smoothness of the function.</p><p>Small $\gamma \rightarrow$ wide Gaussian $\rightarrow$ smooth function.
+Large $\gamma \rightarrow$ thin Gaussian $\rightarrow$ wiggly function.</p><p>Corresponds to feature transform function of infinite dimension.</p></section></section>
+<section><h3 id="kernel-svm-summary">Kernel SVM: Summary</h3><ul>
 <li><strong>Kernel Classifier</strong>.
 <ul>
 <li>Kernel function defines the shape of the non-linear decision boundary.
@@ -743,24 +430,14 @@ Large $\gamma \rightarrow$ thin Gaussian $\rightarrow$ wiggly function.</p>
 </li>
 </ul>
 </li>
-</ul>
-<h3 id="sequential-minimal-optimization-smo">Sequential Minimal Optimization (SMO)</h3>
-<p>SMO is an algorithm for training SVMs. Let’s take a look.</p>
-<h4 id="solving-svm-coordinate-descent">Solving SVM: Coordinate Descent</h4>
-<p>Consider the unconstrained optimization problem,
+</ul></section>
+<section><h3 id="sequential-minimal-optimization-smo">Sequential Minimal Optimization (SMO)</h3><p>SMO is an algorithm for training SVMs. Let’s take a look.</p><section><h4 id="solving-svm-coordinate-descent">Solving SVM: Coordinate Descent</h4><p>Consider the unconstrained optimization problem,
 $$
 \underset{\mathbf{\theta}}{\min} \ell(\theta_1, \theta_2, \ldots, \theta_N)
-$$</p>
-<p>The coordinate descent method first selects an initial point $\mathbf{\theta}^{(0)} \in \mathbb{R}^N$ and repeats:</p>
-<ul>
+$$</p><p>The coordinate descent method first selects an initial point $\mathbf{\theta}^{(0)} \in \mathbb{R}^N$ and repeats:</p><ul>
 <li>Choose an index $i$ from 1 to $N$.</li>
 <li>$\theta_i^{(t+1)} = \arg \min_{\hat{\theta}_i} \ell(\theta_1^{(t)}, \ldots, \hat{\theta}_i, \ldots, \theta_N^{(t)})$</li>
-</ul>
-<p>At each iteration, the algorithm determines a coordinate, and minimizes over the corresponding coordinate direction while fixing all other coordinates.</p>
-<p>Coordinate descent is applicable in both differentiable and non-differentiable optimization contexts.</p>
-<h4 id="solving-svm-sequential-minimal-optimization-smo">Solving SVM: Sequential Minimal Optimization (SMO)</h4>
-<p>SMO is an algorithm for solving the quadratic programming problem that arises during the training of SVMs, invented by John C. Platt in 1998.</p>
-<ul>
+</ul><p>At each iteration, the algorithm determines a coordinate, and minimizes over the corresponding coordinate direction while fixing all other coordinates.</p><p>Coordinate descent is applicable in both differentiable and non-differentiable optimization contexts.</p></section><section><h4 id="solving-svm-sequential-minimal-optimization-smo">Solving SVM: Sequential Minimal Optimization (SMO)</h4><p>SMO is an algorithm for solving the quadratic programming problem that arises during the training of SVMs, invented by John C. Platt in 1998.</p><ul>
 <li><strong>S</strong>equential
 <ul>
 <li>Not parallel.</li>
@@ -777,25 +454,15 @@ $$</p>
 <li>Satisfy the constraints for the chosen pair of Lagrange multipliers.</li>
 </ul>
 </li>
-</ul>
-<h4 id="smo">SMO</h4>
-<p>Recall the dual form of kernelized SVM with soft margin,
+</ul></section><section><h4 id="smo">SMO</h4><p>Recall the dual form of kernelized SVM with soft margin,
 $$
 \begin{aligned}
 \underset{\mathbf{\alpha}}{\max} &#x26; \quad \sum_{i=1}^M \alpha_i - \frac{1}{2} \sum_{i,j=1}^M y^{(i)} y^{(j)} \alpha_i \alpha_j \mathcal{K}(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) \newline
 \text{subject to} &#x26; \quad \sum_{i=1}^M \alpha_i y^{(i)} = 0 \newline
 &#x26; \quad 0 \leq \alpha_i \leq C, \quad i = 1, \ldots, M
 \end{aligned}
-$$</p>
-<p>SMO is derived by decomposing the problem to its extreme and optimizing a minimal subset of just two dual variables (i.e., two data points) at each iteration.</p>
-<p>The sub-problem for two data points admits an analytical solution, eliminating the need to use an iterative quadratic programming optimizer as part of the algorithm.</p>
-<p>The condition $\sum_{i=1}^M \alpha_i y^{(i)} = 0$ is enforced throughout the iterations, implying that the smallest number of multipliers that can be optimized at each step is two.</p>
-<p>Whenever one multiplier is updated, at least one other multiplier needs to be adjusted in order to keep the condition true.</p>
-<p>At each step SMO chooses two elements $\alpha_i$ and $\alpha_j$ to jointly optimize, finds the optimal values for those two parameters given that all the others are fixed.</p>
-<p>The choice of the two points is determined by a heuristic, while the optimization of the two multipliers is performed analytically.</p>
-<p>Despite needing more iterations to converge, each iteration uses so few operations that the algortihm exhibits an overall speed-up of some orders of magnitude.</p>
-<h3 id="classification-summary">Classification Summary</h3>
-<ul>
+$$</p><p>SMO is derived by decomposing the problem to its extreme and optimizing a minimal subset of just two dual variables (i.e., two data points) at each iteration.</p><p>The sub-problem for two data points admits an analytical solution, eliminating the need to use an iterative quadratic programming optimizer as part of the algorithm.</p><p>The condition $\sum_{i=1}^M \alpha_i y^{(i)} = 0$ is enforced throughout the iterations, implying that the smallest number of multipliers that can be optimized at each step is two.</p><p>Whenever one multiplier is updated, at least one other multiplier needs to be adjusted in order to keep the condition true.</p><p>At each step SMO chooses two elements $\alpha_i$ and $\alpha_j$ to jointly optimize, finds the optimal values for those two parameters given that all the others are fixed.</p><p>The choice of the two points is determined by a heuristic, while the optimization of the two multipliers is performed analytically.</p><p>Despite needing more iterations to converge, each iteration uses so few operations that the algortihm exhibits an overall speed-up of some orders of magnitude.</p></section></section>
+<section><h3 id="classification-summary">Classification Summary</h3><ul>
 <li><strong>Classification Task</strong>
 <ul>
 <li>Observation $\mathbf{x}$: typically a real vector of feature values, $x \in \mathbb{R}^N$.</li>
@@ -843,12 +510,9 @@ $$</p>
 <li><strong>Training</strong>: Maximize the margin.</li>
 </ul>
 </li>
-</ul>
-<h3 id="regulatization-and-overfitting">Regulatization and Overfitting</h3>
-<p>Some models have terms to prevent overfitting the training data, this can improve generalization to new data.</p>
-<p>There is a parameter to control the regularization effect, select this parameter using cross-validation on the training set.</p>
-<h3 id="other-things">Other Things</h3>
-<ul>
+</ul></section>
+<section><h3 id="regulatization-and-overfitting">Regulatization and Overfitting</h3><p>Some models have terms to prevent overfitting the training data, this can improve generalization to new data.</p><p>There is a parameter to control the regularization effect, select this parameter using cross-validation on the training set.</p></section>
+<section><h3 id="other-things">Other Things</h3><ul>
 <li>
 <p>Multi-class classification.</p>
 <ul>
@@ -892,73 +556,79 @@ $$</p>
 </li>
 </ul>
 </li>
-</ul>
-<h3 id="which-classifier-is-best">Which Classifier is Best?</h3>
-<p>“No Free Lunch” Theorem (Wolpert and Macready)</p>
-<blockquote>
+</ul></section>
+<section><h3 id="which-classifier-is-best">Which Classifier is Best?</h3><p>“No Free Lunch” Theorem (Wolpert and Macready)</p><blockquote>
 <p>If an algorithm performs well on a certain class of problems then it necessarily pays for that with degraded performance on the set of all remaining problems.</p>
-</blockquote>
-<p>In other words, there is <strong>no best</strong> classifier for all tasks. The best classifier depends on the particular problem.</p> <div class="mt-24"> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/cityu/cs4487/cs4487_3" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 3 - Optimization and Convexity </div> </a> <a href="/cityu/cs4487/cs4487_5" class="group relative flex flex-grow flex-row-reverse flex-nowrap rounded-lg border border-black/15 px-4 py-4 pr-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 19 12 12 19" class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 5 - Regression </div> </a> </div> </div> <div class="mt-24"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezvan.xyz" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </article> </div>  </main> <footer class="animate"> <div class="mx-auto max-w-screen-sm px-3"> <div class="relative"> <div class="absolute -top-12 right-0"> <button id="back-to-top" class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm">Back to top</div> </button> </div> </div> <div class="flex items-center justify-between"> <div>&copy; 2025 • rezarezvan.com</div> <div class="flex flex-wrap items-center gap-1.5"></div> </div> </div> </footer> <aside data-pagefind-ignore> <div id="backdrop" class="bg-[rgba(0, 0, 0, 0.5] invisible fixed left-0 top-0 z-50 flex h-screen w-full justify-center p-6 backdrop-blur-sm" data-astro-transition-persist="astro-3snakcvo-2"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="mr-2 pb-1 pt-4 text-right text-xs dark:prose-invert">
-Press <span class="prose text-xs dark:prose-invert"><kbd class="">Esc</kbd></span> or click anywhere to close
-</div> </div> </div> </aside> <script>
-  const magnifyingGlass = document.getElementById("magnifying-glass");
-  const backdrop = document.getElementById("backdrop");
+</blockquote><p>In other words, there is <strong>no best</strong> classifier for all tasks. The best classifier depends on the particular problem.</p></section>
 
-  function openPagefind() {
-    const searchDiv = document.getElementById("search");
-    const search = searchDiv.querySelector("input");
-    setTimeout(() => {
-      search.focus();
-    }, 0);
-    backdrop?.classList.remove("invisible");
-    backdrop?.classList.add("visible");
-  }
 
-  function closePagefind() {
-    const search = document.getElementById("search");
-    search.value = "";
-    backdrop?.classList.remove("visible");
-    backdrop?.classList.add("invisible");
-  }
+</body></html> </article> <div class="col-start-2"> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/cityu/cs4487/cs4487_5" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Part 5 - Regression </span> </div>  </a> <a href="/cityu/cs4487/cs4487_3" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Part 3 - Optimization and Convexity </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </div> <div class="col-start-2"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </section> <button data-slot="button" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 group fixed right-8 bottom-8 z-50 hidden" id="scroll-to-top" title="Scroll to top" aria-label="Scroll to top"> <svg width="1em" height="1em" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" data-icon="lucide:arrow-up">   <symbol id="ai:lucide:arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></symbol><use href="#ai:lucide:arrow-up"></use>  </svg> </button> <script type="module">document.addEventListener("astro:page-load",()=>{const o=document.getElementById("scroll-to-top"),t=document.querySelector("footer");o&&t&&(o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),window.addEventListener("scroll",()=>{const e=t.getBoundingClientRect().top<=window.innerHeight;o.classList.toggle("hidden",window.scrollY<=300||e)}))});</script>  </div> </main> <footer class="py-4"> <div class="mx-auto flex max-w-3xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between"> <div class="flex flex-wrap items-center justify-center gap-x-2 text-center"> <span class="text-muted-foreground text-sm">
+&copy; 2025 • rezarezvan.com </span> </div> </div> </footer> <div id="backdrop" class="invisible fixed top-0 left-0 z-50 flex h-screen w-full justify-center bg-[rgba(0,0,0,0.5)] p-6 backdrop-blur-sm" data-astro-transition-persist="astro-t6dxx5el-4"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="dark:prose-invert mr-2 pt-4 pb-1 text-right text-xs">
+Press <span class="prose dark:prose-invert text-xs"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const magnifyingGlass = document.getElementById('magnifying-glass')
+    const backdrop = document.getElementById('backdrop')
 
-  // open pagefind
-  magnifyingGlass?.addEventListener("click", () => {
-    openPagefind();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "/") {
-      e.preventDefault();
-      openPagefind();
-    } else if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-      e.preventDefault();
-      openPagefind();
+    function openPagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      setTimeout(() => {
+        search.focus()
+      }, 0)
+      backdrop?.classList.remove('invisible')
+      backdrop?.classList.add('visible')
     }
-  });
 
-  // close pagefind
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" || e.keyCode === 27) {
-      closePagefind();
+    function closePagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      if (search) {
+        search.value = ''
+      }
+      backdrop?.classList.remove('visible')
+      backdrop?.classList.add('invisible')
     }
-  });
 
-  // close pagefind when searched result(link) clicked
-  document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("pagefind-ui__result-link")) {
-      closePagefind();
-    }
-  });
+    // open pagefind
+    magnifyingGlass?.addEventListener('click', () => {
+      openPagefind()
+    })
 
-  backdrop?.addEventListener("click", (event) => {
-    if (!event.target.closest("#pagefind-container")) {
-      closePagefind();
-    }
-  });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/') {
+        e.preventDefault()
+        openPagefind()
+      } else if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        openPagefind()
+      }
+    })
 
-  // prevent form submission
-  const form = document.getElementById("form");
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
-</script>  </body></html>
+    // close pagefind
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePagefind()
+      }
+    })
+
+    // close pagefind when searched result(link) clicked
+    document.addEventListener('click', (event) => {
+      if (event.target.classList.contains('pagefind-ui__result-link')) {
+        closePagefind()
+      }
+    })
+
+    backdrop?.addEventListener('click', (event) => {
+      if (!event.target.closest('#pagefind-container')) {
+        closePagefind()
+      }
+    })
+
+    // prevent form submission
+    const form = document.getElementById('form')
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault()
+    })
+  })
+</script>  </div> </body></html>

@@ -1,331 +1,131 @@
-<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/icon" href="/favicon.ico"><meta name="generator" content="Astro v5.5.5"><!-- Canonical URL --><link rel="canonical" href="https://rezvan.xyz/chalmers/eem076/eem076_summary/"><!-- Primary Meta Tags --><title>Part 14 - Summary | electrical circuits and fields | rezarezvan.com</title><meta name="title" content="Part 14 - Summary | electrical circuits and fields | rezarezvan.com"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://rezvan.xyz/chalmers/eem076/eem076_summary/"><meta property="og:title" content="Part 14 - Summary | electrical circuits and fields | rezarezvan.com"><meta property="og:description"><meta property="og:image" content="https://rezvan.xyz/favicon.ico"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://rezvan.xyz/chalmers/eem076/eem076_summary/"><meta property="twitter:title" content="Part 14 - Summary | electrical circuits and fields | rezarezvan.com"><meta property="twitter:description"><meta property="twitter:image" content="https://rezvan.xyz/favicon.ico"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+<!DOCTYPE html><html lang="en-US"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v5.7.0"><meta name="robots" content="index, follow"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="rezarezvan.com" href="https://rezaarezvan.com/rss.xml"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
     function renderKaTeX() {
-        if (typeof renderMathInElement !== "undefined") {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    { left: "$$", right: "$$", display: true },
-                    { left: "$", right: "$", display: false },
-                ],
-            });
-        }
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        })
+      }
     }
 
-    document.addEventListener("DOMContentLoaded", renderKaTeX);
-    document.addEventListener("astro:after-swap", renderKaTeX);
-</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script>
+    document.addEventListener('DOMContentLoaded', renderKaTeX)
+    document.addEventListener('astro:after-swap', renderKaTeX)
+  </script><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/favicon.ico"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="rezvan-blog"><link rel="manifest" href="/site.webmanifest"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.BZs-2RF_.js"></script><script>
     function init() {
-        preloadTheme();
-        onScroll();
-        animate();
-        updateThemeButtons();
-        addCopyCodeButtons();
-        setGiscusTheme();
-
-        const backToTop = document.getElementById("back-to-top");
-        backToTop?.addEventListener("click", (event) => scrollToTop(event));
-
-        const backToPrev = document.getElementById("back-to-prev");
-        backToPrev?.addEventListener("click", () => window.history.back());
-
-        const lightThemeButton = document.getElementById("light-theme-button");
-        lightThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "light");
-            toggleTheme(false);
-            updateThemeButtons();
-        });
-
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        darkThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "dark");
-            toggleTheme(true);
-            updateThemeButtons();
-        });
-
-        const systemThemeButton = document.getElementById(
-            "system-theme-button",
-        );
-        systemThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "system");
-            toggleTheme(
-                window.matchMedia("(prefers-color-scheme: dark)").matches,
-            );
-            updateThemeButtons();
-        });
-
-        window
-            .matchMedia("(prefers-color-scheme: dark)")
-            .addEventListener("change", (event) => {
-                if (localStorage.theme === "system") {
-                    toggleTheme(event.matches);
-                }
-            });
-
-        document.addEventListener("scroll", onScroll);
-    }
-
-    function updateThemeButtons() {
-        const theme = localStorage.getItem("theme");
-        const lightThemeButton = document.getElementById("light-theme-button");
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        const systemThemeButton = document.getElementById(
-            "system-theme-button",
-        );
-
-        function removeActiveButtonTheme(button) {
-            button?.classList.remove("bg-black/5");
-            button?.classList.remove("dark:bg-white/5");
-        }
-
-        function addActiveButtonTheme(button) {
-            button?.classList.add("bg-black/5");
-            button?.classList.add("dark:bg-white/5");
-        }
-
-        removeActiveButtonTheme(lightThemeButton);
-        removeActiveButtonTheme(darkThemeButton);
-        removeActiveButtonTheme(systemThemeButton);
-
-        if (theme === "light") {
-            addActiveButtonTheme(lightThemeButton);
-        } else if (theme === "dark") {
-            addActiveButtonTheme(darkThemeButton);
-        } else {
-            addActiveButtonTheme(systemThemeButton);
-        }
-    }
-
-    function animate() {
-        const animateElements = document.querySelectorAll(".animate");
-
-        animateElements.forEach((element, index) => {
-            setTimeout(() => {
-                element.classList.add("show");
-            }, index * 100);
-        });
-    }
-
-    function onScroll() {
-        if (window.scrollY > 0) {
-            document.documentElement.classList.add("scrolled");
-        } else {
-            document.documentElement.classList.remove("scrolled");
-        }
-    }
-
-    function scrollToTop(event) {
-        event.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    }
-
-    function toggleTheme(dark) {
-        const css = document.createElement("style");
-
-        css.appendChild(
-            document.createTextNode(
-                `* {
-             -webkit-transition: none !important;
-             -moz-transition: none !important;
-             -o-transition: none !important;
-             -ms-transition: none !important;
-             transition: none !important;
-          }
-        `,
-            ),
-        );
-
-        document.head.appendChild(css);
-
-        if (dark) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-
-        window.getComputedStyle(css).opacity;
-        document.head.removeChild(css);
-
-        setGiscusTheme();
-    }
-
-    function preloadTheme() {
-        const userTheme = localStorage.theme;
-
-        if (userTheme === "light" || userTheme === "dark") {
-            toggleTheme(userTheme === "dark");
-        } else {
-            toggleTheme(
-                window.matchMedia("(prefers-color-scheme: dark)").matches,
-            );
-        }
-    }
-
-    function addCopyCodeButtons() {
-        let copyButtonLabel = "📋";
-        let codeBlocks = Array.from(document.querySelectorAll("pre"));
-
-        async function copyCode(codeBlock, copyButton) {
-            const codeText = codeBlock.innerText;
-            const buttonText = copyButton.innerText;
-            const textToCopy = codeText.replace(buttonText, "");
-
-            await navigator.clipboard.writeText(textToCopy);
-            copyButton.innerText = "✅";
-
-            setTimeout(() => {
-                copyButton.innerText = copyButtonLabel;
-            }, 2000);
-        }
-
-        for (let codeBlock of codeBlocks) {
-            const wrapper = document.createElement("div");
-            wrapper.style.position = "relative";
-
-            const copyButton = document.createElement("button");
-            copyButton.innerText = copyButtonLabel;
-            copyButton.classList = "copy-code";
-
-            codeBlock.setAttribute("tabindex", "0");
-            codeBlock.appendChild(copyButton);
-
-            codeBlock.parentNode.insertBefore(wrapper, codeBlock);
-            wrapper.appendChild(codeBlock);
-
-            copyButton?.addEventListener("click", async () => {
-                await copyCode(codeBlock, copyButton);
-            });
-        }
+      setGiscusTheme()
     }
 
     const setGiscusTheme = () => {
-        const giscus = document.querySelector(".giscus-frame");
+      const giscus = document.querySelector('.giscus-frame')
 
-        const isDark = document.documentElement.classList.contains("dark");
+      const isDark = document.documentElement.classList.contains('dark')
 
-        if (giscus) {
-            const url = new URL(giscus.src);
-            url.searchParams.set("theme", isDark ? "dark" : "light");
-            giscus.src = url.toString();
-        }
-    };
+      if (giscus) {
+        const url = new URL(giscus.src)
+        url.searchParams.set('theme', isDark ? 'dark' : 'light')
+        giscus.src = url.toString()
+      }
+    }
 
-    document.addEventListener("DOMContentLoaded", () => init());
-    document.addEventListener("astro:after-swap", () => init());
-    preloadTheme();
-</script><link rel="stylesheet" href="/_astro/_subject_.WmXrNcmP.css">
-<link rel="stylesheet" href="/_astro/index.C6eUsQXi.css">
-<style>summary[data-astro-cid-xvrfupwn]{cursor:pointer;border-top-left-radius:.5rem;border-top-right-radius:.5rem;padding:.375rem .75rem;font-weight:500;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}summary[data-astro-cid-xvrfupwn]:hover{background-color:#0000000d}summary[data-astro-cid-xvrfupwn]:hover:is(.dark *){background-color:#ffffff0d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]{background-color:#0000000d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]:is(.dark *){background-color:#ffffff0d}
-</style></head> <body> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto max-w-screen-sm px-3"> <div class="flex flex-wrap justify-between gap-y-4"> <div class="flex flex-col gap-y-2"> <a href="/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out">  <div class="font-semibold"> rezarezvan.com </div>  </a> <div class="flex gap-x-2"> <button id="light-theme-button" aria-label="Light theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <button id="dark-theme-button" aria-label="Dark theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <button id="system-theme-button" aria-label="System theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect> <line x1="8" y1="21" x2="16" y2="21"></line> <line x1="12" y1="17" x2="12" y2="21"></line> </svg> </button> </div> </div> <nav class="flex items-center gap-1 text-sm"> <a href="/posts" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> posts </a> <span>/</span> <a href="/chalmers" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> chalmers </a> <span>/</span> <a href="/cityu" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cityu </a> <span>/</span> <a href="/pdf/cv/cv.pdf" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cv </a> <span>/</span> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+    document.addEventListener('DOMContentLoaded', () => init())
+    document.addEventListener('astro:after-swap', () => init())
+  </script><title>Part 14 - Summary | rezarezvan.com</title><meta name="title" content="Part 14 - Summary | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com"><meta property="og:title" content="Part 14 - Summary"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.comundefined"><meta property="og:image:alt" content="Part 14 - Summary"><meta property="og:type" content="website"><meta property="og:locale" content="en-US"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezaarezvan.com/chalmers/eem076/eem076_summary/"><meta name="twitter:title" content="Part 14 - Summary"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.comundefined"><meta name="twitter:image:alt" content="Part 14 - Summary"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/index.CMAis0x6.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <header class="bg-background/50 sticky top-0 z-10 backdrop-blur-md" data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 p-4"> <a href="/" target="_self" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center gap-2 text-xl font-medium"> rezarezvan.com </a> <div class="flex items-center gap-2 md:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex"> <a href="/blog" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/chalmers" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> chalmers<span>/</span>  </a><a href="/cityu" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> cityu<span>/</span>  </a><a href="/about" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> about<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
 &nbsp;Search
-</button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/chalmers/eem076" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> 
-Back to electrical circuits and fields </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/chalmers/eem076/eem076_13" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 13 - Op-Amps and Filters </div> </a> <div class="invisible"></div> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm">EEM076</div>
-&bull;
-<div class="font-base text-sm"> <time datetime="2023-05-19T14:57:46.000Z"> May 19, 2023 </time> </div> 
-&bull;
-<div class="font-base text-sm">9 min read</div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Part 14 - Summary </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#electrical-circuits-and-fields" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Electrical Circuits and Fields </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#dc" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> DC </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#electrical-and-magnetic-fields" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Electrical and Magnetic Fields </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#ac" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> AC </a>  </li> </ul> </li> </ul> </nav> </details> <article class="animate"> <h2 id="electrical-circuits-and-fields">Electrical Circuits and Fields</h2>
-<h3 id="dc">DC</h3>
-<p>Current:</p>
-<blockquote>
+</button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Z2dJ8uD" prefix="r4" component-url="/_astro/mobile-menu.C9T2c5u4.js" component-export="default" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;data-astro-transition-persist&quot;:[0,&quot;astro-lci6dfah-2&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" data-astro-transition-persist="astro-lci6dfah-2" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r4R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem('theme') ?? ''
+    if (['dark', 'light'].includes(localStorageTheme)) {
+      return localStorageTheme
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })()
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark')
+  } else {
+    document.documentElement.classList.add('dark')
+  }
+
+  window.localStorage.setItem('theme', theme)
+</script> <script type="module">function a(){const e=document.documentElement;e.classList.add("disable-transitions"),e.classList.toggle("dark"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("disable-transitions")});const t=e.classList.contains("dark");localStorage.setItem("theme",t?"dark":"light")}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme"),t=document.documentElement;t.classList.add("disable-transitions"),window.getComputedStyle(t).getPropertyValue("opacity"),e==="dark"?t.classList.add("dark"):t.classList.remove("dark"),requestAnimationFrame(()=>{t.classList.remove("disable-transitions")}),s()});</script> </div> </div> </header> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/chalmers"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:graduation-cap">   <symbol id="ai:lucide:graduation-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol><use href="#ai:lucide:graduation-cap"></use>  </svg> Chalmers </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/chalmers/eem076"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:book-open">   <symbol id="ai:lucide:book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z"/></symbol><use href="#ai:lucide:book-open"></use>  </svg> Electrical Circuits And Fields </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> Part 14 - Summary </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 text-4xl leading-tight font-medium text-pretty sm:text-5xl"> Part 14 - Summary </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground">EEM076</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>May 19, 2023</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>9 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="#" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full pointer-events-none opacity-50 cursor-not-allowed" aria-disabled="true">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Latest post! </span> </div>  </a> <a href="/chalmers/eem076/eem076_13" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Part 13 - Op-Amps and Filters </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <details open class="group col-start-2 rounded-xl border p-4 xl:sticky xl:top-20 xl:col-start-1 xl:mr-8 xl:ml-auto xl:h-[calc(100vh-5rem)] xl:max-w-fit xl:rounded-none xl:border-none xl:p-0"> <summary class="flex cursor-pointer items-center justify-between text-xl font-medium group-open:pb-4 xl:hidden"> <span>Table of Contents</span> <svg width="1em" height="1em" class="size-5 shrink-0 transition-transform group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg> </summary> <astro-island uid="2crIFt" prefix="r7" component-url="/_astro/scroll-area.DmWfVO5M.js" component-export="ScrollArea" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;className&quot;:[0,&quot;flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]&quot;],&quot;type&quot;:[0,&quot;always&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot> <ul class="flex list-none flex-col gap-y-2 px-4 xl:mr-8" id="table-of-contents"> <li class="hidden text-lg font-medium xl:block">Table of Contents</li> <li class="text-foreground/60 px-4 text-sm xl:p-0"> <a href="#electrical-circuits-and-fields" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Electrical Circuits and Fields </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#dc" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> DC </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#electrical-and-magnetic-fields" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Electrical and Magnetic Fields </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#ac" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> AC </a> </li> </ul> </astro-slot></div></div><div data-orientation="vertical" data-slot="scroll-area-scrollbar" class="flex touch-none p-px transition-colors select-none h-full w-2.5 border-l border-l-transparent" style="position:absolute;top:0;right:0;bottom:var(--radix-scroll-area-corner-height);--radix-scroll-area-thumb-height:18px"></div></div><!--astro:end--></astro-island> </details> <script type="module">function s(){const t=document.querySelector("header"),c=t?t.offsetHeight:0,a=new IntersectionObserver(e=>{e.forEach(o=>{const r=o.target.querySelector("h2, h3, h4, h5, h6");if(!r)return;const d=r.getAttribute("id"),n=document.querySelector(`#table-of-contents li a[href="#${d}"]`);if(!n)return;const i=o.isIntersecting?"add":"remove";n.classList[i]("text-foreground")})},{rootMargin:`-${c}px 0px 0px 0px`});document.querySelectorAll(".prose section").forEach(e=>{a.observe(e)})}document.addEventListener("astro:page-load",s);document.addEventListener("astro:after-swap",s);</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
+
+
+<meta charset="utf-8">
+<title>EEM076_summary</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" rel="stylesheet">
+
+
+<section><h2 id="electrical-circuits-and-fields">Electrical Circuits and Fields</h2><section><h3 id="dc">DC</h3><p>Current:</p><blockquote>
 <p>The rate of flow of electrical charge.</p>
-</blockquote>
-<p>$$
+</blockquote><p>$$
 1 A = \dfrac{1 C}{1 s}
-$$</p>
-<p>$$
+$$</p><p>$$
 1 C = 6.24 \cdot\ 10^{18}
-$$</p>
-<p>$$
+$$</p><p>$$
 I(t) = \dfrac{dQ(t)}{dt}\ [A]
-$$</p>
-<p>$$
+$$</p><p>$$
 Q(t) = \int_{t_0}^{t} i(t) dt + q(t_0)
-$$</p>
-<p>Voltage:</p>
-<blockquote>
+$$</p><p>Voltage:</p><blockquote>
 <p>The difference in potential energy between two points, for one Coulomb of charge.</p>
-</blockquote>
-<p>$$
+</blockquote><p>$$
 V = \dfrac{\Delta E_p}{q} = \dfrac{W}{q}\ [V]
-$$</p>
-<p>Resistance:</p>
-<blockquote>
+$$</p><p>Resistance:</p><blockquote>
 <p>Is the opposition to the flow of current.</p>
-</blockquote>
-<p>$$
+</blockquote><p>$$
 R = \frac{\rho L}{A}\ [\Omega]
-$$</p>
-<p>$$
+$$</p><p>$$
 \rho = \text{resistivity of the material}
-$$</p>
-<p>Ohm’s Law:
+$$</p><p>Ohm’s Law:
 $$
 V = RI
-$$</p>
-<p>Direction:
-From + to -. $V_{ab}$ means $a$ is the positive terminal and $b$ negative. The same goes for $I_{ab}$</p>
-<p>KCL:</p>
-<blockquote>
+$$</p><p>Direction:
+From + to -. $V_{ab}$ means $a$ is the positive terminal and $b$ negative. The same goes for $I_{ab}$</p><p>KCL:</p><blockquote>
 <p>The sum of current entering the node is equivalent to the sum of current leaving the node.</p>
-</blockquote>
-<p>$$
+</blockquote><p>$$
 \sum_{k = 1}^{n}\ I_{entering} = \sum_{k = 1}^{n}\ I_{leaving}
-$$</p>
-<p>KVL:</p>
-<blockquote>
+$$</p><p>KVL:</p><blockquote>
 <p>The sum of voltages equals zero, for any closed loop.</p>
-</blockquote>
-<p>$$
+</blockquote><p>$$
 \sum_{k = 1}^{n}\ V_k = 0
-$$</p>
-<p>Power:
+$$</p><p>Power:
 $$
 P = VI\ [W]
-$$</p>
-<p>Energy:
+$$</p><p>Energy:
 $$
 W = \int_{t_1}^{t_2} P(t) dt
-$$</p>
-<p>Equivalent resistance in series:
+$$</p><p>Equivalent resistance in series:
 $$
 R_{eq} = R_1 + R_2 + \ldots\ R_N
-$$</p>
-<p>Equivalent resistance in parallel:
+$$</p><p>Equivalent resistance in parallel:
 $$
 R_{eq} = \dfrac{1}{\dfrac{1}{R_1} + \dfrac{1}{R_2} + \ldots\ + \dfrac{1}{R_N}}
-$$</p>
-<p>$$
+$$</p><p>$$
 R_{eq} = \dfrac{R_1 R_2}{R_1 + R_2}
-$$</p>
-<p>$$
+$$</p><p>$$
 R_{eq} = \dfrac{R_1 R_2 R_3}{R_1 R_2 + R_2 R_3 + R_1 R_3}
-$$</p>
-<p>Voltage Divider (Series):
+$$</p><p>Voltage Divider (Series):
 $$
 V_{k} = V_{total} \cdot\ \dfrac{R_k}{R_1 + R_2 + \ldots\ R_N}
-$$</p>
-<p>Current Divider (Parallel):
+$$</p><p>Current Divider (Parallel):
 $$
 I_{k} = I_{total} \cdot\ \dfrac{R_{other}}{R_1 + R_2 + \ldots\ R_N}
-$$</p>
-<p>For example, for two parallel:
+$$</p><p>For example, for two parallel:
 $$
 I_{1} = I_{total} \cdot\ \dfrac{R_2}{R_1 + R_2}
-$$</p>
-<p>$$
+$$</p><p>$$
 I_{2} = I_{total} \cdot\ \dfrac{R_1}{R_1 + R_2}
-$$</p>
-<p>Node-Voltage analysis</p>
-<p>Idea:</p>
-<ol>
+$$</p><p>Node-Voltage analysis</p><p>Idea:</p><ol>
 <li>Find the nodes</li>
 <li>Assign a reference node (usually, we pick the node with most connections)</li>
 <li>Assign node voltages (Note, in a circuit with, $N$, nodes we have, $N - 1$, voltages)</li>
 <li>Then we solve these using KCL on each node ($\sum\ I_{out} = \sum\ I_{in}$)</li>
-</ol>
-<p>The convention is also the following:</p>
-<ul>
+</ol><p>The convention is also the following:</p><ul>
 <li>
 <p>Consider $i_{out}$ in resistors</p>
 </li>
@@ -335,17 +135,11 @@ $$</p>
 <li>
 <p>$V_{current} - V_{adjacent}$</p>
 </li>
-</ul>
-<p>Mesh-Current analysis:
-Is the opposite of Node-voltage analysis. Therefore, we just apply KVL instead of KCL. Note that this only forks for <strong>planar circuits</strong>.</p>
-<blockquote>
+</ul><p>Mesh-Current analysis:
+Is the opposite of Node-voltage analysis. Therefore, we just apply KVL instead of KCL. Note that this only forks for <strong>planar circuits</strong>.</p><blockquote>
 <p>Planar circuit: It is possible to draw it in a plane without crossing wires.</p>
-</blockquote>
-<p>Superposition:
-As the name suggest, it’s the principle that, given a linear system, the net response caused by two or more stimuli is the sum of these respones.</p>
-<p>In our case, the stimuli are voltage/current sources.</p>
-<p>So our method is:</p>
-<ul>
+</blockquote><p>Superposition:
+As the name suggest, it’s the principle that, given a linear system, the net response caused by two or more stimuli is the sum of these respones.</p><p>In our case, the stimuli are voltage/current sources.</p><p>So our method is:</p><ul>
 <li>
 <p>Leave <strong>one</strong> source ON and turn all other sources OFF.</p>
 <ul>
@@ -360,9 +154,7 @@ As the name suggest, it’s the principle that, given a linear system, the net r
 <li>
 <p>Add the resulting responses to find the total response.</p>
 </li>
-</ul>
-<p>Equivalent circuits:</p>
-<ol>
+</ul><p>Equivalent circuits:</p><ol>
 <li>
 <p>Replace the load, $R_L$, with open/short circuit.</p>
 </li>
@@ -386,48 +178,35 @@ As the name suggest, it’s the principle that, given a linear system, the net r
 </li>
 </ul>
 </li>
-</ol>
-<p>$$
+</ol><p>$$
 V_{TH} = I_N \cdot\ R_{eq}
-$$</p>
-<p>Capacitors:</p>
-<blockquote>
+$$</p><p>Capacitors:</p><blockquote>
 <p>A capacitor is a device that stores electric charge by creating an electric field between two conductive plates separated by an insulating material.</p>
-</blockquote>
-<p>$$
+</blockquote><p>$$
 C = \dfrac{q}{V}
-$$</p>
-<p>$$
+$$</p><p>$$
 I = C \dfrac{dV}{dt}
-$$</p>
-<p>$$
+$$</p><p>$$
 P = IV = CV \dfrac{dV}{dt}
-$$</p>
-<p>$$
+$$</p><p>$$
 W(t) = \int_{t_0}^{t}\ P(t)\ dt \newline
 W(t) = \int_{t_0}^{t}\ CV \frac{dV}{dt}\ dt \newline
 W(t) = C \cdot\ \int_{t_0}^{t}\ V\ dV \newline
 W(t) = \frac{C}{2} [V(t)^2 - V(t_0)^2]
-$$</p>
-<p><strong>If $V = 0$ at $t_0$ then:</strong>
+$$</p><p><strong>If $V = 0$ at $t_0$ then:</strong>
 $$
 W(t) = \frac{C \cdot\ v(t)^2}{2} \quad | \quad q = CV \newline
 W(t) = \frac{v(t)\ q(t)}{2} \quad | \quad C = \frac{q}{V} \newline
 W(t) = \frac{q(t)^2}{2C} \quad | \quad V = \frac{q}{C}
-$$</p>
-<p>$$
+$$</p><p>$$
 V(t) = \frac{1}{C} \int_{t_0}^{t}\ i(t)\ dt + V(t_0)
-$$</p>
-<p>Capacitors in series and parallel:</p>
-<p>Parallel:
+$$</p><p>Capacitors in series and parallel:</p><p>Parallel:
 $$
 C_{eq} = C_1 + C_2 + \ldots\ + C_N
-$$</p>
-<p>Series:
+$$</p><p>Series:
 $$
 C_{eq} = \dfrac{1}{C_1} + \dfrac{1}{C_2} + \ldots\ + \dfrac{1}{C_N}
-$$</p>
-<ul>
+$$</p><ul>
 <li>
 <p>Capacitors are open circuits to DC voltage (If $V$ is constant, then $I = 0$).</p>
 </li>
@@ -437,34 +216,24 @@ $$</p>
 <li>
 <p>Capacitors <em>store</em> energy ($I \cdot\ V > 0$), or, deliver energy ($I \cdot\ V &#x3C; 0$).</p>
 </li>
-</ul>
-<p>Inductors:</p>
-<blockquote>
+</ul><p>Inductors:</p><blockquote>
 <p>An inductor is a component in an electrical circuit that utilizes electromagnetic induction to resist changes in current flow by generating a voltage that opposes the change.</p>
-</blockquote>
-<p>$$
+</blockquote><p>$$
 V(t) = L \dfrac{dI}{dt}
-$$</p>
-<p>$$
+$$</p><p>$$
 I(t) = \frac{1}{L} \int_{t_0}^{t}\ V(t) dt + I(t_0)
-$$</p>
-<p>Power &#x26; Energy in Inductors
+$$</p><p>Power &#x26; Energy in Inductors
 $$
 P(t) = I(t) V(t) = I(L\ \frac{dI}{dt}) = \frac{dW}{dt}
-$$</p>
-<p>$$
+$$</p><p>$$
 W = \frac{LI^2}{2}
-$$</p>
-<p>Inductors in series and parallel:</p>
-<p>Series:
+$$</p><p>Inductors in series and parallel:</p><p>Series:
 $$
 L_{eq} = L_1 + L_2 + \ldots\ L_N
-$$</p>
-<p>Parallel:
+$$</p><p>Parallel:
 $$
 L_{eq} = \dfrac{1}{L_1} + \dfrac{1}{L_2} + \ldots\ \dfrac{1}{L_N}
-$$</p>
-<ul>
+$$</p><ul>
 <li>
 <p>Inductors are <strong>short circuits</strong> to DC voltages (If $I$ constant, then $V = 0$).</p>
 </li>
@@ -474,243 +243,176 @@ $$</p>
 <li>
 <p>Inductors <em>store</em> energy ($I \cdot\ V > 0$), or, deliver energy ($I \cdot\ V &#x3C; 0$).</p>
 </li>
-</ul>
-<p>Time-Varying Circuits:</p>
-<p>$$
+</ul><p>Time-Varying Circuits:</p><p>$$
 V_{C}(t) = V_{i}\ e^{\frac{-t}{\tau}} \quad \text{, where $\tau$ is:} \newline
 \tau = RC
-$$</p>
-<p>$$
+$$</p><p>$$
 I(t) = I_{0}\ e^{\frac{-Rt}{L}} \newline
 \tau = \frac{L}{R}
-$$</p>
-<h3 id="electrical-and-magnetic-fields">Electrical and Magnetic Fields</h3>
-<p>Charge:
+$$</p></section><section><h3 id="electrical-and-magnetic-fields">Electrical and Magnetic Fields</h3><p>Charge:
 $$
 e^{-} = 1.602 \cdot\ 10^{-19} C
-$$</p>
-<ul>
+$$</p><ul>
 <li>
 <p><strong>Repulsive</strong> if charges are the <strong>same</strong>.</p>
 </li>
 <li>
 <p><strong>Attractive</strong> if charges are <strong>different</strong>.</p>
 </li>
-</ul>
-<p>Coulomb’s Law:
+</ul><p>Coulomb’s Law:
 $$
 \mathbf{\vec{F_{12}}} = k_{e}\ \frac{q_1 q_20}{r^2} \hat{r_{12}}
-$$</p>
-<p>$$
+$$</p><p>$$
 \varepsilon_{0} = \frac{10^{-9}}{36\pi} \approx 8.841 \cdot\ 10^{-12}\ \left[\dfrac{F}{m}\right]\ (\text{Farads per meter})
-$$</p>
-<p>$$
+$$</p><p>$$
 k_e = \frac{1}{4\pi\varepsilon_{0}} \approx 9 \cdot\ 10^{9}\ \left[\dfrac{Nm^2}{C^2}\right]
-$$</p>
-<p>$$
+$$</p><p>$$
 \mathbf{\vec{E}} = k_{e}\ \frac{q}{r^2}\hat{r}
-$$</p>
-<p>$$
+$$</p><p>$$
 \mathbf{\vec{F_{E}}} = q\ \mathbf{\vec{E}}
-$$</p>
-<p>Dipoles:
+$$</p><p>Dipoles:
 $$
 \mathbf{\vec{p}} = q\mathbf{\vec{d}}
-$$</p>
-<p>Placing a dipole in an electrical field:
+$$</p><p>Placing a dipole in an electrical field:
 $$
 \mathbf{\vec{\tau}} = \mathbf{\vec{p}} \times \mathbf{\vec{E}} \newline
 \tau = p \cdot\ E\ sin(\theta)
-$$</p>
-<p>Electrical Flux 1D:
+$$</p><p>Electrical Flux 1D:
 $$
 \Phi = \sum_{i = 1}^{N}\ \mathbf{\vec{E}} \cdot\ \hat{n}
-$$</p>
-<p>$$
+$$</p><p>$$
 \Phi = \int_{L_{1}}^{L_{2}}\ \mathbf{\vec{E_{l}}} \cdot\ \hat{n} \cdot\ dl
-$$</p>
-<p>Electrical Flux 2D:
+$$</p><p>Electrical Flux 2D:
 $$
 \Phi = \iint \mathbf{\vec{E}} \cdot\ \hat{n} \cdot\ d\mathbf{\vec{A}} = \iint \mathbf{\vec{E}} \cdot\ d\mathbf{\vec{A}}\ cos(\theta)
-$$</p>
-<p>Electrical Flux closed contour:
+$$</p><p>Electrical Flux closed contour:
 $$
 \Phi = \oiint\ \mathbf{\vec{E}} \cdot\ d\mathbf{\vec{A}}
-$$</p>
-<p>Gauss’s Law:
+$$</p><p>Gauss’s Law:
 $$
 \Phi_{E} = \oiint \mathbf{\vec{E}} \cdot\ d\mathbf{\vec{A}} = \frac{q}{\varepsilon_{0}}
-$$</p>
-<p>Work to move charges:
+$$</p><p>Work to move charges:
 $$
 W = \dfrac{k_e q_1 q_2}{R}
-$$</p>
-<p>Work in an electrical field:
+$$</p><p>Work in an electrical field:
 $$
 W = -qE_0d
-$$</p>
-<p>Cheat sheet:
+$$</p><p>Cheat sheet:
 $$
 W = - \int \mathbf{\vec{F}} \cdot\ dr
-$$</p>
-<p>$$
+$$</p><p>$$
 \mathbf{\vec{E}} = \dfrac{\mathbf{\vec{F}}}{Q}
-$$</p>
-<p>$$
+$$</p><p>$$
 \Delta V = \dfrac{W}{Q}
-$$</p>
-<p>$$
+$$</p><p>$$
 \Delta V = - \int \mathbf{\vec{E}} \cdot\ dr
-$$</p>
-<p>Capacitors:
+$$</p><p>Capacitors:
 $$
 q = \sigma A
-$$</p>
-<p>$$
+$$</p><p>$$
 E = \dfrac{q}{\varepsilon_0 A}
-$$</p>
-<p>Energy stored in a capacitor:
+$$</p><p>Energy stored in a capacitor:
 $$
 W = \dfrac{1}{C}\ \dfrac{Q^2}{2}
-$$</p>
-<p>Magnetic Fields:
+$$</p><p>Magnetic Fields:
 $$
 \mathbf{\vec{F}_B} = q\mathbf{\vec{v}} \times \mathbf{\vec{B}} = |q|vB\ sin(\theta)
-$$</p>
-<p>$$
+$$</p><p>$$
 \mathbf{\vec{B}} \left[1\ T = 1 \dfrac{N}{A \cdot\ m}\right]
-$$</p>
-<p>Biot-Savarts law:
+$$</p><p>Biot-Savarts law:
 $$
 d\mathbf{\vec{B}} = \dfrac{\mu_0}{4\pi} \dfrac{I\ d\mathbf{\vec{s}} \times \mathbf{\vec{r}}}{r^2}
-$$</p>
-<p>$$
+$$</p><p>$$
 \mu_0 = 4\pi \cdot\ 10^{-7}\ \approx 1.2566 \cdot\ 10^{-6}
-$$</p>
-<p>$$
+$$</p><p>$$
 \mathbf{\vec{B}} = \dfrac{\mu_0 I}{4\pi} \int \dfrac{d\mathbf{\vec{s}} \times \mathbf{\vec{r}}}{r^2}
-$$</p>
-<p>$$
+$$</p><p>$$
 B = \dfrac{\mu_0 I}{2\pi r}
-$$</p>
-<p>$$
+$$</p><p>$$
 B = \dfrac{\mu_0 NI}{l} = \mu_0 nl
-$$</p>
-<p>Ampere’s Law:
+$$</p><p>Ampere’s Law:
 $$
 \oint \mathbf{\vec{B}} \cdot\ d\mathbf{\vec{s}} = \mu_0 I_{enc}
-$$</p>
-<p>Lorentz Force:
+$$</p><p>Lorentz Force:
 $$
 \mathbf{\vec{F}_E} = q\mathbf{\vec{E}}
-$$</p>
-<p>$$
+$$</p><p>$$
 \mathbf{\vec{F}_B} = q\mathbf{\vec{v}} \times \mathbf{\vec{B}}
-$$</p>
-<p>$$
+$$</p><p>$$
 \mathbf{\vec{F} = \mathbf{\vec{F}_E} + \mathbf{\vec{F}_B} = q(\mathbf{\vec{E}} + \mathbf{\vec{v}} \times \mathbf{\vec{B}})}
-$$</p>
-<p>Magnetic Flux:
+$$</p><p>Magnetic Flux:
 $$
 \Phi_B = \int \int \mathbf{\vec{B}} \cdot\ d\mathbf{\vec{A}} = BA\ cos(\theta)
-$$</p>
-<p>Lenz Law:</p>
-<blockquote>
+$$</p><p>Lenz Law:</p><blockquote>
 <p>The induced current produces a magnetic field, which oppose the change in magnetic flux that induces such currents.</p>
-</blockquote>
-<p>Maxwell’s Equations:</p>
-<p><strong>Gauss’s Law for electrostatics</strong>:
+</blockquote><p>Maxwell’s Equations:</p><p><strong>Gauss’s Law for electrostatics</strong>:
 $$
 \Phi_E = \oiint \mathbf{\vec{E}} \cdot\ d\mathbf{\vec{A}} = \dfrac{q}{\mu_0}
-$$</p>
-<p><strong>Gauss’s Law for magnetism</strong>:
+$$</p><p><strong>Gauss’s Law for magnetism</strong>:
 $$
 \Phi_B = \oiint \mathbf{\vec{B}} \cdot\ d\mathbf{\vec{A}} = 0
-$$</p>
-<p><strong>Faraday’s Law</strong>:
+$$</p><p><strong>Faraday’s Law</strong>:
 $$
 \varepsilon = \oint \mathbf{\vec{E}} \cdot d\mathbf{\vec{s}} = -\dfrac{d \Phi_B}{dt}
-$$</p>
-<p><strong>Ampere-Maxwell Law</strong>:
+$$</p><p><strong>Ampere-Maxwell Law</strong>:
 $$
 \varepsilon = \oint \mathbf{\vec{B}} \cdot d\mathbf{\vec{s}} = \mu_0(I + I_d) = \mu_0\left(I + \varepsilon_0 \dfrac{d \Phi_E}{dt}\right)
-$$</p>
-<p>If q = 0 and I = 0:</p>
-<p><strong>Gauss’s Law for electrostatics</strong>:
+$$</p><p>If q = 0 and I = 0:</p><p><strong>Gauss’s Law for electrostatics</strong>:
 $$
 \Phi_E = \oiint \mathbf{\vec{E}} \cdot\ d\mathbf{\vec{A}} = 0
-$$</p>
-<p><strong>Gauss’s Law for magnetism</strong>:
+$$</p><p><strong>Gauss’s Law for magnetism</strong>:
 $$
 \Phi_B = \oiint \mathbf{\vec{B}} \cdot\ d\mathbf{\vec{A}} = 0
-$$</p>
-<p><strong>Faraday’s Law</strong>:
+$$</p><p><strong>Faraday’s Law</strong>:
 $$
 \varepsilon = \oint \mathbf{\vec{E}} \cdot d\mathbf{\vec{s}} = -\dfrac{d \Phi_B}{dt}
-$$</p>
-<p><strong>Ampere-Maxwell Law</strong>:
+$$</p><p><strong>Ampere-Maxwell Law</strong>:
 $$
 \varepsilon = \oint \mathbf{\vec{B}} \cdot d\mathbf{\vec{s}} = \mu_0(I + I_d) = \mu_0 \varepsilon_0 \dfrac{d \Phi_E}{dt}
-$$</p>
-<p>Electromagnetic Waves:
+$$</p><p>Electromagnetic Waves:
 $$
 \dfrac{E}{B} = \dfrac{\omega}{k} = c
-$$</p>
-<p>EMFs in circuits:</p>
-<blockquote>
+$$</p><p>EMFs in circuits:</p><blockquote>
 <p>Electrical field opposes change in voltage
 $$
 C = \varepsilon_0 \dfrac{A}{d} \newline
 U = \dfrac{1}{2} C|V^2| \newline
 I(t) = C \dfrac{dV}{dt}
 $$</p>
-</blockquote>
-<blockquote>
+</blockquote><blockquote>
 <p>Magnetic field opposes change in the current
 $$
 L = \mu_0 N^2 \dfrac{A}{l} \newline
 U = \dfrac{1}{2} LI^2 \newline
 V(t) = L \dfrac{dI}{dt}
 $$</p>
-</blockquote>
-<h3 id="ac">AC</h3>
-<p>General:</p>
-<p>Note: Can be $\cos$, does not matter.
+</blockquote></section><section><h3 id="ac">AC</h3><p>General:</p><p>Note: Can be $\cos$, does not matter.
 $$
 V(t) = V_m \sin(\omega t + \theta)
-$$</p>
-<p>$$
+$$</p><p>$$
 V_m - \text{Amplitude}\ [V] \newline
 \omega - \text{Angular frequency}\ \left[\dfrac{rad}{s}\right] \newline
 \theta - \text{Phase Shift} \left[^\circ\ \text{or}\ rad \right] \newline
 T - \text{Period}\ [s] \newline
 f - \text{Frequency}\ [Hz] \newline
-$$</p>
-<p>$$
+$$</p><p>$$
 T = \dfrac{2\pi}{\omega} = \dfrac{1}{f} \newline
 \omega = 2\pi f
-$$</p>
-<p>Root Mean Square (RMS):
+$$</p><p>Root Mean Square (RMS):
 $$
 V_{RMS} = \sqrt{\dfrac{1}{T} \int_0^T V^2(t) dt} = \dfrac{V_m}{\sqrt{2}} \newline
 I_{RMS} = \sqrt{\dfrac{1}{T} \int_0^T I^2(t) dt} = \dfrac{I_m}{\sqrt{2}}
-$$</p>
-<p>$$
+$$</p><p>$$
 P_{Avg} = \dfrac{(V_{RMS})^2}{R} = \dfrac{\left(\dfrac{V_m}{\sqrt{2}}\right)^2}{R} = \dfrac{V_m^2}{2R} \newline
-$$</p>
-<p>$$
+$$</p><p>$$
 P_{Avg} = (I_{RMS})^2 R = \left(\dfrac{I_m}{\sqrt{2}}\right)^2 R = \dfrac{I_m^2 R}{2}
-$$</p>
-<p>Trigonometry:
+$$</p><p>Trigonometry:
 $$
 rad = deg \cdot\ \dfrac{\pi}{180}
-$$</p>
-<p>$$
+$$</p><p>$$
 sin(\omega t) = cos(\omega t - 90^\circ) \newline
 cos(\omega t) = sin(\omega t + 90^\circ)
-$$</p>
-<p>Rules for comparing the <strong>phase</strong> of two wave functions:</p>
-<ul>
+$$</p><p>Rules for comparing the <strong>phase</strong> of two wave functions:</p><ul>
 <li>
 <p>Both must be written in <em>either</em> sine or cosine.</p>
 </li>
@@ -720,44 +422,34 @@ $$</p>
 <li>
 <p>Each have the same constant frequency.</p>
 </li>
-</ul>
-<p>Phasors:</p>
-<p>Rectangular form:
+</ul><p>Phasors:</p><p>Rectangular form:
 $$
 z = x + jy \newline
 z = |z|(cos(\varphi) + j sin(\varphi))
-$$</p>
-<p>Polar form:
+$$</p><p>Polar form:
 $$
 z = |z|\angle{\theta^\circ} \newline
 z = |z|e^{j \theta^\circ}
-$$</p>
-<p>Polar <em>to</em> rectangular form:
+$$</p><p>Polar <em>to</em> rectangular form:
 $$
 z = r\angle{\theta^\circ} \newline
 x = r cos(\theta^\circ) \newline
 y = r cos(\theta^\circ) \newline
 z = x + j y
-$$</p>
-<p>Rectangular <em>to</em> polar form:
+$$</p><p>Rectangular <em>to</em> polar form:
 $$
 z = x + jy \newline
 r = \sqrt{x^2 + y^2} \newline
 \theta  = \arctan{\left(\dfrac{y}{x}\right)} \newline
 z = r\angle{\theta^\circ} \newline
-$$</p>
-<p>Operations:</p>
-<p>Multiplication:
+$$</p><p>Operations:</p><p>Multiplication:
 $$
 a = (b\angle{c^\circ}) \cdot\ (d\angle{e^\circ}) \newline
 a = (b \cdot\ d \angle{c^\circ + e^\circ})
-$$</p>
-<p>Division:</p>
-<p>$$
+$$</p><p>Division:</p><p>$$
 a = \dfrac{(b\angle{c^\circ})}{(d\angle{e^\circ})} \newline
 a = (\dfrac{b}{d} \angle{c^\circ - e^\circ})
-$$</p>
-<p>Phasor relations:
+$$</p><p>Phasor relations:
 $$
 V = RI \newline
 $$
@@ -766,36 +458,26 @@ V = j\omega LI \newline
 $$
 $$
 V = \dfrac{1}{j\omega C} I
-$$</p>
-<p>Impedance:
+$$</p><p>Impedance:
 $$
 Z = \dfrac{V}{I}
-$$</p>
-<p>This means that:
+$$</p><p>This means that:
 $$
 Z_{R} = R \newline
 Z_{L} = j\omega L \newline
 Z_{C} = \dfrac{1}{j\omega C} = -j \dfrac{1}{\omega C}
-$$</p>
-<p>Power in AC - general:</p>
-<p>$$
+$$</p><p>Power in AC - general:</p><p>$$
 V(t) = V_m cos(\omega t + \theta_V) \newline
 I(t) = I_m cos(\omega t + \phi_I)
-$$</p>
-<p>$$
+$$</p><p>$$
 P(t) = V_m I_m cos(\omega t + \theta_V) cos(\omega t + \phi_I)
-$$</p>
-<p>$$
+$$</p><p>$$
 P(t) = \dfrac{1}{2} V_m I_m cos(\theta_V - \phi_I) + \dfrac{1}{2} V_m I_m cos(2 \omega t + \theta_V + \phi_I)
-$$</p>
-<p>$$
+$$</p><p>$$
 P_{avg} = \dfrac{V_m I_m}{2} cos(\theta_V - \phi_I)
-$$</p>
-<p>$$
+$$</p><p>$$
 P_{avg} = V_{rms} I_{rms} cos(\theta_V - \phi_I)
-$$</p>
-<p>Different Types:</p>
-<ul>
+$$</p><p>Different Types:</p><ul>
 <li>
 <p>Real Power: $P = V_{rms} I_{rms}\ cos(\theta_V - \phi_I)\ [W]$</p>
 </li>
@@ -808,67 +490,76 @@ $$</p>
 <li>
 <p>Apparent Power: $|S| = V_{rms} I_{rms} [VA]$.</p>
 </li>
-</ul> <div class="mt-24"> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/chalmers/eem076/eem076_13" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 13 - Op-Amps and Filters </div> </a> <div class="invisible"></div> </div> </div> <div class="mt-24"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezvan.xyz" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </article> </div>  </main> <footer class="animate"> <div class="mx-auto max-w-screen-sm px-3"> <div class="relative"> <div class="absolute -top-12 right-0"> <button id="back-to-top" class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm">Back to top</div> </button> </div> </div> <div class="flex items-center justify-between"> <div>&copy; 2025 • rezarezvan.com</div> <div class="flex flex-wrap items-center gap-1.5"></div> </div> </div> </footer> <aside data-pagefind-ignore> <div id="backdrop" class="bg-[rgba(0, 0, 0, 0.5] invisible fixed left-0 top-0 z-50 flex h-screen w-full justify-center p-6 backdrop-blur-sm" data-astro-transition-persist="astro-3snakcvo-2"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="mr-2 pb-1 pt-4 text-right text-xs dark:prose-invert">
-Press <span class="prose text-xs dark:prose-invert"><kbd class="">Esc</kbd></span> or click anywhere to close
-</div> </div> </div> </aside> <script>
-  const magnifyingGlass = document.getElementById("magnifying-glass");
-  const backdrop = document.getElementById("backdrop");
+</ul></section></section>
 
-  function openPagefind() {
-    const searchDiv = document.getElementById("search");
-    const search = searchDiv.querySelector("input");
-    setTimeout(() => {
-      search.focus();
-    }, 0);
-    backdrop?.classList.remove("invisible");
-    backdrop?.classList.add("visible");
-  }
 
-  function closePagefind() {
-    const search = document.getElementById("search");
-    search.value = "";
-    backdrop?.classList.remove("visible");
-    backdrop?.classList.add("invisible");
-  }
+</body></html> </article> <div class="col-start-2"> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="#" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full pointer-events-none opacity-50 cursor-not-allowed" aria-disabled="true">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Latest post! </span> </div>  </a> <a href="/chalmers/eem076/eem076_13" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Part 13 - Op-Amps and Filters </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </div> <div class="col-start-2"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </section> <button data-slot="button" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 group fixed right-8 bottom-8 z-50 hidden" id="scroll-to-top" title="Scroll to top" aria-label="Scroll to top"> <svg width="1em" height="1em" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" data-icon="lucide:arrow-up">   <symbol id="ai:lucide:arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></symbol><use href="#ai:lucide:arrow-up"></use>  </svg> </button> <script type="module">document.addEventListener("astro:page-load",()=>{const o=document.getElementById("scroll-to-top"),t=document.querySelector("footer");o&&t&&(o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),window.addEventListener("scroll",()=>{const e=t.getBoundingClientRect().top<=window.innerHeight;o.classList.toggle("hidden",window.scrollY<=300||e)}))});</script>  </div> </main> <footer class="py-4"> <div class="mx-auto flex max-w-3xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between"> <div class="flex flex-wrap items-center justify-center gap-x-2 text-center"> <span class="text-muted-foreground text-sm">
+&copy; 2025 • rezarezvan.com </span> </div> </div> </footer> <div id="backdrop" class="invisible fixed top-0 left-0 z-50 flex h-screen w-full justify-center bg-[rgba(0,0,0,0.5)] p-6 backdrop-blur-sm" data-astro-transition-persist="astro-t6dxx5el-4"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="dark:prose-invert mr-2 pt-4 pb-1 text-right text-xs">
+Press <span class="prose dark:prose-invert text-xs"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const magnifyingGlass = document.getElementById('magnifying-glass')
+    const backdrop = document.getElementById('backdrop')
 
-  // open pagefind
-  magnifyingGlass?.addEventListener("click", () => {
-    openPagefind();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "/") {
-      e.preventDefault();
-      openPagefind();
-    } else if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-      e.preventDefault();
-      openPagefind();
+    function openPagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      setTimeout(() => {
+        search.focus()
+      }, 0)
+      backdrop?.classList.remove('invisible')
+      backdrop?.classList.add('visible')
     }
-  });
 
-  // close pagefind
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" || e.keyCode === 27) {
-      closePagefind();
+    function closePagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      if (search) {
+        search.value = ''
+      }
+      backdrop?.classList.remove('visible')
+      backdrop?.classList.add('invisible')
     }
-  });
 
-  // close pagefind when searched result(link) clicked
-  document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("pagefind-ui__result-link")) {
-      closePagefind();
-    }
-  });
+    // open pagefind
+    magnifyingGlass?.addEventListener('click', () => {
+      openPagefind()
+    })
 
-  backdrop?.addEventListener("click", (event) => {
-    if (!event.target.closest("#pagefind-container")) {
-      closePagefind();
-    }
-  });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/') {
+        e.preventDefault()
+        openPagefind()
+      } else if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        openPagefind()
+      }
+    })
 
-  // prevent form submission
-  const form = document.getElementById("form");
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
-</script>  </body></html>
+    // close pagefind
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePagefind()
+      }
+    })
+
+    // close pagefind when searched result(link) clicked
+    document.addEventListener('click', (event) => {
+      if (event.target.classList.contains('pagefind-ui__result-link')) {
+        closePagefind()
+      }
+    })
+
+    backdrop?.addEventListener('click', (event) => {
+      if (!event.target.closest('#pagefind-container')) {
+        closePagefind()
+      }
+    })
+
+    // prevent form submission
+    const form = document.getElementById('form')
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault()
+    })
+  })
+</script>  </div> </body></html>

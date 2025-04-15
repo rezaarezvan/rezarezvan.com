@@ -1,242 +1,68 @@
-<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/icon" href="/favicon.ico"><meta name="generator" content="Astro v5.5.5"><!-- Canonical URL --><link rel="canonical" href="https://rezvan.xyz/cityu/bme3105/bme3105_9/"><!-- Primary Meta Tags --><title>Part 9 - Discrete Systems | biomedical systems and control | rezarezvan.com</title><meta name="title" content="Part 9 - Discrete Systems | biomedical systems and control | rezarezvan.com"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://rezvan.xyz/cityu/bme3105/bme3105_9/"><meta property="og:title" content="Part 9 - Discrete Systems | biomedical systems and control | rezarezvan.com"><meta property="og:description"><meta property="og:image" content="https://rezvan.xyz/favicon.ico"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://rezvan.xyz/cityu/bme3105/bme3105_9/"><meta property="twitter:title" content="Part 9 - Discrete Systems | biomedical systems and control | rezarezvan.com"><meta property="twitter:description"><meta property="twitter:image" content="https://rezvan.xyz/favicon.ico"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+<!DOCTYPE html><html lang="en-US"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v5.7.0"><meta name="robots" content="index, follow"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="rezarezvan.com" href="https://rezaarezvan.com/rss.xml"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
     function renderKaTeX() {
-        if (typeof renderMathInElement !== "undefined") {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    { left: "$$", right: "$$", display: true },
-                    { left: "$", right: "$", display: false },
-                ],
-            });
-        }
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        })
+      }
     }
 
-    document.addEventListener("DOMContentLoaded", renderKaTeX);
-    document.addEventListener("astro:after-swap", renderKaTeX);
-</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script>
+    document.addEventListener('DOMContentLoaded', renderKaTeX)
+    document.addEventListener('astro:after-swap', renderKaTeX)
+  </script><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/favicon.ico"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="rezvan-blog"><link rel="manifest" href="/site.webmanifest"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.BZs-2RF_.js"></script><script>
     function init() {
-        preloadTheme();
-        onScroll();
-        animate();
-        updateThemeButtons();
-        addCopyCodeButtons();
-        setGiscusTheme();
-
-        const backToTop = document.getElementById("back-to-top");
-        backToTop?.addEventListener("click", (event) => scrollToTop(event));
-
-        const backToPrev = document.getElementById("back-to-prev");
-        backToPrev?.addEventListener("click", () => window.history.back());
-
-        const lightThemeButton = document.getElementById("light-theme-button");
-        lightThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "light");
-            toggleTheme(false);
-            updateThemeButtons();
-        });
-
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        darkThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "dark");
-            toggleTheme(true);
-            updateThemeButtons();
-        });
-
-        const systemThemeButton = document.getElementById(
-            "system-theme-button",
-        );
-        systemThemeButton?.addEventListener("click", () => {
-            localStorage.setItem("theme", "system");
-            toggleTheme(
-                window.matchMedia("(prefers-color-scheme: dark)").matches,
-            );
-            updateThemeButtons();
-        });
-
-        window
-            .matchMedia("(prefers-color-scheme: dark)")
-            .addEventListener("change", (event) => {
-                if (localStorage.theme === "system") {
-                    toggleTheme(event.matches);
-                }
-            });
-
-        document.addEventListener("scroll", onScroll);
-    }
-
-    function updateThemeButtons() {
-        const theme = localStorage.getItem("theme");
-        const lightThemeButton = document.getElementById("light-theme-button");
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        const systemThemeButton = document.getElementById(
-            "system-theme-button",
-        );
-
-        function removeActiveButtonTheme(button) {
-            button?.classList.remove("bg-black/5");
-            button?.classList.remove("dark:bg-white/5");
-        }
-
-        function addActiveButtonTheme(button) {
-            button?.classList.add("bg-black/5");
-            button?.classList.add("dark:bg-white/5");
-        }
-
-        removeActiveButtonTheme(lightThemeButton);
-        removeActiveButtonTheme(darkThemeButton);
-        removeActiveButtonTheme(systemThemeButton);
-
-        if (theme === "light") {
-            addActiveButtonTheme(lightThemeButton);
-        } else if (theme === "dark") {
-            addActiveButtonTheme(darkThemeButton);
-        } else {
-            addActiveButtonTheme(systemThemeButton);
-        }
-    }
-
-    function animate() {
-        const animateElements = document.querySelectorAll(".animate");
-
-        animateElements.forEach((element, index) => {
-            setTimeout(() => {
-                element.classList.add("show");
-            }, index * 100);
-        });
-    }
-
-    function onScroll() {
-        if (window.scrollY > 0) {
-            document.documentElement.classList.add("scrolled");
-        } else {
-            document.documentElement.classList.remove("scrolled");
-        }
-    }
-
-    function scrollToTop(event) {
-        event.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    }
-
-    function toggleTheme(dark) {
-        const css = document.createElement("style");
-
-        css.appendChild(
-            document.createTextNode(
-                `* {
-             -webkit-transition: none !important;
-             -moz-transition: none !important;
-             -o-transition: none !important;
-             -ms-transition: none !important;
-             transition: none !important;
-          }
-        `,
-            ),
-        );
-
-        document.head.appendChild(css);
-
-        if (dark) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-
-        window.getComputedStyle(css).opacity;
-        document.head.removeChild(css);
-
-        setGiscusTheme();
-    }
-
-    function preloadTheme() {
-        const userTheme = localStorage.theme;
-
-        if (userTheme === "light" || userTheme === "dark") {
-            toggleTheme(userTheme === "dark");
-        } else {
-            toggleTheme(
-                window.matchMedia("(prefers-color-scheme: dark)").matches,
-            );
-        }
-    }
-
-    function addCopyCodeButtons() {
-        let copyButtonLabel = "📋";
-        let codeBlocks = Array.from(document.querySelectorAll("pre"));
-
-        async function copyCode(codeBlock, copyButton) {
-            const codeText = codeBlock.innerText;
-            const buttonText = copyButton.innerText;
-            const textToCopy = codeText.replace(buttonText, "");
-
-            await navigator.clipboard.writeText(textToCopy);
-            copyButton.innerText = "✅";
-
-            setTimeout(() => {
-                copyButton.innerText = copyButtonLabel;
-            }, 2000);
-        }
-
-        for (let codeBlock of codeBlocks) {
-            const wrapper = document.createElement("div");
-            wrapper.style.position = "relative";
-
-            const copyButton = document.createElement("button");
-            copyButton.innerText = copyButtonLabel;
-            copyButton.classList = "copy-code";
-
-            codeBlock.setAttribute("tabindex", "0");
-            codeBlock.appendChild(copyButton);
-
-            codeBlock.parentNode.insertBefore(wrapper, codeBlock);
-            wrapper.appendChild(codeBlock);
-
-            copyButton?.addEventListener("click", async () => {
-                await copyCode(codeBlock, copyButton);
-            });
-        }
+      setGiscusTheme()
     }
 
     const setGiscusTheme = () => {
-        const giscus = document.querySelector(".giscus-frame");
+      const giscus = document.querySelector('.giscus-frame')
 
-        const isDark = document.documentElement.classList.contains("dark");
+      const isDark = document.documentElement.classList.contains('dark')
 
-        if (giscus) {
-            const url = new URL(giscus.src);
-            url.searchParams.set("theme", isDark ? "dark" : "light");
-            giscus.src = url.toString();
-        }
-    };
+      if (giscus) {
+        const url = new URL(giscus.src)
+        url.searchParams.set('theme', isDark ? 'dark' : 'light')
+        giscus.src = url.toString()
+      }
+    }
 
-    document.addEventListener("DOMContentLoaded", () => init());
-    document.addEventListener("astro:after-swap", () => init());
-    preloadTheme();
-</script><link rel="stylesheet" href="/_astro/_subject_.WmXrNcmP.css">
-<link rel="stylesheet" href="/_astro/index.C6eUsQXi.css">
-<style>summary[data-astro-cid-xvrfupwn]{cursor:pointer;border-top-left-radius:.5rem;border-top-right-radius:.5rem;padding:.375rem .75rem;font-weight:500;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}summary[data-astro-cid-xvrfupwn]:hover{background-color:#0000000d}summary[data-astro-cid-xvrfupwn]:hover:is(.dark *){background-color:#ffffff0d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]{background-color:#0000000d}details[data-astro-cid-xvrfupwn][open] summary[data-astro-cid-xvrfupwn]:is(.dark *){background-color:#ffffff0d}
-</style></head> <body> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto max-w-screen-sm px-3"> <div class="flex flex-wrap justify-between gap-y-4"> <div class="flex flex-col gap-y-2"> <a href="/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out">  <div class="font-semibold"> rezarezvan.com </div>  </a> <div class="flex gap-x-2"> <button id="light-theme-button" aria-label="Light theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <button id="dark-theme-button" aria-label="Dark theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <button id="system-theme-button" aria-label="System theme" class="group flex size-6 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect> <line x1="8" y1="21" x2="16" y2="21"></line> <line x1="12" y1="17" x2="12" y2="21"></line> </svg> </button> </div> </div> <nav class="flex items-center gap-1 text-sm"> <a href="/posts" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> posts </a> <span>/</span> <a href="/chalmers" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> chalmers </a> <span>/</span> <a href="/cityu" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cityu </a> <span>/</span> <a href="/pdf/cv/cv.pdf" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> cv </a> <span>/</span> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+    document.addEventListener('DOMContentLoaded', () => init())
+    document.addEventListener('astro:after-swap', () => init())
+  </script><title>Part 9 - Discrete Systems | rezarezvan.com</title><meta name="title" content="Part 9 - Discrete Systems | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com"><meta property="og:title" content="Part 9 - Discrete Systems"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.comundefined"><meta property="og:image:alt" content="Part 9 - Discrete Systems"><meta property="og:type" content="website"><meta property="og:locale" content="en-US"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezaarezvan.com/cityu/bme3105/bme3105_9/"><meta name="twitter:title" content="Part 9 - Discrete Systems"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.comundefined"><meta name="twitter:image:alt" content="Part 9 - Discrete Systems"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/index.CMAis0x6.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <header class="bg-background/50 sticky top-0 z-10 backdrop-blur-md" data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 p-4"> <a href="/" target="_self" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center gap-2 text-xl font-medium"> rezarezvan.com </a> <div class="flex items-center gap-2 md:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex"> <a href="/blog" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/chalmers" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> chalmers<span>/</span>  </a><a href="/cityu" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> cityu<span>/</span>  </a><a href="/about" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> about<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center rounded border border-black/15 bg-neutral-100 px-2 py-1 text-xs transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
 &nbsp;Search
-</button> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate grid gap-4"> <a href="/cityu/bme3105" class="not-prose group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-7 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm"> 
-Back to biomedical systems and control </div> </a> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/cityu/bme3105/bme3105_8" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 8 - Stability and Controller Design </div> </a> <div class="invisible"></div> </div> </div> <div class="my-10 space-y-1"> <div class="animate flex items-center gap-1.5"> <div class="font-base text-sm">BME3105</div>
-&bull;
-<div class="font-base text-sm"> <time datetime="2024-11-22T00:00:00.000Z"> November 22, 2024 </time> </div> 
-&bull;
-<div class="font-base text-sm">
-Last modified:  <time datetime="2024-11-25T16:31:58.000Z"> November 25, 2024 </time> </div> 
-&bull;
-<div class="font-base text-sm">5 min read</div> </div> <h1 class="animate text-3xl font-semibold text-black dark:text-white"> Part 9 - Discrete Systems </h1> </div> <details open class="animate rounded-lg border border-black/15 dark:border-white/20" data-astro-cid-xvrfupwn> <summary data-astro-cid-xvrfupwn>Table of Contents</summary> <nav class="" data-astro-cid-xvrfupwn> <ul class="py-3" data-astro-cid-xvrfupwn> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#introduction" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Introduction </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#from-continuous-to-discrete" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> From Continuous to Discrete </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#ad-converter-adc" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> A/D Converter (ADC) </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#da-converter-dac" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> D/A Converter (DAC) </a>  </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#difference-equation-and-discrete-time-system" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Difference Equation and Discrete-Time System </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#example" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Example </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#examples" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Examples </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#properties-of-the-mathcalz-transform" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Properties of the $\mathcal${Z}$-transform </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#transfer-function-of-a-dt-system" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Transfer Function of a DT System </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#example-1" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Example </a>  </li> </ul> </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#stability-of-dt-systems" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Stability of DT Systems </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#relation-of-poles-of-fs-and-fz" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Relation of Poles of $F(s)$ and $F(z)$ </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#from-continuous-to-discrete-1" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> From Continuous to Discrete </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#example-2" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Example </a>  </li> </ul> </li> </ul> </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#controller-design" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Controller Design </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#design-by-emulation" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Design by Emulation </a> <ul class="translate-x-3"> <li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#tustins-method" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Tustin’s Method </a>  </li><li class="list-inside list-disc px-6 py-1.5 text-sm"> <a href="#matched-pole-zero-mpz-method" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> Matched Pole-Zero (MPZ) Method </a>  </li> </ul> </li> </ul> </li> </ul> </nav> </details> <article class="animate"> <h3 id="introduction">Introduction</h3>
-<p>All signals we have dealt with so far have been continuous-time signals, i.e., they are defined for all $-\infty &#x3C; t &#x3C; +\infty$</p>
-<p>Each device in the system such as the controller, plant or a sensor can be viewed as a signal processor or filter.</p>
-<p>The relation between input and output is described by a transfer fucntion in the $s$-domain or a differential equation in the time-domain.</p>
-<p>Analog computers can be made by RLC (Resistor, Inductor, Capacitor) circuits plus OP-AMPs (Operational Amplifiers).</p>
-<p>However, the cost of these devices are high, they’re heavy and bulky, and sensitive to noise. Too many drawbacks.</p>
-<h3 id="from-continuous-to-discrete">From Continuous to Discrete</h3>
-<p>Previously, all signals have been continuously variables (analogue) and defined for all instants in time.</p>
-<p>Because controllers are now usually implemented on computers, we must deal with signal which are <em>discrete</em> in nature.</p>
-<ul>
+</button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Z1ovO0J" prefix="r2" component-url="/_astro/mobile-menu.C9T2c5u4.js" component-export="default" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;data-astro-transition-persist&quot;:[0,&quot;astro-lci6dfah-2&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" data-astro-transition-persist="astro-lci6dfah-2" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r2R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem('theme') ?? ''
+    if (['dark', 'light'].includes(localStorageTheme)) {
+      return localStorageTheme
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })()
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark')
+  } else {
+    document.documentElement.classList.add('dark')
+  }
+
+  window.localStorage.setItem('theme', theme)
+</script> <script type="module">function a(){const e=document.documentElement;e.classList.add("disable-transitions"),e.classList.toggle("dark"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("disable-transitions")});const t=e.classList.contains("dark");localStorage.setItem("theme",t?"dark":"light")}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme"),t=document.documentElement;t.classList.add("disable-transitions"),window.getComputedStyle(t).getPropertyValue("opacity"),e==="dark"?t.classList.add("dark"):t.classList.remove("dark"),requestAnimationFrame(()=>{t.classList.remove("disable-transitions")}),s()});</script> </div> </div> </header> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/cityu"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:graduation-cap">   <symbol id="ai:lucide:graduation-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol><use href="#ai:lucide:graduation-cap"></use>  </svg> CityU </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/cityu/bme3105"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:book-open">   <symbol id="ai:lucide:book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z"/></symbol><use href="#ai:lucide:book-open"></use>  </svg> Biomedical Systems And Control </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> Part 9 - Discrete Systems </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 text-4xl leading-tight font-medium text-pretty sm:text-5xl"> Part 9 - Discrete Systems </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground">BME3105</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>November 22, 2024</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>5 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="#" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full pointer-events-none opacity-50 cursor-not-allowed" aria-disabled="true">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Latest post! </span> </div>  </a> <a href="/cityu/bme3105/bme3105_8" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Part 8 - Stability and Controller Design </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <details open class="group col-start-2 rounded-xl border p-4 xl:sticky xl:top-20 xl:col-start-1 xl:mr-8 xl:ml-auto xl:h-[calc(100vh-5rem)] xl:max-w-fit xl:rounded-none xl:border-none xl:p-0"> <summary class="flex cursor-pointer items-center justify-between text-xl font-medium group-open:pb-4 xl:hidden"> <span>Table of Contents</span> <svg width="1em" height="1em" class="size-5 shrink-0 transition-transform group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg> </summary> <astro-island uid="1H0gHV" prefix="r7" component-url="/_astro/scroll-area.DmWfVO5M.js" component-export="ScrollArea" renderer-url="/_astro/client.DXT7MGXl.js" props="{&quot;className&quot;:[0,&quot;flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]&quot;],&quot;type&quot;:[0,&quot;always&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-64 flex-col overflow-y-auto xl:max-h-[calc(100vh-8rem)]" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot> <ul class="flex list-none flex-col gap-y-2 px-4 xl:mr-8" id="table-of-contents"> <li class="hidden text-lg font-medium xl:block">Table of Contents</li> <li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#introduction" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Introduction </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#from-continuous-to-discrete" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> From Continuous to Discrete </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#ad-converter-adc" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> A/D Converter (ADC) </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#da-converter-dac" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> D/A Converter (DAC) </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#difference-equation-and-discrete-time-system" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Difference Equation and Discrete-Time System </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#example" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Example </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#examples" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Examples </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#properties-of-the-mathcalz-transform" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Properties of the $\mathcal${Z}$-transform </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#transfer-function-of-a-dt-system" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Transfer Function of a DT System </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#example-1" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Example </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#stability-of-dt-systems" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Stability of DT Systems </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#relation-of-poles-of-fs-and-fz" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Relation of Poles of $F(s)$ and $F(z)$ </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#from-continuous-to-discrete-1" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> From Continuous to Discrete </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#example-2" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Example </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-4"> <a href="#controller-design" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Controller Design </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-8"> <a href="#design-by-emulation" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Design by Emulation </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#tustins-method" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Tustin’s Method </a> </li><li class="text-foreground/60 px-4 text-sm xl:p-0 ml-12"> <a href="#matched-pole-zero-mpz-method" class="marker:text-foreground/30 list-item list-disc underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit xl:list-none"> Matched Pole-Zero (MPZ) Method </a> </li> </ul> </astro-slot></div></div><div data-orientation="vertical" data-slot="scroll-area-scrollbar" class="flex touch-none p-px transition-colors select-none h-full w-2.5 border-l border-l-transparent" style="position:absolute;top:0;right:0;bottom:var(--radix-scroll-area-corner-height);--radix-scroll-area-thumb-height:18px"></div></div><!--astro:end--></astro-island> </details> <script type="module">function s(){const t=document.querySelector("header"),c=t?t.offsetHeight:0,a=new IntersectionObserver(e=>{e.forEach(o=>{const r=o.target.querySelector("h2, h3, h4, h5, h6");if(!r)return;const d=r.getAttribute("id"),n=document.querySelector(`#table-of-contents li a[href="#${d}"]`);if(!n)return;const i=o.isIntersecting?"add":"remove";n.classList[i]("text-foreground")})},{rootMargin:`-${c}px 0px 0px 0px`});document.querySelectorAll(".prose section").forEach(e=>{a.observe(e)})}document.addEventListener("astro:page-load",s);document.addEventListener("astro:after-swap",s);</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
+
+
+<meta charset="utf-8">
+<title>BME3105_9</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" rel="stylesheet">
+
+
+<section><h3 id="introduction">Introduction</h3><p>All signals we have dealt with so far have been continuous-time signals, i.e., they are defined for all $-\infty &#x3C; t &#x3C; +\infty$</p><p>Each device in the system such as the controller, plant or a sensor can be viewed as a signal processor or filter.</p><p>The relation between input and output is described by a transfer fucntion in the $s$-domain or a differential equation in the time-domain.</p><p>Analog computers can be made by RLC (Resistor, Inductor, Capacitor) circuits plus OP-AMPs (Operational Amplifiers).</p><p>However, the cost of these devices are high, they’re heavy and bulky, and sensitive to noise. Too many drawbacks.</p></section>
+<section><h3 id="from-continuous-to-discrete">From Continuous to Discrete</h3><p>Previously, all signals have been continuously variables (analogue) and defined for all instants in time.</p><p>Because controllers are now usually implemented on computers, we must deal with signal which are <em>discrete</em> in nature.</p><ul>
 <li><strong>Discrete-time</strong>
 <ul>
 <li>Signals are determined only at certain instants in time (multiple of $T_U$).</li>
@@ -247,36 +73,20 @@ Last modified:  <time datetime="2024-11-25T16:31:58.000Z"> November 25, 2024 </t
 <li>Signals are allowed only to have certain discrete values at any time step (multiples of $\Delta V$.</li>
 </ul>
 </li>
-</ul>
-<p>Discrete <strong>values</strong> levels arise because of fixed <em>resolution</em> of A-to-D (and D-to-A) converters.</p>
-<p>Discrete <strong>times</strong> arise because of fixed <em>update rate</em> of computer-based controllers.</p>
-<h4 id="ad-converter-adc">A/D Converter (ADC)</h4>
-<p>A/D converter is a device that converts a continuous-time signal $e(t)$ into a discrete-time signal.</p>
-<p>Assume,</p>
-<p>$$
+</ul><p>Discrete <strong>values</strong> levels arise because of fixed <em>resolution</em> of A-to-D (and D-to-A) converters.</p><p>Discrete <strong>times</strong> arise because of fixed <em>update rate</em> of computer-based controllers.</p><section><h4 id="ad-converter-adc">A/D Converter (ADC)</h4><p>A/D converter is a device that converts a continuous-time signal $e(t)$ into a discrete-time signal.</p><p>Assume,</p><p>$$
 e(t) =
 \begin{cases}
 \cos(t) &#x26; \quad t \geq 0 \
 0 &#x26; \quad t &#x3C; 0
 \end{cases}
-$$</p>
-<p>Then, the discrete-time signal is,</p>
-<p>$$
+$$</p><p>Then, the discrete-time signal is,</p><p>$$
 e(kT) =
 \begin{cases}
 \cos(kT) &#x26; \quad k = 0, 1, 2, \ldots \
 0 &#x26; \quad k = -1, -2, -3, \ldots
 \end{cases}
-$$</p>
-<p>where $T > 0$ is called the sample period in seconds, $\frac{1}{T} > 0$ is called the sample rate in Hz.</p>
-<p>Note that $e(kT)$ is only defined for integer values of $k$. It is undefined between $kT &#x3C; t &#x3C; (k + 1)T$, $k = 0, \pm 1, \pm 2, \ldots$.</p>
-<p>Thus, $e(kT)$ is called discrete-time (DT) signal. We usually just write $e(k)$.</p>
-<p>A digital processor is a discrete-time device that takes a discrete-time signal as input and produces a discrete-time signal as output according to a certain algortihm (<em>difference equation</em>, more on this later).</p>
-<h4 id="da-converter-dac">D/A Converter (DAC)</h4>
-<p>A D/A converter is a device that converts a DT signal into a CT signal.</p>
-<p>An example is the <em>zero-order hold</em> DAC, in which the output is held constant between samples.</p>
-<h3 id="difference-equation-and-discrete-time-system">Difference Equation and Discrete-Time System</h3>
-<blockquote>
+$$</p><p>where $T > 0$ is called the sample period in seconds, $\frac{1}{T} > 0$ is called the sample rate in Hz.</p><p>Note that $e(kT)$ is only defined for integer values of $k$. It is undefined between $kT &#x3C; t &#x3C; (k + 1)T$, $k = 0, \pm 1, \pm 2, \ldots$.</p><p>Thus, $e(kT)$ is called discrete-time (DT) signal. We usually just write $e(k)$.</p><p>A digital processor is a discrete-time device that takes a discrete-time signal as input and produces a discrete-time signal as output according to a certain algortihm (<em>difference equation</em>, more on this later).</p></section><section><h4 id="da-converter-dac">D/A Converter (DAC)</h4><p>A D/A converter is a device that converts a DT signal into a CT signal.</p><p>An example is the <em>zero-order hold</em> DAC, in which the output is held constant between samples.</p></section></section>
+<section><h3 id="difference-equation-and-discrete-time-system">Difference Equation and Discrete-Time System</h3><blockquote>
 <p>A discrete-time system is described by a <strong>difference equation</strong> of the form,
 $$
 \begin{align*}
@@ -285,78 +95,46 @@ y(k) &#x26; = b_0 u(k) + b_1 u(k - 1) + \ldots + b_n u(k - n) \newline
 \end{align*}
 $$
 where $b_0, \ldots, b_n, a_1, \ldots, a_n$ are real constants, and $a_n \neq 0$.</p>
-</blockquote>
-<p>$u(k), k = 0, 1, \ldots$ is a given DT signal called the input of the system.</p>
-<p>$y(k), k = 0, 1, \ldots$ is obtained by the above equation and is called the output of the system. We will assume $y(k) = 0, k &#x3C; 0$.</p>
-<p>$n$ is the order of the system.</p>
-<p>The difference equation can also be written as,</p>
-<p>$$
+</blockquote><p>$u(k), k = 0, 1, \ldots$ is a given DT signal called the input of the system.</p><p>$y(k), k = 0, 1, \ldots$ is obtained by the above equation and is called the output of the system. We will assume $y(k) = 0, k &#x3C; 0$.</p><p>$n$ is the order of the system.</p><p>The difference equation can also be written as,</p><p>$$
 \begin{align*}
 y(k + n ) &#x26; = b_0 u(k + n) + b_1 u(k + n - 1) + \ldots + b_n u(k) \newline
 &#x26; \quad - a_1 y(k + n - 1) - \ldots - a_n y(k) \quad k \geq 0.
 \end{align*}
-$$</p>
-<p>This is the same equation, but we have replaced $k$ with $k + n$.</p>
-<h4 id="example">Example</h4>
-<p>Consider the difference equation,</p>
-<p>$$
+$$</p><p>This is the same equation, but we have replaced $k$ with $k + n$.</p><section><h4 id="example">Example</h4><p>Consider the difference equation,</p><p>$$
 y(k) = 2u(k) + 3y(k - 1) - 2y(k - 2)
-$$</p>
-<p>where $u(k) \begin{cases} k &#x26; k \geq 0 \newline 0 &#x26; k &#x3C; 0 \end{cases}$</p>
-<p>By definition we have,</p>
-<p>$$
+$$</p><p>where $u(k) \begin{cases} k &#x26; k \geq 0 \newline 0 &#x26; k &#x3C; 0 \end{cases}$</p><p>By definition we have,</p><p>$$
 \begin{align*}
 y(0) &#x26;= 2u(0) = 0 \newline
 y(1) &#x26;= 2u(1) + 3y(0) = 2 \newline
 y(2) &#x26;= 2u(2) + 3y(1) - 2y(0) = 10 \newline
 \end{align*}
-$$</p>
-<p>We can also solve this with the $Z$-transform.</p>
-<p>The $Z$-transform is a discrete counterpart of the Laplace transform.</p>
-<p>Let’s first recall an important property of the Laplace transform.
+$$</p><p>We can also solve this with the $Z$-transform.</p><p>The $Z$-transform is a discrete counterpart of the Laplace transform.</p><p>Let’s first recall an important property of the Laplace transform.
 With continuous systems, $s$ is an *operator. Multiplying a signal by $s$ <em>differentiates</em> that signal in the time domain.
-Division by $s$ <em>integrates</em> the signal.</p>
-<p>With discrete-time systems, $z$ is also an <em>operator</em>. Multiplying a signal by $z$ <em>advance</em> that signal one “tick” in time.
-Division by $z$ <em>delays</em> the signal by one “tick”.</p>
-<blockquote>
+Division by $s$ <em>integrates</em> the signal.</p><p>With discrete-time systems, $z$ is also an <em>operator</em>. Multiplying a signal by $z$ <em>advance</em> that signal one “tick” in time.
+Division by $z$ <em>delays</em> the signal by one “tick”.</p><blockquote>
 <p>Assume $\{f(k)\}$ is a discrete-time signal with $f(k) = 0, k &#x3C; 0$. Then,
 $$
 F(z) = \sum_{k=0}^{\infty} f(k)z^{-k} \triangleq \mathcal{Z}\{f(k)\}
 $$
 where $z$ is a complex variable, and is called the $\mathcal{Z}$-transform of $f(k)$.</p>
-</blockquote>
-<p><strong>Remark</strong>: $F(z)$ is a power series of $z^{-1}$, which usually converges to a rational function.</p>
-<h4 id="examples">Examples</h4>
-<p>Let’s start easy with the impulse function,</p>
-<p>$$
+</blockquote><p><strong>Remark</strong>: $F(z)$ is a power series of $z^{-1}$, which usually converges to a rational function.</p></section><section><h4 id="examples">Examples</h4><p>Let’s start easy with the impulse function,</p><p>$$
 f(k) =
 \begin{cases}
 1 &#x26; k = 0 \newline
 0 &#x26; k \neq 0
 \end{cases}
-$$</p>
-<p>Then,</p>
-<p>$$
+$$</p><p>Then,</p><p>$$
 F(z) ) \sum_{k=0}^{\infty} f(k)z^{-k} = 1
-$$</p>
-<p>Another example is the unit step function,</p>
-<p>$$
+$$</p><p>Another example is the unit step function,</p><p>$$
 f(k) =
 \begin{cases}
 1 &#x26; k = 0, 1, 2, \ldots \newline
 0 &#x26; k &#x3C; 0
 \end{cases}
-$$</p>
-<p>Then,</p>
-<p>$$
+$$</p><p>Then,</p><p>$$
 F(z) = \sum_{k=0}^{\infty} f(k)z^{-k} = \sum_{k=0}^{\infty} z^{-k} = \frac{1}{1 - z^{-1}} = \frac{z}{z - 1},
-$$</p>
-<p>since the power series of $1 + x + x^2 + \ldots$ is $\frac{1}{1 - x}$.</p>
-<p><strong>Remark</strong></p>
-<p>We will assume that the discrete-time signal $f(k)$ is obtained by sampling a continuous-time signal $f(t)$, i.e., $f(k) \triangleq f(kT)$ where $T$ is the sample period.
-We will use the notation $\mathcal{Z}\{f(t)\}$ or $\mathcal{Z}\{F(s)\}$ or $\mathcal{Z}\{f(k)\}$ to mean $\sum_{k=0}^{\infty} f(kT) z^{-k}$.</p>
-<h4 id="properties-of-the-mathcalz-transform">Properties of the $\mathcal{Z}$-transform</h4>
-<ol>
+$$</p><p>since the power series of $1 + x + x^2 + \ldots$ is $\frac{1}{1 - x}$.</p><p><strong>Remark</strong></p><p>We will assume that the discrete-time signal $f(k)$ is obtained by sampling a continuous-time signal $f(t)$, i.e., $f(k) \triangleq f(kT)$ where $T$ is the sample period.
+We will use the notation $\mathcal{Z}\{f(t)\}$ or $\mathcal{Z}\{F(s)\}$ or $\mathcal{Z}\{f(k)\}$ to mean $\sum_{k=0}^{\infty} f(kT) z^{-k}$.</p></section><section><h4 id="properties-of-the-mathcalz-transform">Properties of the $\mathcal{Z}$-transform</h4><ol>
 <li>
 <p><strong>Linearity</strong>:
 Assume $\mathcal{Z}\{f_1(k)\} = F_1(z)$ and $\mathcal{Z}\{f_2(k)\} = F_2(z)$. Then,
@@ -379,28 +157,17 @@ $$
 \lim_{k \to \infty} x(k) = \lim_{z \to 1} (1 - z^{-1})X(z)
 $$</p>
 </li>
-</ol>
-<h4 id="transfer-function-of-a-dt-system">Transfer Function of a DT System</h4>
-<p>Given,</p>
-<p>$$
+</ol></section><section><h4 id="transfer-function-of-a-dt-system">Transfer Function of a DT System</h4><p>Given,</p><p>$$
 \begin{align*}
 y(k) &#x26; = b_0 u(k) + b_1 u(k - 1) + \ldots + b_n u(k - n) \newline
 &#x26; \quad - a_1 y(k - 1) - \ldots - a_n y(k - n) \quad k \geq 0
 \end{align*}
-$$</p>
-<p>Assume $Y(z) = \mathcal{Z}\{y(k)\}, U(z) = \mathcal{Z}\{u(k)\}$. Then $\frac{Y(z)}{U(z)}$ is called the transfer function of the above difference equation, and,</p>
-<p>$$
+$$</p><p>Assume $Y(z) = \mathcal{Z}\{y(k)\}, U(z) = \mathcal{Z}\{u(k)\}$. Then $\frac{Y(z)}{U(z)}$ is called the transfer function of the above difference equation, and,</p><p>$$
 \frac{Y(z)}{U(z)} = \frac{b_0 + b_1 z^{-1} + \ldots + b_n z^{-n}}{1 + a_1 z^{-1} + \ldots + a_n z^{-n}} = \frac{b_0 z^n + b_1 z^{n - 1} + \ldots + b_n}{z^n + a_1 z^{n - 1} + \ldots + a_n}
-$$</p>
-<h5 id="example-1">Example</h5>
-<p>Let $y(k) = 2u(k) + 3y(k - 1) - 2y(k - 2)$</p>
-<p>Then the transfer function is,</p>
-<p>$$
+$$</p><section><h5 id="example-1">Example</h5><p>Let $y(k) = 2u(k) + 3y(k - 1) - 2y(k - 2)$</p><p>Then the transfer function is,</p><p>$$
 \frac{Y(z)}{U(z)} = \frac{2}{1 - 3z^{-1} + 2z^{-2}}
-$$</p>
-<h3 id="stability-of-dt-systems">Stability of DT Systems</h3>
-<p>We have discussed what BIBO stability means for continuous-time systems. We can define the same for discrete-time systems.</p>
-<p>A DT system is said to be BIBO stable if,
+$$</p></section></section></section>
+<section><h3 id="stability-of-dt-systems">Stability of DT Systems</h3><p>We have discussed what BIBO stability means for continuous-time systems. We can define the same for discrete-time systems.</p><p>A DT system is said to be BIBO stable if,
 $$
 |u(k)| &#x3C; M_1
 $$
@@ -408,86 +175,46 @@ for all $k$, and some finite $M_1$ implies,
 $$
 |y(k)| &#x3C; M_2
 $$
-for all $k$ and some finite $M_2$.</p>
-<p>The stability criterion for DT systems is the following.</p>
-<p>Let,
+for all $k$ and some finite $M_2$.</p><p>The stability criterion for DT systems is the following.</p><p>Let,
 $$
 D(z) = \frac{\beta(z)}{\alpha(z)} = \frac{b_0 z^n + b_1 z^{n - 1} + \ldots + b_n}{z^n + a_1 z^{n - 1} + \ldots + a_n}
-$$</p>
-<p>Assume $z_1, \ldots, z_n$ are the poles of $D(z)$, i.e., $\alpha(z_i) = 0, i = 1, \ldots , n$. Then $D(z)$ is (BIBO) stable if,</p>
-<p>$$
+$$</p><p>Assume $z_1, \ldots, z_n$ are the poles of $D(z)$, i.e., $\alpha(z_i) = 0, i = 1, \ldots , n$. Then $D(z)$ is (BIBO) stable if,</p><p>$$
 |z_i| &#x3C; 1, i = 1, \ldots, n
-$$</p>
-<p>and $D(z)$ is not (BIBO) stable if there exists at least one i such that,</p>
-<p>$$
+$$</p><p>and $D(z)$ is not (BIBO) stable if there exists at least one i such that,</p><p>$$
 |z_i| \geq 1
-$$</p>
-<p>In reality, if a pole lies <em>on</em> the unit circle, we have a marginally stable system, but we will consider these as unstable for simplicity.</p>
-<h4 id="relation-of-poles-of-fs-and-fz">Relation of Poles of $F(s)$ and $F(z)$</h4>
-<p>Consider,</p>
-<p>$$
+$$</p><p>In reality, if a pole lies <em>on</em> the unit circle, we have a marginally stable system, but we will consider these as unstable for simplicity.</p><section><h4 id="relation-of-poles-of-fs-and-fz">Relation of Poles of $F(s)$ and $F(z)$</h4><p>Consider,</p><p>$$
 f(t) =
 \begin{cases}
 e^{-at} &#x26; t \geq 0 \newline
 0 &#x26; t &#x3C; 0
 \end{cases}
-$$</p>
-<p>Then,</p>
-<p>$$
+$$</p><p>Then,</p><p>$$
 F(s) \triangleq \mathcal{L}\{f(t)\} = \frac{1}{s + a}.
-$$</p>
-<p>We can see this has a pole at $s = -a$.</p>
-<p>On the other hand, let,</p>
-<p>$$
+$$</p><p>We can see this has a pole at $s = -a$.</p><p>On the other hand, let,</p><p>$$
 F(z) = \mathcal{Z}\{e^{-akT}\} = \frac{z}{z - e^{-aT}}
-$$</p>
-<p>which has a pole at $z = e^{-aT}$.</p>
-<blockquote>
+$$</p><p>which has a pole at $z = e^{-aT}$.</p><blockquote>
 <p><strong>Conclusion</strong>: Given $f(t)$ and sampling period $T$, assume $F(s) = \mathcal{L}\{f(t)\}$ and $F(z) = \mathcal{Z}\{f(k)\}$. Then the poles of $F(s)$ and $F(z)$ are related by,
 $$
 z = e^{sT}
 $$</p>
-</blockquote>
-<p>Let $s = \sigma + j \omega$. Then $z = e^{\sigma T} e^{j \omega T}$. Clearly,</p>
-<p>$$
+</blockquote><p>Let $s = \sigma + j \omega$. Then $z = e^{\sigma T} e^{j \omega T}$. Clearly,</p><p>$$
 |z| &#x3C; 1 \quad \text{if and only if} \quad \sigma &#x3C; 0
-$$</p>
-<p>Thus a DT system is (BIBO) stable if and only if all its poles are strictly inside the unit circle.</p>
-<h4 id="from-continuous-to-discrete-1">From Continuous to Discrete</h4>
-<p>Tustin’s approximation is a method to convert a continuous-time transfer function to a discrete-time transfer function.</p>
-<p>$$
+$$</p><p>Thus a DT system is (BIBO) stable if and only if all its poles are strictly inside the unit circle.</p></section><section><h4 id="from-continuous-to-discrete-1">From Continuous to Discrete</h4><p>Tustin’s approximation is a method to convert a continuous-time transfer function to a discrete-time transfer function.</p><p>$$
 z = e^{sT} = \frac{e^{sT/2}}{e^{-sT/2}} \approxeq \frac{1 + sT/2}{1 - sT/2}
-$$</p>
-<p>where $s$,</p>
-<p>$$
+$$</p><p>where $s$,</p><p>$$
 s = \frac{2}{T} \frac{z - 1}{z + 1}
-$$</p>
-<h5 id="example-2">Example</h5>
-<p>Let $G(s) = \frac{(1 + 3.2s)}{(1 + 0.2s)}$ with an update-time of $T = 0.2s$</p>
-<p>Firstly,</p>
-<p>$$
+$$</p><section><h5 id="example-2">Example</h5><p>Let $G(s) = \frac{(1 + 3.2s)}{(1 + 0.2s)}$ with an update-time of $T = 0.2s$</p><p>Firstly,</p><p>$$
 s = \frac{2}{0.2} \frac{z - 1}{z + 1} = 10 \frac{z - 1}{z + 1}
-$$</p>
-<p>Then,</p>
-<p>$$
+$$</p><p>Then,</p><p>$$
 G(z) = \frac{(1 + 3.2(10(z - 1)/(z + 1)))}{(1 + 0.2(10(z - 1)/(z + 1)))} = \frac{(1 + 32(z - 1)/(z + 1))}{(1 + 2(z - 1)/(z + 1))} = \frac{(z + 31)}{(z + 3)}
-$$</p>
-<p>If this transfer function represents the relationship between an output signal $C(z)$ and an input signal $E(z)$, then the expression,</p>
-<p>$$
+$$</p><p>If this transfer function represents the relationship between an output signal $C(z)$ and an input signal $E(z)$, then the expression,</p><p>$$
 \frac{C(z)}{E(z)} = \frac{(z + 31)}{(z + 3)}
-$$</p>
-<p>We can rewrite this as,</p>
-<p>$$
+$$</p><p>We can rewrite this as,</p><p>$$
 C(z)(z + 3) = E(z)(z + 31) = zC(z) + 3C(z) = zE(z) + 31E(z)
-$$</p>
-<p>This is the difference equation of the system. Let’s take the inverse $z$-transform of this equation.</p>
-<p>$$
+$$</p><p>This is the difference equation of the system. Let’s take the inverse $z$-transform of this equation.</p><p>$$
 c(k + 1) + 3c(k) = e(k + 1) + 31e(k)
-$$</p>
-<h3 id="controller-design">Controller Design</h3>
-<p>Given a continuous plant $G(s)$, a reference input $r(t)$, and some control specifications, find a digital controller (A/D, difference equation, D/A), such that the control specifications are satisfied.</p>
-<p>One can do this in two following ways.</p>
-<ol>
+$$</p></section></section></section>
+<section><h3 id="controller-design">Controller Design</h3><p>Given a continuous plant $G(s)$, a reference input $r(t)$, and some control specifications, find a digital controller (A/D, difference equation, D/A), such that the control specifications are satisfied.</p><p>One can do this in two following ways.</p><ol>
 <li>Emulation
 <ul>
 <li>Design a continuous controller $D(s)$ (differential equation).</li>
@@ -499,163 +226,121 @@ $$</p>
 <li>Design difference equation directly without designing $D(s)$ first.</li>
 </ul>
 </li>
-</ol>
-<h4 id="design-by-emulation">Design by Emulation</h4>
-<p>Given an analog controller $D(s)$, find $T$ and $D(z)$ such that the digital implementation of $D(s)$ has an input-output relation similar to that of $D(s)$.</p>
-<p>In other words, $T$ and $D(z)$ are subject to $u_d(t) \approx u(t)$ for the same $e(t), t \geq 0$</p>
-<p>There are two methods to do this</p>
-<ol>
+</ol><section><h4 id="design-by-emulation">Design by Emulation</h4><p>Given an analog controller $D(s)$, find $T$ and $D(z)$ such that the digital implementation of $D(s)$ has an input-output relation similar to that of $D(s)$.</p><p>In other words, $T$ and $D(z)$ are subject to $u_d(t) \approx u(t)$ for the same $e(t), t \geq 0$</p><p>There are two methods to do this</p><ol>
 <li>Tustin’s Method (as we have seen)</li>
 <li>Matched Pole-Zero (MPZ) Method</li>
-</ol>
-<h5 id="tustins-method">Tustin’s Method</h5>
-<blockquote>
+</ol><section><h5 id="tustins-method">Tustin’s Method</h5><blockquote>
 <p>Tustin’s method is defined as,
 $$
 D(z) = D(s) \Big|_{s = \frac{2}{T} \frac{z - 1}{z + 1}}
 $$</p>
-</blockquote>
-<p>We call $s = \frac{2}{T} \frac{z - 1}{z + 1}$ as a bilinear transformation or Tustin’s transformation.</p>
-<p>We also call the above equation as Tustin’s method for designing digital controllers.</p>
-<p><strong>Remark</strong>: For Tustin’ts method, the task at each step is to use a trapezoidal integration, that is, to approximate $e(t)$ by a straight line between two samples.</p>
-<p>Let’s see an example.</p>
-<p>Given $D(s) = 70 \frac{s + 2}{s + 10}$ and $T = \frac{1}{15}$.</p>
-<p>Firstly,</p>
-<p>$$
+</blockquote><p>We call $s = \frac{2}{T} \frac{z - 1}{z + 1}$ as a bilinear transformation or Tustin’s transformation.</p><p>We also call the above equation as Tustin’s method for designing digital controllers.</p><p><strong>Remark</strong>: For Tustin’ts method, the task at each step is to use a trapezoidal integration, that is, to approximate $e(t)$ by a straight line between two samples.</p><p>Let’s see an example.</p><p>Given $D(s) = 70 \frac{s + 2}{s + 10}$ and $T = \frac{1}{15}$.</p><p>Firstly,</p><p>$$
 s = \frac{2}{T} \frac{z - 1}{z + 1} = 30 \frac{z - 1}{z + 1}
-$$</p>
-<p>Then,</p>
-<p>$$
+$$</p><p>Then,</p><p>$$
 D(z) = D(s) \Big|_{s = 30 \frac{z - 1}{z + 1}} = 70 \frac{30 \frac{z - 1}{z + 1} + 2}{30 \frac{z - 1}{z + 1} + 10} = 70 \frac{30z + 28}{30z + 40}
-$$</p>
-<h5 id="matched-pole-zero-mpz-method">Matched Pole-Zero (MPZ) Method</h5>
-<p>Given a CT controller,</p>
-<p>$$
+$$</p></section><section><h5 id="matched-pole-zero-mpz-method">Matched Pole-Zero (MPZ) Method</h5><p>Given a CT controller,</p><p>$$
 D(s) = \frac{k_c(s + a)}{s + b}, \quad a > 0, b > 0
-$$</p>
-<p>Find a DT controller of the form,</p>
-<p>$$
+$$</p><p>Find a DT controller of the form,</p><p>$$
 D(z) = \frac{k_d(z - z_a)}{z - z_b}
-$$</p>
-<p>so that the behavior of the DT controller is similar to that of the CT controller.</p>
-<p>To find this, we do the following.</p>
-<p>Map poles and zeroes according to,</p>
-<p>$$
+$$</p><p>so that the behavior of the DT controller is similar to that of the CT controller.</p><p>To find this, we do the following.</p><p>Map poles and zeroes according to,</p><p>$$
 z = e^{sT}
-$$</p>
-<p>wich gives $z_a = e^{-aT}$ and $z_b = e^{-bT}$.</p>
-<p>Thus,</p>
-<p>$$
+$$</p><p>wich gives $z_a = e^{-aT}$ and $z_b = e^{-bT}$.</p><p>Thus,</p><p>$$
 D(z) = \frac{k_d(z - e^{-aT})}{z - e^{-bT}}
-$$</p>
-<p>Then we need to determine $k_d$ such that,</p>
-<p>$$
+$$</p><p>Then we need to determine $k_d$ such that,</p><p>$$
 \text{DC gain of } D(s) = \text{DC gain of } D(z)
-$$</p>
-<p>Thus,</p>
-<p>$$
+$$</p><p>Thus,</p><p>$$
 \begin{align*}
 \text{DC gain } &#x26; = \lim_{s \to 0} sY(s) = \lim_{s \to 0} sD(s) U(s) \newline
 &#x26; = \lim_{s \to 0} s \frac{k_c(s + a)}{s + b} \frac{1}{s} = D(0) = \frac{k_c a}{b}
 \end{align*}
-$$</p>
-<p>For DT systems, the DC gain is also defined as the final value of the output under the unit step input.</p>
-<p>Thus,</p>
-<p>$$
+$$</p><p>For DT systems, the DC gain is also defined as the final value of the output under the unit step input.</p><p>Thus,</p><p>$$
 \begin{align*}
 \text{DC gain } &#x26;= \lim_{z \to 1} (1 - z^{-1})D(z)U(z) \newline
 &#x26;= \lim_{z \to 1} (1 - z^{-1}) \frac{k_d(z - e^{-aT})}{z - e^{-bT}} \frac{1}{1 - z^{-1}} \newline
 &#x26;= \lim_{z \to 1} k_d \frac{z - e^{-aT}}{z - e^{-bT}} = D(1) = \frac{k_d (1 - e^{-aT})}{1 - e^{-bT}}
 \end{align*}
-$$</p>
-<p>Thus,</p>
-<p>$$
+$$</p><p>Thus,</p><p>$$
 \frac{k_c a}{b} = \frac{k_d (1 - e^{-aT})}{1 - e^{-bT}}
-$$</p>
-<p>and we can solve for $k_d$,</p>
-<p>$$
+$$</p><p>and we can solve for $k_d$,</p><p>$$
 k_d = \frac{k_c a (1 - e^{-bT})}{b (1 - e^{-aT})}
-$$</p>
-<p>Let’s see an example.</p>
-<p>Given $G(s) = \frac{1}{s^2}$, design a digital controller so that the closed-loop system has a natural frequency $\omega_n = 0.3 \frac{rad}{s}$ and a damping ratio $\zeta = 0.7$.</p>
-<p>Suppose a CT controller has been designed as,</p>
-<p>$$
+$$</p><p>Let’s see an example.</p><p>Given $G(s) = \frac{1}{s^2}$, design a digital controller so that the closed-loop system has a natural frequency $\omega_n = 0.3 \frac{rad}{s}$ and a damping ratio $\zeta = 0.7$.</p><p>Suppose a CT controller has been designed as,</p><p>$$
 D(s) = 0.81 \frac{s + 0.2}{s + 2}.
-$$</p>
-<p>We first need to find $T$. A rule of thumb of $T$ is that the sample rate satifes,</p>
-<p>$$
+$$</p><p>We first need to find $T$. A rule of thumb of $T$ is that the sample rate satifes,</p><p>$$
 \omega_s \triangleq \frac{2 \pi}{T} > 20 \omega_n
-$$</p>
-<p>Letting $\frac{2 \pi}{T} = 20 \omega_n = 6$, thus $T \approx 6$.</p>
-<p>Which means $e^{-aT} = 0.82$ and $e^{-bT} = 0.135$.</p>
-<p>Finally, we can find $k_d$,</p>
-<p>$$
+$$</p><p>Letting $\frac{2 \pi}{T} = 20 \omega_n = 6$, thus $T \approx 6$.</p><p>Which means $e^{-aT} = 0.82$ and $e^{-bT} = 0.135$.</p><p>Finally, we can find $k_d$,</p><p>$$
 k_d = \frac{0.81 \cdot 0.2 \cdot (1 - 0.135)}{2 \cdot (1 - 0.82)} = 0.1
-$$</p>
-<p>Thus,</p>
-<p>$$
+$$</p><p>Thus,</p><p>$$
 D(z) = 0.1 \frac{z - 0.82}{z - 0.135}
-$$</p> <div class="mt-24"> <div class="grid grid-cols-2 gap-1.5 sm:gap-3"> <a href="/cityu/bme3105/bme3105_8" class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="flex items-center text-sm"> Part 8 - Stability and Controller Design </div> </a> <div class="invisible"></div> </div> </div> <div class="mt-24"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezvan.xyz" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </article> </div>  </main> <footer class="animate"> <div class="mx-auto max-w-screen-sm px-3"> <div class="relative"> <div class="absolute -top-12 right-0"> <button id="back-to-top" class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm">Back to top</div> </button> </div> </div> <div class="flex items-center justify-between"> <div>&copy; 2025 • rezarezvan.com</div> <div class="flex flex-wrap items-center gap-1.5"></div> </div> </div> </footer> <aside data-pagefind-ignore> <div id="backdrop" class="bg-[rgba(0, 0, 0, 0.5] invisible fixed left-0 top-0 z-50 flex h-screen w-full justify-center p-6 backdrop-blur-sm" data-astro-transition-persist="astro-3snakcvo-2"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="mr-2 pb-1 pt-4 text-right text-xs dark:prose-invert">
-Press <span class="prose text-xs dark:prose-invert"><kbd class="">Esc</kbd></span> or click anywhere to close
-</div> </div> </div> </aside> <script>
-  const magnifyingGlass = document.getElementById("magnifying-glass");
-  const backdrop = document.getElementById("backdrop");
+$$</p></section></section></section>
 
-  function openPagefind() {
-    const searchDiv = document.getElementById("search");
-    const search = searchDiv.querySelector("input");
-    setTimeout(() => {
-      search.focus();
-    }, 0);
-    backdrop?.classList.remove("invisible");
-    backdrop?.classList.add("visible");
-  }
 
-  function closePagefind() {
-    const search = document.getElementById("search");
-    search.value = "";
-    backdrop?.classList.remove("visible");
-    backdrop?.classList.add("invisible");
-  }
+</body></html> </article> <div class="col-start-2"> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="#" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-start size-full pointer-events-none opacity-50 cursor-not-allowed" aria-disabled="true">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs">Next Post</span> <span class="w-full text-left text-sm text-ellipsis"> Latest post! </span> </div>  </a> <a href="/cityu/bme3105/bme3105_8" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-xl group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs">Previous Post</span> <span class="w-full text-right text-sm text-ellipsis"> Part 8 - Stability and Controller Design </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </div> <div class="col-start-2"> <div class="giscus"></div> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </div> </section> <button data-slot="button" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 group fixed right-8 bottom-8 z-50 hidden" id="scroll-to-top" title="Scroll to top" aria-label="Scroll to top"> <svg width="1em" height="1em" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" data-icon="lucide:arrow-up">   <symbol id="ai:lucide:arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></symbol><use href="#ai:lucide:arrow-up"></use>  </svg> </button> <script type="module">document.addEventListener("astro:page-load",()=>{const o=document.getElementById("scroll-to-top"),t=document.querySelector("footer");o&&t&&(o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),window.addEventListener("scroll",()=>{const e=t.getBoundingClientRect().top<=window.innerHeight;o.classList.toggle("hidden",window.scrollY<=300||e)}))});</script>  </div> </main> <footer class="py-4"> <div class="mx-auto flex max-w-3xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between"> <div class="flex flex-wrap items-center justify-center gap-x-2 text-center"> <span class="text-muted-foreground text-sm">
+&copy; 2025 • rezarezvan.com </span> </div> </div> </footer> <div id="backdrop" class="invisible fixed top-0 left-0 z-50 flex h-screen w-full justify-center bg-[rgba(0,0,0,0.5)] p-6 backdrop-blur-sm" data-astro-transition-persist="astro-t6dxx5el-4"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.C4tRTXsn.js"></script> <div class="dark:prose-invert mr-2 pt-4 pb-1 text-right text-xs">
+Press <span class="prose dark:prose-invert text-xs"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const magnifyingGlass = document.getElementById('magnifying-glass')
+    const backdrop = document.getElementById('backdrop')
 
-  // open pagefind
-  magnifyingGlass?.addEventListener("click", () => {
-    openPagefind();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "/") {
-      e.preventDefault();
-      openPagefind();
-    } else if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-      e.preventDefault();
-      openPagefind();
+    function openPagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      setTimeout(() => {
+        search.focus()
+      }, 0)
+      backdrop?.classList.remove('invisible')
+      backdrop?.classList.add('visible')
     }
-  });
 
-  // close pagefind
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" || e.keyCode === 27) {
-      closePagefind();
+    function closePagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      if (search) {
+        search.value = ''
+      }
+      backdrop?.classList.remove('visible')
+      backdrop?.classList.add('invisible')
     }
-  });
 
-  // close pagefind when searched result(link) clicked
-  document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("pagefind-ui__result-link")) {
-      closePagefind();
-    }
-  });
+    // open pagefind
+    magnifyingGlass?.addEventListener('click', () => {
+      openPagefind()
+    })
 
-  backdrop?.addEventListener("click", (event) => {
-    if (!event.target.closest("#pagefind-container")) {
-      closePagefind();
-    }
-  });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/') {
+        e.preventDefault()
+        openPagefind()
+      } else if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        openPagefind()
+      }
+    })
 
-  // prevent form submission
-  const form = document.getElementById("form");
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
-</script>  </body></html>
+    // close pagefind
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePagefind()
+      }
+    })
+
+    // close pagefind when searched result(link) clicked
+    document.addEventListener('click', (event) => {
+      if (event.target.classList.contains('pagefind-ui__result-link')) {
+        closePagefind()
+      }
+    })
+
+    backdrop?.addEventListener('click', (event) => {
+      if (!event.target.closest('#pagefind-container')) {
+        closePagefind()
+      }
+    })
+
+    // prevent form submission
+    const form = document.getElementById('form')
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault()
+    })
+  })
+</script>  </div> </body></html>
