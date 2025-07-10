@@ -1,0 +1,540 @@
+<!DOCTYPE html><html class="bg-background text-foreground" lang="en"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v5.8.0"><meta name="robots" content="index, follow"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="rezarezvan.com" href="https://rezarezvan.com/rss.xml"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+    function renderKaTeX() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        })
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', renderKaTeX)
+    document.addEventListener('astro:after-swap', renderKaTeX)
+  </script><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/favicon.ico"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="rezvan-blog"><link rel="manifest" href="/site.webmanifest"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CtSceO8m.js"></script><script>
+    function init() {
+      setGiscusTheme()
+    }
+
+    const setGiscusTheme = () => {
+      const giscus = document.querySelector('.giscus-frame')
+
+      const isDark = document.documentElement.classList.contains('dark')
+
+      if (giscus) {
+        const url = new URL(giscus.src)
+        url.searchParams.set('theme', isDark ? 'dark' : 'light')
+        giscus.src = url.toString()
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => init())
+    document.addEventListener('astro:after-swap', () => init())
+  </script><title>Part 5 - Flow and Diffusion models | rezarezvan.com</title><meta name="title" content="Part 5 - Flow and Diffusion models | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com"><meta name="robots" content="noindex"><meta property="og:title" content="Part 5 - Flow and Diffusion models"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.com/static/1200x630.png"><meta property="og:image:alt" content="Part 5 - Flow and Diffusion models"><meta property="og:type" content="website"><meta property="og:locale" content="en"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezarezvan.com/notes/master/feen008/feen008_5/"><meta name="twitter:title" content="Part 5 - Flow and Diffusion models"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.com/static/1200x630.png"><meta name="twitter:image:alt" content="Part 5 - Flow and Diffusion models"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/_slug_.CEL1Sefe.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <div class="bg-background/50 sticky top-0 z-50 divide-y backdrop-blur-sm xl:divide-none"> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3"> <a href="/" target="_self" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center justify-center gap-3">  <span class="hidden h-full text-lg font-medium min-[300px]:block">rezarezvan.com</span>  </a> <div class="flex items-center sm:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:flex sm:gap-6"> <a href="/blog" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/notes" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> notes<span>/</span>  </a><a href="/dump" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> dump<span>/</span>  </a><a href="/research" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> research<span>/</span>  </a><a href="/about" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> about<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center px-2 text-sm transition-colors duration-300 ease-in-out hover:rounded hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+&nbsp;Search
+</button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Z1H5Gng" prefix="r19" component-url="/_astro/mobile-menu.wQnT-2cG.js" component-export="default" renderer-url="/_astro/client.Bg5MhsdL.js" props="{&quot;data-astro-transition-persist&quot;:[0,&quot;astro-iq5tym4z-2&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" data-astro-transition-persist="astro-iq5tym4z-2" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r19R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem('theme') ?? ''
+    if (['dark', 'light'].includes(localStorageTheme)) {
+      return localStorageTheme
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })()
+
+  document.documentElement.setAttribute('data-theme', theme)
+  document.documentElement.classList.add(
+    theme === 'dark' ? 'scheme-dark' : 'scheme-light',
+  )
+  window.localStorage.setItem('theme', theme)
+</script> <script type="module">function a(){const e=document.documentElement,n=e.getAttribute("data-theme")==="dark"?"light":"dark";e.classList.add("[&_*]:transition-none"),e.setAttribute("data-theme",n),e.classList.remove("scheme-dark","scheme-light"),e.classList.add(n==="dark"?"scheme-dark":"scheme-light"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("[&_*]:transition-none")}),localStorage.setItem("theme",n)}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme")||"light",t=document.documentElement;t.classList.add("[&_*]:transition-none"),window.getComputedStyle(t).getPropertyValue("opacity"),t.setAttribute("data-theme",e),t.classList.remove("scheme-dark","scheme-light"),t.classList.add(e==="dark"?"scheme-dark":"scheme-light"),requestAnimationFrame(()=>{t.classList.remove("[&_*]:transition-none")}),s()});</script> </div> </div> </header> <div id="mobile-toc-container" class="w-full xl:hidden"><details class="group"><summary class="flex w-full cursor-pointer items-center justify-between"><div class="mx-auto flex w-full max-w-3xl items-center px-4 py-3"><div class="relative mr-2 size-4"><svg class="h-4 w-4" viewBox="0 0 24 24"><circle class="text-primary/20" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle><circle id="mobile-toc-progress-circle" class="text-primary" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="62.83" stroke-dashoffset="62.83" transform="rotate(-90 12 12)"></circle></svg></div><span id="mobile-toc-current-section" class="text-muted-foreground flex-grow truncate text-sm">
+Overview
+</span><span class="text-muted-foreground ml-2"><svg width="1em" height="1em" class="h-4 w-4 transition-transform duration-200 group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg></span></div></summary><astro-island uid="u1ECu" prefix="r20" component-url="/_astro/scroll-area.D9cGnicD.js" component-export="ScrollArea" renderer-url="/_astro/client.Bg5MhsdL.js" props="{&quot;className&quot;:[0,&quot;mx-auto max-w-3xl&quot;],&quot;data-toc-header-scroll&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative mx-auto max-w-3xl" data-toc-header-scroll="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="max-h-[30vh]"><ul class="flex list-none flex-col gap-y-2 px-4 pb-4" id="mobile-table-of-contents"><li class="px-4 text-sm text-foreground/60"><a href="#reverse-time-euler-maruyama-method" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="reverse-time-euler-maruyama-method">Reverse-time Euler-Maruyama Method</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#reverse-euler-maruyama-for-ornstein-uhlenbeck-process" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="reverse-euler-maruyama-for-ornstein-uhlenbeck-process">Reverse Euler-Maruyama for Ornstein-Uhlenbeck Process</a></li><li class="px-4 text-sm text-foreground/60"><a href="#denoising-diffusion-probabilistic-models" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="denoising-diffusion-probabilistic-models">Denoising Diffusion Probabilistic Models</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#summary" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="summary">Summary</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#given-an-sde-and-target-properties" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="given-an-sde-and-target-properties">Given an SDE and target properties</a></li><li class="px-4 text-sm text-foreground/60"><a href="#flow-and-diffusion-models" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="flow-and-diffusion-models">Flow and Diffusion Models</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#method-overview--4-steps" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="method-overview--4-steps">Method Overview — 4 Steps</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#step-1-constructing-the-probability-path" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="step-1-constructing-the-probability-path">Step 1: Constructing the Probability Path</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#step-2-marginalization" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="step-2-marginalization">Step 2: Marginalization</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#step-3-constructing-the-sde" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="step-3-constructing-the-sde">Step 3: Constructing the SDE</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#marginalization-trick" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="marginalization-trick">Marginalization Trick</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#step-4-training-the-neural-network" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="step-4-training-the-neural-network">Step 4: Training the Neural Network</a></li><li class="px-4 text-sm text-foreground/60"><a href="#footnote-label" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="footnote-label">Footnotes</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></details></div><script type="module" src="/_astro/TOCHeader.astro_astro_type_script_index_0_lang.CKMLAwWj.js"></script>   </div> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/notes/"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:graduation-cap">   <symbol id="ai:lucide:graduation-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol><use href="#ai:lucide:graduation-cap"></use>  </svg> Master </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/notes/master/feen008"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:book-open">   <symbol id="ai:lucide:book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z"/></symbol><use href="#ai:lucide:book-open"></use>  </svg> Stochastic Differential Equations And Deep Generative Models </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> <span>Part 5 - Flow and Diffusion models</span> </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 scroll-mt-31 text-4xl leading-tight font-medium text-pretty" id="post-title"> Part 5 - Flow and Diffusion models </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground">FEEN008</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>Date: April 23, 2025</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div>  <div class="font-base text-sm">
+Last modified: July 10, 2025 </div>  <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>10 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/feen008/feen008_4" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 4 - Probability distributions of SDEs </span> </div>  </a>  <a href="/notes/master/feen008/feen008_6" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 6 - Doob&#39;s $h$-transform and Girsanov&#39;s theorem </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <div id="toc-sidebar-container" class="sticky top-20 col-start-1 row-span-1 mr-8 ml-auto hidden h-[calc(100vh-5rem)] max-w-md xl:block"><astro-island uid="ZvaIY8" prefix="r21" component-url="/_astro/scroll-area.D9cGnicD.js" component-export="ScrollArea" renderer-url="/_astro/client.Bg5MhsdL.js" props="{&quot;className&quot;:[0,&quot;flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto&quot;],&quot;type&quot;:[0,&quot;hover&quot;],&quot;data-toc-scroll-area&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto" data-toc-scroll-area="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="flex flex-col gap-2 px-4"><span class="text-lg font-medium">Table of Contents</span><ul class="flex list-none flex-col gap-y-2"><li class="text-sm text-foreground/60"><a href="#reverse-time-euler-maruyama-method" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="reverse-time-euler-maruyama-method">Reverse-time Euler-Maruyama Method</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#reverse-euler-maruyama-for-ornstein-uhlenbeck-process" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="reverse-euler-maruyama-for-ornstein-uhlenbeck-process">Reverse Euler-Maruyama for Ornstein-Uhlenbeck Process</a></li><li class="text-sm text-foreground/60"><a href="#denoising-diffusion-probabilistic-models" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="denoising-diffusion-probabilistic-models">Denoising Diffusion Probabilistic Models</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#summary" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="summary">Summary</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#given-an-sde-and-target-properties" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="given-an-sde-and-target-properties">Given an SDE and target properties</a></li><li class="text-sm text-foreground/60"><a href="#flow-and-diffusion-models" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="flow-and-diffusion-models">Flow and Diffusion Models</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#method-overview--4-steps" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="method-overview--4-steps">Method Overview — 4 Steps</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#step-1-constructing-the-probability-path" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="step-1-constructing-the-probability-path">Step 1: Constructing the Probability Path</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#step-2-marginalization" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="step-2-marginalization">Step 2: Marginalization</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#step-3-constructing-the-sde" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="step-3-constructing-the-sde">Step 3: Constructing the SDE</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#marginalization-trick" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="marginalization-trick">Marginalization Trick</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#step-4-training-the-neural-network" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="step-4-training-the-neural-network">Step 4: Training the Neural Network</a></li><li class="text-sm text-foreground/60"><a href="#footnote-label" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="footnote-label">Footnotes</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></div><script type="module">class f{links=document.querySelectorAll("[data-heading-link]");activeIds=[];headings=[];regions=[];scrollArea=null;tocScrollArea=null;reset(){this.links=document.querySelectorAll("#toc-sidebar-container [data-heading-link]"),this.activeIds=[],this.headings=[],this.regions=[];const t=document.getElementById("toc-sidebar-container");this.scrollArea=t?.querySelector("[data-radix-scroll-area-viewport]")||null,this.tocScrollArea=t?.querySelector("[data-toc-scroll-area]")||null}}const e=new f;class c{static build(){if(e.headings=Array.from(document.querySelectorAll(".prose h2, .prose h3, .prose h4, .prose h5, .prose h6")),e.headings.length===0){e.regions=[];return}e.regions=e.headings.map((t,o)=>{const i=e.headings[o+1];return{id:t.id,start:t.offsetTop,end:i?i.offsetTop:document.body.scrollHeight}})}static getVisibleIds(){if(e.headings.length===0)return[];const t=window.scrollY+80,o=window.scrollY+window.innerHeight,i=new Set,l=(s,r)=>s>=t&&s<=o||r>=t&&r<=o||s<=t&&r>=o;return e.headings.forEach(s=>{const r=s.offsetTop+s.offsetHeight;l(s.offsetTop,r)&&i.add(s.id)}),e.regions.forEach(s=>{if(s.start<=o&&s.end>=t){const r=document.getElementById(s.id);if(r){const a=r.offsetTop+r.offsetHeight;s.end>a&&(a<o||t<s.end)&&i.add(s.id)}}}),Array.from(i)}}class h{static update(){if(!e.scrollArea||!e.tocScrollArea)return;const{scrollTop:t,scrollHeight:o,clientHeight:i}=e.scrollArea,l=5,s=t<=l,r=t>=o-i-l;e.tocScrollArea.classList.toggle("mask-t-from-90%",!s),e.tocScrollArea.classList.toggle("mask-b-from-90%",!r)}}class g{static update(t){e.links.forEach(o=>{o.classList.remove("text-foreground")}),t.forEach(o=>{if(o){const i=document.querySelector(`#toc-sidebar-container [data-heading-link="${o}"]`);i&&i.classList.add("text-foreground")}}),this.scrollToActive(t)}static scrollToActive(t){if(!e.scrollArea||!t.length)return;const o=document.querySelector(`#toc-sidebar-container [data-heading-link="${t[0]}"]`);if(!o)return;const{top:i,height:l}=e.scrollArea.getBoundingClientRect(),{top:s,height:r}=o.getBoundingClientRect(),a=s-i+e.scrollArea.scrollTop,u=Math.max(0,Math.min(a-(l-r)/2,e.scrollArea.scrollHeight-e.scrollArea.clientHeight));Math.abs(u-e.scrollArea.scrollTop)>5&&(e.scrollArea.scrollTop=u)}}class d{static handleScroll(){const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds))}static handleTOCScroll=()=>h.update();static handleResize(){c.build();const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds)),h.update()}static init(){if(e.reset(),c.build(),e.headings.length===0){g.update([]);return}this.handleScroll(),setTimeout(h.update,100);const t={passive:!0};window.addEventListener("scroll",this.handleScroll,t),window.addEventListener("resize",this.handleResize,t),e.scrollArea?.addEventListener("scroll",this.handleTOCScroll,t)}static cleanup(){window.removeEventListener("scroll",this.handleScroll),window.removeEventListener("resize",this.handleResize),e.scrollArea?.removeEventListener("scroll",this.handleTOCScroll),Object.assign(e,{activeIds:[],headings:[],regions:[],scrollArea:null,tocScrollArea:null})}}document.addEventListener("astro:page-load",()=>d.init());document.addEventListener("astro:after-swap",()=>{d.cleanup(),d.init()});document.addEventListener("astro:before-swap",()=>d.cleanup());</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
+
+
+<meta charset="utf-8">
+<title>FEEN008_5</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" rel="stylesheet">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><defs>
+        <symbol id="info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </symbol>
+        <symbol id="lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+        </symbol>
+        <symbol id="alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </symbol>
+        <symbol id="shield-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path>
+        </symbol>
+        <symbol id="message-square-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2zM12 8v4m0 4h.01"></path>
+        </symbol>
+        <symbol id="book-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </symbol>
+        <symbol id="anchor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </symbol>
+        <symbol id="pen-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+        </symbol>
+        <symbol id="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </symbol>
+        <symbol id="puzzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
+        </symbol>
+        <symbol id="git-branch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3v12h12M8 8l8 8"></path>
+        </symbol>
+        <symbol id="file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </symbol>
+        <symbol id="help-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </symbol>
+        <symbol id="check-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+        </symbol>
+        <symbol id="message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+        </symbol>
+        <symbol id="rotate-ccw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 2v6h6M3 8a9 9 0 015.168 1.637c.773.516 2.21 1.756 3.005 2.318.942.665 2.253.788 3.295.16.9-.545 1.553-1.723 2.592-2.605A9 9 0 018.709 21.5L7.5 20.295"></path>
+        </symbol>
+        <symbol id="code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+        </symbol>
+        <symbol id="dumbbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6.5 6.5h11m-11 11h11M5 20a2 2 0 100-4 2 2 0 000 4zM19 20a2 2 0 100-4 2 2 0 000 4zM5 10a2 2 0 100-4 2 2 0 000 4zM19 10a2 2 0 100-4 2 2 0 000 4z"></path>
+        </symbol>
+        <symbol id="alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </symbol>
+        <symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 13l4 4L19 7"></path>
+        </symbol>
+        <symbol id="check-circle-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </symbol>
+        <symbol id="list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+        </symbol>
+        <symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 9l-7 7-7-7"></path>
+        </symbol></defs></svg>
+<h2 id="reverse-time-euler-maruyama-method">Reverse-time Euler-Maruyama Method</h2>
+<p>In the forward SDE,</p>
+<p>$$
+dx = f(x(t), t) \ dt + L(t) \ d \beta(t),
+$$</p>
+<p>we simulate forward in time using Euler-Maruyama method, also note that $L(t)$ does not depend on the state $x(t)$,</p>
+<p>$$
+x_{n + 1} = x_n + f(x_n, t_n) \Delta t + L(t_n) \sqrt{\Delta t} \ \xi_n.
+$$</p>
+<p>For the reverse SDE <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>,</p>
+<p>$$
+dx = [f(x(t), t) - L(t)^2 \nabla_x \log p(x(t), t)] dt + L(t) \ d \bar{\beta}(t),
+$$</p>
+<p>we simulate <strong>backward in time</strong> with,</p>
+<p>$$
+x_{n - 1} = x_n - [f(x_n, t_n) - L(t_n)^2 \nabla_x \log p(x_n, t_n)] \Delta t - L(t_n) \sqrt{\Delta t} \ \xi_n.
+$$</p>
+<p>The <strong>score function</strong> $\nabla_x \log p(x(t), t)$ must be estimated or known.</p>
+<h3 id="reverse-euler-maruyama-for-ornstein-uhlenbeck-process">Reverse Euler-Maruyama for Ornstein-Uhlenbeck Process</h3>
+<p>Consider the forward SDE,</p>
+<p>$$
+dx = -\lambda x(t) \ dt + \sigma \ d \beta(t), \quad x(0) = 0.
+$$</p>
+<p>The marginal distribution $p(x(t), t)$ is Gaussian with zero mean and variance,</p>
+<p>$$
+\mathrm{Var}[x(t)] = \frac{\sigma^2}{2 \lambda}(1 - e^{-2 \lambda t}).
+$$</p>
+<p>The score of the process is,</p>
+<p>$$
+\begin{align*}
+\nabla_x \log p(x(t), t) &#x26; = \nabla_x \log \left[\frac{1}{\sqrt{2 \pi \mathrm{Var}[x(t)]}} e^{-\frac{x(t)^2}{2 \mathrm{Var}[x(t)]}} \right] \newline
+&#x26; = \nabla_x \left[-\frac{1}{2} \log(2 \pi) - \frac{1}{2} \log(\mathrm{Var}[x(t)]) - \frac{x(t)^2}{2 \mathrm{Var}[x(t)]} \right] \newline
+&#x26; = -\frac{1}{\mathrm{Var}[x(t)]} \underbrace{\nabla_x \mathrm{Var}[x(t)]}_{= 0} - \frac{x(t)}{\mathrm{Var}[x(t)]} \underbrace{\nabla_x x(t)}_{= 1} \newline
+&#x26; = -\frac{x(t)}{\mathrm{Var}[x(t)]}.
+\end{align*}
+$$</p>
+<p>Which we can plug into the reverse-time Euler-Maruyama method,</p>
+<p>$$
+x_{n - 1} = x_n - \left[-\lambda x_n + \frac{\sigma^2 x_n}{\mathrm{Var}[x_n]} \right] \Delta t - \sigma \sqrt{\Delta t} \ \xi_n,
+$$</p>
+<figure><img alt="Reverse Euler-Maruyama for Ornstein-Uhlenbeck Process" width="609" height="445" loading="lazy" decoding="async" src="/_astro/reverse_ornstein_uhlenbeck.BOVl7nsK_Z1IrDwp.svg" ><figcaption>Reverse Euler-Maruyama for Ornstein-Uhlenbeck Process</figcaption></figure>
+<h2 id="denoising-diffusion-probabilistic-models">Denoising Diffusion Probabilistic Models</h2>
+<figure><img src="https://www.researchgate.net/profile/Benyamin-Ghojogh/publication/382128283/figure/fig1/AS:11431281260181040@1720925618217/The-forward-and-backward-processes-of-the-diffusion-model-The-credit-of-the-used-images.ppm" alt="The forward and backward processes of the diffusion model."><figcaption>The forward and backward processes of the diffusion model. <a href="https://www.researchgate.net/figure/The-forward-and-backward-processes-of-the-diffusion-model-The-credit-of-the-used-images_fig1_382128283" rel="nofollow noreferrer noopener" target="_blank">Source</a></figcaption></figure>
+
+<p>How do you design a scalar SDE of the form,</p>
+<p>$$
+dx(t) = f(x(t), t) \ dt + L(t) \ d \beta(t),
+$$</p>
+<p>that produces a process $x(t)$ with,</p>
+<ol>
+<li>Mean: $\mathbb{E}[x(t)] = \alpha(t) x_0$,</li>
+<li>Variance: $\mathrm{Var}[x(t)] = \sigma(t)^2$,</li>
+<li>Initial Conditions: $x(0) = x_0, \alpha(0) = 1, \sigma(0) = 0$?</li>
+</ol>
+<p>Let’s start with the <strong>mean</strong> condition, recall that,</p>
+<p>$$
+\begin{equation}
+\frac{dm(t)}{dt} = \frac{d\mathbb{E}[x(t)]}{dt} = \mathbb{E}[f(x(t), t)].
+\end{equation}
+$$</p>
+<p>Thus, from our ansatz,</p>
+<p>$$
+\begin{equation}
+\mathbb{E}[x(t)] = \alpha(t) x_0 \implies \frac{d \mathbb{E}[x(t)]}{dt} = \dot{\alpha}(t) x_0.
+\end{equation}
+$$</p>
+<p>A natural choice for $f(x(t), t)$ is a simple affine function of the form,</p>
+<p>$$
+f(x(t), t) = a(t) x(t) + b(t),
+$$</p>
+<p>Taking the expectation yields,</p>
+<p>$$
+\begin{align*}
+\mathbb{E}[f(x(t), t)] &#x26; = a(t) \mathbb{E}[x(t)] + b(t) \newline
+&#x26; = a(t) \alpha(t) x_0 + b(t).
+\end{align*}
+$$</p>
+<p>If we, e.g., set $b(t) = 0$ then we can solve for $a(t)$ from Equation (1) and (2) to get,</p>
+<p>$$
+\begin{align*}
+a(t) \alpha(t) x_0 &#x26; = \dot{\alpha}(t) x_0 \newline
+a(t) &#x26; = \frac{\dot{\alpha}(t)}{\alpha(t)} \left(= \frac{d}{dt} \log(\alpha(t))\right).
+\end{align*}
+$$</p>
+<p>Thus, we have the linear SDE of the form,</p>
+<p>$$
+dx(t) = \left(\frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \right) dt + L(t) \ d \beta(t).
+$$</p>
+<p>Now, one can check that the mean condition is satisfied by this SDE, but we also have a variance condition to satisfy, thus, let’s consider the linear SDE of the form,</p>
+<p>$$
+dx(t) = \left(\frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \right) dt + \underbrace{\alpha(t)}_{\text{new}} L(t) \ d \beta(t).
+$$</p>
+<p>The solution to this SDE is,</p>
+<p>$$
+x(t) = \alpha(t) \underbrace{\left(x_0 + \int_0^t L(s) \ d \beta(s) \right)}_{y(t)}.
+$$</p>
+<p>Thus,</p>
+<p>$$
+d(y(t)) = L(t) \ d \beta(t),
+$$</p>
+<p>By definition of the variance,</p>
+<p>$$
+\begin{align*}
+\mathrm{Var}[x(t)] &#x26; = \mathbb{E}[(\underbrace{x(t)}_{= \alpha(t) y(t)} - \underbrace{\mathbb{E}[x(t)]}_{= \alpha(t) x_0})^2] \newline
+&#x26; = \mathbb{E}[(\alpha(t) y(t) - \alpha(t) x_0)^2] \newline
+&#x26; = \mathbb{E}[((\underbrace{\alpha(t)}_{\text{deterministic}})(y(t) - \underbrace{x_0}_{\text{deterministic}}))^2] \newline
+&#x26; = \alpha(t)^2 \int_0^t L(s)^2 \ ds \newline
+\end{align*}
+$$</p>
+<p>In our case, we want our variance to be $\sigma(t)^2$, thus we can set,</p>
+<p>$$
+\begin{align*}
+\alpha(t)^2 \int_0^t L(s)^2 \ ds &#x26; = \sigma(t)^2 \newline
+\int_0^t L(s)^2 \ ds &#x26; = \frac{\sigma(t)^2}{\alpha(t)^2} \newline
+L(t)^2 &#x26; = \frac{d}{dt} \left(\frac{\sigma(t)^2}{\alpha(t)^2}\right) \newline
+L(t) &#x26; = \sqrt{\frac{d}{dt} \left(\frac{\sigma(t)^2}{\alpha(t)^2}\right)} \newline
+\end{align*}
+$$</p>
+<h3 id="summary">Summary</h3>
+<p>To construct an SDE with,</p>
+<ol>
+<li>Mean: $\mathbb{E}[x(t)] = \alpha(t) x_0$,</li>
+<li>Variance: $\mathrm{Var}[x(t)] = \sigma(t)^2$,</li>
+</ol>
+<p>We use the SDE,</p>
+<p>$$
+dx(t) = \left(\frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \right) dt + \sqrt{\frac{d}{dt} \left(\frac{\sigma(t)^2}{\alpha(t)^2}\right)} \ d \beta(t).
+$$</p>
+<p>This guarantees that the process $x(t)$ is Gaussian with the desired mean and variance.</p>
+<h3 id="given-an-sde-and-target-properties">Given an SDE and target properties</h3>
+<p>Suppose we are given an SDE of the form,</p>
+<p>$$
+dx(t) = \frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \ dt + \alpha(t) L(t) \ d \beta(t), \quad x(0) = x_0,
+$$</p>
+<p>with,</p>
+<ol>
+<li>Mean: $\mathbb{E}[x(t)] = (1 - t) x_0$,</li>
+<li>Target Variance: $\mathrm{Var}[x(t)] = t^2$.</li>
+</ol>
+<p>Using $\alpha(t) = 1 - t$ we have,</p>
+<p>$$
+\dot{\alpha}(t) = -1, \quad \frac{\dot{\alpha}(t)}{\alpha(t)} = -\frac{1}{1 - t}.
+$$</p>
+<p>Thus, the SDE becomes,</p>
+<p>$$
+dx(t) = -\frac{1}{1 - t} x(t) \ dt + (1 - t) L(t) \ d \beta(t).
+$$</p>
+<p>By doing the same “trick” as before, we find that,</p>
+<p>$$
+\begin{align*}
+L^2(t) &#x26; = \frac{d}{dt} \left(\frac{t^2}{(1 - t)^2}\right) \newline
+&#x26; = \frac{2t(1 - t)^2 + 2t^2(1 - t)}{(1 - t)^4} \newline
+&#x26; = \frac{2t[(1 - t)^2 + t(1 - t)]}{(1 - t)^4} \newline
+&#x26; = \frac{2t(1 - t)}{(1 - t)^4} \newline
+&#x26; = \frac{2t}{(1 - t)^3}.
+\end{align*}
+$$</p>
+<p>So,</p>
+<p>$$
+L(t) = \sqrt{\frac{2t}{(1 - t)^3}},
+$$</p>
+<p>we can also further simplify the diffusion term to,</p>
+<p>$$
+(1 - t) L(t) = (1 - t) \sqrt{\frac{2t}{(1 - t)^3}} = \sqrt{\frac{2t}{(1 - t)}}.
+$$</p>
+<p>So the SDE becomes,</p>
+<p>$$
+dx(t) = -\frac{1}{1 - t} x(t) \ dt + \sqrt{\frac{2t}{(1 - t)}} \ d \beta(t).
+$$</p>
+<p>This is a fully simplified form valid for $t &#x3C; 1$ which produces,</p>
+<ol>
+<li>Mean: $\mathbb{E}[x(t)] = (1 - t) x_0$,</li>
+<li>Variance: $\mathrm{Var}[x(t)] = t^2$.</li>
+</ol>
+<p>The process is Gaussian, fully characterized by these expressions.</p>
+<h2 id="flow-and-diffusion-models">Flow and Diffusion Models</h2>
+<p>Consider the SDE in $\mathbb{R}^d$,</p>
+<p>$$
+d \mathbf{x}(t) = \mathbf{f}^{\theta}(\mathbf{x}(t), t) \ dt + \sigma_t \ d \beta(t),
+$$</p>
+<p>Our <strong>goal</strong> is to, given $\mathbf{x}(0) \sim p_{\text{init}}(\mathbf{x}(0))$, make sure that $\mathbf{x}(1) \sim p_{\text{data}}(\mathbf{x}(1))$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Terminology<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$\sigma_t = 0$ <strong>Flow model</strong>: The SDE is reduced to an ODE (e.g., Flow Matching).
+$\sigma_t \neq 0$ <strong>Diffusion model</strong>: The SDE is a stochastic process (e.g., Denoising Diffusion Probabilistic Models).</p></div>
+</details>
+<figure><img src="https://www.researchgate.net/profile/Benyamin-Ghojogh/publication/382128283/figure/fig1/AS:11431281260181040@1720925618217/The-forward-and-backward-processes-of-the-diffusion-model-The-credit-of-the-used-images.ppm" alt="The forward and backward processes of the diffusion model."><figcaption>The forward and backward processes of the diffusion model. <a href="https://www.researchgate.net/figure/The-forward-and-backward-processes-of-the-diffusion-model-The-credit-of-the-used-images_fig1_382128283" rel="nofollow noreferrer noopener" target="_blank">Source</a></figcaption></figure>
+
+<p>Consider the SDE in $\mathbb{R}^d$,</p>
+<p>$$
+d \mathbf{x}(t) = \mathbf{f}^{\theta}(\mathbf{x}(t), t) \ dt + \sigma_t \ d \beta(t),
+$$</p>
+<p>Suppose $\mathbf{x}(0) \sim p_0 = p_{\text{init}}$ at time $t = 0$ where $p_{\text{init}}$ is a simple distribution like a Gaussian.</p>
+<p>We would like $\mathbf{x}(1) \sim p_1 = p_{\text{data}}$ at time $t = 1$ where $p_{\text{data}}$ is some complicated data distribution.</p>
+<p>We’ll study how to,</p>
+<ol>
+<li>Construct an (ideal) vector field $\mathbf{f}^{\text{target}}$ and $\sigma_t$.</li>
+<li>Train such that $\mathbf{f}^{\theta} \approx \mathbf{f}^{\text{target}}$</li>
+</ol>
+<p>We can then sample from $p_{\text{init}}$, run it through the SDE and obtain a sample from $p_{\text{data}}$.</p>
+<h3 id="method-overview--4-steps">Method Overview — 4 Steps</h3>
+<ol>
+<li>Start by constructing a probability path $p_t(\cdot | \mathbf{z})$ for individual samples $z$ which interpolates from noise $p_0(\cdot | \mathbf{z}) = p_{\text{init}}(\cdot)$ to data sample $z$, $p_1(\cdot | \mathbf{z}) = \delta_{\mathbf{z}}(\cdot)$</li>
+<li>Marginalization gives us,
+$$
+p_t(\mathbf{x}) = \int p_t(\mathbf{x} | \mathbf{z}) p_{\text{data}}(\mathbf{z}) \ d \mathbf{z}.
+$$</li>
+<li>Construct an (ideal) SDE which simulates $p_t$.</li>
+<li>Train a neural network that approximates this SDE.</li>
+</ol>
+<h4 id="step-1-constructing-the-probability-path">Step 1: Constructing the Probability Path</h4>
+<p>Start by constructing,</p>
+<p>$$
+p_t(\cdot | \mathbf{z}),
+$$</p>
+<p>for individual samples $z$ from data distribution with conditions,</p>
+<p>$$
+p_0(\cdot | \mathbf{z}) = p_{\text{init}}(\cdot) \text{ and } p_1(\cdot | \mathbf{z}) = \delta_{\mathbf{z}}(\cdot) \text{ for all } \mathbf{z} \in \mathbb{R}^d.
+$$</p>
+<p>Such a path $p_t(\cdot | \mathbf{z})$ is called a <strong>conditional probability path</strong>.</p>
+<h4 id="step-2-marginalization">Step 2: Marginalization</h4>
+<p>Each conditional path induces a <strong>marginal probability path</strong>,</p>
+<p>$$
+p_t(\mathbf{x}) = \int p_t(\mathbf{x} | \mathbf{z}) p_{\text{data}}(\mathbf{z}) \ d \mathbf{z}.
+$$</p>
+<p>We can sample from $p_t$ via,</p>
+<p>$$
+\mathbf{z} \sim p_{\text{data}}, \quad \mathbf{x} \sim p_t(\cdot | \mathbf{z}) \implies \mathbf{x} \sim p_t.
+$$</p>
+<p>Note we do not know the density values of $p_t(\mathbf{x})$ as the integral is intractable.</p>
+<p>The marginal probability path $p_t(\mathbf{x})$ interpolates between $p_{\text{init}}$ and $p_{\text{data}}$,</p>
+<p>$$
+p_0(\mathbf{x}) = p_{\text{init}}(\mathbf{x}) \text{ and } p_1(\mathbf{x}) = p_{\text{data}}(\mathbf{x}).
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-green-500 dark:bg-green-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-green-700 dark:text-green-300" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Example: Gaussian<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-green-700 dark:text-green-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Define the path,
+$$
+p_t(\cdot | \mathbf{z}) = \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d),
+$$</p></div>
+</details>
+<p>with $\alpha_0 = \sigma_1 = 0$ and $\alpha_1 = \sigma_0 = 1$, or in other words, we move from a $\mathcal{N}(0, 1)$ to a $\mathcal{N}(\mathbf{z}, 0)$.</p>
+<p>Note, $\alpha_t$ and $\sigma_t$ should be continuous and differentiable functions in $t$.</p>
+<p>Sampling from the marginal path $p_t$,</p>
+<p>$$
+\mathbf{z} \sim p_{\text{data}}, \epsilon \sim p_{\text{init}} = \mathcal{N}(0, \mathbf{I}_d) \implies \mathbf{x}(t) = \alpha_t \mathbf{z} + \sigma_t \epsilon \sim p_t.
+$$</p>
+<h3 id="step-3-constructing-the-sde">Step 3: Constructing the SDE</h3>
+<p>First, we construct <strong>analytically</strong> an SDE for simulating the conditional probability path.</p>
+<p>Then, via the so-called “marginalization trick”, we obtain an SDE for the marginal probability path.</p>
+<p>Recall our notation for an SDE $d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \ dt + L(t) d \ \beta(t)$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-green-500 dark:bg-green-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-green-700 dark:text-green-300" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Example: Gaussian<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-green-700 dark:text-green-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For the path,
+$$
+p_t(\cdot | \mathbf{z}) = \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d),
+$$
+with $\alpha_0 = \sigma_1 = 0$ and $\alpha_1 = \sigma_0 = 1$, then the following ODE,
+$$
+\mathbf{f}(\mathbf{x}(t), t) = (\dot{\alpha}_t - \frac{\dot{\sigma}_t}{\sigma_t} \alpha_t) \mathbf{z} + \frac{\dot{\sigma}_t}{\sigma_t} \mathbf{x}(t) \text{ and } L(t) = 0,
+$$</p></div>
+</details>
+<p>simulates the conditional probability path in the sense that $\mathbf{x}(t) \sim \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d$.</p>
+<p>We can check this with,</p>
+<ol>
+<li>By definition of mean and variance of an SDE,</li>
+<li>The Fokker-Planck-Kolmogorov equation.</li>
+</ol>
+<h4 id="marginalization-trick">Marginalization Trick</h4>
+<p>What is the SDE for the marginal path?</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Theorem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If the ODE with vector field $\mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z})$ yields the conditional path $p_t(\mathbf{x}(t), \mathbf{z})$ then the marginal field,
+$$
+\mathbf{f}^{\text{target}}(\mathbf{x}(t), t) = \int \mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z}) \underbrace{\frac{p_t(\mathbf{x}(t) | \mathbf{z}) p_{\text{data}}(\mathbf{z})}{p_t(\mathbf{x}(t))}}_{p_t(\mathbf{z} | \mathbf{x}(t))} \ d \mathbf{z},
+$$</p></div>
+</details>
+<p>yields the marginal path $p_t(\mathbf{x}(t))$.</p>
+<p>Hence, using $\mathbf{f}^{\text{target}}(\mathbf{x}(t), t)$ yields a good path — <strong>it turns noise into data!</strong> (sadly, it is unknown).</p>
+<p>The proof? Fokker-Planck-Kolmogorov equation!</p>
+<h3 id="step-4-training-the-neural-network">Step 4: Training the Neural Network</h3>
+<p>A possible loss function is,
+$$
+\mathcal{L}_{FM} = \mathbb{E}_{t \sim \text{Unif}, \mathbf{x}(t) \sim p_t} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t) \Vert^2  \right]
+$$</p>
+<p>However, $\mathbf{f}^{\text{target}}(\mathbf{x}(t), t)$ is not explicitly available.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Theorem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For,
+$$
+\begin{align*}
+\mathcal{L}_{FM} &#x26; = \mathbb{E}_{t \sim \text{Unif}, \mathbf{x}(t) \sim p_t} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t) \Vert^2  \right], \newline
+\mathcal{L}_{CFM} &#x26; = \mathbb{E}_{t \sim \text{Unif}, \mathbf{z} \sim p_{\text{data}}, \mathbf{x} \sim p_t(\cdot | \mathbf{z})} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z}) \Vert^2  \right],
+\end{align*}
+$$
+it holds that $\nabla_{\theta} \mathcal{L}_{FM} = \nabla_{\theta} \mathcal{L}_{CFM}$.</p></div>
+</details>
+<p>Hence, we can use $\mathcal{L}_{CFM}$ to train $\mathbf{f}^{\theta}(\mathbf{x}(t), t)$ (this is the main takeaway from the original flow matching paper <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>).</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-green-500 dark:bg-green-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-green-700 dark:text-green-300" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Example: Gaussian<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-green-700 dark:text-green-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The path $p_t(\cdot | \mathbf{z}) = \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d)$ is simulated via the ODE with vector field,
+$$
+\mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z}) = (\dot{\alpha}_t - \frac{\dot{\sigma}_t}{\sigma_t} \alpha_t) \mathbf{z} + \frac{\dot{\sigma}_t}{\sigma_t} \mathbf{x}(t).
+$$
+A natural choice is $\alpha(t) = t$ and $\sigma(t) = 1 - t$, which gives $\dot{\alpha}(t) = 1$ and $\dot{\sigma}(t) = -1$.
+It yields the loss function,</p></div>
+</details>
+<p>$$
+\begin{align*}
+\mathcal{L}_{CFM} &#x26; = \mathbb{E}_{t \sim \text{Unif}, \mathbf{z} \sim p_{\text{data}}, \mathbf{x} \sim \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d)} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z}) \Vert^2  \right] \newline
+&#x26; = \mathbb{E}_{t \sim \text{Unif}, \mathbf{z} \sim p_{\text{data}}, \mathbf{x} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}_d)} \left[ \Vert \mathbf{f}^{\theta}(t \mathbf{z} + (1 - t) \epsilon, t) - (\mathbf{z} - \epsilon) \Vert^2  \right] \newline
+\end{align*}
+$$</p>
+<p>where we have used $\mathbf{x}(t) = t \mathbf{z} + (1 - t) \epsilon$.</p>
+<p>We have constructed an ODE for a conditional probability path. One can also construct an SDE and the same methodology is applicable.</p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p><a href="https://core.ac.uk/download/pdf/82826666.pdf" rel="nofollow noreferrer noopener" target="_blank">Reverse-Time Diffusion Equation Models</a> by Anderson. <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p><a href="https://arxiv.org/abs/2210.02747" rel="nofollow noreferrer noopener" target="_blank">Flow Matching for Generative Modeling</a> by Lipman et al. <a href="#user-content-fnref-2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+
+
+</body></html> </article>  <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/feen008/feen008_4" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 4 - Probability distributions of SDEs </span> </div>  </a>  <a href="/notes/master/feen008/feen008_6" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 6 - Doob&#39;s $h$-transform and Girsanov&#39;s theorem </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
+  function updateGiscusTheme() {
+    const element = document.documentElement
+    const theme = element.getAttribute('data-theme')
+    const iframe = document.querySelector('iframe.giscus-frame')
+    if (!iframe) return
+    iframe.contentWindow.postMessage(
+      { giscus: { setConfig: { theme } } },
+      'https://giscus.app',
+    )
+  }
+
+  const observer = new MutationObserver(updateGiscusTheme)
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  })
+
+  window.onload = () => {
+    updateGiscusTheme()
+  }
+</script> </div> </section> <button data-slot="button" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 group fixed right-8 bottom-8 z-50 hidden" id="scroll-to-top" title="Scroll to top" aria-label="Scroll to top"> <svg width="1em" height="1em" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" data-icon="lucide:arrow-up">   <symbol id="ai:lucide:arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></symbol><use href="#ai:lucide:arrow-up"></use>  </svg> </button> <script type="module">document.addEventListener("astro:page-load",()=>{const o=document.getElementById("scroll-to-top"),t=document.querySelector("footer");o&&t&&(o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),window.addEventListener("scroll",()=>{const e=t.getBoundingClientRect().top<=window.innerHeight;o.classList.toggle("hidden",window.scrollY<=300||e)}))});</script>  </div> </main> <footer class="py-4"> <div class="mx-auto flex max-w-3xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between"> <div class="flex flex-wrap items-center justify-center gap-x-2 text-center"> <span class="text-muted-foreground text-sm">
+&copy; 2025 • rezarezvan.com </span> </div> </div> </footer> <div id="backdrop" class="invisible fixed top-0 left-0 z-50 flex h-screen w-full justify-center bg-[rgba(0,0,0,0.5)] p-6 backdrop-blur-sm" data-astro-transition-persist="astro-t6dxx5el-4"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.mBpmxV9R.js"></script> <div class="dark:prose-invert mr-2 pt-4 pb-1 text-right text-xs">
+Press <span class="prose dark:prose-invert text-xs"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const magnifyingGlass = document.getElementById('magnifying-glass')
+    const backdrop = document.getElementById('backdrop')
+
+    function openPagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      setTimeout(() => {
+        search.focus()
+      }, 0)
+      backdrop?.classList.remove('invisible')
+      backdrop?.classList.add('visible')
+    }
+
+    function closePagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      if (search) {
+        search.value = ''
+      }
+      backdrop?.classList.remove('visible')
+      backdrop?.classList.add('invisible')
+    }
+
+    // open pagefind
+    magnifyingGlass?.addEventListener('click', () => {
+      openPagefind()
+    })
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePagefind()
+      }
+    })
+
+    // close pagefind when searched result(link) clicked
+    document.addEventListener('click', (event) => {
+      if (event.target.classList.contains('pagefind-ui__result-link')) {
+        closePagefind()
+      }
+    })
+
+    backdrop?.addEventListener('click', (event) => {
+      if (!event.target.closest('#pagefind-container')) {
+        closePagefind()
+      }
+    })
+
+    // prevent form submission
+    const form = document.getElementById('form')
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault()
+    })
+  })
+</script>  </div> </body></html>

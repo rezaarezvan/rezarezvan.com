@@ -1,0 +1,887 @@
+<!DOCTYPE html><html class="bg-background text-foreground" lang="en"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v5.8.0"><meta name="robots" content="index, follow"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="rezarezvan.com" href="https://rezarezvan.com/rss.xml"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+    function renderKaTeX() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        })
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', renderKaTeX)
+    document.addEventListener('astro:after-swap', renderKaTeX)
+  </script><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/favicon.ico"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="rezvan-blog"><link rel="manifest" href="/site.webmanifest"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CtSceO8m.js"></script><script>
+    function init() {
+      setGiscusTheme()
+    }
+
+    const setGiscusTheme = () => {
+      const giscus = document.querySelector('.giscus-frame')
+
+      const isDark = document.documentElement.classList.contains('dark')
+
+      if (giscus) {
+        const url = new URL(giscus.src)
+        url.searchParams.set('theme', isDark ? 'dark' : 'light')
+        giscus.src = url.toString()
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => init())
+    document.addEventListener('astro:after-swap', () => init())
+  </script><title>Part 4 - Duality and SVM | rezarezvan.com</title><meta name="title" content="Part 4 - Duality and SVM | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com"><meta name="robots" content="noindex"><meta property="og:title" content="Part 4 - Duality and SVM"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.com/static/1200x630.png"><meta property="og:image:alt" content="Part 4 - Duality and SVM"><meta property="og:type" content="website"><meta property="og:locale" content="en"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezarezvan.com/notes/exchange/cs4487/cs4487_4/"><meta name="twitter:title" content="Part 4 - Duality and SVM"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.com/static/1200x630.png"><meta name="twitter:image:alt" content="Part 4 - Duality and SVM"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/_slug_.CEL1Sefe.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <div class="bg-background/50 sticky top-0 z-50 divide-y backdrop-blur-sm xl:divide-none"> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3"> <a href="/" target="_self" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center justify-center gap-3">  <span class="hidden h-full text-lg font-medium min-[300px]:block">rezarezvan.com</span>  </a> <div class="flex items-center sm:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:flex sm:gap-6"> <a href="/blog" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/notes" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> notes<span>/</span>  </a><a href="/dump" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> dump<span>/</span>  </a><a href="/research" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> research<span>/</span>  </a><a href="/about" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> about<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center px-2 text-sm transition-colors duration-300 ease-in-out hover:rounded hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+&nbsp;Search
+</button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="ZA5U8j" prefix="r20" component-url="/_astro/mobile-menu.wQnT-2cG.js" component-export="default" renderer-url="/_astro/client.Bg5MhsdL.js" props="{&quot;data-astro-transition-persist&quot;:[0,&quot;astro-iq5tym4z-2&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" data-astro-transition-persist="astro-iq5tym4z-2" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r20R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem('theme') ?? ''
+    if (['dark', 'light'].includes(localStorageTheme)) {
+      return localStorageTheme
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })()
+
+  document.documentElement.setAttribute('data-theme', theme)
+  document.documentElement.classList.add(
+    theme === 'dark' ? 'scheme-dark' : 'scheme-light',
+  )
+  window.localStorage.setItem('theme', theme)
+</script> <script type="module">function a(){const e=document.documentElement,n=e.getAttribute("data-theme")==="dark"?"light":"dark";e.classList.add("[&_*]:transition-none"),e.setAttribute("data-theme",n),e.classList.remove("scheme-dark","scheme-light"),e.classList.add(n==="dark"?"scheme-dark":"scheme-light"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("[&_*]:transition-none")}),localStorage.setItem("theme",n)}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme")||"light",t=document.documentElement;t.classList.add("[&_*]:transition-none"),window.getComputedStyle(t).getPropertyValue("opacity"),t.setAttribute("data-theme",e),t.classList.remove("scheme-dark","scheme-light"),t.classList.add(e==="dark"?"scheme-dark":"scheme-light"),requestAnimationFrame(()=>{t.classList.remove("[&_*]:transition-none")}),s()});</script> </div> </div> </header> <div id="mobile-toc-container" class="w-full xl:hidden"><details class="group"><summary class="flex w-full cursor-pointer items-center justify-between"><div class="mx-auto flex w-full max-w-3xl items-center px-4 py-3"><div class="relative mr-2 size-4"><svg class="h-4 w-4" viewBox="0 0 24 24"><circle class="text-primary/20" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle><circle id="mobile-toc-progress-circle" class="text-primary" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="62.83" stroke-dashoffset="62.83" transform="rotate(-90 12 12)"></circle></svg></div><span id="mobile-toc-current-section" class="text-muted-foreground flex-grow truncate text-sm">
+Overview
+</span><span class="text-muted-foreground ml-2"><svg width="1em" height="1em" class="h-4 w-4 transition-transform duration-200 group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg></span></div></summary><astro-island uid="Z2k9CtN" prefix="r25" component-url="/_astro/scroll-area.D9cGnicD.js" component-export="ScrollArea" renderer-url="/_astro/client.Bg5MhsdL.js" props="{&quot;className&quot;:[0,&quot;mx-auto max-w-3xl&quot;],&quot;data-toc-header-scroll&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative mx-auto max-w-3xl" data-toc-header-scroll="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="max-h-[30vh]"><ul class="flex list-none flex-col gap-y-2 px-4 pb-4" id="mobile-table-of-contents"><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#review" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="review">Review</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#convex-set" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="convex-set">Convex Set</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#convex-function" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="convex-function">Convex Function</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#first-order-condition" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="first-order-condition">First Order Condition</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#second-order-condition" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="second-order-condition">Second-Order Condition</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#convex-optimization-problems" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="convex-optimization-problems">Convex Optimization Problems</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#optimization-problem-in-standard-form" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="optimization-problem-in-standard-form">Optimization Problem in Standard Form</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#optimal-and-locally-optimal-points" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="optimal-and-locally-optimal-points">Optimal and Locally Optimal Points</a></li><li class="px-4 text-sm ml-12 text-foreground/60"><a href="#examples" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="examples">Examples</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#feasibility-problem" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="feasibility-problem">Feasibility Problem</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#convex-optimization-problem-in-standard-form" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="convex-optimization-problem-in-standard-form">Convex Optimization Problem in Standard Form</a></li><li class="px-4 text-sm ml-12 text-foreground/60"><a href="#example" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="example">Example</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#local-and-global-optima-in-convex-optimization" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="local-and-global-optima-in-convex-optimization">Local and Global Optima in Convex Optimization</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#duality" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="duality">Duality</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#lagrangian" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="lagrangian">Lagrangian</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#lagrange-dual-function" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="lagrange-dual-function">Lagrange Dual Function</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#least-norm-solution-of-linear-equations" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="least-norm-solution-of-linear-equations">Least-Norm Solution of Linear Equations</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#standard-form-linear-programming" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="standard-form-linear-programming">Standard Form Linear Programming</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#the-dual-problem" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="the-dual-problem">The Dual Problem</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#complementary-slackness" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="complementary-slackness">Complementary Slackness</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#karush-kuhn-tucker-kkt-conditions" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="karush-kuhn-tucker-kkt-conditions">Karush-Kuhn-Tucker (KKT) Conditions</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#support-vector-machine-svm" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="support-vector-machine-svm">Support Vector Machine (SVM)</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#svm-with-transformed-input" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="svm-with-transformed-input">SVM with Transformed Input</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#svl-from-primal-to-dual" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="svl-from-primal-to-dual">SVL: From Primal to Dual</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#svm-the-dual-problem" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="svm-the-dual-problem">SVM: The Dual Problem</a></li><li class="px-4 text-sm ml-12 text-foreground/60"><a href="#interpretation-of-alpha_i" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="interpretation-of-alpha_i">Interpretation of $\alpha_i$</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#kernel-function" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="kernel-function">Kernel Function</a></li><li class="px-4 text-sm ml-12 text-foreground/60"><a href="#example-polynomial-kernel" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="example-polynomial-kernel">Example: Polynomial Kernel</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#kernel-trick" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="kernel-trick">Kernel Trick</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#rbf-kernel" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="rbf-kernel">RBF Kernel</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#kernel-svm-summary" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="kernel-svm-summary">Kernel SVM: Summary</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#sequential-minimal-optimization-smo" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="sequential-minimal-optimization-smo">Sequential Minimal Optimization (SMO)</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#solving-svm-coordinate-descent" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="solving-svm-coordinate-descent">Solving SVM: Coordinate Descent</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#solving-svm-sequential-minimal-optimization-smo" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="solving-svm-sequential-minimal-optimization-smo">Solving SVM: Sequential Minimal Optimization (SMO)</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#smo" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="smo">SMO</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#classification-summary" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="classification-summary">Classification Summary</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#regulatization-and-overfitting" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="regulatization-and-overfitting">Regulatization and Overfitting</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#other-things" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="other-things">Other Things</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#which-classifier-is-best" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="which-classifier-is-best">Which Classifier is Best?</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></details></div><script type="module" src="/_astro/TOCHeader.astro_astro_type_script_index_0_lang.CKMLAwWj.js"></script>   </div> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/notes/"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:graduation-cap">   <symbol id="ai:lucide:graduation-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol><use href="#ai:lucide:graduation-cap"></use>  </svg> Exchange </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/notes/exchange/cs4487"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:book-open">   <symbol id="ai:lucide:book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z"/></symbol><use href="#ai:lucide:book-open"></use>  </svg> Machine Learning </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> <span>Part 4 - Duality and SVM</span> </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 scroll-mt-31 text-4xl leading-tight font-medium text-pretty" id="post-title"> Part 4 - Duality and SVM </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground">CS4487</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>Date: October 2, 2024</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div>  <div class="font-base text-sm">
+Last modified: July 10, 2025 </div>  <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>14 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/exchange/cs4487/cs4487_3" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 3 - Optimization and Convexity </span> </div>  </a>  <a href="/notes/exchange/cs4487/cs4487_5" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 5 - Regression </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <div id="toc-sidebar-container" class="sticky top-20 col-start-1 row-span-1 mr-8 ml-auto hidden h-[calc(100vh-5rem)] max-w-md xl:block"><astro-island uid="Zz3tLH" prefix="r24" component-url="/_astro/scroll-area.D9cGnicD.js" component-export="ScrollArea" renderer-url="/_astro/client.Bg5MhsdL.js" props="{&quot;className&quot;:[0,&quot;flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto&quot;],&quot;type&quot;:[0,&quot;hover&quot;],&quot;data-toc-scroll-area&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto" data-toc-scroll-area="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="flex flex-col gap-2 px-4"><span class="text-lg font-medium">Table of Contents</span><ul class="flex list-none flex-col gap-y-2"><li class="text-sm ml-4 text-foreground/60"><a href="#review" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="review">Review</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#convex-set" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="convex-set">Convex Set</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#convex-function" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="convex-function">Convex Function</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#first-order-condition" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="first-order-condition">First Order Condition</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#second-order-condition" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="second-order-condition">Second-Order Condition</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#convex-optimization-problems" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="convex-optimization-problems">Convex Optimization Problems</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#optimization-problem-in-standard-form" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="optimization-problem-in-standard-form">Optimization Problem in Standard Form</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#optimal-and-locally-optimal-points" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="optimal-and-locally-optimal-points">Optimal and Locally Optimal Points</a></li><li class="text-sm ml-12 text-foreground/60"><a href="#examples" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="examples">Examples</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#feasibility-problem" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="feasibility-problem">Feasibility Problem</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#convex-optimization-problem-in-standard-form" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="convex-optimization-problem-in-standard-form">Convex Optimization Problem in Standard Form</a></li><li class="text-sm ml-12 text-foreground/60"><a href="#example" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="example">Example</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#local-and-global-optima-in-convex-optimization" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="local-and-global-optima-in-convex-optimization">Local and Global Optima in Convex Optimization</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#duality" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="duality">Duality</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#lagrangian" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="lagrangian">Lagrangian</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#lagrange-dual-function" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="lagrange-dual-function">Lagrange Dual Function</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#least-norm-solution-of-linear-equations" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="least-norm-solution-of-linear-equations">Least-Norm Solution of Linear Equations</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#standard-form-linear-programming" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="standard-form-linear-programming">Standard Form Linear Programming</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#the-dual-problem" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="the-dual-problem">The Dual Problem</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#complementary-slackness" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="complementary-slackness">Complementary Slackness</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#karush-kuhn-tucker-kkt-conditions" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="karush-kuhn-tucker-kkt-conditions">Karush-Kuhn-Tucker (KKT) Conditions</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#support-vector-machine-svm" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="support-vector-machine-svm">Support Vector Machine (SVM)</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#svm-with-transformed-input" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="svm-with-transformed-input">SVM with Transformed Input</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#svl-from-primal-to-dual" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="svl-from-primal-to-dual">SVL: From Primal to Dual</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#svm-the-dual-problem" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="svm-the-dual-problem">SVM: The Dual Problem</a></li><li class="text-sm ml-12 text-foreground/60"><a href="#interpretation-of-alpha_i" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="interpretation-of-alpha_i">Interpretation of $\alpha_i$</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#kernel-function" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="kernel-function">Kernel Function</a></li><li class="text-sm ml-12 text-foreground/60"><a href="#example-polynomial-kernel" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="example-polynomial-kernel">Example: Polynomial Kernel</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#kernel-trick" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="kernel-trick">Kernel Trick</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#rbf-kernel" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="rbf-kernel">RBF Kernel</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#kernel-svm-summary" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="kernel-svm-summary">Kernel SVM: Summary</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#sequential-minimal-optimization-smo" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="sequential-minimal-optimization-smo">Sequential Minimal Optimization (SMO)</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#solving-svm-coordinate-descent" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="solving-svm-coordinate-descent">Solving SVM: Coordinate Descent</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#solving-svm-sequential-minimal-optimization-smo" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="solving-svm-sequential-minimal-optimization-smo">Solving SVM: Sequential Minimal Optimization (SMO)</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#smo" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="smo">SMO</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#classification-summary" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="classification-summary">Classification Summary</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#regulatization-and-overfitting" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="regulatization-and-overfitting">Regulatization and Overfitting</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#other-things" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="other-things">Other Things</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#which-classifier-is-best" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="which-classifier-is-best">Which Classifier is Best?</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></div><script type="module">class f{links=document.querySelectorAll("[data-heading-link]");activeIds=[];headings=[];regions=[];scrollArea=null;tocScrollArea=null;reset(){this.links=document.querySelectorAll("#toc-sidebar-container [data-heading-link]"),this.activeIds=[],this.headings=[],this.regions=[];const t=document.getElementById("toc-sidebar-container");this.scrollArea=t?.querySelector("[data-radix-scroll-area-viewport]")||null,this.tocScrollArea=t?.querySelector("[data-toc-scroll-area]")||null}}const e=new f;class c{static build(){if(e.headings=Array.from(document.querySelectorAll(".prose h2, .prose h3, .prose h4, .prose h5, .prose h6")),e.headings.length===0){e.regions=[];return}e.regions=e.headings.map((t,o)=>{const i=e.headings[o+1];return{id:t.id,start:t.offsetTop,end:i?i.offsetTop:document.body.scrollHeight}})}static getVisibleIds(){if(e.headings.length===0)return[];const t=window.scrollY+80,o=window.scrollY+window.innerHeight,i=new Set,l=(s,r)=>s>=t&&s<=o||r>=t&&r<=o||s<=t&&r>=o;return e.headings.forEach(s=>{const r=s.offsetTop+s.offsetHeight;l(s.offsetTop,r)&&i.add(s.id)}),e.regions.forEach(s=>{if(s.start<=o&&s.end>=t){const r=document.getElementById(s.id);if(r){const a=r.offsetTop+r.offsetHeight;s.end>a&&(a<o||t<s.end)&&i.add(s.id)}}}),Array.from(i)}}class h{static update(){if(!e.scrollArea||!e.tocScrollArea)return;const{scrollTop:t,scrollHeight:o,clientHeight:i}=e.scrollArea,l=5,s=t<=l,r=t>=o-i-l;e.tocScrollArea.classList.toggle("mask-t-from-90%",!s),e.tocScrollArea.classList.toggle("mask-b-from-90%",!r)}}class g{static update(t){e.links.forEach(o=>{o.classList.remove("text-foreground")}),t.forEach(o=>{if(o){const i=document.querySelector(`#toc-sidebar-container [data-heading-link="${o}"]`);i&&i.classList.add("text-foreground")}}),this.scrollToActive(t)}static scrollToActive(t){if(!e.scrollArea||!t.length)return;const o=document.querySelector(`#toc-sidebar-container [data-heading-link="${t[0]}"]`);if(!o)return;const{top:i,height:l}=e.scrollArea.getBoundingClientRect(),{top:s,height:r}=o.getBoundingClientRect(),a=s-i+e.scrollArea.scrollTop,u=Math.max(0,Math.min(a-(l-r)/2,e.scrollArea.scrollHeight-e.scrollArea.clientHeight));Math.abs(u-e.scrollArea.scrollTop)>5&&(e.scrollArea.scrollTop=u)}}class d{static handleScroll(){const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds))}static handleTOCScroll=()=>h.update();static handleResize(){c.build();const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds)),h.update()}static init(){if(e.reset(),c.build(),e.headings.length===0){g.update([]);return}this.handleScroll(),setTimeout(h.update,100);const t={passive:!0};window.addEventListener("scroll",this.handleScroll,t),window.addEventListener("resize",this.handleResize,t),e.scrollArea?.addEventListener("scroll",this.handleTOCScroll,t)}static cleanup(){window.removeEventListener("scroll",this.handleScroll),window.removeEventListener("resize",this.handleResize),e.scrollArea?.removeEventListener("scroll",this.handleTOCScroll),Object.assign(e,{activeIds:[],headings:[],regions:[],scrollArea:null,tocScrollArea:null})}}document.addEventListener("astro:page-load",()=>d.init());document.addEventListener("astro:after-swap",()=>{d.cleanup(),d.init()});document.addEventListener("astro:before-swap",()=>d.cleanup());</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
+
+
+<meta charset="utf-8">
+<title>CS4487_4</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" rel="stylesheet">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><defs>
+        <symbol id="info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </symbol>
+        <symbol id="lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+        </symbol>
+        <symbol id="alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </symbol>
+        <symbol id="shield-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path>
+        </symbol>
+        <symbol id="message-square-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2zM12 8v4m0 4h.01"></path>
+        </symbol>
+        <symbol id="book-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </symbol>
+        <symbol id="anchor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </symbol>
+        <symbol id="pen-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+        </symbol>
+        <symbol id="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </symbol>
+        <symbol id="puzzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
+        </symbol>
+        <symbol id="git-branch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3v12h12M8 8l8 8"></path>
+        </symbol>
+        <symbol id="file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </symbol>
+        <symbol id="help-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </symbol>
+        <symbol id="check-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+        </symbol>
+        <symbol id="message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+        </symbol>
+        <symbol id="rotate-ccw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 2v6h6M3 8a9 9 0 015.168 1.637c.773.516 2.21 1.756 3.005 2.318.942.665 2.253.788 3.295.16.9-.545 1.553-1.723 2.592-2.605A9 9 0 018.709 21.5L7.5 20.295"></path>
+        </symbol>
+        <symbol id="code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+        </symbol>
+        <symbol id="dumbbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6.5 6.5h11m-11 11h11M5 20a2 2 0 100-4 2 2 0 000 4zM19 20a2 2 0 100-4 2 2 0 000 4zM5 10a2 2 0 100-4 2 2 0 000 4zM19 10a2 2 0 100-4 2 2 0 000 4z"></path>
+        </symbol>
+        <symbol id="alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </symbol>
+        <symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 13l4 4L19 7"></path>
+        </symbol>
+        <symbol id="check-circle-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </symbol>
+        <symbol id="list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+        </symbol>
+        <symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 9l-7 7-7-7"></path>
+        </symbol></defs></svg>
+<h3 id="review">Review</h3>
+<p>Let’s review over what we covered last time.</p>
+<h4 id="convex-set">Convex Set</h4>
+<p>Recall that a <strong>line segment</strong> between $\mathbf{x}^{(1)}$ and $\mathbf{x}^{(2)}$ all points,
+$$
+\mathbf{x} = \alpha \mathbf{x}^{(1)} + (1 - \alpha) \mathbf{x}^{(2)}
+$$</p>
+<p>So, a <strong>convex set</strong>, contains line segment between any two points in the set,
+$$
+\mathbf{x}^{(1)}, \mathbf{x}^{(2)} \in \chi, 0 \leq \alpha \leq 1 \Rightarrow \alpha \mathbf{x}^{(1)} + (1 - \alpha) \mathbf{x}^{(2)} \in \chi.
+$$</p>
+<h4 id="convex-function">Convex Function</h4>
+<p>$f : \mathbb{R}^N \rightarrow \mathbb{R}$ is convex if $dom(f)$ is a convex set and,</p>
+<p>$$
+f(\alpha \mathbf{x}^{(1)} + (1 - \alpha) \mathbf{x}^{(2)}) \leq \alpha f(\mathbf{x}^{(1)}) + (1 - \alpha) f(\mathbf{x}^{(2)})
+$$</p>
+<p>for all $\mathbf{x}^{(1)}, \mathbf{x}^{(2)} \in dom(f)$ and $0 \leq \alpha \leq 1$.</p>
+<p>Also, remember that $f$ is concave if $-f$ is convex.</p>
+<h4 id="first-order-condition">First Order Condition</h4>
+<p>$f$ is <strong>differentiable</strong> if the gradient,
+$$
+\nabla f(\mathbf{x}) =
+\begin{bmatrix}
+\frac{\partial f(\mathbf{x})}{\partial x_1}, \frac{\partial f(\mathbf{x})}{\partial x_2}, \ldots, \frac{\partial f(\mathbf{x})}{\partial x_N}
+\end{bmatrix}^T
+$$</p>
+<p>exists at each $\mathbf{x} \in dom(f)$.</p>
+<p>The <strong>first-order condition</strong> is that, differentiable $f$ with convex domain is convex if and only if,
+$$
+f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x})^T (\mathbf{y} - \mathbf{x}) \quad \forall \mathbf{x}, \mathbf{y} \in dom(f).
+$$</p>
+<p>First-order approximation of $f$ is global underestimator.</p>
+<h4 id="second-order-condition">Second-Order Condition</h4>
+<p>$f$ is <strong>twice differentiable</strong> if the Hessian $\nabla^2 f(\mathbf{x})$ exists at each $\mathbf{x} \in \mathbb{S}^N$,
+$$
+\nabla^2 f(\mathbf{x})_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}.
+$$</p>
+<p>exists at each $\mathbf{x} \in dom(f)$.</p>
+<p>The <strong>second-order condition</strong> is that, twice differentiable $f$ with convex domain is convex if and only if,
+$$
+\nabla^2 f(\mathbf{x}) \succeq 0
+$$</p>
+<p>This means that the Hessian matrix is positive semidefinite,
+$$
+\mathbf{A} \succeq 0 \Leftrightarrow \forall \mathbf{x}, \mathbf{x}^T \mathbf{A} \mathbf{x} \geq 0.
+$$</p>
+<h3 id="convex-optimization-problems">Convex Optimization Problems</h3>
+<p>To understand what a convex optimization problem is, we need to understand optimization problems in standard form.</p>
+<h4 id="optimization-problem-in-standard-form">Optimization Problem in Standard Form</h4>
+<p>$$
+\begin{aligned}
+\underset{\mathbf{x}}{\text{minimize}} &#x26; \quad f_0(\mathbf{x}) \newline
+\text{subject to} &#x26; \quad f_i(\mathbf{x}) \leq 0, \quad i = 1, \ldots, r \newline
+&#x26; \quad h_i(\mathbf{x}) = 0, \quad i = 1, \ldots, s
+\end{aligned}
+$$</p>
+<p>where,</p>
+<ul>
+<li>$\mathbf{x} \in \mathbb{R}^N$ is the optimization variable,</li>
+<li>$f_0 : \mathbb{R}^N \rightarrow \mathbb{R}$ is the objective function or cost function,</li>
+<li>$f_i : \mathbb{R}^N \rightarrow \mathbb{R}$, $i = 1, \ldots, r$, are the inequality constraint functions,</li>
+<li>$h_i : \mathbb{R}^N \rightarrow \mathbb{R}$, $i = 1, \ldots, s$, are the equality constraint functions.</li>
+</ul>
+<p>The <strong>optimal value</strong> of the optimization problem is,
+$$
+p^{\star} = \min \{f_0(\mathbf{x} | f_i(\mathbf{x}) \leq 0, i = 1, \ldots, r, h_i(\mathbf{x}) = 0, i = 1, \ldots, s)\}
+$$</p>
+<p>Note,</p>
+<ul>
+<li>$p^{\star} = \infty$ if the problem is infeasible (no $\mathbf{x}$ satisfies the constraints).</li>
+<li>$p^{\star} = -\infty$ if the problem is unbounded (the objective function can be made arbitrarily small).</li>
+</ul>
+<h4 id="optimal-and-locally-optimal-points">Optimal and Locally Optimal Points</h4>
+<p>A point $\mathbf{x}^{\star}$ is <strong>feasible</strong> if $\mathbf{x} \in dom(f_0)$, and it satisfies the constraints.
+A feasible $\mathbf{x}^{\star}$ is <strong>optimal</strong> if $f_0(\mathbf{x}^{\star}) = p^{\star}$.</p>
+<p>$\mathbf{x}$ is locally optimal if there is a $R > 0$ such that $\mathbf{x}$ is optimal for,
+$$
+\begin{aligned}
+\underset{z}{\text{minimize}} &#x26; \quad f_0(\mathbf{z}) \newline
+\text{subject to} &#x26; \quad f_i(\mathbf{z}) \leq 0, \quad i = 1, \ldots, r \newline
+&#x26; \quad h_i(\mathbf{z}) = 0, \quad i = 1, \ldots, s \newline
+&#x26; \quad \Vert \mathbf{z} - \mathbf{x} \Vert_2 \leq R
+\end{aligned}
+$$</p>
+<h5 id="examples">Examples</h5>
+<ul>
+<li>$f_0(x) = -\log x, dom(f_0) = \mathbb{R}_{++}$
+<ul>
+<li>$p^{\star} = -\infty$</li>
+</ul>
+</li>
+<li>$f_0(x) = x \log x, dom(f_0) = \mathbb{R}_{++}$
+<ul>
+<li>$p^{\star} = -\frac{1}{e}, x = \frac{1}{e}$ is optimal.</li>
+</ul>
+</li>
+<li>$f_0(x) = x^3 - 3x$
+<ul>
+<li>$p^{\star} = -\infty$ locally optimum at $x = 1$.</li>
+</ul>
+</li>
+</ul>
+<h4 id="feasibility-problem">Feasibility Problem</h4>
+<p>$$
+\begin{aligned}
+\text{find} &#x26; \quad \mathbf{x} \newline
+\text{subject to} &#x26; \quad f_i(\mathbf{x}) \leq 0, \quad i = 1, \ldots, r \newline
+&#x26; \quad h_i(\mathbf{x}) = 0, \quad i = 1, \ldots, s
+\end{aligned}
+$$</p>
+<p>can be considered a special case of the general problem with $f_0(\mathbf{x}) = 0$,
+$$
+\begin{aligned}
+\underset{\mathbf{x}}{\text{minimize}} &#x26; \quad 0 \newline
+\text{subject to} &#x26; \quad f_i(\mathbf{x}) \leq 0, \quad i = 1, \ldots, r \newline
+&#x26; \quad h_i(\mathbf{x}) = 0, \quad i = 1, \ldots, s
+\end{aligned}
+$$</p>
+<p>$p^{\star} = 0$ if constraints are feasible, any feasible $\mathbf{x}$ is optimal.
+Otherwise, $p^{\star} = \infty$ if the constraints are infeasible.</p>
+<h4 id="convex-optimization-problem-in-standard-form">Convex Optimization Problem in Standard Form</h4>
+<p>$$
+\begin{aligned}
+\text{minimize} &#x26; \quad f_0(\mathbf{x}) \newline
+\text{subject to} &#x26; \quad f_i(\mathbf{x}) \leq 0, \quad i = 1, \ldots, r \newline
+&#x26; \quad \mathbf{a_i}^T \mathbf{x} = b_i, \quad i = 1, \ldots, s
+\end{aligned}
+$$</p>
+<p>where,</p>
+<ul>
+<li>$f_0, f_1, \ldots, f_r$ are convex functions,</li>
+<li>Equality constraints are affine functions.</li>
+</ul>
+<p>We often write this as,
+$$
+\begin{aligned}
+\underset{\mathbf{x}}{\text{minimize}} &#x26; \quad f_0(\mathbf{x}) \newline
+\text{subject to} &#x26; \quad f_i(\mathbf{x}) \leq 0, \quad i = 1, \ldots, r \newline
+&#x26; \quad \mathbf{A}\mathbf{x} = \mathbf{b}
+\end{aligned}.
+$$</p>
+<p>Important property to note, a feasible set of a convex optimization problem is a convex set.</p>
+<h5 id="example">Example</h5>
+<p>$$
+\begin{aligned}
+\text{minimize} &#x26; \quad f_0(\mathbf{x}) = x_1^2 + x_2^2 \newline
+\text{subject to} &#x26; \quad f_1(\mathbf{x}) = \frac{x_1}{1 + x_2^2} \leq 0 \newline
+&#x26; \quad h_1(\mathbf{x}) = (x_1 + x_2)^2 = 0
+\end{aligned}
+$$</p>
+<p>Let’s take a look at each component here.</p>
+<p>$f_0$ is convex, feasible set $\newline{(x_1, x_2) | x_1 = -x_2 \leq 0\newline}$ is convex.
+However, this is not a convex problem (in standard form), $f_1$ is not convex and $h_1$ is not affine.</p>
+<p>Let’s write it as a convex problem in standard form,
+$$
+\begin{aligned}
+\text{minimize} &#x26; \quad f_0(\mathbf{x}) = x_1^2 + x_2^2 \newline
+\text{subject to} &#x26; \quad f_1(\mathbf{x}) = x_1 \leq 0 \ \bigg\rvert \ \cdot (1 + x_2^2) \newline
+&#x26; \quad h_1(\mathbf{x}) = x_1 + x_2 = 0 \ \bigg\rvert \ \sqrt{} \newline
+\end{aligned}
+$$</p>
+<h4 id="local-and-global-optima-in-convex-optimization">Local and Global Optima in Convex Optimization</h4>
+<blockquote>
+<p>Any locally optimal point of is (globally) optimal.</p>
+</blockquote>
+<p><strong>Proof</strong>.
+Suppose $\mathbf{x}$ is locally optimal and $\mathbf{y}$ is optimal with $f_0(\mathbf{y}) &#x3C; f_0(\mathbf{x})$.
+Locally optimal $\mathbf{x}$ means there is a $R > 0$ such that,
+$$
+\mathbf{z} \text{ feasible, } \Vert \mathbf{z} - \mathbf{x} \Vert_2 \leq R \Rightarrow f_0(\mathbf{z}) \geq f_0(\mathbf{x}).
+$$</p>
+<p>Consider $\mathbf{z} = \alpha \mathbf{y} + (1 - \alpha) \mathbf{x}$, with $\alpha = \frac{R}{2 \Vert \mathbf{y} - \mathbf{x} \Vert_2}$.
+Thus, $\Vert \mathbf{y} - \mathbf{x} \Vert_2 > R$, so $0 &#x3C; \alpha &#x3C; \frac{1}{2}$.</p>
+<p>$\mathbf{z}$ is a convex combination of two feasible points, hence feasible.
+$\Vert \mathbf{z} - \mathbf{x} \Vert_2 = \frac{R}{2}$, and,
+$$
+f_0(\mathbf{z}) \leq \alpha f_0(\mathbf{y}) + (1 - \alpha) f_0(\mathbf{x}) &#x3C; f_0(\mathbf{x}),
+$$</p>
+<p>which contradicts our assumption that $\mathbf{x}$ is locally optimal.</p>
+<h3 id="duality">Duality</h3>
+<p>To understand duality, we need to understand the <strong>Lagrangian</strong>.</p>
+<h4 id="lagrangian">Lagrangian</h4>
+<p>Given the optimization problem in standard form (not necessarily convex),
+$$
+\begin{aligned}
+\underset{\mathbf{x}}{\text{min}} &#x26; \quad f_0(\mathbf{x}) \newline
+\text{subject to} &#x26; \quad f_i(\mathbf{x}) \leq 0, \quad i = 1, \ldots, r \newline
+&#x26; \quad h_i(\mathbf{x}) = 0, \quad i = 1, \ldots, s
+\end{aligned}
+$$</p>
+<p>We have the variable $\mathbf{x} \in \mathbb{R}^N$, domain $\Chi$ and the optimal value $p^{\star}$.</p>
+<p><strong>Lagrangian</strong> $\mathbf{L} : \mathbb{R}^N \times \mathbb{R}^r \times \mathbb{R}^s \rightarrow \mathbb{R}$, with $dom(L) = \Chi \times \mathbb{R}^r \times \mathbb{R}^s$,
+$$
+\mathbf{L}(\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}) = f_0(\mathbf{x}) + \sum_{i=1}^r \lambda_i f_i(\mathbf{x}) + \sum_{i=1}^s \nu_i h_i(\mathbf{x}).
+$$</p>
+<p>This can be interpreted as the weighted sum of the objective and the constraints functions.</p>
+<p>$\lambda_i$ is Lagrange multiplier associated with $f_i(\mathbf{x}) \leq 0$.
+$\nu_i$ is Lagrange multiplier associated with $h_i(\mathbf{x}) = 0$.</p>
+<h4 id="lagrange-dual-function">Lagrange Dual Function</h4>
+<p>The <strong>Lagrange dual function</strong> $g : \mathbb{R}^r \times \mathbb{R}^s \rightarrow \mathbb{R}$ is,
+$$
+g(\mathbf{\lambda}, \mathbf{\nu}) = \underset{\mathbf{x} \in \Chi}{\text{inf}} \mathbf{L}(\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}) = \underset{\mathbf{x} \in \Chi}{\text{inf}} \left( f_0(\mathbf{x}) + \sum_{i=1}^r \lambda_i f_i(\mathbf{x}) + \sum_{i=1}^s \nu_i h_i(\mathbf{x}) \right).
+$$</p>
+<p>$g$ is concave and can be $-\infty$ for some $\mathbf{\lambda}$ and $\mathbf{\nu}$.</p>
+<blockquote>
+<p><strong>Lower Bound Property</strong>. If $\mathbf{\lambda} \geq 0$, then $g(\mathbf{\lambda}, \mathbf{\nu}) \leq p^{\star}$.</p>
+</blockquote>
+<p><strong>Proof</strong>. If $\mathbf{\tilde{x}}$ is feasible and $\mathbf{\lambda} \geq 0$, then,
+$$
+f_0(\mathbf{\tilde{x}}) \geq \mathbf{L}(\mathbf{\tilde{x}}, \mathbf{\lambda}, \mathbf{\nu}) \geq \underset{\mathbf{x} \in \Chi}{\text{inf}} \mathbf{L}(\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}) = g(\mathbf{\lambda}, \mathbf{\nu}).
+$$</p>
+<p>Minimizing over all feasible $\mathbf{\tilde{x}}$ gives $p^{\star} \geq g(\mathbf{\lambda}, \mathbf{\nu})$.</p>
+<h4 id="least-norm-solution-of-linear-equations">Least-Norm Solution of Linear Equations</h4>
+<p>Given a linear system $\mathbf{A}\mathbf{x} = \mathbf{b}$, the least-norm solution is,
+$$
+\begin{aligned}
+\underset{\mathbf{x}}{\text{minimize}} &#x26; \quad \mathbf{x}^T \mathbf{x} \newline
+\text{subject to} &#x26; \quad \mathbf{A}\mathbf{x} = \mathbf{b}
+\end{aligned}
+$$</p>
+<p>Firstly, let’s write this in standard form,
+$$
+\begin{aligned}
+\underset{\mathbf{x}}{\text{minimize}} &#x26; \quad \mathbf{x}^T \mathbf{x} \newline
+\text{subject to} &#x26; \quad \mathbf{A}\mathbf{x} - \mathbf{b} = 0
+\end{aligned}
+$$</p>
+<p>Therefore, the Lagrangian is $\mathbf{L}(\mathbf{x}, \mathbf{\nu}) = \mathbf{x}^T \mathbf{x} + \mathbf{\nu}^T (\mathbf{A}\mathbf{x} - \mathbf{b})$.</p>
+<p>To minimize $\mathbf{L}$ over $\mathbf{x}$, set gradient equal to zero,
+$$
+\nabla_{\mathbf{x}} \mathbf{L}(\mathbf{x}, \mathbf{\nu}) = 2\mathbf{x} + \mathbf{A}^T \mathbf{\nu} = 0 \Rightarrow \mathbf{x} = -\frac{1}{2} \mathbf{A}^T \mathbf{\nu}.
+$$</p>
+<p>Plug in $\mathbf{L}$ to obtain $g$,
+$$
+g(\mathbf{\nu}) = \mathbf{L}(-\frac{1}{2} \mathbf{A}^T \mathbf{\nu}, \mathbf{\nu}) = \frac{1}{4} \mathbf{\nu}^T \mathbf{A} \mathbf{A}^T \mathbf{\nu} - \mathbf{b}^T \mathbf{\nu}.
+$$</p>
+<p>which is a concave function of $\mathbf{\nu}$.</p>
+<p>Using the lower bound property, $p^{\star} \geq -\frac{1}{4} \mathbf{\nu}^T \mathbf{A} \mathbf{A}^T \mathbf{\nu} - \mathbf{b}^T \mathbf{\nu}$ for all $\mathbf{\nu}$.</p>
+<h4 id="standard-form-linear-programming">Standard Form Linear Programming</h4>
+<p>$$
+\begin{aligned}
+\underset{\mathbf{x}}{\text{minimize}} &#x26; \quad \mathbf{c}^T \mathbf{x} \newline
+\text{subject to} &#x26; \quad \mathbf{A}\mathbf{x} = \mathbf{b}, \quad \mathbf{x} \succeq 0 \newline
+\end{aligned}
+$$</p>
+<p>Let’s write this in standard form,
+$$
+\begin{aligned}
+\underset{\mathbf{x}}{\text{minimize}} &#x26; \quad \mathbf{c}^T \mathbf{x} \newline
+\text{subject to} &#x26; \quad \mathbf{A}\mathbf{x} - \mathbf{b} = 0 \newline
+&#x26; \quad -\mathbf{x} \preceq 0
+\end{aligned}
+$$</p>
+<p>The Lagrangian is,
+$$
+\begin{aligned}
+\mathbf{L}(\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}) &#x26; = \mathbf{c}^T \mathbf{x} + \mathbf{\nu}^T (\mathbf{A}\mathbf{x} - \mathbf{b}) - \mathbf{\lambda}^T \mathbf{x} \newline
+&#x26; = -\mathbf{b}^T \mathbf{\nu} + (\mathbf{A}^T \mathbf{\nu} - \mathbf{\lambda} + \mathbf{c})^T \mathbf{x}.
+\end{aligned}
+$$</p>
+<p>$\mathbf{L}$ is affine in $\mathbf{x}$, hence,
+$$
+g(\mathbf{\lambda}, \mathbf{\nu}) = \underset{\mathbf{x}}{\text{inf}} \ \mathbf{L}(\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}) =
+\begin{cases}
+-\mathbf{b}^T \mathbf{\nu} &#x26; \mathbf{A}^T \mathbf{\nu} - \mathbf{\lambda} + \mathbf{c} = 0 \newline
+-\infty &#x26; \text{otherwise}
+\end{cases}
+$$</p>
+<p>$g$ is linear on $\newline{(\mathbf{\lambda}, \mathbf{\nu}) | \mathbf{A}^T \mathbf{\nu} - \mathbf{\lambda} + \mathbf{c} = 0\newline}$, hence concave.</p>
+<p>Using the lower bound property, $p^{\star} \geq -\mathbf{b}^T \mathbf{\nu}$ if $\mathbf{A}^T \mathbf{\nu} + \mathbf{c} \succeq 0$.</p>
+<h4 id="the-dual-problem">The Dual Problem</h4>
+<p>The <strong>Lagrange dual problem</strong> is,
+$$
+\begin{aligned}
+\underset{\mathbf{\lambda}, \mathbf{\nu}}{\text{max}} &#x26; \quad g(\mathbf{\lambda}, \mathbf{\nu}) \newline
+\text{subject to} &#x26; \quad \mathbf{\lambda} \geq 0
+\end{aligned}
+$$</p>
+<p>$\mathbf{\lambda}, \mathbf{\nu}$ are dual feasible if $\mathbf{\lambda} \succeq 0$, $(\mathbf{\lambda}, \mathbf{\nu}) \in dom(g)$.</p>
+<p>Find the best lower bound $p^{\star}$, obtained from Lagrange dual problem.</p>
+<p>This is a convex optimization problem, the optimal value is denoted $d^{\star}$.</p>
+<ul>
+<li>
+<p>If we have <strong>weak duality</strong>: $d^{\star} \leq p^{\star}$.</p>
+<ul>
+<li>Always holds (for convex problems and non-convex problems).</li>
+<li>Can be used to find non-trivial lower bounds for difficult problems.</li>
+</ul>
+</li>
+<li>
+<p>If we have <strong>strong duality</strong>: $d^{\star} = p^{\star}$.</p>
+<ul>
+<li>Does not hold in general.</li>
+<li>(Usually) holds for convex problems, e.g, SVM.</li>
+</ul>
+</li>
+</ul>
+<h4 id="complementary-slackness">Complementary Slackness</h4>
+<p>Assuming strong duality holds, $\mathbf{x}^{\star}$ is <strong>primal optimal</strong>, $(\mathbf{\lambda}^{\star}, \mathbf{\nu}^{\star})$ is <strong>dual optimal</strong>.
+$$
+\begin{aligned}
+f_0(\mathbf{x}^{\star}) &#x26; = g(\mathbf{\lambda}^{\star}, \mathbf{\nu}^{\star}) \newline
+&#x26; = \underset{\mathbf{x}}{\text{inf}} \left(f_0(\mathbf{x}) + \sum_{i=1}^r \lambda_i^{\star} f_i(\mathbf{x}) + \sum_{i=1}^s \nu_i^{\star} h_i(\mathbf{x})\right) \newline
+&#x26; \leq f_0(\mathbf{x}^{\star}) + \sum_{i=1}^r \lambda_i^{\star} f_i(\mathbf{x}^{\star}) + \sum_{i=1}^s \nu_i^{\star} h_i(\mathbf{x}^{\star}) \newline
+&#x26; \leq f_0(\mathbf{x}^{\star}).
+\end{aligned}
+$$</p>
+<p>Hence, the two inequalites hold with equality, $\mathbf{x}^{\star}$ not only minimizes $f_0(\mathbf{x})$ but also minimizes $\mathbf{L}(\mathbf{x}, \mathbf{\lambda}^{\star}, \mathbf{\nu}^{\star})$.</p>
+<p>$\lambda_i^{\star} f_i(\mathbf{x}^{\star}) = 0$ for all $i = 1, \ldots, r$. (Complementary slackness)
+$$
+\lambda_i^{\star} > 0 \Rightarrow f_i(\mathbf{x}^{\star}) = 0. \quad f_i(\mathbf{x}^{\star}) &#x3C; 0 \Rightarrow \lambda_i^{\star} = 0.
+$$</p>
+<h4 id="karush-kuhn-tucker-kkt-conditions">Karush-Kuhn-Tucker (KKT) Conditions</h4>
+<p>The following four conditions are called KKT conditions (for a problem with differentiable $f_i$ and $h_i$).</p>
+<ol>
+<li>Primal Constraint
+<ul>
+<li>$f_i(\mathbf{x}^{\star}) \leq 0, i = 1, \ldots, r, h_i(\mathbf{x}^{\star}) = 0, i = 1, \ldots, s$.</li>
+</ul>
+</li>
+<li>Dual Constraint
+<ul>
+<li>$\lambda_i^{\star} \succeq 0$.</li>
+</ul>
+</li>
+<li>Complementary Slackness
+<ul>
+<li>$\lambda_i^{\star} f_i(\mathbf{x}^{\star}) = 0, i = 1, \ldots, r$.</li>
+</ul>
+</li>
+<li>Gradient of Lagrangian with respect to $\mathbf{x}$ vanishes.
+<ul>
+<li>$\nabla f_0(\mathbf{x}) + \sum_{i = 1}^r \lambda_i \nabla f_i(\mathbf{x}) + \sum_{i = 1}^s \nu_i \nabla h_i(\mathbf{x}) = 0$.</li>
+</ul>
+</li>
+</ol>
+<p>If strong duality holds and $\mathbf{x}, \mathbf{\lambda}, \mathbf{\nu}$ are optimal, then they must satisfy the KKT conditions.</p>
+<h3 id="support-vector-machine-svm">Support Vector Machine (SVM)</h3>
+<p>Recall from last time, we assumed the data is linearly separable, what if the data is separable, but not linearly separable?</p>
+<p>A smart idea is to transform the input space.
+Map $\mathbf{x} \in \mathbb{R}^N$ to a new high-dimensional space $\mathbf{z} \in \mathbb{R}^L$, $z = \phi(\mathbf{x})$, where $\phi$ is the transform function.</p>
+<p>Then, we can learn the linear classifier in this new space.</p>
+<h4 id="svm-with-transformed-input">SVM with Transformed Input</h4>
+<p>Given a training set $\mathcal{D} = \{\mathbf{x}^{(i)}, y^{(i)}\}_{i=1}^M$, the original SVM,
+$$
+\underset{\mathbf{w}, b}{\arg\min} \frac{1}{2} \mathbf{w}^T \mathbf{w} \quad \text{subject to} \quad y^{(i)} (\mathbf{w}^T \mathbf{x}^{(i)} + b) \geq 1, \quad 1 \leq i \leq M.
+$$</p>
+<p>The transformed SVM,
+$$
+\underset{\mathbf{w}, b}{\arg\min} \frac{1}{2} \mathbf{w}^T \mathbf{w} \quad \text{subject to} \quad y^{(i)} (\mathbf{w}^T \phi(\mathbf{x}^{(i)}) + b) \geq 1, \quad 1 \leq i \leq M.
+$$</p>
+<p>The hyperplane $\mathbf{w} \in \mathbb{R}^L$ is now in the high-dimensional space.</p>
+<p>If $L$ is very large, calculating the feature vector $\phi(\mathbf{x})$ could be time-consuming.
+Also, optimization could be very inefficient in high-dimensional space.</p>
+<h4 id="svl-from-primal-to-dual">SVL: From Primal to Dual</h4>
+<p>Recall the primal form of SVM,
+$$
+\begin{aligned}
+\underset{\mathbf{w}, b}{\min} &#x26; \quad \frac{1}{2} \Vert \mathbf{w} \Vert_2^2  + C \sum_{i=1}^M \xi_i \newline
+\text{subject to} &#x26; \quad y^{(i)} (\mathbf{w}^T \mathbf{x}^{(i)} + b) \geq 1 - \xi_i, \quad \xi_i, i = 1, \ldots, M \newline
+&#x26; \quad \xi_i \geq 0, i = 1, \ldots, M
+\end{aligned}
+$$</p>
+<p>Firstly, rewrite in standard form,
+$$
+\begin{aligned}
+\underset{\mathbf{w}, b, \xi}{\min} &#x26; \quad \frac{1}{2} \Vert \mathbf{w} \Vert_2^2  + C \sum_{i=1}^M \xi_i \newline
+\text{subject to} &#x26; \quad -(y^{(i)} (\mathbf{w}^T \mathbf{x}^{(i)} + b) - 1 + \xi_i) \leq 0, \quad i = 1, \ldots, M \newline
+&#x26; \quad -\xi_i \leq 0, i = 1, \ldots, M
+\end{aligned}
+$$</p>
+<p>Note, we do not have any equality constraints here, only inequality constraints.</p>
+<p>We form the Lagrangian,
+$$
+\mathbf{L}(\mathbf{w}, b, \mathbf{\xi}, \mathbf{\alpha}, \mathbf{\beta}) = \frac{1}{2} \Vert \mathbf{w} \Vert_2^2 + C \sum_{i=1}^M \xi_i - \sum_{i=1}^M \alpha_i [y^{(i)} (\mathbf{w}^T \mathbf{x}^{(i)} + b) - 1 + \xi_i] - \sum_{i=1}^M \beta_i \xi_i
+$$</p>
+<p>Taking the gradient of $\mathbf{L}$ with respect to $\mathbf{w}, b, \xi_i$ and setting to zero,
+$$
+\nabla_{\mathbf{w}} \mathbf{L} = \mathbf{w} - \sum_{i=1}^M \alpha_i y^{(i)} \mathbf{x}^{(i)} = 0 \newline
+\nabla_b \mathbf{L} = \sum_{i=1}^M \alpha_i y^{(i)} = 0 \newline
+\nabla_{\xi_i} \mathbf{L} = C - \alpha_i - \beta_i = 0, \quad i = 1, \ldots, M
+$$</p>
+<p>Plugging back into $\mathbf{L}$,
+$$
+g(\mathbf{\alpha}) = \sum_{i=1}^M \alpha_i - \frac{1}{2} \sum_{i,j=1}^M y^{(i)} y^{(j)} \alpha_i \alpha_j \mathbf{x}^{(i)T} \mathbf{x}^{(j)}
+$$</p>
+<h4 id="svm-the-dual-problem">SVM: The Dual Problem</h4>
+<p>Put this together with the constraints and eliminate $\beta_i$,
+$$
+\begin{aligned}
+\underset{\mathbf{\alpha}}{\max} &#x26; \quad \sum_{i=1}^M \alpha_i - \frac{1}{2} \sum_{i,j=1}^M y^{(i)} y^{(j)} \alpha_i \alpha_j \mathbf{x}^{(i)T} \mathbf{x}^{(j)} \newline
+\text{subject to} &#x26; \quad \sum_{i=1}^M \alpha_i y^{(i)} = 0 \newline
+&#x26; \quad 0 \leq \alpha_i \leq C, \quad i = 1, \ldots, M
+\end{aligned}
+$$</p>
+<p>$\alpha_i$ corresponds to the $i$-th training sample $(\mathbf{x}^{(i)}, y^{(i)})$.</p>
+<p>Recover $\mathbf{w}$ as a sum of the training points $\mathbf{w} = \sum_{i=1}^M \alpha_i y^{(i)} \mathbf{x}^{(i)}$.</p>
+<p>Thus, classifyiing a new point $\mathbf{x}^{\star}$ is,
+$$
+y^{\star} = \text{sign}(\mathbf{w}^T \mathbf{x}^{\star} + b) = \text{sign} \left( \sum_{i=1}^M \alpha_i y^{(i)} \mathbf{x}^{(i)T} \mathbf{x}^{\star} + b \right)
+$$</p>
+<h5 id="interpretation-of-alpha_i">Interpretation of $\alpha_i$</h5>
+<p>Combining complementary slackness with primal feasibility and dual feasibility, we can show that,
+$$
+\alpha_i = 0 \Rightarrow y^{(i)} ((\mathbf{x}^{(i)})^T \mathbf{w}^{\star} + b^{\star}) \geq 1
+$$</p>
+<p>I.e, the sample $(\mathbf{x}^{(i)})$ is not on the margin.</p>
+<p>$$
+0 &#x3C; \alpha_i &#x3C; C \Rightarrow y^{(i)} ((\mathbf{x}^{(i)})^T \mathbf{w}^{\star} + b^{\star}) = 1
+$$</p>
+<p>I.e, the sample $(\mathbf{x}^{(i)})$ is on the margin.</p>
+<p>$$
+\alpha_i = C \Rightarrow y^{(i)} ((\mathbf{x}^{(i)})^T \mathbf{w}^{\star} + b^{\star}) \leq 1
+$$</p>
+<p>I.e, the sample $(\mathbf{x}^{(i)})$ violates the margin.</p>
+<h4 id="kernel-function">Kernel Function</h4>
+<p>Dual SVM with transformed input,
+$$
+\begin{aligned}
+\underset{\mathbf{\alpha}}{\max} &#x26; \quad \sum_{i=1}^M \alpha_i - \frac{1}{2} \sum_{i,j=1}^M y^{(i)} y^{(j)} \alpha_i \alpha_j \phi(\mathbf{x}^{(i)})^T \phi(\mathbf{x}^{(j)}) \newline
+\text{subject to} &#x26; \quad \sum_{i=1}^M \alpha_i y^{(i)} = 0 \newline
+&#x26; \quad 0 \leq \alpha_i \leq C, \quad i = 1, \ldots, M
+\end{aligned}
+$$</p>
+<p>Completely written in terms of inner product $\phi(\mathbf{x}^{(i)})^T \phi(\mathbf{x}^{(j)})$.</p>
+<p>Rather than explicitly calculate the high-dimensional $\phi(\mathbf{x})$, we only need to calculate the inner product between the two vectors.</p>
+<p>Let the <strong>kernel function</strong> $\mathcal{K}(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) = \phi(\mathbf{x}^{(i)})^T \phi(\mathbf{x}^{(j)})$.</p>
+<p>This is much less expensive to compute than explicitly calculating the high-dimensional feature vector and the inner product.</p>
+<h5 id="example-polynomial-kernel">Example: Polynomial Kernel</h5>
+<p>Let the input vector $\mathbf{x} = [x_1, \ldots, x_N]^T \in \mathbb{R}^N$.</p>
+<p>Kernel between two vector is a $p$-th order polynomial,
+$$
+\mathcal{K}(\mathbf{x}, \mathbf{x}^{\prime}) = (\mathbf{x}^T \mathbf{x}^{\prime})^p = (\sum_{i=1}^N x_i x_i^{\prime})^p
+$$</p>
+<p>For example, p = 2,
+$$
+\mathcal{K}(\mathbf{x}, \mathbf{x}^{\prime}) = (\mathbf{x}^T \mathbf{x}^{\prime})^2 = \sum_{i=1}^N \sum_{j=1}^N (x_i x_i^{\prime} x_j x_j^{\prime}) = \phi(\mathbf{x})^T \phi(\mathbf{x}^{\prime})
+$$</p>
+<p>Transformed space is the quadratic terms of input $\mathbf{x}$.
+$$
+\phi(\mathbf{x}) = [x_1 x_1, x_1 x_2, \ldots, x_2, x_1, x_2 x_2, \ldots, x_N x_1, \ldots, x_N x_N]
+$$</p>
+<p>Comparison of number of multiplications,</p>
+<ul>
+<li>Explicit calculation: $O(N^2)$</li>
+<li>Kernel calculation: $O(N)$</li>
+</ul>
+<h4 id="kernel-trick">Kernel Trick</h4>
+<p>Replacing the inner product with a kernel function in optimization is called the <strong>kernel trick</strong>.</p>
+<p>Turns linear classifier into a non-linear classifier.
+The shape of the decision boundary is determined by the kernel function.</p>
+<p><strong>Kernel SVM</strong>,
+$$
+\begin{aligned}
+\underset{\mathbf{\alpha}}{\max} &#x26; \quad \sum_{i=1}^M \alpha_i - \frac{1}{2} \sum_{i,j=1}^M y^{(i)} y^{(j)} \alpha_i \alpha_j \mathcal{K}(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) \newline
+\text{subject to} &#x26; \quad \sum_{i=1}^M \alpha_i y^{(i)} = 0 \newline
+&#x26; \quad 0 \leq \alpha_i \leq C, \quad i = 1, \ldots, M
+\end{aligned}
+$$</p>
+<p>Our prediction is,
+$$
+y^{\star} = \text{sign} \left( \sum_{i=1}^M \alpha_i y^{(i)} \mathcal{K}(\mathbf{x}^{(i)}, \mathbf{x}^{\star}) + b \right)
+$$</p>
+<h4 id="rbf-kernel">RBF Kernel</h4>
+<p>The <strong>Radial Basis Function (RBF) kernel</strong> is a popular kernel function,
+$$
+\mathcal{K}(\mathbf{x}, \mathbf{x}^{\prime}) = e^{-\gamma \Vert \mathbf{x} - \mathbf{x}^{\prime} \Vert^2}
+$$</p>
+<p>Which resembles a Gaussian.</p>
+<p>Gamma $\gamma > 0$ is the inverse bandwidth parameter of the kernel.
+It controls the smoothness of the function.</p>
+<p>Small $\gamma \rightarrow$ wide Gaussian $\rightarrow$ smooth function.
+Large $\gamma \rightarrow$ thin Gaussian $\rightarrow$ wiggly function.</p>
+<p>Corresponds to feature transform function of infinite dimension.</p>
+<h3 id="kernel-svm-summary">Kernel SVM: Summary</h3>
+<ul>
+<li><strong>Kernel Classifier</strong>.
+<ul>
+<li>Kernel function defines the shape of the non-linear decision boundary.
+<ul>
+<li>Implicitly transforms input feature into high-dimensional space.</li>
+<li>Uses linear classifier in high-dimensional space.</li>
+<li>The decision boundary is non-linear in the original space.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Training</strong>.
+<ul>
+<li>Maximize the margin of the training data.
+<ul>
+<li>I.e, maximizes the separation between the points and the decision boundary.</li>
+</ul>
+</li>
+<li>Use cross-validation to pick the hyperparameters and the kernel hyperparameters.</li>
+</ul>
+</li>
+<li><strong>Advantages</strong>.
+<ul>
+<li>Non-linear decision boundary for more complex classification problems.</li>
+<li>Some intuition from the type of kernel function used.</li>
+</ul>
+</li>
+<li><strong>Disadvantages</strong>.
+<ul>
+<li>Sensitive to the kernel function used.</li>
+<li>Sensitive to the $C$ and kernel hyperparameters.</li>
+<li>Computationally expensive to do cross-validation.</li>
+<li>Need to calculate the kernel matrix
+<ul>
+<li>$M^2$ terms where $M$ is the size of the training set.</li>
+<li>For large $M$, uses large amount of computation and memory.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="sequential-minimal-optimization-smo">Sequential Minimal Optimization (SMO)</h3>
+<p>SMO is an algorithm for training SVMs. Let’s take a look.</p>
+<h4 id="solving-svm-coordinate-descent">Solving SVM: Coordinate Descent</h4>
+<p>Consider the unconstrained optimization problem,
+$$
+\underset{\mathbf{\theta}}{\min} \ell(\theta_1, \theta_2, \ldots, \theta_N)
+$$</p>
+<p>The coordinate descent method first selects an initial point $\mathbf{\theta}^{(0)} \in \mathbb{R}^N$ and repeats:</p>
+<ul>
+<li>Choose an index $i$ from 1 to $N$.</li>
+<li>$\theta_i^{(t+1)} = \arg \min_{\hat{\theta}_i} \ell(\theta_1^{(t)}, \ldots, \hat{\theta}_i, \ldots, \theta_N^{(t)})$</li>
+</ul>
+<p>At each iteration, the algorithm determines a coordinate, and minimizes over the corresponding coordinate direction while fixing all other coordinates.</p>
+<p>Coordinate descent is applicable in both differentiable and non-differentiable optimization contexts.</p>
+<h4 id="solving-svm-sequential-minimal-optimization-smo">Solving SVM: Sequential Minimal Optimization (SMO)</h4>
+<p>SMO is an algorithm for solving the quadratic programming problem that arises during the training of SVMs, invented by John C. Platt in 1998.</p>
+<ul>
+<li><strong>S</strong>equential
+<ul>
+<li>Not parallel.</li>
+<li>Optimize a set of two Lagrange multipliers.</li>
+</ul>
+</li>
+<li><strong>M</strong>inimal
+<ul>
+<li>Optimize the smallest possible sub-problem at each step.</li>
+</ul>
+</li>
+<li><strong>O</strong>ptimization
+<ul>
+<li>Satisfy the constraints for the chosen pair of Lagrange multipliers.</li>
+</ul>
+</li>
+</ul>
+<h4 id="smo">SMO</h4>
+<p>Recall the dual form of kernelized SVM with soft margin,
+$$
+\begin{aligned}
+\underset{\mathbf{\alpha}}{\max} &#x26; \quad \sum_{i=1}^M \alpha_i - \frac{1}{2} \sum_{i,j=1}^M y^{(i)} y^{(j)} \alpha_i \alpha_j \mathcal{K}(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) \newline
+\text{subject to} &#x26; \quad \sum_{i=1}^M \alpha_i y^{(i)} = 0 \newline
+&#x26; \quad 0 \leq \alpha_i \leq C, \quad i = 1, \ldots, M
+\end{aligned}
+$$</p>
+<p>SMO is derived by decomposing the problem to its extreme and optimizing a minimal subset of just two dual variables (i.e., two data points) at each iteration.</p>
+<p>The sub-problem for two data points admits an analytical solution, eliminating the need to use an iterative quadratic programming optimizer as part of the algorithm.</p>
+<p>The condition $\sum_{i=1}^M \alpha_i y^{(i)} = 0$ is enforced throughout the iterations, implying that the smallest number of multipliers that can be optimized at each step is two.</p>
+<p>Whenever one multiplier is updated, at least one other multiplier needs to be adjusted in order to keep the condition true.</p>
+<p>At each step SMO chooses two elements $\alpha_i$ and $\alpha_j$ to jointly optimize, finds the optimal values for those two parameters given that all the others are fixed.</p>
+<p>The choice of the two points is determined by a heuristic, while the optimization of the two multipliers is performed analytically.</p>
+<p>Despite needing more iterations to converge, each iteration uses so few operations that the algortihm exhibits an overall speed-up of some orders of magnitude.</p>
+<h3 id="classification-summary">Classification Summary</h3>
+<ul>
+<li><strong>Classification Task</strong>
+<ul>
+<li>Observation $\mathbf{x}$: typically a real vector of feature values, $x \in \mathbb{R}^N$.</li>
+<li>Class $y$: from a set of possible classes, e.g., $\mathcal{Y} = \newline{-1, +1\newline}$.</li>
+<li><strong>Goal</strong>: given an observation $\mathbf{x}$, predict the class $y$.</li>
+</ul>
+</li>
+<li><strong>K-Nearest Neighbors (KNN)</strong>
+<ul>
+<li><strong>Type</strong>: Discriminative.</li>
+<li><strong>Classes</strong>: Multi-class.</li>
+<li><strong>Decision Function</strong>: Non-linear.</li>
+<li><strong>Training</strong>: No training needed.</li>
+</ul>
+</li>
+<li><strong>Bayes’ Classifier</strong>
+<ul>
+<li><strong>Type</strong>: Generative.</li>
+<li><strong>Classes</strong>: Multi-class.</li>
+<li><strong>Decision Function</strong>: (generally) Non-linear.</li>
+<li><strong>Training</strong>: Estimate class-conditional densities $p(\mathbf{x} | y)$ by maximizing likelihood of data.</li>
+</ul>
+</li>
+<li><strong>Logistic Regression</strong>
+<ul>
+<li><strong>Type</strong>: Discriminative.</li>
+<li><strong>Classes</strong>: Binary.</li>
+<li><strong>Decision Function</strong>: Linear.</li>
+<li><strong>Training</strong>: Maximize likelihood of data in $p(y | \mathbf{x})$.</li>
+</ul>
+</li>
+<li><strong>Support Vector Machine (SVM)</strong>
+<ul>
+<li><strong>Type</strong>: Discriminative.</li>
+<li><strong>Classes</strong>: Binary.</li>
+<li><strong>Decision Function</strong>: linear.</li>
+<li><strong>Training</strong>: Maximize the margin (distance between the decision surface and the closest point).</li>
+</ul>
+</li>
+<li><strong>Kernel SVM</strong>
+<ul>
+<li><strong>Type</strong>: Discriminative.</li>
+<li><strong>Classes</strong>: Binary.</li>
+<li><strong>Decision Function</strong>: Non-linear (kernel function).</li>
+<li><strong>Training</strong>: Maximize the margin.</li>
+</ul>
+</li>
+</ul>
+<h3 id="regulatization-and-overfitting">Regulatization and Overfitting</h3>
+<p>Some models have terms to prevent overfitting the training data, this can improve generalization to new data.</p>
+<p>There is a parameter to control the regularization effect, select this parameter using cross-validation on the training set.</p>
+<h3 id="other-things">Other Things</h3>
+<ul>
+<li>
+<p>Multi-class classification.</p>
+<ul>
+<li>Can use binary classifiers to do multi-class using 1-vs-rest formulation.</li>
+</ul>
+</li>
+<li>
+<p>Feature Normalization.</p>
+<ul>
+<li>Normalize each feature dimension so that some feature dimensions with larger ranges do not dominate the optimization process.</li>
+</ul>
+</li>
+<li>
+<p>Data Imbalance</p>
+<ul>
+<li>If more data in one class, then apply weights to each class to balance objectives.</li>
+</ul>
+</li>
+<li>
+<p>Class Importance</p>
+<ul>
+<li>Mistakes on some classes are more critical.</li>
+<li>Reweight class to focus classifier on correctly predicting one class at the expense of others.</li>
+</ul>
+</li>
+<li>
+<p><strong>Applications</strong></p>
+<ul>
+<li>Web document classification, spam classification.</li>
+<li>Face gender recognition, face detection, digit classification.</li>
+</ul>
+</li>
+<li>
+<p><strong>Features</strong></p>
+<ul>
+<li>Choice of features is important!
+<ul>
+<li>Using uniformative features may confuse the classifier.</li>
+<li>Use domain knowledge to pick the best features to extract from the data.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="which-classifier-is-best">Which Classifier is Best?</h3>
+<p>“No Free Lunch” Theorem (Wolpert and Macready)</p>
+<blockquote>
+<p>If an algorithm performs well on a certain class of problems then it necessarily pays for that with degraded performance on the set of all remaining problems.</p>
+</blockquote>
+<p>In other words, there is <strong>no best</strong> classifier for all tasks. The best classifier depends on the particular problem.</p>
+
+
+</body></html> </article>  <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/exchange/cs4487/cs4487_3" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 3 - Optimization and Convexity </span> </div>  </a>  <a href="/notes/exchange/cs4487/cs4487_5" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 5 - Regression </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
+  function updateGiscusTheme() {
+    const element = document.documentElement
+    const theme = element.getAttribute('data-theme')
+    const iframe = document.querySelector('iframe.giscus-frame')
+    if (!iframe) return
+    iframe.contentWindow.postMessage(
+      { giscus: { setConfig: { theme } } },
+      'https://giscus.app',
+    )
+  }
+
+  const observer = new MutationObserver(updateGiscusTheme)
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  })
+
+  window.onload = () => {
+    updateGiscusTheme()
+  }
+</script> </div> </section> <button data-slot="button" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 group fixed right-8 bottom-8 z-50 hidden" id="scroll-to-top" title="Scroll to top" aria-label="Scroll to top"> <svg width="1em" height="1em" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" data-icon="lucide:arrow-up">   <symbol id="ai:lucide:arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></symbol><use href="#ai:lucide:arrow-up"></use>  </svg> </button> <script type="module">document.addEventListener("astro:page-load",()=>{const o=document.getElementById("scroll-to-top"),t=document.querySelector("footer");o&&t&&(o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),window.addEventListener("scroll",()=>{const e=t.getBoundingClientRect().top<=window.innerHeight;o.classList.toggle("hidden",window.scrollY<=300||e)}))});</script>  </div> </main> <footer class="py-4"> <div class="mx-auto flex max-w-3xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between"> <div class="flex flex-wrap items-center justify-center gap-x-2 text-center"> <span class="text-muted-foreground text-sm">
+&copy; 2025 • rezarezvan.com </span> </div> </div> </footer> <div id="backdrop" class="invisible fixed top-0 left-0 z-50 flex h-screen w-full justify-center bg-[rgba(0,0,0,0.5)] p-6 backdrop-blur-sm" data-astro-transition-persist="astro-t6dxx5el-4"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.mBpmxV9R.js"></script> <div class="dark:prose-invert mr-2 pt-4 pb-1 text-right text-xs">
+Press <span class="prose dark:prose-invert text-xs"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const magnifyingGlass = document.getElementById('magnifying-glass')
+    const backdrop = document.getElementById('backdrop')
+
+    function openPagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      setTimeout(() => {
+        search.focus()
+      }, 0)
+      backdrop?.classList.remove('invisible')
+      backdrop?.classList.add('visible')
+    }
+
+    function closePagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      if (search) {
+        search.value = ''
+      }
+      backdrop?.classList.remove('visible')
+      backdrop?.classList.add('invisible')
+    }
+
+    // open pagefind
+    magnifyingGlass?.addEventListener('click', () => {
+      openPagefind()
+    })
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePagefind()
+      }
+    })
+
+    // close pagefind when searched result(link) clicked
+    document.addEventListener('click', (event) => {
+      if (event.target.classList.contains('pagefind-ui__result-link')) {
+        closePagefind()
+      }
+    })
+
+    backdrop?.addEventListener('click', (event) => {
+      if (!event.target.closest('#pagefind-container')) {
+        closePagefind()
+      }
+    })
+
+    // prevent form submission
+    const form = document.getElementById('form')
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault()
+    })
+  })
+</script>  </div> </body></html>
