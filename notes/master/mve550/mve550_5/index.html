@@ -52,10 +52,10 @@
   window.localStorage.setItem('theme', theme)
 </script> <script type="module">function a(){const e=document.documentElement,n=e.getAttribute("data-theme")==="dark"?"light":"dark";e.classList.add("[&_*]:transition-none"),e.setAttribute("data-theme",n),e.classList.remove("scheme-dark","scheme-light"),e.classList.add(n==="dark"?"scheme-dark":"scheme-light"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("[&_*]:transition-none")}),localStorage.setItem("theme",n)}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme")||"light",t=document.documentElement;t.classList.add("[&_*]:transition-none"),window.getComputedStyle(t).getPropertyValue("opacity"),t.setAttribute("data-theme",e),t.classList.remove("scheme-dark","scheme-light"),t.classList.add(e==="dark"?"scheme-dark":"scheme-light"),requestAnimationFrame(()=>{t.classList.remove("[&_*]:transition-none")}),s()});</script> </div> </div> </header> <div id="mobile-toc-container" class="w-full xl:hidden"><details class="group"><summary class="flex w-full cursor-pointer items-center justify-between"><div class="mx-auto flex w-full max-w-3xl items-center px-4 py-3"><div class="relative mr-2 size-4"><svg class="h-4 w-4" viewBox="0 0 24 24"><circle class="text-primary/20" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle><circle id="mobile-toc-progress-circle" class="text-primary" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="62.83" stroke-dashoffset="62.83" transform="rotate(-90 12 12)"></circle></svg></div><span id="mobile-toc-current-section" class="text-muted-foreground flex-grow truncate text-sm">
 Overview
-</span><span class="text-muted-foreground ml-2"><svg width="1em" height="1em" class="h-4 w-4 transition-transform duration-200 group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg></span></div></summary><astro-island uid="Z1yp9A4" prefix="r26" component-url="/_astro/scroll-area.BdR3V4Yj.js" component-export="ScrollArea" renderer-url="/_astro/client.DXIZDqlh.js" props="{&quot;className&quot;:[0,&quot;mx-auto max-w-3xl&quot;],&quot;data-toc-header-scroll&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative mx-auto max-w-3xl" data-toc-header-scroll="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="max-h-[30vh]"><ul class="flex list-none flex-col gap-y-2 px-4 pb-4" id="mobile-table-of-contents"><li class="px-4 text-sm text-foreground/60"><a href="#introduction" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="introduction">Introduction</a></li><li class="px-4 text-sm text-foreground/60"><a href="#branching-processes" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="branching-processes">Branching Processes</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#definitions-and-properties" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="definitions-and-properties">Definitions and Properties</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#probability-generating-functions" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="probability-generating-functions">Probability Generating Functions</a></li><li class="px-4 text-sm text-foreground/60"><a href="#markov-chain-monte-carlo-mcmc" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="markov-chain-monte-carlo-mcmc">Markov Chain Monte Carlo (MCMC)</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#examples" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="examples">Examples</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></details></div><script type="module" src="/_astro/TOCHeader.astro_astro_type_script_index_0_lang.CKMLAwWj.js"></script> <div id="mobile-margin-notes-container" class="w-full xl:hidden"><details class="group"><summary class="flex w-full cursor-pointer items-center justify-between"><div class="mx-auto flex w-full max-w-3xl items-center px-4 py-3"><div class="relative mr-2 size-4"><svg width="1em" height="1em" class="size-4 flex-shrink-0" aria-hidden="true" data-icon="lucide:pencil-line">   <symbol id="ai:lucide:pencil-line" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 21h8M15 5l4 4m2.174-2.188a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></symbol><use href="#ai:lucide:pencil-line"></use>  </svg></div><div class="flex flex-grow flex-col truncate text-sm"><span id="mobile-margin-current-note" class="text-muted-foreground truncate">
+</span><span class="text-muted-foreground ml-2"><svg width="1em" height="1em" class="h-4 w-4 transition-transform duration-200 group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg></span></div></summary><astro-island uid="uhK7M" prefix="r26" component-url="/_astro/scroll-area.BdR3V4Yj.js" component-export="ScrollArea" renderer-url="/_astro/client.DXIZDqlh.js" props="{&quot;className&quot;:[0,&quot;mx-auto max-w-3xl&quot;],&quot;data-toc-header-scroll&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative mx-auto max-w-3xl" data-toc-header-scroll="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="max-h-[30vh]"><ul class="flex list-none flex-col gap-y-2 px-4 pb-4" id="mobile-table-of-contents"><li class="px-4 text-sm text-foreground/60"><a href="#introduction" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="introduction">Introduction</a></li><li class="px-4 text-sm text-foreground/60"><a href="#branching-processes" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="branching-processes">Branching Processes</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#definitions-and-properties" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="definitions-and-properties">Definitions and Properties</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#probability-generating-functions" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="probability-generating-functions">Probability Generating Functions</a></li><li class="px-4 text-sm text-foreground/60"><a href="#markov-chain-monte-carlo-mcmc" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="markov-chain-monte-carlo-mcmc">Markov Chain Monte Carlo (MCMC)</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#examples" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="examples">Examples</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#the-metropolis-hastings-algorithm-gibbs-sampling-and-the-ising-model" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="the-metropolis-hastings-algorithm-gibbs-sampling-and-the-ising-model">The Metropolis-Hastings Algorithm, Gibbs Sampling, and The Ising Model</a></li><li class="px-4 text-sm text-foreground/60"><a href="#perfect-sampling" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="perfect-sampling">Perfect Sampling</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></details></div><script type="module" src="/_astro/TOCHeader.astro_astro_type_script_index_0_lang.CKMLAwWj.js"></script> <div id="mobile-margin-notes-container" class="w-full xl:hidden"><details class="group"><summary class="flex w-full cursor-pointer items-center justify-between"><div class="mx-auto flex w-full max-w-3xl items-center px-4 py-3"><div class="relative mr-2 size-4"><svg width="1em" height="1em" class="size-4 flex-shrink-0" aria-hidden="true" data-icon="lucide:pencil-line">   <symbol id="ai:lucide:pencil-line" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 21h8M15 5l4 4m2.174-2.188a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></symbol><use href="#ai:lucide:pencil-line"></use>  </svg></div><div class="flex flex-grow flex-col truncate text-sm"><span id="mobile-margin-current-note" class="text-muted-foreground truncate">
 Margin Notes (1)
 </span></div><span class="text-muted-foreground ml-2"><svg width="1em" height="1em" viewBox="0 0 24 24" class="h-4 w-4 transition-transform duration-200 group-open:rotate-180" data-icon="lucide:chevron-down">   <use href="#ai:lucide:chevron-down"></use>  </svg></span></div></summary><astro-island uid="EOoAv" prefix="r27" component-url="/_astro/scroll-area.BdR3V4Yj.js" component-export="ScrollArea" renderer-url="/_astro/client.DXIZDqlh.js" props="{&quot;className&quot;:[0,&quot;mx-auto max-w-3xl&quot;],&quot;data-marginnotes-header-scroll&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative mx-auto max-w-3xl" data-marginnotes-header-scroll="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="max-h-[30vh]"><ul class="flex list-none flex-col gap-y-1 px-4 pb-4"><li><a href="#mn-1" data-note-id="mn-1" class="mobile-margin-note-item hover:text-foreground text-muted-foreground hover:bg-muted/50 flex items-start gap-2 rounded-md px-2 py-1.5 text-sm transition-colors"><span class="text-primary bg-primary/10 shrink-0 rounded px-1.5 py-0.5 font-mono text-xs">1</span><div class="flex flex-col"><span class="line-clamp-2 text-left">This was the original motivation for studying branching processes by Francis Galton and Henry William Watson in the 19th century.</span></div></a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></details></div><script type="module">function m(){const e=document.getElementById("mobile-margin-notes-container");if(!e)return;const i=e.querySelector("details"),s=e.querySelectorAll(".mobile-margin-note-item"),c=document.getElementById("mobile-margin-current-note");s.forEach(n=>{n.addEventListener("click",a=>{a.preventDefault();const l=n.dataset.noteId,o=document.getElementById(l);if(o){const r=o.getBoundingClientRect().top+window.scrollY-120;if(window.scrollTo({top:r,behavior:"smooth"}),document.querySelectorAll(".margin-anchor").forEach(t=>{t.classList.remove("active")}),o.classList.add("active"),c){const t=n.querySelector("span:last-child")?.textContent?.trim();t&&(c.textContent=t.length>30?t.substring(0,30)+"...":t)}}i&&(i.open=!1)})});const u=new IntersectionObserver(n=>{n.forEach(a=>{const l=a.target.id,o=e.querySelector(`.mobile-margin-note-item[data-note-id="${l}"]`);if(a.isIntersecting&&o&&c){e.querySelectorAll(".mobile-margin-note-item").forEach(t=>{t.classList.remove("active")}),o.classList.add("active");const r=o.querySelector("span:last-child")?.textContent?.trim();r&&(c.textContent=r.length>30?r.substring(0,30)+"...":r)}})},{rootMargin:"-120px 0px -70% 0px",threshold:.1});document.querySelectorAll(".margin-anchor").forEach(n=>{u.observe(n)})}function d(){document.querySelectorAll(".mobile-margin-note-item").forEach(i=>{i.classList.remove("active")});const e=document.getElementById("mobile-margin-current-note");if(e){const s=document.getElementById("mobile-margin-notes-container")?.querySelectorAll(".mobile-margin-note-item").length||0;e.textContent=`Margin Notes (${s})`}}document.addEventListener("astro:page-load",m);document.addEventListener("astro:after-swap",()=>{d(),m()});document.addEventListener("astro:before-swap",d);</script>  </div> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/notes/"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:graduation-cap">   <symbol id="ai:lucide:graduation-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol><use href="#ai:lucide:graduation-cap"></use>  </svg> Master </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/notes/master/mve550"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:book-open">   <symbol id="ai:lucide:book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z"/></symbol><use href="#ai:lucide:book-open"></use>  </svg> Stochastic Processes And Bayesian Inference </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> <span>Part 5 - Branching Processes and MCMC</span> </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 scroll-mt-31 text-4xl leading-tight font-medium text-pretty" id="post-title"> Part 5 - Branching Processes and MCMC </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground">MVE550</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>Date: November 18, 2025</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div>  <div class="font-base text-sm">
-Last modified: November 18, 2025 </div>  <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>17 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/mve550/mve550_4" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 4 - Markov chains II </span> </div>  </a>  <a href="#" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full pointer-events-none opacity-50 cursor-not-allowed" aria-disabled="true">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> You&#39;re at the newest post! </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <div id="toc-sidebar-container" class="sticky top-20 col-start-1 row-span-1 mr-8 ml-auto hidden h-[calc(100vh-5rem)] max-w-md xl:block"><astro-island uid="Z2dPGBj" prefix="r28" component-url="/_astro/scroll-area.BdR3V4Yj.js" component-export="ScrollArea" renderer-url="/_astro/client.DXIZDqlh.js" props="{&quot;className&quot;:[0,&quot;flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto&quot;],&quot;type&quot;:[0,&quot;hover&quot;],&quot;data-toc-scroll-area&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto" data-toc-scroll-area="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="flex flex-col gap-2 px-4"><span class="text-lg font-medium">Table of Contents</span><ul class="flex list-none flex-col gap-y-2"><li class="text-sm text-foreground/60"><a href="#introduction" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="introduction">Introduction</a></li><li class="text-sm text-foreground/60"><a href="#branching-processes" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="branching-processes">Branching Processes</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#definitions-and-properties" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="definitions-and-properties">Definitions and Properties</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#probability-generating-functions" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="probability-generating-functions">Probability Generating Functions</a></li><li class="text-sm text-foreground/60"><a href="#markov-chain-monte-carlo-mcmc" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="markov-chain-monte-carlo-mcmc">Markov Chain Monte Carlo (MCMC)</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#examples" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="examples">Examples</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></div><script type="module">class f{links=document.querySelectorAll("[data-heading-link]");activeIds=[];headings=[];regions=[];scrollArea=null;tocScrollArea=null;reset(){this.links=document.querySelectorAll("#toc-sidebar-container [data-heading-link]"),this.activeIds=[],this.headings=[],this.regions=[];const t=document.getElementById("toc-sidebar-container");this.scrollArea=t?.querySelector("[data-radix-scroll-area-viewport]")||null,this.tocScrollArea=t?.querySelector("[data-toc-scroll-area]")||null}}const e=new f;class c{static build(){if(e.headings=Array.from(document.querySelectorAll(".prose h2, .prose h3, .prose h4, .prose h5, .prose h6")),e.headings.length===0){e.regions=[];return}e.regions=e.headings.map((t,o)=>{const i=e.headings[o+1];return{id:t.id,start:t.offsetTop,end:i?i.offsetTop:document.body.scrollHeight}})}static getVisibleIds(){if(e.headings.length===0)return[];const t=window.scrollY+80,o=window.scrollY+window.innerHeight,i=new Set,l=(s,r)=>s>=t&&s<=o||r>=t&&r<=o||s<=t&&r>=o;return e.headings.forEach(s=>{const r=s.offsetTop+s.offsetHeight;l(s.offsetTop,r)&&i.add(s.id)}),e.regions.forEach(s=>{if(s.start<=o&&s.end>=t){const r=document.getElementById(s.id);if(r){const a=r.offsetTop+r.offsetHeight;s.end>a&&(a<o||t<s.end)&&i.add(s.id)}}}),Array.from(i)}}class h{static update(){if(!e.scrollArea||!e.tocScrollArea)return;const{scrollTop:t,scrollHeight:o,clientHeight:i}=e.scrollArea,l=5,s=t<=l,r=t>=o-i-l;e.tocScrollArea.classList.toggle("mask-t-from-90%",!s),e.tocScrollArea.classList.toggle("mask-b-from-90%",!r)}}class g{static update(t){e.links.forEach(o=>{o.classList.remove("text-foreground")}),t.forEach(o=>{if(o){const i=document.querySelector(`#toc-sidebar-container [data-heading-link="${o}"]`);i&&i.classList.add("text-foreground")}}),this.scrollToActive(t)}static scrollToActive(t){if(!e.scrollArea||!t.length)return;const o=document.querySelector(`#toc-sidebar-container [data-heading-link="${t[0]}"]`);if(!o)return;const{top:i,height:l}=e.scrollArea.getBoundingClientRect(),{top:s,height:r}=o.getBoundingClientRect(),a=s-i+e.scrollArea.scrollTop,u=Math.max(0,Math.min(a-(l-r)/2,e.scrollArea.scrollHeight-e.scrollArea.clientHeight));Math.abs(u-e.scrollArea.scrollTop)>5&&(e.scrollArea.scrollTop=u)}}class d{static handleScroll(){const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds))}static handleTOCScroll=()=>h.update();static handleResize(){c.build();const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds)),h.update()}static init(){if(e.reset(),c.build(),e.headings.length===0){g.update([]);return}this.handleScroll(),setTimeout(h.update,100);const t={passive:!0};window.addEventListener("scroll",this.handleScroll,t),window.addEventListener("resize",this.handleResize,t),e.scrollArea?.addEventListener("scroll",this.handleTOCScroll,t)}static cleanup(){window.removeEventListener("scroll",this.handleScroll),window.removeEventListener("resize",this.handleResize),e.scrollArea?.removeEventListener("scroll",this.handleTOCScroll),Object.assign(e,{activeIds:[],headings:[],regions:[],scrollArea:null,tocScrollArea:null})}}document.addEventListener("astro:page-load",()=>d.init());document.addEventListener("astro:after-swap",()=>{d.cleanup(),d.init()});document.addEventListener("astro:before-swap",()=>d.cleanup());</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
+Last modified: November 18, 2025 </div>  <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>21 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/mve550/mve550_4" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 4 - Markov chains II </span> </div>  </a>  <a href="#" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full pointer-events-none opacity-50 cursor-not-allowed" aria-disabled="true">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> You&#39;re at the newest post! </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <div id="toc-sidebar-container" class="sticky top-20 col-start-1 row-span-1 mr-8 ml-auto hidden h-[calc(100vh-5rem)] max-w-md xl:block"><astro-island uid="2mb5Sz" prefix="r28" component-url="/_astro/scroll-area.BdR3V4Yj.js" component-export="ScrollArea" renderer-url="/_astro/client.DXIZDqlh.js" props="{&quot;className&quot;:[0,&quot;flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto&quot;],&quot;type&quot;:[0,&quot;hover&quot;],&quot;data-toc-scroll-area&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto" data-toc-scroll-area="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="flex flex-col gap-2 px-4"><span class="text-lg font-medium">Table of Contents</span><ul class="flex list-none flex-col gap-y-2"><li class="text-sm text-foreground/60"><a href="#introduction" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="introduction">Introduction</a></li><li class="text-sm text-foreground/60"><a href="#branching-processes" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="branching-processes">Branching Processes</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#definitions-and-properties" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="definitions-and-properties">Definitions and Properties</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#probability-generating-functions" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="probability-generating-functions">Probability Generating Functions</a></li><li class="text-sm text-foreground/60"><a href="#markov-chain-monte-carlo-mcmc" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="markov-chain-monte-carlo-mcmc">Markov Chain Monte Carlo (MCMC)</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#examples" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="examples">Examples</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#the-metropolis-hastings-algorithm-gibbs-sampling-and-the-ising-model" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="the-metropolis-hastings-algorithm-gibbs-sampling-and-the-ising-model">The Metropolis-Hastings Algorithm, Gibbs Sampling, and The Ising Model</a></li><li class="text-sm text-foreground/60"><a href="#perfect-sampling" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="perfect-sampling">Perfect Sampling</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></div><script type="module">class f{links=document.querySelectorAll("[data-heading-link]");activeIds=[];headings=[];regions=[];scrollArea=null;tocScrollArea=null;reset(){this.links=document.querySelectorAll("#toc-sidebar-container [data-heading-link]"),this.activeIds=[],this.headings=[],this.regions=[];const t=document.getElementById("toc-sidebar-container");this.scrollArea=t?.querySelector("[data-radix-scroll-area-viewport]")||null,this.tocScrollArea=t?.querySelector("[data-toc-scroll-area]")||null}}const e=new f;class c{static build(){if(e.headings=Array.from(document.querySelectorAll(".prose h2, .prose h3, .prose h4, .prose h5, .prose h6")),e.headings.length===0){e.regions=[];return}e.regions=e.headings.map((t,o)=>{const i=e.headings[o+1];return{id:t.id,start:t.offsetTop,end:i?i.offsetTop:document.body.scrollHeight}})}static getVisibleIds(){if(e.headings.length===0)return[];const t=window.scrollY+80,o=window.scrollY+window.innerHeight,i=new Set,l=(s,r)=>s>=t&&s<=o||r>=t&&r<=o||s<=t&&r>=o;return e.headings.forEach(s=>{const r=s.offsetTop+s.offsetHeight;l(s.offsetTop,r)&&i.add(s.id)}),e.regions.forEach(s=>{if(s.start<=o&&s.end>=t){const r=document.getElementById(s.id);if(r){const a=r.offsetTop+r.offsetHeight;s.end>a&&(a<o||t<s.end)&&i.add(s.id)}}}),Array.from(i)}}class h{static update(){if(!e.scrollArea||!e.tocScrollArea)return;const{scrollTop:t,scrollHeight:o,clientHeight:i}=e.scrollArea,l=5,s=t<=l,r=t>=o-i-l;e.tocScrollArea.classList.toggle("mask-t-from-90%",!s),e.tocScrollArea.classList.toggle("mask-b-from-90%",!r)}}class g{static update(t){e.links.forEach(o=>{o.classList.remove("text-foreground")}),t.forEach(o=>{if(o){const i=document.querySelector(`#toc-sidebar-container [data-heading-link="${o}"]`);i&&i.classList.add("text-foreground")}}),this.scrollToActive(t)}static scrollToActive(t){if(!e.scrollArea||!t.length)return;const o=document.querySelector(`#toc-sidebar-container [data-heading-link="${t[0]}"]`);if(!o)return;const{top:i,height:l}=e.scrollArea.getBoundingClientRect(),{top:s,height:r}=o.getBoundingClientRect(),a=s-i+e.scrollArea.scrollTop,u=Math.max(0,Math.min(a-(l-r)/2,e.scrollArea.scrollHeight-e.scrollArea.clientHeight));Math.abs(u-e.scrollArea.scrollTop)>5&&(e.scrollArea.scrollTop=u)}}class d{static handleScroll(){const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds))}static handleTOCScroll=()=>h.update();static handleResize(){c.build();const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds)),h.update()}static init(){if(e.reset(),c.build(),e.headings.length===0){g.update([]);return}this.handleScroll(),setTimeout(h.update,100);const t={passive:!0};window.addEventListener("scroll",this.handleScroll,t),window.addEventListener("resize",this.handleResize,t),e.scrollArea?.addEventListener("scroll",this.handleTOCScroll,t)}static cleanup(){window.removeEventListener("scroll",this.handleScroll),window.removeEventListener("resize",this.handleResize),e.scrollArea?.removeEventListener("scroll",this.handleTOCScroll),Object.assign(e,{activeIds:[],headings:[],regions:[],scrollArea:null,tocScrollArea:null})}}document.addEventListener("astro:page-load",()=>d.init());document.addEventListener("astro:after-swap",()=>{d.cleanup(),d.init()});document.addEventListener("astro:before-swap",()=>d.cleanup());</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
 
 
 <meta charset="utf-8">
@@ -136,249 +136,6 @@ Last modified: November 18, 2025 </div>  <div data-orientation="vertical" role="
         <symbol id="cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 20v2"></path><path d="M12 2v2"></path><path d="M17 20v2"></path><path d="M17 2v2"></path><path d="M2 12h2"></path><path d="M2 17h2"></path><path d="M2 7h2"></path><path d="M20 12h2"></path><path d="M20 17h2"></path><path d="M20 7h2"></path><path d="M7 20v2"></path><path d="M7 2v2"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="8" y="8" width="8" height="8" rx="1"></rect>
         </symbol></defs></svg>
-<!-- ## Introduction -->
-<!-- In this part, we will define more important properties and concepts related to Markov Chains. -->
-<!-- Firstly, we will define the limit theorem for finite irreducible Markov chains and see how it is (weaker) compared to the limit theorem for regular Markov chains. -->
-<!-- Then, we will define periodicity and ergodic Markov chains. -->
-<!-- Finally, we will define and discuss about time reversibility, canonical distributions, and absorbing chains. -->
-<!---->
-<!-- ## Limit Theorem for Finite Irreducible Markov Chains -->
-<!-- > [!THEOREM/Limit Theorem for Finite Irreducible Markov Chains] -->
-<!-- > > [!RECALL] -->
-<!-- > > In a finite irreducible Markov chain, all states are recurrent. -->
-<!-- > -->
-<!-- > Let $\mu_j = \mathbb{E}[T_j \mid X_0 = j]$ be the expected return time to state $j$. -->
-<!-- > Then $\mu_j < \infty$ for all states $j$ and the vector $v$ with $v_j = \frac{1}{\mu_j}$ is the unique stationary distribution. -->
-<!-- > -->
-<!-- > Further, -->
-<!-- $$ -->
-<!-- v_j = \lim_{n \to \infty} \frac{1}{n} \sum_{m = 0}^{n - 1} (P^m)_{ij} -->
-<!-- $$ -->
-<!-- > > [!NOTE] -->
-<!-- > > All finite regular Markov chains are finite irreducible Markov chains, but not vice versa. -->
-<!-- > > The overall conclusion here is weaker than that for finite regular Markov chains. Not all finite irreducible Markov chains have limiting distributions. -->
-<!---->
-<!-- > [!INTUITION/Extention to Infinite Irreducible Markov Chains] -->
-<!-- > In a finite irreducible Markov chian, all states are recurrent, and all expected return times $\mu_j$ are finite. -->
-<!-- > -->
-<!-- > In a Markov chain, states may be recurrent but with infinite expected return times. -->
-<!-- > Such states are called null recurrent, while recurrent states with finite expected return times are called positive recurrent. -->
-<!-- > -->
-<!-- > The previous theorem can be extended to infinite irreducible Markov chains where all states are positive recurrent. -->
-<!---->
-<!-- ## Periodicity and Ergodic Markov Chains -->
-<!-- > [!DEFINITION/Periodicity] -->
-<!-- > The period of a state $i$ is the greatest common divisor of all $n > 0$ such that $(P^n)_{ii} > 0$. -->
-<!-- > All states of a communication class have the same period. -->
-<!-- > > [!PROOF/Periodicity is the Same for all States in a Communication Class] -->
-<!-- > > Let $i$ and $j$ be two states in the same communication class. -->
-<!-- > > Then, there exist $m, k > 0$ such that $(P^m)\_{ij} > 0$ and $(P^k)\_{ji} > 0$. -->
-<!-- > > Let $d_i$ and $d_j$ be the periods of states $i$ and $j$, respectively. -->
-<!-- > > For any $n$ such that $(P^n)\_{ii} > 0$, we have, -->
-<!-- $$ -->
-<!-- (P^{m + n + k})\_{jj} \geq (P^m)\_{ji} (P^n)\_{ii} (P^k)\_{ij} > 0 -->
-<!-- $$ -->
-<!-- > > Thus, $d_j$ divides $m + n + k$. -->
-<!-- > > Since $d_j$ also divides $m + k$, it must divide $n$. -->
-<!-- > > By symmetry, $d_i$ divides $n$ for any $n$ such that $(P^n)_{jj} > 0$. -->
-<!-- > > Therefore, $d_i = d_j$. -->
-<!-- > -->
-<!-- > A Markov chain is periodic if it is irreducible and all states have period greater than 1. -->
-<!-- > -->
-<!-- > A Markov chain is aperiodic if it is irreducible and all states have period 1. -->
-<!---->
-<!-- > [!DEFINITION/Ergodic Markov Chains] -->
-<!-- > A Markov chain is ergodic if, -->
-<!-- > 1. It is irreducible. -->
-<!-- > -->
-<!-- > 2. It is aperiodic. -->
-<!-- > -->
-<!-- > 3. All states are positive recurrent (i..e, have finite expected return times (which always is true if the state space is finite)). -->
-<!-- > > [!THEOREM/Fundamental Limit Theorem for Ergodic Markov Chains] -->
-<!-- > > There exists a unique stationary distribution $v$ which is the limiting distribution of the chain. -->
-<!-- > > [!NOTE] -->
-<!-- > > We can also show that a finite Markov chain is ergodic if and only if its transition matrix is regular. -->
-<!---->
-<!-- ## Time Reversibility, Canonical Distributions, and Absorbing Chains -->
-<!-- > [!DEFINITION/Time Reversibility] -->
-<!-- > Let $P$ be the transition matrix of an irreducible Markov chain with stationary distribution $v$. -->
-<!-- > The chain is time reversible if, when running from its stationary distribution, it looks the same moving forward as backwards, i.e., -->
-<!-- $$ -->
-<!-- \pi(X_k = i, X_{k + 1} = j) = \pi(X_k = j, X_{k + 1} = i) -->
-<!-- $$ -->
-<!-- > This may also be written as $v_i P_{ij} = v_j P_{ji}$ for all states $i$ and $j$. -->
-<!-- > It is called the detailed balance equations. -->
-<!-- > > [!NOTE] -->
-<!-- > > If $x$ is a probability vector satisfying $x_i P_{ij} = x_j P_{ji}$ for all states $i$ and $j$, then $x$ is the stationary distribution of the chain, and the chain is time reversible. -->
-<!-- > > > [!PROOF] -->
-<!-- > > > We have, -->
-<!-- $$ -->
-<!-- \begin{align*} -->
-<!-- (xP)\_j & = \sum_{i} x_i P\_{ij} \newline -->
-<!-- & = \sum_i x_j P\_{ji} \newline -->
-<!-- & = x_j \sum_i P\_{ji} \newline -->
-<!-- & = x_j -->
-<!-- \end{align*} -->
-<!-- $$ -->
-<!-- > > > Thus, $xP = x$, so $x$ is the stationary distribution. -->
-<!-- > > -->
-<!-- > > If a Markov chain is defined as a random walk on a weighted undirected graph, then it is time reversible. -->
-<!-- > > > [!PROOF] -->
-<!-- > > > Let $w(i, j)$ be the weight of the edge between nodes $i$ and $j$ (0 if no edge exists). -->
-<!-- > > > Let $w(i) = \sum_{k} w(i, k)$ be the sum of weights of edges going into node $i$. -->
-<!-- > > > The transition matrix is given by $P_{ij} = \frac{w(i, j)}{w(i)}$. -->
-<!-- > > > Let $v_i = \frac{w(i)}{e}$, where $e$ is the total sum over all nodes of their $w(i)$ values. -->
-<!-- > > > Then, -->
-<!-- $$ -->
-<!-- \begin{align*} -->
-<!-- v_i P_{ij} & = \frac{w(i)}{e} \cdot \frac{w(i, j)}{w(i)} \newline -->
-<!-- & = \frac{w(i, j)}{e} \newline -->
-<!-- & = \frac{w(j, i)}{e} \newline -->
-<!-- & = \frac{w(j)}{e} \cdot \frac{w(j, i)}{w(j)} \newline -->
-<!-- & = v_j P_{ji} -->
-<!-- \end{align*} -->
-<!-- $$ -->
-<!-- > > > Thus, the detailed balance equations are satisfied, so the chain is time reversible. -->
-<!-- > > -->
-<!-- > > If a finite Markov chain is time reversible, it can be represented as a random walk on a weighted undirected graph. -->
-<!-- > > > [!PROOF] -->
-<!-- > > > Let $P$ be the transition matrix of a finite time reversible Markov chain with stationary distribution $v$. -->
-<!-- > > > Let $w(i, j) = v_i P_{ij}$ be the weight of the edge between nodes $i$ and $j$. -->
-<!-- > > > Then, -->
-<!-- $$ -->
-<!-- \sum_{j} w(i, j) = \sum_{j} v_i P_{ij} = v_i \sum_{j} P_{ij} = v_i -->
-<!-- $$ -->
-<!-- > > > Thus, the sum of weights of edges going into node $i$ is $v_i$. -->
-<!-- > > > The transition matrix is given by, -->
-<!-- $$ -->
-<!-- P_{ij} = \frac{w(i, j)}{\sum_{k} w(i, k)} = \frac{v_i P_{ij}}{v_i} = P_{ij} -->
-<!-- $$ -->
-<!-- > > > Thus, the Markov chain can be represented as a random walk on a weighted undirected graph. -->
-<!---->
-<!-- > [!DEFINITION/Canonical Distributions] -->
-<!-- > The states of a Markov chain can be subdivided into communication classes, each consisting only of a transient or recurrent states. -->
-<!-- > Let $T$ denote the union of all communication classes with transient states. Let the remaining communication classes be $R_1, R_2, \ldots, R_m$. -->
-<!-- > -->
-<!-- > Each $R_i$ must necessarily be closed in the sense that no states outside $R_i$ are accessible from $R_i$. -->
-<!-- > Ordering states according to $T, R_1, R_2, \ldots, R_m$, the transition matrix $P$ has the block structure, -->
-<!-- $$ -->
-<!-- P = -->
-<!-- \begin{bmatrix} -->
-<!-- \star & \star & \star & \ldots & \star \newline -->
-<!-- 0 & P_1 & 0 & \ldots & 0 \newline -->
-<!-- \vdots & \vdots & \vdots & \ddots & \vdots \newline -->
-<!-- 0 & 0 & 0 & \ldots & P_m -->
-<!-- \end{bmatrix}. -->
-<!-- $$ -->
-<!-- > We will later on dicuss what $\star$ is here. -->
-<!-- > -->
-<!-- > Note that, -->
-<!-- $$ -->
-<!-- P^n = -->
-<!-- \begin{bmatrix} -->
-<!-- \star & \star & \star & \ldots & \star \newline -->
-<!-- 0 & P_1^n & 0 & \ldots & 0 \newline -->
-<!-- \vdots & \vdots & \vdots & \ddots & \vdots \newline -->
-<!-- 0 & 0 & 0 & \ldots & P_m^n -->
-<!-- \end{bmatrix} -->
-<!-- $$ -->
-<!-- > and we can take the limits of each $P^n_i$, if they exist. -->
-<!---->
-<!-- > [!DEFINITION/Absorbing Chains] -->
-<!-- > State $i$ is absorbing if $P_{ii} = 1$a -->
-<!-- > A Markov chain is an absorbing chain if it has at least one absorbing state. -->
-<!-- > -->
-<!-- > By reordering the states, the transition matrix for an absorbing chain can be written in the block form, -->
-<!-- $$ -->
-<!-- P = -->
-<!-- \begin{bmatrix} -->
-<!-- Q & R \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix} -->
-<!-- $$ -->
-<!-- > where $I$ is the identity matrix, $0$ is a matrix of zeroes, and $Q$ corresponds to transient states. -->
-<!-- > We can prove by induction that, -->
-<!-- $$ -->
-<!-- P^n = -->
-<!-- \begin{bmatrix} -->
-<!-- Q^n & (I + Q + Q^2 + \ldots + Q^{n - 1}) R \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix} -->
-<!-- $$ -->
-<!-- > > [!PROOF/Induction for Powers of Transition Matrix of Absorbing Chains] -->
-<!-- > > - Base case ($n = 1$): -->
-<!-- $$ -->
-<!-- \begin{bmatrix} -->
-<!-- Q & R \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix} = -->
-<!-- \begin{bmatrix} -->
-<!-- Q^1 & (I) R \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix} -->
-<!-- $$ -->
-<!-- > > - Inductive step: Assume the statement is true for some $n \geq 1$. -->
-<!-- > > We need to show that it is true for $n + 1$. -->
-<!-- $$ -->
-<!-- \begin{align*} & -->
-<!-- \begin{bmatrix} -->
-<!-- Q & R \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix}^{n + 1} \newline -->
-<!-- & = -->
-<!-- \begin{bmatrix} -->
-<!-- Q & R \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix}^n -->
-<!-- \begin{bmatrix} -->
-<!-- Q & R \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix} \newline -->
-<!-- & = -->
-<!-- \begin{bmatrix} -->
-<!-- Q^n & (I + Q + Q^2 + \ldots + Q^{n - 1}) R \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix} -->
-<!-- \begin{bmatrix} -->
-<!-- Q & R \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix} \newline -->
-<!-- & = -->
-<!-- \begin{bmatrix} -->
-<!-- Q^{n + 1} & Q^n R + (I + Q + Q^2 + \ldots + Q^{n - 1}) R \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix} \newline -->
-<!-- & = -->
-<!-- \begin{bmatrix} -->
-<!-- Q^{n + 1} & (I + Q + Q^2 + \ldots + Q^n) R \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix} -->
-<!-- \end{align*} -->
-<!-- $$ -->
-<!-- > > Thus, by induction, the statement is true for all positive integers $n$. -->
-<!-- > -->
-<!-- > Taking the limit and using $lim_{n \to \infty} Q^n = 0$ (since all states corresponding to $Q$ are transient), we have, -->
-<!-- $$ -->
-<!-- \lim_{n \to \infty} P^n = -->
-<!-- \begin{bmatrix} -->
-<!-- 0 & (I - Q)^{-1} R \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix} -->
-<!-- = -->
-<!-- \begin{bmatrix} -->
-<!-- 0 & FR \newline -->
-<!-- 0 & I -->
-<!-- \end{bmatrix} -->
-<!-- $$ -->
-<!-- > where $F = (I - Q)^{-1} = \lim_{n \to \infty} (I + Q + Q^2 + \ldots + Q^{n - 1})$ is called the fundamental matrix. -->
-<!-- > -->
-<!-- > The probability to be absorbed in a particular absorbing state given a start in a transient state is given by the entries of $FR$. -->
-<!-- > -->
-<!-- > Further, the expected number of visits in state $j$ for a chain that starts in the transient state $i$ is given by $F_{ij}$ (as this is equal to $\sum_{n = 0}^{\infty} (P^n)_{ij}$). -->
-<!-- > -->
-<!-- > Thus, the expected number of steps until absorption is given by the vector $F \mathbf{1}^T$, where $\mathbf{1}$ is a column vector of ones. -->
-<!-- > > [!NOTE] -->
-<!-- > > Given an irreducible Markov chain, to compute the expected number of steps needed to go from state $i$ to the first visit to state $j$, one can change the chain into one where state $j$ is absorbing, and compute the expected number of steps until absorption when starting at state $i$. -->
 <h2 id="introduction">Introduction</h2>
 <p>In this part, we will introduce branching processes, their properties, some useful theorems, and applications.
 Then, we will introduce Markov Chain Monte Carlo (MCMC) and some algorithms related to it.</p>
@@ -601,14 +358,14 @@ Thus, the idea is simulating from a Markov chain having $X$ as its limiting dist
 $$
 \lim_{m \to \infty} \frac{r(Y_1) + r(Y_2) + \ldots + r(Y_m)}{m} = \mathbb{E}[r(Y)]
 $$
-There is a corresponding result for Markov chains.</p><p>Strong law of large numbers for Markov chains: If $X_0, X_1, \ldots$ is an ergodic Markov chain with stationary distribution $\pi$, and if $\mathbb{E}<em>{X \sim \pi}[r(X)]$ exists, then, with probability 1,
+There is a corresponding result for Markov chains.</p><p>Strong law of large numbers for Markov chains: If $X_0, X_1, \ldots$ is an ergodic Markov chain with stationary distribution $\pi$, and if $\mathbb{E}_{X \sim \pi}[r(X)]$ exists, then, with probability 1,
 $$
-\lim</em>{m \to \infty} \frac{r(X_0) + r(X_1) + \ldots + r(X_m)}{m} = \mathbb{E}_{X \sim \pi}[r(X)]
+\lim_{m \to \infty} \frac{r(X_0) + r(X_1) + \ldots + r(X_m)}{m} = \mathbb{E}_{X \sim \pi}[r(X)]
 $$
-where $X$ has distribution $\pi$.</p><blockquote>
-<p> [!NOTE]
-When using this theorem in practice, one might improve accuracy by throwing away the first sequence $X_1, \ldots, X_s$ for $s &#x3C; m$ before computing the average. The first sequence is then called the burn-in.</p>
-</blockquote></div>
+where $X$ has distribution $\pi$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>When using this theorem in practice, one might improve accuracy by throwing away the first sequence $X_1, \ldots, X_s$ for $s &#x3C; m$ before computing the average. The first sequence is then called the burn-in.</p></div>
+</details></div>
 </details>
 <h3 id="examples">Examples</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
@@ -635,6 +392,218 @@ $$
 \lim_{n \to \infty} \frac{r(X_1) + r(X_2) + \ldots + r(X_n)}{n} = 1.4783
 $$
 but in this case the limit is approached more slowly.</p></div>
+</details>
+<h3 id="the-metropolis-hastings-algorithm-gibbs-sampling-and-the-ising-model">The Metropolis-Hastings Algorithm, Gibbs Sampling, and The Ising Model</h3>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: The Metropolis-Hastings Algorithm<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Metropolis-Hastings algorithm is a method to construct a Markov chain having a desired limiting distribution.
+Let $\theta$ be a random variable with probability mass function $\pi( \theta)$.
+We also assume given a proposal distribution $T(\theta_{\text{new}} \mid \theta)$, which, for every given $\theta$, provides a PMF for a new $\theta_{\text{new}}$.</p><p>Finally, we define, for $\theta$ and $\theta_{\text{new}}$, the acceptance probability,
+$$
+a = \min\left(1, \frac{\pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}})}{\pi(\theta) T(\theta_{\text{new}} \mid \theta)}\right)
+$$
+The Metropolis-Hastings algorithm is: Starting with some initial value $\theta_0$, generate $\theta_1, \theta_2, \ldots$ by, at each step, proposing a new $\theta$ based on the old using the proposal function and accepting it with probability $a$.
+If it is not accepted, the old value is used again.</p><p>If this defines an ergodic Markov chain, its unique stationary distribution is $\pi(\theta)$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $P$ be the transition matrix of the Markov chain defined by the Metropolis-Hastings algorithm.
+We need to show that $\pi P = \pi$.
+It suffices to show that the detailed balance equations are satisfied, i.e., that,
+$$
+\pi(\theta) P_{\theta \theta_{\text{new}}} = \pi(\theta_{\text{new}}) P_{\theta_{\text{new}} \theta}
+$$
+for all states $\theta$ and $\theta_{\text{new}}$.
+We have,
+$$
+P_{\theta \theta_{\text{new}}} = T(\theta_{\text{new}} \mid \theta) \cdot a =
+T(\theta_{\text{new}} \mid \theta) \cdot \min\left(1, \frac{\pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}})}{\pi(\theta) T(\theta_{\text{new}} \mid \theta)}\right)
+$$
+and,
+$$
+P_{\theta_{\text{new}} \theta} = T(\theta \mid \theta_{\text{new}}) \cdot a^{\prime} =
+T(\theta \mid \theta_{\text{new}}) \cdot \min\left(1, \frac{\pi(\theta) T(\theta_{\text{new}} \mid \theta)}{\pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}})}\right)
+$$
+If $\pi(\theta) T(\theta_{\text{new}} \mid \theta) \leq \pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}})$, then,
+$$
+\begin{align*}
+\pi(\theta) P_{\theta \theta_{\text{new}}} &#x26; = \pi(\theta) T(\theta_{\text{new}} \mid \theta) \cdot 1 \newline
+&#x26; = \pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}}) \cdot \frac{\pi(\theta) T(\theta_{\text{new}} \mid \theta)}{\pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}})} \newline
+&#x26; = \pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}}) \cdot a^{\prime} \newline
+&#x26; = \pi(\theta_{\text{new}}) P_{\theta_{\text{new}} \theta}
+\end{align*}
+$$
+If $\pi(\theta) T(\theta_{\text{new}} \mid \theta) > \pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}})$, then,
+$$
+\begin{align*}
+\pi(\theta) P_{\theta \theta_{\text{new}}} &#x26; = \pi(\theta) T(\theta_{\text{new}} \mid \theta) \cdot \frac{\pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}})}{\pi(\theta) T(\theta_{\text{new}} \mid \theta)} \newline
+&#x26; = \pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}}) \cdot 1 \newline
+&#x26; = \pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}}) \cdot a^{\prime} \newline
+&#x26; = \pi(\theta_{\text{new}}) P_{\theta_{\text{new}} \theta}
+\end{align*}
+$$
+Thus, in both cases, the detailed balance equations are satisfied, so $\pi$ is the stationary distribution of the chain.</p></div>
+</details></div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Gibbs Sampling<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For any probability model over a vector $\theta = (\theta_1, \theta_2, \ldots, \theta_n)$, consider a Metropolis-Hastings proposal function changing only one coordinate, with the value of this coordinate simulated from the conditional distribution given the remaining coordinates.
+The acceptance probability is always 1, so the proposal is always accepted.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $\theta = (\theta_1, \theta_2, \ldots, \theta_n)$ and $\theta_{\text{new}} = (\theta_1, \ldots, \theta_{i - 1}, \theta_{i,\text{new}}, \theta_{i + 1}, \ldots, \theta_n)$ differ only in coordinate $i$.
+The proposal distribution is,
+$$
+T(\theta_{\text{new}} \mid \theta) = P(\theta_i = \theta_{i,\text{new}} \mid \theta_1, \ldots, \theta_{i - 1}, \theta_{i + 1}, \ldots, \theta_n)
+$$
+and,
+$$
+T(\theta \mid \theta_{\text{new}}) = P(\theta_i = \theta_i \mid \theta_1, \ldots, \theta_{i - 1}, \theta_{i + 1}, \ldots, \theta_n)
+$$
+Using the definition of conditional probability, we have,
+$$
+\begin{align*}
+T(\theta_{\text{new}} \mid \theta)
+&#x26; = \frac{P(\theta_1, \ldots, \theta_{i - 1}, \theta_{i,\text{new}}, \theta_{i + 1}, \ldots, \theta_n)}
+{P(\theta_1, \ldots, \theta_{i - 1}, \theta_{i + 1}, \ldots, \theta_n)} \
+&#x26; = \frac{\pi(\theta_{\text{new}})}
+{\sum_x \pi(\theta_1, \ldots, \theta_{i - 1}, x, \theta_{i + 1}, \ldots, \theta_n)} ,
+\end{align*}
+$$
+and,
+$$
+\begin{align*}
+T(\theta \mid \theta_{\text{new}})
+&#x26; = \frac{P(\theta_1, \ldots, \theta_{i - 1}, \theta_i, \theta_{i + 1}, \ldots, \theta_n)}
+{P(\theta_1, \ldots, \theta_{i - 1}, \theta_{i + 1}, \ldots, \theta_n)} \
+&#x26; = \frac{\pi(\theta)}
+{\sum_x \pi(\theta_1, \ldots, \theta_{i - 1}, x, \theta_{i + 1}, \ldots, \theta_n)} ,
+\end{align*}
+$$
+Thus, we have,
+$$
+\begin{align*}
+\frac{\pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}})}
+{\pi(\theta) T(\theta_{\text{new}} \mid \theta)}
+&#x26; = \frac{
+\pi(\theta_{\text{new}}) \frac{\pi(\theta)}{\sum_x \pi(\theta_1,\ldots,\theta_{i-1},x,\theta_{i+1},\ldots,\theta_n)}
+}{
+\pi(\theta) \frac{\pi(\theta_{\text{new}})}{\sum_x \pi(\theta_1,\ldots,\theta_{i-1},x,\theta_{i+1},\ldots,\theta_n)}
+} \
+&#x26; = \frac{\pi(\theta_{\text{new}})\pi(\theta)}
+{\pi(\theta)\pi(\theta_{\text{new}})} = 1 ,
+\end{align*}
+$$
+Thus, the proposal is always accepted.</p></div>
+</details><p>Putting together an algorithm updating different coordinates in different steps may create an ergodic Markov chain.</p><p>This is called Gibbs sampling.
+Sometimes the conditional distributions are easy to derive. Then this is an easy-to-use version of Metropolis-Hastings.</p></div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: The Ising Model<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Uses a grid of vertices; We will assume an $n \times n$ grid.
+Two vertices $v$ and $w$ are neighbours, denoted $v \sim w$, if they are next to each other in the grid.</p><p>Each vertex $v$ can have value $+1$ or $-1$ (called its “spin”); We denote this by $\sigma_{v} = 1$ or $\sigma_{v} = -1$.</p><p>A configuration $\sigma$ consists of a choice of $+1$ or $-1$ for each vertex. Thus, the set $\Omega$ of possible configurations has $2^(n^2)$ elements.
+We define the energy of a configuration as $E(\sigma) = - \sum_{v \sim w} \sigma_v \sigma_w$.</p><p>The Gibbs distribution is the probability mass function on $\Omega$ defined by,
+$$
+\pi(\sigma) \propto \exp(-\beta E(\sigma))
+$$
+where $\beta$ is a parameter of the model; $\frac{1}{\beta}$ is called the temperature.</p><p>It turns out that when the temperature is high, samples from the model will show a chaotic pattern of spins, but when the temperature sinks below the phase transition value, samples will show chunks of neighbouring vertices with the same spin, i.e., the system will be “magnetized”.</p></div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Simulating from the Ising Model using Gibbs Sampling<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For a vertex configuration $\sigma$ and a vertex $v$, let $\sigma_{-v}$ denote the part of $\sigma$ that does not involve $v$.
+Prpose a new configuration $\sigma^{\star}$ given an old configuration $\sigma$ by first choosing a vertex $v$, then, let $\sigma^{\star}$ be identical to $\sigma$ except possibly at $v$.
+Decide the spin at $v$ using the conditional distribution given $\sigma_{-v}$,
+$$
+\begin{align*}
+\pi(\sigma^{\star} \mid \sigma_{-v}) &#x26; = \frac{\pi(\sigma_v = 1, \sigma_{-v})}{\pi(\sigma_{-v})} \newline
+&#x26; = \frac{\pi(\sigma_v = 1, \sigma_{-v})}{\pi(\sigma_v = 1, \sigma_{-v}) + \pi(\sigma_v = -1, \sigma_{-v})} \newline
+&#x26; = \frac{1}{1 + \frac{\pi(\sigma_v = -1, \sigma_{-v})}{\pi(\sigma_v = 1, \sigma_{-v})}} \newline
+&#x26; = \frac{1}{1 + \exp(-\beta E(\sigma_v = -1, \sigma_{-v}) + \beta E(\sigma_v = 1, \sigma_{-v}))} \newline
+&#x26; = \frac{1}{1 + \exp(\beta \sum_{v \sim w} \sigma_v \sigma_w \mid \sigma_v = -1 - \beta \sum_{v \sim w} \sigma_v \sigma_w \mid \sigma_v = 1)} \newline
+&#x26; = \frac{1}{1 + \exp(-2 \beta \sum_{v \sim w} \sigma_w)} \newline
+\end{align*}
+$$
+This works, but we will dicuss an even better approach “perfect sampling” later.</p></div>
+</details>
+<h2 id="perfect-sampling">Perfect Sampling</h2>
+<p>So far, we have seen that MCMC means,</p>
+<ul>
+<li>We want to find the expected value of some expression under some distribution.</li>
+<li>The distribution is difficult to sample from, so instead we simulate from a Markov chain having the given distribution as its limiting distribution.</li>
+<li>Using the strong law of large numbers for Markov chains, we can approximate the expected value as an average over expressions computed on your simulated values.</li>
+</ul>
+<p>When we sample directly from a distribution, the rate of convergence of the averages is governed by the central limit theorem.
+When using a Markov chain, it is generally very difficult to find the rate of convergence.</p>
+<p>There are some exceptions to this, we will now look at Perfect Sampling, where you prove that you have reached the limiting distribution exactly.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Perfect Sampling<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Given an ergodic Markov chain with finite state space of size $k$ and limiting distribution $\pi$.
+The idea is that, given $n$ prove that $X_n$ actually has reached the limit distribution $\pi$.</p><p>If we can rpove that the distribution at $X_n$ is independent of the starting state $X_0$, then we might be able to conclude that $X_n$ has the limiting distribution $\pi$.</p><p>Construct $k$ Markov chains that are dependent (“coupled”) but which are marginally Markov chains as above.
+If they start at the $k$ possible value at $X_0$ but have identical values at $X_n$, then we are done.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$n$ cannot be determined as the first value where the $k$ chains meet, it must be determined independently of such information.
+Thus, usually one wants to generate chains $X_{-n}, X_{-n + 1}, \ldots, X_0$ where $X_0$ has the limiting distribution, and we stepwise increase $n$ to make all chains coalesce to one chain at time 0.</p></div>
+</details></div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Using same source of randomness for all chains<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the chains $X^{(j)}_{-n}, \ldots, X^{(j)}_0$ for $j = 1, 2, \ldots, k$.
+Instead of simulating $X^{(j)}_{i + 1}$ based on $X^{(j)}_i$ independently for each j, we define a function $g$ so that $X^{(j)}_{i + 1} = g(X^{(j)}_i, U_i)$ for all $j$ where $U_i \sim \mathrm{Uniform}(0, 1)$.</p><p>Thus, if two chains have identical values in $X_i$, they will also be identical in $X_{i + 1}$.</p><p>Thus, for a particular $n$, if all chains have not converged at $X_0$, we simulate $k$ chains from $X_{-2n}$ to $X_{-n}$.
+They might only hit a subset of the $k$ states at $X_{-n}$ and thus might coalesce to one state at $X_0$ using the old simulations. If not, double $n$ again.</p></div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Monotonicity<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>One smart question is, do we need to keep track of all $k$ chains?
+We define a partial ordering on as et as a relation $x \leq y$ between some pairs $x$ and $y$ in the set, such that,</p><ul>
+<li>
+<p>If $x \leq y$ and $y \leq x$ then $x = y$.</p>
+</li>
+<li>
+<p>If $x \leq y$ and $y \leq z$ then $x \leq z$.</p>
+</li>
+</ul><p>We will need that our partial ordering has a minimal element (an $m$ such that $m \leq x$ for all $x$) and a maximal element (an $M$ such that $x \leq M$ for all $x$).</p><p>If we have a partial ordering on the state space of the Markov chain and if $x \leq y$ implies $g(x, U) \leq g(y, U)$, then $g$ is monotone.</p><p>We can then prove that we only need to keep track of the chain starting at $m$ and the chain starting at $M$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If the chains starting at $m$ and $M$ coalesce at time 0, then for any other chain starting at $x$, we have $m \leq x \leq M$.
+By monotonicity, we get that the chain starting at $m$ is less than or equal to the chain starting at $x$ at all times, and the chain starting at $M$ is greater than or equal to the chain starting at $x$ at all times.
+Thus, if the chains starting at $m$ and $M$ are equal at time 0, the chain starting at $x$ must also be equal to them at time 0.</p></div>
+</details></div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Simulating from the Ising Model using Perfect Sampling<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We saw above how to use Gibbs sampling to simulate from the Ising model. We then simulated from the conditional distributions, using,
+$$
+\pi(\sigma_v^{\star} = 1 \mid \sigma_{-v}) = \ldots = \frac{1}{1 + \exp(-2 \beta \sum_{v \sim w} \sigma_w)}
+$$
+Now, we extend this method into a perfect sampling.</p><p>Define the partial ordering on configurations $\sigma, \tau$ be defining,
+$$
+\sigma \leq \tau \iff \sigma_v \leq \tau_v \text{ for all vertices } v
+$$
+We have minimal and maximal elements $m = (-1, \ldots, -1)$ and $M = (1, \ldots, 1)$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>iF $\sigma \leq \tau$, then for all $v$ $\pi(\sigma_v^{\star} = 1 \mid \sigma_{-v}) \leq \pi(\tau_v^{\star} = 1 \mid \tau_{-v})$.</p></div>
+</details><p>Defining $g(\sigma, U)_v = 2 I (U \leq \pi(\sigma_v^{\star} = 1 \mid \sigma_{-v}) ) - 1$, makes $g$ monotone.</p><p>Given an Ising model with $\beta > 0$, start with choosing an integer $n > 0$ and setting configurations,
+$$
+\begin{align*}
+\sigma^{(-n)} &#x26; = m = (-1, \ldots, -1) \newline
+\tau^{(-n)} &#x26; = M = (1, \ldots, 1) \newline
+\end{align*}
+$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Perfect Sampling for the Ising Model<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<li>
+<p>For $i = -n +1, \ldots, 0$ set $\sigma^{(i)} = \sigma^{(i - 1)}$, $\tau^{(i)} = \tau^{(i - 1)}$ and then,</p>
+<ul>
+<li>Looping through all vertices $v$:
+<ul>
+<li>Compute $\pi(\sigma_v^{\star} = 1 \mid \sigma_{-v}^{(i)})$ and $\pi(\tau_v^{\star} = 1 \mid \tau_{-v}^{(i)})$.</li>
+<li>Simulate $U \sim \mathrm{Uniform}(0, 1)$.</li>
+<li>Update $\sigma_v^{(i)} = g(\sigma^{(i)}, U)_v$ and $\tau_v^{(i)} = g(\tau^{(i)}, U)_v$.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>If $\sigma^{(0)} = \tau^{(0)}$, this is the result. Otherwise, double $n$ and repeat.</p>
+</li>
+</ul></div>
+</details></div>
 </details>
 
 
