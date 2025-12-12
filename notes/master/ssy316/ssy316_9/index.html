@@ -1,0 +1,732 @@
+<!DOCTYPE html><html class="bg-background text-foreground" lang="en"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v5.16.1"><meta name="robots" content="index, follow"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="rezarezvan.com" href="https://rezarezvan.com/rss.xml"><!-- PageFind --><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><script src="/pagefind/pagefind-ui.js"></script><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+    function renderKaTeX() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        })
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', renderKaTeX)
+    document.addEventListener('astro:after-swap', renderKaTeX)
+  </script><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/favicon.ico"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="rezvan-blog"><link rel="manifest" href="/site.webmanifest"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.QW52Ox2j.js"></script><script>
+    function init() {
+      setGiscusTheme()
+    }
+
+    const setGiscusTheme = () => {
+      const giscus = document.querySelector('.giscus-frame')
+
+      const isDark = document.documentElement.classList.contains('dark')
+
+      if (giscus) {
+        const url = new URL(giscus.src)
+        url.searchParams.set('theme', isDark ? 'dark' : 'light')
+        giscus.src = url.toString()
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => init())
+    document.addEventListener('astro:after-swap', () => init())
+  </script><title>Part 12 - Unsupervised Learning I | rezarezvan.com</title><meta name="title" content="Part 12 - Unsupervised Learning I | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com"><meta name="robots" content="noindex"><meta property="og:title" content="Part 12 - Unsupervised Learning I"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.com/static/1200x630.png"><meta property="og:image:alt" content="Part 12 - Unsupervised Learning I"><meta property="og:type" content="website"><meta property="og:locale" content="en"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezarezvan.com/notes/master/ssy316/ssy316_9/"><meta name="twitter:title" content="Part 12 - Unsupervised Learning I"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.com/static/1200x630.png"><meta name="twitter:image:alt" content="Part 12 - Unsupervised Learning I"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/_slug_.B1jzn1J1.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <div class="bg-background/50 sticky top-0 z-50 divide-y backdrop-blur-sm xl:divide-none"> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3"> <a href="/" target="_self" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center justify-center gap-3">  <span class="hidden h-full text-lg font-medium min-[300px]:block">rezarezvan.com</span>  </a> <div class="flex items-center sm:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:flex sm:gap-6"> <a href="/blog" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/notes" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> notes<span>/</span>  </a><a href="/dump" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> dump<span>/</span>  </a><a href="/research" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> research<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center px-2 text-sm transition-colors duration-300 ease-in-out hover:rounded hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+&nbsp;Search
+</button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="ZRRmSm" prefix="r17" component-url="/_astro/mobile-menu.DvFCA0M9.js" component-export="default" renderer-url="/_astro/client.DXIZDqlh.js" props="{&quot;data-astro-transition-persist&quot;:[0,&quot;astro-iq5tym4z-2&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" data-astro-transition-persist="astro-iq5tym4z-2" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r17R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem('theme') ?? ''
+    if (['dark', 'light'].includes(localStorageTheme)) {
+      return localStorageTheme
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })()
+
+  document.documentElement.setAttribute('data-theme', theme)
+  document.documentElement.classList.add(
+    theme === 'dark' ? 'scheme-dark' : 'scheme-light',
+  )
+  window.localStorage.setItem('theme', theme)
+</script> <script type="module">function a(){const e=document.documentElement,n=e.getAttribute("data-theme")==="dark"?"light":"dark";e.classList.add("[&_*]:transition-none"),e.setAttribute("data-theme",n),e.classList.remove("scheme-dark","scheme-light"),e.classList.add(n==="dark"?"scheme-dark":"scheme-light"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("[&_*]:transition-none")}),localStorage.setItem("theme",n)}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme")||"light",t=document.documentElement;t.classList.add("[&_*]:transition-none"),window.getComputedStyle(t).getPropertyValue("opacity"),t.setAttribute("data-theme",e),t.classList.remove("scheme-dark","scheme-light"),t.classList.add(e==="dark"?"scheme-dark":"scheme-light"),requestAnimationFrame(()=>{t.classList.remove("[&_*]:transition-none")}),s()});</script> </div> </div> </header> <div id="mobile-toc-container" class="w-full xl:hidden"><details class="group"><summary class="flex w-full cursor-pointer items-center justify-between"><div class="mx-auto flex w-full max-w-3xl items-center px-4 py-3"><div class="relative mr-2 size-4"><svg class="h-4 w-4" viewBox="0 0 24 24"><circle class="text-primary/20" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle><circle id="mobile-toc-progress-circle" class="text-primary" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="62.83" stroke-dashoffset="62.83" transform="rotate(-90 12 12)"></circle></svg></div><span id="mobile-toc-current-section" class="text-muted-foreground flex-grow truncate text-sm">
+Overview
+</span><span class="text-muted-foreground ml-2"><svg width="1em" height="1em" class="h-4 w-4 transition-transform duration-200 group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg></span></div></summary><astro-island uid="Zw31V0" prefix="r25" component-url="/_astro/scroll-area.BdR3V4Yj.js" component-export="ScrollArea" renderer-url="/_astro/client.DXIZDqlh.js" props="{&quot;className&quot;:[0,&quot;mx-auto max-w-3xl&quot;],&quot;data-toc-header-scroll&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative mx-auto max-w-3xl" data-toc-header-scroll="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="max-h-[30vh]"><ul class="flex list-none flex-col gap-y-2 px-4 pb-4" id="mobile-table-of-contents"><li class="px-4 text-sm text-foreground/60"><a href="#introduction" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="introduction">Introduction</a></li><li class="px-4 text-sm text-foreground/60"><a href="#the-unsupervised-learning-problem" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="the-unsupervised-learning-problem">The Unsupervised Learning Problem</a></li><li class="px-4 text-sm text-foreground/60"><a href="#clustering" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="clustering">Clustering</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#k-means-clustering" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="k-means-clustering">$K$-Means Clustering</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#gaussian-mixture-models-gmms" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="gaussian-mixture-models-gmms">Gaussian Mixture Models (GMMs)</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></details></div><script type="module" src="/_astro/TOCHeader.astro_astro_type_script_index_0_lang.CKMLAwWj.js"></script>   </div> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/notes/"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:graduation-cap">   <symbol id="ai:lucide:graduation-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol><use href="#ai:lucide:graduation-cap"></use>  </svg> Master </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/notes/master/ssy316"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:book-open">   <symbol id="ai:lucide:book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z"/></symbol><use href="#ai:lucide:book-open"></use>  </svg> Advanced Probabilistic Machine Learning </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> <span>Part 12 - Unsupervised Learning I</span> </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 scroll-mt-31 text-4xl leading-tight font-medium text-pretty" id="post-title"> Part 12 - Unsupervised Learning I </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground">SSY316</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>Date: December 11, 2025</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div>  <div class="font-base text-sm">
+Last modified: Invalid Date </div>  <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>15 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/ssy316/ssy316_8" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 10 &amp; 11 - Variational Inference </span> </div>  </a>  <a href="#" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full pointer-events-none opacity-50 cursor-not-allowed" aria-disabled="true">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> You&#39;re at the newest post! </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <div id="toc-sidebar-container" class="sticky top-20 col-start-1 row-span-1 mr-8 ml-auto hidden h-[calc(100vh-5rem)] max-w-md xl:block"><astro-island uid="FnA2l" prefix="r26" component-url="/_astro/scroll-area.BdR3V4Yj.js" component-export="ScrollArea" renderer-url="/_astro/client.DXIZDqlh.js" props="{&quot;className&quot;:[0,&quot;flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto&quot;],&quot;type&quot;:[0,&quot;hover&quot;],&quot;data-toc-scroll-area&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto" data-toc-scroll-area="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="flex flex-col gap-2 px-4"><span class="text-lg font-medium">Table of Contents</span><ul class="flex list-none flex-col gap-y-2"><li class="text-sm text-foreground/60"><a href="#introduction" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="introduction">Introduction</a></li><li class="text-sm text-foreground/60"><a href="#the-unsupervised-learning-problem" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="the-unsupervised-learning-problem">The Unsupervised Learning Problem</a></li><li class="text-sm text-foreground/60"><a href="#clustering" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="clustering">Clustering</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#k-means-clustering" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="k-means-clustering">$K$-Means Clustering</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#gaussian-mixture-models-gmms" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="gaussian-mixture-models-gmms">Gaussian Mixture Models (GMMs)</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></div><script type="module">class f{links=document.querySelectorAll("[data-heading-link]");activeIds=[];headings=[];regions=[];scrollArea=null;tocScrollArea=null;reset(){this.links=document.querySelectorAll("#toc-sidebar-container [data-heading-link]"),this.activeIds=[],this.headings=[],this.regions=[];const t=document.getElementById("toc-sidebar-container");this.scrollArea=t?.querySelector("[data-radix-scroll-area-viewport]")||null,this.tocScrollArea=t?.querySelector("[data-toc-scroll-area]")||null}}const e=new f;class c{static build(){if(e.headings=Array.from(document.querySelectorAll(".prose h2, .prose h3, .prose h4, .prose h5, .prose h6")),e.headings.length===0){e.regions=[];return}e.regions=e.headings.map((t,o)=>{const i=e.headings[o+1];return{id:t.id,start:t.offsetTop,end:i?i.offsetTop:document.body.scrollHeight}})}static getVisibleIds(){if(e.headings.length===0)return[];const t=window.scrollY+80,o=window.scrollY+window.innerHeight,i=new Set,l=(s,r)=>s>=t&&s<=o||r>=t&&r<=o||s<=t&&r>=o;return e.headings.forEach(s=>{const r=s.offsetTop+s.offsetHeight;l(s.offsetTop,r)&&i.add(s.id)}),e.regions.forEach(s=>{if(s.start<=o&&s.end>=t){const r=document.getElementById(s.id);if(r){const a=r.offsetTop+r.offsetHeight;s.end>a&&(a<o||t<s.end)&&i.add(s.id)}}}),Array.from(i)}}class h{static update(){if(!e.scrollArea||!e.tocScrollArea)return;const{scrollTop:t,scrollHeight:o,clientHeight:i}=e.scrollArea,l=5,s=t<=l,r=t>=o-i-l;e.tocScrollArea.classList.toggle("mask-t-from-90%",!s),e.tocScrollArea.classList.toggle("mask-b-from-90%",!r)}}class g{static update(t){e.links.forEach(o=>{o.classList.remove("text-foreground")}),t.forEach(o=>{if(o){const i=document.querySelector(`#toc-sidebar-container [data-heading-link="${o}"]`);i&&i.classList.add("text-foreground")}}),this.scrollToActive(t)}static scrollToActive(t){if(!e.scrollArea||!t.length)return;const o=document.querySelector(`#toc-sidebar-container [data-heading-link="${t[0]}"]`);if(!o)return;const{top:i,height:l}=e.scrollArea.getBoundingClientRect(),{top:s,height:r}=o.getBoundingClientRect(),a=s-i+e.scrollArea.scrollTop,u=Math.max(0,Math.min(a-(l-r)/2,e.scrollArea.scrollHeight-e.scrollArea.clientHeight));Math.abs(u-e.scrollArea.scrollTop)>5&&(e.scrollArea.scrollTop=u)}}class d{static handleScroll(){const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds))}static handleTOCScroll=()=>h.update();static handleResize(){c.build();const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds)),h.update()}static init(){if(e.reset(),c.build(),e.headings.length===0){g.update([]);return}this.handleScroll(),setTimeout(h.update,100);const t={passive:!0};window.addEventListener("scroll",this.handleScroll,t),window.addEventListener("resize",this.handleResize,t),e.scrollArea?.addEventListener("scroll",this.handleTOCScroll,t)}static cleanup(){window.removeEventListener("scroll",this.handleScroll),window.removeEventListener("resize",this.handleResize),e.scrollArea?.removeEventListener("scroll",this.handleTOCScroll),Object.assign(e,{activeIds:[],headings:[],regions:[],scrollArea:null,tocScrollArea:null})}}document.addEventListener("astro:page-load",()=>d.init());document.addEventListener("astro:after-swap",()=>{d.cleanup(),d.init()});document.addEventListener("astro:before-swap",()=>d.cleanup());</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
+
+
+<meta charset="utf-8">
+<title>SSY316_9</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" rel="stylesheet">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><defs>
+        <symbol id="info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path>
+        </symbol>
+        <symbol id="lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path>
+        </symbol>
+        <symbol id="alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="m12 17h.01"></path>
+        </symbol>
+        <symbol id="shield-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path>
+        </symbol>
+        <symbol id="message-square-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"></path><path d="M12 15h.01"></path><path d="m12 17v4"></path>
+        </symbol>
+        <symbol id="book-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path>
+        </symbol>
+        <symbol id="anchor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22V8"></path><path d="M5 12H2a10 10 0 0 0 20 0h-3"></path><circle cx="12" cy="5" r="3"></circle>
+        </symbol>
+        <symbol id="pen-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z"></path><path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18"></path><path d="m2.3 2.3 7.286 7.286"></path><circle cx="11" cy="11" r="2"></circle>
+        </symbol>
+        <symbol id="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path>
+        </symbol>
+        <symbol id="puzzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"></path>
+        </symbol>
+        <symbol id="git-branch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path>
+        </symbol>
+        <symbol id="file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path>
+        </symbol>
+        <symbol id="help-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path>
+        </symbol>
+        <symbol id="check-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="m9 12 2 2 4-4"></path>
+        </symbol>
+        <symbol id="message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
+        </symbol>
+        <symbol id="rotate-ccw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path>
+        </symbol>
+        <symbol id="code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path>
+        </symbol>
+        <symbol id="dumbbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"></path><path d="m2.5 21.5 1.4-1.4"></path><path d="m20.1 3.9 1.4-1.4"></path><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"></path><path d="m9.6 14.4 4.8-4.8"></path>
+        </symbol>
+        <symbol id="alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line>
+        </symbol>
+        <symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6 9 17l-5-5"></path>
+        </symbol>
+        <symbol id="check-circle-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 12 2 2 4-4"></path><circle cx="12" cy="12" r="9"></circle>
+        </symbol>
+        <symbol id="list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 5h.01"></path><path d="M3 12h.01"></path><path d="M3 19h.01"></path><path d="M8 5h13"></path><path d="M8 12h13"></path><path d="M8 19h13"></path>
+        </symbol>
+        <symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m6 9 6 6 6-6"></path>
+        </symbol>
+        <symbol id="cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20v2"></path><path d="M12 2v2"></path><path d="M17 20v2"></path><path d="M17 2v2"></path><path d="M2 12h2"></path><path d="M2 17h2"></path><path d="M2 7h2"></path><path d="M20 12h2"></path><path d="M20 17h2"></path><path d="M20 7h2"></path><path d="M7 20v2"></path><path d="M7 2v2"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="8" y="8" width="8" height="8" rx="1"></rect>
+        </symbol></defs></svg>
+<!-- ## Introduction -->
+<!-- Last time, we introduced Monte Carlo methods for (approximate) inference. -->
+<!---->
+<!-- In this part, we will introduce Variational Inference, which is another popular method for approximate inference. -->
+<!---->
+<!-- > [!NOTATION] -->
+<!-- > We will use the following notation, -->
+<!-- > - $\mathbf{z}$: set of latent variables and parameters. -->
+<!-- > - $\mathbf{x}$: set of observed variables (data). -->
+<!---->
+<!-- Thus, the goal (as last time), given a probabilistic model that specifices $p(\mathbf{x}, \mathbf{z})$, we want to find an approximation of the posterior $p(\mathbf{z} \mid \mathbf{x})$. -->
+<!---->
+<!-- ## Deterministic Approximate Inference -->
+<!-- > [!INTUITION/Deterministic Approximate Inference] -->
+<!-- > If we can approximate a complex posterior distribution $p(\mathbf{z} \mid \mathbf{x})$ by a tractable distribution $q(\mathbf{z}) \in \Omega$ that is close to $p(\mathbf{z} \mid \mathbf{x})$. -->
+<!-- > Here, $\Omega$ is a tractable family of densities over the latent variables $\mathbf{z}$. -->
+<!-- > Thus, each $q(\mathbf{z}) \in \Omega$ is a candidate approximation to the true posterior $p(\mathbf{z} \mid \mathbf{x})$. -->
+<!-- > -->
+<!-- > But how do we differentiate for the best candidate (i.e., closest to $p(\mathbf{z} \mid \mathbf{x})$)? -->
+<!-- > Given a definition of "discrepancy" between $q(\mathbf{z})$ and $p(\mathbf{z} \mid \mathbf{x})$, we can define free parameters of $q(\mathbf{z})$ to minimize this discrepancy. -->
+<!---->
+<!-- ### The Kullback-Leibler (KL) Divergence -->
+<!-- > [!DEFINITION/Kullback-Leibler (KL) Divergence] -->
+<!-- > The Kullback-Leibler (KL) divergence is a measure of how one probability distribution $q(\mathbf{z})$ diverges from a second expected probability distribution $p(\mathbf{z})$. -->
+<!-- > It is defined as, -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \mathrm{KL}(p(\mathbf{x}) \mid \mid q(\mathbf{x})) & = \int p(\mathbf{x}) \log \left(\frac{p(\mathbf{x})}{q(\mathbf{x})}\right) \ d\mathbf{x} \newline -->
+<!-- & = \mathbb{E}\_{p(\mathbf{x})} \left[\log \left(\frac{p(\mathbf{x})}{q(\mathbf{x})}\right)\right] \newline -->
+<!-- & = -\ \int p(\mathbf{x}) \log \left(\frac{q(\mathbf{x})}{p(\mathbf{x})}\right) \ d\mathbf{x} -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- > The KL divergence has the following properties, -->
+<!-- > 1. $\mathrm{KL}(p(\mathbf{x}) \mid \mid q(\mathbf{x})) \geq 0$ (non-negativity). -->
+<!-- > -->
+<!-- > 2. $\mathrm{KL}(p(\mathbf{x}) \mid \mid q(\mathbf{x})) = 0$ if and only if $p(\mathbf{x}) = q(\mathbf{x})$ almost everywhere. -->
+<!-- > -->
+<!-- > 3. It is not symmetric, i.e., $\mathrm{KL}(p(\mathbf{x}) \mid \mid q(\mathbf{x})) \neq \mathrm{KL}(q(\mathbf{x}) \mid \mid p(\mathbf{x}))$. -->
+<!---->
+<!-- ## Deterministic Approximate Inference (Contd.) and Variational Inference -->
+<!-- > [!INTUITION/Deterministic Approximate Inference (Contd.)] -->
+<!-- > Thus, we have two possibilities. -->
+<!-- > - Variational Inference [^margin: One important application and more recent implemenation of this is Variational Autoencoders!]: Minimize the reverse KL divergence, -->
+<!-- $$ -->
+<!-- q^{\star}(\mathbf{z}) = \underset{q(\mathbf{z} \in \Omega}{\arg\min} \ \mathrm{KL}(q(\mathbf{z}) \mid \mid p(\mathbf{z} \mid \mathbf{x})) -->
+<!-- $$ -->
+<!-- > - Expectation Propagation: Minimize the forward KL divergence, -->
+<!-- $$ -->
+<!-- q^{\star}(\mathbf{z}) = \underset{q(\mathbf{z} \in \Omega}{\arg\min} \ \mathrm{KL}(p(\mathbf{z} \mid \mathbf{x}) \mid \mid q(\mathbf{z})) -->
+<!-- $$ -->
+<!---->
+<!-- ![Purple: Bimodal (target) distribution. Green: Single Gaussian ($\Omega = \\{\mathcal{N}(\mu, \sigma^2)\\}$); Left is the forward KL div., Middle and right is the reverse KL div.](./imgs/deterministic_approximate_inference.svg) -->
+<!---->
+<!-- > [!INTUITION/Variational Inference] -->
+<!-- > So, minimizing the reverse KL divergence corresponds to Variational Inference. -->
+<!-- > However, this is still not tractable, as it requires knowledge of the true posterior $p(\mathbf{z} \mid \mathbf{x})$. -->
+<!-- > -->
+<!-- > But, we can rewrite $\mathrm{KL}(q(\mathbf{z}) \mid \mid p(\mathbf{z} \mid \mathbf{x}))$ as, -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \mathrm{KL}(q(\mathbf{z}) \mid \mid p(\mathbf{z} \mid \mathbf{x})) & = - \int q(\mathbf{z}) \log \left(\frac{p(\mathbf{z} \mid \mathbf{x})}{q(\mathbf{z})}\right) \ d\mathbf{z} \newline -->
+<!-- & = - \int q(\mathbf{z}) \log \left(\frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z}) p(\mathbf{x})}\right) \ d\mathbf{z} \newline -->
+<!-- & = \log p(\mathbf{x}) - \underbrace{\int q(\mathbf{z}) \log \left(\frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z})}\right) \ d\mathbf{z}}\_{\eqqcolon \mathcal{L}(q)} \newline -->
+<!-- & = \log p(\mathbf{x}) + \mathrm{KL}(q(\mathbf{z}) \mid \mid p(\mathbf{z} \mid \mathbf{x})) \newline -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- > Further, it follows that, -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \log p(\mathbf{x}) & = \log \int p(\mathbf{x}, \mathbf{z}) \ d\mathbf{z} \newline -->
+<!-- & = \log \int q(\mathbf{z}) \frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z})} \ d\mathbf{z} \newline -->
+<!-- & = \log \left(\mathbb{E}\_{q(\mathbf{z})} \left[\frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z})}\right]\right) \newline -->
+<!-- & \geq \mathbb{E}\_{q(\mathbf{z})} \left[\log \left(\frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z})}\right)\right] \quad \text{(Jensen's inequality)} \newline -->
+<!-- & = \int q(\mathbf{z}) \log \left(\frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z})}\right) \ d\mathbf{z} \newline -->
+<!-- & \triangleq \mathcal{L}(q) -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- > $\mathcal{L}(q)$ is called the Evidence Lower Bound (ELBO), as it provides a lower bound on the log-evidence $\log p(\mathbf{x})$. -->
+<!-- > -->
+<!-- > Thus, solving, -->
+<!-- $$ -->
+<!-- q^{\star}(\mathbf{z}) = \underset{q(\mathbf{z} \in \Omega}{\arg\min} \ \mathrm{KL}(q(\mathbf{z}) \mid \mid p(\mathbf{z} \mid \mathbf{x})) -->
+<!-- $$ -->
+<!-- > is equivalent to solving, -->
+<!-- $$ -->
+<!-- q^{\star}(\mathbf{z}) = \underset{q(\mathbf{z} \in \Omega}{\arg\max} \ \mathcal{L}(q) \triangleq \int q(\mathbf{z}) \log \left(\frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z})}\right) \ d\mathbf{z} -->
+<!-- $$ -->
+<!-- > which in general is (still) intractable! -->
+<!-- > -->
+<!-- > But, we can choose a parametric distribution $q(\mathbf{z} \mid \boldsymbol{\omega})$ that is tractable, but rich enough to provide a good approximation of the true posterior. -->
+<!-- > In this setting $\mathcal{L}(q)$ becomes a function of $\boldsymbol{\omega}$, i.e., $\mathcal{L}(\boldsymbol{\omega})$, thus we can exploit standard nonlinear optimization methods to find optimal parameters. -->
+<!-- > -->
+<!-- > But we can also restrict $q(\mathbf{z})$ such that it factorizes as, -->
+<!-- $$ -->
+<!-- q(\mathbf{z}) = \prod_{i = 1}^M q_i(\mathbf{z}_i) -->
+<!-- $$ -->
+<!-- > where $\mathbf{z}_1, \ldots, \mathbf{z}_M$ are disjoint partitions of $\mathbf{z}$. -->
+<!---->
+<!-- > [!INTUITION/Mean-Field Variational Inference] -->
+<!-- > This is called Mean-Field Variational Inference. -->
+<!-- > In this case, we are solving the optimization problem, -->
+<!-- $$ -->
+<!-- \underset{q_1, \ldots, q_M}{\max} \ \mathcal{L}(q) -->
+<!-- $$ -->
+<!-- > i.e., amongst all $q(\mathbf{z}) = \prod_{i = 1}^M q_i(\mathbf{z}_i)$, we want to find distribution with largest $\mathcal{L}(q)$. -->
+<!-- > -->
+<!-- > Further, if you are familiar with optimization, we will optimize the ELBO using coordinate ascent, i.e., optimize one factor $q_j(\mathbf{z}_j)$ at a time, while keeping the others fixed. -->
+<!-- > > [!DERIVATION/Solving Mean-Field Variational Inference with Coordinate Ascent] -->
+<!-- $$ -->
+<!-- q^{\star}_j(\mathbf{z}_j) = \underset{q(\mathbf{z} \in \Omega}{\arg\max} \ \mathcal{L}(q) \triangleq \int q(\mathbf{z}) \log \left(\frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z})}\right) \ d\mathbf{z} -->
+<!-- $$ -->
+<!-- > with, -->
+<!-- $$ -->
+<!-- q(\mathbf{z}) = \prod\_{i = 1}^M q_i(\mathbf{z}_i) -->
+<!-- $$ -->
+<!-- > -->
+<!-- > Singling out terms that involve $q_j(\mathbf{z}_j)$, we have, -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \mathcal{L}(q) & = \int \prod_i q_i \left(\log p(\mathbf{x}, \mathbf{z}) - \sum_k \log q_k(\mathbf{z}_k)\right) \ d\mathbf{z} \newline -->
+<!-- & = \left(\int \prod_i q_i \log p(\mathbf{x}, \mathbf{z}) \ d\mathbf{z}\right) - \left(\int \prod_i q_i \left(\sum_k \log q_k \right) \ d\mathbf{z}\right) \newline -->
+<!-- & = \left(\int \prod_i q_i \log p(\mathbf{x}, \mathbf{z}) \ d\mathbf{z}\right) - \left(\int q_j \log q_j \ d\mathbf{z}_j\right) - \left(\int \prod_i q_i \left(\sum\_{k \neq j} \log q_k \right) \ d\mathbf{z}\right) \newline -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- > Let's focus term-by-term. First term, -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \int \prod_i q_i \log p(\mathbf{x}, \mathbf{z}) \ d\mathbf{z} & = \int q_j(\mathbf{z}_j) \left(\int \log p(\mathbf{x}, \mathbf{z}) \prod\_{i \neq j} q_i(\mathbf{z}_i) \right) \ d\mathbf{z}_j \newline -->
+<!-- & = \int q_j \mathbb{E}\_{\\{\mathbf{z}_i\\}\_{i \neq j} \sim \prod\_{i \neq j} q_i(\mathbf{z}_i)} [\log p(\mathbf{x}, \mathbf{z})] \ d\mathbf{z}_j \newline -->
+<!-- & = \int q_j \mathbb{E}\_{i \neq j} [\log p(\mathbf{x}, \mathbf{z})] \ d\mathbf{z}_j \newline -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- > For the second term, -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \int \prod_i q_i \log q_j \ d\mathbf{z} & = \int q_j \log q_j \prod\_{i \neq j} q_i \ d\mathbf{z}_j \ d\mathbf{z}\_{i \neq j} \newline -->
+<!-- & = \left(\int q_j \log q_j \ d\mathbf{z}_j\right) \left(\int \prod\_{i \neq j} q_i \ d\mathbf{z}\_{i \neq j}\right) \newline -->
+<!-- & = \int q_j \log q_j \ d\mathbf{z}_j \newline -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- > Lastly, the third term, -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \int \prod_i q_i \left(\sum\_{k \neq j} \log q_k \right) \ d\mathbf{z} & = \int q_j \prod\_{i \neq j} q_i \left(\sum\_{k \neq j} \log q_k \right) \ d\mathbf{z}_j \ d\mathbf{z}\_{i \neq j} \newline -->
+<!-- & = \left(\int q_j \ d\mathbf{z}_j\right) \left(\int \prod\_{i \neq j} q_i \left(\sum\_{k \neq j} \log q_k \right) \ d\mathbf{z}\_{i \neq j}\right) \newline -->
+<!-- & = \int \prod\_{i \neq j} q_i \left(\sum\_{k \neq j} \log q_k \right) \ d\mathbf{z}\_{i \neq j} \newline -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- > Note that here we are left with a constant (w.r.t. $q_j$)! -->
+<!-- > -->
+<!-- > Thus, putting everything together, we have, -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \mathcal{L}(q) & = \int q_j \mathbb{E\_{i \neq j} [\log p(\mathbf{x}, \mathbf{z})]} \ d\mathbf{z}_j - \int q_j \log q_j \ d\mathbf{z}_j + \text{const} \newline -->
+<!-- & = \int q_j \log \tilde{p}(\mathbf{x}, \mathbf{z}_j) \ d\mathbf{z}_j - \int q_j \log q_j \ d\mathbf{z}_j + \text{const} \newline -->
+<!-- & = \int q_j \log \left(\frac{\tilde{p}(\mathbf{x}, \mathbf{z}_j)}{q_j}\right) \ d\mathbf{z}_j + \text{const} \newline -->
+<!-- & = - \ \mathrm{KL}(q_j(\mathbf{z}_j) \mid \mid \tilde{p}(\mathbf{x}, \mathbf{z}_j)) + \text{const} \newline -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- > where $\log \tilde{p}(\mathbf{x}, \mathbf{z}_j) \coloneqq \mathbb{E}\_{i \neq j} [\log p(\mathbf{x}, \mathbf{z})]$. -->
+<!-- > -->
+<!-- > Thus, if we go back to our optimization problem, -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- q^{\star}_j(\mathbf{z}_j) & = \underset{q_j}{\arg\max} \ \mathcal{L}(q) \newline -->
+<!-- & = \underset{q_j}{\arg\max} \ - \ \mathrm{KL}(q_j(\mathbf{z}_j) \mid \mid \tilde{p}(\mathbf{x}, \mathbf{z}_j)) + \text{const} \newline -->
+<!-- & = \underset{q_j}{\arg\min} \ \mathrm{KL}(q_j(\mathbf{z}_j) \mid \mid \tilde{p}(\mathbf{x}, \mathbf{z}_j)) \newline -->
+<!-- & = \tilde{p}(\mathbf{x}, \mathbf{z}_j) \newline -->
+<!-- & = \exp \left(\mathbb{E}\_{i \neq j} [\log p(\mathbf{x}, \mathbf{z})] + \text{const}\right) \newline -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- > or, equivalently, -->
+<!-- $$ -->
+<!-- \log q^{\star}_j(\mathbf{z}_j) = \mathbb{E}\_{i \neq j} [\log p(\mathbf{x}, \mathbf{z})] + \text{const} -->
+<!-- $$ -->
+<!-- > > [!ALGORITHM/Mean-Field Variational Inference with Coordinate Ascent] -->
+<!-- > > - Initialization: Set $\\{q_i(\mathbf{z}_i)\\}$. -->
+<!-- > > - For $\ell = 1, \ldots, \ell_{\text{max}}$: -->
+<!-- > >     - Fix $\\{q_i(\mathbf{z}_i)\\}\_{i \neq j}$ to their last estimated values $q_i^{\star}(\mathbf{z}_i)$. -->
+<!-- > >     - Update $q_j^{\star}(\mathbf{z}_j)$ as, -->
+<!-- $$ -->
+<!-- q_j^{\star}(\mathbf{z}_j) = \exp \left(\mathbb{E}\_{i \neq j} [\log p(\mathbf{x}, \mathbf{z})] + \text{const}\right) -->
+<!-- $$ -->
+<!-- > > - Normalize $q_j^{\star}(\mathbf{z}_j)$. -->
+<!-- > > - Repeat until ELBO $(\mathcal{L}(q))$ converges. -->
+<!---->
+<!-- ## Variational Linear Regression -->
+<!-- > [!EXAMPLE/Variational Linear Regression] -->
+<!-- > We have previously used probabilistic models and joint distributions to solve the linear regression problem. -->
+<!-- > Here, we will use Variational Inference to solve the same problem. -->
+<!-- > -->
+<!-- > > [!RECALL/Predictive Distribution in Bayesian Linear Regression] -->
+<!-- > > Recall that the predictive distribution has the form, -->
+<!-- $$ -->
+<!-- p(y \mid \mathcal{D}, \mathbf{x}, \beta) = \int p(\mathbf{w} \mid \mathcal{D}, \beta) p(y \mid \mathbf{x}, \mathbf{w}, \beta) \ d\mathbf{w} -->
+<!-- $$ -->
+<!-- > Thus, the goal to find an approximation of $p(\mathbf{w}, \alpha \mid \mathcal{D}, \beta) = p(\mathbf{w}, \alpha \mid \mathcal{D})$ is precisely the variational inference problem. -->
+<!-- > -->
+<!-- > We will consider a posterior $p(\mathbf{w}, \alpha \mid \mathcal{D}, \beta) \approx q(\mathbf{w}, \alpha)$ that factorizes as, -->
+<!-- $$ -->
+<!-- q(\mathbf{w}, \alpha) = q(\mathbf{w}) q(\alpha) -->
+<!-- $$ -->
+<!-- > with $q(\mathbf{w}, \alpha) \equiv p(\mathbf{w}, \alpha \mid \mathcal{D})$, $q(\mathbf{w}) \equiv p(\mathbf{w} \mid \mathcal{D})$, and $q(\alpha) \equiv p(\alpha \mid \mathcal{D})$. -->
+<!-- > Thus, our goal is (again) to minimize ELBO. -->
+<!-- > > [!DERIVATION/Variational Linear Regression] -->
+<!-- > > We need to iterate the equations, -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \log q^{\star}(\alpha) & = \mathbb{E}\_{q(\mathbf{w})} [\log p(y\_{\mathcal{D}}, \mathbf{w}, \alpha)] + \text{const} \newline -->
+<!-- \log q^{\star}(\mathbf{w}) & = \mathbb{E}\_{q(\alpha)} [\log p(y\_{\mathcal{D}}, \mathbf{w}, \alpha)] + \text{const} \newline -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- > > where $p(y\_{\mathcal{D}}, \mathbf{w}, \alpha) = p(y\_{\mathcal{D}} \mid \mathbf{w}) p(\mathbf{w} \mid \alpha) p(\alpha)$. -->
+<!-- > > Thus, -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \log q^{\star}(\alpha) & = \mathbb{E}\_{q(\mathbf{w})} [\log p(y\_{\mathcal{D}}, \mathbf{w}, \alpha)] + \text{const} \newline -->
+<!-- & = \mathbb{E}\_{q(\mathbf{w})} [\log p(\mathbf{w} \mid \alpha) + \log p(\alpha)] + \text{const} \newline -->
+<!-- & = \log p(\alpha) + \mathbb{E}\_{q(\mathbf{w})} [\log p(\mathbf{w} \mid \alpha)] + \text{const} \newline -->
+<!-- & = (a_0 - 1) \log \alpha - b_0 \alpha + \frac{M}{2} \log \alpha - \frac{\alpha}{2} \mathbb{E}\_{q(\mathbf{w})} [\mathbf{w}^T \mathbf{w}] + \text{const} \newline -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- > > which is a Gamma distribution, -->
+<!-- $$ -->
+<!-- q^{\star}(\alpha) = \mathrm{Gam}(\alpha \mid a_N, b_N), \quad a_N = a_0 + \frac{M}{2}, \quad b_N = b_0 + \frac{1}{2} \mathbb{E}\_{q(\mathbf{w})} [\mathbf{w}^T \mathbf{w}] -->
+<!-- $$ -->
+<!-- > > We can (easily) generalize this with, -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \log q^{\star}(\alpha) & = \mathbb{E}\_{q(\mathbf{w})} [\log p(y\_{\mathcal{D}}, \mathbf{w}, \alpha)] + \text{const} \newline -->
+<!-- & = \mathbb{E}\_{q(\mathbf{w})} [\log p(\mathbf{w} \mid \alpha) + \log p(\alpha)] + \text{const} \newline -->
+<!-- & = \log p(\alpha) + \mathbb{E}\_{q(\mathbf{w})} [\log p(\mathbf{w} \mid \alpha)] + \text{const} \newline -->
+<!-- & = - \frac{\beta}{2} \sum_{i = 1}^N (y_i - \mathbf{w}^T \boldsymbol{\phi}(\mathbf{x}_i))^2 - \frac{1}{2} \mathbb{E}\_{q(\alpha)} [\alpha] \mathbf{w}^T \mathbf{w} + \text{const} \newline -->
+<!-- & = -\frac{1}{2} \mathbf{w}^T \left(\mathbb{E}\_{q(\alpha)} [\alpha] \mathbf{I} + \beta \boldsymbol{\Phi}^T \boldsymbol{\Phi}\right) \mathbf{w} + \beta \mathbf{w}^T \boldsymbol{\Phi}^T \mathbf{y}\_{\mathcal{D}} + \text{const} \newline -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- > > which is a Gaussian distribution, -->
+<!-- $$ -->
+<!-- q^{\star}(\mathbf{w}) = \mathcal{N}(\mathbf{w} \mid \mathbf{m}_N, \mathbf{S}_N), \quad \mathbf{S}_N = \left(\mathbb{E}\_{q(\alpha)} [\alpha] \mathbf{I} + \beta \boldsymbol{\Phi}^T \boldsymbol{\Phi}\right)^{-1}, \quad \mathbf{m}_N = \beta \mathbf{S}_N \boldsymbol{\Phi}^T \mathbf{y}\_{\mathcal{D}} -->
+<!-- $$ -->
+<!---->
+<!-- ## Expectation Propagation -->
+<!-- > [!INTUITION/Expectation Propagation] -->
+<!-- > Consider, -->
+<!-- $$ -->
+<!-- p(\mathcal{D}, \boldsymbol{\theta}) \coloneqq \prod_i^I f_i(\boldsymbol{\theta}) -->
+<!-- $$ -->
+<!-- > where $f_i(\boldsymbol{\theta})$ are factors (e.g., likelihoods, priors, etc.), our goal is to evaluate $p(\boldsymbol{\theta} \mid \mathcal{D})$, -->
+<!-- $$ -->
+<!-- p(\boldsymbol{\theta} \mid \mathcal{D}) \coloneqq \frac{1}{p(\mathcal{D})} \prod_i^I f_i(\boldsymbol{\theta}) -->
+<!-- $$ -->
+<!-- > We can approximate $p(\boldsymbol{\theta} \mid \mathcal{D})$ with a tractable distribution $q(\boldsymbol{\theta}) \in \Omega$, -->
+<!-- $$ -->
+<!-- q(\boldsymbol{\theta}) \coloneqq \frac{1}{Z} \prod_i^I q_i(\boldsymbol{\theta}) -->
+<!-- $$ -->
+<!-- > Often assumed that factors come from the exponential family, i.e., -->
+<!-- $$ -->
+<!-- q(\boldsymbol{\theta}) = \frac{1}{Z} \prod_i^I \mathcal{N}(\boldsymbol{\theta} \mid \boldsymbol{\mu}_i, \boldsymbol{\Sigma}_i) -->
+<!-- $$ -->
+<!-- > Thus, we want to find $q(\boldsymbol{\theta})$ that minimizes the forward KL divergence, -->
+<!-- $$ -->
+<!-- q^{\star}(\boldsymbol{\theta}) = \underset{q(\boldsymbol{\theta}) \in \Omega}{\arg\min} \ \mathrm{KL}(p(\boldsymbol{\theta} \mid \mathcal{D}) \mid \mid q(\boldsymbol{\theta})) -->
+<!-- $$ -->
+<!-- > However, this is still intractable, as it requires knowledge of the true posterior $p(\boldsymbol{\theta} \mid \mathcal{D})$. -->
+<!-- > -->
+<!-- > The idea is instead to optimize each factor in turn (keeping others constant). -->
+<!-- > > [!ALGORITHM/Expectation Propagation] -->
+<!-- > > 1. Initial factors $q_i(\boldsymbol{\theta})$. -->
+<!-- > > -->
+<!-- > > 2. Until convergence, cycle through factors $q_j(\boldsymbol{\theta})$ and optimize as, -->
+<!-- $$ -->
+<!-- q_j^{\text{new}}(\boldsymbol{\theta}) = \underset{q_j(\boldsymbol{\theta}) \in \Omega}{\arg\min} \ \mathrm{KL}\left[\frac{1}{p(\mathcal{D})} f_j(\boldsymbol{\theta}) \prod\_{i \neq j} q_i(\boldsymbol{\theta})^{\text{old}}(\boldsymbol{\theta}) \mid \mid \frac{1}{Z} q_j(\boldsymbol{\theta}) \prod\_{i \neq j} q_i^{\text{old}}(\boldsymbol{\theta})\right] -->
+<h2 id="introduction">Introduction</h2>
+<p>In this and final part(s), we will explore unsupervised learning methods in probabilistic machine learning.
+Unsupervised learning involves learning patterns from unlabeled data, which is a common scenario in real-world applications.</p>
+<h2 id="the-unsupervised-learning-problem">The Unsupervised Learning Problem</h2>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: The Unsupervised Learning Problem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A branch of machine learning that operates over unlabeled data sets $\mathcal{D} \coloneqq \{\mathbf{x}_1, \ldots, \mathbf{x}_N\}$.
+The goal is to find meaningful structure in the data, characterized by the presence of hidden (latent) variables that help us explain the structure of the data.</p><p>We can (somewhat) formally define this as, given the data set $\mathcal{D} \coloneqq \{\mathbf{x}_n\}_{n = 1}^N \sim_\text{i.i.d} p(\mathbf{x})$, learn some useful properties of $p(\mathbf{x})$.
+Thus, the key difference to supervised learning is that we want to model $p(\mathbf{x})$ (unsupervised) instead of $p(y \mid \mathbf{x})$ (supervised).</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Some common unsupervised learning tasks include:</p><ul>
+<li>Discovering clusters: Clustering data into groups:
+<ul>
+<li>Assume presence of an unobserved label $y_n$ (hidden, latent variable) associated to each $\mathbf{x}_n$.</li>
+<li>Goal: Recovering labels $y_n$ for all $\mathbf{x}_n \in \mathcal{D}$.</li>
+</ul>
+</li>
+<li>Dimensionality reduction: Reduce dimensionality of data by projecting it to lower dimensional subspace which captures its essence.
+<ul>
+<li>Data may appear high-dimensional, but there may be a few of degrees in variability (latent factors).</li>
+<li>Thus, it might be possible to highlight independent explanatory factors; easier to visualize, analyze, and use for downstream tasks.</li>
+</ul>
+</li>
+<li>Generation of new samples: Learn a model that produces samples approximately distributed according to $p(\mathbf{x})$.
+<ul>
+<li>Examples: Computer graphics for gaming; Software that can produce artificial scenes based on a given description;</li>
+</ul>
+</li>
+</ul></div>
+</details></div>
+</details>
+<h2 id="clustering">Clustering</h2>
+<p>We will discuss clustering in more detail, as it is one of the most fundamental unsupervised learning tasks.
+We will firstly go through $K$-means clustering, which is a simple and popular clustering algorithm.
+Then, we will discuss Gaussian Mixture Models (GMMs), which are a more powerful probabilistic clustering method.</p>
+<h3 id="k-means-clustering">$K$-Means Clustering</h3>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: $K$-Means Clustering<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Given a data set $\mathcal{D} \coloneqq \{\mathbf{x}_n\}_{n = 1}^N$, we want to partition it into $K$ clusters.</p><ul>
+<li>Here, cluster indices are encoded by categorical variables $\mathbf{y}_n$ via one-hot encoding.</li>
+<li>$y_{nk}$ is the $k$-th component of $\mathbf{y}_n$.</li>
+<li>$y_{nk} = 1$ if $\mathbf{x}_n$ assigned to cluster $k$, $y_{nk} = 0$ otherwise.</li>
+</ul><p>But how should we perform the clustering?</p><p>The “clusters” should comprise points closer in distance → cluster together points that are mutually close in Euclidean distance (could be other distance metrics as well).
+$K$-means assigns all points in same cluster to a prototype representative $\boldsymbol{\mu}_k \rightarrow \{\boldsymbol{\mu}_k\}$ represent centers of clusters.</p><p>Thus, the goal is to find assignment of data points to clusters and $\{\boldsymbol{\mu}_k\}$ such that all points within a given cluster can be quantized to $\boldsymbol{\mu}_k$ with minimum quadratic loss,
+$$
+\begin{align*}
+\{\mathbf{y}_n^\star\}, \{\boldsymbol{\mu}_k^\star\} &#x26; = \underset{\{\mathbf{y}_n\}, \{\boldsymbol{\mu}_k\}}{\arg\min} \ \sum_{n = 1}^N \sum_{k = 1}^K y_{nk} d(\mathbf{x}_n, \boldsymbol{\mu}_k) \newline
+&#x26; = \underset{\{\mathbf{y}_n\}, \{\boldsymbol{\mu}_k\}}{\arg\min} \ \sum_{n = 1}^N \sum_{k = 1}^K y_{nk} \Vert \mathbf{x}_n - \boldsymbol{\mu}_k \Vert^2,
+\end{align*}
+$$
+where $d(\cdot, \cdot)$ is a general distance metric, then we call it $K$-medoids.</p><p>Thus, $K$-means solves the minimization problem by alternately optimizing $\mathbf{y}_n$ and $\boldsymbol{\mu}_k$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: $\ K$-Means Clustering<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<li>
+<ol>
+<li>Initialization: Initialize $\{\boldsymbol{\mu}_k^{(0)}\}$ (e.g., randomly select $K$ data points as initial cluster centers).</li>
+</ol>
+</li>
+<li>For $\ell = 1, \ldots$:</li>
+<li>
+<ol start="2">
+<li>Assignment step: For fixed $\{\boldsymbol{\mu}_k^{(\ell - 1)}\}$, solve the optimization problem for each data point $\mathbf{x}_n$,
+$$
+\mathbf{y}_n^{(\ell)} = \begin{cases}
+1, &#x26; \text{for } k = \arg \min_j \Vert \mathbf{x}_n - \boldsymbol{\mu}_j^{(\ell - 1)} \Vert^2 \newline
+0, &#x26; \text{otherwise} \newline
+\end{cases}
+$$</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>Refitting step: For fixed $\{\mathbf{y}_n^{(\ell)}\}$, solve the optimization problem for each cluster center $\boldsymbol{\mu}_k$,
+$$
+\boldsymbol{\mu}_k^{(\ell)} = \frac{\sum_{n = 1}^N y_{nk}^{(\ell)} \mathbf{x}_n}{\sum_{n = 1}^N y_{nk}^{(\ell)}}
+$$</li>
+</ol>
+</li>
+<li>Repeat until convergence (i.e., cluster assignments do not change or change in loss function is below a threshold).</li>
+</ul></div>
+</details></div>
+</details>
+<h3 id="gaussian-mixture-models-gmms">Gaussian Mixture Models (GMMs)</h3>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Gaussian Mixture Models (GMMs)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In the $K$-means case we (try to) place a hyper-sphere at the center of each cluster.
+But, if the clusters are far from circular, $K$-means will not perform well.</p><p>The Gaussian Mixture Model (GMM) is a probabilistic model that assumes that the data is generated from a mixture of several Gaussian distributions.
+Formally, we have,
+$$
+p(\mathbf{x}) = \sum_{k = 1}^K \pi_k \mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k), \quad \sum_{k = 1}^K \pi_k = 1,
+$$
+where $\pi_k$ are the mixing coefficients and $\mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)$ are the proportion of Gaussian in the data.</p><p>Thus, the goal is to assign each data point to a cluster based on the likelihood of belonging to one of the Gaussian components.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-500 dark:bg-emerald-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-600 dark:text-emerald-300" data-lucide="pen-tool" viewBox="0 0 24 24"><use href="#pen-tool"></use></svg>Derivation: Gaussian Mixture Models (GMMs)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-600 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Firstly, we have $K$ clusters, we introduce $\mathbf{\mathsf{z}} \in [1, \ldots, K]$ which is the hidden (categorical) random variables, representing which Gaussian generated our observation $\mathbf{x}$, with some probability.
+We can write $p(\mathbf{x})$ as,
+$$
+\begin{align*}
+p(\mathbf{x}) &#x26; = \sum_{k = 1}^K p(\mathbf{x}, \mathbf{\mathsf{z}} = k) \newline
+&#x26; = \sum_{k = 1}^K p(\mathbf{\mathsf{z}} = k) p(\mathbf{x} \mid \mathbf{\mathsf{z}} = k) \newline
+&#x26; = \sum_{k = 1}^K \pi_k \mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k).
+\end{align*}
+$$
+$\mathbf{\mathsf{z}}$ can be represented by a one-hot vector which means,
+$$
+\begin{align*}
+p(\mathbf{\mathsf{z}} = k) &#x26; = p(z_k = 1) = \pi_k, \newline
+p(\mathbf{x} \mid \mathbf{\mathsf{z}} = k) &#x26; = p(\mathbf{x} \mid z_k = 1) = \mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k).
+\end{align*}
+$$
+Thus, we can write,
+$$
+\begin{align*}
+p(\mathbf{\mathsf{z}}) &#x26; = \prod_{k = 1}^K \pi_k^{z_k}, \newline
+p(\mathbf{x} \mid \mathbf{\mathsf{z}}) &#x26; = \prod_{k = 1}^K \mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)^{z_k}.
+\end{align*}
+$$
+Since we are interested in the posterior,
+$$
+\begin{align*}
+p(z_k = 1 \mid \mathbf{x}) &#x26; = \frac{p(z_k = 1) p(\mathbf{x} \mid z_k = 1)}{p(\mathbf{x})} \newline
+&#x26; = \frac{\pi_k \mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)}{\sum_{j = 1}^K \pi_j \mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}_j, \boldsymbol{\Sigma}_j)} \newline
+\end{align*}
+$$
+$p(z_k = 1 \mid \mathbf{x})$ is the posterior probability that the data point $\mathbf{x}$ belongs to cluster $k$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In the $K$-means case, we hard assign each data point to a cluster. In GMMs, we soft assign each data point to clusters based on the posterior probabilities.</p></div>
+</details></div>
+</details></div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Learning Model Parameters in GMMs<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We want to learn $\boldsymbol{\theta} = \{\boldsymbol{\pi}, \boldsymbol{\mu}, \boldsymbol{\Sigma}\}$ from data set $\mathcal{D} \coloneqq \{\mathbf{x}_n\}_{n = 1}^N$.
+Using MLE we find that,
+$$
+\begin{align*}
+\boldsymbol{\theta}^{\star} &#x26; = \underset{\boldsymbol{\theta}}{\arg\max} \ \log p(\mathcal{D} \mid \boldsymbol{\theta}) \newline
+&#x26; = \underset{\boldsymbol{\theta}}{\arg\max} \ \log \left(\prod_{n = 1}^N p(\mathbf{x}_n \mid \boldsymbol{\theta})\right) \newline
+&#x26; = \underset{\boldsymbol{\theta}}{\arg\max} \ \sum_{n = 1}^N \log p(\mathbf{x}_n \mid \boldsymbol{\theta}) \newline
+&#x26; = \underset{\boldsymbol{\theta}}{\arg\max} \ \sum_{n = 1}^N \log \left(\sum_{k = 1}^K \pi_k \mathcal{N}(\mathbf{x}_n \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)\right).
+\end{align*}
+$$
+However, this optimization problem does not have a closed-form solution.
+We can use the Expectation-Maximization (EM) algorithm to iteratively find an approximate solution.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-500 dark:bg-emerald-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-600 dark:text-emerald-300" data-lucide="pen-tool" viewBox="0 0 24 24"><use href="#pen-tool"></use></svg>Derivation: Expectation-Maximization (EM) for GMMs<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-600 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The EM algorithm gets around our problem by using a common trick in machine learning.
+Introduce a new distribution $q_n(\mathbf{z}_n)$ over the hidden variables $\mathbf{\mathsf{z}}_n$,
+$$
+\begin{align*}
+\ell(\boldsymbol{\theta}) &#x26; \coloneqq \sum_{n = 1}^N \log \sum_{\mathbf{z}_n} q_n(\mathbf{z}_n) \frac{p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta})}{q_n(\mathbf{z}_n)} \newline
+&#x26; = \sum_{n = 1}^N \log \mathbb{E}_{q_n(\mathbf{z}_n)} \left[\frac{p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta})}{q_n(\mathbf{z}_n)}\right] \newline
+\end{align*}
+$$
+Using Jensen’s inequality (i.e., $f(\mathbb{E}[X]) \geq \mathbb{E}[f(X)]$ for concave $f$), we have,
+$$
+\begin{align*}
+\ell(\boldsymbol{\theta}) &#x26; \geq \sum_{n = 1}^N \mathbb{E}_{q_n} \left[\log \frac{p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta})}{q_n(\mathbf{z}_n)}\right] \newline
+&#x26; = \sum_{n = 1}^N \left(\mathbb{E}_{q_n} [\log p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta})] - \sum_{\mathbf{z}_n} q_n(\mathbf{z}_n) \log q_n(\mathbf{z}_n)\right) \newline
+&#x26; = \sum_{n = 1}^N \left(\mathbb{E}_{q_n} [\log p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta})] + \mathsf{H}(q_n)\right) \newline
+&#x26; = \mathcal{L}(\boldsymbol{q}, \boldsymbol{\theta}).
+\end{align*}
+$$
+$\mathcal{L}(\boldsymbol{q}, \boldsymbol{\theta})$ is the lower bound on $\log p(\mathcal{D} \mid \boldsymbol{\theta})$ (i.e., evidence lower bound, ELBO).</p><p>Thus, we can maximize $\mathcal{L}(\boldsymbol{q}, \boldsymbol{\theta})$ instead of $\ell(\boldsymbol{\theta})$.
+Maximizing the ELBO will force the log likelihood $\ell(\boldsymbol{\theta})$ to increase as well.
+The EM algorithm alternates between two steps. Firstly, the E-step.
+$$
+\begin{align*}
+\mathcal{L}(\boldsymbol{q}, \boldsymbol{\theta}^{(\ell - 1)}) &#x26; = \mathbb{E}_{q_n} \left[\log \frac{p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta}^{(\ell - 1)})}{q_n(\mathbf{z}_n)}\right] \newline
+&#x26; = \sum_{\mathbf{z}_n} q_n(\mathbf{z}_n) \log \frac{{p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta}^{(\ell - 1)})}}{q_n(\mathbf{z}_n)} \newline
+&#x26; = \sum_{\mathbf{z}_n} q_n(\mathbf{z}_n) \log \frac{p(\mathbf{z}_n \mid \mathbf{x}_n, \boldsymbol{\theta}^{(\ell - 1)}) p(\mathbf{x}_n \mid \boldsymbol{\theta}^{(\ell - 1)})}{q_n(\mathbf{z}_n)} \newline
+&#x26; = \sum_{\mathbf{z}_n} q_n(\mathbf{z}_n) \log \frac{p(\mathbf{z}_n \mid \mathbf{x}_n, \boldsymbol{\theta}^{(\ell - 1)})}{q_n(\mathbf{z}_n)} + \sum_{\mathbf{z}_n} q_n(\mathbf{z}_n) \log p(\mathbf{x}_n \mid \boldsymbol{\theta}^{(\ell - 1)}) \newline
+&#x26; = - \ \mathrm{KL}(q_n(\mathbf{z}_n) \mid \mid p(\mathbf{z}_n \mid \mathbf{x}_n, \boldsymbol{\theta}^{(\ell - 1)})) + \log p(\mathbf{x}_n \mid \boldsymbol{\theta}^{(\ell - 1)}).
+\end{align*}
+$$
+Thus, the E-step fixes $\boldsymbol{\theta}$ and optimizes $q_n$ → For a fixed $\boldsymbol{\theta}$ $(\boldsymbol{\theta}^{(\ell - 1)})$, we can maximize $\mathcal{L}(\boldsymbol{q}, \boldsymbol{\theta})$ by setting each term to $q_n^{\star}(\mathbf{z}_n) = p(\mathbf{z}_n \mid \mathbf{x}_n, \boldsymbol{\theta})$.</p><p>Secondly, the M-step. Here, we fix $q_n(\mathbf{z}_n)$ and optimize $\boldsymbol{\theta}$.
+$$
+\begin{align*}
+\mathcal{L}(\boldsymbol{\theta})^{\ell} &#x26; = \sum_{n = 1}^N \mathbb{E}_{q_n^{\ell}} [\log p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta})] + \mathsf{H}(q_n^{\ell}) \newline
+&#x26; \propto \sum_{n = 1}^N \mathbb{E}_{q_n^{\ell}} [\log p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta})],
+\end{align*}
+$$
+where $q_n^{\ell}(\mathbf{z}_n) = p(\mathbf{z}_n \mid \mathbf{x}_n, \boldsymbol{\theta}^{(\ell - 1)})$ from the E-step.
+We see that this is the expected complete data log-likelihood.
+Thus,
+$$
+\boldsymbol{\theta}^{(\ell + 1)} = \underset{\boldsymbol{\theta}}{\arg\max} \ \sum_{n = 1}^N \mathbb{E}_{q_n^{\ell}} [\log p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta})]
+$$
+Let’s observe what we have derived. EM based on observation that solving $\boldsymbol{\theta}^{\star} = \underset{\boldsymbol{\theta}}{\arg\max} \ \log p(\mathcal{D} \mid \boldsymbol{\theta})$ would be easy to solve given the latent variables $\mathbf{z}_1, \ldots, \mathbf{z}_n$ having been used implicitly to generate the data samples $\mathbf{x}_1, \ldots, \mathbf{x}_n$.
+Thus, we can consider the maximization of the complete data log-likelihood,
+$$
+\ell_c(\boldsymbol{\theta}) \coloneqq \log p(\mathcal{D}, \mathbf{Z} \mid \boldsymbol{\theta}).
+$$
+However, as we do not have values for $\mathbf{Z}$, we consider the expectation,
+$$
+\begin{align*}
+\mathbb{E}_{\mathbf{\mathsf{Z}} \sim p(\mathbf{Z} \mid \mathcal{D}, \boldsymbol{\theta}^{(\ell - 1)})} [\ell_c(\boldsymbol{\theta})] &#x26; = \mathbb{E}_{\mathbf{\mathsf{Z}} \sim p(\mathbf{Z} \mid \mathcal{D}, \boldsymbol{\theta}^{(\ell - 1)})} [\log p(\mathcal{D}, \mathbf{Z} \mid \boldsymbol{\theta})] \newline
+&#x26; = \mathbb{E}_{\mathbf{\mathsf{Z}} \sim p(\mathbf{Z} \mid \mathcal{D}, \boldsymbol{\theta}^{(\ell - 1)})} \left[\sum_{n = 1}^N \log p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta})\right] \newline
+&#x26; = \sum_{n = 1}^N \mathbb{E}_{\mathbf{\mathsf{z}}_n \sim p(\mathbf{z}_n \mid \mathbf{x}_n, \boldsymbol{\theta}^{(\ell - 1)})} [\log p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta})] \newline
+\end{align*}
+$$
+We don’t know $\mathbf{\mathsf{Z}}^{(\ell)}$, so we average them out given the current model $\boldsymbol{\theta}^{(\ell - 1)}$.
+In practice, we can define a function,
+$$
+Q(\boldsymbol{\theta}, \boldsymbol{\theta}^{(\ell - 1)}) \coloneqq \mathbb{E}_{q_n^{\ell}} [\log p(\mathbf{x}_n, \mathbf{z}_n \mid \boldsymbol{\theta})]
+$$
+that lower bounds the desired function.</p><p>If we now optimize for $\boldsymbol{\theta}$, we will get a better lower bound,
+$$
+\mathcal{L}^{\star}(\boldsymbol{\theta}^{(\ell - 1)}) \leq \mathcal{L}(\boldsymbol{\theta}^{(\ell)}) \leq \ell(\boldsymbol{\theta}^{(\ell)}) \eqqcolon \log p(\mathcal{D} \mid \boldsymbol{\theta}^{(\ell)})
+$$
+Finally, we can iterate between the E-step and the M-step and our lower bound will always improve until convergence.</p></div>
+</details><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Expectation-Maximization (EM) for GMMs<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<li>
+<ol>
+<li>Initialization: Initialize $\boldsymbol{\theta}^{(0)}$.</li>
+</ol>
+</li>
+<li>For $\ell = 1, \ldots$:</li>
+<li>
+<ol start="2">
+<li>E-step: Evaluate $p(\mathbf{Z} \mid \mathcal{D}, \boldsymbol{\theta}^{(\ell - 1)})$ and compute,
+$$
+Q(\boldsymbol{\theta}, \boldsymbol{\theta}^{(\ell - 1)}) = \sum_{\mathbf{\mathsf{Z}}} p(\mathbf{Z} \mid \mathcal{D}, \boldsymbol{\theta}^{(\ell - 1)}) \log p(\mathcal{D}, \mathbf{Z} \mid \boldsymbol{\theta})
+$$</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>M-step: Solve the optimization problem,
+$$
+\boldsymbol{\theta}^{(\ell)} = \underset{\boldsymbol{\theta}}{\arg\max} \ Q(\boldsymbol{\theta}, \boldsymbol{\theta}^{(\ell - 1)})
+$$</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>If convergence criterion not satisfied, return to step 2.</li>
+</ol>
+</li>
+</ul></div>
+</details></div>
+</details>
+
+
+</body></html> </article>  <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/ssy316/ssy316_8" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 10 &amp; 11 - Variational Inference </span> </div>  </a>  <a href="#" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full pointer-events-none opacity-50 cursor-not-allowed" aria-disabled="true">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> You&#39;re at the newest post! </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
+  function updateGiscusTheme() {
+    const element = document.documentElement
+    const theme = element.getAttribute('data-theme')
+    const iframe = document.querySelector('iframe.giscus-frame')
+    if (!iframe) return
+    iframe.contentWindow.postMessage(
+      { giscus: { setConfig: { theme } } },
+      'https://giscus.app',
+    )
+  }
+
+  const observer = new MutationObserver(updateGiscusTheme)
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  })
+
+  window.onload = () => {
+    updateGiscusTheme()
+  }
+</script> </div> </section> <button data-slot="button" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 group fixed right-8 bottom-8 z-50 hidden" id="scroll-to-top" title="Scroll to top" aria-label="Scroll to top"> <svg width="1em" height="1em" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" data-icon="lucide:arrow-up">   <symbol id="ai:lucide:arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></symbol><use href="#ai:lucide:arrow-up"></use>  </svg> </button> <script type="module">document.addEventListener("astro:page-load",()=>{const o=document.getElementById("scroll-to-top"),t=document.querySelector("footer");o&&t&&(o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),window.addEventListener("scroll",()=>{const e=t.getBoundingClientRect().top<=window.innerHeight;o.classList.toggle("hidden",window.scrollY<=300||e)}))});</script>  </div> </main> <footer class="py-4"> <div class="mx-auto flex max-w-3xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between"> <div class="flex flex-wrap items-center justify-center gap-x-2 text-center"> <span class="text-muted-foreground text-sm">
+&copy; 2025 • rezarezvan.com </span> </div> </div> </footer> <div id="backdrop" class="invisible fixed top-0 left-0 z-50 flex h-screen w-full justify-center bg-[rgba(0,0,0,0.5)] p-6 backdrop-blur-sm" data-astro-transition-persist="astro-t6dxx5el-4"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-ui pagefind-init" data-pagefind-ui data-bundle-path="/pagefind/" data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.tZYucdM2.js"></script> <div class="dark:prose-invert mr-2 pt-4 pb-1 text-right text-xs">
+Press <span class="prose dark:prose-invert text-xs"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const magnifyingGlass = document.getElementById('magnifying-glass')
+    const backdrop = document.getElementById('backdrop')
+
+    function openPagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      setTimeout(() => {
+        search.focus()
+      }, 0)
+      backdrop?.classList.remove('invisible')
+      backdrop?.classList.add('visible')
+    }
+
+    function closePagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      if (search) {
+        search.value = ''
+      }
+      backdrop?.classList.remove('visible')
+      backdrop?.classList.add('invisible')
+    }
+
+    // open pagefind
+    magnifyingGlass?.addEventListener('click', () => {
+      openPagefind()
+    })
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePagefind()
+      }
+    })
+
+    // close pagefind when searched result(link) clicked
+    document.addEventListener('click', (event) => {
+      if (event.target.classList.contains('pagefind-ui__result-link')) {
+        closePagefind()
+      }
+    })
+
+    backdrop?.addEventListener('click', (event) => {
+      if (!event.target.closest('#pagefind-container')) {
+        closePagefind()
+      }
+    })
+
+    // prevent form submission
+    const form = document.getElementById('form')
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault()
+    })
+  })
+</script>  </div> </body></html>
