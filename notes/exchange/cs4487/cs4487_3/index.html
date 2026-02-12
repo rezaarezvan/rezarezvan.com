@@ -50,8 +50,607 @@
     theme === 'dark' ? 'scheme-dark' : 'scheme-light',
   )
   window.localStorage.setItem('theme', theme)
-</script> <script type="module">function a(){const e=document.documentElement,n=e.getAttribute("data-theme")==="dark"?"light":"dark";e.classList.add("[&_*]:transition-none"),e.setAttribute("data-theme",n),e.classList.remove("scheme-dark","scheme-light"),e.classList.add(n==="dark"?"scheme-dark":"scheme-light"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("[&_*]:transition-none")}),localStorage.setItem("theme",n)}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme")||"light",t=document.documentElement;t.classList.add("[&_*]:transition-none"),window.getComputedStyle(t).getPropertyValue("opacity"),t.setAttribute("data-theme",e),t.classList.remove("scheme-dark","scheme-light"),t.classList.add(e==="dark"?"scheme-dark":"scheme-light"),requestAnimationFrame(()=>{t.classList.remove("[&_*]:transition-none")}),s()});</script> </div> </div> </header>   </div> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/notes/"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:graduation-cap">   <symbol id="ai:lucide:graduation-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol><use href="#ai:lucide:graduation-cap"></use>  </svg> Exchange </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/notes/exchange/cs4487"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:book-open">   <symbol id="ai:lucide:book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z"/></symbol><use href="#ai:lucide:book-open"></use>  </svg> Machine Learning </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> <span>Part 3 - Optimization and Convexity</span> </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 scroll-mt-31 text-4xl leading-tight font-medium text-pretty" id="post-title"> Part 3 - Optimization and Convexity </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground">CS4487</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>Date: September 25, 2024</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div>  <div class="font-base text-sm">
-Last modified: February 12, 2026 </div>  <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>10 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/exchange/cs4487/cs4487_2" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 2 - Generative VS. Discriminative Models </span> </div>  </a>  <a href="/notes/exchange/cs4487/cs4487_4" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 4 - Duality and SVM </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section>  <article class="prose col-start-2 max-w-none">  </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/exchange/cs4487/cs4487_2" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 2 - Generative VS. Discriminative Models </span> </div>  </a>  <a href="/notes/exchange/cs4487/cs4487_4" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 4 - Duality and SVM </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
+</script> <script type="module">function a(){const e=document.documentElement,n=e.getAttribute("data-theme")==="dark"?"light":"dark";e.classList.add("[&_*]:transition-none"),e.setAttribute("data-theme",n),e.classList.remove("scheme-dark","scheme-light"),e.classList.add(n==="dark"?"scheme-dark":"scheme-light"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("[&_*]:transition-none")}),localStorage.setItem("theme",n)}function s(){const e=document.getElementById("theme-toggle");e&&e.addEventListener("click",a)}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme")||"light",t=document.documentElement;t.classList.add("[&_*]:transition-none"),window.getComputedStyle(t).getPropertyValue("opacity"),t.setAttribute("data-theme",e),t.classList.remove("scheme-dark","scheme-light"),t.classList.add(e==="dark"?"scheme-dark":"scheme-light"),requestAnimationFrame(()=>{t.classList.remove("[&_*]:transition-none")}),s()});</script> </div> </div> </header> <div id="mobile-toc-container" class="w-full xl:hidden"><details class="group"><summary class="flex w-full cursor-pointer items-center justify-between"><div class="mx-auto flex w-full max-w-3xl items-center px-4 py-3"><div class="relative mr-2 size-4"><svg class="h-4 w-4" viewBox="0 0 24 24"><circle class="text-primary/20" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle><circle id="mobile-toc-progress-circle" class="text-primary" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="62.83" stroke-dashoffset="62.83" transform="rotate(-90 12 12)"></circle></svg></div><span id="mobile-toc-current-section" class="text-muted-foreground flex-grow truncate text-sm">
+Overview
+</span><span class="text-muted-foreground ml-2"><svg width="1em" height="1em" class="h-4 w-4 transition-transform duration-200 group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg></span></div></summary><astro-island uid="d7yCy" prefix="r25" component-url="/_astro/scroll-area.DOh3S_CI.js" component-export="ScrollArea" renderer-url="/_astro/client.DXIZDqlh.js" props="{&quot;className&quot;:[0,&quot;mx-auto max-w-3xl&quot;],&quot;data-toc-header-scroll&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative mx-auto max-w-3xl" data-toc-header-scroll="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="max-h-[30vh]"><ul class="flex list-none flex-col gap-y-2 px-4 pb-4" id="mobile-table-of-contents"><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#generative-vs-discriminative-classifiers" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="generative-vs-discriminative-classifiers">Generative VS. Discriminative Classifiers</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#logistic-regression" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="logistic-regression">Logistic Regression</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#optimization" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="optimization">Optimization</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#types-of-optimization" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="types-of-optimization">Types of Optimization</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#convex-set" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="convex-set">Convex Set</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#hyperplanes-and-halfspaces" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="hyperplanes-and-halfspaces">Hyperplanes and Halfspaces</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#operations-that-preserve-convexity" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="operations-that-preserve-convexity">Operations that Preserve Convexity</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#convex-function" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="convex-function">Convex Function</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#examples-on-mathbbr" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="examples-on-mathbbr">Examples on $\mathbb${R}$</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#examples-on-mathbbrn-and-mathbbrm-times-n" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="examples-on-mathbbrn-and-mathbbrm-times-n">Examples on $\mathbb${R}^N$ and $\mathbb${R}^${M \times N}$</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#example-quadratic-function" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="example-quadratic-function">Example: Quadratic Function</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#properties-of-convex-functions" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="properties-of-convex-functions">Properties of Convex Functions</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#first-order-condition" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="first-order-condition">First-Order Condition</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#second-order-condition" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="second-order-condition">Second-Order Condition</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#example-quadratic" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="example-quadratic">Example: Quadratic</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#example-exponential" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="example-exponential">Example: Exponential</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#example-logistic-loss" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="example-logistic-loss">Example: Logistic Loss</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#parameter-estimation" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="parameter-estimation">Parameter Estimation</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#gradient-descent" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="gradient-descent">Gradient Descent</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#stochastic-gradient-descent" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="stochastic-gradient-descent">Stochastic Gradient Descent</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#mini-batch-gradient-descent-a-compromise" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="mini-batch-gradient-descent-a-compromise">Mini-Batch Gradient Descent: A Compromise</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#summary-convex-optimization-and-numerical-methods" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="summary-convex-optimization-and-numerical-methods">Summary: Convex Optimization and Numerical Methods</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#support-vector-machines" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="support-vector-machines">Support Vector Machines</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#linearly-separable-data" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="linearly-separable-data">Linearly Separable Data</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#maximum-margin-principle" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="maximum-margin-principle">Maximum Margin Principle</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#computing-the-margin" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="computing-the-margin">Computing the Margin</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#maximizing-the-margin" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="maximizing-the-margin">Maximizing the Margin</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#svm-primal-form-hard-margin" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="svm-primal-form-hard-margin">SVM (Primal Form, Hard-Margin)</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#why-is-maximizing-the-margin-good" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="why-is-maximizing-the-margin-good">Why is Maximizing the Margin Good?</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#is-hard-margin-enough" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="is-hard-margin-enough">Is Hard-Margin Enough?</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#svm-primal-form-soft-margin" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="svm-primal-form-soft-margin">SVM (Primal Form, Soft-Margin)</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#loss-function" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="loss-function">Loss Function</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#zero-one-loss" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="zero-one-loss">Zero-One Loss</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#multiclass-svm" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="multiclass-svm">Multiclass SVM</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#summary-svm" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="summary-svm">Summary: SVM</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></details></div><script type="module" src="/_astro/TOCHeader.astro_astro_type_script_index_0_lang.CKMLAwWj.js"></script>  </div> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/notes/"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:graduation-cap">   <symbol id="ai:lucide:graduation-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol><use href="#ai:lucide:graduation-cap"></use>  </svg> Exchange </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/notes/exchange/cs4487"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:book-open">   <symbol id="ai:lucide:book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z"/></symbol><use href="#ai:lucide:book-open"></use>  </svg> Machine Learning </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:file-text">   <symbol id="ai:lucide:file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 9H8m8 4H8m8 4H8"/></g></symbol><use href="#ai:lucide:file-text"></use>  </svg> <span>Part 3 - Optimization and Convexity</span> </span> </span></li> </ol> </nav> </div>  <section class="col-start-2 flex flex-col gap-y-6 text-center"> <div class="flex flex-col"> <h1 class="mb-2 scroll-mt-31 text-4xl leading-tight font-medium text-pretty" id="post-title"> Part 3 - Optimization and Convexity </h1> <div class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground">CS4487</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>Date: September 25, 2024</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div>  <div class="font-base text-sm">
+Last modified: January 30, 2026 </div>  <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>10 min read</span> </div> </div> </div> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/exchange/cs4487/cs4487_2" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 2 - Generative VS. Discriminative Models </span> </div>  </a>  <a href="/notes/exchange/cs4487/cs4487_4" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 4 - Duality and SVM </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> </section> <div id="toc-sidebar-container" class="sticky top-20 col-start-1 row-span-1 mr-8 ml-auto hidden h-[calc(100vh-5rem)] max-w-md xl:block"><astro-island uid="Z10djgH" prefix="r26" component-url="/_astro/scroll-area.DOh3S_CI.js" component-export="ScrollArea" renderer-url="/_astro/client.DXIZDqlh.js" props="{&quot;className&quot;:[0,&quot;flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto&quot;],&quot;type&quot;:[0,&quot;hover&quot;],&quot;data-toc-scroll-area&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto" data-toc-scroll-area="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="flex flex-col gap-2 px-4"><span class="text-lg font-medium">Table of Contents</span><ul class="flex list-none flex-col gap-y-2"><li class="text-sm ml-4 text-foreground/60"><a href="#generative-vs-discriminative-classifiers" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="generative-vs-discriminative-classifiers">Generative VS. Discriminative Classifiers</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#logistic-regression" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="logistic-regression">Logistic Regression</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#optimization" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="optimization">Optimization</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#types-of-optimization" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="types-of-optimization">Types of Optimization</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#convex-set" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="convex-set">Convex Set</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#hyperplanes-and-halfspaces" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="hyperplanes-and-halfspaces">Hyperplanes and Halfspaces</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#operations-that-preserve-convexity" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="operations-that-preserve-convexity">Operations that Preserve Convexity</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#convex-function" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="convex-function">Convex Function</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#examples-on-mathbbr" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="examples-on-mathbbr">Examples on $\mathbb${R}$</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#examples-on-mathbbrn-and-mathbbrm-times-n" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="examples-on-mathbbrn-and-mathbbrm-times-n">Examples on $\mathbb${R}^N$ and $\mathbb${R}^${M \times N}$</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#example-quadratic-function" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="example-quadratic-function">Example: Quadratic Function</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#properties-of-convex-functions" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="properties-of-convex-functions">Properties of Convex Functions</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#first-order-condition" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="first-order-condition">First-Order Condition</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#second-order-condition" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="second-order-condition">Second-Order Condition</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#example-quadratic" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="example-quadratic">Example: Quadratic</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#example-exponential" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="example-exponential">Example: Exponential</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#example-logistic-loss" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="example-logistic-loss">Example: Logistic Loss</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#parameter-estimation" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="parameter-estimation">Parameter Estimation</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#gradient-descent" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="gradient-descent">Gradient Descent</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#stochastic-gradient-descent" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="stochastic-gradient-descent">Stochastic Gradient Descent</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#mini-batch-gradient-descent-a-compromise" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="mini-batch-gradient-descent-a-compromise">Mini-Batch Gradient Descent: A Compromise</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#summary-convex-optimization-and-numerical-methods" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="summary-convex-optimization-and-numerical-methods">Summary: Convex Optimization and Numerical Methods</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#support-vector-machines" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="support-vector-machines">Support Vector Machines</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#linearly-separable-data" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="linearly-separable-data">Linearly Separable Data</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#maximum-margin-principle" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="maximum-margin-principle">Maximum Margin Principle</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#computing-the-margin" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="computing-the-margin">Computing the Margin</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#maximizing-the-margin" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="maximizing-the-margin">Maximizing the Margin</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#svm-primal-form-hard-margin" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="svm-primal-form-hard-margin">SVM (Primal Form, Hard-Margin)</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#why-is-maximizing-the-margin-good" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="why-is-maximizing-the-margin-good">Why is Maximizing the Margin Good?</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#is-hard-margin-enough" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="is-hard-margin-enough">Is Hard-Margin Enough?</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#svm-primal-form-soft-margin" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="svm-primal-form-soft-margin">SVM (Primal Form, Soft-Margin)</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#loss-function" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="loss-function">Loss Function</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#zero-one-loss" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="zero-one-loss">Zero-One Loss</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#multiclass-svm" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="multiclass-svm">Multiclass SVM</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#summary-svm" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="summary-svm">Summary: SVM</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></div><script type="module">class f{links=document.querySelectorAll("[data-heading-link]");activeIds=[];headings=[];regions=[];scrollArea=null;tocScrollArea=null;reset(){this.links=document.querySelectorAll("#toc-sidebar-container [data-heading-link]"),this.activeIds=[],this.headings=[],this.regions=[];const t=document.getElementById("toc-sidebar-container");this.scrollArea=t?.querySelector("[data-radix-scroll-area-viewport]")||null,this.tocScrollArea=t?.querySelector("[data-toc-scroll-area]")||null}}const e=new f;class c{static build(){if(e.headings=Array.from(document.querySelectorAll(".prose h2, .prose h3, .prose h4, .prose h5, .prose h6")),e.headings.length===0){e.regions=[];return}e.regions=e.headings.map((t,o)=>{const i=e.headings[o+1];return{id:t.id,start:t.offsetTop,end:i?i.offsetTop:document.body.scrollHeight}})}static getVisibleIds(){if(e.headings.length===0)return[];const t=window.scrollY+80,o=window.scrollY+window.innerHeight,i=new Set,l=(s,r)=>s>=t&&s<=o||r>=t&&r<=o||s<=t&&r>=o;return e.headings.forEach(s=>{const r=s.offsetTop+s.offsetHeight;l(s.offsetTop,r)&&i.add(s.id)}),e.regions.forEach(s=>{if(s.start<=o&&s.end>=t){const r=document.getElementById(s.id);if(r){const a=r.offsetTop+r.offsetHeight;s.end>a&&(a<o||t<s.end)&&i.add(s.id)}}}),Array.from(i)}}class h{static update(){if(!e.scrollArea||!e.tocScrollArea)return;const{scrollTop:t,scrollHeight:o,clientHeight:i}=e.scrollArea,l=5,s=t<=l,r=t>=o-i-l;e.tocScrollArea.classList.toggle("mask-t-from-90%",!s),e.tocScrollArea.classList.toggle("mask-b-from-90%",!r)}}class g{static update(t){e.links.forEach(o=>{o.classList.remove("text-foreground")}),t.forEach(o=>{if(o){const i=document.querySelector(`#toc-sidebar-container [data-heading-link="${o}"]`);i&&i.classList.add("text-foreground")}}),this.scrollToActive(t)}static scrollToActive(t){if(!e.scrollArea||!t.length)return;const o=document.querySelector(`#toc-sidebar-container [data-heading-link="${t[0]}"]`);if(!o)return;const{top:i,height:l}=e.scrollArea.getBoundingClientRect(),{top:s,height:r}=o.getBoundingClientRect(),a=s-i+e.scrollArea.scrollTop,u=Math.max(0,Math.min(a-(l-r)/2,e.scrollArea.scrollHeight-e.scrollArea.clientHeight));Math.abs(u-e.scrollArea.scrollTop)>5&&(e.scrollArea.scrollTop=u)}}class d{static handleScroll(){const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds))}static handleTOCScroll=()=>h.update();static handleResize(){c.build();const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds)),h.update()}static init(){if(e.reset(),c.build(),e.headings.length===0){g.update([]);return}this.handleScroll(),setTimeout(h.update,100);const t={passive:!0};window.addEventListener("scroll",this.handleScroll,t),window.addEventListener("resize",this.handleResize,t),e.scrollArea?.addEventListener("scroll",this.handleTOCScroll,t)}static cleanup(){window.removeEventListener("scroll",this.handleScroll),window.removeEventListener("resize",this.handleResize),e.scrollArea?.removeEventListener("scroll",this.handleTOCScroll),Object.assign(e,{activeIds:[],headings:[],regions:[],scrollArea:null,tocScrollArea:null})}}document.addEventListener("astro:page-load",()=>d.init());document.addEventListener("astro:after-swap",()=>{d.cleanup(),d.init()});document.addEventListener("astro:before-swap",()=>d.cleanup());</script> <article class="prose col-start-2 max-w-none"> <!doctype html><html lang="en"><head></head><body>
+
+
+<meta charset="utf-8">
+<title>CS4487_3</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" rel="stylesheet">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><defs>
+        <symbol id="info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path>
+        </symbol>
+        <symbol id="lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path>
+        </symbol>
+        <symbol id="alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="m12 17h.01"></path>
+        </symbol>
+        <symbol id="shield-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path>
+        </symbol>
+        <symbol id="message-square-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"></path><path d="M12 15h.01"></path><path d="m12 17v4"></path>
+        </symbol>
+        <symbol id="book-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path>
+        </symbol>
+        <symbol id="anchor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22V8"></path><path d="M5 12H2a10 10 0 0 0 20 0h-3"></path><circle cx="12" cy="5" r="3"></circle>
+        </symbol>
+        <symbol id="pen-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z"></path><path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18"></path><path d="m2.3 2.3 7.286 7.286"></path><circle cx="11" cy="11" r="2"></circle>
+        </symbol>
+        <symbol id="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path>
+        </symbol>
+        <symbol id="puzzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"></path>
+        </symbol>
+        <symbol id="git-branch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path>
+        </symbol>
+        <symbol id="file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path>
+        </symbol>
+        <symbol id="help-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path>
+        </symbol>
+        <symbol id="check-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="m9 12 2 2 4-4"></path>
+        </symbol>
+        <symbol id="message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
+        </symbol>
+        <symbol id="rotate-ccw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path>
+        </symbol>
+        <symbol id="code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path>
+        </symbol>
+        <symbol id="dumbbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"></path><path d="m2.5 21.5 1.4-1.4"></path><path d="m20.1 3.9 1.4-1.4"></path><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"></path><path d="m9.6 14.4 4.8-4.8"></path>
+        </symbol>
+        <symbol id="alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line>
+        </symbol>
+        <symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6 9 17l-5-5"></path>
+        </symbol>
+        <symbol id="check-circle-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 12 2 2 4-4"></path><circle cx="12" cy="12" r="9"></circle>
+        </symbol>
+        <symbol id="list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 5h.01"></path><path d="M3 12h.01"></path><path d="M3 19h.01"></path><path d="M8 5h13"></path><path d="M8 12h13"></path><path d="M8 19h13"></path>
+        </symbol>
+        <symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m6 9 6 6 6-6"></path>
+        </symbol>
+        <symbol id="cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20v2"></path><path d="M12 2v2"></path><path d="M17 20v2"></path><path d="M17 2v2"></path><path d="M2 12h2"></path><path d="M2 17h2"></path><path d="M2 7h2"></path><path d="M20 12h2"></path><path d="M20 17h2"></path><path d="M20 7h2"></path><path d="M7 20v2"></path><path d="M7 2v2"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="8" y="8" width="8" height="8" rx="1"></rect>
+        </symbol></defs></svg>
+<h3 id="generative-vs-discriminative-classifiers">Generative VS. Discriminative Classifiers</h3>
+<p>The Bayes optimal classifier, Naive Bayes and Linear Discriminant Analysis are said to be <em>generative</em> classifiers because they all explicitly model the joint distribution $p(\mathbf{x}, y)$ of the feature vectors $\mathbf{x}$ and the labels y.</p>
+<p>To build a probabilistic classifier, all we really need to model is $p(y | \mathbf{x})$.
+However, classifiers based on directly estimating $p(y | \mathbf{x})$ are called <em>discriminative</em> classifiers because they do not care about the class conditional distribution $p(\mathbf{x} | y)$.</p>
+<h4 id="logistic-regression">Logistic Regression</h4>
+<p>Recall that logistic regression is a <strong>probabilistic discriminative classifier</strong>.
+It directly models the decision boundary using a linear function (binary-classification case),
+$$
+p(y = +1 | \mathbf{x}) = \frac{1}{1 + \exp(-(\mathbf{w}^T \mathbf{x} + b))} \newline
+\log\left(\frac{p(y = +1 | \mathbf{x})}{p(y = -1 | \mathbf{x})}\right) = \mathbf{w}^T \mathbf{x} + b
+$$</p>
+<p>Which has the classification function,
+$$
+f_{LR}(\mathbf{x}) = \underset{c \in \{1, \ldots, C\}}{\arg\max} p(y = c | \mathbf{x}).
+$$</p>
+<p>However, the one draw back with logistic regression compared the previous models that we have covered is learning the parameters.
+In the case for the generative models, we could use MLE to learn the parameters.
+Learning the parameters for logistic regression cannot be performed analytically, and we have to resort to numerical optimization.</p>
+<h3 id="optimization">Optimization</h3>
+<p>In fact, much of machine learning can be written as an optimization problem,
+$$
+\underset{\mathbf{\theta}}{\min} \ \ell(\mathcal{D}; \mathbf{\theta}) = \underset{\mathbf{\theta}}{\min} \frac{1}{M} \sum_{i=1}^M \ell(\mathbf{x}^{(i)}, y^{(i)}; \mathbf{\theta}) + r(\mathbf{\theta}),
+$$</p>
+<p>where $\mathbf{\theta}$ is a parameter vector to be optimized.</p>
+<p>$\mathcal{D} = \{(\mathbf{x}^{(i)}, y^{(i)}), i = 1, \ldots, M\}$ is a finite training set.</p>
+<p>$r(\cdot)$ is a regularizer to prevent overfitting to $\mathcal{D}$.</p>
+<p>In simple terms, we want to find the parameter vector $\mathbf{\theta}$ that minimizes the loss function $\ell(\cdot)$.</p>
+<p>In logistic regression ($\mathbf{\theta} = \{ \mathbf{w}, b \}$),
+$$
+\ell(\mathbf{x}^{(i)}, y^{(i)}; \mathbf{\theta}) = \log(1 + \exp(-y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b))) \newline
+r(\mathbf{\theta}) = \frac{1}{C} \mathbf{w}^T \mathbf{w}.
+$$</p>
+<h4 id="types-of-optimization">Types of Optimization</h4>
+<p>When we’re dealing with optimization, we will often deal with <strong>two</strong> types of optimization.
+Convex and Non-Convex optimization.</p>
+<ul>
+<li>Convex optimization
+<ul>
+<li>The easy case.</li>
+<li>Includes logistic regression, linear regression, SVM.</li>
+</ul>
+</li>
+<li>Non-Convex optimization
+<ul>
+<li>Hard in general.</li>
+<li>Includes deep learning.</li>
+</ul>
+</li>
+</ul>
+<p>Before we understand how we approach optimization, we need to understand what convexity is.</p>
+<h3 id="convex-set">Convex Set</h3>
+<p>Recall that a <strong>line segment</strong> between $\mathbf{x}^{(1)}$ and $\mathbf{x}^{(2)}$ all points,
+$$
+\mathbf{x} = \alpha \mathbf{x}^{(1)} + (1 - \alpha) \mathbf{x}^{(2)}
+$$</p>
+<p>So, a <strong>convex set</strong>, contains line segment between any two points in the set,
+$$
+\mathbf{x}^{(1)}, \mathbf{x}^{(2)} \in \chi, 0 \leq \alpha \leq 1 \Rightarrow \alpha \mathbf{x}^{(1)} + (1 - \alpha) \mathbf{x}^{(2)} \in \chi.
+$$</p>
+<h4 id="hyperplanes-and-halfspaces">Hyperplanes and Halfspaces</h4>
+<p>A <strong>hyperplane</strong> is a set of the form,
+$$
+\{ \mathbf{x} | \mathbf{a}^T \mathbf{x} = b \} (a \neq 0).
+$$</p>
+<p>where $\mathbf{a}$ is the normal vector to the hyperplane.</p>
+<p>A <strong>halfspace</strong> is a set of the form,
+$$
+\{ \mathbf{x} | \mathbf{a}^T \mathbf{x} \leq b \} (a \neq 0).
+$$</p>
+<p>Hyperplanes and halfspaces are therefore convex sets.</p>
+<h4 id="operations-that-preserve-convexity">Operations that Preserve Convexity</h4>
+<p>When we’re dealing with optimization problems, we often need methods for establishing convexity of a set $\chi$.</p>
+<p>First, apply the definition of a convex set
+$$
+\mathbf{x}^{(1)}, \mathbf{x}^{(2)} \in \chi, 0 \leq \alpha \leq 1 \Rightarrow \alpha \mathbf{x}^{(1)} + (1 - \alpha) \mathbf{x}^{(2)} \in \chi.
+$$</p>
+<p>Then, show that $\chi$ is obtained from simple convex set (hyperplanes, halfspaces, etc.) by operations that preserve convexity.</p>
+<ul>
+<li>Intersection</li>
+<li>Affine functions</li>
+<li>$\ldots$</li>
+</ul>
+<h3 id="convex-function">Convex Function</h3>
+<p>With all of this, let’s define what a convex function is.</p>
+<p>$f : \mathbb{R}^N \rightarrow \mathbb{R}$ is convex if $dom(f)$ is a convex set and,</p>
+<p>$$
+f(\alpha \mathbf{x}^{(1)} + (1 - \alpha) \mathbf{x}^{(2)}) \leq \alpha f(\mathbf{x}^{(1)}) + (1 - \alpha) f(\mathbf{x}^{(2)})
+$$</p>
+<p>for all $\mathbf{x}^{(1)}, \mathbf{x}^{(2)} \in dom(f)$ and $0 \leq \alpha \leq 1$.</p>
+<p>Also, good to remember that $f$ is concave if $-f$ is convex.</p>
+<h4 id="examples-on-mathbbr">Examples on $\mathbb{R}$</h4>
+<ul>
+<li>Convex
+<ul>
+<li>Affine: $ax + b$ on $\mathbb{R}$, for any $a, b \in \mathbb{R}$.</li>
+<li>Exponential: $e^{ax}$, for any $a \in \mathbb{R}$.</li>
+<li>Powers: $x^a$ on $\mathbb{R}_{++}$, for $a \geq 1$ or $a \leq 0$.</li>
+<li>Powers of absolute value: $|x|^a$ on $\mathbb{R}$, for $a \geq 1$.</li>
+<li>Negative entropy: $x \log x$ on $\mathbb{R}_{++}$.</li>
+</ul>
+</li>
+<li>Concave
+<ul>
+<li>Affine: $ax + b$ on $\mathbb{R}$, for any $a, b \in \mathbb{R}$.</li>
+<li>Powers: $x^a$ on $\mathbb{R}_{++}$, for $0 \leq a \leq 1$.</li>
+<li>Logarithm: $\log x$ on $\mathbb{R}_{++}$.</li>
+</ul>
+</li>
+</ul>
+<h4 id="examples-on-mathbbrn-and-mathbbrm-times-n">Examples on $\mathbb{R}^N$ and $\mathbb{R}^{M \times N}$</h4>
+<ul>
+<li>On $\mathbb{R}^N$
+<ul>
+<li>Affine function: $\mathbf{a}^T \mathbf{x} + b$.</li>
+<li>Norms: $\Vert \mathbf{x} \Vert_p = \left(\sum_{j=1}^N |x_j|^p\right)^{1/p}$, for $p \geq 1$; $\Vert \mathbf{x} \Vert_{\infty} = \max_j |x_j|$.</li>
+</ul>
+</li>
+<li>On $\mathbb{R}^{M \times N}$ ($M \times N$ matrices)
+<ul>
+<li>
+<p>Affine function:
+$$
+f(\mathbf{X}) = \sum_{i = 1}^M \sum_{j = 1}^N A_{ij} X_{ij} + b = \text{tr}(\mathbf{A}^T \mathbf{X}) + b.
+$$</p>
+</li>
+<li>
+<p>Spectral norm (maximum singular value):
+$$
+f(\mathbf{X}) = \Vert \mathbf{X} \Vert_2 = \sigma_{\text{max}}(\mathbf{X}) = (\lambda_{\text{max}}(\mathbf{X}^T \mathbf{X}))^{1/2}.
+$$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="example-quadratic-function">Example: Quadratic Function</h4>
+<p>$$
+f(x) = x^2
+$$</p>
+<p>Proof of convexity:
+$$
+\begin{align*}
+(\alpha x + (1 - \alpha)y)^2 &#x26; = \alpha^2 x^2 + 2 \alpha (1 - \alpha) xy + (1 - \alpha)^2 y^2 \newline
+&#x26; = \alpha x^2 + (1 - \alpha) y^2 + \alpha(1 - \alpha)(x^2 - 2xy + y^2) \newline
+&#x26; \leq \alpha x^2 + (1 - \alpha) y^2.
+\end{align*}
+$$</p>
+<h4 id="properties-of-convex-functions">Properties of Convex Functions</h4>
+<ul>
+<li>
+<p>Any line segment we draw between two points lies above the curve.</p>
+</li>
+<li>
+<p>Every local minimum is a <strong>global</strong> minimum.</p>
+<ul>
+<li>A simple geometric intuition is that, if the curve goes above any line segment we draw, it is not convex, by definition.</li>
+<li>This is what makes convex optimization easy. It suffices to find a local minimum because it is also a global minimum.</li>
+</ul>
+</li>
+<li>
+<p>Non-negative combinations of convex functions are convex</p>
+<ul>
+<li>$h(\mathbf{x}) = af(\mathbf{x}) + bg(\mathbf{x})$</li>
+</ul>
+</li>
+<li>
+<p>Affine scaling of convex functions are convex</p>
+<ul>
+<li>$h(\mathbf{x}) = f(A\mathbf{x} + \mathbf{b})$</li>
+</ul>
+</li>
+<li>
+<p>Pointwise maximum of convex functions is convex</p>
+<ul>
+<li>$h(\mathbf{x}) = \max(f(\mathbf{x}), g(\mathbf{x}))$</li>
+</ul>
+</li>
+<li>
+<p>Composition of convex functions are <strong>not</strong> generally convex</p>
+<ul>
+<li>Neural nets are like this $h(\mathbf{x}) = f(g(\mathbf{x}))$</li>
+</ul>
+</li>
+</ul>
+<h3 id="first-order-condition">First-Order Condition</h3>
+<p>$f$ is <strong>differentiable</strong> if the gradient,
+$$
+\nabla f(\mathbf{x}) =
+\begin{bmatrix}
+\frac{\partial f(\mathbf{x})}{\partial x_1}, \frac{\partial f(\mathbf{x})}{\partial x_2}, \ldots, \frac{\partial f(\mathbf{x})}{\partial x_N}
+\end{bmatrix}^T
+$$</p>
+<p>exists at each $\mathbf{x} \in dom(f)$.</p>
+<p>The <strong>first-order condition</strong> is that, differentiable $f$ with convex domain is convex if and only if,
+$$
+f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x})^T (\mathbf{y} - \mathbf{x}) \quad \forall \mathbf{x}, \mathbf{y} \in dom(f).
+$$</p>
+<p>First-order approximation of $f$ is global underestimator.</p>
+<h3 id="second-order-condition">Second-Order Condition</h3>
+<p>$f$ is <strong>twice differentiable</strong> if the Hessian $\nabla^2 f(\mathbf{x})$ exists at each $\mathbf{x} \in \mathbb{S}^N$,
+$$
+\nabla^2 f(\mathbf{x})_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}.
+$$</p>
+<p>exists at each $\mathbf{x} \in dom(f)$.</p>
+<p>The <strong>second-order condition</strong> is that, twice differentiable $f$ with convex domain is convex if and only if,
+$$
+\nabla^2 f(\mathbf{x}) \succeq 0
+$$</p>
+<p>This means that the Hessian matrix is positive semidefinite,
+$$
+\mathbf{A} \succeq 0 \Leftrightarrow \forall \mathbf{x}, \mathbf{x}^T \mathbf{A} \mathbf{x} \geq 0.
+$$</p>
+<h4 id="example-quadratic">Example: Quadratic</h4>
+<p>$$
+f(x) = x^2
+$$</p>
+<p>Proof of convexity:
+$$
+f”(x) = 2 \geq 0.
+$$</p>
+<h4 id="example-exponential">Example: Exponential</h4>
+<p>$$
+f(x) = e^{x}
+$$</p>
+<p>Proof of convexity:
+$$
+f”(x) = e^{x} \geq 0.
+$$</p>
+<h4 id="example-logistic-loss">Example: Logistic Loss</h4>
+<p>$$
+f(x) = \log(1 + e^{-x})
+$$</p>
+<p>Proof of convexity:
+$$
+f’(x) = \frac{e^{-x}}{1 + e^{-x}} = \frac{1}{1 + e^x} \newline
+f”(x) = \frac{e^x}{(1 + e^x)^2} \geq 0.
+$$</p>
+<h3 id="parameter-estimation">Parameter Estimation</h3>
+<p>As we said earlier, many machine learning optimizations are convex optimization problems.</p>
+<p>So our goal is to minimize a convex loss function with respect to parameters.
+For example $\ell(\mathbf{\theta}) = \mathbf{\theta}^2$.</p>
+<p>However, sometimes we deal with problems that are not convex, then we need to use numerical methods.</p>
+<h3 id="gradient-descent">Gradient Descent</h3>
+<p>The most basic optimization algorithm is <strong>gradient descent</strong>.</p>
+<p>Gradient Descent (GD) uses the following update formula,
+$$
+\mathbf{\theta} \leftarrow \mathbf{\theta} - \alpha \nabla \ell(\mathbf{\theta}),
+$$</p>
+<p>where $\alpha$ is the learning rate.</p>
+<p>$\nabla \ell(\mathbf{\theta})$ is the gradient of $\ell(\mathbf{\theta})$ evaluated at $\mathbf{\theta}$.</p>
+<p>So, with our example $\ell(\mathbf{\theta}) = \mathbf{\theta}^2$, $\nabla \ell(\mathbf{\theta}) = 2\mathbf{\theta}$.</p>
+<p>We can repeat this process until convergence, so GD first chooses an initial point $\mathbf{\theta}^{(0)}$ and repeats,
+$$
+\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} - \alpha \nabla \ell(\mathcal{D}; \mathbf{\theta}^{(t)}) = \mathbf{\theta}^{(t)} - \alpha \frac{1}{M} \sum_{i=1}^M \nabla \ell(\mathbf{x}^{(i)}, y^{(i)}; \mathbf{\theta}^{(t)}).
+$$</p>
+<p>How do we stop?
+$$
+\Vert \mathbf{\theta}^{(t+1)} - \mathbf{\theta}^{(t)} \Vert_2 &#x3C; \epsilon \newline
+\Vert \nabla \ell(\mathcal{D}; \mathbf{\theta}^{(t)}) \Vert_2 &#x3C; \epsilon,
+$$</p>
+<p>where $\Vert \mathbf{\theta} \Vert_2 = \sqrt{\sum_{j} \mathbf{\theta}_j^2}$, is the $\ell_2$-norm of $\mathbf{\theta}$.</p>
+<p>$\epsilon$ is a small positive constant, e.g., $10^{-6}$.</p>
+<p>An important thing we need to discuss is that, a <em>negative</em> gradient step can decrease the loss function.</p>
+<p><strong>Proof.</strong> Let $\mathbf{\theta}^{(0)}$ be any initial point. Using the first-order Taylor expansion for the next point $\mathbf{\theta}^{(1)} = \mathbf{\theta}^{(0)} - \alpha \nabla \ell(\mathbf{\theta}^{(0)})$, we have
+$$
+\begin{align*}
+\ell(\mathbf{\theta}^{(1)}) &#x26; = \ell(\mathbf{\theta}^{(0)} - \nabla \ell(\mathbf{\theta}^{(0)}))^T (\mathbf{\theta}^{(1)} - \mathbf{\theta}^{(0)}) \newline
+&#x26; = \ell(\mathbf{\theta}^{(0)}) + \nabla \ell(\mathbf{\theta}^{(0)})^T (-\alpha \nabla \ell(\mathbf{\theta}^{(0)})) \newline
+&#x26; = \ell(\mathbf{\theta}^{(0)}) - \alpha \Vert \nabla \ell(\mathbf{\theta}^{(0)}) \Vert_2^2
+\end{align*}
+$$</p>
+<p>Hence, if $\nabla \ell(\mathbf{\theta}^{(0)}) \neq 0$ and $\alpha$ is sufficiently small, we have,
+$$
+\ell(\mathbf{\theta}^{(1)}) - \ell(\mathbf{\theta}^{(0)}) = -\alpha \Vert \nabla \ell(\mathbf{\theta}^{(0)}) \Vert_2^2 &#x3C; 0.
+$$</p>
+<p>For sufficiently small $\alpha$, $\mathbf{\theta}^{(1)}$ is an improvement over $\mathbf{\theta}^{(0)}$.</p>
+<p>The initial point matters, the final convergence point depends a lot on the initial point.</p>
+<p>To improve optimization, run GD multiple times with different initial points and choose the best one.</p>
+<p>The learning rate matters as well, if it’s too big, GD moves more quickly with high risk that the algorithm will never converge.</p>
+<p>If it is too small, GD moves slowly, so slowly that you might just lose patience and never reach the minimum.</p>
+<h3 id="stochastic-gradient-descent">Stochastic Gradient Descent</h3>
+<p>The computational cost for GD at each iteration is $\mathcal{O}(M)$, which grows linearly with $M$.</p>
+<p>SGD, reduces the computational cost at each iteration to $\mathcal{O}(1)$.</p>
+<p>At $t$-th iteration, randomly sample a single training example and compute the gradient to update $\mathbf{\theta}^{(t)}$.
+$$
+\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} - \alpha \nabla \ell(\mathbf{x}^{(i)}, y^{(i)}; \mathbf{\theta}^{(t)}).
+$$</p>
+<p>In expectation, SGD converges to the same solution as GD, but with more noise.
+$$
+\mathbb{E}[\nabla \ell(\mathbf{x}, y; \mathbf{\theta})] = \frac{1}{M} \sum_{i=1}^M \nabla \ell(\mathbf{x}^{(i)}, y^{(i)}; \mathbf{\theta}) = \nabla \ell(\mathcal{D}; \mathbf{\theta}).
+$$</p>
+<ul>
+<li>Advantages
+<ul>
+<li>It is easy to fit into memory and computationally fast due to a single training sample being processed at each iteration.</li>
+<li>The steps have oscillations, which may help the algorithm get out of bad local minima.</li>
+</ul>
+</li>
+<li>Disadvantages
+<ul>
+<li>The steps are noisy. The objective does not always decrease for each step, and it may take longer to achieve convergence.</li>
+<li>It loses the advantage of vectorized operations as it deals with only a single example at a time.</li>
+</ul>
+</li>
+</ul>
+<h3 id="mini-batch-gradient-descent-a-compromise">Mini-Batch Gradient Descent: A Compromise</h3>
+<p>Unlike SGD, mini-batch gradient descent randomly samples a small subset of training data $\mathcal{B} \subset \mathcal{D}$ at $t$-th iteration, and compute the gradient to update $\mathbf{\theta}^{(t)}$.
+$$
+\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} - \alpha \nabla \ell(\mathcal{B}; \mathbf{\theta}^{(t)}) = \mathbf{\theta}^{(t)} - \alpha \frac{1}{|\mathcal{B}|} \sum_{(\mathbf{x}, y) \in \mathcal{B}} \nabla \ell(\mathbf{x}, y; \mathbf{\theta}^{(t)}).
+$$</p>
+<p>Mini-batch gradient descent and its variants are extremely popular and extensively used in deep learning</p>
+<h3 id="summary-convex-optimization-and-numerical-methods">Summary: Convex Optimization and Numerical Methods</h3>
+<ul>
+<li>Convex optimization
+<ul>
+<li>Convex set
+<ul>
+<li>$\mathbf{x}^{(1)}, \mathbf{x}^{(2)} \in \chi, 0 \leq \alpha \leq 1 \Rightarrow \alpha \mathbf{x}^{(1)} + (1 - \alpha) \mathbf{x}^{(2)} \in \chi$.</li>
+</ul>
+</li>
+<li>Convex function
+<ul>
+<li>$dom(f)$ is convex</li>
+<li>$f(\alpha \mathbf{x} + (1 - \alpha) \mathbf{y}) \leq \alpha f(\mathbf{x}) + (1 - \alpha) f(\mathbf{y})$.</li>
+</ul>
+</li>
+<li>Establish convexity
+<ul>
+<li>By definition</li>
+<li>First-order condition $f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x})^T (\mathbf{y} - \mathbf{x})$.</li>
+<li>Second-order condition $\nabla^2 f(\mathbf{x}) \succeq 0$.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Numerical optimization methods
+<ul>
+<li>GD - guarantee to decrease loss; not scalable to large datasets.</li>
+<li>SGD - superfast to compute with noisy gradients.</li>
+<li>Mini-batch GD - a compromise between GD and SGD; the de facto method in deep learning.</li>
+</ul>
+</li>
+</ul>
+<h3 id="support-vector-machines">Support Vector Machines</h3>
+<p>So far we have only seen one example of a discriminative linear classifier, the logistic regression.
+The logistic regression uses a maximum likelihood framework to learn the separating hyperplane.</p>
+<p>The <strong>Support Vector Machine (SVM)</strong> is another example of a discriminative linear classifier.
+However, this is a purely geometric approach.</p>
+<h4 id="linearly-separable-data">Linearly Separable Data</h4>
+<p>For now, assume that the training is <strong>linearly separable</strong>.
+E.g. the two classes in the training data can be separated by a line (hyperplane).</p>
+<p>There are many “correct” solutions, but which is the “best” separating line?</p>
+<h4 id="maximum-margin-principle">Maximum Margin Principle</h4>
+<p>We can define the distance between the separating line and the closest point as the <strong>margin</strong>.
+Think of this space as the “amount of wiggle room” for accommodating errors in estimating $\mathbf{w}$.</p>
+<p><strong>Idea</strong>: the best separating line is the one that <em>maximizes</em> the margin.
+I.e. puts the most distance between the closest points and the decision boundary.</p>
+<p>The solution is quite trivial if you think about it.</p>
+<p>By symmetry, there should be at least <em>one</em> margin point on <em>each</em> side of the boundary.
+The points on the margins are called the <em>support vectors</em>.
+The points support (define) the margin.</p>
+<h4 id="computing-the-margin">Computing the Margin</h4>
+<p>What is the margin (i.e., distance) of $\mathbf{w}^T \mathbf{x} + b = 0$ with respect to a point $(\mathbf{x}^{(i)}, y^{(i)})$?
+$$
+d^{(i)} = \frac{y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b)}{\Vert \mathbf{w} \Vert_2}.
+$$</p>
+<p>This is called the <strong>geometric</strong> margin.
+The numerator $y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)}$ is called the <strong>functional</strong> margin.</p>
+<p>What is the margin of $\mathbf{w}^T \mathbf{x} + b = 0$ with respect to a training set $\mathcal{D} = \{(\mathbf{x}^{(i)}, y^{(i)}), i = 1, \ldots, M\}$?
+$$
+d = \min\{d^{(i)}\}_{i=1}^M = \underset{(\mathbf{x}, y) \in \mathcal{D}} \min \frac{y(\mathbf{w}^T \mathbf{x} + b)}{\Vert \mathbf{w} \Vert_2}.
+$$</p>
+<h4 id="maximizing-the-margin">Maximizing the Margin</h4>
+<p>The maximum margin solution is found by solving,
+$$
+\underset{\mathbf{w}, b} \max\left(\frac{1}{\Vert \mathbf{w} \Vert_2} \underset{(\mathbf{x}, y) \in \mathcal{D}} \min y(\mathbf{w}^T \mathbf{x} + b)\right).
+$$</p>
+<p>Notice that if we make the rescaling $\mathbf{w} \rightarrow \gamma \mathbf{w}$ and $b \rightarrow \gamma b$, then the objective function is unchanged.</p>
+<p>We can use this freedom to set,
+$$
+\underset{(\mathbf{x}, y) \in \mathcal{D}} \min y(\mathbf{w}^T \mathbf{x} + b) = 1.
+$$</p>
+<p>Or equivalently,
+$$
+y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b) \geq 1 \quad \forall i = 1, \ldots, M.
+$$</p>
+<h3 id="svm-primal-form-hard-margin">SVM (Primal Form, Hard-Margin)</h3>
+<p>Given a training set $\mathcal{D} = \{\mathbf{x}^{(i)}, y^{(i)}\}_{i=1}^M$, optimize,
+$$
+\underset{\mathbf{w}, b} \min \frac{1}{2} \Vert \mathbf{w} \Vert_2^2 \newline
+\text{subject to } y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b) \geq 1 \quad \forall i = 1, \ldots, M.
+$$</p>
+<p>The objective minimizes the inverse of the margin distance, i.e., maximizes the <strong>geometric</strong> margin.</p>
+<p>The inequality constraints ensure that all points are either on or outside the <strong>functional</strong> margin.</p>
+<p>With this, our prediction, given a new data point $\mathbf{x}^{\star}$, use sign of linear function to predict class.
+$$
+y^{\star} = \text{sign}(\mathbf{w}^T \mathbf{x}^{\star} + b).
+$$</p>
+<h4 id="why-is-maximizing-the-margin-good">Why is Maximizing the Margin Good?</h4>
+<p>The true $\mathbf{w}$ is uncertain. Maximizing the margin allows the most uncertainty (wiggle room) for $\mathbf{w}$, while keeping all the points correctly classified.</p>
+<p>The data points are also uncertain. Maximizing the margin allows the most wiggle of the points, while keeping all the points correctly classified.</p>
+<h4 id="is-hard-margin-enough">Is Hard-Margin Enough?</h4>
+<p>The hard-margin SVM is very sensitive to outliers, if we have trained an SVM in an “ideal” dataset, it will perform very poorly on a new but different dataset that maybe reflects real-world data better.</p>
+<p>So what is the solution to make our classifier more robust?</p>
+<p>Allow some training samples to violate the margin. I.e., are inside the margin (or even miss-classified).</p>
+<p>We define the “slack” variable $\xi_i \geq 0$, where $\xi_i = 0$ means sample is outside of margin area (no slack) and $\xi_i > 0$ means sample is inside margin area (slack).</p>
+<h3 id="svm-primal-form-soft-margin">SVM (Primal Form, Soft-Margin)</h3>
+<p>So now we instead optimize,
+$$
+\underset{\mathbf{w}, b} \min \frac{1}{2} \Vert \mathbf{w} \Vert_2^2  + C \sum_{i=1}^M \xi_i \newline
+\text{subject to } y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b) \geq 1 - \xi_i \quad \forall i = 1, \ldots, M \newline
+$$</p>
+<p>This will introduce a parameter $C$ as penalty for violating the margin.
+Smaller value of $C$ means that we allow more violation (less penalty). Larger values of $C$ means we do not allow violations (more penalty).</p>
+<h4 id="loss-function">Loss Function</h4>
+<p>In the case of primal-form SVM with soft-margin, it is equivalent to minimizing the function,
+$$
+\sum_{i = 1}^m \max(0, 1 - y^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b)) + \frac{1}{2C} \Vert \mathbf{w} \Vert_2^2.
+$$</p>
+<p>This is called the <strong>hinge loss</strong>,
+$$
+\ell_h(z) = max(0, 1 - z)
+$$</p>
+<h4 id="zero-one-loss">Zero-One Loss</h4>
+<p>Both the logistic loss and the hinge loss are convex relaxations of the zero-one loss,
+$$
+\ell_{01}(z) = \mathbb{I}[z \leq 0].
+$$</p>
+<p>The average zero-one loss over a data set is exactly the classification error rate.</p>
+<p>This is the loss function we’d like to minimize, but this generally isn’t computationally feasible, thus the need for surrogate loss functions.</p>
+<h3 id="multiclass-svm">Multiclass SVM</h3>
+<p>If we have multiple classes to classify, we can use different approaches to solve the objective.</p>
+<ul>
+<li>“1-vs-1” multiclass classification
+<ul>
+<li>Train binary classifiers on all pairs of classes.
+<ul>
+<li>3-class example: 1 vs 2, 1 vs 3, 2 vs 3.</li>
+</ul>
+</li>
+<li>To label a sample, pick the class with the most votes among the binary classifies.</li>
+<li><strong>Problem</strong>: 1v1 classification is very slow when there are many number of classes
+<ul>
+<li>If there are $C$ classes, we need to train $C/(C - 1)/2$ binary classifiers.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>“1-vs-rest” classification
+<ul>
+<li>Train 1-vs-rest binary classifiers
+<ul>
+<li>3-class example: 1 vs {2, 3}, 2 vs {1, 3}, 3 vs {1, 2}.</li>
+</ul>
+</li>
+<li>To label a sample, pick the class with the largest geometric margin.
+<ul>
+<li>$y^{\star} =  \underset{c \in \{1, \ldots, C\}}{\arg \max} (\mathbf{w}^T_c \mathbf{x}^{\star} + b_c) / \Vert \mathbf{W}_c \Vert_2$.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="summary-svm">Summary: SVM</h3>
+<ul>
+<li><strong>Classifier</strong>
+<ul>
+<li>Linear Function $f(\mathbf{x}) = \mathbf{w}^T \mathbf{x} + b$.</li>
+<li>Given new sample $\mathbf{x}^{\star}$, predict $y^{\star} = \text{ sign}(\mathbf{w}^t \mathbf{x}^{\star} + b)$.</li>
+</ul>
+</li>
+<li><strong>Training</strong>
+<ul>
+<li>Maximize the margin of the training data
+<ul>
+<li>I.e., maximize the separation between the points and the decision boundary.</li>
+</ul>
+</li>
+<li>Allow some training samples to violate the margin.
+<ul>
+<li>Use cross-validation to pick the hyperparameter $C$.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Linear classifiers</strong>
+<ul>
+<li>Separate the data using a linear surface (hyperplane).</li>
+<li>$y = \text{ sign}(\mathbf{w}^T \mathbf{x} + b)$.</li>
+</ul>
+</li>
+<li><strong>Two formulations</strong>
+<ul>
+<li>Logistic regression - maximize the probability of the data.</li>
+<li>Support Vector Machine - maximize the margin of the hyperplane.</li>
+</ul>
+</li>
+<li><strong>Loss functions</strong>
+<ul>
+<li>Logistic regression - push the classification boundary as far as possible from all points.</li>
+<li>Support Vector Machine - ensure a margin of 1 between boundary and closest point.</li>
+</ul>
+</li>
+<li><strong>Advantages</strong>
+<ul>
+<li>SVM works well on high-dimensional features ($N$ large), and has low generalization error.</li>
+<li>LR has well-defined probabilities.</li>
+</ul>
+</li>
+<li><strong>Disadvantages</strong>
+<ul>
+<li>Decision surface can only be linear.</li>
+</ul>
+</li>
+</ul>
+
+
+</body></html> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/exchange/cs4487/cs4487_2" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 2 - Generative VS. Discriminative Models </span> </div>  </a>  <a href="/notes/exchange/cs4487/cs4487_4" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 4 - Duality and SVM </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement
     const theme = element.getAttribute('data-theme')
