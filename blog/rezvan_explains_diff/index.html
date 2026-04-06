@@ -1,0 +1,1575 @@
+<!DOCTYPE html><html class="bg-background text-foreground" lang="en"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v6.0.4"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="rezarezvan.com" href="https://rezarezvan.com/rss.xml"><!-- KaTeX support --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><!-- inline KaTeX --><script>
+    function renderKaTeX() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        })
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', renderKaTeX)
+    document.addEventListener('astro:after-swap', renderKaTeX)
+  </script><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="rezvan-blog"><link rel="manifest" href="/site.webmanifest"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.DmQZLfuR.js"></script><script>
+    function init() {
+      setGiscusTheme()
+    }
+
+    const setGiscusTheme = () => {
+      const giscus = document.querySelector('.giscus-frame')
+
+      const isDark =
+        document.documentElement.getAttribute('data-theme') === 'dark'
+
+      if (giscus) {
+        const url = new URL(giscus.src)
+        url.searchParams.set('theme', isDark ? 'dark' : 'light')
+        giscus.src = url.toString()
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => init())
+    document.addEventListener('astro:after-swap', () => init())
+  </script><title>Rezvan Explains: Generative Models | rezarezvan.com</title><meta name="title" content="Rezvan Explains: Generative Models | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com/blog/rezvan_explains_diff/"><meta property="og:title" content="Rezvan Explains: Generative Models"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.com/_astro/re_header.ClIheynY.jpg"><meta property="og:image:alt" content="Rezvan Explains: Generative Models"><meta property="og:type" content="website"><meta property="og:locale" content="en"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezarezvan.com/blog/rezvan_explains_diff/"><meta name="twitter:title" content="Rezvan Explains: Generative Models"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.com/_astro/re_header.ClIheynY.jpg"><meta name="twitter:image:alt" content="Rezvan Explains: Generative Models"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/Layout.CGU7WfIv.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <div id="site-header-shell" class="bg-background/50 sticky top-0 z-50 divide-y backdrop-blur-sm xl:divide-none"> <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3"> <a href="/" target="_self" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center justify-center gap-3">  <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64" class="text-foreground size-11 min-[300px]:size-12"> <defs> <path id="brand-r" d="M4.303861-3.466999C4.333748-3.805729 4.333748-4.164384 4.333748-4.493151C4.333748-4.622665 4.293898-5.051059 4.283935-5.100872C4.64259-5.718555 5.021171-6.256538 5.628892-6.256538C6.356164-6.256538 6.146949-4.991283 6.366127-4.772105C6.465753-4.672478 6.60523-4.622665 6.734745-4.612702L5.449564-3.865504C5.001245-3.795766 4.513076-3.576588 4.303861-3.466999ZM4.164384-5.459527C3.92528-6.107098 3.327522-6.834371 2.620174-6.834371C1.693649-6.834371 1.036115-6.216687 .797011-5.977584C.518057-5.69863 .288917-5.399751 .288917-5.001245C.288917-4.473225 .697385-4.11457 1.006227-3.676214C1.066002-3.596513 1.135741-3.506849 1.135741-3.407223C1.135741-3.088418 .806974-2.769614 .498132-2.600249L.647572-2.49066C1.235367-2.789539 1.872976-3.188045 1.872976-3.825654C1.872976-4.383562 .986301-4.931507 .986301-5.339975C.986301-5.947696 1.39477-6.206725 1.952677-6.206725C2.420922-6.206725 2.86924-5.877958 3.128269-5.489415C3.516812-4.911582 3.526775-4.124533 3.526775-3.656289C3.526775-2.351183 3.437111-1.205479 2.371108-.478207C2.132005-.737235 1.77335-1.05604 1.43462-1.05604C.926526-1.05604 .508095-.37858 .268991 0L.37858 .159402C.557908-.079701 .797011-.259029 1.105853-.259029C1.315068-.259029 1.693649 .049813 1.912827 .268991C2.460772-.18929 3.028643-.737235 3.58655-1.185554C3.985056-1.793275 4.164384-2.470735 4.26401-3.227895C4.533001-3.307597 4.951432-3.417186 5.180573-3.417186C5.469489-3.417186 5.798257-3.277709 6.007472-3.068493C6.127024-2.948941 6.296389-2.759651 6.296389-1.783313C6.296389-1.494396 6.276463-1.205479 6.266501-.896638L6.90411 .268991L8.229141-.737235V-.896638C8.029888-.816936 7.691158-.687422 7.641345-.687422C7.402242-.687422 7.212951-1.225405 7.113325-1.534247C7.023661-1.803238 6.983811-2.839352 6.953923-3.496887C6.694894-3.716065 6.445828-3.865504 5.937733-3.865504C6.615193-4.403487 7.392279-4.782067 8.029888-5.021171L7.960149-5.150685C7.840598-5.13076 7.711083-5.110834 7.581569-5.110834C6.933998-5.110834 7.0934-5.628892 7.063512-5.88792C7.003736-6.396015 6.814446-6.834371 6.266501-6.834371C5.379826-6.834371 4.732254-6.176837 4.204234-5.50934L4.164384-5.459527Z"></path> <path id="brand-r-small" d="M1.8132-3.805729V-4.124533C1.58406-4.313823 1.364882-4.513076 1.155666-4.722291L.14944-3.795766L.268991-3.696139L.647572-3.855542C.747198-3.785803 .846824-3.716065 .936488-3.636364C.996264-3.716065 1.026152-3.038605 1.026152-2.440847C1.026152-1.833126 1.026152-1.334994 .966376-.747198C1.295143-.408468 1.62391-.079701 1.992528 .209215L3.447073-.826899L3.427148-1.016189L2.540473-.597758C2.231631-.826899 1.8132-1.195517 1.8132-1.514321V-3.486924C1.872976-3.576588 2.022416-3.706102 2.181818-3.825654C2.410959-3.606476 2.739726-3.337484 3.008717-3.337484C3.128269-3.337484 3.247821-3.35741 3.337484-3.437111L3.92528-3.985056L3.935243-4.11457C3.845579-4.064757 3.666252-3.965131 3.556663-3.965131C3.317559-3.965131 3.048568-4.403487 2.899128-4.672478L1.8132-3.805729Z"></path> </defs> <g transform="translate(6.080000 49.058272) scale(4.952874)" fill="currentColor"> <use x="0" y="0" href="#brand-r"></use> <use x="6.589332" y="0" href="#brand-r-small"></use> </g> </svg> <span class="hidden h-full text-lg font-medium min-[300px]:block">rezarezvan.com</span>  </a> <div class="flex items-center sm:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:flex sm:gap-6"> <a href="/blog" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/notes" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> notes<span>/</span>  </a><a href="/research" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> research<span>/</span>  </a><a href="/thoughts" target="_self" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> thoughts<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center px-2 text-sm transition-colors duration-300 ease-in-out hover:rounded hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+&nbsp;Search
+</button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Zl24IN" prefix="r14" component-url="/_astro/mobile-menu.BB_aUixv.js" component-export="default" renderer-url="/_astro/client.DT7drjUY.js" props="{&quot;data-astro-transition-persist&quot;:[0,&quot;astro-ak3djpsh-2&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" data-astro-transition-persist="astro-ak3djpsh-2" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r14R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
+  ;(() => {
+    const theme = (() => {
+      const localStorageTheme = localStorage?.getItem('theme') ?? ''
+      if (['dark', 'light'].includes(localStorageTheme)) {
+        return localStorageTheme
+      }
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark'
+      }
+      return 'light'
+    })()
+
+    document.documentElement.setAttribute('data-theme', theme)
+    document.documentElement.classList.add(
+      theme === 'dark' ? 'scheme-dark' : 'scheme-light',
+    )
+    window.localStorage.setItem('theme', theme)
+  })()
+</script> <script type="module">function a(){const e=document.documentElement,n=e.getAttribute("data-theme")==="dark"?"light":"dark";e.classList.add("[&_*]:transition-none"),e.setAttribute("data-theme",n),e.classList.remove("scheme-dark","scheme-light"),e.classList.add(n==="dark"?"scheme-dark":"scheme-light"),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("[&_*]:transition-none")}),localStorage.setItem("theme",n)}function s(){const e=document.getElementById("theme-toggle");e&&!e.dataset.themeToggleBound&&(e.addEventListener("click",a),e.dataset.themeToggleBound="1")}s();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme")||"light",t=document.documentElement;t.classList.add("[&_*]:transition-none"),window.getComputedStyle(t).getPropertyValue("opacity"),t.setAttribute("data-theme",e),t.classList.remove("scheme-dark","scheme-light"),t.classList.add(e==="dark"?"scheme-dark":"scheme-light"),requestAnimationFrame(()=>{t.classList.remove("[&_*]:transition-none")}),s()});</script> </div> </div> </header> <div id="mobile-toc-container" class="w-full xl:hidden"><details class="group"><summary class="flex w-full cursor-pointer items-center justify-between"><div class="mx-auto flex w-full max-w-3xl items-center px-4 py-3"><div class="relative mr-2 size-4"><svg class="h-4 w-4" viewBox="0 0 24 24"><circle class="text-primary/20" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle><circle id="mobile-toc-progress-circle" class="text-primary" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="62.83" stroke-dashoffset="62.83" transform="rotate(-90 12 12)"></circle></svg></div><span id="mobile-toc-current-section" class="text-muted-foreground flex-grow truncate text-sm">
+Overview
+</span><span class="text-muted-foreground ml-2"><svg width="1em" height="1em" class="h-4 w-4 transition-transform duration-200 group-open:rotate-180" data-icon="lucide:chevron-down">   <symbol id="ai:lucide:chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></symbol><use href="#ai:lucide:chevron-down"></use>  </svg></span></div></summary><astro-island uid="BwzBJ" prefix="r17" component-url="/_astro/scroll-area.CB7tpFJy.js" component-export="ScrollArea" renderer-url="/_astro/client.DT7drjUY.js" props="{&quot;className&quot;:[0,&quot;mx-auto max-w-3xl&quot;],&quot;data-toc-header-scroll&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative mx-auto max-w-3xl" data-toc-header-scroll="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="max-h-[30vh]"><ul class="flex list-none flex-col gap-y-2 px-4 pb-4" id="mobile-table-of-contents"><li class="px-4 text-sm text-foreground/60"><a href="#continuous-time-foundations" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="continuous-time-foundations">Continuous-Time Foundations</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#ordinary-differential-equations-odes" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="ordinary-differential-equations-odes">Ordinary Differential Equations (ODEs)</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#stochastic-differential-equations-sdes" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="stochastic-differential-equations-sdes">Stochastic Differential Equations (SDEs)</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#convergence-and-mean-square-calculus" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="convergence-and-mean-square-calculus">Convergence and Mean-Square Calculus</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#continuous-and-differentiable-random-variables" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="continuous-and-differentiable-random-variables">Continuous and Differentiable Random Variables</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#the-itô-integral" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="the-itô-integral">The Itô Integral</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#the-euler-maruyama-method" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="the-euler-maruyama-method">The Euler-Maruyama Method</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#second-order-stochastic-integrals" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="second-order-stochastic-integrals">Second-Order Stochastic Integrals</a></li><li class="px-4 text-sm text-foreground/60"><a href="#chain-rules-and-itô-calculus" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="chain-rules-and-itô-calculus">Chain Rules and Itô Calculus</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#the-classical-chain-rule" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="the-classical-chain-rule">The Classical Chain Rule</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#integral-form-of-the-chain-rule" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="integral-form-of-the-chain-rule">Integral Form of the Chain Rule</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#derivation-of-the-integral-form" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="derivation-of-the-integral-form">Derivation of the Integral Form</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#solving-a-linear-ode" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="solving-a-linear-ode">Solving a Linear ODE</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#itô-stochastic-calculus" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="itô-stochastic-calculus">Itô Stochastic Calculus</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#the-itô-formula" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="the-itô-formula">The Itô Formula</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#squared-brownian-motion" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="squared-brownian-motion">Squared Brownian Motion</a></li><li class="px-4 text-sm text-foreground/60"><a href="#density-evolution-and-reverse-time" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="density-evolution-and-reverse-time">Density Evolution and Reverse Time</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#sdes-and-probability-distributions" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="sdes-and-probability-distributions">SDEs and Probability Distributions</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#sde-with-only-drift" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="sde-with-only-drift">SDE with Only Drift</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#sde-with-only-diffusion" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="sde-with-only-diffusion">SDE with Only Diffusion</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#connection-to-diffusion-models" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="connection-to-diffusion-models">Connection to Diffusion Models</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#fokker-planck-kolmogorov-equation" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="fokker-planck-kolmogorov-equation">Fokker-Planck-Kolmogorov Equation</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#pure-diffusion-gives-the-heat-equation" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="pure-diffusion-gives-the-heat-equation">Pure Diffusion Gives the Heat Equation</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#proof-of-the-fokker-planck-kolmogorov-equation" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="proof-of-the-fokker-planck-kolmogorov-equation">Proof of the Fokker-Planck-Kolmogorov Equation</a></li><li class="px-4 text-sm ml-12 text-foreground/60"><a href="#first-term-int-fx-t-phiprime-x-px-t--dx" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="first-term-int-fx-t-phiprime-x-px-t--dx">First term: $\int f(x, t) \phi^\prime (x) p(x, t) \ dx$</a></li><li class="px-4 text-sm ml-12 text-foreground/60"><a href="#second-term-int-lx-t2-phi-x-px-t--dx" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="second-term-int-lx-t2-phi-x-px-t--dx">Second term: $\int L(x, t)^2 \phi^” (x) p(x, t) \ dx$</a></li><li class="px-4 text-sm ml-12 text-foreground/60"><a href="#putting-it-all-together" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="putting-it-all-together">Putting It All Together</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#benes-sde" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="benes-sde">Benes SDE</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#mean-and-covariance-of-an-sde" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="mean-and-covariance-of-an-sde">Mean and Covariance of an SDE</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#mean-of-an-sde" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="mean-of-an-sde">Mean of an SDE</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#covariance-of-an-sde" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="covariance-of-an-sde">Covariance of an SDE</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#ornstein-uhlenbeck-process" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="ornstein-uhlenbeck-process">Ornstein-Uhlenbeck Process</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#backward-kolmogorov-equation" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="backward-kolmogorov-equation">Backward Kolmogorov Equation</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#reverse-time-euler-maruyama-method" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="reverse-time-euler-maruyama-method">Reverse-Time Euler-Maruyama Method</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#reverse-euler-maruyama-for-the-ornstein-uhlenbeck-process" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="reverse-euler-maruyama-for-the-ornstein-uhlenbeck-process">Reverse Euler-Maruyama for the Ornstein-Uhlenbeck Process</a></li><li class="px-4 text-sm text-foreground/60"><a href="#diffusion-models" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="diffusion-models">Diffusion Models</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#denoising-diffusion-probabilistic-models" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="denoising-diffusion-probabilistic-models">Denoising Diffusion Probabilistic Models</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#the-resulting-gaussian-sde" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="the-resulting-gaussian-sde">The Resulting Gaussian SDE</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#recovering-an-sde-from-target-moments" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="recovering-an-sde-from-target-moments">Recovering an SDE from Target Moments</a></li><li class="px-4 text-sm text-foreground/60"><a href="#flow-matching-and-probability-paths" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="flow-matching-and-probability-paths">Flow Matching and Probability Paths</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#probability-paths-and-conditional-flow-matching" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="probability-paths-and-conditional-flow-matching">Probability Paths and Conditional Flow Matching</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#method-overview" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="method-overview">Method Overview</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#step-1-constructing-the-probability-path" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="step-1-constructing-the-probability-path">Step 1: Constructing the Probability Path</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#step-2-marginalization" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="step-2-marginalization">Step 2: Marginalization</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#step-3-constructing-the-target-dynamics" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="step-3-constructing-the-target-dynamics">Step 3: Constructing the Target Dynamics</a></li><li class="px-4 text-sm ml-8 text-foreground/60"><a href="#step-4-training-the-neural-network" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="step-4-training-the-neural-network">Step 4: Training the Neural Network</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#why-conditional-flow-matching-works" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="why-conditional-flow-matching-works">Why Conditional Flow Matching Works</a></li><li class="px-4 text-sm text-foreground/60"><a href="#one-coin-three-views" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="one-coin-three-views">One Coin, Three Views</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#doobs-h-transform-gives-the-reverse-drift" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="doobs-h-transform-gives-the-reverse-drift">Doob’s $h$-transform gives the reverse drift</a></li><li class="px-4 text-sm ml-4 text-foreground/60"><a href="#gaussian-bridges-tie-score-matching-and-flow-matching-together" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="gaussian-bridges-tie-score-matching-and-flow-matching-together">Gaussian bridges tie score matching and flow matching together</a></li><li class="px-4 text-sm text-foreground/60"><a href="#footnote-label" class="mobile-toc-item underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-id="footnote-label">Footnotes</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></details></div><script type="module" src="/_astro/TOCHeader.astro_astro_type_script_index_0_lang.D-mrm0yc.js"></script>  </div> <main class="grow"> <div class="mx-auto flex grow flex-col gap-y-6 px-4">   <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"> <div class="col-start-2"> <nav aria-label="breadcrumb" data-slot="breadcrumb"> <ol data-slot="breadcrumb-list" class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"> <a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:home">   <symbol id="ai:lucide:home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g></symbol><use href="#ai:lucide:home"></use>  </svg> </a> </li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><a data-slot="breadcrumb-link" class="hover:text-foreground transition-colors" href="/blog"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:library-big">   <symbol id="ai:lucide:library-big" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="8" height="18" x="3" y="3" rx="1"/><path d="M7 3v18m13.4-2.1c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z"/></g></symbol><use href="#ai:lucide:library-big"></use>  </svg> Blog </span> </a></li>  <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" class="[&amp;&gt;svg]:size-3.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg></li> <li data-slot="breadcrumb-item" class="inline-flex items-center gap-1.5"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" class="text-foreground font-normal"> <span class="flex items-center gap-x-2"> <svg width="1em" height="1em" class="size-4 shrink-0" data-icon="lucide:book-open-text">   <symbol id="ai:lucide:book-open-text" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m4-9h2m-2-4h2M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3zm3-6h2M6 8h2"/></symbol><use href="#ai:lucide:book-open-text"></use>  </svg> <span>Rezvan Explains: Generative Models</span> </span> </span></li> </ol> </nav> </div> <section class="relative col-start-2"> <img src="/_astro/re_header.ClIheynY_Z1KSW4X.webp" alt="Rezvan Explains: Generative Models" loading="lazy" aria-hidden="true" decoding="async" width="1200" height="630" class="absolute inset-0 -z-10 h-full w-full object-cover opacity-50 blur-sm filter"> <div class="relative z-10 flex flex-col gap-y-6 text-center"> <h1 class="mb-2 scroll-mt-31 py-2 text-3xl leading-tight font-medium text-pretty" id="post-title"> Rezvan Explains: Generative Models </h1> <div class="mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"> <div class="flex items-center gap-2"> <span>Date: May 27, 2025</span>  <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>Last modified: January 30, 2026</span>  <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border red shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px h-4!"></div> <span>43 min read</span> </div> </div> </div> </section> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/blog/tools#post-title" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <symbol id="ai:lucide:arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 19l-7-7l7-7m7 7H5"/></symbol><use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Sharpen your axe </span> </div>  </a>  <a href="#" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full pointer-events-none opacity-50 cursor-not-allowed" aria-disabled="true">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> You&#39;re at the newest post! </span> </div> <svg width="1em" height="1em" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <symbol id="ai:lucide:arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol><use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div id="toc-sidebar-container" class="sticky top-20 col-start-1 row-span-1 mr-8 ml-auto hidden h-[calc(100vh-5rem)] max-w-md xl:block"><astro-island uid="ZotWDq" prefix="r18" component-url="/_astro/scroll-area.CB7tpFJy.js" component-export="ScrollArea" renderer-url="/_astro/client.DT7drjUY.js" props="{&quot;className&quot;:[0,&quot;flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto&quot;],&quot;type&quot;:[0,&quot;hover&quot;],&quot;data-toc-scroll-area&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollArea&quot;,&quot;value&quot;:true}" await-children><div dir="ltr" data-slot="scroll-area" class="relative flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto" data-toc-scroll-area="true" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><astro-slot><div class="flex flex-col gap-2 px-4"><span class="text-lg font-medium">Table of Contents</span><ul class="flex list-none flex-col gap-y-2"><li class="text-sm text-foreground/60"><a href="#continuous-time-foundations" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="continuous-time-foundations">Continuous-Time Foundations</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#ordinary-differential-equations-odes" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="ordinary-differential-equations-odes">Ordinary Differential Equations (ODEs)</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#stochastic-differential-equations-sdes" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="stochastic-differential-equations-sdes">Stochastic Differential Equations (SDEs)</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#convergence-and-mean-square-calculus" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="convergence-and-mean-square-calculus">Convergence and Mean-Square Calculus</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#continuous-and-differentiable-random-variables" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="continuous-and-differentiable-random-variables">Continuous and Differentiable Random Variables</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#the-itô-integral" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="the-itô-integral">The Itô Integral</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#the-euler-maruyama-method" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="the-euler-maruyama-method">The Euler-Maruyama Method</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#second-order-stochastic-integrals" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="second-order-stochastic-integrals">Second-Order Stochastic Integrals</a></li><li class="text-sm text-foreground/60"><a href="#chain-rules-and-itô-calculus" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="chain-rules-and-itô-calculus">Chain Rules and Itô Calculus</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#the-classical-chain-rule" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="the-classical-chain-rule">The Classical Chain Rule</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#integral-form-of-the-chain-rule" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="integral-form-of-the-chain-rule">Integral Form of the Chain Rule</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#derivation-of-the-integral-form" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="derivation-of-the-integral-form">Derivation of the Integral Form</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#solving-a-linear-ode" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="solving-a-linear-ode">Solving a Linear ODE</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#itô-stochastic-calculus" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="itô-stochastic-calculus">Itô Stochastic Calculus</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#the-itô-formula" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="the-itô-formula">The Itô Formula</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#squared-brownian-motion" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="squared-brownian-motion">Squared Brownian Motion</a></li><li class="text-sm text-foreground/60"><a href="#density-evolution-and-reverse-time" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="density-evolution-and-reverse-time">Density Evolution and Reverse Time</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#sdes-and-probability-distributions" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="sdes-and-probability-distributions">SDEs and Probability Distributions</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#sde-with-only-drift" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="sde-with-only-drift">SDE with Only Drift</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#sde-with-only-diffusion" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="sde-with-only-diffusion">SDE with Only Diffusion</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#connection-to-diffusion-models" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="connection-to-diffusion-models">Connection to Diffusion Models</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#fokker-planck-kolmogorov-equation" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="fokker-planck-kolmogorov-equation">Fokker-Planck-Kolmogorov Equation</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#pure-diffusion-gives-the-heat-equation" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="pure-diffusion-gives-the-heat-equation">Pure Diffusion Gives the Heat Equation</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#proof-of-the-fokker-planck-kolmogorov-equation" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="proof-of-the-fokker-planck-kolmogorov-equation">Proof of the Fokker-Planck-Kolmogorov Equation</a></li><li class="text-sm ml-12 text-foreground/60"><a href="#first-term-int-fx-t-phiprime-x-px-t--dx" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="first-term-int-fx-t-phiprime-x-px-t--dx">First term: $\int f(x, t) \phi^\prime (x) p(x, t) \ dx$</a></li><li class="text-sm ml-12 text-foreground/60"><a href="#second-term-int-lx-t2-phi-x-px-t--dx" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="second-term-int-lx-t2-phi-x-px-t--dx">Second term: $\int L(x, t)^2 \phi^” (x) p(x, t) \ dx$</a></li><li class="text-sm ml-12 text-foreground/60"><a href="#putting-it-all-together" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="putting-it-all-together">Putting It All Together</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#benes-sde" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="benes-sde">Benes SDE</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#mean-and-covariance-of-an-sde" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="mean-and-covariance-of-an-sde">Mean and Covariance of an SDE</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#mean-of-an-sde" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="mean-of-an-sde">Mean of an SDE</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#covariance-of-an-sde" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="covariance-of-an-sde">Covariance of an SDE</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#ornstein-uhlenbeck-process" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="ornstein-uhlenbeck-process">Ornstein-Uhlenbeck Process</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#backward-kolmogorov-equation" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="backward-kolmogorov-equation">Backward Kolmogorov Equation</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#reverse-time-euler-maruyama-method" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="reverse-time-euler-maruyama-method">Reverse-Time Euler-Maruyama Method</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#reverse-euler-maruyama-for-the-ornstein-uhlenbeck-process" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="reverse-euler-maruyama-for-the-ornstein-uhlenbeck-process">Reverse Euler-Maruyama for the Ornstein-Uhlenbeck Process</a></li><li class="text-sm text-foreground/60"><a href="#diffusion-models" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="diffusion-models">Diffusion Models</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#denoising-diffusion-probabilistic-models" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="denoising-diffusion-probabilistic-models">Denoising Diffusion Probabilistic Models</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#the-resulting-gaussian-sde" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="the-resulting-gaussian-sde">The Resulting Gaussian SDE</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#recovering-an-sde-from-target-moments" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="recovering-an-sde-from-target-moments">Recovering an SDE from Target Moments</a></li><li class="text-sm text-foreground/60"><a href="#flow-matching-and-probability-paths" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="flow-matching-and-probability-paths">Flow Matching and Probability Paths</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#probability-paths-and-conditional-flow-matching" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="probability-paths-and-conditional-flow-matching">Probability Paths and Conditional Flow Matching</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#method-overview" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="method-overview">Method Overview</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#step-1-constructing-the-probability-path" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="step-1-constructing-the-probability-path">Step 1: Constructing the Probability Path</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#step-2-marginalization" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="step-2-marginalization">Step 2: Marginalization</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#step-3-constructing-the-target-dynamics" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="step-3-constructing-the-target-dynamics">Step 3: Constructing the Target Dynamics</a></li><li class="text-sm ml-8 text-foreground/60"><a href="#step-4-training-the-neural-network" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="step-4-training-the-neural-network">Step 4: Training the Neural Network</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#why-conditional-flow-matching-works" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="why-conditional-flow-matching-works">Why Conditional Flow Matching Works</a></li><li class="text-sm text-foreground/60"><a href="#one-coin-three-views" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="one-coin-three-views">One Coin, Three Views</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#doobs-h-transform-gives-the-reverse-drift" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="doobs-h-transform-gives-the-reverse-drift">Doob’s $h$-transform gives the reverse drift</a></li><li class="text-sm ml-4 text-foreground/60"><a href="#gaussian-bridges-tie-score-matching-and-flow-matching-together" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="gaussian-bridges-tie-score-matching-and-flow-matching-together">Gaussian bridges tie score matching and flow matching together</a></li><li class="text-sm text-foreground/60"><a href="#footnote-label" class="marker:text-foreground/30 list-none underline decoration-transparent underline-offset-[3px] transition-colors duration-200 hover:decoration-inherit" data-heading-link="footnote-label">Footnotes</a></li></ul></div></astro-slot></div></div></div><!--astro:end--></astro-island></div><script type="module">function f(){const n=document.getElementById("site-header-shell");return n?n.getBoundingClientRect().height+24:80}class p{links=document.querySelectorAll("[data-heading-link]");activeIds=[];headings=[];regions=[];scrollArea=null;tocScrollArea=null;reset(){this.links=document.querySelectorAll("#toc-sidebar-container [data-heading-link]"),this.activeIds=[],this.headings=[],this.regions=[];const t=document.getElementById("toc-sidebar-container");this.scrollArea=t?.querySelector("[data-radix-scroll-area-viewport]")||null,this.tocScrollArea=t?.querySelector("[data-toc-scroll-area]")||null}}const e=new p;class c{static build(){if(e.headings=Array.from(document.querySelectorAll(".prose h2, .prose h3, .prose h4, .prose h5, .prose h6")),e.headings.length===0){e.regions=[];return}e.regions=e.headings.map((t,o)=>{const i=e.headings[o+1];return{id:t.id,start:t.offsetTop,end:i?i.offsetTop:document.body.scrollHeight}})}static getVisibleIds(){if(e.headings.length===0)return[];const t=window.scrollY+f(),o=window.scrollY+window.innerHeight,i=new Set,l=(s,r)=>s>=t&&s<=o||r>=t&&r<=o||s<=t&&r>=o;return e.headings.forEach(s=>{const r=s.offsetTop+s.offsetHeight;l(s.offsetTop,r)&&i.add(s.id)}),e.regions.forEach(s=>{if(s.start<=o&&s.end>=t){const r=document.getElementById(s.id);if(r){const a=r.offsetTop+r.offsetHeight;s.end>a&&(a<o||t<s.end)&&i.add(s.id)}}}),Array.from(i)}}class h{static update(){if(!e.scrollArea||!e.tocScrollArea)return;const{scrollTop:t,scrollHeight:o,clientHeight:i}=e.scrollArea,l=5,s=t<=l,r=t>=o-i-l;e.tocScrollArea.classList.toggle("mask-t-from-90%",!s),e.tocScrollArea.classList.toggle("mask-b-from-90%",!r)}}class g{static update(t){e.links.forEach(o=>{o.classList.remove("text-foreground")}),t.forEach(o=>{if(o){const i=document.querySelector(`#toc-sidebar-container [data-heading-link="${o}"]`);i&&i.classList.add("text-foreground")}}),this.scrollToActive(t)}static scrollToActive(t){if(!e.scrollArea||!t.length)return;const o=document.querySelector(`#toc-sidebar-container [data-heading-link="${t[0]}"]`);if(!o)return;const{top:i,height:l}=e.scrollArea.getBoundingClientRect(),{top:s,height:r}=o.getBoundingClientRect(),a=s-i+e.scrollArea.scrollTop,u=Math.max(0,Math.min(a-(l-r)/2,e.scrollArea.scrollHeight-e.scrollArea.clientHeight));Math.abs(u-e.scrollArea.scrollTop)>5&&(e.scrollArea.scrollTop=u)}}class d{static handleScroll(){const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds))}static handleTOCScroll=()=>h.update();static handleResize(){c.build();const t=c.getVisibleIds();JSON.stringify(t)!==JSON.stringify(e.activeIds)&&(e.activeIds=t,g.update(e.activeIds)),h.update()}static init(){if(e.reset(),c.build(),e.headings.length===0){g.update([]);return}this.handleScroll(),setTimeout(h.update,100);const t={passive:!0};window.addEventListener("scroll",this.handleScroll,t),window.addEventListener("resize",this.handleResize,t),e.scrollArea?.addEventListener("scroll",this.handleTOCScroll,t)}static cleanup(){window.removeEventListener("scroll",this.handleScroll),window.removeEventListener("resize",this.handleResize),e.scrollArea?.removeEventListener("scroll",this.handleTOCScroll),Object.assign(e,{activeIds:[],headings:[],regions:[],scrollArea:null,tocScrollArea:null})}}document.addEventListener("astro:page-load",()=>d.init());document.addEventListener("astro:after-swap",()=>{d.cleanup(),d.init()});document.addEventListener("astro:before-swap",()=>d.cleanup());</script> <article class="prose col-start-2 max-w-none"> <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><defs>
+        <symbol id="info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path>
+        </symbol>
+        <symbol id="lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path>
+        </symbol>
+        <symbol id="alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="m12 17h.01"></path>
+        </symbol>
+        <symbol id="shield-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path>
+        </symbol>
+        <symbol id="message-square-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"></path><path d="M12 15h.01"></path><path d="m12 17v4"></path>
+        </symbol>
+        <symbol id="book-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path>
+        </symbol>
+        <symbol id="anchor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22V8"></path><path d="M5 12H2a10 10 0 0 0 20 0h-3"></path><circle cx="12" cy="5" r="3"></circle>
+        </symbol>
+        <symbol id="pen-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z"></path><path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18"></path><path d="m2.3 2.3 7.286 7.286"></path><circle cx="11" cy="11" r="2"></circle>
+        </symbol>
+        <symbol id="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path>
+        </symbol>
+        <symbol id="puzzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"></path>
+        </symbol>
+        <symbol id="git-branch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path>
+        </symbol>
+        <symbol id="file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path>
+        </symbol>
+        <symbol id="help-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path>
+        </symbol>
+        <symbol id="check-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="m9 12 2 2 4-4"></path>
+        </symbol>
+        <symbol id="message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
+        </symbol>
+        <symbol id="rotate-ccw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path>
+        </symbol>
+        <symbol id="code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path>
+        </symbol>
+        <symbol id="dumbbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"></path><path d="m2.5 21.5 1.4-1.4"></path><path d="m20.1 3.9 1.4-1.4"></path><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"></path><path d="m9.6 14.4 4.8-4.8"></path>
+        </symbol>
+        <symbol id="alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line>
+        </symbol>
+        <symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6 9 17l-5-5"></path>
+        </symbol>
+        <symbol id="check-circle-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 12 2 2 4-4"></path><circle cx="12" cy="12" r="9"></circle>
+        </symbol>
+        <symbol id="list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 5h.01"></path><path d="M3 12h.01"></path><path d="M3 19h.01"></path><path d="M8 5h13"></path><path d="M8 12h13"></path><path d="M8 19h13"></path>
+        </symbol>
+        <symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m6 9 6 6 6-6"></path>
+        </symbol>
+        <symbol id="cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20v2"></path><path d="M12 2v2"></path><path d="M17 20v2"></path><path d="M17 2v2"></path><path d="M2 12h2"></path><path d="M2 17h2"></path><path d="M2 7h2"></path><path d="M20 12h2"></path><path d="M20 17h2"></path><path d="M20 7h2"></path><path d="M7 20v2"></path><path d="M7 2v2"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="8" y="8" width="8" height="8" rx="1"></rect>
+        </symbol></defs></svg><p>For the past six months (at the time when I started writing this…), I have spent a lot of time thinking about generative models through both a research project and a (PhD) course on the topic.</p>
+<p>My goal for this post is to lay the foundations of generative models for you, so you can go and read the literature without the whole field feeling like magic.
+Mainly, I want to introduce the biggest frameworks for generative models.</p>
+<p>We will first build the stochastic-calculus toolbox, ODEs, SDEs, Itô calculus, and the Fokker-Planck equation.
+Then we will use that toolbox to explain diffusion models, score-based models, and flow matching through one shared picture.
+Transporting a simple distribution into a complicated one.</p>
+<p>Note that I will not introduce the concept of latent generative models, as I feel like that deserves a post of its own.</p>
+<h2 id="continuous-time-foundations">Continuous-Time Foundations</h2>
+<h3 id="ordinary-differential-equations-odes">Ordinary Differential Equations (ODEs)</h3>
+<p>Ordinary differential equations describe the evolution of deterministic continuous-time systems and form the foundation of many generative models. An ODE is formally expressed as,</p>
+<p>$$
+\frac{d\mathbf{x}(t)}{dt} = \mathbf{f}(\mathbf{x}(t), t), \quad \mathbf{x}(0) = \mathbf x_0,
+$$</p>
+<p>where $\mathbf{x}(t) \in \mathbb{R}^d$ represents the state of the system at time $t$ <label for="sn-1" class="sidenote-toggle sidenote-number" aria-describedby="sn-1-note">1</label><input type="checkbox" id="sn-1" class="sidenote-checkbox" aria-label="Toggle sidenote 1"><span class="sidenote" role="note" id="sn-1-note"><span class="sidenote-number-inline">1</span>Here state refers to the system’s variables at a given time, such as position, velocity, etc.</span>, $\mathbf{f}: \mathbb{R}^d \times [0,T] \mapsto \mathbb{R}^d$ is the velocity field guiding the evolution, and $\mathbf x_0$ is the initial condition. Solutions to this equation yield deterministic trajectories through state space.</p>
+<figure><img alt="Two examples of ODEs" loading="lazy" decoding="async"  width="968" height="484" src="/_astro/deterministic_ODE.Cf57a6VA_Z2ac4Xj.svg" ><figcaption>Two examples of ODEs</figcaption></figure>
+<h3 id="stochastic-differential-equations-sdes">Stochastic Differential Equations (SDEs)</h3>
+<p>You probably learned about ODEs in high school, but not as many people go on and learn about the (beautiful) domain of SDEs.</p>
+<p>Now, the core idea behind stochastic differential equations is not complex, “just” add some randomness to ODEs!</p>
+<p>$$
+\begin{equation}
+dx(t) = \underbrace{f(x(t), t) \ dt}_{\text{drift}} + \underbrace{L(x(t), t) \ d\beta(t)}_{\text{diffusion}}.
+\end{equation}
+$$
+where $x(t)$ is the <strong>stochastic process</strong> and $\beta(t)$ is a Brownian motion.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Brownian motion —   $\beta(t)$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ol>
+<li>Any increment $\Delta \beta = \beta(t^{\prime}) - \beta(t) \sim \mathcal{N}(0, (t^{\prime} - t) Q).$ (Often $Q = 1$).</li>
+<li>Increments are independent unless intervals overlap.</li>
+<li>$\beta(0) = 0$.</li>
+</ol><p>Essentially, Brownian motion is a (continuous-time) sequence of “random walks” that are independent and normally distributed, with the variance of the increments proportional to the time difference.</p></div>
+</details>
+<p>This compact notation is <strong>short-hand for the following (Itô) integral</strong>,</p>
+<p>$$
+x(t) - x(t_0) = \int_{t_0}^{t} f(x(s), s) \ ds + \int_{t_0}^{t} L(x(s), s) \ d\beta(s).
+$$</p>
+<figure><img alt="Two examples of SDEs" loading="lazy" decoding="async"  width="975" height="484" src="/_astro/stochastic_SDE.IBWYm30Q_B5uOQ.svg" ><figcaption>Two examples of SDEs</figcaption></figure>
+<p>We can see that, if we set the diffusion term $L(x(t), t) = 0$ in Equation (1), we get back to the ODE!
+So really, an ODE is just a special case of an SDE, where the noise is zero.
+But how do we solve these integrals?</p>
+<h3 id="convergence-and-mean-square-calculus">Convergence and Mean-Square Calculus</h3>
+<p>To understand how we can integrate random functions/sequences, let’s quickly recap the basics for convergence, continuity, differentiability, and Riemann integrals.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Continuity<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A function $f(x)$ is continuous at $a$ if $\lim_{x \to a} f(x) = f(a)$. <label for="sn-2" class="sidenote-toggle sidenote-number" aria-describedby="sn-2-note">2</label><input type="checkbox" id="sn-2" class="sidenote-checkbox" aria-label="Toggle sidenote 2"><span class="sidenote" role="note" id="sn-2-note"><span class="sidenote-number-inline">2</span>This is a very basic definition of continuity, we could introduce the formal definition from real analysis, but we can sacrifice some rigor here to save us some time :).</span></p></div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Differentiability<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If the derivative exists, the function $f(x)$ is differentiable at $x$ if,
+$$
+f^{\prime}(x) \triangleq \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}.
+$$</p></div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Riemann integrals<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Firstly, let $P(t)$ be a partition of $[a, b]$ such that,
+$$
+a = t_0 &#x3C; t_1 &#x3C; \ldots &#x3C; t_n = b,
+$$
+and let its norm be $|P| = \underset{i}{\max}(t_{i + 1} - t_i)$.</p><p>Thus, if the limit exists, the Riemann integral is defined as,
+$$
+\int_{a}^{b} f(t) \ dt \triangleq \lim_{\substack{n \to \infty \newline |P| \to 0}} \sum_{i = 0}^{n - 1} (t_{i + 1} - t_i) f(t_i^{\star}),
+$$
+for any $t_i^{\star} \in [t_i, t_{i + 1}]$.</p></div>
+</details>
+<p>Now, let’s recall the definition of convergence.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Convergence<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A <strong>deterministic</strong> sequence $x_n \in \mathbb{R}$ converges to $a$ if $\forall \epsilon > 0, \exists N$,
+$$
+\Vert x_n - a \Vert_2 &#x3C; \epsilon, \quad \forall n > N.
+$$
+That is, for sufficiently large $n$, $x_n$ is roughly $a$.</p></div>
+</details>
+<p>But for random sequences, this breaks down and does not make sense anymore.</p>
+<p>Now, take some time and think about some possible ways to define convergence for a sequence of random variables.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Convergence of random variables<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A few (decently) intuitive ways are,</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The sequence of random variables $x_n$ is said to converge to $x$ <label for="sn-3" class="sidenote-toggle sidenote-number" aria-describedby="sn-3-note">3</label><input type="checkbox" id="sn-3" class="sidenote-checkbox" aria-label="Toggle sidenote 3"><span class="sidenote" role="note" id="sn-3-note"><span class="sidenote-number-inline">3</span>Here we will write the proper notation for our random variables for some definitions, $x_n(\omega)$, where $\omega$ is the sample space.</span>,</p><ul>
+<li><strong>with probability 1 (almost surely)</strong> if,
+$$
+Pr[\lim_{n \to \infty} x_n(\omega) = x(\omega)] = 1.
+$$</li>
+<li><strong>in mean square</strong> if,
+$$
+\lim_{n \to \infty} \mathbb{E}[(x_n - x)^2] = 0.
+$$</li>
+<li><strong>in probability</strong> if for all $\epsilon > 0$,
+$$
+\lim_{n \to \infty} Pr[\Vert x_n(\omega) - x(\omega) \Vert \geq \epsilon] = 0,
+$$</li>
+<li><strong>in distribution</strong> if for all $A \subset \mathbb{R}^n$,
+$$
+\lim_{n \to \infty} Pr[x_n \in A] = Pr[x \in A].
+$$</li>
+</ul></div>
+</details></div>
+</details>
+<p>The “weakest” of these is <strong>convergence in distribution</strong>, and the “strongest” is <strong>convergence almost surely</strong>.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Why is convergence in distribution the weakest and convergence almost surely the strongest?<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Convergence in distribution is the weakest because it only requires (as the name suggest) the distribution of the random variables to converge, not the actual values.</p><p>This means that the values can be very different, but as long as the distribution converges, we say that the sequence converges in distribution.</p><p>In contrast, convergence almost surely requires that the values converge for almost all sample points.</p></div>
+</details></div>
+</details>
+<h4 id="continuous-and-differentiable-random-variables">Continuous and Differentiable Random Variables</h4>
+<p>From this, we can now define <strong>continuity</strong> and <strong>differentiability</strong> for random functions (or random variables).</p>
+<p>We will mainly focus on the <strong>mean square</strong> sense, as it is the most common in the literature.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Continuous random functions (in mean square sense)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The random function is continuous <strong>in mean square</strong> at $t$ if,
+$$
+\underset{h \to 0}{\text{l.i.m}} \ x(t + h) = x(t),
+$$
+where $\text{l.i.m}$ is <em>limits in mean square</em> meaning,
+$$
+\lim_{h \to 0} \mathbb{E}[(x(t + h) - x(t))^2] = 0.
+$$</p></div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Differentiable random functions (in mean square sense)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The mean square derivative is,
+$$
+\dot{x}(t) \triangleq \underset{h \to 0}{\text{l.i.m}} \frac{x(t + h) - x(t)}{h},
+$$
+if the limit exists, again, more explicitly,
+$$
+\lim_{h \to 0} \mathbb{E}\left[\left(\frac{x(t + h) - x(t)}{h} - \dot{x}(t)\right)^2\right] = 0.
+$$</p></div>
+</details>
+<p>Consider $x(t) = a \ sin(t + \phi)$ where $a \sim \text{unif}[1, 2]$ and $\phi \sim \text{unif}[0, 2\pi]$.</p>
+<p>The random function is <strong>differentiable</strong>.
+Note that the derivative is itself random.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Mean square Riemann integrals<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Riemann integrals:
+As before, let $P(t)$ be a partition of $[a, b]$,
+$$
+a = t_0 &#x3C; t_1 &#x3C; \ldots &#x3C; t_n = b
+$$
+and let its norm be $|P| = \underset{i}{\max}(t_{i+1} - t_i)$.
+If the limit exists, the mean square Riemann integral is,
+$$
+\int_{a}^{b} x(t) \ dt \triangleq \underset{\substack{n \to \infty \newline |P| \to 0}}{\text{l.i.m}} \sum_{i=0}^{n-1} (t_{i+1} - t_i) x(t^{\star}_i),
+$$</p><p>for any $t^{\star}_i \in [t_i, t_{i+1}]$.</p></div>
+</details>
+<p>For $x(t) = a \ sin(t + \phi)$, consider the integral,</p>
+<p>$$
+\int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} x(t) \ dt.
+$$</p>
+<p>Note, the integral is a random variable.</p>
+<p>To solve this integral, we need to understand and use all of our calculus tools.
+Let’s begin by studying Brownian motion a bit further.</p>
+<p>Recall the definition of Brownian motion,</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Brownian motion —   $\beta(t)$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ol>
+<li>Any increment $\Delta \beta = \beta(t^{\prime}) - \beta(t) \sim \mathcal{N}(0, (t^{\prime} - t) Q).$ (Often $Q = 1$).</li>
+<li>Increments are independent unless intervals overlap.</li>
+<li>$\beta(0) = 0$.</li>
+</ol></div>
+</details>
+<p>We can see that the variance grows linearly with time, we can argue for this given independent and stationary intervals.</p>
+<p>For an interval $[t_0, t_1, t_2]$ with $t_0 &#x3C; t_1 &#x3C; t_2$, we have</p>
+<p>$$
+\beta(t_2) - \beta(t_0) = \underbrace{\underbrace{\beta(t_2) - \beta(t_1)}_{\sim \mathcal{N}(0, (t_2 - t_1))} + \underbrace{\beta(t_1) - \beta(t_0)}_{\sim \mathcal{N}(0, (t_1 - t_0))}}_{\sim \mathcal{N}(0, (t_2 - t_0))},
+$$</p>
+<p>which matches assumption (1) of Brownian motion.</p>
+<p>Let’s investigate if $\beta(t)$ is continuous.</p>
+<p>As we have seen previously, we can show that a random sequence is continuous (in mean square) if,</p>
+<p>$$
+\begin{align*}
+\underset{h \to 0}{\text{l.i.m}} \ \beta(t + h) &#x26; = \beta(t), \newline
+\lim_{h \to 0} \mathbb{E}[\Vert \beta(t + h) - \beta(t) \Vert^2] &#x26; = 0.
+\end{align*}
+$$</p>
+<p>By the definition of Brownian motion (and assumption (1)), we have</p>
+<p>$$
+\begin{align*}
+\lim_{h \to 0} \mathbb{E}[\Vert \underbrace{\beta(t + h) - \beta(t)}_{\sim \mathcal{N}(0, |h|)} \Vert^2] &#x26; = \newline
+\lim_{h \to 0} |h| &#x26; = 0 \quad \square
+\end{align*}
+$$</p>
+<p>Hence, $\beta(t)$ is continuous.</p>
+<p>Let’s now investigate if $\beta(t)$ is differentiable.</p>
+<p>$$
+\underset{h \to 0}{\text{l.i.m}} \ \frac{\beta(t + h) - \beta(t)}{h} = \dot{\beta}(t),
+$$</p>
+<p>which is equivalent to,</p>
+<p>$$
+\lim_{h \to 0} \mathbb{E}\left[\left\Vert \underbrace{\frac{\beta(t + h) - \beta(t)}{h}}_{\mathcal{N}(0, \frac{1}{|h|})} - \dot{\beta}(t) \right\Vert^2\right] = 0.
+$$</p>
+<p>Since $\frac{\beta(t + h) - \beta(t)}{h} \sim \mathcal{N}(0, \frac{1}{|h|})$, has a variance that grows with $|h|$, we can see that the limit does not exist (goes to $\infty$ as $h \to 0$).</p>
+<p>Instead, $\beta(t)$ is like a fractal as $h \to 0$ the variance grows to $\infty$.</p>
+<p>Now that we understand the properties of Brownian motion, let’s see what happens if we apply them to normal Riemann integrals.</p>
+<p>Let’s first recall the definition of the Riemann integral,</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Riemann integral<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If the limit exists, and is the same for any $t^{\star}_i \in [t_i, t_{i+1}]$, the Riemann integral is defined as <label for="sn-4" class="sidenote-toggle sidenote-number" aria-describedby="sn-4-note">4</label><input type="checkbox" id="sn-4" class="sidenote-checkbox" aria-label="Toggle sidenote 4"><span class="sidenote" role="note" id="sn-4-note"><span class="sidenote-number-inline">4</span>A quick technical note, we are really talking about the Riemann-Stieltjes integrals here,
+$$
+\int_{t_0}^{t_1} f(t) \ d\beta(t) = \lim_{n \to \infty} \sum_{i=0}^{n-1} f(t_i) (\beta(t_{i+1}) - \beta(t_i)).
+$$</span>
+,
+$$
+\int_{a}^{b} f(t) \ dt \triangleq \lim_{\substack{n \to \infty \newline |P| \to 0}} \sum_{i=0}^{n-1} (t_{i+1} - t_i) f(t^{\star}_i).
+$$</p></div>
+</details>
+<p>Suppose the limit exists for an arbitrary $t^{\star}_i \in [t_i, t_{i+1}]$, do we get the same limit for $\forall t^{\star}_i \in [t_i, t_{i+1}]$?</p>
+<p>Recall that $P(t)$ is a partition of $[a, b]: a = t_0 &#x3C; t_1 &#x3C; \ldots &#x3C; t_n = b$.</p>
+<p>We assume that $t_{i + 1} = \frac{b - a}{n}$ for all $i \Rightarrow |P| = \underset{i}{\max}(t_{i + 1} - t_i) = \frac{b - a}{n}$.</p>
+<p>Let’s now investigate if the left and right Riemann sums have identical limits,</p>
+<p>$$
+L(n) = \sum_{i=0}^{n-1} \underbrace{(t_{i + 1} - t_i)}_{= \frac{b - a}{n}} f(t_i) \quad \text{and} \quad R(n) = \sum_{i=0}^{n-1} \underbrace{(t_{i + 1} - t_i)}_{= \frac{b - a}{n}} f(t_{i + 1}).
+$$</p>
+<p>We’ll investigate three different examples, starting with the (trivial) case.</p>
+<p>Consider the case when $f(t) = t$, we’ll denote $(t_{i + 1} - t_i) = \frac{b - a}{n} = \Delta t$,</p>
+<p>$$
+\begin{align*}
+L(n) &#x26; = \sum_{i=0}^{n-1} \Delta t \cdot t_i, \newline
+R(n) &#x26; = \sum_{i=0}^{n-1} \Delta t \cdot t_{i + 1}, \newline
+R(n) - L(n) &#x26; = \sum_{i=0}^{n-1} \Delta t \cdot \underbrace{(t_{i + 1} - t_i)}_{= \Delta t} \newline
+&#x26; = \sum_{i=0}^{n-1} \Delta t^2 \newline
+&#x26; = n \cdot \Delta t^2 \newline
+&#x26; = \frac{(b - a)^2}{n} = \mathcal{O}\left(\frac{1}{n}\right).
+\end{align*}
+$$</p>
+<p>Thus, as $n \to \infty$, $R(n) - L(n) \to 0$. Good, we see that the trivial case holds.</p>
+<p>Consider the Riemann(-Stieltjes) sum,</p>
+<p>$$
+\sum_{i=0}^{n-1} f(t^{\star}_i)(\beta(t_{i + 1}) - \beta(t_i)).
+$$</p>
+<p>Since we now have a random sequence, we need to take the limit in mean square, or in other words, is $\underset{n \to \infty}{\text{l.i.m}} \ R(n) - L(n) = 0$?</p>
+<p>Again, we let $\Delta \beta_i = \beta(t_{i + 1}) - \beta(t_i) \sim \mathcal{N}(0, \Delta t)$, and we have,</p>
+<p>$$
+\begin{align*}
+R(n) - L(n) &#x26; = \sum_{i=0}^{n-1} \underbrace{\Delta \beta_i}_{\sim \mathcal{N}(0, \Delta t)} \cdot \underbrace{(t_{i + 1} - t_i)}_{\Delta t} \newline
+&#x26; = \sum_{i=0}^{n-1} \underbrace{\Delta \beta_i \cdot \Delta t}_{\sim \mathcal{N}(0, \Delta t^3)} \newline
+&#x26; = \underbrace{n \cdot \Delta \beta_i \cdot \Delta t}_{\sim \mathcal{N}(0, n \Delta t^3)} = \mathcal{O}\left(\frac{1}{n^2}\right).
+\end{align*}
+$$</p>
+<p>Thus, as $n \to \infty$, $R(n) - L(n) \to 0$ and it is mean square Riemann(-Stieltjes) integrable.</p>
+<p>Finally, let’s consider the case when $f(t) = \beta(t)$, we compare,</p>
+<p>$$
+\begin{align*}
+L(n) &#x26; = \sum_{i=0}^{n-1} \beta(t_i) \Delta \beta_i, \newline
+R(n) &#x26; = \sum_{i=0}^{n-1} \beta(t_{i + 1}) \Delta \beta_i, \newline
+\end{align*}
+$$</p>
+<p>where $\Delta \beta_i = \beta(t_{i + 1}) - \beta(t_i) \sim \mathcal{N}(0, \Delta t)$.</p>
+<p>Is $\underset{n \to \infty}{\text{l.i.m}} \ R(n) - L(n) = 0$?</p>
+<p>We have,
+$$
+\begin{align*}
+R(n) - L(n) &#x26; = \sum_{i=0}^{n-1} \Delta \beta_i \cdot \underbrace{(\beta(t_{i + 1}) - \beta(t_i))}_{\Delta \beta_i} \newline
+&#x26; = \sum_{i=0}^{n-1} \Delta \beta_i^2 \newline
+&#x26; \Rightarrow \mathbb{E}[R(n) - L(n)] = \sum_{i=0}^{n-1} \mathbb{E}[\Delta \beta_i^2] \newline
+&#x26; \Rightarrow \mathrm{Var}(\Delta \beta_i) = \mathbb{E}[\Delta \beta_i - \underbrace{\mathbb{E}[\Delta \beta_i]}_{= 0}]^2 \newline
+&#x26; \Rightarrow \mathbb{E}[\Delta \beta_i^2] = \mathrm{Var}(\Delta \beta_i) = \Delta t \newline
+&#x26; \Rightarrow \mathbb{E}[R(n) - L(n)] = n \cdot \Delta t = \boxed{b - a}.
+\end{align*}
+$$</p>
+<p>Thus, as $n \to \infty$, $R(n) - L(n) \to b - a$ and it is not mean square Riemann(-Stieltjes) integrable.</p>
+<h3 id="the-itô-integral">The Itô Integral</h3>
+<p>Riemann(-Stieltjes) sums cannot define $\int \beta(t) \ d\beta(t)$ since the limit depends on $t^{\star}_i$.</p>
+<p>Instead, we define the Itô integral as,</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Itô integrals<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We define the Itô integral (of the diffusion term) as,
+$$
+\int_{t_0}^{t} L(x(s), s) \ d\beta(s) = \underset{\substack{n \to \infty \newline |P| \to 0}}{\text{l.i.m}} \sum_{i=0}^{n-1} L(x(t_i), t_i) (\beta(t_{i + 1}) - \beta(t_i)).
+$$</p></div>
+</details>
+<p>The difference compared to using Riemann(-Stieltjes) sums is that $t^{\star}_i = t_i$.</p>
+<p>We finally have our definition of our SDEs,</p>
+<p>$$
+x(t) - x(t_0) = \underbrace{\int_{t_0}^t f(x(s), s) \ ds}_{\text{mean square Riemann integral}} + \underbrace{\int_{t_0}^t L(x(s), s) \ d\beta(s)}_{\text{Itô integral}}.
+$$</p>
+<p>Now, it might seem quite arbitrary to always evaluate at the left endpoint.
+There are some reasons why one would want to do this, to keep it short, it will make a lot of things convenient for us.</p>
+<p>But do not fear, if you dislike the left endpoint, you might like the <strong>backward Itô integral</strong> or <strong>Stratonovich integral</strong> instead.</p>
+<h3 id="the-euler-maruyama-method">The Euler-Maruyama Method</h3>
+<p>It is generally intractable to exactly simulate a process $x(t)$ described by an SDE,</p>
+<p>$$
+\begin{equation}
+dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t).
+\end{equation}
+$$</p>
+<p>The Euler-Maruyama method corresponds to the approximation,</p>
+<p>$$
+dx(t) \approx f(x(t_i), t_i) \ dt + L(x(t_i), t_i) \ d\beta(t), \quad \forall t_i \in [t_i, t_{i + 1}].
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: The Euler-Maruyama method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>To simulate $x(t)$ from (1), draw $x(t_0) \sim p(x(t_0))$ and repeat for $i = 0, \ldots$,</p><ol>
+<li>Sample the Brownian motion, $\Delta \beta_i \sim \mathcal{N}(0, \Delta t)$.</li>
+<li>Predict the mean, $\hat{x}(t_{i + 1}) = x(t_i) + (t_{i + 1} - t_i) f(x(t_i), t_i)$.</li>
+<li>Sample the new state, $x(t_{i + 1}) = \hat{x}(t_{i + 1}) + L(x(t_i), t_i) \Delta \beta_i$.</li>
+</ol></div>
+</details>
+<h3 id="second-order-stochastic-integrals">Second-Order Stochastic Integrals</h3>
+<p>We can also define the <strong>second-order</strong> stochastic integrals,</p>
+<p>$$
+\int_{a}^{b} g(t) (d \beta(t))^2 \triangleq \underset{\substack{n \to \infty \newline |P| \to 0}}{\text{l.i.m}} \sum_{i=0}^{n-1} g(t_i) (\beta(t_{i + 1}) - \beta(t_i))^2.
+$$</p>
+<p>If we set $g(t) = 1$ and standard $P$, we get,</p>
+<p>$$
+\begin{equation}
+\sum_{i=0}^{n-1} (\beta(t_{i + 1}) - \beta(t_i))^2,
+\end{equation}
+$$</p>
+<p>Which we know has an expected value of $b - a$.</p>
+<p>Now, let $z_i = \beta(t_{i + 1}) - \beta(t_i) \sim \mathcal{N}(0, \Delta t)$.</p>
+<p>(3) is $\Vert z \Vert^2$, $\mathbb{E}[\Vert z \Vert^2] = b - a$, and $\dim(z) = n$.</p>
+<p>In a more abstract sense, as $n \to \infty$, samples from $z$ <strong>concentrates close to the surface of a sphere</strong>.</p>
+<p>This is known as <strong>concentration of measure</strong>, a key result in many fields.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Second-order stochastic integrals (scalar case)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Under suitable regularity conditions (e.g., g(t) is independent of future increments $\Delta \beta$),
+$$
+\int_{a}^{b} g(t) (d \beta(t))^2 = \int_{a}^{b} g(t) dt.
+$$</p></div>
+</details>
+<p>In this context, we can simply replace (d$\beta(t)$)$^2$ by $dt$ and the Brownian motion does not introduce extra stochasticity.</p>
+<h2 id="chain-rules-and-itô-calculus">Chain Rules and Itô Calculus</h2>
+<h3 id="the-classical-chain-rule">The Classical Chain Rule</h3>
+<p>Suppose $x(t)$ satisfies the ordinary differential equation (ODE),</p>
+<p>$$
+\frac{dx(t)}{dt} = f(x(t)),
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: The Chain Rule<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If $\phi(x)$ is a differentiable function, then,
+$$
+\frac{d \phi(x(t))}{dt} = \underbrace{\frac{d \phi(x(t))}{dx}}_{\phi^{\prime}(x(t))} \underbrace{\frac{d x(t)}{dt}}_{x^{\prime}(t)} = \phi^{\prime}(x) f(x(t)).
+$$</p></div>
+</details>
+<h4 id="integral-form-of-the-chain-rule">Integral Form of the Chain Rule</h4>
+<p>Suppose $x(t)$ satisfies the (same) ODE,</p>
+<p>$$
+\begin{align*}
+dx(t) &#x26; = f(x(t)) \ dt, \newline
+x(t) - x(t_0) &#x26; = \int_{t_0}^{t} f(x(s)) \ ds.
+\end{align*}
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: The Chain Rule<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If $\phi(x)$ is a differentiable function, then,
+$$
+\begin{align*}
+\phi(x(t)) - \phi(x(0)) &#x26; = \int_{0}^{t} \frac{d \phi(x(s))}{ds} \ ds = \int_{0}^{t} \phi^{\prime}(x(s)) dx(s) \newline
+&#x26; = \int_{0}^{t} \phi^{\prime}(x(s)) f(x(s)) \ ds \newline
+d \phi(x(t)) &#x26; = \phi^{\prime}(x(t)) \ dx(t) = \phi^{\prime}(x(t)) f(x(t)) \ dt.
+\end{align*}
+$$</p></div>
+</details>
+<h4 id="derivation-of-the-integral-form">Derivation of the Integral Form</h4>
+<p>Consider a partition, $a = t_0 &#x3C; t_1 &#x3C; \ldots &#x3C; t_n = b$ such that $t_{i+1} - t_i = \Delta t = \frac{b - a}{n} $ for $i = 1, 2, \ldots, n$.</p>
+<p>It follows that,</p>
+<p>$$
+\phi(x(b)) - \phi(x(a)) = \sum_{i=0}^{n-1} \phi(x(t_{i + 1})) - \phi(x(t_i)).
+$$</p>
+<p>We have $n$ terms and $\Delta t = \frac{b - a}{n} \Rightarrow \mathcal{O}(\Delta t^2)$ can be ignored as $n \to \infty$.</p>
+<p>Using $dx(t) = f(x(t)) dt$ (the ODE) and its Taylor expansion, we get,</p>
+<p>$$
+\begin{align*}
+x(t_{i + 1}) &#x26; = x(t_i) + f(x(t_i)) \Delta t + \mathcal{O}(\Delta t^2), \newline
+\phi(x(t_{i + 1})) &#x26; = \phi(x(t_i)) + \phi^{\prime}(x(t_i))(x(t_{i + 1}) - x(t_i)) + \mathcal{O}(\Delta t^2).
+\end{align*}
+$$</p>
+<p>Thus, we conclude that,
+$$
+\phi(x(b)) - \phi(x(a)) = \sum_{i=0}^{n-1} \phi^{\prime}(x(t_i)) f(x(t_i)) \Delta t  = \int_{a}^{b} \phi^{\prime}(x(t)) f(x(t)) \ dt.
+$$</p>
+<p>Recall that the ODE $dx(t) = f(x(t)) \ dt$ and that all $\mathcal{O}(\Delta t^2)$ terms can be ignored, as $n \to \infty$,</p>
+<p>$$
+\begin{align*}
+d\phi(x(t)) &#x26; = \phi^{\prime}(x(t)) \ dx(t) + \frac{1}{2} \phi^{\prime \prime}(x(t)) (dx(t))^2 + \mathcal{O}((dx(t))^3) \newline
+&#x26; = \phi^{\prime}(x(t)) \ dx(t) \newline
+&#x26; = \phi^{\prime}(x(t)) f(x(t)) \ dt.
+\end{align*}
+$$</p>
+<h4 id="solving-a-linear-ode">Solving a Linear ODE</h4>
+<p>The chain rule is useful in various contexts, but we note that it yields <strong>a new ODE</strong>,</p>
+<p>$$
+\begin{align*}
+dx(t) &#x26; = f(x(t)) \ dt, \newline
+d\phi(x(t)) &#x26; = \phi^{\prime}(x(t)) \ dx(t) \newline
+&#x26; = \phi^{\prime}(x(t)) f(x(t)) \ dt.
+\end{align*}
+$$</p>
+<p>We can use this to solve ODEs.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Linear ODE via the chain rule<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Solve $dx(t) = -cx(t) \ dt$ with $x(0) = 1$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Introduce $\phi(x(t)) = \log x(t)$. The chain rule gives
+$$
+d\phi(x(t)) = \frac{dx(t)}{x(t)} = -c \ dt.
+$$
+Therefore $\phi(x(t)) = -ct$, and exponentiating yields
+$$
+x(t) = \exp(-ct).
+$$</p></div>
+</details></div>
+</details>
+<h3 id="itô-stochastic-calculus">Itô Stochastic Calculus</h3>
+<p>Suppose $x(t)$ is described (in the Itô sense) by the SDE,</p>
+<p>$$
+dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t).
+$$</p>
+<p>The “chain rule” for $\phi(x(t))$ is called the <strong>Itô formula</strong>.</p>
+<p>To present a short derivation, we recall that,</p>
+<p>$$
+\int_{a}^{b} g(t) \ (d\beta(t))^2 = \int_{a}^{b} g(t) \ dt.
+$$</p>
+<p>It is also easy to verify that all other higher-order terms vanish, e.g.,</p>
+<p>$$
+\int_{a}^{b} g(t) \ dt \ d\beta(t) = 0.
+$$</p>
+<h4 id="the-itô-formula">The Itô Formula</h4>
+<p><strong>The Itô formula</strong> can thus be formally derived as,</p>
+<p>$$
+\begin{align*}
+d \phi(x(t)) &#x26; = \phi^{\prime}(x(t)) \ dx(t) + \frac{1}{2} \phi^{\prime \prime}(x(t)) (dx(t))^2 + \mathcal{O}((dx(t))^3) \newline
+&#x26; = \phi^{\prime}(x(t)) \left( f(x(t), t) \ dt + L(x(t), t) \ d\beta(t) \right) + \frac{1}{2} \phi^{\prime \prime}(x(t)) (L(x(t), t))^2 dt
+\end{align*}
+$$</p>
+<p>The Itô formula can be generalized to vector-valued states and $\phi, f$ and $L$ may all be time-dependent.</p>
+<p>Let’s present a scalar version where $\phi$ depends on state and time, i.e., $\phi(x(t), t)$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: The Itô formula<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Suppose $x(t)$ is a scalar Itô process that obeys the SDE,
+$$
+dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t).
+$$
+The scalar function $\phi(x(t), t)$ can then be described by the SDE,
+$$
+d \phi(x(t), t) = \frac{\partial \phi}{\partial t} dt + \frac{\partial \phi}{\partial x} dx(t) + \frac{1}{2} \frac{\partial^2 \phi}{\partial x^2} L(x(t))^2 dt.
+$$</p></div>
+</details>
+<p>We can use this to solve SDEs.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Linear multiplicative-noise SDE<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Solve $dx(t) = -cx(t) \ dt + x(t) \ d\beta(t)$ with $x(0) = 1$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Introduce $\phi(x(t)) = \log x(t)$. The Itô formula gives
+$$
+d \phi(x(t)) = \frac{dx(t)}{x(t)} - \frac{(dx(t))^2}{2 (x(t))^2} = -c \ dt + d\beta(t) - \frac{1}{2} dt.
+$$
+Therefore $\phi(x(t)) = -(c + \frac{1}{2}) t + \beta(t)$, and hence
+$$
+x(t) = \exp\left(-\left(c + \frac{1}{2}\right) t + \beta(t)\right).
+$$</p></div>
+</details></div>
+</details>
+<h4 id="squared-brownian-motion">Squared Brownian Motion</h4>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Squared Brownian motion<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Suppose $x(0) = 0$ and $dx(t) = d\beta(t)$, so $x(t) = \beta(t)$. Apply Itô’s formula to $\phi(x(t)) = x^2(t)$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Since $\phi’(x) = 2x$ and $\phi”(x) = 2$, Itô’s formula gives
+$$
+d \phi(x(t)) = 2 x(t) \ dx(t) + (dx(t))^2 = 2 \beta(t) d\beta(t) + dt.
+$$
+$$
+\Rightarrow \int_{0}^{t} d \phi(x(s)) = \beta^2(t) = \int_{0}^{t} 2 \beta(s) d\beta(s) + t.
+$$
+For an ordinary differentiable function, the analogous calculation would give
+$$
+\int_{0}^{t} f(s) df(s) = \int_{0}^{t} f(s) f^{\prime}(s) ds = \frac{1}{2} \int_{0}^{t} \frac{d f^2(s)}{ds} ds = \frac{f^2(t) - f^2(0)}{2},
+$$
+whereas the Itô formula yields an extra $t$ term after integrating.</p></div>
+</details></div>
+</details>
+<p>Starting from the SDE $(x(t) = \beta(t))$,
+$$
+dx(t) = d\beta(t),
+$$</p>
+<p>we have derived an SDE for $\phi(x(t)) = \beta^2(t)$,
+$$
+d(\beta^2(t)) = 2 \beta(t) d\beta(t) + dt.
+$$</p>
+<p>To verify the result directly, let us use the definition of the Itô integral.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Verify the squared-Brownian-motion identity<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Recover the same identity from the partition definition of the Itô integral.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Itô formula implies that
+$$
+\begin{equation}
+\int_{a}^{b} d \beta^2(t) = \int_{a}^{b} 2 \beta(t) d\beta(t) + \int_{a}^{b} dt.
+\end{equation}
+$$
+Using a partition, $a = t_0 &#x3C; t_1 &#x3C; \ldots &#x3C; t_n = b$, the first integral is
+$$
+\begin{align*}
+\sum_{i=0}^{n-1} \underbrace{(\beta^2(t_{i + 1}) - \beta^2(t_i))}_{a^2 - b^2} &#x26; = \sum_{i=0}^{n-1} (\beta(t_{i + 1}) + \beta(t_i)) (\beta(t_{i + 1}) - \beta(t_i)) \newline
+&#x26; = \sum_{i=0}^{n-1} 2 \beta(t_i) (\beta(t_{i + 1}) - \beta(t_i)) + (\beta(t_{i + 1}) - \beta(t_i))^2,
+\end{align*}
+$$
+This converges (in mean square) to the right-hand side of (1) as $n \to \infty$.</p></div>
+</details></div>
+</details>
+<h2 id="density-evolution-and-reverse-time">Density Evolution and Reverse Time</h2>
+<h3 id="sdes-and-probability-distributions">SDEs and Probability Distributions</h3>
+<p>At each time $t$, the state $x(t)$ is a random variable with its own probability distribution $p(x(t), t)$.
+Typically, $x(t_0) \sim p(x(t_0), t_0) = p_{\text{init}}(x(t_0))$.</p>
+<p>How does $p(x(t), t)$ evolve over time $t \geq t_0$?</p>
+<p>This is where the earlier calculus starts paying off.
+Generative models are not really about one sample path, but about how an entire density moves through time.
+So from here on, the main object is $p(x, t)$ rather than an individual realization $x(t)$.</p>
+<h4 id="sde-with-only-drift">SDE with Only Drift</h4>
+<p></p><figure><img alt="SDE with only drift (an ODE)" loading="lazy" decoding="async"  width="419" height="445" src="/_astro/SDE_only_drift.DHpcSqCP_Z1aXHex.svg" ><figcaption>SDE with only drift (an ODE)</figcaption></figure>
+Suppose $f(x(t), t) = 2, L(x(t), t) = 0 \Rightarrow \frac{dx}{dt} = 2.$<p></p>
+<p>We also assume that $x(t_0 = 0) \sim \mathcal{N}(0, 1)$.</p>
+<p>Intuitively, for this SDE (or ODE in this case), the probability distribution of $x(t)$ is just,</p>
+<p>$$
+\begin{equation}
+x(t) \sim \mathcal{N}(2t, 1).
+\end{equation}
+$$</p>
+<p>But, more formally we know that,</p>
+<p>$$
+\begin{equation}
+\begin{align*}
+x(t) &#x26; = \underbrace{x(0)}_{\mathcal{N}(0, 1)} + 2t \newline
+&#x26; \Rightarrow x(t) \sim \mathcal{N}(2t, 1) \newline
+\end{align*}
+\end{equation}
+$$</p>
+<h4 id="sde-with-only-diffusion">SDE with Only Diffusion</h4>
+<p></p><figure><img alt="SDE with only diffusion" loading="lazy" decoding="async"  width="448" height="445" src="/_astro/SDE_only_diffusion.CuWdVeO7_Z1y0xMV.svg" ><figcaption>SDE with only diffusion</figcaption></figure>
+Suppose $f(x(t), t) = 0, L(x(t), t) = 2 \Rightarrow dx = 2 d\beta(t)$.<p></p>
+<p>We also assume that $x(t_0 = 0) \sim \mathcal{N}(0, 1)$.</p>
+<p>Thus,</p>
+<p>$$
+\begin{equation}
+\begin{align*}
+x(t) &#x26; = \underbrace{x(0)}_{\mathcal{N}(0, 1)} + \underbrace{2 \beta(t)}_{\mathcal{N}(0, 4t)} \newline
+&#x26; \Rightarrow x(t) \sim \mathcal{N}(0, 1 + 4t)
+\end{align*}
+\end{equation}
+$$</p>
+<h4 id="connection-to-diffusion-models">Connection to Diffusion Models</h4>
+<p>So, we have seen that (simple) SDEs and their probability distributions <strong>evolve over time</strong>.
+This is the key idea behind diffusion models.</p>
+<p>Suppose $x(0) \sim p(x(0), 0) = p_{\text{init}}(x(0))$ where $p_{\text{init}}$ is a simple distribution like a Gaussian.
+We would like $x(1) \sim p(x(1), 1) = p_{\text{data}}(x(1))$ where $p_{\text{data}}$ is some complicated data distribution.</p>
+<p>Can we, and if so how do we, construct such an SDE?
+If it is possible, then we can sample from $p_{\text{init}}$, run it through the SDE, and obtain a sample from $p_{\text{data}}$.
+In practice, diffusion papers usually define the easier forward noising process from data to noise and then learn the reverse-time dynamics.
+Mathematically, both viewpoints are describing the same family of intermediate marginals.</p>
+<h3 id="fokker-planck-kolmogorov-equation">Fokker-Planck-Kolmogorov Equation</h3>
+<p>The Fokker-Planck-Kolmogorov equation describes the evolution of the probability distribution of a stochastic process over time,</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Fokker-Planck-Kolmogorov Equation in $\ \mathbb{R}^d$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The probability density $p(\mathbf{x}, t)$ of the solution of the SDE,
+$$
+d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \ dt + \mathbf{L}(\mathbf{x}(t), t) \ d \beta(t),
+$$
+solves the partial differential equation,
+$$
+\frac{\partial p(\mathbf{x}, t)}{\partial t} = - \sum_i \frac{\partial}{\partial x_i} [f_i(\mathbf{x}, t) p(\mathbf{x}, t)] + \frac{1}{2} \sum_{i,j} \frac{\partial^2}{\partial x_i \partial x_j} \left[ [\mathbf{L}(\mathbf{x}, t) \mathbf{L}^T(\mathbf{x}, t)]_{ij} p(\mathbf{x}, t) \right].
+$$</p></div>
+</details>
+<p>In physics literature, this is often called the <strong>Fokker-Planck equation</strong>, while in stochastics, it is called the <strong>forward Kolmogorov equation</strong>.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Fokker-Planck-Kolmogorov Equation in $\ \mathbb{R}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The probability density $p(x, t)$ of the solution of the SDE,
+$$
+dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t),
+$$
+solves the partial differential equation,
+$$
+\frac{\partial p(x, t)}{\partial t} = - \frac{\partial}{\partial x} [f(x, t) p(x, t)] + \frac{1}{2} \frac{\partial^2}{\partial x^2} \left[ L(x, t)^2 p(x, t) \right].
+$$</p></div>
+</details>
+<h4 id="pure-diffusion-gives-the-heat-equation">Pure Diffusion Gives the Heat Equation</h4>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Pure diffusion gives the heat equation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the SDE
+$$
+dx(t) = d \beta(t),
+$$
+and use the Fokker-Planck-Kolmogorov equation to derive the PDE for its density.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Here $f(x, t) = 0$ and $L(x, t) = 1$, so the scalar Fokker-Planck-Kolmogorov equation becomes
+$$
+\frac{\partial p(x, t)}{\partial t} = \frac{1}{2} \frac{\partial^2}{\partial x^2} p(x, t).
+$$
+This is the <strong>diffusion equation</strong>, also known as the <strong>heat equation</strong>.</p></div>
+</details></div>
+</details>
+<h4 id="proof-of-the-fokker-planck-kolmogorov-equation">Proof of the Fokker-Planck-Kolmogorov Equation</h4>
+<p>We will prove the Fokker-Planck-Kolmogorov PDE, but let’s first understand some useful results that we’ll use.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Integration by parts<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"></div>
+</details>
+<p>$$
+\int_{a}^{b} u^{\prime}(x) v(x) \ dx = [u(x) v(x)]_{a}^{b} - \int_{a}^{b} u(x) v^{\prime}(x) \ dx
+$$</p>
+<p>In higher dimensions it is known as the <strong>divergence theorem</strong> or <strong>Gauss’s theorem</strong>.
+(This is nothing new, just a friendly reminder.)</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: The Itô Formula<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Suppose $x(t)$ is a scalar Itô process that obeys the SDE,
+$$
+dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t),
+$$
+The scalar function $\phi(x)$ (with no explicit dependence on $t$) can then be described by the SDE,
+$$
+d\phi(x) = \frac{\partial \phi}{\partial x} dx + \frac{1}{2} \frac{\partial^2 \phi}{\partial x^2} L(x, t)^2 \ dt
+$$</p></div>
+</details>
+<p>Taking the expectation and dividing by $dt$ gives,
+$$
+\frac{d \mathbb{E}[\phi]}{dt} = \mathbb{E}\left[ \frac{\partial \phi}{\partial x} f(x, t)\right] + \frac{1}{2} \mathbb{E}\left[ \frac{\partial^2 \phi}{\partial x^2} L(x, t)^2 \right]
+$$</p>
+<p>Now, let’s prove the Fokker-Planck-Kolmogorov PDE.</p>
+<p>By Itô’s formula, we have,</p>
+<p>$$
+d \phi(x) = \phi^{\prime}(x) \ dx + \frac{1}{2} \phi^{\prime \prime}(x) L(x, t)^2 \ dt
+$$</p>
+<p>Substituting $dx$ into the above equation gives,</p>
+<p>$$
+\begin{align*}
+d \phi(x) &#x26; = \phi^{\prime}(x) f(x, t) \ dt + \phi^{\prime}(x) L(x, t) \ d\beta(t) + \frac{1}{2} \phi^{\prime \prime}(x) L(x, t)^2 \ dt \newline
+d \phi(x) &#x26; = \left[f(x, t) \phi^{\prime}(x) + \frac{1}{2} L(x, t)^2 \phi^{\prime \prime}(x) \right] dt + \underbrace{L(x, t) \phi^{\prime}(x) d\beta(t)}_{\mathbb{E}[ \cdot ] = 0} \newline
+\end{align*}
+$$</p>
+<p>If we take the expectation of both sides, we get,</p>
+<p>$$
+\frac{d}{dt} \mathbb{E}[\phi] = \mathbb{E}\left[f(x, t) \phi^{\prime}(x)\right] + \frac{1}{2} \mathbb{E}\left[L(x, t)^2 \phi^{\prime \prime}(x)\right]
+$$</p>
+<p>By using the density representation of the expectation, we can write,</p>
+<p>$$
+\frac{d}{dt} \int \phi(x) p(x, t) \ dx = \int f(x, t) \phi^{\prime}(x) p(x, t) \ dx + \frac{1}{2} \int L(x, t)^2 \phi^{\prime \prime}(x) p(x, t) \ dx.
+$$</p>
+<p>Let’s rewrite our right-hand side terms.</p>
+<h5 id="first-term-int-fx-t-phiprime-x-px-t--dx">First term: $\int f(x, t) \phi^\prime (x) p(x, t) \ dx$</h5>
+<p>By letting,</p>
+<p>$$
+u(x) = f(x, t) p(x, t), \quad v(x) = \phi^\prime (x),
+$$</p>
+<p>and using integration by parts, we have,</p>
+<p>$$
+\int f(x, t) \phi^{\prime}(x) p(x, t) \ dx = [f(x, t) p(x, t) \phi(x)] - \int \phi(x) \frac{\partial}{\partial x} [f(x, t) p(x, t)] \ dx,
+$$</p>
+<p>we’ll assume that the first term vanishes at the boundaries, thus,</p>
+<p>$$
+\int f(x, t) \phi^{\prime}(x) p(x, t) \ dx = - \int \phi(x) \frac{\partial}{\partial x} [f(x, t) p(x, t)] \ dx.
+$$</p>
+<h5 id="second-term-int-lx-t2-phi-x-px-t--dx">Second term: $\int L(x, t)^2 \phi^” (x) p(x, t) \ dx$</h5>
+<p>Here we’ll need to use integration by parts twice. First, we have,</p>
+<p>$$
+u_1(x) = L(x, t)^2 p(x, t), \quad v_1(x) = \phi^\prime (x),
+$$</p>
+<p>Then we have,</p>
+<p>$$
+\int L(x, t)^2 \phi^{\prime \prime}(x) p(x, t) \ dx = [L(x, t)^2 p(x, t) \phi^\prime (x)] - \int \phi^\prime (x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)] \ dx,
+$$</p>
+<p>Again, we’ll assume that the first term vanishes at the boundaries, thus,</p>
+<p>$$
+\int L(x, t)^2 \phi^{\prime \prime}(x) p(x, t) \ dx = - \int \phi^\prime (x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)] \ dx.
+$$</p>
+<p>Now, for the second integration by parts, we have,</p>
+<p>$$
+u_2(x) = \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)], \quad v_2(x) = \phi(x),
+$$</p>
+<p>and we can write,</p>
+<p>$$
+\int \phi^\prime (x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)] \ dx = [\phi(x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)]] - \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \ dx,
+$$</p>
+<p>and again, we’ll assume that the first term vanishes at the boundaries, thus,</p>
+<p>$$
+\int \phi^\prime (x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)] \ dx = - \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \ dx.
+$$</p>
+<p>Now, we can combine the two terms to get,
+$$
+\begin{align*}
+\int L(x, t)^2 \phi^{\prime \prime}(x) p(x, t) \ dx &#x26; = -\left[- \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \ dx \right] \newline
+&#x26; = \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \ dx.
+\end{align*}
+$$</p>
+<h5 id="putting-it-all-together">Putting It All Together</h5>
+<p>Now, we can combine the two terms to get,
+$$
+\begin{align*}
+\frac{d}{dt} \int \phi(x) p(x, t) \ dx &#x26; = - \int \phi(x) \frac{\partial}{\partial x} [f(x, t) p(x, t)] \ dx + \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \ dx \newline
+&#x26; = \int \phi(x) \left[- \frac{\partial}{\partial x} [f(x, t) p(x, t)] + \frac{1}{2} \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \right] \ dx.
+\end{align*}
+$$</p>
+<p>We can rewrite the left-hand side as,</p>
+<p>$$
+\frac{d}{dt} \int \phi(x) p(x, t) \ dx = \int \phi(x) \frac{\partial}{\partial t} p(x, t) \ dx.
+$$</p>
+<p>since our $\phi(x)$ does not depend on $t$.</p>
+<p>Now we can rewrite the entire equation as,</p>
+<p>$$
+\int \phi(x) \left[\frac{\partial}{\partial t} p(x, t) + \frac{\partial}{\partial x} [f(x, t) p(x, t)] - \frac{1}{2} \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \right] \ dx = 0.
+$$</p>
+<p>But, our $\phi(x)$ is arbitrary, therefore the term in the brackets must be zero, i.e.,</p>
+<p>$$
+\boxed{
+\frac{\partial}{\partial t} p(x, t) = - \frac{\partial}{\partial x} [f(x, t) p(x, t)] + \frac{1}{2} \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)].
+}
+$$</p>
+<p>which is precisely the Fokker-Planck-Kolmogorov equation!</p>
+<h4 id="benes-sde">Benes SDE</h4>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Write the Fokker-Planck equation for the Benes SDE<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For the SDE
+$$
+dx(t) = \tanh(x(t)) \ dt + d \beta(t),
+$$
+compute the corresponding Fokker-Planck-Kolmogorov PDE.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Substituting $f(x, t) = \tanh(x)$ and $L(x, t) = 1$ into the scalar equation gives
+$$
+\begin{align*}
+\frac{\partial p(x, t)}{\partial t} &#x26; = -\frac{\partial}{\partial x} [\tanh(x) p(x, t)] + \frac{1}{2} \frac{\partial^2}{\partial x^2} [p(x, t)] \newline
+&#x26; = -(\tanh^2(x) - 1) p(x, t) - \tanh(x) \frac{\partial p(x, t)}{\partial x} + \frac{1}{2} \frac{\partial^2 p(x, t)}{\partial x^2}.
+\end{align*}
+$$</p></div>
+</details></div>
+</details>
+<h3 id="mean-and-covariance-of-an-sde">Mean and Covariance of an SDE</h3>
+<p>Let’s now try to derive the mean and covariance of an SDE, using the Fokker-Planck-Kolmogorov equation.</p>
+<h4 id="mean-of-an-sde">Mean of an SDE</h4>
+<p>Recall,</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: The Itô Formula<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Suppose $x(t)$ is a scalar Itô process that obeys the SDE,
+$$
+dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t),
+$$
+The scalar function $\phi(x)$ (with no explicit dependence on $t$) can then be described by the SDE,
+$$
+d\phi(x) = \frac{\partial \phi}{\partial x} dx + \frac{1}{2} \frac{\partial^2 \phi}{\partial x^2} L(x, t)^2 \ dt
+$$</p></div>
+</details>
+<p>Taking the expectation and dividing by $dt$ gives,
+$$
+\frac{d \mathbb{E}[\phi]}{dt} = \mathbb{E}\left[ \frac{\partial \phi}{\partial x} f(x, t)\right] + \frac{1}{2} \mathbb{E}\left[ \frac{\partial^2 \phi}{\partial x^2} L(x, t)^2 \right]
+$$</p>
+<p>Now, if $\phi(x, t)$ (explicit dependence on $t$), we instead have,</p>
+<p>$$
+\frac{d \mathbb{E}[\phi]}{dt} = \mathbb{E}\left[\frac{\partial \phi}{\partial t} \right] + \mathbb{E}\left[ \frac{\partial \phi}{\partial x} f(x, t)\right] + \frac{1}{2} \mathbb{E}\left[ \frac{\partial^2 \phi}{\partial x^2} L(x, t)^2 \right]
+$$</p>
+<p>To derive the evolution of the <strong>mean</strong> $m(t) = \mathbb{E}[x]$, we can pick,</p>
+<p>$$
+\phi(x, t) = x
+$$</p>
+<p>Then we have,
+$$
+\begin{align*}
+\mathbb{E}\left[\frac{\partial \phi}{\partial t} \right] &#x26; = 0 \quad \text{(no explicit dependence on $t$)} \newline
+\mathbb{E}\left[ \frac{\partial \phi}{\partial x}\right] &#x26; = 1 \newline
+\mathbb{E}\left[ \frac{\partial^2 \phi}{\partial x^2} \right] &#x26; = 0 \newline
+\end{align*}
+$$</p>
+<p>Plugging these back into the equation gives,</p>
+<p>$$
+\frac{d m(t)}{dt} = \mathbb{E}\left[ f(x, t) \right]
+$$</p>
+<p>Similarly, for a vector version of $\mathbf{x} \in \mathbb{R}^d$ is given by,</p>
+<p>$$
+\frac{d \mathbf{m}}{dt} = \mathbb{E}\left[ \mathbf{f}(\mathbf{x}, t) \right]
+$$</p>
+<h4 id="covariance-of-an-sde">Covariance of an SDE</h4>
+<p>To derive the evolution of the <strong>covariance</strong> $p(t) = \mathbb{E}[(x - m(t))^2]$, we can pick,</p>
+<p>$$
+\phi(x, t) = (x - m(t))^2
+$$</p>
+<p>Then we have,</p>
+<p>$$
+\begin{align*}
+\mathbb{E}\left[\frac{\partial \phi}{\partial t} \right] &#x26; = 2 (x - m(t)) \frac{d m(t)}{dt} \quad \text{(using chain rule)} \newline
+\mathbb{E}\left[ \frac{\partial \phi}{\partial x}\right] &#x26; = 2 (x - m(t)) \newline
+\mathbb{E}\left[ \frac{\partial^2 \phi}{\partial x^2} \right] &#x26; = 2 \newline
+\end{align*}
+$$</p>
+<p>Plugging these back into the equation gives,</p>
+<p>$$
+\frac{d}{dt} \mathbb{E}\left[(x - m(t))^2\right] = \mathbb{E}\left[-2(x - m(t)) \frac{\partial m(t)}{\partial t}\right] + \mathbb{E}\left[2(x - m(t)) f(x, t)\right] + \frac{1}{2} \mathbb{E}\left[2 L(x, t)^2\right]
+$$</p>
+<p>Which can be simplified to,
+$$
+\frac{d p(t)}{dt} = -2 \frac{d m(t)}{dt} \mathbb{E}\left[(x - m(t))\right] + 2 \mathbb{E}\left[(x - m(t)) f(x, t)\right] + \mathbb{E}\left[L(x, t)^2\right]
+$$</p>
+<p>By definition $m(t) = \mathbb{E}[x]$, thus $\mathbb{E}\left[(x - m(t))\right] = 0$ and we can simplify the equation to,</p>
+<p>$$
+\frac{d p(t)}{dt} = 2 \mathbb{E}\left[(x - m(t)) f(x, t)\right] + \mathbb{E}\left[L(x, t)^2\right]
+$$</p>
+<p>Similarly, for a vector version of $\mathbf{x} \in \mathbb{R}^d$ is given by,</p>
+<p>$$
+\frac{d \mathbf{p}}{dt} = \mathbb{E}\left[(\mathbf{x} - \mathbf{m}(t)) \mathbf{f}(\mathbf{x}, t)^T\right] + \mathbb{E}\left[\mathbf{f}(\mathbf{x}, t) (\mathbf{x} - \mathbf{m}(t))^T\right] + \mathbb{E}\left[\mathbf{L}(\mathbf{x}, t) \mathbf{L}^T(\mathbf{x}, t)\right]
+$$</p>
+<h4 id="ornstein-uhlenbeck-process">Ornstein-Uhlenbeck Process</h4>
+<figure><img alt="Ornstein-Uhlenbeck Process" loading="lazy" decoding="async"  width="580" height="445" src="/_astro/ornstein_uhlenbeck.Fjhh-suD_1dMcBr.svg" ><figcaption>Ornstein-Uhlenbeck Process</figcaption></figure>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Mean and covariance of the Ornstein-Uhlenbeck process<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the SDE
+$$
+dx(t) = -\lambda x(t) \ dt + \sigma \ d\beta(t), \quad x(0) = 0,
+$$
+where $\lambda > 0$ and $\beta$ is Brownian motion with diffusion/std. deviation $\sigma$. Derive the ODEs for the mean and variance.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>From the general moment formulas, we have
+$$
+\begin{align*}
+\mathbb{E}[f(x, t)] &#x26; = -\lambda \mathbb{E}[x(t)] = -\lambda m(t) \newline
+\mathbb{E}[f(x)(x - m(t))] &#x26; = \mathbb{E}[-\lambda x(t)(x - m(t))] = -\lambda \mathbb{E}[(x - m(t))^2] = -\lambda p(t).
+\end{align*}
+$$
+This gives the ODEs
+$$
+\begin{align*}
+\frac{d m(t)}{dt} &#x26; = -\lambda m(t), \quad m(0) = 0 \newline
+\frac{d p(t)}{dt} &#x26; = -2 \lambda p(t) + \sigma^2, \quad p(0) = 0.
+\end{align*}
+$$
+As the solution $x(t)$ is Gaussian, these two equations characterize the whole distribution.</p></div>
+</details></div>
+</details>
+<p>In summary, the mean and covariance are governed by,</p>
+<p>$$
+\begin{align*}
+\frac{d \mathbf{m}}{dt} &#x26; = \mathbb{E}\left[\mathbf{f}(\mathbf{x}, t) \right] \newline
+\frac{d \mathbf{P}}{dt} &#x26; = \mathbb{E}\left[(\mathbf{x} - \mathbf{m}(t)) \mathbf{f}(\mathbf{x}, t)^T\right] + \mathbb{E}\left[\mathbf{f}(\mathbf{x}, t) (\mathbf{x} - \mathbf{m}(t))^T\right] + \mathbb{E}\left[\mathbf{L}(\mathbf{x}, t) \mathbf{L}^T(\mathbf{x}, t)\right]
+\end{align*}
+$$</p>
+<p>Note that the expectations are with respect to the density $p(\mathbf{x}, t)$!</p>
+<p>To solve these ODEs, in general, we need to know $p(\mathbf{x}, t)$, which is not always possible.</p>
+<p>In the linear-Gaussian case, the first two moments characterize the solution.</p>
+<h3 id="backward-kolmogorov-equation">Backward Kolmogorov Equation</h3>
+<p>Let the transition probability function be denoted,</p>
+<p>$$
+p(x(\tau) | x(t)) = p_{x(\tau) | x(t)}(y, \tau; x, t) = p(y, \tau | x, t) \text{ with } \tau \geq t.
+$$</p>
+<p>Then, one can similarly derive the <strong>Kolmogorov backward equation</strong>,</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Kolmogorov backward equation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+-\frac{\partial p(y, \tau; x, t)}{\partial \tau} = f(y, \tau) \frac{\partial p(y, \tau; x, t)}{\partial y} + \frac{1}{2} L(y, \tau)^2 \frac{\partial^2 p(y, \tau; x, t)}{\partial y^2}
+$$</p></div>
+</details>
+<p>If the end conditions are known for some $T, p(x, T)$, then one can compute the transition probability for times before $T$.</p>
+<p>This is the key to generative modeling via denoising diffusion processes <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>.</p>
+<p>Consider the Itô process,</p>
+<p>$$
+dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t),
+$$</p>
+<p>Then, there exists a reverse Itô process of the form <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>,
+$$
+dx(t) = \bar{f}(x(t), t) \ dt + \bar{L}(x(t), t) \ d\bar{\beta}(t),
+$$</p>
+<p>defined in some region $t \leq T$.</p>
+<p>$x(T)$ is a random variable independent of $\bar{\beta}$ and the above is shorthand for,</p>
+<p>$$
+x(T) - x(t) = \int_{t}^{T} \bar{f}(x(s), s) \ ds + \int_{t}^{T} \bar{L}(x(s), s) \ d\bar{\beta}(s),
+$$</p>
+<p>Lastly, consider the Itô process of the probabilistic denoising diffusion model,</p>
+<p>$$
+d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \ dt + \sigma(t) \ d\beta(t),
+$$</p>
+<p>Then, the reverse Itô process is given by <sup><a href="#user-content-fn-2" id="user-content-fnref-2-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>,</p>
+<p>$$
+d\mathbf{x}(t) = \left[\mathbf{f}(\mathbf{x}(t), t) - \sigma(t)^2 \nabla_{\mathbf{x}} \log p(\mathbf{x}(t), t)\right] dt + \sigma(t) d\bar{\beta}(t),
+$$</p>
+<p>The quantity,</p>
+<p>$$
+\nabla_{\mathbf{x}} \log p(\mathbf{x}(t), t)
+$$</p>
+<p>is known as the <strong>score function</strong> <label for="sn-5" class="sidenote-toggle sidenote-number" aria-describedby="sn-5-note">5</label><input type="checkbox" id="sn-5" class="sidenote-checkbox" aria-label="Toggle sidenote 5"><span class="sidenote" role="note" id="sn-5-note"><span class="sidenote-number-inline">5</span>The score is the gradient of the log-density, so it points toward increasing probability mass.</span> and is the basis for <strong>score-based generative models</strong>.
+In words, the score tells us which direction increases density the fastest, so it is exactly the correction term we need when we try to run a noising process backward.</p>
+<h3 id="reverse-time-euler-maruyama-method">Reverse-Time Euler-Maruyama Method</h3>
+<p>In the forward SDE,</p>
+<p>$$
+dx = f(x(t), t) \ dt + L(t) \ d \beta(t),
+$$</p>
+<p>we simulate forward in time using Euler-Maruyama method, also note that $L(t)$ does not depend on the state $x(t)$,</p>
+<p>$$
+x_{n + 1} = x_n + f(x_n, t_n) \Delta t + L(t_n) \sqrt{\Delta t} \ \xi_n.
+$$</p>
+<p>For the reverse SDE <sup><a href="#user-content-fn-2" id="user-content-fnref-2-3" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>,</p>
+<p>$$
+dx = [f(x(t), t) - L(t)^2 \nabla_x \log p(x(t), t)] dt + L(t) \ d \bar{\beta}(t),
+$$</p>
+<p>we simulate <strong>backward in time</strong> with,</p>
+<p>$$
+x_{n - 1} = x_n - [f(x_n, t_n) - L(t_n)^2 \nabla_x \log p(x_n, t_n)] \Delta t - L(t_n) \sqrt{\Delta t} \ \xi_n.
+$$</p>
+<p>The <strong>score function</strong> $\nabla_x \log p(x(t), t)$ must be estimated or known.</p>
+<h4 id="reverse-euler-maruyama-for-the-ornstein-uhlenbeck-process">Reverse Euler-Maruyama for the Ornstein-Uhlenbeck Process</h4>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Reverse Euler-Maruyama for the Ornstein-Uhlenbeck process<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the forward SDE
+$$
+dx = -\lambda x(t) \ dt + \sigma \ d \beta(t), \quad x(0) = 0.
+$$
+Compute its score and plug it into the reverse-time Euler-Maruyama update.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The marginal distribution $p(x(t), t)$ is Gaussian with zero mean and variance
+$$
+\mathrm{Var}[x(t)] = \frac{\sigma^2}{2 \lambda}(1 - e^{-2 \lambda t}).
+$$
+Therefore the score of the process is
+$$
+\begin{align*}
+\nabla_x \log p(x(t), t) &#x26; = \nabla_x \log \left[\frac{1}{\sqrt{2 \pi \mathrm{Var}[x(t)]}} e^{-\frac{x(t)^2}{2 \mathrm{Var}[x(t)]}} \right] \newline
+&#x26; = \nabla_x \left[-\frac{1}{2} \log(2 \pi) - \frac{1}{2} \log(\mathrm{Var}[x(t)]) - \frac{x(t)^2}{2 \mathrm{Var}[x(t)]} \right] \newline
+&#x26; = -\frac{1}{\mathrm{Var}[x(t)]} \underbrace{\nabla_x \mathrm{Var}[x(t)]}_{= 0} - \frac{x(t)}{\mathrm{Var}[x(t)]} \underbrace{\nabla_x x(t)}_{= 1} \newline
+&#x26; = -\frac{x(t)}{\mathrm{Var}[x(t)]}.
+\end{align*}
+$$
+Plugging this into the reverse-time Euler-Maruyama method gives
+$$
+x_{n - 1} = x_n - \left[-\lambda x_n + \frac{\sigma^2 x_n}{\mathrm{Var}[x_n]} \right] \Delta t - \sigma \sqrt{\Delta t} \ \xi_n,
+$$</p></div>
+</details></div>
+</details>
+<figure><img alt="Reverse Euler-Maruyama for Ornstein-Uhlenbeck Process" loading="lazy" decoding="async"  width="609" height="445" src="/_astro/reverse_ornstein_uhlenbeck.BOVl7nsK_1VCpOO.svg" ><figcaption>Reverse Euler-Maruyama for Ornstein-Uhlenbeck Process</figcaption></figure>
+<h2 id="diffusion-models">Diffusion Models</h2>
+<h3 id="denoising-diffusion-probabilistic-models">Denoising Diffusion Probabilistic Models</h3>
+<p>The previous section told us how to reverse a diffusion process if we know its score.
+DDPMs make that story concrete, design a forward noising process with simple marginals, then learn the object needed to reverse it.</p>
+<p>How do you design a scalar SDE of the form,</p>
+<p>$$
+dx(t) = f(x(t), t) \ dt + L(t) \ d \beta(t),
+$$</p>
+<p>that produces a process $x(t)$ with,</p>
+<ol>
+<li>Mean: $\mathbb{E}[x(t)] = \alpha(t) x_0$,</li>
+<li>Variance: $\mathrm{Var}[x(t)] = \sigma(t)^2$,</li>
+<li>Initial Conditions: $x(0) = x_0, \alpha(0) = 1, \sigma(0) = 0$?</li>
+</ol>
+<p>Let’s start with the <strong>mean</strong> condition, recall that,</p>
+<p>$$
+\begin{equation}
+\frac{dm(t)}{dt} = \frac{d\mathbb{E}[x(t)]}{dt} = \mathbb{E}[f(x(t), t)].
+\end{equation}
+$$</p>
+<p>Thus, from our ansatz,</p>
+<p>$$
+\begin{equation}
+\mathbb{E}[x(t)] = \alpha(t) x_0 \implies \frac{d \mathbb{E}[x(t)]}{dt} = \dot{\alpha}(t) x_0.
+\end{equation}
+$$</p>
+<p>A natural choice for $f(x(t), t)$ is a simple affine function of the form,</p>
+<p>$$
+f(x(t), t) = a(t) x(t) + b(t),
+$$</p>
+<p>Taking the expectation yields,</p>
+<p>$$
+\begin{align*}
+\mathbb{E}[f(x(t), t)] &#x26; = a(t) \mathbb{E}[x(t)] + b(t) \newline
+&#x26; = a(t) \alpha(t) x_0 + b(t).
+\end{align*}
+$$</p>
+<p>If we, e.g., set $b(t) = 0$ then we can solve for $a(t)$ from Equation (1) and (2) to get,</p>
+<p>$$
+\begin{align*}
+a(t) \alpha(t) x_0 &#x26; = \dot{\alpha}(t) x_0 \newline
+a(t) &#x26; = \frac{\dot{\alpha}(t)}{\alpha(t)} \left(= \frac{d}{dt} \log(\alpha(t))\right).
+\end{align*}
+$$</p>
+<p>Thus, we have the linear SDE of the form,</p>
+<p>$$
+dx(t) = \left(\frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \right) dt + L(t) \ d \beta(t).
+$$</p>
+<p>Now, one can check that the mean condition is satisfied by this SDE, but we also have a variance condition to satisfy, thus, let’s consider the linear SDE of the form,</p>
+<p>$$
+dx(t) = \left(\frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \right) dt + \underbrace{\alpha(t)}_{\text{new}} L(t) \ d \beta(t).
+$$</p>
+<p>The solution to this SDE is,</p>
+<p>$$
+x(t) = \alpha(t) \underbrace{\left(x_0 + \int_0^t L(s) \ d \beta(s) \right)}_{y(t)}.
+$$</p>
+<p>Thus,</p>
+<p>$$
+d(y(t)) = L(t) \ d \beta(t),
+$$</p>
+<p>By definition of the variance,</p>
+<p>$$
+\begin{align*}
+\mathrm{Var}[x(t)] &#x26; = \mathbb{E}[(\underbrace{x(t)}_{= \alpha(t) y(t)} - \underbrace{\mathbb{E}[x(t)]}_{= \alpha(t) x_0})^2] \newline
+&#x26; = \mathbb{E}[(\alpha(t) y(t) - \alpha(t) x_0)^2] \newline
+&#x26; = \mathbb{E}[((\underbrace{\alpha(t)}_{\text{deterministic}})(y(t) - \underbrace{x_0}_{\text{deterministic}}))^2] \newline
+&#x26; = \alpha(t)^2 \int_0^t L(s)^2 \ ds \newline
+\end{align*}
+$$</p>
+<p>In our case, we want our variance to be $\sigma(t)^2$, thus we can set,</p>
+<p>$$
+\begin{align*}
+\alpha(t)^2 \int_0^t L(s)^2 \ ds &#x26; = \sigma(t)^2 \newline
+\int_0^t L(s)^2 \ ds &#x26; = \frac{\sigma(t)^2}{\alpha(t)^2} \newline
+L(t)^2 &#x26; = \frac{d}{dt} \left(\frac{\sigma(t)^2}{\alpha(t)^2}\right) \newline
+L(t) &#x26; = \sqrt{\frac{d}{dt} \left(\frac{\sigma(t)^2}{\alpha(t)^2}\right)} \newline
+\end{align*}
+$$</p>
+<h4 id="the-resulting-gaussian-sde">The Resulting Gaussian SDE</h4>
+<p>To construct an SDE with,</p>
+<ol>
+<li>Mean: $\mathbb{E}[x(t)] = \alpha(t) x_0$,</li>
+<li>Variance: $\mathrm{Var}[x(t)] = \sigma(t)^2$,</li>
+</ol>
+<p>We use the SDE,</p>
+<p>$$
+dx(t) = \left(\frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \right) dt + \sqrt{\frac{d}{dt} \left(\frac{\sigma(t)^2}{\alpha(t)^2}\right)} \ d \beta(t).
+$$</p>
+<p>This guarantees that the process $x(t)$ is Gaussian with the desired mean and variance.</p>
+<h4 id="recovering-an-sde-from-target-moments">Recovering an SDE from Target Moments</h4>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Recover an SDE from target moments<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Suppose we are given an SDE of the form
+$$
+dx(t) = \frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \ dt + \alpha(t) L(t) \ d \beta(t), \quad x(0) = x_0,
+$$
+with</p><ol>
+<li>Mean: $\mathbb{E}[x(t)] = (1 - t) x_0$,</li>
+<li>Target Variance: $\mathrm{Var}[x(t)] = t^2$.</li>
+</ol><p>Recover the drift and diffusion terms explicitly.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Using $\alpha(t) = 1 - t$ we have
+$$
+\dot{\alpha}(t) = -1, \quad \frac{\dot{\alpha}(t)}{\alpha(t)} = -\frac{1}{1 - t}.
+$$
+Thus, the SDE becomes
+$$
+dx(t) = -\frac{1}{1 - t} x(t) \ dt + (1 - t) L(t) \ d \beta(t).
+$$
+By doing the same trick as before, we find that
+$$
+\begin{align*}
+L^2(t) &#x26; = \frac{d}{dt} \left(\frac{t^2}{(1 - t)^2}\right) \newline
+&#x26; = \frac{2t(1 - t)^2 + 2t^2(1 - t)}{(1 - t)^4} \newline
+&#x26; = \frac{2t[(1 - t)^2 + t(1 - t)]}{(1 - t)^4} \newline
+&#x26; = \frac{2t(1 - t)}{(1 - t)^4} \newline
+&#x26; = \frac{2t}{(1 - t)^3}.
+\end{align*}
+$$
+So
+$$
+L(t) = \sqrt{\frac{2t}{(1 - t)^3}},
+$$
+and we can further simplify the diffusion term to
+$$
+(1 - t) L(t) = (1 - t) \sqrt{\frac{2t}{(1 - t)^3}} = \sqrt{\frac{2t}{(1 - t)}}.
+$$
+Hence the SDE becomes
+$$
+dx(t) = -\frac{1}{1 - t} x(t) \ dt + \sqrt{\frac{2t}{(1 - t)}} \ d \beta(t).
+$$
+This form is valid for $t &#x3C; 1$, and it produces</p><ol>
+<li>Mean: $\mathbb{E}[x(t)] = (1 - t) x_0$,</li>
+<li>Variance: $\mathrm{Var}[x(t)] = t^2$.</li>
+</ol><p>The process is Gaussian, so these expressions fully characterize it.</p></div>
+</details></div>
+</details>
+<figure><img alt="A denoising diffusion SDE with different starting points." loading="lazy" decoding="async"  width="550" height="450" src="/_astro/denoising_diffusion.Dk_mvJ4C_270IWh.svg" ><figcaption>A denoising diffusion SDE with different starting points.</figcaption></figure>
+<h2 id="flow-matching-and-probability-paths">Flow Matching and Probability Paths</h2>
+<h3 id="probability-paths-and-conditional-flow-matching">Probability Paths and Conditional Flow Matching</h3>
+<p>Up to this point we have mostly looked at diffusion-style SDEs.
+Flow matching keeps the same high-level goal, moving a simple distribution into a data distribution, but removes the stochasticity and learns the transport field directly.</p>
+<p>Consider the SDE in $\mathbb{R}^d$,</p>
+<p>$$
+d \mathbf{x}(t) = \mathbf{f}^{\theta}(\mathbf{x}(t), t) \ dt + \sigma_t \ d \beta(t),
+$$</p>
+<p>Our <strong>goal</strong> is to, given $\mathbf{x}(0) \sim p_{\text{init}}(\mathbf{x}(0))$, make sure that $\mathbf{x}(1) \sim p_{\text{data}}(\mathbf{x}(1))$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Terminology<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$\sigma_t = 0$ <strong>Flow model</strong>: The SDE is reduced to an ODE (e.g., Flow Matching).
+$\sigma_t \neq 0$ <strong>Diffusion model</strong>: The SDE is a stochastic process (e.g., Denoising Diffusion Probabilistic Models).</p><p>The useful mental model is that both families choose a probability path $p_t$ between noise and data <label for="sn-6" class="sidenote-toggle sidenote-number" aria-describedby="sn-6-note">6</label><input type="checkbox" id="sn-6" class="sidenote-checkbox" aria-label="Toggle sidenote 6"><span class="sidenote" role="note" id="sn-6-note"><span class="sidenote-number-inline">6</span>Think of $p_t$ as a movie of distributions, each $t$ is one frame.</span>.
+The main difference is whether we follow that path with an ODE or with an SDE.</p></div>
+</details>
+<p>Suppose $\mathbf{x}(0) \sim p_0 = p_{\text{init}}$ at time $t = 0$ where $p_{\text{init}}$ is a simple distribution like a Gaussian.</p>
+<p>We would like $\mathbf{x}(1) \sim p_1 = p_{\text{data}}$ at time $t = 1$ where $p_{\text{data}}$ is some complicated data distribution.</p>
+<p>We’ll study how to,</p>
+<ol>
+<li>Construct an (ideal) vector field $\mathbf{f}^{\text{target}}$ and choose $\sigma_t$.</li>
+<li>Train such that $\mathbf{f}^{\theta} \approx \mathbf{f}^{\text{target}}$.</li>
+</ol>
+<p>We can then sample from $p_{\text{init}}$, run it through the SDE, and obtain a sample from $p_{\text{data}}$.</p>
+<h4 id="method-overview">Method Overview</h4>
+<p>The idea has four steps.</p>
+<ol>
+<li>Start by constructing a probability path $p_t(\cdot | \mathbf{z})$ for individual samples $\mathbf{z}$ which interpolates from noise $p_0(\cdot | \mathbf{z}) = p_{\text{init}}(\cdot)$ to the data sample $\mathbf{z}$, $p_1(\cdot | \mathbf{z}) = \delta_{\mathbf{z}}(\cdot)$.</li>
+<li>Marginalization gives us,
+$$
+p_t(\mathbf{x}) = \int p_t(\mathbf{x} | \mathbf{z}) p_{\text{data}}(\mathbf{z}) \ d \mathbf{z}.
+$$</li>
+<li>Construct target dynamics that simulate $p_t$.</li>
+<li>Train a neural network that approximates this SDE.</li>
+</ol>
+<h4 id="step-1-constructing-the-probability-path">Step 1: Constructing the Probability Path</h4>
+<p>Start by constructing,</p>
+<p>$$
+p_t(\cdot | \mathbf{z}),
+$$</p>
+<p>for individual samples $\mathbf{z}$ from the data distribution with conditions,</p>
+<p>$$
+p_0(\cdot | \mathbf{z}) = p_{\text{init}}(\cdot) \text{ and } p_1(\cdot | \mathbf{z}) = \delta_{\mathbf{z}}(\cdot) \text{ for all } \mathbf{z} \in \mathbb{R}^d.
+$$</p>
+<p>Such a path $p_t(\cdot | \mathbf{z})$ is called a <strong>conditional probability path</strong> <label for="sn-7" class="sidenote-toggle sidenote-number" aria-describedby="sn-7-note">7</label><input type="checkbox" id="sn-7" class="sidenote-checkbox" aria-label="Toggle sidenote 7"><span class="sidenote" role="note" id="sn-7-note"><span class="sidenote-number-inline">7</span>Each path is conditioned on a target sample $\mathbf{z}$, so it describes how noise morphs into that specific endpoint.</span>.</p>
+<h4 id="step-2-marginalization">Step 2: Marginalization</h4>
+<p>Each conditional path induces a <strong>marginal probability path</strong>,</p>
+<p>$$
+p_t(\mathbf{x}) = \int p_t(\mathbf{x} | \mathbf{z}) p_{\text{data}}(\mathbf{z}) \ d \mathbf{z}.
+$$</p>
+<p>We can sample from $p_t$ via,</p>
+<p>$$
+\mathbf{z} \sim p_{\text{data}}, \quad \mathbf{x} \sim p_t(\cdot | \mathbf{z}) \implies \mathbf{x} \sim p_t.
+$$</p>
+<p>Note that we do not know the density values of $p_t(\mathbf{x})$ as the integral is intractable.</p>
+<p>The marginal probability path $p_t(\mathbf{x})$ interpolates between $p_{\text{init}}$ and $p_{\text{data}}$,</p>
+<p>$$
+p_0(\mathbf{x}) = p_{\text{init}}(\mathbf{x}) \text{ and } p_1(\mathbf{x}) = p_{\text{data}}(\mathbf{x}).
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Gaussian conditional probability path<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Pick a Gaussian path that starts at noise and ends at a data sample $\mathbf{z}$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Define
+$$
+p_t(\cdot | \mathbf{z}) = \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d),
+$$
+with $\alpha_0 = \sigma_1 = 0$ and $\alpha_1 = \sigma_0 = 1$, so we move from $\mathcal{N}(0, 1)$ to $\mathcal{N}(\mathbf{z}, 0)$.</p><p>The functions $\alpha_t$ and $\sigma_t$ should be continuous and differentiable in $t$.</p><p>Sampling from the marginal path then looks like
+$$
+\mathbf{z} \sim p_{\text{data}}, \epsilon \sim p_{\text{init}} = \mathcal{N}(0, \mathbf{I}_d) \implies \mathbf{x}(t) = \alpha_t \mathbf{z} + \sigma_t \epsilon \sim p_t.
+$$</p></div>
+</details></div>
+</details>
+<h4 id="step-3-constructing-the-target-dynamics">Step 3: Constructing the Target Dynamics</h4>
+<p>First, we construct <strong>analytically</strong> dynamics for simulating the conditional probability path.</p>
+<p>Then, via the so-called “marginalization trick”, we obtain dynamics for the marginal probability path.</p>
+<p>We will write these in the general SDE form $d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \ dt + L(t) d \ \beta(t)$, with flow matching as the special case $L(t) = 0$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Gaussian dynamics for the conditional path<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For the Gaussian path above, write down dynamics whose marginals match it.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For the path
+$$
+p_t(\cdot | \mathbf{z}) = \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d),
+$$
+with $\alpha_0 = \sigma_1 = 0$ and $\alpha_1 = \sigma_0 = 1$, the following ODE
+$$
+\mathbf{f}(\mathbf{x}(t), t) = (\dot{\alpha}_t - \frac{\dot{\sigma}_t}{\sigma_t} \alpha_t) \mathbf{z} + \frac{\dot{\sigma}_t}{\sigma_t} \mathbf{x}(t) \text{ and } L(t) = 0,
+$$
+simulates the conditional probability path in the sense that $\mathbf{x}(t) \sim \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d)$.
+We can check this either from</p><ol>
+<li>By definition of mean and variance of an SDE,</li>
+<li>The Fokker-Planck-Kolmogorov equation.</li>
+</ol></div>
+</details></div>
+</details>
+<p>What are the target dynamics for the marginal path?</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-green-500 dark:bg-green-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-green-700 dark:text-green-300" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Tip: Marginalization Trick<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-green-700 dark:text-green-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If the ODE with vector field $\mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z})$ yields the conditional path $p_t(\mathbf{x}(t) \mid \mathbf{z})$ then the marginal field,
+$$
+\mathbf{f}^{\text{target}}(\mathbf{x}(t), t) = \int \mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z}) \underbrace{\frac{p_t(\mathbf{x}(t) | \mathbf{z}) p_{\text{data}}(\mathbf{z})}{p_t(\mathbf{x}(t))}}_{p_t(\mathbf{z} | \mathbf{x}(t))} \ d \mathbf{z},
+$$</p></div>
+</details>
+<p>yields the marginal path $p_t(\mathbf{x}(t))$.</p>
+<p>Hence, using $\mathbf{f}^{\text{target}}(\mathbf{x}(t), t)$ yields a good path — <strong>it turns noise into data!</strong> (sadly, it is unknown).</p>
+<p>The proof? Fokker-Planck-Kolmogorov equation!</p>
+<h4 id="step-4-training-the-neural-network">Step 4: Training the Neural Network</h4>
+<p>A possible loss function is,
+$$
+\mathcal{L}_{FM} = \mathbb{E}_{t \sim \text{Unif}, \mathbf{x}(t) \sim p_t} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t) \Vert^2  \right]
+$$</p>
+<p>However, $\mathbf{f}^{\text{target}}(\mathbf{x}(t), t)$ is not explicitly available.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Flow Matching Loss Equivalence<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For,
+$$
+\begin{align*}
+\mathcal{L}_{FM} &#x26; = \mathbb{E}_{t \sim \text{Unif}, \mathbf{x}(t) \sim p_t} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t) \Vert^2  \right], \newline
+\mathcal{L}_{CFM} &#x26; = \mathbb{E}_{t \sim \text{Unif}, \mathbf{z} \sim p_{\text{data}}, \mathbf{x} \sim p_t(\cdot | \mathbf{z})} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z}) \Vert^2  \right],
+\end{align*}
+$$
+it holds that $\nabla_{\theta} \mathcal{L}_{FM} = \nabla_{\theta} \mathcal{L}_{CFM}$.</p></div>
+</details>
+<p>Hence, we can use $\mathcal{L}_{CFM}$ to train $\mathbf{f}^{\theta}(\mathbf{x}(t), t)$ (this is the main takeaway from the original flow matching paper <sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>).</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise: Gaussian conditional flow matching loss<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Specialize the conditional flow matching loss to the Gaussian path with $\alpha(t) = t$ and $\sigma(t) = 1 - t$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The path $p_t(\cdot | \mathbf{z}) = \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d)$ is simulated via the ODE with vector field
+$$
+\mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z}) = (\dot{\alpha}_t - \frac{\dot{\sigma}_t}{\sigma_t} \alpha_t) \mathbf{z} + \frac{\dot{\sigma}_t}{\sigma_t} \mathbf{x}(t).
+$$
+A natural choice is $\alpha(t) = t$ and $\sigma(t) = 1 - t$, which gives $\dot{\alpha}(t) = 1$ and $\dot{\sigma}(t) = -1$.</p><p>It yields the loss function
+$$
+\begin{align*}
+\mathcal{L}_{CFM} &#x26; = \mathbb{E}_{t \sim \text{Unif}, \mathbf{z} \sim p_{\text{data}}, \mathbf{x} \sim \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d)} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z}) \Vert^2  \right] \newline
+&#x26; = \mathbb{E}_{t \sim \text{Unif}, \mathbf{z} \sim p_{\text{data}}, \epsilon \sim \mathcal{N}(\mathbf{0}, \mathbf{I}_d)} \left[ \Vert \mathbf{f}^{\theta}(t \mathbf{z} + (1 - t) \epsilon, t) - (\mathbf{z} - \epsilon) \Vert^2  \right] \newline
+\end{align*}
+$$
+where we have used $\mathbf{x}(t) = t \mathbf{z} + (1 - t) \epsilon$.</p></div>
+</details></div>
+</details>
+<p>We have constructed an ODE for a conditional probability path. One can also construct an SDE and the same methodology is applicable.</p>
+<h3 id="why-conditional-flow-matching-works">Why Conditional Flow Matching Works</h3>
+<p>Let $p_t(x_t)$ be the target (true) distribution, $x_t = \psi_t(x)$ is the flow function with the following property,</p>
+<p>$$
+\frac{d}{dt} \psi_t(x) = u_t(\psi_t(x)),
+$$</p>
+<p>where $u_t(x_t)$ is the true (unknown) vector field.</p>
+<p>Therefore, we want to learn $v_t(x_t)$ to approximate $u_t(x_t)$, so our objective is,</p>
+<p>$$
+\mathbb{E}_{x_t \sim p_t(x_t)} \left[ \Vert v_t(x_t) - u_t(x_t) \Vert^2 \right].
+$$</p>
+<p>However, since we do not have $p_t(x_t)$ or $u_t(x_t)$, we can’t compute the expectation above.</p>
+<p>$$
+\mathbb{E}_{x_t \sim p_t(x_t)} \left[ \Vert v_t(x_t) \Vert^2 - 2 v_t(x_t) \cdot u_t(x_t) + \Vert u_t(x_t) \Vert^2 \right] \newline
+$$</p>
+<p>We know that $\mathbb{E}_{p(x)} = \int p(x) dx$, so we can rewrite the middle term as,</p>
+<p>$$
+\mathbb{E}_{x_t \sim p_t(x_t)} \left[2 v_t(x_t) \cdot u_t(x_t) \right] = 2 \int v_t(x_t) \cdot u_t(x_t) \cdot p_t(x_t) dx_t.
+$$</p>
+<p>By marginalizing $u_t(x_t)$,</p>
+<p>$$
+u_t(x_t) = \int u_t(x_t | x_1) \frac{p_t(x_t | x_1) q(x_1)}{p_t(x_t)} dx_1.
+$$</p>
+<p>Thus,</p>
+<p>$$
+\mathbb{E}_{x_t \sim p_t(x_t)} \left[2 v_t(x_t) \cdot u_t(x_t) \right] = 2 \int v_t(x_t) \cdot \frac{\int u_t(x_t | x_1) \frac{p_t(x_t | x_1) q(x_1)}{p_t(x_t)} dx_1}{p_t(x_t)} p_t(x_t) dx_t.
+$$</p>
+<p>By Fubini’s Theorem,</p>
+<p>$$
+\mathbb{E}_{x_t \sim p_t(x_t)} \left[2 v_t(x_t) \cdot u_t(x_t) \right] = 2 \int \int v_t(x_t) \cdot u_t(x_t | x_1) p_t(x_t | x_1) q(x_1) dx_1 dx_t.
+$$</p>
+<p>Written as an expectation,</p>
+<p>$$
+2 \mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[v_t(x_t) \cdot u_t(x_t | x_1) \right].
+$$</p>
+<p>Plugging this back into our objective,</p>
+<p>$$
+\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) \Vert^2 - 2 v_t(x_t) \cdot u_t(x_t | x_1) + \Vert u_t(x_t) \Vert^2 \right] \newline
+$$</p>
+<p>Now, let’s do the classic $+c - c$ trick,</p>
+<p>$$
+\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) \Vert^2 - 2 v_t(x_t) \cdot u_t(x_t | x_1) + \Vert u_t(x_t) \Vert^2 + \Vert u_t(x_t | x_1) \Vert^2 - \Vert u_t(x_t | x_1) \Vert^2 \right] \newline
+$$</p>
+<p>Now, we can rewrite this, using our algebraic identity, as our first step,</p>
+<p>$$
+\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) - u_t(x_t | x_1) \Vert^2 + \Vert u_t(x_t) \Vert^2 - \Vert u_t(x_t | x_1) \Vert^2 \right] \newline
+$$</p>
+<p>Since expectation is a linear operator, we can split our expectation,</p>
+<p>$$
+\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) - u_t(x_t | x_1) \Vert^2 \right] + \ldots
+$$</p>
+<p>The other terms are constants (since we are training $v_t$), so we can ignore them when minimizing the objective.</p>
+<p>What we started with, $\mathbb{E}_{x_t \sim p_t(x_t)} \left[ \Vert v_t(x_t) - u_t(x_t) \Vert^2 \right]$, is the <strong>flow matching objective</strong>.</p>
+<p>What we ended up with, $\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) - u_t(x_t | x_1) \Vert^2 \right]$, is the <strong>conditional flow matching objective</strong>.</p>
+<p>Recall that the flow function is defined as,</p>
+<p>$$
+\frac{d}{dt} \psi_t(x) = u_t(\psi_t(x))
+$$</p>
+<p>Thus, the conditional flow function is defined as,</p>
+<p>$$
+\frac{d}{dt} \psi_t(x \mid x_1) = u_t(\psi_t(x \mid x_1) \mid x_1)
+$$</p>
+<p>Let’s now define the conditional flow map as,</p>
+<p>$$
+\psi_t(x_0 \mid x_1) = \sigma_t x_0 + \mu_t(x_1)
+$$</p>
+<p>If $x_0 \sim \mathcal{N}(0, I)$, then $\psi_t(x_0 \mid x_1)$ is the canonical transformation of the flow,</p>
+<p>$$
+\psi_t(x_0 \mid x_1) = \sigma_t x_0 + \mu_t(x_1)
+$$</p>
+<p>This is the simplest form of interpolation of two distributions, only allowing shifts and scaling.</p>
+<p>If we define $\sigma_t = 1 - t$ and $\mu_t(x_1) = t x_1$, then we can interpolate between two distributions,</p>
+<p>$$
+\psi_t(x_0 \mid x_1) = (1 - t) x_0 + t x_1.
+$$</p>
+<p>Thus, we can rewrite our objective as,</p>
+<p>$$
+\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) - \frac{d}{dt} \psi_t(x_0 \mid x_1) \Vert^2 \right]
+$$</p>
+<p>We can reparameterize this as,</p>
+<p>$$
+\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(\psi_t(x_0 \mid x_1)) - \frac{d}{dt} \psi_t(x_0 \mid x_1) \Vert^2 \right]
+$$</p>
+<p>The derivative of $\psi_t(x_0 \mid x_1)$ is,</p>
+<p>$$
+\frac{d}{dt} \psi_t(x_0 \mid x_1) = x_1 - x_0
+$$</p>
+<p>So at training time we,</p>
+<ol>
+<li>Sample noise from a noise distribution — $x_0 \sim \mathcal{N}(0, I)$.</li>
+<li>Sample a data point from our dataset — $x_1 \sim \mathcal{D}$.</li>
+<li>Sample a $t \sim \mathcal{U}(0, 1)$.</li>
+<li>Then we calculate $x_t$ by linearly interpolating between $x_0$ and $x_1$ — $x_t = (1 - t) x_0 + t x_1$.</li>
+<li>(4) is our input to our neural network $v_t$.</li>
+<li>The network tries to predict the vector from $x_0$ to $x_1$.</li>
+</ol>
+<h2 id="one-coin-three-views">One Coin, Three Views</h2>
+<p>At this point, the big picture is hopefully clearer, denoising diffusion, score matching, and flow matching are not three unrelated ideas.
+They are three ways of describing the same transport problem.</p>
+<h3 id="doobs-h-transform-gives-the-reverse-drift">Doob’s $h$-transform gives the reverse drift</h3>
+<p>One of the nicest conceptual connections from the course is that the reverse diffusion drift has the same structure as Doob’s $h$-transform <label for="sn-8" class="sidenote-toggle sidenote-number" aria-describedby="sn-8-note">8</label><input type="checkbox" id="sn-8" class="sidenote-checkbox" aria-label="Toggle sidenote 8"><span class="sidenote" role="note" id="sn-8-note"><span class="sidenote-number-inline">8</span>The $h$-transform is the classical way to turn an unconditional diffusion into a bridge conditioned on future information.</span>.
+If we condition a forward process to end up in the right place, we add a drift correction of the form $L^2 \nabla \log h$.
+That is exactly the same kind of correction term that appears in the reverse SDE, where the score $\nabla \log p_t$ pushes noisy samples back toward regions of high data density.</p>
+<figure><img alt="Brownian motion forced to a point at a terminal time." loading="lazy" decoding="async"  width="408" height="445" src="/_astro/brownian_to_point.D6Wli5Nj_2uCR4Y.svg" ><figcaption>Brownian motion forced to a point at a terminal time.</figcaption></figure>
+<p>So the reverse diffusion story is not some separate trick.
+It is a continuous-time bridge, we start from a simple process, then bend it toward the desired endpoint distribution.</p>
+<h3 id="gaussian-bridges-tie-score-matching-and-flow-matching-together">Gaussian bridges tie score matching and flow matching together</h3>
+<p>Now take the Gaussian probability path
+$$
+x_t = \alpha_t x_1 + \sigma_t \epsilon, \quad \epsilon \sim \mathcal{N}(0, I).
+$$</p>
+<p>This one bridge already contains the three viewpoints.
+The <strong>diffusion</strong> view asks for an SDE whose marginals follow this path.
+The <strong>score matching</strong> view learns
+$$
+s_t(x_t) = \nabla_{x_t} \log p_t(x_t),
+$$
+the field that tells us how to move toward higher density.
+The <strong>flow matching</strong> view learns the velocity field that transports samples along the same path.</p>
+<p>The key identity is the Gaussian score identity, sometimes presented as a Fisher or Tweedie-style relation:
+$$
+s_t(x_t)
+= \mathbb{E}\left[-\frac{x_t - \alpha_t x_1}{\sigma_t^2} \mid x_t\right]
+= -\frac{1}{\sigma_t} \mathbb{E}[\epsilon \mid x_t].
+$$</p>
+<p>So the score, the predicted noise, and the denoiser all carry the same posterior information.
+Equivalently,
+$$
+\mathbb{E}[x_1 \mid x_t] = \frac{x_t + \sigma_t^2 s_t(x_t)}{\alpha_t}.
+$$</p>
+<p>And the marginal flow-matching vector field is just a reparameterization of that same score field:
+$$
+u_t(x_t)
+= \left(\dot{\alpha}_t - \frac{\dot{\sigma}_t}{\sigma_t} \alpha_t\right)\mathbb{E}[x_1 \mid x_t] + \frac{\dot{\sigma}_t}{\sigma_t} x_t
+= \frac{\dot{\alpha}_t}{\alpha_t} x_t + \sigma_t^2 \left(\frac{\dot{\alpha}_t}{\alpha_t} - \frac{\dot{\sigma}_t}{\sigma_t}\right) s_t(x_t).
+$$</p>
+<figure><img alt="Score-guided paths toward a target distribution." loading="lazy" decoding="async"  width="543" height="414" src="/_astro/schoenmakers_score_matching.Bt8Dndlc_17ILaR.svg" ><figcaption>Score-guided paths toward a target distribution.</figcaption></figure>
+<p>This is the cleanest sense in which they are the same coin,</p>
+<ol>
+<li>Fix a probability path from noise to data.</li>
+<li>Learn its score, its denoiser, or its velocity field.</li>
+<li>Convert between these parameterizations with simple identities.</li>
+</ol>
+<p>At the sampler level, the same unification shows up again, DDIM is diffusion with the stochasticity turned down, which is exactly why its first-order update can line up with a flow-matching Euler step after a change of parameterization.</p>
+<p>Diffusion keeps the stochasticity.
+Flow matching sets it to zero.
+Score matching learns the field that lets you move between the two descriptions.</p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p><a href="https://arxiv.org/abs/1503.03585" rel="nofollow noreferrer noopener" target="_blank">Sohl-Dickstein et al., 2015, Deep Unsupervised Learning using Nonequilibrium Thermodynamics</a> <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p><a href="https://core.ac.uk/download/pdf/82826666.pdf" rel="nofollow noreferrer noopener" target="_blank">Anderson, 1982, Reverse-Time Diffusion Equation Models</a> <a href="#user-content-fnref-2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a> <a href="#user-content-fnref-2-2" data-footnote-backref="" aria-label="Back to reference 2-2" class="data-footnote-backref">↩<sup>2</sup></a> <a href="#user-content-fnref-2-3" data-footnote-backref="" aria-label="Back to reference 2-3" class="data-footnote-backref">↩<sup>3</sup></a></p>
+</li>
+<li id="user-content-fn-3">
+<p><a href="https://arxiv.org/abs/2210.02747" rel="nofollow noreferrer noopener" target="_blank">Lipman et al., 2022, Flow Matching for Generative Modeling</a> <a href="#user-content-fnref-3" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/blog/tools#post-title" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Sharpen your axe </span> </div>  </a>  <a href="#" target="_self" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full pointer-events-none opacity-50 cursor-not-allowed" aria-disabled="true">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> You&#39;re at the newest post! </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
+  function updateGiscusTheme() {
+    const element = document.documentElement
+    const theme = element.getAttribute('data-theme')
+    const iframe = document.querySelector('iframe.giscus-frame')
+    if (!iframe) return
+    iframe.contentWindow.postMessage(
+      { giscus: { setConfig: { theme } } },
+      'https://giscus.app',
+    )
+  }
+
+  const observer = new MutationObserver(updateGiscusTheme)
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  })
+
+  window.onload = () => {
+    updateGiscusTheme()
+  }
+</script> </div> </section> <button data-slot="button" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 group fixed right-8 bottom-8 z-50 hidden" id="scroll-to-top" title="Scroll to top" aria-label="Scroll to top"> <svg width="1em" height="1em" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" data-icon="lucide:arrow-up">   <symbol id="ai:lucide:arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></symbol><use href="#ai:lucide:arrow-up"></use>  </svg> </button> <script type="module">document.addEventListener("astro:page-load",()=>{const t=document.getElementById("scroll-to-top"),s=document.querySelector("footer");t&&s&&(t.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),window.addEventListener("scroll",()=>{const e=s.getBoundingClientRect().top<=window.innerHeight;t.classList.toggle("hidden",window.scrollY<=300||e)}));const n=document.querySelectorAll(".sidenote-toggle");if(n.length>0){const c=new IntersectionObserver(e=>{e.forEach(i=>{const o=i.target,l=o.getAttribute("for"),r=document.getElementById(`${l}-note`);i.isIntersecting?(o.classList.add("active"),r?.classList.add("active")):(o.classList.remove("active"),r?.classList.remove("active"))})},{rootMargin:"-20% 0px -60% 0px",threshold:0});n.forEach(e=>c.observe(e))}});</script>  </div> </main> <footer class="py-4"> <div class="mx-auto flex max-w-3xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between"> <div class="flex flex-wrap items-center justify-center gap-x-2 text-center"> <span class="text-muted-foreground text-sm">
+&copy; 2026 • rezarezvan.com </span> </div> </div> </footer> <div id="backdrop" class="invisible fixed top-0 left-0 z-50 flex h-screen w-full justify-center bg-[rgba(0,0,0,0.5)] p-6 backdrop-blur-sm" data-astro-transition-persist="astro-t6dxx5el-4"> <div id="pagefind-container" class="m-0 flex h-fit max-h-[80%] w-full max-w-screen-sm flex-col overflow-auto rounded border border-black/15 bg-neutral-100 p-2 px-4 py-3 shadow-lg dark:border-white/20 dark:bg-neutral-900"> <div id="search" class="pagefind-init pagefind-ui" data-bundle-path="/pagefind/" data-pagefind-ui data-ui-options="{&#34;showImages&#34;:false,&#34;excerptLength&#34;:15,&#34;resetStyles&#34;:false}"></div> <div class="dark:prose-invert mr-2 pt-4 pb-1 text-right text-xs">
+Press <span class="prose dark:prose-invert text-xs"><kbd class="">Esc</kbd></span> or click anywhere to close
+</div> </div> </div> <script type="module" src="/_astro/PageFind.astro_astro_type_script_index_0_lang.DIG11mWF.js"></script> <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const magnifyingGlass = document.getElementById('magnifying-glass')
+    const backdrop = document.getElementById('backdrop')
+
+    function openPagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      setTimeout(() => {
+        search.focus()
+      }, 0)
+      backdrop?.classList.remove('invisible')
+      backdrop?.classList.add('visible')
+    }
+
+    function closePagefind() {
+      const searchDiv = document.getElementById('search')
+      const search = searchDiv.querySelector('input')
+      if (search) {
+        search.value = ''
+      }
+      backdrop?.classList.remove('visible')
+      backdrop?.classList.add('invisible')
+    }
+
+    // open pagefind
+    magnifyingGlass?.addEventListener('click', () => {
+      openPagefind()
+    })
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePagefind()
+      }
+    })
+
+    // close pagefind when searched result(link) clicked
+    document.addEventListener('click', (event) => {
+      if (event.target.classList.contains('pagefind-ui__result-link')) {
+        closePagefind()
+      }
+    })
+
+    backdrop?.addEventListener('click', (event) => {
+      if (!event.target.closest('#pagefind-container')) {
+        closePagefind()
+      }
+    })
+
+    // prevent form submission
+    const form = document.getElementById('form')
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault()
+    })
+  })
+</script> </div> </body></html>
