@@ -136,31 +136,47 @@ Finally, we will define and discuss time reversibility, canonical distributions,
 <h2 id="limit-theorem-for-finite-irreducible-markov-chains">Limit Theorem for Finite Irreducible Markov Chains</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Limit Theorem for Finite Irreducible Markov Chains<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="rotate-ccw" viewBox="0 0 24 24"><use href="#rotate-ccw"></use></svg>Recall<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In a finite irreducible Markov chain, all states are recurrent.</p></div>
-</details><p>Let $\mu_j = \mathbb{E}[T_j \mid X_0 = j]$ be the expected return time to state $j$.
-Then $\mu_j &#x3C; \infty$ for all states $j$ and the vector $v$ with $v_j = \frac{1}{\mu_j}$ is the unique stationary distribution.</p><p>Further,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>In a finite irreducible Markov chain, all states are recurrent.</p>
+</div>
+</details>
+<p>Let $\mu_j = \mathbb{E}[T_j \mid X_0 = j]$ be the expected return time to state $j$.
+Then $\mu_j &#x3C; \infty$ for all states $j$ and the vector $v$ with $v_j = \frac{1}{\mu_j}$ is the unique stationary distribution.</p>
+<p>Further,
 $$
 v_j = \lim_{n \to \infty} \frac{1}{n} \sum_{m = 0}^{n - 1} (P^m)_{ij}
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>All finite regular Markov chains are finite irreducible Markov chains, but not vice versa.
-The overall conclusion here is weaker than that for finite regular Markov chains. Not all finite irreducible Markov chains have limiting distributions.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>All finite regular Markov chains are finite irreducible Markov chains, but not vice versa.
+The overall conclusion here is weaker than that for finite regular Markov chains. Not all finite irreducible Markov chains have limiting distributions.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Extention to Infinite Irreducible Markov Chains<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In a finite irreducible Markov chian, all states are recurrent, and all expected return times $\mu_j$ are finite.</p><p>In a Markov chain, states may be recurrent but with infinite expected return times.
-Such states are called null recurrent, while recurrent states with finite expected return times are called positive recurrent.</p><p>The previous theorem can be extended to infinite irreducible Markov chains where all states are positive recurrent.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>In a finite irreducible Markov chian, all states are recurrent, and all expected return times $\mu_j$ are finite.</p>
+<p>In a Markov chain, states may be recurrent but with infinite expected return times.
+Such states are called null recurrent, while recurrent states with finite expected return times are called positive recurrent.</p>
+<p>The previous theorem can be extended to infinite irreducible Markov chains where all states are positive recurrent.</p>
+</div>
 </details>
 <h2 id="periodicity-and-ergodic-markov-chains">Periodicity and Ergodic Markov Chains</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Periodicity<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The period of a state $i$ is the greatest common divisor of all $n > 0$ such that $(P^n)_{ii} > 0$.
-All states of a communication class have the same period.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The period of a state $i$ is the greatest common divisor of all $n > 0$ such that $(P^n)_{ii} > 0$.
+All states of a communication class have the same period.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Periodicity is the Same for all States in a Communication Class<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $i$ and $j$ be two states in the same communication class.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $i$ and $j$ be two states in the same communication class.
 Then, there exist $m, k > 0$ such that $(P^m)_{ij} > 0$ and $(P^k)_{ji} > 0$.
 Let $d_i$ and $d_j$ be the periods of states $i$ and $j$, respectively.
 For any $n$ such that $(P^n)_{ii} > 0$, we have,
@@ -170,12 +186,18 @@ $$
 Thus, $d_j$ divides $m + n + k$.
 Since $d_j$ also divides $m + k$, it must divide $n$.
 By symmetry, $d_i$ divides $n$ for any $n$ such that $(P^n)_{jj} > 0$.
-Therefore, $d_i = d_j$.</p></div>
-</details><p>A Markov chain is periodic if it is irreducible and all states have period greater than 1.</p><p>A Markov chain is aperiodic if it is irreducible and all states have period 1.</p></div>
+Therefore, $d_i = d_j$.</p>
+</div>
+</details>
+<p>A Markov chain is periodic if it is irreducible and all states have period greater than 1.</p>
+<p>A Markov chain is aperiodic if it is irreducible and all states have period 1.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Ergodic Markov Chains<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A Markov chain is ergodic if,</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A Markov chain is ergodic if,</p>
+<ol>
 <li>
 <p>It is irreducible.</p>
 </li>
@@ -185,28 +207,40 @@ Therefore, $d_i = d_j$.</p></div>
 <li>
 <p>All states are positive recurrent (i..e, have finite expected return times (which always is true if the state space is finite)).</p>
 </li>
-</ol><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
+</ol>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Fundamental Limit Theorem for Ergodic Markov Chains<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>There exists a unique stationary distribution $v$ which is the limiting distribution of the chain.</p></div>
-</details><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>There exists a unique stationary distribution $v$ which is the limiting distribution of the chain.</p>
+</div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We can also show that a finite Markov chain is ergodic if and only if its transition matrix is regular.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We can also show that a finite Markov chain is ergodic if and only if its transition matrix is regular.</p>
+</div>
+</details>
+</div>
 </details>
 <h2 id="time-reversibility-canonical-distributions-and-absorbing-chains">Time Reversibility, Canonical Distributions, and Absorbing Chains</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Time Reversibility<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $P$ be the transition matrix of an irreducible Markov chain with stationary distribution $v$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $P$ be the transition matrix of an irreducible Markov chain with stationary distribution $v$.
 The chain is time reversible if, when running from its stationary distribution, it looks the same moving forward as backwards, i.e.,
 $$
 \pi(X_k = i, X_{k + 1} = j) = \pi(X_k = j, X_{k + 1} = i)
 $$
 This may also be written as $v_i P_{ij} = v_j P_{ji}$ for all states $i$ and $j$.
-It is called the detailed balance equations.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+It is called the detailed balance equations.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If $x$ is a probability vector satisfying $x_i P_{ij} = x_j P_{ji}$ for all states $i$ and $j$, then $x$ is the stationary distribution of the chain, and the chain is time reversible.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If $x$ is a probability vector satisfying $x_i P_{ij} = x_j P_{ji}$ for all states $i$ and $j$, then $x$ is the stationary distribution of the chain, and the chain is time reversible.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We have,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We have,
 $$
 \begin{align*}
 (xP)_j &#x26; = \sum_{i} x_i P_{ij} \newline
@@ -215,10 +249,14 @@ $$
 &#x26; = x_j
 \end{align*}
 $$
-Thus, $xP = x$, so $x$ is the stationary distribution.</p></div>
-</details><p>If a Markov chain is defined as a random walk on a weighted undirected graph, then it is time reversible.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+Thus, $xP = x$, so $x$ is the stationary distribution.</p>
+</div>
+</details>
+<p>If a Markov chain is defined as a random walk on a weighted undirected graph, then it is time reversible.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $w(i, j)$ be the weight of the edge between nodes $i$ and $j$ (0 if no edge exists).
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $w(i, j)$ be the weight of the edge between nodes $i$ and $j$ (0 if no edge exists).
 Let $w(i) = \sum_{k} w(i, k)$ be the sum of weights of edges going into node $i$.
 The transition matrix is given by $P_{ij} = \frac{w(i, j)}{w(i)}$.
 Let $v_i = \frac{w(i)}{e}$, where $e$ is the total sum over all nodes of their $w(i)$ values.
@@ -232,10 +270,14 @@ v_i P_{ij} &#x26; = \frac{w(i)}{e} \cdot \frac{w(i, j)}{w(i)} \newline
 &#x26; = v_j P_{ji}
 \end{align*}
 $$
-Thus, the detailed balance equations are satisfied, so the chain is time reversible.</p></div>
-</details><p>If a finite Markov chain is time reversible, it can be represented as a random walk on a weighted undirected graph.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+Thus, the detailed balance equations are satisfied, so the chain is time reversible.</p>
+</div>
+</details>
+<p>If a finite Markov chain is time reversible, it can be represented as a random walk on a weighted undirected graph.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $P$ be the transition matrix of a finite time reversible Markov chain with stationary distribution $v$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $P$ be the transition matrix of a finite time reversible Markov chain with stationary distribution $v$.
 Let $w(i, j) = v_i P_{ij}$ be the weight of the edge between nodes $i$ and $j$.
 Then,
 $$
@@ -246,14 +288,19 @@ The transition matrix is given by,
 $$
 P_{ij} = \frac{w(i, j)}{\sum_{k} w(i, k)} = \frac{v_i P_{ij}}{v_i} = P_{ij}
 $$
-Thus, the Markov chain can be represented as a random walk on a weighted undirected graph.</p></div>
-</details></div>
-</details></div>
+Thus, the Markov chain can be represented as a random walk on a weighted undirected graph.</p>
+</div>
+</details>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Canonical Distributions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The states of a Markov chain can be subdivided into communication classes, each consisting only of a transient or recurrent states.
-Let $T$ denote the union of all communication classes with transient states. Let the remaining communication classes be $R_1, R_2, \ldots, R_m$.</p><p>Each $R_i$ must necessarily be closed in the sense that no states outside $R_i$ are accessible from $R_i$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The states of a Markov chain can be subdivided into communication classes, each consisting only of a transient or recurrent states.
+Let $T$ denote the union of all communication classes with transient states. Let the remaining communication classes be $R_1, R_2, \ldots, R_m$.</p>
+<p>Each $R_i$ must necessarily be closed in the sense that no states outside $R_i$ are accessible from $R_i$.
 Ordering states according to $T, R_1, R_2, \ldots, R_m$, the transition matrix $P$ has the block structure,
 $$
 P =
@@ -264,7 +311,8 @@ P =
 0 &#x26; 0 &#x26; 0 &#x26; \ldots &#x26; P_m
 \end{bmatrix}.
 $$
-We will later on dicuss what $\star$ is here.</p><p>Note that,
+We will later on dicuss what $\star$ is here.</p>
+<p>Note that,
 $$
 P^n =
 \begin{bmatrix}
@@ -274,12 +322,15 @@ P^n =
 0 &#x26; 0 &#x26; 0 &#x26; \ldots &#x26; P_m^n
 \end{bmatrix}
 $$
-and we can take the limits of each $P^n_i$, if they exist.</p></div>
+and we can take the limits of each $P^n_i$, if they exist.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Absorbing Chains<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>State $i$ is absorbing if $P_{ii} = 1$a
-A Markov chain is an absorbing chain if it has at least one absorbing state.</p><p>By reordering the states, the transition matrix for an absorbing chain can be written in the block form,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>State $i$ is absorbing if $P_{ii} = 1$a
+A Markov chain is an absorbing chain if it has at least one absorbing state.</p>
+<p>By reordering the states, the transition matrix for an absorbing chain can be written in the block form,
 $$
 P =
 \begin{bmatrix}
@@ -295,9 +346,11 @@ P^n =
 Q^n &#x26; (I + Q + Q^2 + \ldots + Q^{n - 1}) R \newline
 0 &#x26; I
 \end{bmatrix}
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Induction for Powers of Transition Matrix of Absorbing Chains<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ul>
 <li>Base case ($n = 1$):
 $$
 \begin{bmatrix}
@@ -348,8 +401,10 @@ Q^{n + 1} &#x26; (I + Q + Q^2 + \ldots + Q^n) R \newline
 \end{align*}
 $$
 Thus, by induction, the statement is true for all positive integers $n$.</li>
-</ul></div>
-</details><p>Taking the limit and using $\lim_{n \to \infty} Q^n = 0$ (since all states corresponding to $Q$ are transient), we have,
+</ul>
+</div>
+</details>
+<p>Taking the limit and using $\lim_{n \to \infty} Q^n = 0$ (since all states corresponding to $Q$ are transient), we have,
 $$
 \lim_{n \to \infty} P^n =
 \begin{bmatrix}
@@ -362,10 +417,17 @@ $$
 0 &#x26; I
 \end{bmatrix}
 $$
-where $F = (I - Q)^{-1} = \lim_{n \to \infty} (I + Q + Q^2 + \ldots + Q^{n - 1})$ is called the fundamental matrix.</p><p>The probability to be absorbed in a particular absorbing state given a start in a transient state is given by the entries of $FR$.</p><p>Further, the expected number of visits in state $j$ for a chain that starts in the transient state $i$ is given by $F_{ij}$ (as this is equal to $\sum_{n = 0}^{\infty} (P^n)_{ij}$).</p><p>Thus, the expected number of steps until absorption is given by the vector $F \mathbf{1}^T$, where $\mathbf{1}$ is a column vector of ones.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+where $F = (I - Q)^{-1} = \lim_{n \to \infty} (I + Q + Q^2 + \ldots + Q^{n - 1})$ is called the fundamental matrix.</p>
+<p>The probability to be absorbed in a particular absorbing state given a start in a transient state is given by the entries of $FR$.</p>
+<p>Further, the expected number of visits in state $j$ for a chain that starts in the transient state $i$ is given by $F_{ij}$ (as this is equal to $\sum_{n = 0}^{\infty} (P^n)_{ij}$).</p>
+<p>Thus, the expected number of steps until absorption is given by the vector $F \mathbf{1}^T$, where $\mathbf{1}$ is a column vector of ones.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Given an irreducible Markov chain, to compute the expected number of steps needed to go from state $i$ to the first visit to state $j$, one can change the chain into one where state $j$ is absorbing, and compute the expected number of steps until absorption when starting at state $i$.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Given an irreducible Markov chain, to compute the expected number of steps needed to go from state $i$ to the first visit to state $j$, one can change the chain into one where state $j$ is absorbing, and compute the expected number of steps until absorption when starting at state $i$.</p>
+</div>
+</details>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/mve550/mve550_3/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 3 - Markov chains I </span> </div>  </a>  <a href="/notes/master/mve550/mve550_5/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 5 - Branching Processes and MCMC </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

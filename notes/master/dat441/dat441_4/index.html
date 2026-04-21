@@ -133,15 +133,21 @@ Last modified: January 30, 2026 </div>  <div data-orientation="vertical" role="n
 <p>In the Bayesian bandit problem, we add the Bayesian assumption.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Bayesian Bandit Problem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Bayesian bandit problem is a stochastic bandit problem where the problem instance $\mathcal{J}$ is drawn initially from sone <strong>known</strong> distribution $\mathbb{P}$.</p><p>The problem instance $\mathcal{J}$ (often) specifies the mean reward vector $\mathbf{\mu} \in [0, 1]^K$.</p><p>The distribution $\mathbb{P}$ is called the <strong>prior</strong> distribution, or the <strong>Bayesian prior</strong>.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Bayesian bandit problem is a stochastic bandit problem where the problem instance $\mathcal{J}$ is drawn initially from sone <strong>known</strong> distribution $\mathbb{P}$.</p>
+<p>The problem instance $\mathcal{J}$ (often) specifies the mean reward vector $\mathbf{\mu} \in [0, 1]^K$.</p>
+<p>The distribution $\mathbb{P}$ is called the <strong>prior</strong> distribution, or the <strong>Bayesian prior</strong>.</p>
+</div>
 </details>
 <p>As we saw for normal stochastic bandits, the objective is to minimize the expected regret, thus, in the Bayesian setting, we want to minimize the <strong>Bayesian expected regret</strong>.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Bayesian Expected Regret<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Bayesian Regret is the expected regret for a particular problem instance $\mathcal{J}$, in expectation over the problem instances,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Bayesian Regret is the expected regret for a particular problem instance $\mathcal{J}$, in expectation over the problem instances,
 $$
 \mathrm{BR}(T) \coloneqq \mathbb{E}_{\mathcal{J} \sim \mathbb{P}}[\mathbb{E}[R(T) \mid \mathcal{J}]] = \mathbb{E}_{\mathcal{J} \sim \mathbb{P}}\left[ \mathbb{E}\left[ \mu^{\star} \cdot T - \sum_{t \in [T]} \mu(a_t)  \right]  \right]
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Further, we will assume that our realized rewards are drawn from a single-parameter family of distributions (e.g., Bernoulli, unit-variance Gaussian, etc.).
 Thus, the problem instance is completely specified by the mean reward vector $\mathbf{\mu} \in [0, 1]^K$.</p>
@@ -153,70 +159,92 @@ Thus, the problem instance is completely specified by the mean reward vector $\m
 The concepts themselves are not new, but we introduce the compact notation to make our analysis easier.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: $t$-history ($H_t$)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The sequence of action-reward pairs collected by the agent after round $t$, is a random variable defined as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The sequence of action-reward pairs collected by the agent after round $t$, is a random variable defined as,
 $$
 H_t \coloneqq \left( (a_1, r_1), \ldots, (a_t, r_t) \right) \in (\mathcal{A} \times \mathbb{R})^t
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Feasible $t$-history (H)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A fixed sequence $H = \left( (a_1, r_1), \ldots, (a_t, r_t) \right) \in (\mathcal{A} \times \mathbb{R})^t$ is called a <strong>feasible $t$-history</strong> if it has a positive probability of being observed, i.e., $P(H_t = H) > 0$.</p><p>Further, we call such an algorithm $H$-consistent.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A fixed sequence $H = \left( (a_1, r_1), \ldots, (a_t, r_t) \right) \in (\mathcal{A} \times \mathbb{R})^t$ is called a <strong>feasible $t$-history</strong> if it has a positive probability of being observed, i.e., $P(H_t = H) > 0$.</p>
+<p>Further, we call such an algorithm $H$-consistent.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: $\mathcal{H}_t$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The (finite) set of all feasible $t$-histories is denoted by $\mathcal{H}_t$.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The (finite) set of all feasible $t$-histories is denoted by $\mathcal{H}_t$.</p>
+</div>
 </details>
 <h3 id="posterior-distribution">Posterior Distribution</h3>
 <p>In the Bayesian setting, using Bayes’ rule <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup> <label for="sn-1" class="sidenote-toggle sidenote-number" aria-describedby="sn-1-note">1</label><input type="checkbox" id="sn-1" class="sidenote-checkbox" aria-label="Toggle sidenote 1"><span class="sidenote" role="note" id="sn-1-note"><span class="sidenote-number-inline">1</span>Recall that Bayes’ rule states that $P(A \mid B) = \frac{P(B \mid A) P(A)}{P(B)}$</span>, it is powerful to compute the prior and posterior distributions of the problem instance $\mathcal{J}$.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Posterior Distribution ($\mathbb{P}_H(\tilde{\mu})$)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Bayesian posterior distribution after round $t$ can be defined as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Bayesian posterior distribution after round $t$ can be defined as,
 $$
 \mathbb{P}_H(\tilde{\mu}) \coloneqq P(\mu = \tilde{\mu} \mid H_t = H), \ \forall \tilde{\mu} \in [0, 1]^K
-$$</p><p>Further, we can rewrite the posterior distribution using Bayes’ rule as,
+$$</p>
+<p>Further, we can rewrite the posterior distribution using Bayes’ rule as,
 $$
 \begin{align}
 \mathbb{P}_H(\tilde{\mu}) &#x26;= \frac{P(\mu = \tilde{\mu}, H_t = H)}{P(H_t = H)} \newline
 &#x26;= \frac{P(\mu = \tilde{\mu}) P(H_t = H \mid \mu = \tilde{\mu})}{\sum_{\mu^{\prime} \in \mathcal{F}} P(\mu = \mu^{\prime}) P(H_t = H \mid \mu = \mu^{\prime})} \newline
 \end{align}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-400 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-600 dark:text-indigo-300" data-lucide="puzzle" viewBox="0 0 24 24"><use href="#puzzle"></use></svg>Lemma: Posterior Distribution Lemma<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-600 dark:text-indigo-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$\mathbb{P}_H(\tilde{\mu})$ is the same for all $H$-consistent algorithms.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$\mathbb{P}_H(\tilde{\mu})$ is the same for all $H$-consistent algorithms.</p>
+</div>
 </details>
 <p>We will prove this lemma, but to prove it, we need the following definitions and concepts.</p>
 <h3 id="posterior-as-a-new-prior">Posterior As A New Prior</h3>
 <p>The posterior $\mathbb{P}_H$ can be used as a prior for a <strong>subsequent</strong> Bayesian update.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Posterior as a New Prior<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider a feasible $(t + t^{\prime})$-history. We represent it as a concatenation of feasible $t$-history $H$ and feasible $t^{\prime}$-history $H^{\prime}$, where $H$ comes first.</p><p>We can denote the concatenation as $H \oplus H^{\prime}$.</p><p>From this, one can perform the Bayesian update and obtain the posterior $(\mathbb{P}_H)_{H^{\prime}}$ in two steps,</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider a feasible $(t + t^{\prime})$-history. We represent it as a concatenation of feasible $t$-history $H$ and feasible $t^{\prime}$-history $H^{\prime}$, where $H$ comes first.</p>
+<p>We can denote the concatenation as $H \oplus H^{\prime}$.</p>
+<p>From this, one can perform the Bayesian update and obtain the posterior $(\mathbb{P}_H)_{H^{\prime}}$ in two steps,</p>
+<ol>
 <li>
 <p>Condition on $H$ and derive the posterior $\mathbb{P}_H$, then,</p>
 </li>
 <li>
 <p>Condition on $H^{\prime}$ using $\mathbb{P}_H$ as the new prior to obtain $(\mathbb{P}_H)_{H^{\prime}}$.</p>
 </li>
-</ol><p>This “two-step” Bayesian update is equivalent to the “one step” update given $H \oplus H^{\prime}$, i.e.,
+</ol>
+<p>This “two-step” Bayesian update is equivalent to the “one step” update given $H \oplus H^{\prime}$, i.e.,
 $$
 \mathbb{P}_{H \oplus H^{\prime}} = (\mathbb{P}_H)_{H^{\prime}}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <h2 id="sequential-bayesian-update">Sequential Bayesian Update</h2>
 <p>This sequential update property will prove to be very useful for Bayesian bandits.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Sequential Bayesian Update Theorem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider round $t \leq 1$ and a feasible $t$-history $H$.
-We can write $H$ as a concatenation of some feasible <em>feasible</em> $(t -1)$-history $H^{\prime}$ and an action-reward pair $(a_t, r_t)$, i.e., $H = H^{\prime} \oplus (a_t, r_t)$.</p><p>With an $H$-consistent bandit algorithm, $\pi(a)$, is the probability that the agent assigns each arm $a$ in round $t$ given our history $H^{\prime}$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider round $t \leq 1$ and a feasible $t$-history $H$.
+We can write $H$ as a concatenation of some feasible <em>feasible</em> $(t -1)$-history $H^{\prime}$ and an action-reward pair $(a_t, r_t)$, i.e., $H = H^{\prime} \oplus (a_t, r_t)$.</p>
+<p>With an $H$-consistent bandit algorithm, $\pi(a)$, is the probability that the agent assigns each arm $a$ in round $t$ given our history $H^{\prime}$,
 $$
 \pi(a) = P(a_t = a \mid H_{t-1} = H^{\prime})
 $$
-At each round $t$, we can treat the <strong>previous posterior</strong> as a <strong>new prior</strong>.</p></div>
+At each round $t$, we can treat the <strong>previous posterior</strong> as a <strong>new prior</strong>.</p>
+</div>
 </details>
 <p>We will now prove this for the formulation as stated in Equation (1).</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Sequential Bayesian Update Theorem Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>First, we will look at the numerator of Equation (1) (divided by $P(H_{t - 1} = H^{\prime})$),
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>First, we will look at the numerator of Equation (1) (divided by $P(H_{t - 1} = H^{\prime})$),
 $$
 \begin{align*}
 \frac{P(\mu = \tilde{\mu}, H_t = H)}{P(H_{t - 1} = H^{\prime})} &#x26; = \frac{P(\mu = \tilde{\mu}, H_t = \underbrace{H}_{H^{\prime} \oplus (a_t, r_t)})}{P(H_{t - 1} = H^{\prime})} \newline
@@ -227,17 +255,20 @@ $$
 &#x26;= \mathbb{P}_{H^{\prime}}(\tilde{\mu}) \cdot \underbrace{P(a_t = a_t \mid H_{t - 1} = H^{\prime})}_{\pi(a)} \cdot \underbrace{P(r_t = r_t \mid \mu = \tilde{\mu}, a_t = a_t, H_{t - 1} = H^{\prime})}_{\mathcal{D}_{\tilde{\mu}(a)}(r)} \newline
 &#x26;= \mathbb{P}_{H^{\prime}}(\tilde{\mu}) \cdot \pi(a) \cdot \mathcal{D}_{\tilde{\mu}(a)}(r)
 \end{align*}
-$$</p><p>Thus,
+$$</p>
+<p>Thus,
 $$
 \boxed{P(\mu = \tilde{\mu}, H_t = H) = P(H_{t - 1} = H^{\prime}) \cdot \mathbb{P}_{H^{\prime}}(\tilde{\mu}) \cdot \pi(a) \cdot \mathcal{D}_{\tilde{\mu}(a)}(r)}
-$$</p><p>Now, consider the denominator of Equation (1),
+$$</p>
+<p>Now, consider the denominator of Equation (1),
 $$
 \begin{align*}
 P(H_t = H) &#x26;= \sum_{\mu^{\prime} \in \mathcal{F}} P(\mu = \mu^{\prime}, H_t = H) \newline
 &#x26;= \sum_{\mu^{\prime} \in \mathcal{F}} P(H_{t - 1} = H^{\prime}) \cdot \mathbb{P}_{H^{\prime}}(\mu^{\prime}) \cdot \pi(a) \cdot \mathcal{D}_{\mu^{\prime}(a)}(r) \newline
 &#x26;= P(H_{t - 1} = H^{\prime}) \cdot \pi(a) \cdot \sum_{\mu^{\prime} \in \mathcal{F}} \mathbb{P}_{H^{\prime}}(\mu^{\prime}) \cdot \mathcal{D}_{\mu^{\prime}(a)}(r)
 \end{align*}
-$$</p><p>Thus,
+$$</p>
+<p>Thus,
 $$
 \begin{align*}
 \mathbb{P}_H(\tilde{\mu}) &#x26;= \frac{P(\mu = \tilde{\mu}, H_t = H)}{P(H_t = H)} \newline
@@ -245,11 +276,14 @@ $$
 &#x26;= \frac{\mathbb{P}_{H^{\prime}}(\tilde{\mu}) \cdot \mathcal{D}_{\tilde{\mu}(a)}(r)}{\sum_{\mu^{\prime} \in \mathcal{F}} \mathbb{P}_{H^{\prime}}(\mu^{\prime}) \cdot \mathcal{D}_{\mu^{\prime}(a)}(r)} \newline
 \end{align*}
 $$
-Hence, $\mathbb{P}_{H^{\prime}}$ is the new prior for the Bayesian update at round $t$.</p></div>
+Hence, $\mathbb{P}_{H^{\prime}}$ is the new prior for the Bayesian update at round $t$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In step $(\star)$, we implicitly proved our previous Lemma, that $\mathbb{P}_H(\tilde{\mu})$ is the same for all $H$-consistent algorithms, since $\pi(a)$ cancels out.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>In step $(\star)$, we implicitly proved our previous Lemma, that $\mathbb{P}_H(\tilde{\mu})$ is the same for all $H$-consistent algorithms, since $\pi(a)$ cancels out.</p>
+</div>
 </details>
 <h2 id="independent-priors">Independent Priors</h2>
 <p>The prior $\mathbb{P}$ is called <strong>independent</strong> if $(\mu(a) : a \in \mathcal{A})$ are mutually independent random variables.</p>
@@ -264,11 +298,15 @@ Hence, $\mathbb{P}_{H^{\prime}}$ is the new prior for the Bayesian update at rou
 <p>The idea is that, for each round $t$ and for each arm $a$, our agent computes the posterier probability that $a$ is the best arm, and samples $a$ with this probability.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="list" viewBox="0 0 24 24"><use href="#list"></use></svg>Summary: Thompson Sampling Algorithm<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For each round $t \in [T]$, do,</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For each round $t \in [T]$, do,</p>
+<ul>
 <li>Observe $H_{t - 1} = H$, for some feasible $(t - 1)$-history $H$.</li>
 <li>Sample mean reward vector $\mu_t$ from the posterior distribution $\mathbb{P}_H$.</li>
 <li>Choose the best arm $\tilde{a}_t$ according to $\mu_t$, i.e., $\tilde{a}_t \in \arg\max_{a \in \mathcal{A}} \mu_t(a)$.</li>
-</ul><p>end</p></div>
+</ul>
+<p>end</p>
+</div>
 </details>
 <h3 id="case-study">Case Study</h3>
 <p>A robot is in need of recharging, there are three different power sockets.
@@ -288,23 +326,27 @@ In this way, a socket that currently has a low estimated mean reward, but has be
 <p>Recall the definitions we use for analysis in a non-Bayesian setting,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Confidence Radius and Confidence Bounds<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \begin{align*}
 r_t(a) &#x26; \coloneqq \sqrt{\frac{2 \log(T)}{n_t(a)}}, &#x26; \text{(Confidence Radius)} \newline
 \mathrm{UCB}_t(a) &#x26; \coloneqq \bar{\mu}_t(a) + r_t(a), &#x26; \text{(Upper Confidence Bound)} \newline
 \mathrm{LCB}_t(a) &#x26; \coloneqq \bar{\mu}_t(a) - r_t(a), &#x26; \text{(Lower Confidence Bound)} \newline
 \end{align*}
 $$
-where $n_t(a)$ is the number of times arm $a$ has been played so far, and $\bar{\mu}_t(a)$ is the average reward from this arm.</p><p>Further, we had (under the clean event $\mathcal{E}$),
+where $n_t(a)$ is the number of times arm $a$ has been played so far, and $\bar{\mu}_t(a)$ is the average reward from this arm.</p>
+<p>Further, we had (under the clean event $\mathcal{E}$),
 $$
 \mu(a) \in [\mathrm{LCB}_t(a), \mathrm{UCB}_t(a)], \ \text{ with high probability.}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>In our bayesian setting, we need to considerer the generalized confidence bounds $U(a, H_t)$ and $L(a, H_t)$, which depend on the history $H_t$.
 Further, we want these properties to hold (for some constant $\gamma > 0$) <label for="sn-2" class="sidenote-toggle sidenote-number" aria-describedby="sn-2-note">2</label><input type="checkbox" id="sn-2" class="sidenote-checkbox" aria-label="Toggle sidenote 2"><span class="sidenote" role="note" id="sn-2-note"><span class="sidenote-number-inline">2</span>Here $x^-$ is the negative portion of the number $x$, i.e., $x^- = 0$ if $x \geq 0$ and $x^- = |x|$ otherwise.</span>,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Generalized Confidence Bounds<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \begin{align*}
 \mathbb{E}[\left( U(a, H_t) - \mu(a) \right)^-] &#x26; \leq \frac{\gamma}{TK}, \quad \forall a,t \newline
 \mathbb{E}[\left( \mu(a) - L(a, H_t) \right)^-] &#x26; \leq \frac{\gamma}{TK}, \quad \forall a,t \newline
@@ -313,30 +355,36 @@ $$
 Further, the confidence radius is (still) defined as,
 $$
 r_t(a) \coloneqq \frac{U(a, H_t) - L(a, H_t)}{2}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <h3 id="thomson-sampling-bayesian-regret-bound">Thomson Sampling Bayesian Regret Bound</h3>
 <p>We can now state the Bayesian regret bound for Thompson Sampling.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Thompson Sampling Bayesian Regret Bound<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Bayesian Regret of Thompson Sampling is,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Bayesian Regret of Thompson Sampling is,
 $$
 \mathrm{BR}(T) \leq \mathcal{O}\left( \sqrt{K T \log(T)} \right)
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>We will also state a lemma about the regret bound,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-400 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-600 dark:text-indigo-300" data-lucide="puzzle" viewBox="0 0 24 24"><use href="#puzzle"></use></svg>Lemma: Thompson Sampling Bayesian Regret Bound Lemma<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-600 dark:text-indigo-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Assume we have lower and upper bound functions that satisfy the generalized confidence bounds properties.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Assume we have lower and upper bound functions that satisfy the generalized confidence bounds properties.
 For some paramter $\gamma > 0$, then, the bayesian regret of Thompson Sampling can be bounded as,
 $$
 \mathrm{BR}(T) \leq 2\gamma + 2 \sum_{t \in [T]} \mathbb{E}[r_t(a_t, H_t)]
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>We will now prove this lemma.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Thompson Sampling Bayesian Regret Bound Lemma Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Firstly, we fix a round $t$, further, the chosen arm $a_t$ and the best arm $a^{\star}$ are identically distributed given our $t$-history $H_t$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Firstly, we fix a round $t$, further, the chosen arm $a_t$ and the best arm $a^{\star}$ are identically distributed given our $t$-history $H_t$.
 Thus, for each feasible $t$-history $H$, we have,
 $$
 P(a_t = a \mid H_t = H) = P(a^{\star} = a \mid H_t = H), \ \forall a \in \mathcal{A}
@@ -357,7 +405,8 @@ $$
 &#x26; = \mathbb{E}_{H \sim H_t} \left[ \mathbb{E}[U(a_t, H) - \mu(a_t) + \mu(a^{\star}) - U(a^{\star}, H) \mid H_t = H] \right] \newline
 &#x26; = \underbrace{\mathbb{E}\left[ \mu(a^{\star} - U(a^{\star}, H_t) \right]}_{\text{(I)}} + \underbrace{\mathbb{E}\left[ U(a_t, H_t) - \mu(a_t) \right]}_{\text{(II)}} \newline
 \end{align*}
-$$</p><p>Let’s analyze the first term (I) <label for="sn-3" class="sidenote-toggle sidenote-number" aria-describedby="sn-3-note">3</label><input type="checkbox" id="sn-3" class="sidenote-checkbox" aria-label="Toggle sidenote 3"><span class="sidenote" role="note" id="sn-3-note"><span class="sidenote-number-inline">3</span>Again, the notation $x^+$ is the positive portion of the number $x$, i.e., $x^+ = x$ if $x \geq 0$ and $x^+ = 0$ otherwise.</span>,
+$$</p>
+<p>Let’s analyze the first term (I) <label for="sn-3" class="sidenote-toggle sidenote-number" aria-describedby="sn-3-note">3</label><input type="checkbox" id="sn-3" class="sidenote-checkbox" aria-label="Toggle sidenote 3"><span class="sidenote" role="note" id="sn-3-note"><span class="sidenote-number-inline">3</span>Again, the notation $x^+$ is the positive portion of the number $x$, i.e., $x^+ = x$ if $x \geq 0$ and $x^+ = 0$ otherwise.</span>,
 $$
 \begin{align*}
 \mathbb{E}\left[ \mu(a^{\star}) - U(a^{\star}, H_t) \right] &#x26; \leq \mathbb{E}\left[ \left( \mu(a^{\star}) - U(a^{\star}, H_t) \right)^+ \right] \newline
@@ -387,12 +436,14 @@ $$
 Then, summing over all rounds $t \in [T]$, we obtain,
 $$
 \mathrm{BR}(T) = \sum_{t \in [T]} \mathrm{BR}_t \leq 2\gamma + 2 \sum_{t \in [T]} \mathbb{E}[r_t(a_t, H_t)]
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>We can now prove the Thompson Sampling Bayesian Regret Bound theorem using this lemma.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Thompson Sampling Bayesian Regret Bound Theorem Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We will use the confidence bounds as defined in the non-Bayesian setting, i.e.,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We will use the confidence bounds as defined in the non-Bayesian setting, i.e.,
 $$
 \begin{align*}
 U(a, H_t) &#x26; \coloneqq \bar{\mu}_t(a) + r_t(a), \newline
@@ -434,7 +485,8 @@ $$
 &#x26; = \mathcal{O}\left( \sqrt{\log(T)} \right) \sqrt{K \cdot T} \newline
 &#x26; = \mathcal{O}\left( \sqrt{K T \log(T)} \right) \ _\blacksquare
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
 <ol>

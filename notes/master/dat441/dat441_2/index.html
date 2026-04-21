@@ -135,7 +135,8 @@ Last modified: January 30, 2026 </div>  <div data-orientation="vertical" role="n
 <p>So an idea is to spread exploration more uniformly over time.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="list" viewBox="0 0 24 24"><use href="#list"></use></svg>Summary: $\epsilon$-Greedy Algorithm<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ul>
 <li>for each round $t = 1, 2, \ldots, T$ do
 <ul>
 <li>Toss a coin with success probability $\epsilon_t$;</li>
@@ -152,7 +153,8 @@ Last modified: January 30, 2026 </div>  <div data-orientation="vertical" role="n
 </ul>
 </li>
 <li>end</li>
-</ul></div>
+</ul>
+</div>
 </details>
 <figure><img alt="Example of $\epsilon$-Greedy Algorithm" loading="lazy" decoding="async"  width="810" height="840" src="/_astro/epsilon_greedy_comparison.CADL2xzs_8l0nH.svg" ><figcaption>Example of $\epsilon$-Greedy Algorithm</figcaption></figure>
 <h3 id="greedy-vs-epsilon-greedy">Greedy VS. $\epsilon$-Greedy</h3>
@@ -162,11 +164,13 @@ With noisier rewards, it will take more time to explore and find the optimal arm
 <p>However, if the reward variance is very small or zero, then the greed method would be more effective, and in the case of zero, know the true value of each action after trying it once!</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: $\epsilon$-Greedy Regret Bound<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$\epsilon$-greedy algorithm with exploration probability $\epsilon_t = t^{-1/3} (K \log(K))^{1/3}$ achieves the regret bound,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$\epsilon$-greedy algorithm with exploration probability $\epsilon_t = t^{-1/3} (K \log(K))^{1/3}$ achieves the regret bound,
 $$
 \mathbb{E}[R(T)] \leq t^{2/3} \mathcal{O}((K \log(K))^{1/3})
 $$
-for each round $t$.</p></div>
+for each round $t$.</p>
+</div>
 </details>
 <p>We will not prove this, but this becomes consistent with Explore-First for $t = T$.</p>
 <h2 id="adaptive-exploration">Adaptive Exploration</h2>
@@ -213,7 +217,9 @@ $$</p>
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-400 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-600 dark:text-indigo-300" data-lucide="puzzle" viewBox="0 0 24 24"><use href="#puzzle"></use></svg>Lemma: Clean Event for Adaptive Exploration<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-600 dark:text-indigo-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The clean event $\mathcal{E}$ holds with probability at least $1 - 2 T^{-2}$.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The clean event $\mathcal{E}$ holds with probability at least $1 - 2 T^{-2}$.</p>
+</div>
 </details>
 <h2 id="upper-and-lower-confidence-bounds">Upper and Lower Confidence Bounds</h2>
 <p>With adaptive exploration, we can now define the upper and lower confidence bounds for each arm $a$ at round $t$ as,</p>
@@ -231,8 +237,10 @@ $$</p>
 It might feel that the condition is a ill-posed question, but we will see that it is not.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="list" viewBox="0 0 24 24"><use href="#list"></use></svg>Summary: Successive Elimination Algorithm ($K=2$)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Alternate two arms until $\mathrm{UCB}_t(a) &#x3C; \mathrm{LCB}_t(a^{\prime})$ after some even round t;
-Abandon arm $a$, and use arm $a^{\prime}$ for the rest of the rounds.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Alternate two arms until $\mathrm{UCB}_t(a) &#x3C; \mathrm{LCB}_t(a^{\prime})$ after some even round t;
+Abandon arm $a$, and use arm $a^{\prime}$ for the rest of the rounds.</p>
+</div>
 </details>
 <p>For analysis, we will only assume the clean event (since $\mathbb{E}[R(T) \mid \text{bad}] P(\text{bad})$ is negligible).</p>
 <p>With the clean event, the abandonded arm cannot be the best arm (by definition), i.e., no regret <strong>after</strong> the abandonment.</p>
@@ -260,15 +268,21 @@ $$</p>
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-400 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-600 dark:text-indigo-300" data-lucide="puzzle" viewBox="0 0 24 24"><use href="#puzzle"></use></svg>Lemma: Successive Elimination Regret Bound ($K=2$)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-600 dark:text-indigo-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For $K=2$ arms, the successive elimination algorithm achieves the regret bound,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For $K=2$ arms, the successive elimination algorithm achieves the regret bound,
 $$
 \mathbb{E}[R(T)] \leq \mathcal{O}(\sqrt{t \log(T)})
 $$
-for each round $t \leq T$.</p></div>
+for each round $t \leq T$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For $t \leq \hat{t}$ this upper bound holds, as shown.</p><p>For $t > \hat{t}$, the regret is zero, since we always pull the optimal arm (by the clean event), and thus, $\mathbb{E}[R(t)] \leq \mathcal{O}(\sqrt{\hat{t} \log(T)})$.</p><p>However, to unify the notation, we can still write $\mathbb{E}[R(t)] \leq \mathcal{O}(\sqrt{t \log(T)})$ since $\mathcal{O}(\sqrt{\hat{t} \log(T)}) \leq \mathcal{O}(\sqrt{t \log(T)})$ for $t > \hat{t}$.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For $t \leq \hat{t}$ this upper bound holds, as shown.</p>
+<p>For $t > \hat{t}$, the regret is zero, since we always pull the optimal arm (by the clean event), and thus, $\mathbb{E}[R(t)] \leq \mathcal{O}(\sqrt{\hat{t} \log(T)})$.</p>
+<p>However, to unify the notation, we can still write $\mathbb{E}[R(t)] \leq \mathcal{O}(\sqrt{t \log(T)})$ since $\mathcal{O}(\sqrt{\hat{t} \log(T)}) \leq \mathcal{O}(\sqrt{t \log(T)})$ for $t > \hat{t}$.</p>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/dat441/dat441/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 1 - Introduction &amp; Background for Stochastic Bandits </span> </div>  </a>  <a href="/notes/master/dat441/dat441_3/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 3 - Stochastic Multi-Armed Bandits III </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

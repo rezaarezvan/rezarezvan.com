@@ -135,7 +135,8 @@ Last modified: January 30, 2026 </div>  <div data-orientation="vertical" role="n
 <p>Firstly, recall that we can easily obtain optimal policies once we have found the optimal value functions, $v_{\star}$ or $q_{\star}$, which satisfy the Bellman optimality equations,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Bellman Optimality Equation for $v_{\star}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \begin{align*}
 v_{\star}(s) &#x26; = \max_a \mathbb{E}[R_{t+1} + \gamma v_{\star}(S_{t+1}) | S_t = s, A_t = a] \newline
 &#x26; = \max_a \sum_{s^{\prime}, r} \mathcal{p}(s^{\prime}, r | s, a) [r + \gamma v_{\star}(s^{\prime})],
@@ -145,7 +146,8 @@ q_{\star}(s, a) &#x26; = \mathbb{E}[R_{t+1} + \gamma \max_{a^{\prime}} q_{\star}
 &#x26; = \sum_{s^{\prime}, r} \mathcal{p}(s^{\prime}, r | s, a) [r + \gamma \max_{a^{\prime}} q_{\star}(s^{\prime}, a^{\prime})],
 \newline
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Now consider that we compute the state-value function $v_{\pi}$ for an arbitrary policy $\pi$,
 $$
@@ -158,29 +160,41 @@ v_{\pi}(s) &#x26; = \mathbb{E}_{\pi, \mathcal{p}}[G_t | S_t = s] \newline
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>With completely known environment dynamics $\mathcal{p}$, the above equation is a system of $|\mathcal{S}|$ linear equations of $v_{\pi}, s \in \mathcal{S}$, unknowns.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>With completely known environment dynamics $\mathcal{p}$, the above equation is a system of $|\mathcal{S}|$ linear equations of $v_{\pi}, s \in \mathcal{S}$, unknowns.
 Thus, it can be solved directly by standard methods for solving linear equations (e.g., Gaussian elimination).
-However, this is often computationally expensive and impractical for large state spaces.</p></div>
+However, this is often computationally expensive and impractical for large state spaces.</p>
+</div>
 </details>
 <h3 id="iterative-policy-evaluation">Iterative Policy Evaluation</h3>
 <p>Thus, we instead use iterative methods that are more computationally efficient.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Iterative Policy Evaluation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Initially approximate the state values arbitrarily, e.g., $v_0(s) = 0$ for all $s \in \mathcal{S}$.</p><p>Then, update the approximations by using the Bellman equation for $v_{\pi}$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Initially approximate the state values arbitrarily, e.g., $v_0(s) = 0$ for all $s \in \mathcal{S}$.</p>
+<p>Then, update the approximations by using the Bellman equation for $v_{\pi}$,
 $$
 \begin{align*}
 v_{k + 1}(s) &#x26; \coloneqq \mathbb{E}_{\pi, \mathcal{p}}[R_{t+1} + \gamma v_k(S_{t+1}) | S_t = s] \newline
 &#x26; = \sum_a \pi(a | s) \sum_{s^{\prime}, r} \mathcal{p}(s^{\prime}, r | s, a) [r + \gamma v_k(s^{\prime})]
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The sequence $\{v_k\}$ can be shown to converge to $v_{\pi}$ as $k \to \infty$.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The sequence $\{v_k\}$ can be shown to converge to $v_{\pi}$ as $k \to \infty$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Iterative Policy Evaluation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Input $\pi$, the policy to be evaluated.</p><p>Algorithm parameter: a small threshold $\theta > 0$ determining accuracy of estimation.</p><p>Initialize $V(s)$, for all $s \in \mathcal{S}^+$, arbitrarily, except that $V(\mathrm{terminal}) = 0$.</p><p>Loop:</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Input $\pi$, the policy to be evaluated.</p>
+<p>Algorithm parameter: a small threshold $\theta > 0$ determining accuracy of estimation.</p>
+<p>Initialize $V(s)$, for all $s \in \mathcal{S}^+$, arbitrarily, except that $V(\mathrm{terminal}) = 0$.</p>
+<p>Loop:</p>
+<ul>
 <li>$\Delta \leftarrow 0$</li>
 <li>Loop for each $s \in \mathcal{S}$,
 <ul>
@@ -190,7 +204,8 @@ $$</p></div>
 </ul>
 </li>
 <li>Until $\Delta &#x3C; \theta$</li>
-</ul></div>
+</ul>
+</div>
 </details>
 <h2 id="policy-improvement">Policy Improvement</h2>
 <p>But how do we use our newly computed value function $v_{\pi}$ to find a <em>better</em> policy?</p>
@@ -207,19 +222,22 @@ $$</p>
 <h3 id="policy-improvement-theorem">Policy Improvement Theorem</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Policy Improvement Theorem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $\pi$ and $\pi^{\prime}$ be any pair of deterministic policies such that, for all $s \in \mathcal{S}$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $\pi$ and $\pi^{\prime}$ be any pair of deterministic policies such that, for all $s \in \mathcal{S}$,
 $$
 q_{\pi}(s, \pi^{\prime}(s)) \geq v_{\pi}(s)
 $$
 Then, the policy $\pi^{\prime}$ must be as good as or better than policy $\pi$, i.e., it must obtain greater or equal return from all states $s \in \mathcal{S}$,
 $$
 v_{\pi^{\prime}}(s) \geq v_{\pi}(s)
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>We will now prove this theorem.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Policy Improvement Theorem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \begin{align*}
 v_{\pi}(s) &#x26; \leq q_{\pi}(s, \pi^{\prime}(s)) \newline
 &#x26; = \mathbb{E}[R_{t+1} + \gamma v_{\pi}(S_{t+1}) | S_t = s, A_t = \pi^{\prime}(s)] \newline
@@ -231,7 +249,8 @@ v_{\pi}(s) &#x26; \leq q_{\pi}(s, \pi^{\prime}(s)) \newline
 &#x26; \leq \ldots \newline
 &#x26; = v_{\pi^{\prime}}(s) \newline
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Now, we can consider changes at all states, selecting at each state the action that appears best according to $q_{\pi}(s, a)$, i.e., the greedy policy with respect to $q_{\pi}$,</p>
 <p>$$
@@ -257,12 +276,16 @@ $$</p>
 <p>Because we assume a finite MDP, only a finite number of policies exist, thus this process must eventually terminate with an optimal policy.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Policy Iteration<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ol>
 <li>Initialization</li>
-</ol><p>$V(s) \in \mathbb{R}$ and $\pi(s) \in \mathcal{A}(s)$ arbitrarily for all $s \in \mathcal{S}$.</p><ol start="2">
+</ol>
+<p>$V(s) \in \mathbb{R}$ and $\pi(s) \in \mathcal{A}(s)$ arbitrarily for all $s \in \mathcal{S}$.</p>
+<ol start="2">
 <li>Policy Evaluation
 Loop:</li>
-</ol><ul>
+</ol>
+<ul>
 <li>
 <p>$\Delta \leftarrow 0$</p>
 </li>
@@ -277,9 +300,11 @@ Loop:</li>
 <li>
 <p>Until $\Delta &#x3C; \theta$ (a small positive number determining accuracy of estimation)</p>
 </li>
-</ul><ol start="3">
+</ul>
+<ol start="3">
 <li>Policy Improvement</li>
-</ol><ul>
+</ol>
+<ul>
 <li>policy-stable $\leftarrow$ true</li>
 <li>For each $s \in \mathcal{S}$,
 <ul>
@@ -289,7 +314,8 @@ Loop:</li>
 </ul>
 </li>
 <li>If policy-stable, then stop and return $V \approx v_{\star}$ and $\pi \approx \pi_{\star}$; else go to step 2</li>
-</ul></div>
+</ul>
+</div>
 </details>
 <h2 id="value-iteration">Value Iteration</h2>
 <p>The policy evaluation step in policy iteration is an iterative procedure that can be computationally expensive.</p>
@@ -306,7 +332,11 @@ $$</p>
 <p>Or in other words, we turn the Bellman optimality equation for $v_{\star}$ into an update rule.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Value Iteration<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Algorithm parameter: a small threshold $\theta > 0$ determining accuracy of estimation.</p><p>Initialize $V(s)$, for all $s \in \mathcal{S}^+$, arbitrarily, except that $V(\mathrm{terminal}) = 0$.</p><p>Loop:</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Algorithm parameter: a small threshold $\theta > 0$ determining accuracy of estimation.</p>
+<p>Initialize $V(s)$, for all $s \in \mathcal{S}^+$, arbitrarily, except that $V(\mathrm{terminal}) = 0$.</p>
+<p>Loop:</p>
+<ul>
 <li>$\Delta \leftarrow 0$</li>
 <li>Loop for each $s \in \mathcal{S}$,
 <ul>
@@ -316,10 +346,12 @@ $$</p>
 </ul>
 </li>
 <li>Until $\Delta &#x3C; \theta$</li>
-</ul><p>Output a deterministic policy $\pi \approx \pi_{\star}$ such that,
+</ul>
+<p>Output a deterministic policy $\pi \approx \pi_{\star}$ such that,
 $$
 \pi(s) = \underset{a}{\arg\max} \ \sum_{s^{\prime}, r} \mathcal{p}(s^{\prime}, r | s, a) [r + \gamma V(s^{\prime})]
-$$</p></div>
+$$</p>
+</div>
 </details>
 <h3 id="variants">Variants</h3>
 <p>Value iteration effectively combines, in each of its sweeps, one sweep of policy evaluation and one sweep of policy improvement.
@@ -328,7 +360,9 @@ However, we can gain faster convergence with interposing multiple policy evaluat
 Note that, because the only difference between the two types of updates is whether we use a $\max$, we can even intermix the two types of updates within a single sweep.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>All of these algorithms converge to an optimal policy for discounted, finite MDPs.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>All of these algorithms converge to an optimal policy for discounted, finite MDPs.</p>
+</div>
 </details>
 <h2 id="asynchronous-dp">Asynchronous DP</h2>
 <p>Performing sweeps over the entire state set can be computationally expensive.</p>

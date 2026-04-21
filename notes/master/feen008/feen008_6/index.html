@@ -203,7 +203,9 @@ $$</p>
 <p>Let’s now try to apply what we’ve learned so far to a Brownian motion.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-green-500 dark:bg-green-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-green-700 dark:text-green-300" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Tip: Example: Transition density of a Brownian motion<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-green-700 dark:text-green-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>So, we have,</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>So, we have,</p>
+</div>
 </details>
 <p>$$
 P(\beta(t) | \beta(s)) = \frac{1}{\sqrt{2 \pi (t - s)}} \exp\left(-\frac{(\beta(t) - \beta(s))^2}{2(t - s)}\right),
@@ -214,7 +216,8 @@ $$</p>
 <p>Let’s first start with an example and see how we can solve it.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-green-500 dark:bg-green-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-green-700 dark:text-green-300" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Tip: Example: Doob’s $h$-transform on transition densities<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-green-700 dark:text-green-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>What is the <strong>transition density</strong> of $\beta(\cdot)$ (which one reads as, at any arbitrary time), given that $\beta(T) = v$?
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>What is the <strong>transition density</strong> of $\beta(\cdot)$ (which one reads as, at any arbitrary time), given that $\beta(T) = v$?
 We’ll done this <strong>transition density</strong> with $p^\star$, so we have,
 $$
 p^\star(\beta(t) | \beta(s)) = \frac{P(\beta(t) \in dy | \beta(s) = x, \beta(T) = v)}{dy} \biggr\rvert_{y = \beta(t)}
@@ -228,7 +231,8 @@ $$
 where
 $$
 h(s, x) = \frac{P(\beta(T) \in dy | \beta(s) = x)}{dy} \biggr\rvert_{y = v}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <figure><img alt="Transition density of a Brownian &quot;bridge&quot;" loading="lazy" decoding="async"  width="541" height="459" src="/_astro/brownian_bridge_density.D2wCaF-M_1Gb055.svg" ><figcaption>Transition density of a Brownian "bridge"</figcaption></figure>
 <p>Now, you may already see that, if $h(s, x)$ is Gaussian, then maybe $\nabla \log h(s, x) \implies \frac{v - x}{T - s}$.</p>
@@ -256,12 +260,14 @@ $$</p>
 <p>note that $\mathbb{E}[g(x) | x(s) = x] = g(x)$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-red-500 dark:bg-red-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-red-700 dark:text-red-300" data-lucide="shield-alert" viewBox="0 0 24 24"><use href="#shield-alert"></use></svg>Danger: Remark<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-red-700 dark:text-red-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Note that $h(\beta(s), s)$ is a Martingale <sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>, because,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Note that $h(\beta(s), s)$ is a Martingale <sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>, because,
 $$
 h(\beta(s), s) = \int P(\beta(t) | \beta(s)) h(\beta(t), t) d \beta(t),
 $$
 or in other words, the drift term in Itô’s formula disappears.
-Hence, $(Ag)(x) + \frac{\partial}{\partial s} h(s, x) = 0$.</p></div>
+Hence, $(Ag)(x) + \frac{\partial}{\partial s} h(s, x) = 0$.</p>
+</div>
 </details>
 <p>So, $h$ solves the <strong>backward Kolmogorov equation</strong>!</p>
 <p>Recall that Equation (2) holds for $x(t)$ in,</p>

@@ -133,12 +133,17 @@ Last modified: January 30, 2026 </div>  <div data-orientation="vertical" role="n
 <h2 id="poisson-processes">Poisson Processes</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Poisson Processes<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In the beginning, we defined a stochastic process as a collection $\{X_t, t \in \mathcal{I}\}$ of random variable with a common state space $\mathcal{S}$.
-Initially, the state space was discrete (i.e., finite or countable), last time we extended this  to continuous state spaces.</p><p>In this part, we will extend even further and make the set $\mathcal{I}$ is a non-countable set, for example, all positive real numbers, or all subsets of $\mathbb{R}^2$.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>In the beginning, we defined a stochastic process as a collection $\{X_t, t \in \mathcal{I}\}$ of random variable with a common state space $\mathcal{S}$.
+Initially, the state space was discrete (i.e., finite or countable), last time we extended this  to continuous state spaces.</p>
+<p>In this part, we will extend even further and make the set $\mathcal{I}$ is a non-countable set, for example, all positive real numbers, or all subsets of $\mathbb{R}^2$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Poisson Process<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A random variable with valuyes $0, 1, 2, \ldots$ with a Poisson distribution can be used to model the count of events happening independently, e.g., within some time interval.</p><p>We know that if $X \sim \mathrm{Poisson}(\lambda)$, then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A random variable with valuyes $0, 1, 2, \ldots$ with a Poisson distribution can be used to model the count of events happening independently, e.g., within some time interval.</p>
+<p>We know that if $X \sim \mathrm{Poisson}(\lambda)$, then,
 $$
 \pi(x) = e^{-\lambda} \frac{\lambda^x}{x!},
 $$
@@ -146,30 +151,45 @@ and,
 $$
 \mathbb{E}[X] = \lambda, \quad \mathrm{Var}(X) = \lambda.
 $$
-A Poisson process models not only the count for a specific time interval, but also the exact time of every event.</p></div>
+A Poisson process models not only the count for a specific time interval, but also the exact time of every event.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Counting Process<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A counting process $\{N_t\}_{t \in \mathcal{I}}$ is a stochastic process where $\mathcal{I} = \mathbb{R}_0^+$, where the state space is the non-negative integers, and where $0 \leq s \leq t$ implies $N_s \leq  N_t$.</p><p>Generally, when $s &#x3C; t, N_t - N_s$ counts the number of “events” (in the loose meaning “things happening”) in $(s, t]$.</p><p>A realization of $N_t$ is then a function of $t$ that is a right-continuous step function.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A counting process $\{N_t\}_{t \in \mathcal{I}}$ is a stochastic process where $\mathcal{I} = \mathbb{R}_0^+$, where the state space is the non-negative integers, and where $0 \leq s \leq t$ implies $N_s \leq  N_t$.</p>
+<p>Generally, when $s &#x3C; t, N_t - N_s$ counts the number of “events” (in the loose meaning “things happening”) in $(s, t]$.</p>
+<p>A realization of $N_t$ is then a function of $t$ that is a right-continuous step function.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Poisson Process I<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A Poisson process $\{N_t\}_{t \geq 0}$ with parameter $\lambda > 0$ is a counting process, fulfilling,</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A Poisson process $\{N_t\}_{t \geq 0}$ with parameter $\lambda > 0$ is a counting process, fulfilling,</p>
+<ol>
 <li>$N_0 = 0$.</li>
 <li>$N_t \sim \mathrm{Poisson}(\lambda t)$ for all $t > 0$.</li>
 <li>Stationary Increments: $N_{t + s} - N_s$ has the same distribution as $N_t$ for all $s > 0, t > 0$.</li>
 <li>Independent Increments: $N_t - N_s$ and $N_r - N_q$ are independent, when $0 \leq q &#x3C; r \leq s &#x3C; t$.</li>
-</ol><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+</ol>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>It is not obvious that such a process necessarily exists. Further, $\mathbb{E}[N_t] = \lambda t$, thus what one is counting occurs with a rate of $\lambda$ items per time unit.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>It is not obvious that such a process necessarily exists. Further, $\mathbb{E}[N_t] = \lambda t$, thus what one is counting occurs with a rate of $\lambda$ items per time unit.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Poisson Process Example I<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Messages are sent to a computer server at a rate of 7 messages per minute.
-Assuming a Poisson process $\{N_t\}_{t \geq 0}$, after 3 minutes 22 messages have arrived.</p><p>What is the probability of at least 18 messages arriving in the next 2 minutes?</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Messages are sent to a computer server at a rate of 7 messages per minute.
+Assuming a Poisson process $\{N_t\}_{t \geq 0}$, after 3 minutes 22 messages have arrived.</p>
+<p>What is the probability of at least 18 messages arriving in the next 2 minutes?</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We first note that,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We first note that,
 $$
 \begin{align*}
 P(N_5 - N_3 \geq 18 \mid N_3 = 22) &#x26; = P(N_5 - N_3 \geq 18 \mid N_3 - N_0 = 22) \newline
@@ -182,15 +202,20 @@ Since $N_2 \sim \mathrm{Poisson}(\lambda t = 7 \cdot 2 = 14)$, we have,
 $$
 1 - \sum_{k = 0}^{17} e^{-14} \frac{14^k}{k!} = 0.172.
 $$
-Equivalently, in <code>R</code>, <code>1 - ppois(17, lambda = 14)</code>.</p></div>
-</details></div>
+Equivalently, in <code>R</code>, <code>1 - ppois(17, lambda = 14)</code>.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Poisson Process Example II<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Customers arrive at a rate of 6 customers per hour to a restaurant.
-Assuming a Poisson process $\{N_t\}_{t \geq 0}$, what is the probability that exactly 10 customers arrive after 2 hours and a total of 22 customers have arrived after 4 hours?</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Customers arrive at a rate of 6 customers per hour to a restaurant.
+Assuming a Poisson process $\{N_t\}_{t \geq 0}$, what is the probability that exactly 10 customers arrive after 2 hours and a total of 22 customers have arrived after 4 hours?</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We first note that,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We first note that,
 $$
 \begin{align*}
 P(N_2 = 10, N_4 = 22) &#x26; = P(N_2 - N_0 = 10, N_4 - N_2 = 12) \newline
@@ -202,13 +227,16 @@ Since $N_2 \sim \mathrm{Poisson}(\lambda t = 6 \cdot 2 = 12)$, we have,
 $$
 \left(e^{-12} \frac{12^{10}}{10!}\right) \left(e^{-12} \frac{12^{12}}{12!}\right) = 0.01199
 $$
-Equivalently, in <code>R</code>, <code>(dpois(10, lambda = 12)) * (dpois(12, lambda = 12))</code>.</p></div>
-</details></div>
+Equivalently, in <code>R</code>, <code>(dpois(10, lambda = 12)) * (dpois(12, lambda = 12))</code>.</p>
+</div>
+</details>
+</div>
 </details>
 <h3 id="exponential-distribution-and-poisson-processes">Exponential Distribution and Poisson Processes</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="rotate-ccw" viewBox="0 0 24 24"><use href="#rotate-ccw"></use></svg>Recall: Exponential Distribution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A random variable $X$ with non-negative real values as possible values has an exponential distribution with parameter $\lambda$ if the density is,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A random variable $X$ with non-negative real values as possible values has an exponential distribution with parameter $\lambda$ if the density is,
 $$
 \pi(x) \coloneqq \lambda e^{-\lambda x}.
 $$
@@ -219,49 +247,66 @@ $$
 The expectation is and variance are,
 $$
 \mathbb{E}[X] = \frac{1}{\lambda}, \quad \mathrm{Var}(X) = \frac{1}{\lambda^2}.
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Memoryless of the Exponential Distribution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A random variable $X$ is called memoryless if,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A random variable $X$ is called memoryless if,
 $$
 P(X > s + t \mid X > s) = P(X > t)
 $$
-for all $s > 0, t > 0$.</p></div>
-</details><p>The exponential distribution is memoryless, and is the only memoryless continuous random variable.
-Thus, we need to take this into consideration when modeling waiting times.</p></div>
+for all $s > 0, t > 0$.</p>
+</div>
+</details>
+<p>The exponential distribution is memoryless, and is the only memoryless continuous random variable.
+Thus, we need to take this into consideration when modeling waiting times.</p>
+</div>
 </details>
 <h3 id="equivalent-definitions-of-poisson-processes">Equivalent Definitions of Poisson Processes</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Poisson Process II<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $X_1, X_2, \ldots$ be a sequence of i.i.d. exponential random variables with parameter $\lambda$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $X_1, X_2, \ldots$ be a sequence of i.i.d. exponential random variables with parameter $\lambda$.
 Let $N_0 = 0$ and, for $t > 0$,
 $$
 N_t \coloneqq \max\{n : X_1 + \ldots + X_n \leq t\}.
 $$
-Then, $\{N_t\}_{t \geq 0}$ is a Poisson process with parameter $\lambda$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+Then, $\{N_t\}_{t \geq 0}$ is a Poisson process with parameter $\lambda$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Firstly, if we start with a Poisson process (definition I), and let $X_1, X_2, \ldots$ be the inter-arrival times, i.e., the time between event 1 and event 2, event 2 and event 3, etc., then these are i.i.d. exponential random variables with parameter $\lambda$.
-Thus, $N_t$ will be defined as above.</p><p>Conversely, if we construct $N_t$ as above, all properties of definition I can be verified.</p><p>Let $\{M_t\}_{t \geq 0}$ be defined as $M_t \coloneqq N_{t + s} - N_s$ for some $s > 0$.</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Firstly, if we start with a Poisson process (definition I), and let $X_1, X_2, \ldots$ be the inter-arrival times, i.e., the time between event 1 and event 2, event 2 and event 3, etc., then these are i.i.d. exponential random variables with parameter $\lambda$.
+Thus, $N_t$ will be defined as above.</p>
+<p>Conversely, if we construct $N_t$ as above, all properties of definition I can be verified.</p>
+<p>Let $\{M_t\}_{t \geq 0}$ be defined as $M_t \coloneqq N_{t + s} - N_s$ for some $s > 0$.</p>
+<ul>
 <li>It is a counting process by definition.</li>
 <li>$N_0 = 0$ by definition.</li>
 <li>Stationary increments follow from the memoryless property of the exponential distribution: $M_k = N_{s + t + k} - N_{s + t} = \max\{n : X_{N_{s + t} + 1} + \ldots + X_{N_{s + t} + n} \leq k\}$, which has the same distribution as $N_k$.</li>
 <li>Independent increments follow from the independence of the $X_i$‘s.</li>
 <li>$M_k = M_{k + s} - N_s = \max\{n : X_{N_s + 1} + \ldots + X_{N_s + n} \leq k\}$, which has a $\mathrm{Poisson}(\lambda k)$ distribution.</li>
-</ul></div>
-</details><p>We call $S_n \coloneqq X_1 + \ldots + X_n$ the arrival times of the process.
+</ul>
+</div>
+</details>
+<p>We call $S_n \coloneqq X_1 + \ldots + X_n$ the arrival times of the process.
 Let $M = \min\{X_1, \ldots, X_n\}$, where, independently for each $i$, $X_i \sim \mathrm{Exponential}(\lambda_i)$, then,
 $$
 M \sim \mathrm{Exponential}(\lambda_1 + \ldots + \lambda_n), \quad P(M = X_k) = \frac{\lambda_k}{\lambda_1 + \ldots + \lambda_n}.
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Since the $X_i$‘s are independent,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Since the $X_i$‘s are independent,
 $$
 \begin{align*}
 P(X_1 > t) P(X_2 > t) \ldots P(X_n > t) &#x26; = e^{-\lambda_1 t} e^{-\lambda_2 t} \ldots e^{-\lambda_n t} \newline
 &#x26; = e^{-(\lambda_1 + \ldots + \lambda_n) t} \newline
 \end{align*}
 $$
-Thus, $M \sim \mathrm{Exponential}(\lambda_1 + \ldots + \lambda_n)$.</p></div>
-</details><p>Further,
+Thus, $M \sim \mathrm{Exponential}(\lambda_1 + \ldots + \lambda_n)$.</p>
+</div>
+</details>
+<p>Further,
 $$
 \begin{align*}
 P(M = X_1) &#x26; = P(X_2 \geq X_1, \ldots, X_n \geq X_1) \newline
@@ -275,11 +320,14 @@ P(M = X_1) &#x26; = P(X_2 \geq X_1, \ldots, X_n \geq X_1) \newline
 &#x26; = \frac{\lambda_1}{\lambda_1 + \lambda_2 + \ldots + \lambda_n} \underbrace{\left[-\frac{1}{\lambda_1 + \lambda_2 + \ldots + \lambda_n} e^{-(\lambda_1 + \lambda_2 + \ldots + \lambda_n) x}\right]_{0}^{\infty}}_{= 1} \newline
 &#x26; = \frac{\lambda_1}{\lambda_1 + \lambda_2 + \ldots + \lambda_n} \ _\blacksquare
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Poisson Process III<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A Poisson process $\{N_t\}_{t \geq 0}$ with parameter $\lambda > 0$ is a counting process, fulfilling,</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A Poisson process $\{N_t\}_{t \geq 0}$ with parameter $\lambda > 0$ is a counting process, fulfilling,</p>
+<ul>
 <li>$N_0 = 0$.</li>
 <li>The process has stationary and independent increments.
 $$
@@ -290,7 +338,8 @@ P(N_h > 1) &#x26; = o(h) \newline
 \end{align*}
 $$
 for all $h > 0$, where $o(h)$ is a function such that $\lim_{h \to 0} \frac{o(h)}{h} = 0$.</li>
-</ul></div>
+</ul>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/mve550/mve550_6/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 6 - MCMC for Bayesian Inference </span> </div>  </a>  <a href="/notes/master/mve550/mve550_8/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 8 - Poisson Processes II </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

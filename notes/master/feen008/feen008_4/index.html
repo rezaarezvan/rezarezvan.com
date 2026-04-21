@@ -181,26 +181,30 @@ We would like $x(1) \sim p(x(1), 1) = p_{\text{data}}(x(1))$ where $p_{\text{dat
 <p>The Fokker-Planck-Kolmogorov equation describes the evolution of the probability distribution of a stochastic process over time,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Definition: Fokker-Planck-Kolmogorov Equation in $\ \mathbb{R}^d$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The probability density $p(\mathbf{x}, t)$ of the solution of the SDE,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The probability density $p(\mathbf{x}, t)$ of the solution of the SDE,
 $$
 d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \ dt + \mathbf{L}(\mathbf{x}(t), t) \ d \beta(t),
 $$
 solves the partial differential equation,
 $$
 \frac{\partial p(\mathbf{x}, t)}{\partial t} = - \sum_i \frac{\partial}{\partial x_i} [f_i(\mathbf{x}, t) p(\mathbf{x}, t)] + \frac{1}{2} \sum_{i,j} \frac{\partial^2}{\partial x_i \partial x_j} \left[ [\mathbf{L}(\mathbf{x}, t) \mathbf{L}^T(\mathbf{x}, t)]_{ij} p(\mathbf{x}, t) \right].
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>In physics literature, this is often called the <strong>Fokker-Planck equation</strong>, while in stochastics, it is called the <strong>forward Kolmogorov equation</strong>.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Definition: Fokker-Planck-Kolmogorov Equation in $\ \mathbb{R}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The probability density $p(x, t)$ of the solution of the SDE,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The probability density $p(x, t)$ of the solution of the SDE,
 $$
 dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t),
 $$
 solves the partial differential equation,
 $$
 \frac{\partial p(x, t)}{\partial t} = - \frac{\partial}{\partial x} [f(x, t) p(x, t)] + \frac{1}{2} \frac{\partial^2}{\partial x^2} \left[ L(x, t)^2 p(x, t) \right].
-$$</p></div>
+$$</p>
+</div>
 </details>
 <h3 id="example-diffusione">Example: Diffusione</h3>
 <p>Let’s consider the SDE,
@@ -216,7 +220,8 @@ $$</p>
 <p>We will prove the Fokker-Planck-Kolmogorov PDE, but let’s first understand some useful results that we’ll use.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Integration by parts<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+</div>
 </details>
 <p>$$
 \int_{a}^{b} u^{\prime}(x) v(x) \ dx = [u(x) v(x)]_{a}^{b} - \int_{a}^{b} u(x) v^{\prime}(x) \ dx
@@ -225,14 +230,16 @@ $$</p>
 (This is nothing new, just a friendly reminder.)</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: The Itô Formula<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Suppose $x(t)$ is a scalar Itô process that obeys the SDE,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Suppose $x(t)$ is a scalar Itô process that obeys the SDE,
 $$
 dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t),
 $$
 The scalar function $\phi(x)$ (with no explicit dependence on $t$) can then be described by the SDE,
 $$
 d\phi(x) = \frac{\partial \phi}{\partial x} dx + \frac{1}{2} \frac{\partial^2 \phi}{\partial x^2} L(x, t)^2 \ dt
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Taking the expectation and dividing by $dt$ gives,
 $$
@@ -346,14 +353,16 @@ $$</p>
 <p>Recall,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: The Itô Formula<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Suppose $x(t)$ is a scalar Itô process that obeys the SDE,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Suppose $x(t)$ is a scalar Itô process that obeys the SDE,
 $$
 dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t),
 $$
 The scalar function $\phi(x)$ (with no explicit dependence on $t$) can then be described by the SDE,
 $$
 d\phi(x) = \frac{\partial \phi}{\partial x} dx + \frac{1}{2} \frac{\partial^2 \phi}{\partial x^2} L(x, t)^2 \ dt
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Taking the expectation and dividing by $dt$ gives,
 $$
@@ -452,9 +461,11 @@ $$</p>
 <p>Then, one can similarly derive the <strong>Kolmogorov backward equation</strong>,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Definition: Kolmogorov backward equation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 -\frac{\partial p(y, \tau; x, t)}{\partial \tau} = f(y, \tau) \frac{\partial p(y, \tau; x, t)}{\partial y} + \frac{1}{2} L(y, \tau)^2 \frac{\partial^2 p(y, \tau; x, t)}{\partial y^2}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>If the end conditions are known for some $T, p(x, T)$, then one can compute the transition probability for times before $T$.</p>
 <p>This is the key to generative modeling via de-noising diffusion processes <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>.</p>

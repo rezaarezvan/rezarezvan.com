@@ -138,20 +138,29 @@ Finally, we will provide an introduction to Deep Reinforcement Learning (Deep RL
 <p>In many (real-world) tasks, the state (and action) space is combinatorial and enormous, thus the memory, time, and, data requirements become infeasible.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Function Approximation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If we instead can find a good approximate solution using limited computational resources, while not losing (much) generalization, we can solve much larger problems.</p><p>But, how can experience with a limited subset of the state space be used to produce a good approximation for the entire state space?</p><p>This is what function approximation aims to solve.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If we instead can find a good approximate solution using limited computational resources, while not losing (much) generalization, we can solve much larger problems.</p>
+<p>But, how can experience with a limited subset of the state space be used to produce a good approximation for the entire state space?</p>
+<p>This is what function approximation aims to solve.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Value Function Approximation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We represent the state value function approximation as a parameterized function with weight vector $\mathbf{w} \in \mathbb{R}^d$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We represent the state value function approximation as a parameterized function with weight vector $\mathbf{w} \in \mathbb{R}^d$,
 $$
 \hat{v}(s, \mathbf{w}) \approx v_{\pi}(s),
 $$
-$\hat{v}$ might be a linear function but it can also be a function computed by a neural network.</p><p>Typically, the number of (shared) weights (the dimensionality of $\mathbf{w}$) is much smaller than the number of states, i.e., $d \ll |\mathcal{S}|$.
-When a single state is updated, the change generalizes from that state to affect the values of many other states.</p></div>
+$\hat{v}$ might be a linear function but it can also be a function computed by a neural network.</p>
+<p>Typically, the number of (shared) weights (the dimensionality of $\mathbf{w}$) is much smaller than the number of states, i.e., $d \ll |\mathcal{S}|$.
+When a single state is updated, the change generalizes from that state to affect the values of many other states.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Approximate Prediction of Value Functions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We denote the individual update (target) by the notation $s \mapsto u$,</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We denote the individual update (target) by the notation $s \mapsto u$,</p>
+<ul>
 <li>
 <p>MC Updatew: $S_t \mapsto G_t$</p>
 </li>
@@ -164,45 +173,64 @@ When a single state is updated, the change generalizes from that state to affect
 <li>
 <p>DP Update: $s \mapsto \mathbb{E}_{\pi}[R_{t + 1} + \gamma \hat{v}(S_{t + 1}, \mathbf{w}) | S_t = s]$</p>
 </li>
-</ul><p>The update $s \mapsto u$ means that the estimated value for state $s$ should be “more like” the updated target $u$.</p><p>Thus, we can treat this as a supervised learning problem!
+</ul>
+<p>The update $s \mapsto u$ means that the estimated value for state $s$ should be “more like” the updated target $u$.</p>
+<p>Thus, we can treat this as a supervised learning problem!
 However, there is a fundamental difference, in classical supervised learning, we have a stating training dataset.
-While in RL, learning occurs online (i.e., when the agent interacts with the environment), and the targets are incremental (i.e., non i.i.d. data) and non-stationary (i.e., the target changes as the value function changes).</p></div>
+While in RL, learning occurs online (i.e., when the agent interacts with the environment), and the targets are incremental (i.e., non i.i.d. data) and non-stationary (i.e., the target changes as the value function changes).</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: The Prediction Objective ($\bar{VE}$)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For a supervised learning task, we need some notion of error or loss, a common choice is the mean squared value error ($\bar{VE}$),
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For a supervised learning task, we need some notion of error or loss, a common choice is the mean squared value error ($\bar{VE}$),
 $$
 \bar{VE}(\mathbf{w}) \coloneqq \sum_{s \in \mathcal{S}} \mu(s) [v_{\pi}(s) - \hat{v}(s, \mathbf{w})]^2,
 $$
-where $\mu(s)$ is the weighting factor such that $\mu(s) \geq 0, \sum_s \mu(s) = 1$, is chosen to be the fraction of the time spent in state $s$ under policy $\pi$ (also called the on-policy distribution).</p><p>Another common choice is the square root of $\bar{VE}$, called the root mean squared value error (RMSVE).</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+where $\mu(s)$ is the weighting factor such that $\mu(s) \geq 0, \sum_s \mu(s) = 1$, is chosen to be the fraction of the time spent in state $s$ under policy $\pi$ (also called the on-policy distribution).</p>
+<p>Another common choice is the square root of $\bar{VE}$, called the root mean squared value error (RMSVE).</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Note that, in continuing tasks, the on-policy distribution is the stationary distribution under policy $\pi$.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Note that, in continuing tasks, the on-policy distribution is the stationary distribution under policy $\pi$.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: On-Policy Distribution in Episodic Tasks<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $h(s)$ be the probability that an episode starts in state $s$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $h(s)$ be the probability that an episode starts in state $s$.
 Further, let $\eta(s)$ be the number of time steps spent, on average, in state $s$ in a single episode,
 $$
 \eta(s) \coloneqq h(s) + \sum_{\bar{s}} \eta(\bar{s}) \sum_a \pi(a | \bar{s}) p(s | \bar{s}, a), \ \forall s \in \mathcal{S}.
 $$
-This system of equations can be solved for the expected number of visits $\eta(s)$ to each state $s$.</p><p>The on-policy distribution is then obtained by normalization,
+This system of equations can be solved for the expected number of visits $\eta(s)$ to each state $s$.</p>
+<p>The on-policy distribution is then obtained by normalization,
 $$
 \mu(s) \coloneqq \frac{\eta(s)}{\sum_{\bar{s}} \eta(\bar{s})}, \ \forall s \in \mathcal{S}.
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Note that, we assumed no discounting, i.e., $\gamma = 1$ here.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Note that, we assumed no discounting, i.e., $\gamma = 1$ here.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Minimizing the Prediction Objective<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The next logical step would be to find a global optimum, in terms of the weights $\mathbf{w}$, that minimizes the prediction objective $\bar{VE}(\mathbf{w})$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The next logical step would be to find a global optimum, in terms of the weights $\mathbf{w}$, that minimizes the prediction objective $\bar{VE}(\mathbf{w})$.
 This is possible if we have a nice simple function, such as linear, convex, or differentiable.
-However, this is rarely possible for more complex models, such as neural networks.</p><p>Thus, we instead will suffice with finding a local optimum.</p></div>
+However, this is rarely possible for more complex models, such as neural networks.</p>
+<p>Thus, we instead will suffice with finding a local optimum.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Stochastic Gradient Descent (SGD)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Firstly, the weightt vector is a column vector with a fixed number of real valued elements,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Firstly, the weightt vector is a column vector with a fixed number of real valued elements,
 $$
 \mathbf{w} \coloneqq
 \begin{bmatrix}
@@ -212,50 +240,79 @@ w_2 \newline
 w_d
 \end{bmatrix}
 $$
-Secondly, the function $\hat{v}(s, \mathbf{w})$ is a differentiable function with respect to $\mathbf{w} \forall s \in \mathcal{S}$.</p><p>Since we will be updating $\mathbf{w}$ at each of a series of discrete time steps $t = 0, 1, 2, \ldots$, we will denote the weight vector at time $t$ by $\mathbf{w}_t$.
-Further, assume at time step $t$, the agent observes a new example $S_t \mapsto v_{\pi}(S_t)$ consisting of a state $S_t$ and its (true) value under the policy.</p><p>Lastly, for simplicity, assume that the states appearing in the examples have the same distribution $\mu(s)$.</p><p>Thus, the SGD update rule is given by,
+Secondly, the function $\hat{v}(s, \mathbf{w})$ is a differentiable function with respect to $\mathbf{w} \forall s \in \mathcal{S}$.</p>
+<p>Since we will be updating $\mathbf{w}$ at each of a series of discrete time steps $t = 0, 1, 2, \ldots$, we will denote the weight vector at time $t$ by $\mathbf{w}_t$.
+Further, assume at time step $t$, the agent observes a new example $S_t \mapsto v_{\pi}(S_t)$ consisting of a state $S_t$ and its (true) value under the policy.</p>
+<p>Lastly, for simplicity, assume that the states appearing in the examples have the same distribution $\mu(s)$.</p>
+<p>Thus, the SGD update rule is given by,
 $$
 \begin{align*}
 \mathbf{w}_{t + 1} &#x26; \coloneqq \mathbf{w}_t + \frac{1}{2} \alpha \nabla [v_{\pi}(S_t) - \hat{v}(S_t, \mathbf{w}_t)]^2 \newline
 &#x26; = \mathbf{w}_t + \alpha [v_{\pi}(S_t) - \hat{v}(S_t, \mathbf{w}_t)] \nabla \hat{v}(S_t, \mathbf{w}_t)
 \end{align*}
 $$
-where $\alpha > 0$ is the step-size parameter (or learning rate).</p></div>
+where $\alpha > 0$ is the step-size parameter (or learning rate).</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: SGD with Approximate Targets<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>However, unlike the classical supervised learning setting, in RL we do not have acces to the true value $v_{\pi}(S_t)$.
-Instead, we have to use an approximate target $U_t \in \mathbb{R}$ of the $t$-th training example $S_t \mapsto U_t$, e.g., a noise-corrupted version of the true value or a bootstrapped estimate.</p><p>In this setting, we simply substitute $U_t$ for $v_{\pi}(S_t)$ in the SGD update rule,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>However, unlike the classical supervised learning setting, in RL we do not have acces to the true value $v_{\pi}(S_t)$.
+Instead, we have to use an approximate target $U_t \in \mathbb{R}$ of the $t$-th training example $S_t \mapsto U_t$, e.g., a noise-corrupted version of the true value or a bootstrapped estimate.</p>
+<p>In this setting, we simply substitute $U_t$ for $v_{\pi}(S_t)$ in the SGD update rule,
 $$
 \mathbf{w}_{t + 1} \coloneqq \mathbf{w}_t + \alpha [U_t - \hat{v}(S_t, \mathbf{w}_t)] \nabla \hat{v}(S_t, \mathbf{w}_t).
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/5" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="alert-triangle" viewBox="0 0 24 24"><use href="#alert-triangle"></use></svg>Warning<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If $U_t$ is an unbiased estimate, i.e., $\mathbb{E}[U_t | S_t] = v_{\pi}(S_t) \ \forall t$, then $\mathbf{w}_t$ is guaranteed to converge to a local optimum under some certain conditions.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If $U_t$ is an unbiased estimate, i.e., $\mathbb{E}[U_t | S_t] = v_{\pi}(S_t) \ \forall t$, then $\mathbf{w}_t$ is guaranteed to converge to a local optimum under some certain conditions.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Gradient Monte Carlo Algorithm for estimating $\hat{v} \approx v_{\pi}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Input: the policy $\pi$ to be evaluated</p><p>Input: a differentiable function $\hat{v} : \mathcal{S} \times \mathbb{R}^d \rightarrow \mathbb{R}$</p><p>Algorithm parameter: step-size $\alpha > 0$</p><p>Initialize value-function weights $\mathbf{w} \in \mathbb{R}^d$ arbitrarily (e.g., $\mathbf{w} = \mathbf{0}$)</p><p>Loop forever (for each episode):</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Input: the policy $\pi$ to be evaluated</p>
+<p>Input: a differentiable function $\hat{v} : \mathcal{S} \times \mathbb{R}^d \rightarrow \mathbb{R}$</p>
+<p>Algorithm parameter: step-size $\alpha > 0$</p>
+<p>Initialize value-function weights $\mathbf{w} \in \mathbb{R}^d$ arbitrarily (e.g., $\mathbf{w} = \mathbf{0}$)</p>
+<p>Loop forever (for each episode):</p>
+<ul>
 <li>Generate an episode $S_0, A_0, R_1, S_1, A_1, \ldots, R_T, S_T$ using policy $\pi$</li>
 <li>Loop for each step of episode $t = 0, 1, \ldots, T - 1$:
 <ul>
 <li>$\mathbf{w} \leftarrow \mathbf{w} + \alpha [G_t - \hat{v}(S_t, \mathbf{w})] \nabla \hat{v}(S_t, \mathbf{w})$</li>
 </ul>
 </li>
-</ul><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+</ul>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The MC target $U_t \coloneqq G_t$ is an unbiased estimate of $v_{\pi}(S_t)$ <label for="sn-1" class="sidenote-toggle sidenote-number" aria-describedby="sn-1-note">1</label><input type="checkbox" id="sn-1" class="sidenote-checkbox" aria-label="Toggle sidenote 1"><span class="sidenote" role="note" id="sn-1-note"><span class="sidenote-number-inline">1</span>Why? The answer is, by definition of the value function.</span>.
-Thus, it is guaranteed to converge to a local optimum under some certain conditions.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The MC target $U_t \coloneqq G_t$ is an unbiased estimate of $v_{\pi}(S_t)$ <label for="sn-1" class="sidenote-toggle sidenote-number" aria-describedby="sn-1-note">1</label><input type="checkbox" id="sn-1" class="sidenote-checkbox" aria-label="Toggle sidenote 1"><span class="sidenote" role="note" id="sn-1-note"><span class="sidenote-number-inline">1</span>Why? The answer is, by definition of the value function.</span>.
+Thus, it is guaranteed to converge to a local optimum under some certain conditions.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Semi-Gradient Methods<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>When we are dealing with bootstrapping targets, such as the $n$-step TD target $G_{t:t+n}$ or the DP target $\sum_{a, s^{\prime}, r} \pi(a | S_t) \mathcal{p}(s^{\prime}, r | S_t, a) [r + \gamma \hat{v}(s^{\prime}, \mathbf{w})]$, all depend on the current value of the weight vector $\mathbf{w}_t$.
-Thus, the targets will be biased and they will not produce a true gradient descent method.</p><p>We instead call these methods semi-gradient methods.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>When we are dealing with bootstrapping targets, such as the $n$-step TD target $G_{t:t+n}$ or the DP target $\sum_{a, s^{\prime}, r} \pi(a | S_t) \mathcal{p}(s^{\prime}, r | S_t, a) [r + \gamma \hat{v}(s^{\prime}, \mathbf{w})]$, all depend on the current value of the weight vector $\mathbf{w}_t$.
+Thus, the targets will be biased and they will not produce a true gradient descent method.</p>
+<p>We instead call these methods semi-gradient methods.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Semi-Gradient TD(0) for estimating $\hat{v} \approx v_{\pi}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Input: the policy $\pi$ to be evaluated</p><p>Input: a differentiable function $\hat{v} : \mathcal{S} \times \mathbb{R}^d \rightarrow \mathbb{R}$ such that $\hat{v}(\text{terminal}, \cdot) = 0$</p><p>Algorithm parameters: step-size $\alpha > 0$</p><p>Initialize value-function weights $\mathbf{w} \in \mathbb{R}^d$ arbitrarily (e.g., $\mathbf{w} = \mathbf{0}$)</p><p>Loop for each episode:</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Input: the policy $\pi$ to be evaluated</p>
+<p>Input: a differentiable function $\hat{v} : \mathcal{S} \times \mathbb{R}^d \rightarrow \mathbb{R}$ such that $\hat{v}(\text{terminal}, \cdot) = 0$</p>
+<p>Algorithm parameters: step-size $\alpha > 0$</p>
+<p>Initialize value-function weights $\mathbf{w} \in \mathbb{R}^d$ arbitrarily (e.g., $\mathbf{w} = \mathbf{0}$)</p>
+<p>Loop for each episode:</p>
+<ul>
 <li>Initialize $S$</li>
 <li>Loop for each step of episode:
 <ul>
@@ -266,22 +323,29 @@ Thus, the targets will be biased and they will not produce a true gradient desce
 </ul>
 </li>
 <li>until $S$ is terminal</li>
-</ul></div>
+</ul>
+</div>
 </details>
 <h2 id="generalizing-function-approximation">Generalizing Function Approximation</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: State Aggregation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A simple form of generalizing function approximation is state aggregation, where states are grouped together, with one estimated value (one element in the weight vector $\mathbf{w}$) for each group.
-The value of a state is estimated as its group’s component, and when the state is updated, that component alone is updated.</p><p>Thus, this is a special case of SGD in which the gradient $\nabla \hat{v}(s, \mathbf{w})$ is 1 for $S_t$‘s group’s component and 0 for all other components.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A simple form of generalizing function approximation is state aggregation, where states are grouped together, with one estimated value (one element in the weight vector $\mathbf{w}$) for each group.
+The value of a state is estimated as its group’s component, and when the state is updated, that component alone is updated.</p>
+<p>Thus, this is a special case of SGD in which the gradient $\nabla \hat{v}(s, \mathbf{w})$ is 1 for $S_t$‘s group’s component and 0 for all other components.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Linear Methods<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A more general and powerful form of function approximation is linear methods, where the value of a state is estimated as a linear combination of features.
-For every state $s$, there is a vector $\mathbf{x}(s) \coloneqq \begin{bmatrix} x_1(s) &#x26; x_2(s) &#x26; \ldots &#x26; x_d(s) \end{bmatrix}^T$ with the same number of components as $\mathbf{w}$.</p><p>Linear methods approximate the state-value function by,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A more general and powerful form of function approximation is linear methods, where the value of a state is estimated as a linear combination of features.
+For every state $s$, there is a vector $\mathbf{x}(s) \coloneqq \begin{bmatrix} x_1(s) &#x26; x_2(s) &#x26; \ldots &#x26; x_d(s) \end{bmatrix}^T$ with the same number of components as $\mathbf{w}$.</p>
+<p>Linear methods approximate the state-value function by,
 $$
 \hat{v}(s, \mathbf{w}) \coloneqq \mathbf{w}^T \mathbf{x}(s) = \sum_{i = 1}^d w_i x_i(s),
 $$
-The real valued vector $\mathbf{x}(s)$ is called the feature vector representing state $s$.</p><p>The gradient of the linear approximate value function with respect to $\mathbf{w}$ is simply the feature vector,
+The real valued vector $\mathbf{x}(s)$ is called the feature vector representing state $s$.</p>
+<p>The gradient of the linear approximate value function with respect to $\mathbf{w}$ is simply the feature vector,
 $$
 \nabla \hat{v}(s, \mathbf{w}) = \mathbf{x}(s)
 $$
@@ -289,39 +353,56 @@ Thus, the SGD update is,
 $$
 \mathbf{w}_{t + 1} \coloneqq \mathbf{w}_t + \alpha [U_t - \hat{v}(S_t, \mathbf{w}_t)] \mathbf{x}(S_t).
 $$
-Further, local optima are guaranteed to be global optima <label for="sn-2" class="sidenote-toggle sidenote-number" aria-describedby="sn-2-note">2</label><input type="checkbox" id="sn-2" class="sidenote-checkbox" aria-label="Toggle sidenote 2"><span class="sidenote" role="note" id="sn-2-note"><span class="sidenote-number-inline">2</span>Why? The answer is, the prediction objective $\bar{VE}(\mathbf{w})$ is a quadratic function in terms of $\mathbf{w}$, thus it is convex.</span>.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+Further, local optima are guaranteed to be global optima <label for="sn-2" class="sidenote-toggle sidenote-number" aria-describedby="sn-2-note">2</label><input type="checkbox" id="sn-2" class="sidenote-checkbox" aria-label="Toggle sidenote 2"><span class="sidenote" role="note" id="sn-2-note"><span class="sidenote-number-inline">2</span>Why? The answer is, the prediction objective $\bar{VE}(\mathbf{w})$ is a quadratic function in terms of $\mathbf{w}$, thus it is convex.</span>.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The performance of linear methods depends critically on how the states are represented in terms of features.</p><p>Choosing appropriate features is an important way of adding prior domain knowledge to RL systems.
-There are several ways to construct the relevant features, but hand-crafted features can be brittle and non-transferable to other tasks.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The performance of linear methods depends critically on how the states are represented in terms of features.</p>
+<p>Choosing appropriate features is an important way of adding prior domain knowledge to RL systems.
+There are several ways to construct the relevant features, but hand-crafted features can be brittle and non-transferable to other tasks.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Nonlinear function approximation with neural networks<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Neural networks are widely used for nonlinear function approximation <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup> in RL.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Neural networks are widely used for nonlinear function approximation <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup> in RL.
 They can for example use the TD error/target to learn value functions.
-We use backpropagation to estimate the partial derivative of an objective function with respect to each weight in the network.</p><p>However, they can suffer from overfitting, especially for deep networks with many layers and parameters.</p></div>
+We use backpropagation to estimate the partial derivative of an objective function with respect to each weight in the network.</p>
+<p>However, they can suffer from overfitting, especially for deep networks with many layers and parameters.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="list" viewBox="0 0 24 24"><use href="#list"></use></svg>Summary: Parametric Approximation Methods<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>So far, we have discussed the parametric approach to approximating value functions, let’s summarize the main points.</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>So far, we have discussed the parametric approach to approximating value functions, let’s summarize the main points.</p>
+<ul>
 <li>A learning algorithm adjusts the parameters of a functional form intended to approximate the value function.</li>
 <li>Each update $s \mapsto g$ is a training example used by the learning algorithm to change the parameters with the aim of reducing the approximation error.</li>
 <li>After the update, the training example can be discarded (although, it might be saved to be used again).</li>
 <li>When an approximate value of a state (sometimes called the query state) is needed, the function is simply evaluated at that state using the latest parameters produced by the learning algorithm.</li>
-</ul></div>
+</ul>
+</div>
 </details>
 <h2 id="non-parametric-memory-based-function-approximation">Non-Parametric (Memory-Based) Function Approximation</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Non-Parametric (Memory-Based) Function Approximation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In the parametric setting, we update the parameters each time we receive a new training example, and then discard the example.
-However, in the non-parametric (memory-based) setting, we store the training examples without explicitly updating a parameterized function.</p><p>Whenever a query state’s value is needed, a set of examples is retrieved from memory and used to compute a value estimate for the query state.
-It is also sometimes called, lazy learning, because processing training examples is postponed until the system is queried to provide an output.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>In the parametric setting, we update the parameters each time we receive a new training example, and then discard the example.
+However, in the non-parametric (memory-based) setting, we store the training examples without explicitly updating a parameterized function.</p>
+<p>Whenever a query state’s value is needed, a set of examples is retrieved from memory and used to compute a value estimate for the query state.
+It is also sometimes called, lazy learning, because processing training examples is postponed until the system is queried to provide an output.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Local-Learning Methods<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Local-learning methods are a class of methods where we approximate a value function only locally in the neighborhood of the current query state.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Local-learning methods are a class of methods where we approximate a value function only locally in the neighborhood of the current query state.
 The closer a training example’s state is to the query state, the more relevant it is considered to be.
-Distance can be defined in many different ways, e.g., Euclidean distance, Manhattan distance, or domain-specific distance measures.</p><p>An example is the nearest neighbor method, it simply finds the example in memory whose state is closest to the query state and returns that example’s valuea s the approximate value of the query state.</p></div>
+Distance can be defined in many different ways, e.g., Euclidean distance, Manhattan distance, or domain-specific distance measures.</p>
+<p>An example is the nearest neighbor method, it simply finds the example in memory whose state is closest to the query state and returns that example’s valuea s the approximate value of the query state.</p>
+</div>
 </details>
 <section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
 <ol>

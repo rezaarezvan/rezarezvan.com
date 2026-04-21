@@ -134,7 +134,8 @@ However, Abadie’s constraint qualifications does not hold always (of course :)
 Further, checking Abadie’s constraint qualifications requires us to compute the tangent cone $T_S(\mathbf{x}^*)$, which is not always easy.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let,
 $$
 S = \begin{cases}
 g_1(\mathbf{x}) = -x_1^3 + x_2 \leq 0 \newline
@@ -144,7 +145,9 @@ g_3(\mathbf{x}) = -x_2 \leq 0
 $$
 Further, let $\bar{\mathbf{x}} = \begin{pmatrix} 0 &#x26; 0 \end{pmatrix}^T$, compute $T_S(\bar{\mathbf{x}})$ and $G(\bar{\mathbf{x}})$.
 </p><figure><img alt="Feasible region and constraints" loading="lazy" decoding="async"  width="565" height="422" src="/_astro/example_question_regions4.BpP9-giK_vKwNT.svg" ><figcaption>Feasible region and constraints</figcaption></figure>
-Let $x_1^k = \frac{1}{k}$, by $g_1(\mathbf{x})$, $x_2^k \leq \frac{1}{k^3}$.<p></p><p>Further, let $x_2^k$ be any such sequence that is also $\geq 0, \forall k$ (since $g_3(\mathbf{x})$).</p><p>Then,
+Let $x_1^k = \frac{1}{k}$, by $g_1(\mathbf{x})$, $x_2^k \leq \frac{1}{k^3}$.<p></p>
+<p>Further, let $x_2^k$ be any such sequence that is also $\geq 0, \forall k$ (since $g_3(\mathbf{x})$).</p>
+<p>Then,
 $$
 \begin{align*}
 \lim_{k \to \infty} x^k = \bar{\mathbf{x}} \newline
@@ -154,7 +157,10 @@ $$
 \end{bmatrix}
 \end{align*}
 $$
-Thus, we must select a $\lambda^k$ such that $\frac{\lambda^k}{k} \to$ some finite value $> 0$, as $k \to \infty$.</p><p>But then, $0 \leq \lambda^k x_2^k \leq \frac{\lambda^k}{k^3} \to 0$ as $k \to \infty$.</p><p>So, $T_S(\bar{\mathbf{x}}) = \{\mathbf{p} \in \mathbb{R}^2 \mid p_1 \geq 0, p_2 = 0\}$.</p><p>For the gradient cone,
+Thus, we must select a $\lambda^k$ such that $\frac{\lambda^k}{k} \to$ some finite value $> 0$, as $k \to \infty$.</p>
+<p>But then, $0 \leq \lambda^k x_2^k \leq \frac{\lambda^k}{k^3} \to 0$ as $k \to \infty$.</p>
+<p>So, $T_S(\bar{\mathbf{x}}) = \{\mathbf{p} \in \mathbb{R}^2 \mid p_1 \geq 0, p_2 = 0\}$.</p>
+<p>For the gradient cone,
 $$
 \begin{align*}
 &#x26;
@@ -174,37 +180,53 @@ $$
 &#x26;
 G(\bar{\mathbf{x}}) = \{\mathbf{p} \in \mathbb{R}^2 \mid p_2 \leq 0, -p_2 \leq 0\} = \{\mathbf{p} \in \mathbb{R}^2 \mid p_2 = 0\}
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>We can see that $T_S(\bar{\mathbf{x}}) \subseteq G(\bar{\mathbf{x}})$, but $T_S(\bar{\mathbf{x}}) \neq G(\bar{\mathbf{x}})$.</p>
 <h2 id="constraint-qualifications">Constraint Qualifications</h2>
 <p>We will now introduce some more constraint qualifications that are easier to check than Abadie’s constraint qualifications, but imply that Abadie’s constraint qualifications hold.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Linear Independence Constraint Qualification (LICQ)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Linear Independence Constraint Qualification (LICQ) holds at a point $\mathbf{x}^{\star}$ if $\nabla g_i(\mathbf{x}^{\star}), i \in \mathcal{I}(\mathbf{x}^{\star})$ are linearly independent.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Linear Independence Constraint Qualification (LICQ) holds at a point $\mathbf{x}^{\star}$ if $\nabla g_i(\mathbf{x}^{\star}), i \in \mathcal{I}(\mathbf{x}^{\star})$ are linearly independent.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \text{LICQ} \implies \text{Abadie’s CQ}
-$$</p></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Affine Independence Constraint Qualification (Affine CQ)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Affine Independence Constraint Qualification (Affine CQ) holds if all $g_i(\mathbf{x}), i \in \mathcal{I}(\mathbf{x}^{\star})$ are affine functions and $\nabla g_i(\mathbf{x}^{\star}), i = 1, \ldots, m$ are affine.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Affine Independence Constraint Qualification (Affine CQ) holds if all $g_i(\mathbf{x}), i \in \mathcal{I}(\mathbf{x}^{\star})$ are affine functions and $\nabla g_i(\mathbf{x}^{\star}), i = 1, \ldots, m$ are affine.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \text{Affine CQ} \implies \text{Abadie’s CQ. (In all points } \mathbf{x} \in S\text{)}
-$$</p></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Slater’s Constraint Qualification (Slater’s CQ)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Slater’s Constraint Qualification (Slater’s CQ) holds if all $g_i(\mathbf{x}), i = 1, \ldots, m$ are convex functions and if an interior point exists, i.e., $\exists \ \mathbf{x}_0 \ \text{such that} \ g_i(\mathbf{x}_0) &#x3C; 0, i = 1, \ldots, m$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Slater’s Constraint Qualification (Slater’s CQ) holds if all $g_i(\mathbf{x}), i = 1, \ldots, m$ are convex functions and if an interior point exists, i.e., $\exists \ \mathbf{x}_0 \ \text{such that} \ g_i(\mathbf{x}_0) &#x3C; 0, i = 1, \ldots, m$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \text{Slater’s CQ} \implies \text{Abadie’s CQ. (In all points } \mathbf{x} \in S\text{)}
-$$</p></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
 </details>
 <h2 id="karush-kuhn-tucker-kkt-conditions-with-equality-constraints">Karush-Kuhn-Tucker (KKT) Conditions with Equality Constraints</h2>
 <p>So far, we have only considered inequality constraints when discussing the KKT conditions.</p>
@@ -251,36 +273,45 @@ $$</p>
 <p>Now to fully generalize and capture the KKT conditions with equality constraints, we need to define a new cone.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Tangent Space Cone for Equality Constraints<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 H(\mathbf{x}) \coloneqq \{\mathbf{p} \in \mathbb{R}^n \mid \nabla h_j(\mathbf{x})^T \mathbf{p} = 0, j = 1, \ldots, l\}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>With this we can define Abadie’s constraint qualifications for problems with equality constraints.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Abadie’s Constraint Qualifications with Equality Constraints<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Abadie’s constraint qualifications hold at a point $\mathbf{x}^{\star} \in S$ if,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Abadie’s constraint qualifications hold at a point $\mathbf{x}^{\star} \in S$ if,
 $$
 T_S(\mathbf{x}^{\star}) = G(\mathbf{x}^{\star}) \cap H(\mathbf{x}^{\star})
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: KKT Conditions with Equality Constraints<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Assume Abadie’s constraint qualifications hold in $\mathbf{x}^{\star} \in S$. Then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Assume Abadie’s constraint qualifications hold in $\mathbf{x}^{\star} \in S$. Then,
 $$
 \mathbf{x}^{\star} \text{ is a local minimum } \implies \text{The system (*) is solvable for } \boldsymbol{\mu} \text{ and } \boldsymbol{\lambda}.
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>We can now define the sufficient conditions for optimality with equality constraints.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Sufficient Conditions for Optimality with Equality Constraints<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Assume that $f(\mathbf{x})$ is a convex function on $S$, $\forall g_i(\mathbf{x}), i = 1, \ldots, m$ are convex functions on $S$, and $\forall h_j(\mathbf{x}), j = 1, \ldots, l$ are affine functions on $S$. Then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Assume that $f(\mathbf{x})$ is a convex function on $S$, $\forall g_i(\mathbf{x}), i = 1, \ldots, m$ are convex functions on $S$, and $\forall h_j(\mathbf{x}), j = 1, \ldots, l$ are affine functions on $S$. Then,
 $$
 \mathbf{x}^{\star} \text{ is a KKT point } \implies \mathbf{x}^{\star} \text{ is globally optimal.}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Sufficient Conditions for Optimality with Equality Constraints<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $\mathbf{x}^{\star}$ be a KKT point, by convexity of $g_i(\mathbf{x}), \forall \mathbf{x} \in S$ and $i \in \mathcal{I}(\mathbf{x}^{\star})$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $\mathbf{x}^{\star}$ be a KKT point, by convexity of $g_i(\mathbf{x}), \forall \mathbf{x} \in S$ and $i \in \mathcal{I}(\mathbf{x}^{\star})$.
 By using the characterization of convexity (of $C^1$ functions),
 $$
 \begin{align*}
@@ -303,14 +334,16 @@ f(\mathbf{x}) - f(\mathbf{x}^{\star}) &#x26; \geq \nabla f(\mathbf{x}^{\star})^T
 &#x26; \geq 0
 \end{align*}
 $$
-Thus, by definition of global optimality, $\mathbf{x}^{\star}$ is globally optimal.</p></div>
+Thus, by definition of global optimality, $\mathbf{x}^{\star}$ is globally optimal.</p>
+</div>
 </details>
 <h2 id="connection-to-lagrangian-relaxation">Connection to Lagrangian Relaxation</h2>
 <p>We can also connect the KKT conditions to the Lagrangian relaxation.</p>
 <p>Let’s first define the Lagrangian.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Lagrangian<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For the problem,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For the problem,
 $$
 \begin{align*}
 \min \ &#x26; f(\mathbf{x}) \newline
@@ -320,22 +353,26 @@ $$
 The Lagrangian is defined as,
 $$
 \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}) = f(\mathbf{x}) + \sum_{i=1}^{m} \mu_i g_i(\mathbf{x})
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>It is not hard to see that,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>It is not hard to see that,
 $$
 \begin{align*}
 \nabla_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}) &#x26; = \nabla f(\mathbf{x}) + \sum_{i=1}^{m} \mu_i \nabla g_i(\mathbf{x}) \newline
 &#x26; \implies \text{The first KKT condition is } \nabla_{\mathbf{x}} \mathcal{L}(\mathbf{x}^{\star}, \boldsymbol{\mu}) = 0
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>We will now define what relaxtions means.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Relaxation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For a problem,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For a problem,
 $$
 \begin{align*}
 (P) \quad &#x26;
@@ -355,18 +392,21 @@ $$
 \end{cases}
 \end{align*}
 $$
-The problem $(P^{\prime})$ is called a relaxation if,</p><ol>
+The problem $(P^{\prime})$ is called a relaxation if,</p>
+<ol>
 <li>
 <p>$f_R(\mathbf{x}) \leq f(\mathbf{x}), \forall \mathbf{x} \in S$</p>
 </li>
 <li>
 <p>$S \subseteq S_R$</p>
 </li>
-</ol></div>
+</ol>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-400 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-600 dark:text-indigo-300" data-lucide="puzzle" viewBox="0 0 24 24"><use href="#puzzle"></use></svg>Lemma: Relaxation Lemma<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-600 dark:text-indigo-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For $\boldsymbol{\mu} \geq \mathbf{0}$, the problem,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For $\boldsymbol{\mu} \geq \mathbf{0}$, the problem,
 $$
 \begin{align*}
 \min \ &#x26; \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}) \newline
@@ -379,11 +419,13 @@ $$
 \min \ &#x26; f(\mathbf{x}) \newline
 \text{subject to} \ &#x26; g_i(\mathbf{x}) \leq 0, i = 1, \ldots, m \newline
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Relaxation Lemma<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>By definition, the set $S$ is a subset of $\mathbb{R}^n$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>By definition, the set $S$ is a subset of $\mathbb{R}^n$,
 $$
 S \coloneqq \{\mathbf{x} \in \mathbb{R}^n \mid g_i(\mathbf{x}) \leq 0, i = 1, \ldots, m\} \subseteq \mathbb{R}^n
 $$
@@ -393,15 +435,20 @@ $$
 \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}) &#x26; = f(\mathbf{x}) + \underbrace{\sum_{i=1}^{m} \underbrace{\mu_i}_{\geq 0} \underbrace{g_i(\mathbf{x})}_{\leq 0}}_{\leq 0} \newline
 &#x26; \leq f(\mathbf{x})
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Relaxtion Theorem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>a) Let $f_R^{\star}$ be the minimum value of $(P^{\prime})$, and $f^{\star}$ be the minimum value of $(P)$. Then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>a) Let $f_R^{\star}$ be the minimum value of $(P^{\prime})$, and $f^{\star}$ be the minimum value of $(P)$. Then,
 $$
 f_R^{\star} \leq f^{\star}
 $$
-also called the lower bound property.</p><p>b) If $(P^{\prime})$ is infeasible, then $(P)$ is infeasible.</p><p>c) If $(P^{\prime})$ has an optimal solution $\mathbf{x}_R^{\star} \in S$, and $f_R(\mathbf{x}_R^{\star}) = f(\mathbf{x}_R^{\star})$, then $\mathbf{x}_R^{\star}$ is an optimal solution of $(P)$.</p></div>
+also called the lower bound property.</p>
+<p>b) If $(P^{\prime})$ is infeasible, then $(P)$ is infeasible.</p>
+<p>c) If $(P^{\prime})$ has an optimal solution $\mathbf{x}_R^{\star} \in S$, and $f_R(\mathbf{x}_R^{\star}) = f(\mathbf{x}_R^{\star})$, then $\mathbf{x}_R^{\star}$ is an optimal solution of $(P)$.</p>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/tma947/tma947_6/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 6 - Optimality Conditions and Karush-Kuhn-Tucker Conditions I </span> </div>  </a>  <a href="/notes/master/tma947/tma947_8/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 8 - Lagrangian Duality </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

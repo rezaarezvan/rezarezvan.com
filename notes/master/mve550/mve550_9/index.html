@@ -134,28 +134,35 @@ They are widely used in various fields, including queueing theory, reliability e
 <h2 id="continuous-time-markov-chains">Continuous-Time Markov Chains</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Continuous-Time Markov Chain<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A continuous-time stochastic process $\{X_t\}_{t \geq 0}$ with discrete state space $\mathcal{S}$ is a continuous-time Markov chain if,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A continuous-time stochastic process $\{X_t\}_{t \geq 0}$ with discrete state space $\mathcal{S}$ is a continuous-time Markov chain if,
 $$
 P(X_{t + s} = j \mid X_s = i, X_u, 0 \leq u &#x3C; s) = P(X_{t + s} = j \mid X_s = i),
 $$
-where $s, t \geq 0$ and $i, j, X_u \in \mathcal{S}$.</p><p>The process is time-homogeneous if for $s, t \geq 0$ and all $i, j \in \mathcal{S}$,
+where $s, t \geq 0$ and $i, j, X_u \in \mathcal{S}$.</p>
+<p>The process is time-homogeneous if for $s, t \geq 0$ and all $i, j \in \mathcal{S}$,
 $$
 P(X_{t + s} = j \mid X_s = i) = P(X_t = j \mid X_0 = i).
 $$
 We then define the transition function as the matrix function $P(t)$ with entries of the matrix given by,
 $$
 P(t)_{ij} = P(X_t = j \mid X_0 = i).
-$$</p></div>
+$$</p>
+</div>
 </details>
 <h3 id="the-chapman-kolmogorov-equations">The Chapman-Kolmogorov Equations</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Chapman-Kolmogorov Equations<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For the transition function $P(t)$ we have,</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For the transition function $P(t)$ we have,</p>
+<ul>
 <li>$P(s + t) = P(s) P(t)$</li>
 <li>$P(0) = I$ (identity matrix)</li>
-</ul><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+</ul>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For the first property; If they are same for an arbitrary element $i, j$ of the matrix, then they are equal.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For the first property; If they are same for an arbitrary element $i, j$ of the matrix, then they are equal.
 $$
 \begin{align*}
 P(s + t)_{ij} &#x26; = P(X_{s + t} = j \mid X_s = i) \newline
@@ -167,13 +174,16 @@ P(s + t)_{ij} &#x26; = P(X_{s + t} = j \mid X_s = i) \newline
 &#x26; = (P(s) P(t))_{ij} \ _\blacksquare
 \end{align*}
 $$
-The second property follows directly from the definition of the transition function.</p></div>
-</details></div>
+The second property follows directly from the definition of the transition function.</p>
+</div>
+</details>
+</div>
 </details>
 <h3 id="holding-times">Holding Times</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Holding Times<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Define $T_i$ as the time the continuous-time Markov chain $\{X_t\}_{t \geq 0}$ that always starts in state $i$ stays in $i$ before moving to a different state, so that for any $s > 0$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Define $T_i$ as the time the continuous-time Markov chain $\{X_t\}_{t \geq 0}$ that always starts in state $i$ stays in $i$ before moving to a different state, so that for any $s > 0$,
 $$
 P(T_i > s) = P(X_u = i, 0 \leq u \leq s)
 $$
@@ -183,42 +193,61 @@ $$
 T_i \sim \mathrm{Exponential}(q_i)
 $$
 Remember that this means that the average time the process stays in $i$ is $\frac{1}{q_i}$.
-The rate of transition out of the state is $q_i$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+The rate of transition out of the state is $q_i$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We can have $q_i = 0$, meaning that the state $i$ is absorbing,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We can have $q_i = 0$, meaning that the state $i$ is absorbing,
 $$
 P(T_i > s) = 1.
-$$</p></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
 </details>
 <h3 id="the-embedded-markov-chain">The Embedded Markov Chain</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Embedded Markov Chain<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We can define a new stochastic process by listing the states the chain visits.
-This will be a discrete time Markov chain called the embedded Markov chain with transition matrix $\tilde{P}$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We can define a new stochastic process by listing the states the chain visits.
+This will be a discrete time Markov chain called the embedded Markov chain with transition matrix $\tilde{P}$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The transition matrix $\tilde{P}$ has zeros along its diagonal! Why?
-Because the process cannot stay in the same state when it makes a transition.</p><p>Further, note that the continuous-time Markov chain is completely determined by the expected holding times $(\frac{1}{q_1}, \ldots, \frac{1}{q_k})$ and the transition matrix of the embedded Markov chain $\tilde{P}$.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The transition matrix $\tilde{P}$ has zeros along its diagonal! Why?
+Because the process cannot stay in the same state when it makes a transition.</p>
+<p>Further, note that the continuous-time Markov chain is completely determined by the expected holding times $(\frac{1}{q_1}, \ldots, \frac{1}{q_k})$ and the transition matrix of the embedded Markov chain $\tilde{P}$.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Constructing a Continuous-Time Markov Chain<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A way to describe a continuous-time Markov chain is to describe $k \times (k - 1)$ independent “alarm clocks”.</p><p>For states $i$ and $j$ so that $i \neq j$, let $q_{ij}$ be the parameter of an Exponentially distributed random variable representing the time until an “alarm clock” rings.</p><p>When in state $i$, wait until the first alarm clock $q_i$ rings, then move to the state given by the index $j$ of that alarm clock.
-This defines a continuous-time Markov chain.</p><p>The time until the first alarm clock $q_i$ rings is Exponentially distributed with parameter given by,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A way to describe a continuous-time Markov chain is to describe $k \times (k - 1)$ independent “alarm clocks”.</p>
+<p>For states $i$ and $j$ so that $i \neq j$, let $q_{ij}$ be the parameter of an Exponentially distributed random variable representing the time until an “alarm clock” rings.</p>
+<p>When in state $i$, wait until the first alarm clock $q_i$ rings, then move to the state given by the index $j$ of that alarm clock.
+This defines a continuous-time Markov chain.</p>
+<p>The time until the first alarm clock $q_i$ rings is Exponentially distributed with parameter given by,
 $$
 q_i = q_{i1} + q_{i2} + \ldots + q_{i, i - 1} + q_{i, i + 1} + \ldots + q_{ik}.
 $$
-i.e., the parameter of the holding time distribution at $i$.</p><p>The chain is completely described by the rates $q_{ij}$.</p><p>Further, we saw also that the chain is completely described by the $p_{ij}$ and the $q_i$.
+i.e., the parameter of the holding time distribution at $i$.</p>
+<p>The chain is completely described by the rates $q_{ij}$.</p>
+<p>Further, we saw also that the chain is completely described by the $p_{ij}$ and the $q_i$.
 The relationship is described by the equation above, and,
 $$
 p_{ij} = \frac{q_{ij}}{q_{i1} + q_{i2} + \ldots + q_{i, i - 1} + q_{i, i + 1} + \ldots + q_{ik}} = \frac{q_{ij}}{q_i}.
 $$
-for $i \neq j$.</p></div>
+for $i \neq j$.</p>
+</div>
 </details>
 <h3 id="relationship-between-pt-and-q">Relationship Between $P(t)$ and $Q$</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Infinitesimal Generator Matrix<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>To relate $P(t)$ to the $q_{ij}$‘s, we first relate them to $P^{\prime}(0)$.</p><p>Assuming $P(t)$ is differentiable, we can show that,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>To relate $P(t)$ to the $q_{ij}$‘s, we first relate them to $P^{\prime}(0)$.</p>
+<p>Assuming $P(t)$ is differentiable, we can show that,
 $$
 P^{\prime}(0) =
 \begin{bmatrix}
@@ -227,9 +256,11 @@ q_{21} &#x26; -q_2 &#x26; q_{23} &#x26; \ldots &#x26; q_{2k} \newline
 \vdots &#x26; \vdots &#x26; \vdots &#x26; \ddots &#x26; \vdots \newline
 q_{k1} &#x26; q_{k2} &#x26; q_{k3} &#x26; \ldots &#x26; -q_k \newline
 \end{bmatrix} = Q,
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Lazy “proof”<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Firstly, let’s show that $Q_{12} = P^{\prime}(0)_{12} = q_{12}$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Firstly, let’s show that $Q_{12} = P^{\prime}(0)_{12} = q_{12}$.
 $$
 \begin{align*}
 Q_{12} &#x26; = \lim_{h \to 0} \frac{P(X_h = 2 \mid X_0 = 1)}{h} \newline
@@ -249,13 +280,18 @@ $$
 &#x26; \eqqcolon P^{\prime}(0)_{11} \newline
 \end{align*}
 $$
-The other elements can be shown similarly $_\blacksquare$.</p></div>
-</details><p>Note that the rows of $P^{\prime}(0)$, i.e., $Q$, sum to zero!</p></div>
+The other elements can be shown similarly $_\blacksquare$.</p>
+</div>
+</details>
+<p>Note that the rows of $P^{\prime}(0)$, i.e., $Q$, sum to zero!</p>
+</div>
 </details>
 <h3 id="kolmogorov-forward-and-backward-equations">Kolmogorov Forward and Backward Equations</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Kolmogorov Forward and Backward Equations<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Kolmogorov Forward and Backward equations describe how the transition function $P(t)$ evolves over time.</p><p>We get that for all $t \geq 0$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Kolmogorov Forward and Backward equations describe how the transition function $P(t)$ evolves over time.</p>
+<p>We get that for all $t \geq 0$,
 $$
 P^{\prime}(t) = P(t) Q = Q P(t).
 $$
@@ -266,9 +302,11 @@ P^{\prime}(t)_{ij} &#x26; = -P_{ij}(t) q_j + \sum_{k \neq j} P_{ik}(t) q_{kj} \n
 P^{\prime}(t)_{ij} &#x26; = -q_i P_{ij}(t) + \sum_{k \neq i} q_{ik} P_{kj}(t) \newline
 \end{align*}
 $$
-Thus, the above equations define a set of differential equations which the components of the matrix function $P(t)$ must satisfy.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+Thus, the above equations define a set of differential equations which the components of the matrix function $P(t)$ must satisfy.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \begin{align*}
 P^{\prime}(t) &#x26; = \lim_{h \to 0} \frac{P(t + h) - P(t)}{h} \newline
 &#x26; = \lim_{h \to 0} \frac{P(t) P(h) - P(t)}{h} \newline
@@ -278,24 +316,33 @@ P^{\prime}(t) &#x26; = \lim_{h \to 0} \frac{P(t + h) - P(t)}{h} \newline
 &#x26; = P(t) Q \ _\blacksquare
 \end{align*}
 $$
-Since we arbitrarily chose to write $P(t + h)$ as $P(t) P(h)$, we could have equally written it as $P(h) P(t)$, leading to the other equation, thus completing the proof.</p></div>
-</details></div>
+Since we arbitrarily chose to write $P(t + h)$ as $P(t) P(h)$, we could have equally written it as $P(h) P(t)$, leading to the other equation, thus completing the proof.</p>
+</div>
+</details>
+</div>
 </details>
 <h2 id="the-matrix-exponential">The Matrix Exponential</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Matrix Exponential Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The solution to the Kolmogorov Forward and Backward equations is given by the matrix exponential.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The solution to the Kolmogorov Forward and Backward equations is given by the matrix exponential.
 For any square matrix $A$ we can define the matrix exponential as,
 $$
 e^A \coloneqq \sum_{n = 0}^{\infty} \frac{1}{n!} A^n = I + A + \frac{1}{2} A^2 + \frac{1}{6} A^3 + \ldots
 $$
-The series converges for all square matrices $A$ (but we will not prove this here).</p><p>Some important properties of the matrix exponential are:</p><ul>
+The series converges for all square matrices $A$ (but we will not prove this here).</p>
+<p>Some important properties of the matrix exponential are:</p>
+<ul>
 <li>$e^0 = I$</li>
 <li>$e^A e^{-A} = I$</li>
 <li>$e^{(s + t) A} = e^{sA} e^{tA}$</li>
 <li>If $AB = BA$, then $e^{A + B} = e^A e^B = e^B e^A$</li>
 <li>$\frac{\partial}{\partial t} e^{tA} = A e^{tA} = e^{tA} A$</li>
-</ul><p>Note that $P(t) = e^{tQ}$ is the unique solution to the differential equations given by the Kolmogorov Forward and Backward equations with initial condition $P(0) = I$.</p><p>Further, note that $P^\prime(t) = Q P(t)$ for all $t \geq 0$ and $P(0) = I$.</p><p>In <code>R</code> one can use the <code>expm</code> package to compute matrix exponentials.</p></div>
+</ul>
+<p>Note that $P(t) = e^{tQ}$ is the unique solution to the differential equations given by the Kolmogorov Forward and Backward equations with initial condition $P(0) = I$.</p>
+<p>Further, note that $P^\prime(t) = Q P(t)$ for all $t \geq 0$ and $P(0) = I$.</p>
+<p>In <code>R</code> one can use the <code>expm</code> package to compute matrix exponentials.</p>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/mve550/mve550_8/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 8 - Poisson Processes II </span> </div>  </a>  <a href="/notes/master/mve550/mve550_10/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 10 - Parameter Inference for Stochastic Processes </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

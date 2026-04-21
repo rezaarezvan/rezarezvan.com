@@ -145,7 +145,9 @@ where $G_t$ is the return following time step $t$.</p>
 <p>The idea behind TD methods is to instead update our value function estimate $V(S_t)$ based on the immediate reward $R_{t + 1}$ and the estimate of the value function at the next state $V(S_{t + 1})$, why?</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We know from the Bellman equation that the value of the current state must equal the (discounted) value of the expected next state, plus reward along the way.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We know from the Bellman equation that the value of the current state must equal the (discounted) value of the expected next state, plus reward along the way.</p>
+</div>
 </details>
 <p>Thus, we can use the following update rule, called the TD(0), or one-step TD,
 $$
@@ -153,11 +155,19 @@ V(S_t) \leftarrow V(S_t) + \alpha [R_{t + 1} + \gamma V(S_{t + 1}) - V(S_t)]
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Note that the target that we aim for in the MC update is the return $G_t$, while in TD(0) it is the one-step lookahead $R_{t + 1} + \gamma V(S_{t + 1})$.</p><p>We will discuss this difference more later on.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Note that the target that we aim for in the MC update is the return $G_t$, while in TD(0) it is the one-step lookahead $R_{t + 1} + \gamma V(S_{t + 1})$.</p>
+<p>We will discuss this difference more later on.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: (Tabular) TD(0) for estimating $v_{\pi}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Input: a policy $\pi$ to be evaluated.</p><p>Algorithm parameters: step-size $\alpha \in (0, 1]$</p><p>Initialize: $V(s)$, for all $s \in \mathcal{S}^+$, arbitrarily except that $V(\text{terminal}) = 0$</p><p>Loop for each episode:</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Input: a policy $\pi$ to be evaluated.</p>
+<p>Algorithm parameters: step-size $\alpha \in (0, 1]$</p>
+<p>Initialize: $V(s)$, for all $s \in \mathcal{S}^+$, arbitrarily except that $V(\text{terminal}) = 0$</p>
+<p>Loop for each episode:</p>
+<ul>
 <li>Initialize $S$</li>
 <li>Loop for each step of episode:
 <ul>
@@ -168,15 +178,19 @@ $$</p>
 </ul>
 </li>
 <li>until $S$ is terminal</li>
-</ul></div>
+</ul>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Since the TD(0) update rule bases its update on an existing estimate $V(S_{t + 1})$, it is said to be a bootstrap method, just like DP methods (which bases their updates for $v_{k + 1}$ on $v_k$).</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Since the TD(0) update rule bases its update on an existing estimate $V(S_{t + 1})$, it is said to be a bootstrap method, just like DP methods (which bases their updates for $v_{k + 1}$ on $v_k$).</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Relationship between TD, MC, and DP<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We have previously seen that,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We have previously seen that,
 $$
 \begin{align*}
 v_{\pi}(s) &#x26; \coloneqq \mathbb{E}_{\pi}[G_t | S_t = s] \newline
@@ -184,19 +198,28 @@ v_{\pi}(s) &#x26; \coloneqq \mathbb{E}_{\pi}[G_t | S_t = s] \newline
 &#x26; = \mathbb{E}_{\pi}[R_{t + 1} + \gamma v_{\pi}(S_{t + 1}) | S_t = s] \newline
 \end{align*}
 $$
-MC methods use an estimate of the first line as a target, more specifically, a sample return is used in place of the real expected return.</p><p>DP methods use an estimate of the last line as a target, more specifically, since $v_{\pi}(S_{t + 1})$ is unknown, they use the current estimate $V(S_{t + 1})$ in its place.</p><p>Thus, TD(0) can be seen as a combination of both MC and DP methods, it samples the expected value of the last line and uses the current estimate $V(S_{t + 1})$ in place of the unknown $v_{\pi}(S_{t + 1})$.</p></div>
+MC methods use an estimate of the first line as a target, more specifically, a sample return is used in place of the real expected return.</p>
+<p>DP methods use an estimate of the last line as a target, more specifically, since $v_{\pi}(S_{t + 1})$ is unknown, they use the current estimate $V(S_{t + 1})$ in its place.</p>
+<p>Thus, TD(0) can be seen as a combination of both MC and DP methods, it samples the expected value of the last line and uses the current estimate $V(S_{t + 1})$ in place of the unknown $v_{\pi}(S_{t + 1})$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: TD Error<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The difference between the estimated value of $S_t$ and the better estimate $R_{t + 1} + \gamma V(S_{t + 1})$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The difference between the estimated value of $S_t$ and the better estimate $R_{t + 1} + \gamma V(S_{t + 1})$,
 $$
 \delta_t \coloneqq R_{t + 1} + \gamma V(S_{t + 1}) - V(S_t)
 $$
-is called the TD error in $V(S_t)$, available at time $t + 1$.</p></div>
+is called the TD error in $V(S_t)$, available at time $t + 1$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Advantages of TD Prediction<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>TD advantages over DP: Does not require a model of the environment (the dynamics $\mathcal{p}$), rewards, and next-state probability distributions.</p><p>TD advantages over MC: Is naturally implemented in an online setting, fully incremental fashion (i.e., it updates estimates based on each step of experience, without waiting for the end of the episode).</p><p>In other words, TD learns a guess ($V(S)$) from a guess ($V(S_{t + 1})$), but still converges!</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>TD advantages over DP: Does not require a model of the environment (the dynamics $\mathcal{p}$), rewards, and next-state probability distributions.</p>
+<p>TD advantages over MC: Is naturally implemented in an online setting, fully incremental fashion (i.e., it updates estimates based on each step of experience, without waiting for the end of the episode).</p>
+<p>In other words, TD learns a guess ($V(S)$) from a guess ($V(S_{t + 1})$), but still converges!</p>
+</div>
 </details>
 <h2 id="batch-updating-td">Batch Updating TD</h2>
 <p>We have seen that the TD(0) update rule can update the value function estimate immediately after each time step.
@@ -223,8 +246,11 @@ $$</p>
 <p>As in all on-policy methods, we continually estimate $q_{\pi}$ for the behavior policy $\pi$, and at the same time change $\pi$ toward greediness with respect to the current estimate of $q_{\pi}$.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: SARSA (On-Policy TD Control) for estimating $Q \approx q_{\star}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Algorithm parameters: step-size $\alpha \in (0, 1]$, small $\epsilon > 0$
-Initialize $Q(s, a)$, for all $s \in \mathcal{S}^+, a \in \mathcal{A}(s)$, arbitrarily except that $Q(\text{terminal}, \cdot) = 0$</p><p>Loop for each episode:</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Algorithm parameters: step-size $\alpha \in (0, 1]$, small $\epsilon > 0$
+Initialize $Q(s, a)$, for all $s \in \mathcal{S}^+, a \in \mathcal{A}(s)$, arbitrarily except that $Q(\text{terminal}, \cdot) = 0$</p>
+<p>Loop for each episode:</p>
+<ul>
 <li>Initialize $S$</li>
 <li>Choose $A$ from $S$ using policy derived from $Q$ (e.g., $\epsilon$-greedy)</li>
 <li>Loop for each step of episode:
@@ -236,7 +262,8 @@ Initialize $Q(s, a)$, for all $s \in \mathcal{S}^+, a \in \mathcal{A}(s)$, arbit
 </ul>
 </li>
 <li>until $S$ is terminal</li>
-</ul></div>
+</ul>
+</div>
 </details>
 <h3 id="off-policy-td-control-q-learning">Off-Policy TD Control: Q-Learning</h3>
 <p>By looking at the TD update rule for SARSA, we can see another possibility.</p>
@@ -248,9 +275,11 @@ $$</p>
 However, it is still an off-policy method, since the update is based on the greedy action at the next state $S_{t + 1}$, rather than the action actually taken $A_{t + 1}$.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Q-Learning (Off-Policy TD Control) for estimating $\pi \approx \pi_{\star}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Algorithm parameters: step-size $\alpha \in (0, 1]$, small $\epsilon > 0$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Algorithm parameters: step-size $\alpha \in (0, 1]$, small $\epsilon > 0$
 Initialize $Q(s, a)$, for all $s \in \mathcal{S}^+, a \in \mathcal{A}(s)$, arbitrarily except that $Q(\text{terminal}, \cdot) = 0$
-Loop for each episode:</p><ul>
+Loop for each episode:</p>
+<ul>
 <li>Initialize $S$</li>
 <li>Loop for each step of episode:
 <ul>
@@ -261,7 +290,8 @@ Loop for each episode:</p><ul>
 </ul>
 </li>
 <li>until $S$ is terminal</li>
-</ul></div>
+</ul>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/dat441/dat441_7/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 7 - Reinforcement Learning: Monte Carlo Methods </span> </div>  </a>  <a href="/notes/master/dat441/dat441_9/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 9 - Reinforcement Learning: Temporal-Difference Learning II </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

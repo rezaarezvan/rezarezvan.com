@@ -191,11 +191,14 @@ $$</p>
 <p>so, if you give me the data density $\pi(x(T))$, we can obtain $h(s, x)$ (or the smarter choice is $\nabla \log h(s, x)$, but we’ll come to this.)</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="message-circle" viewBox="0 0 24 24"><use href="#message-circle"></use></svg>Remark<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Note that our generative model runs <strong>forward</strong> in time here, one can also reverse the time.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Note that our generative model runs <strong>forward</strong> in time here, one can also reverse the time.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$x(t)$ is a Brownian motion,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$x(t)$ is a Brownian motion,
 $$
 dx(t) = \underbrace{0 \ dt}_{f} + \underbrace{1 \ d\beta(t)}_{L}, \quad x(0) = 0.
 $$
@@ -218,15 +221,18 @@ Which we can write as an expectation,
 $$
 = \tilde{\tilde{C}} \cdot \mathbb{E} \left[ e^{-\frac{1}{2} \frac{(x(1) - x(s))^2}{1 - s} + \frac{x(1)^2}{2}} \right].
 $$
-This is useful if we don’t have $\pi$, but have samples, $x_1 \sim \mathcal{D}$.</p></div>
+This is useful if we don’t have $\pi$, but have samples, $x_1 \sim \mathcal{D}$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If $x(t)$ is a Brownian motion and $\pi(x(T))$ is given, then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If $x(t)$ is a Brownian motion and $\pi(x(T))$ is given, then,
 $$
 \nabla \log h(x(s), s) = \ldots = \mathbb{E}_{x(T) \sim p^{x(T) | x(s)}} \left[ \frac{x(T) - x(s)}{T - s} \right],
 $$
-seems familiar? ;)</p></div>
+seems familiar? ;)</p>
+</div>
 </details>
 <h2 id="score-matching">Score Matching</h2>
 <p>Recall that the “score” is defined as,</p>
@@ -235,7 +241,8 @@ s(x(t), t) = \nabla_x \log h(x(t), t).
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If we take the integral over the $h$-transformed process,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If we take the integral over the $h$-transformed process,
 $$
 \int h(x(t), t) \ dx(t) \neq 1,
 $$
@@ -247,7 +254,8 @@ Thus, the $h$-transform is not a probability, but <strong>likelihood</strong> <s
 Which means, that if we normalize the $h$-transform, we get a probability density function,
 $$
 \frac{h(x(t), t)}{\int h(u, t) d u}.
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Score matching learns the score from (weighted) samples of,</p>
 <p>$$
@@ -312,7 +320,8 @@ C(T - t, x) &#x26; = \frac{1}{2} (L^2)^{\prime\prime}(x(t), t) - f^{\prime\prime
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For each test function $g$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For each test function $g$,
 $$
 \mathbb{E}[g(y(t) \cdot \mathfrak{y}(t)) = \int g(x) q(t, x) \ dx.
 $$
@@ -330,7 +339,8 @@ dy(t) &#x26; = d \beta(t), \quad \mathfrak{y}(t) = 1 \newline
 L^{\prime} &#x26; = L^{\prime\prime} = 0
 \end{align*}
 \end{cases}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Score matching diffusion!</p>
 <figure><img alt="Schoenmakers score matching" loading="lazy" decoding="async"  width="543" height="414" src="/_astro/schoenmakers_score_matching.Bt8Dndlc_17ILaR.svg" ><figcaption>Schoenmakers score matching</figcaption></figure>

@@ -135,7 +135,8 @@ Further, we will cover three specific algorithms that fall under this framework,
 <h2 id="feasible-descent-methods">Feasible Descent Methods</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="help-circle" viewBox="0 0 24 24"><use href="#help-circle"></use></svg>Explanation: Problem Setting<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the constrained optimization problem,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider the constrained optimization problem,
 $$
 \begin{align*}
 \min \ &#x26; f(\mathbf{x}) \newline
@@ -143,19 +144,28 @@ $$
 \end{align*}
 $$
 where $S$ is a non-empty, closed, and convex set.
-Further, let $f \in C^1$ on S.</p></div>
+Further, let $f \in C^1$ on S.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="rotate-ccw" viewBox="0 0 24 24"><use href="#rotate-ccw"></use></svg>Recall: Optimality Condition for Constrained Problems<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>All algorithms are essentially based on optimality conditions, since we need some signal to go by and these conditions also provide ideas on how we can formulate our algorithms.</p><p>Therefore, we recall the optimality condition for constrained problems.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>All algorithms are essentially based on optimality conditions, since we need some signal to go by and these conditions also provide ideas on how we can formulate our algorithms.</p>
+<p>Therefore, we recall the optimality condition for constrained problems.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Stationary Points in Constrained Problems<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $f$ and $S$ be defined as above. Then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $f$ and $S$ be defined as above. Then,
 $$
 \mathbf{x}^{\star} \text{ is a local minimum } \implies \nabla f(\mathbf{x}^{\star})^T (\mathbf{x} - \mathbf{x}^{\star}) \geq 0, \ \forall \mathbf{x} \in S
-$$</p></div>
-</details><p>Furthermore, recall the more generalized theorem about stationary points in constrained problems.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
+$$</p>
+</div>
+</details>
+<p>Furthermore, recall the more generalized theorem about stationary points in constrained problems.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Equivalent Statements of Stationary Points in Constrained Problems<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $f$ and $S$ be defined as above. Then, the following statements are equivalent,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $f$ and $S$ be defined as above. Then, the following statements are equivalent,
 $$
 \begin{cases}
 \nabla f(\mathbf{x}^{\star})^T (\mathbf{x} - \mathbf{x}^{\star}) \geq 0, \ \forall \mathbf{x} \in S \newline
@@ -164,14 +174,20 @@ $$
 \mathbf{x}^{\star} = \mathrm{proj}_S(\mathbf{x}^{\star} - \nabla f(\mathbf{x}^{\star})). \newline
 \end{cases}
 $$
-where $\mathrm{proj}_S \coloneqq \underset{\mathbf{y} \in S}{\arg\min} \ \Vert \mathbf{y} - \mathbf{x} \Vert$, i.e., we choose the point in $S$ that is closest to $\mathbf{x}$.</p></div>
-</details></div>
+where $\mathrm{proj}_S \coloneqq \underset{\mathbf{y} \in S}{\arg\min} \ \Vert \mathbf{y} - \mathbf{x} \Vert$, i.e., we choose the point in $S$ that is closest to $\mathbf{x}$.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: General Feasible Descent Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>With these, we can now formulate a general feasible descent method.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>With these, we can now formulate a general feasible descent method.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: General Feasible Descent Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Step 0: Initialize $\mathbf{x}_0 \in S$, $k = 0$ <label for="sn-1" class="sidenote-toggle sidenote-number" aria-describedby="sn-1-note">1</label><input type="checkbox" id="sn-1" class="sidenote-checkbox" aria-label="Toggle sidenote 1"><span class="sidenote" role="note" id="sn-1-note"><span class="sidenote-number-inline">1</span>How do we choose a (good) starting point? Use any a priori knowledge about the problem, or try to use some heuristic to find a feasible point!</span></p><p>Step 1: Find a direction $\mathbf{p}_k$ such that there exists an $\bar{\alpha} > 0$, such that <label for="sn-2" class="sidenote-toggle sidenote-number" aria-describedby="sn-2-note">2</label><input type="checkbox" id="sn-2" class="sidenote-checkbox" aria-label="Toggle sidenote 2"><span class="sidenote" role="note" id="sn-2-note"><span class="sidenote-number-inline">2</span>In the second condition, we do not include $\alpha = 0$ since we want a strict decrease in the objective function, otherwise it would be possible to take $\alpha = 0$ and not move at all!</span>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Step 0: Initialize $\mathbf{x}_0 \in S$, $k = 0$ <label for="sn-1" class="sidenote-toggle sidenote-number" aria-describedby="sn-1-note">1</label><input type="checkbox" id="sn-1" class="sidenote-checkbox" aria-label="Toggle sidenote 1"><span class="sidenote" role="note" id="sn-1-note"><span class="sidenote-number-inline">1</span>How do we choose a (good) starting point? Use any a priori knowledge about the problem, or try to use some heuristic to find a feasible point!</span></p>
+<p>Step 1: Find a direction $\mathbf{p}_k$ such that there exists an $\bar{\alpha} > 0$, such that <label for="sn-2" class="sidenote-toggle sidenote-number" aria-describedby="sn-2-note">2</label><input type="checkbox" id="sn-2" class="sidenote-checkbox" aria-label="Toggle sidenote 2"><span class="sidenote" role="note" id="sn-2-note"><span class="sidenote-number-inline">2</span>In the second condition, we do not include $\alpha = 0$ since we want a strict decrease in the objective function, otherwise it would be possible to take $\alpha = 0$ and not move at all!</span>
 $$
 \begin{cases}
 \mathbf{x}_k + \alpha \mathbf{p}_k \in S, \ \forall \alpha \in [0, \bar{\alpha}] \newline
@@ -184,23 +200,30 @@ $$
 \mathbf{x}_k + \alpha_k \mathbf{p}_k \in S \newline
 f(\mathbf{x}_k + \alpha_k \mathbf{p}_k) &#x3C; f(\mathbf{x}_k) \newline
 \end{cases}
-$$</p><p>Step 3: Update our current iterate,
+$$</p>
+<p>Step 3: Update our current iterate,
 $$
 \mathbf{x}_{k+1} = \mathbf{x}_k + \alpha_k \mathbf{p}_k
 $$
-Step 4: If termination criteria is fulfilled, STOP; Else, go to (1) with $k \leftarrow k + 1$.</p></div>
-</details></div>
+Step 4: If termination criteria is fulfilled, STOP; Else, go to (1) with $k \leftarrow k + 1$.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Remarks on the General Feasible Descent Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>As we can see, this is quite similar to the unconstrained setting!
-One key difference is that, search directions are often computed as $\mathbf{p}_k = \mathbf{y}_k - \mathbf{x}_k$, where $\mathbf{y}_k$ solves some other optimization problem (we will see examples of this later).</p><p>Further, line search is also similar to the unconstrained setting, but, in this setting, we need to ensure that the new iterate stays feasible.
-However, finding feasible descent directions can be difficult for some sets $S$.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>As we can see, this is quite similar to the unconstrained setting!
+One key difference is that, search directions are often computed as $\mathbf{p}_k = \mathbf{y}_k - \mathbf{x}_k$, where $\mathbf{y}_k$ solves some other optimization problem (we will see examples of this later).</p>
+<p>Further, line search is also similar to the unconstrained setting, but, in this setting, we need to ensure that the new iterate stays feasible.
+However, finding feasible descent directions can be difficult for some sets $S$.</p>
+</div>
 </details>
 <h2 id="frank-wolfe-method">Frank-Wolfe Method</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Frank-Wolfe Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $S$ be a polyhedron, from the third optimality condition, i.e.,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $S$ be a polyhedron, from the third optimality condition, i.e.,
 $$
 \mathbf{x}^{\star} \text{ is a local minimum } \implies \min_{\mathbf{x} \in S} \nabla f(\mathbf{x}^{\star})^T (\mathbf{x} - \mathbf{x}^{\star}) = 0
 $$
@@ -208,70 +231,95 @@ thus, conversely <label for="sn-3" class="sidenote-toggle sidenote-number" aria-
 $$
 \min_{\mathbf{x} \in S} \nabla f(\mathbf{x}_k)^T (\mathbf{x} - \mathbf{x}_k) &#x3C; 0 \implies \mathbf{x}_k \text{ is not a local minimum}
 $$
-This gives us an idea how to find feasible descent directions, by solving the linear optimization problem.</p><p>At $\mathbf{x}_k \in S$, if $\min_{\mathbf{x} \in S} \nabla f(\mathbf{x}_k)^T (\mathbf{x} - \mathbf{x}_k) &#x3C; 0$, find,
+This gives us an idea how to find feasible descent directions, by solving the linear optimization problem.</p>
+<p>At $\mathbf{x}_k \in S$, if $\min_{\mathbf{x} \in S} \nabla f(\mathbf{x}_k)^T (\mathbf{x} - \mathbf{x}_k) &#x3C; 0$, find,
 $$
 \mathbf{y}_k \in \underset{\mathbf{x} \in S}{\arg\min} \ \nabla f(\mathbf{x}_k)^T (\mathbf{x} - \mathbf{x}_k)
 $$
 and set $\mathbf{p}_k = \mathbf{y}_k - \mathbf{x}_k$.
-Then, $\mathbf{p}_k$ is a feasible descent direction.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+Then, $\mathbf{p}_k$ is a feasible descent direction.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The $\mathbf{y}_k$ problem is an LP, i.e., the cost is linear in $\mathbf{x}$ and the constraints are linear inequalities (since $S$ is a polyhedron).
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The $\mathbf{y}_k$ problem is an LP, i.e., the cost is linear in $\mathbf{x}$ and the constraints are linear inequalities (since $S$ is a polyhedron).
 Thus, if one uses the simplex method, $\mathbf{y}_k$ will always be an extreme point of $S$.
-Which means the direction $\mathbf{p}_k$ always points towards an extreme point of $S$.</p></div>
-</details></div>
+Which means the direction $\mathbf{p}_k$ always points towards an extreme point of $S$.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Frank-Wolfe Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Step 0: Initialize $\mathbf{x}_0 \in S$, $k = 0$</p><p>Step 1: Find,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Step 0: Initialize $\mathbf{x}_0 \in S$, $k = 0$</p>
+<p>Step 1: Find,
 $$
 \mathbf{y}_k \in \underset{\mathbf{x} \in S}{\arg\min} \ \nabla f(\mathbf{x}_k)^T (\mathbf{x} - \mathbf{x}_k)
 $$
-and set $\mathbf{p}_k = \mathbf{y}_k - \mathbf{x}_k$.</p><p>Step 2: Compute step length $\alpha_k \in [0, 1]$ <label for="sn-4" class="sidenote-toggle sidenote-number" aria-describedby="sn-4-note">4</label><input type="checkbox" id="sn-4" class="sidenote-checkbox" aria-label="Toggle sidenote 4"><span class="sidenote" role="note" id="sn-4-note"><span class="sidenote-number-inline">4</span>Why is it bounded in between 0 and 1? Since $\mathbf{y}_k \in S$ and $S$ is convex, any convex combination of $\mathbf{x}_k$ and $\mathbf{y}_k$ is also in $S$, i.e., $\mathbf{x}_k + \alpha_k (\mathbf{y}_k - \mathbf{x}_k) = (1 - \alpha_k) \mathbf{x}_k + \alpha_k \mathbf{y}_k \in S$.</span> using, e.g., Armijo step length rule.</p><p>Step 3: Update,
+and set $\mathbf{p}_k = \mathbf{y}_k - \mathbf{x}_k$.</p>
+<p>Step 2: Compute step length $\alpha_k \in [0, 1]$ <label for="sn-4" class="sidenote-toggle sidenote-number" aria-describedby="sn-4-note">4</label><input type="checkbox" id="sn-4" class="sidenote-checkbox" aria-label="Toggle sidenote 4"><span class="sidenote" role="note" id="sn-4-note"><span class="sidenote-number-inline">4</span>Why is it bounded in between 0 and 1? Since $\mathbf{y}_k \in S$ and $S$ is convex, any convex combination of $\mathbf{x}_k$ and $\mathbf{y}_k$ is also in $S$, i.e., $\mathbf{x}_k + \alpha_k (\mathbf{y}_k - \mathbf{x}_k) = (1 - \alpha_k) \mathbf{x}_k + \alpha_k \mathbf{y}_k \in S$.</span> using, e.g., Armijo step length rule.</p>
+<p>Step 3: Update,
 $$
 \begin{align*}
 \mathbf{x}_{k+1} &#x26; = \mathbf{x}_k + \alpha_k \mathbf{p}_k \newline
 &#x26; = (1 - \alpha_k) \mathbf{x}_k + \alpha_k \mathbf{y}_k \newline
 \end{align*}
-$$</p><p>Step 4: If $\nabla f(\mathbf{x}_k)^T (\mathbf{y}_k - \mathbf{x}_k)$ is close to zero or $\alpha_k$ is close to zero, STOP; Else, go to (1) with $k \leftarrow k + 1$.</p></div>
+$$</p>
+<p>Step 4: If $\nabla f(\mathbf{x}_k)^T (\mathbf{y}_k - \mathbf{x}_k)$ is close to zero or $\alpha_k$ is close to zero, STOP; Else, go to (1) with $k \leftarrow k + 1$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Convergence of Frank-Wolfe Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $S$ be a non-empty and bounded polyhedron.
-Further, let $f \in C^1$ on $S$.</p><p>If the Armijo step length rule is used, then the sequence $\{\mathbf{x}_k\}$ generated by the Frank-Wolfe method has bounded limit points and all limit points are stationary points of the problem.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $S$ be a non-empty and bounded polyhedron.
+Further, let $f \in C^1$ on $S$.</p>
+<p>If the Armijo step length rule is used, then the sequence $\{\mathbf{x}_k\}$ generated by the Frank-Wolfe method has bounded limit points and all limit points are stationary points of the problem.</p>
+</div>
 </details>
 <h2 id="simplicial-decomposition-method">Simplicial Decomposition Method</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Simplicial Decomposition Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>As we have seen, the Frank-Wolfe method finds the next iterate between our current iterate and an extreme point of $S$.</p><p>The Simplicial Decomposition method is similar, but instead of only considering the current iterate and one extreme point, we consider the convex hull of multiple extreme points.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>As we have seen, the Frank-Wolfe method finds the next iterate between our current iterate and an extreme point of $S$.</p>
+<p>The Simplicial Decomposition method is similar, but instead of only considering the current iterate and one extreme point, we consider the convex hull of multiple extreme points.
 Thus, we can find the next iterate in a larger set, which can potentially give us a better descent direction.
-Further, we can also remove extreme points that are not useful anymore.</p></div>
+Further, we can also remove extreme points that are not useful anymore.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: (Easy Version) Simplicial Decomposition Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Step 0: Initialize $\mathbf{x}_0 \in S$, $k = 0$.</p><p>Step 1: Find,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Step 0: Initialize $\mathbf{x}_0 \in S$, $k = 0$.</p>
+<p>Step 1: Find,
 $$
 \mathbf{y}_k \in \underset{\mathbf{x} \in S}{\arg\min} \ \nabla f(\mathbf{x}_k)^T (\mathbf{x} - \mathbf{x}_k)
-$$</p><p>Step 2: Find,
+$$</p>
+<p>Step 2: Find,
 $$
 \begin{align*}
 (\mu_k, \mathbf{v}_k) \in &#x26; \arg\min \ f(\mu \mathbf{x}_k + \sum_{i=1}^{k} v_i \mathbf{y}_i) \newline
 \text{subject to} \ &#x26; \mu + \sum_{i=1}^{k} v_i = 1 \newline
 &#x26; \mu, v_i \geq 0,
 \end{align*}
-$$</p><p>Step 3: Update,
+$$</p>
+<p>Step 3: Update,
 $$
 \mathbf{x}_{k+1} = \mu_k \mathbf{x}_k + \sum_{i=1}^{k} v^{(i)}_k \mathbf{y}_i
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Remarks on the Simplicial Decomposition Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Simplicial Decomposition method is better, in the sense of convergence, than the Frank-Wolfe method, since it considers a larger set to find the next iterate.
-However, it can be difficult to solve for $(\mu_k, \mathbf{v}_k)$, since the number of variables increases with $k$.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Simplicial Decomposition method is better, in the sense of convergence, than the Frank-Wolfe method, since it considers a larger set to find the next iterate.
+However, it can be difficult to solve for $(\mu_k, \mathbf{v}_k)$, since the number of variables increases with $k$.</p>
+</div>
 </details>
 <h2 id="gradient-projection-method">Gradient Projection Method</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Gradient Projection Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Gradient Projection method is based on the fourth optimality condition, i.e.,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Gradient Projection method is based on the fourth optimality condition, i.e.,
 $$
 \begin{align*}
 \mathbf{x}^{\star} \text{ is a local minimum } &#x26; \implies \mathbf{x}^{\star} = \mathrm{proj}_S(\mathbf{x}^{\star} - \nabla f(\mathbf{x}^{\star})) \newline
@@ -282,11 +330,14 @@ Thus, conversely,
 $$
 \mathbf{p} \coloneqq \mathrm{proj}_S(\mathbf{x}_k - \alpha \nabla f(\mathbf{x}_k)) - \mathbf{x}_k \neq 0 \implies \mathbf{x}_k \text{ is not a local minimum}
 $$
-This gives us a way to find feasible descent directions, by projecting the gradient step onto the feasible set.</p></div>
+This gives us a way to find feasible descent directions, by projecting the gradient step onto the feasible set.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Gradient Projection Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Step 0: Initialize $\mathbf{x}_0 \in S$, $k = 0$</p><p>Step 1: Try to update,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Step 0: Initialize $\mathbf{x}_0 \in S$, $k = 0$</p>
+<p>Step 1: Try to update,
 $$
 \mathbf{x}_{k+1} = \mathrm{proj}_S(\mathbf{x}_k - \alpha_k \nabla f(\mathbf{x}_k))
 $$
@@ -294,15 +345,19 @@ where $\alpha_k$ is selected by the Armijo step length rule, i.e.,
 $$
 f(\mathrm{proj}_S(\mathbf{x}_k - \alpha_k \nabla f(\mathbf{x}_k))) &#x3C; f(\mathbf{x}_k) - \mu \alpha_k \nabla f(\mathbf{x}_k)^T \mathbf{p}_k
 $$
-where $\mathbf{p}_k = \mathrm{proj}_S(\mathbf{x}_k - \alpha_k \nabla f(\mathbf{x}_k)) - \mathbf{x}_k$.</p><p>Step 2: If $\mathbf{p}_k$ is close to zero or $\alpha_k$ is close to zero, STOP; Else, go to (1) with $k \leftarrow k + 1$.</p></div>
+where $\mathbf{p}_k = \mathrm{proj}_S(\mathbf{x}_k - \alpha_k \nabla f(\mathbf{x}_k)) - \mathbf{x}_k$.</p>
+<p>Step 2: If $\mathbf{p}_k$ is close to zero or $\alpha_k$ is close to zero, STOP; Else, go to (1) with $k \leftarrow k + 1$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Remarks on the Gradient Projection Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>To compute $\mathrm{proj}_X(\mathbf{x})$, we must solve,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>To compute $\mathrm{proj}_X(\mathbf{x})$, we must solve,
 $$
 \underset{\mathbf{y} \in S}{\min} \ \Vert \mathbf{y} - \mathbf{x} \Vert
 $$
-The solution always exists for a non-empty, closed, and convex set $S$, but is not necessarily easy to compute.</p><p>However, projection can be (relatively) easy in some cases. Consider,
+The solution always exists for a non-empty, closed, and convex set $S$, but is not necessarily easy to compute.</p>
+<p>However, projection can be (relatively) easy in some cases. Consider,
 $$
 X = \{\mathbf{x} \in \mathbb{R}^n \mid \mathbf{x} \geq 0\}
 $$
@@ -312,21 +367,28 @@ $$
 \mathrm{proj}_X(\mathbf{x}) &#x26; = \left[\max\{0, x_i\}\right]_{i=1}^n \newline
 &#x26; = \left[(x_i)_+\right]_{i=1}^n \newline
 \end{align*}
-$$</p><p>where $(\cdot)_+$ is the positive part function, i.e., $(s)_+ = \max\{0, s\}$</p><p>Further, consider,
+$$</p>
+<p>where $(\cdot)_+$ is the positive part function, i.e., $(s)_+ = \max\{0, s\}$</p>
+<p>Further, consider,
 $$
 X = \{\mathbf{x} \in \mathbb{R}^n \mid \sum_{i=1}^n x_i = 1, \ x_i \geq 0 \}
 $$
 then,
 $$
 \mathrm{proj}_X(\mathbf{x}) = \left[(x_i - \lambda)_+\right]_{i=1}^n
-$$</p><p>where $\lambda$ is chosen such that,
+$$</p>
+<p>where $\lambda$ is chosen such that,
 $$
 \sum_{i=1}^n (x_i - \lambda)_+ = 1
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Convergence of Gradient Projection Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $S$ be a non-empty, closed, and convex set and $f \in C^1$ on $S$.</p><p>If the Armijo step length rule is used, then the sequence $\{\mathbf{x}_k\}$ generated by the Gradient Projection method has bounded limit points and all limit points are stationary points of the problem.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $S$ be a non-empty, closed, and convex set and $f \in C^1$ on $S$.</p>
+<p>If the Armijo step length rule is used, then the sequence $\{\mathbf{x}_k\}$ generated by the Gradient Projection method has bounded limit points and all limit points are stationary points of the problem.</p>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/tma947/tma947_12/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 12 - Constrained Optimization &amp; Penalty Methods </span> </div>  </a>  <a href="/notes/master/tma947/tma947_14/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 14 - Convex Optimization </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

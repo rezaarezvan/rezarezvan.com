@@ -132,18 +132,21 @@ Last modified: January 30, 2026 </div>  <div data-orientation="vertical" role="n
 <p>We will use the following notation, concepts, and conventions for this course,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-300 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-500 dark:text-teal-200" data-lucide="pen-tool" viewBox="0 0 24 24"><use href="#pen-tool"></use></svg>Notation: Notation, Concepts, and Conventions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-500 dark:text-teal-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ul>
 <li>Vectors are written with bold face, i.e., $\mathbf{x} \in \mathbb{R}^{n}$.</li>
 <li>Elements in a vector are written as $x_{j}, 1, \ldots, n$.</li>
 <li>All vectors are column vectors unless otherwise stated.</li>
 <li>The inner product of $\mathbf{a}$ and $\mathbf{b}$ is written as $\mathbf{a}^{T} \mathbf{b} = \mathbf{b}^{T} \mathbf{a} = \sum_{j=1}^n a_j b_j$.</li>
 <li>The norm $\Vert \cdot  \Vert$ denotes the Euclidean norm, i.e., $\Vert \mathbf{x} \Vert = \sqrt{\mathbf{x}^{T} \mathbf{x}} = \sqrt{\sum_{j=1}^n x^{2}_j}$.</li>
 <li>We utilize vector inequalities, $\mathbf{a} \leq \mathbf{b}$, meaning that $a_j \leq b_j, j = 1, \ldots, n$.</li>
-</ul></div>
+</ul>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-300 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-500 dark:text-teal-200" data-lucide="pen-tool" viewBox="0 0 24 24"><use href="#pen-tool"></use></svg>Notation: Notation, Concepts, and Conventions, Cont.<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-500 dark:text-teal-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ul>
 <li>For a function $f : \mathbb{R}^n \mapsto \mathbb{R}$,
 <ul>
 <li>If it is continously differentiable in a point $\mathbf{x}$, the gradient in that point is the column vector,
@@ -178,11 +181,13 @@ $$</li>
 $$
 f(\mathbf{x}) = f(\mathbf{x}_0) + \nabla f(\mathbf{x}_0)^T (\mathbf{x} - \mathbf{x}_0) + \frac{1}{2} (\mathbf{x} - \mathbf{x}_0)^T \nabla^2 f(\mathbf{x}_0) (\mathbf{x} - \mathbf{x}_0) + \mathcal{O}\left(\Vert \mathbf{x} - \mathbf{x}_0 \Vert^2\right).
 $$</li>
-</ul></div>
+</ul>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-300 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-500 dark:text-teal-200" data-lucide="pen-tool" viewBox="0 0 24 24"><use href="#pen-tool"></use></svg>Notation: Notation, Concepts, and Conventions, Cont.<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-500 dark:text-teal-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ul>
 <li>For a matrix $A \in \mathbb{R}^{n \times n}$, $\lambda \in \mathbb{R}$ is called an eigenvalue and $\mathbf{v} \in \mathbb{R}^{n} \setminus \{\mathbf{0}\}$ is called the corresponding eigenvector if $A \mathbf{v} = \lambda \mathbf{v}$.</li>
 <li>$A \in \mathbb{R}^{n \times n}$ is called symmetric if $A^{T} = A$.</li>
 <li>A symmetric matrix $A \in \mathbb{R}^{n \times n}$ is called positive semi-definite if any of the following equivalent conditions hold,
@@ -197,18 +202,22 @@ $$</li>
 <li>$\mathbf{x}^{T} A \mathbf{x} > 0$ for all $\mathbf{x} \in \mathbb{R}^{n} \setminus \{\mathbf{0}\}$.</li>
 </ul>
 </li>
-</ul></div>
+</ul>
+</div>
 </details>
 <h1 id="optimization">Optimization</h1>
 <p>Let’s first start by defining what optimization is.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Definition of Optimization<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Optimization is a mathematical discipline which is concerned with finding the maxmima or minima of functions, possibly subject to constraints.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Optimization is a mathematical discipline which is concerned with finding the maxmima or minima of functions, possibly subject to constraints.</p>
+</div>
 </details>
 <p>Which leads us to the general optimization problem definition.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: General Optimization Problem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A general optimization problem is to,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A general optimization problem is to,
 $$
 \begin{align*}
 \min_{\mathbf{x}} &#x26; \ f(\mathbf{x}), \newline
@@ -227,12 +236,14 @@ $$
 &#x26; g_i, i \in \mathcal{I} &#x26; \text{: inequality constraints, } \newline
 &#x26; g_i, i \in \mathcal{E} &#x26; \text{: equality constraints, }
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Further, we can divide the (general) optimization problem into different categories.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Categories of Optimization Problems<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ul>
 <li>Linear Programming (LP),
 <ul>
 <li>Linear objective function $f(\mathbf{x}) = \mathbf{c}^{T} \mathbf{x} = \sum_{j=1}^n c_j x_j$,</li>
@@ -269,7 +280,8 @@ $$</p></div>
 <li>$X$ is a closed convex set.</li>
 </ul>
 </li>
-</ul></div>
+</ul>
+</div>
 </details>
 <p>We will usually pack all our constraints and the ground set into a single set,</p>
 <p>$$
@@ -295,7 +307,9 @@ $$</p>
 <p>where $S^{\star} \subseteq S$ is nonempty if and only if the infimum value $f^{\star}$ is attained at some point $\mathbf{x}^{\star} \in S$.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Definition of   $\underset{\mathbf{x} \in S}{\min} \ f(\mathbf{x})$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>“to $\underset{\mathbf{x} \in S}{\min} \ f(\mathbf{x})$” means to “find $f^{\star}$ and an $\mathbf{x}^{\star} \in S^{\star}$”.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>“to $\underset{\mathbf{x} \in S}{\min} \ f(\mathbf{x})$” means to “find $f^{\star}$ and an $\mathbf{x}^{\star} \in S^{\star}$”.</p>
+</div>
 </details>
 <p>If we have an optimization problem $P$,</p>
 <p>$$
@@ -340,7 +354,9 @@ Hence, there is no minimizer, we can attain the infimum value, but not at any fe
 <p>As a first example of an (real) optimization problem, we consider the diet problem <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: The Diet Problem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For a moderately active person, how much of each of a number of foods should be eaten on a daily basis so that the person’s intake of nutrients will be at least equal to the recommended dietary allowances (RDAs), with the cost of the diet being minimal?</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For a moderately active person, how much of each of a number of foods should be eaten on a daily basis so that the person’s intake of nutrients will be at least equal to the recommended dietary allowances (RDAs), with the cost of the diet being minimal?</p>
+</div>
 </details>
 <p>This will be a good example to show how to model a real optimization problem and why a “realistic” model sometimes can be difficult to achieve.</p>
 <p>We will furthert modify the question and only consider food items from McDonald’s.

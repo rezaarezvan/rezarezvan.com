@@ -144,7 +144,8 @@ For simplicity, we have two possible rewards: 0 (electrical shock) and 1 (piece 
 <p>This is just a naïve example, we can have,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: More Examples<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ul>
 <li>News website: When a new users arrives,
 <ul>
 <li>A website picks an article header to show.</li>
@@ -166,7 +167,8 @@ For simplicity, we have two possible rewards: 0 (electrical shock) and 1 (piece 
 <li>The goal is to maximize the total return.</li>
 </ul>
 </li>
-</ul></div>
+</ul>
+</div>
 </details>
 <p>One important aspect of these problems is that the best long-term strategy may involve short-term sacrifices.
 We want to gather (enough) information to make the best overall decisions.</p>
@@ -248,16 +250,20 @@ $$</p>
 <h2 id="hoeffdings-inequality">Hoeffding’s Inequality</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Hoeffding’s Inequality<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Equation (2) holds, with $\beta = 1$, if $X_1, \ldots, X_n \in [0, 1]$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Equation (2) holds, with $\beta = 1$, if $X_1, \ldots, X_n \in [0, 1]$,
 $$
 P\left( |\bar{X}_n - \mu_n| \leq \sqrt{\frac{\alpha \log(T)}{n}}  \right) \geq 1 - 2 T^{-2\alpha}, \quad \alpha > 0.
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>The special case with $X_i \in \{0, 1\}$ is known as Chernoff Bounds</p>
 <h3 id="extensions-of-hoeffdings-inequality">Extensions of Hoeffding’s Inequality</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Extension of Hoeffding’s Inequality<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Equation (2) holds, for appropriate $\beta$, in the following cases,</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Equation (2) holds, for appropriate $\beta$, in the following cases,</p>
+<ul>
 <li>Bounded intervals,
 <ul>
 <li>$X_i \in [l_i, u_i] \quad \forall i \in [n]$ and $\beta = \frac{1}{n} \sum_{i \in [n]} (u_i - l_i)^2$.</li>
@@ -273,7 +279,8 @@ $$</p></div>
 <li>Each $X_i, i \in [n]$ is Gaussian with variance at most $\frac{\beta}{4}$.</li>
 </ul>
 </li>
-</ul></div>
+</ul>
+</div>
 </details>
 <h2 id="stochastic-bandits">Stochastic Bandits</h2>
 <p>We now will consider the basic stochastic bandits model, with the set of $K$ arms $\mathcal{A}$, with rewards being i.i.d.</p>
@@ -421,10 +428,12 @@ $$</p>
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Expected Regret of Explore-First<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For $K$-armed stochastic bandits, the expected regret of the Explore-First algorithm is
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For $K$-armed stochastic bandits, the expected regret of the Explore-First algorithm is
 $$
 \mathbb{E}[R(T)] = \mathcal{O}(T^{2/3} (K \log(T))^{1/3}).
-$$</p></div>
+$$</p>
+</div>
 </details>
 <section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
 <ol>

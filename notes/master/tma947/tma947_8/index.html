@@ -137,7 +137,8 @@ Finally, we will also (very shortly) introduce Linear Programming (LP) and prove
 <p>Recall our setup for the Lagrangian,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Lagrangian Function<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For the optimization problem <label for="sn-1" class="sidenote-toggle sidenote-number" aria-describedby="sn-1-note">1</label><input type="checkbox" id="sn-1" class="sidenote-checkbox" aria-label="Toggle sidenote 1"><span class="sidenote" role="note" id="sn-1-note"><span class="sidenote-number-inline">1</span>Note that our “base set” $\mathbf{X}$ is a set where we have “baked in” the rest of the constraints, e.g. $\mathbf{X} = \mathbb{R}^n$ or $\mathbf{X} = \mathbb{R}^n_+$.</span>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For the optimization problem <label for="sn-1" class="sidenote-toggle sidenote-number" aria-describedby="sn-1-note">1</label><input type="checkbox" id="sn-1" class="sidenote-checkbox" aria-label="Toggle sidenote 1"><span class="sidenote" role="note" id="sn-1-note"><span class="sidenote-number-inline">1</span>Note that our “base set” $\mathbf{X}$ is a set where we have “baked in” the rest of the constraints, e.g. $\mathbf{X} = \mathbb{R}^n$ or $\mathbf{X} = \mathbb{R}^n_+$.</span>
 $$
 \begin{align*}
 (P) \quad &#x26;
@@ -152,61 +153,76 @@ The Lagrangian function is defined as,
 $$
 \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}) = f(\mathbf{x}) + \sum_{i=1}^m \mu_i g_i(\mathbf{x}),
 $$
-for $\boldsymbol{\mu} \geq \mathbf{0}$.</p><p>Further,
+for $\boldsymbol{\mu} \geq \mathbf{0}$.</p>
+<p>Further,
 $$
 \begin{align*}
 \inf \ &#x26; f(\mathbf{x}) \newline
 \text{subject to} \ &#x26; x \in \mathbf{X}
 \end{align*}
 $$
-is a relaxation of the (primal) problem $(P)$ <label for="sn-2" class="sidenote-toggle sidenote-number" aria-describedby="sn-2-note">2</label><input type="checkbox" id="sn-2" class="sidenote-checkbox" aria-label="Toggle sidenote 2"><span class="sidenote" role="note" id="sn-2-note"><span class="sidenote-number-inline">2</span>This is why we have called the problems $(P)$ for primal :)</span>.</p></div>
+is a relaxation of the (primal) problem $(P)$ <label for="sn-2" class="sidenote-toggle sidenote-number" aria-describedby="sn-2-note">2</label><input type="checkbox" id="sn-2" class="sidenote-checkbox" aria-label="Toggle sidenote 2"><span class="sidenote" role="note" id="sn-2-note"><span class="sidenote-number-inline">2</span>This is why we have called the problems $(P)$ for primal :)</span>.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Not all constraints in $(P)$ are relaxed, we still have $\mathbf{x} \in \mathbf{X}$.</p><p>Further, in practice, there is no general recipe for which constraints to relax and which to keep, it depends on the problem at hand.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Not all constraints in $(P)$ are relaxed, we still have $\mathbf{x} \in \mathbf{X}$.</p>
+<p>Further, in practice, there is no general recipe for which constraints to relax and which to keep, it depends on the problem at hand.</p>
+</div>
 </details>
 <p>With our setup we can now define the Lagrangian dual function.</p>
 <h3 id="the-lagrangian-dual-function">The Lagrangian: Dual Function</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Lagrangian Dual Function<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The (Lagrangian) dual function is defined as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The (Lagrangian) dual function is defined as,
 $$
 \begin{align*}
 q(\boldsymbol{\mu}) \coloneqq \ &#x26; \inf \ \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}) \newline
 &#x26; \text{subject to} \ \mathbf{x} \in \mathbf{X}
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Weak Duality<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For any $\boldsymbol{\mu} \geq \mathbf{0}$ and any feasible $\mathbf{x}$ to $(P)$, we have,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For any $\boldsymbol{\mu} \geq \mathbf{0}$ and any feasible $\mathbf{x}$ to $(P)$, we have,
 $$
 q(\boldsymbol{\mu}) \leq f(\mathbf{x}).
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-300 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-500 dark:text-indigo-200" data-lucide="git-branch" viewBox="0 0 24 24"><use href="#git-branch"></use></svg>Corollary: Weak Duality<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-500 dark:text-indigo-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $f^{\star}$ be the optimal value of $(P)$. Then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $f^{\star}$ be the optimal value of $(P)$. Then,
 $$
 q(\boldsymbol{\mu}) \leq f^{\star}, \quad \forall \boldsymbol{\mu} \geq \mathbf{0}.
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Weak Duality<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \begin{align*}
 q(\boldsymbol{\mu}) \coloneqq \ &#x26; \inf \ f(\mathbf{z}) + \sum_{i=1}^m \mu_i g_i(\mathbf{z}) \newline
 &#x26; \text{subject to} \ \mathbf{z} \in \mathbf{X} \newline
 &#x26; \leq f(\mathbf{x}) + \underbrace{\sum_{i=1}^m \underbrace{\mu_i}_{\geq 0} \underbrace{g_i(\mathbf{x})}_{\leq 0}}_{\leq 0} \quad \text{(for any feasible } \mathbf{x} \text{ to } (P) \text{)} \newline
 &#x26; \leq f(\mathbf{x}) _\blacksquare.
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <h3 id="the-lagrangian-dual-problem">The Lagrangian: Dual Problem</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Lagrangian Dual Problem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>One can understand that the dual function $q(\boldsymbol{\mu})$ gives a lower bound on the optimal value of $(P)$ for any $\boldsymbol{\mu} \geq \mathbf{0}$.
-Thus, we can try to find the “best” lower bound by solving the dual problem, i.e., maximizing $q(\boldsymbol{\mu})$ over $\boldsymbol{\mu} \geq \mathbf{0}$,</p><p>The (Lagrangian) dual problem is defined as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>One can understand that the dual function $q(\boldsymbol{\mu})$ gives a lower bound on the optimal value of $(P)$ for any $\boldsymbol{\mu} \geq \mathbf{0}$.
+Thus, we can try to find the “best” lower bound by solving the dual problem, i.e., maximizing $q(\boldsymbol{\mu})$ over $\boldsymbol{\mu} \geq \mathbf{0}$,</p>
+<p>The (Lagrangian) dual problem is defined as,
 $$
 \begin{align*}
 (D) \quad &#x26;
@@ -215,66 +231,92 @@ $$
 \text{subject to} \ &#x26; \boldsymbol{\mu} \geq \mathbf{0}
 \end{cases}
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>From weak duality, if $q^{\star}$ is the optimal value of $(D)$, then $q^{\star} \leq f^{\star}$, i.e., the optimal value of the dual problem is a lower bound on the optimal value of the primal problem.
-This is also what we saw in the last part with the relaxtion theorem.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>From weak duality, if $q^{\star}$ is the optimal value of $(D)$, then $q^{\star} \leq f^{\star}$, i.e., the optimal value of the dual problem is a lower bound on the optimal value of the primal problem.
+This is also what we saw in the last part with the relaxtion theorem.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Convexity of the Dual Function<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The dual function $q$ is concave and its effective domain, defined as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The dual function $q$ is concave and its effective domain, defined as,
 $$
 \{\boldsymbol{\mu} \in \mathbb{R}^n \mid q(\boldsymbol{\mu}) > -\infty\},
 $$
-is a convex set. Thus $(D)$ is a convex optimization problem, even if $(P)$ is not.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+is a convex set. Thus $(D)$ is a convex optimization problem, even if $(P)$ is not.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In the dual problem, we are maximizing a concave function on a convex set, which is equivalent to minimizing a convex function on a convex set, thus $(D)$ is a convex optimization problem.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>In the dual problem, we are maximizing a concave function on a convex set, which is equivalent to minimizing a convex function on a convex set, thus $(D)$ is a convex optimization problem.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Lagrangian Multiplier<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$\boldsymbol{\mu}^{\star}$ is called a Lagrange multiplier if,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$\boldsymbol{\mu}^{\star}$ is called a Lagrange multiplier if,
 $$
 \boldsymbol{\mu}^{\star} \geq \mathbf{0} \text{ and } f^{\star} =
 \begin{align*}
 &#x26; \inf \ \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}^{\star}) \newline
 &#x26; \text{subject to} \ \mathbf{x} \in \mathbf{X}
 \end{align*}
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We can see that, if $\boldsymbol{\mu}^{\star}$ is a Lagrange multiplier, then
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We can see that, if $\boldsymbol{\mu}^{\star}$ is a Lagrange multiplier, then
 $$
 q(\boldsymbol{\mu}^{\star}) = f^{\star}
 $$
-This means that,</p><ol>
+This means that,</p>
+<ol>
 <li>$\boldsymbol{\mu}^{\star}$ solves the dual problem $(D)$, and</li>
 <li>only exists if $q^{\star} = f^{\star}$.</li>
-</ol></div>
-</details><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-red-500 dark:bg-red-950/5" open>
+</ol>
+</div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-red-500 dark:bg-red-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-red-700 dark:text-red-300" data-lucide="shield-alert" viewBox="0 0 24 24"><use href="#shield-alert"></use></svg>Danger<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-red-700 dark:text-red-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In other literature, any $\boldsymbol{\mu}^{\star} \geq \mathbf{0}$ is called a Lagrange multiplier, and the above is called an optimal Lagrange multiplier.
-Not just the optimal ones.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>In other literature, any $\boldsymbol{\mu}^{\star} \geq \mathbf{0}$ is called a Lagrange multiplier, and the above is called an optimal Lagrange multiplier.
+Not just the optimal ones.</p>
+</div>
+</details>
+</div>
 </details>
 <h2 id="global-optimality-conditions">Global Optimality Conditions</h2>
 <p>We will now connect duality to global optimality conditions.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Global Optimality Conditions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the pair of primal-dual vectors $(\mathbf{x}^{\star}, \boldsymbol{\mu}^{\star})$, $\mathbf{x}^{\star}$ is optimal to the primal problem $(P)$ and $\boldsymbol{\mu}^{\star}$ is optimal to the dual problem $(D)$, if and only if,</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider the pair of primal-dual vectors $(\mathbf{x}^{\star}, \boldsymbol{\mu}^{\star})$, $\mathbf{x}^{\star}$ is optimal to the primal problem $(P)$ and $\boldsymbol{\mu}^{\star}$ is optimal to the dual problem $(D)$, if and only if,</p>
+<ol>
 <li>$$\mathbf{x}^{\star} \in \begin{align*} &#x26; \arg \inf \ \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}^{\star}) \newline &#x26; \text{subject to} \ \mathbf{x} \in \mathbf{X} \end{align*} \ , $$</li>
 <li>$$\mathbf{x}^{\star} \in \mathbf{X}, \ g_i(\mathbf{x}^{\star}) \leq 0, \ i = 1, \ldots, m,$$</li>
 <li>$$\boldsymbol{\mu}^{\star} \geq \mathbf{0},$$</li>
 <li>$$\mu_i^{\star} g_i(\mathbf{x}^{\star}) = 0, \ i = 1, \ldots, m.$$</li>
-</ol></div>
+</ol>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Global Optimality Conditions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Firstly, let $(\mathbf{x}^{\star}, \boldsymbol{\mu}^{\star})$ satisfy the four conditions.
-The first and third condition means $\mathbf{x}^{\star}$ is a optimal solution to a relaxation.</p><p>The second condition means $\mathbf{x}^{\star}$ is feasible to $(P)$.
-Fourth condition ensures that $f(\mathbf{x}^{\star}) = f_R(\mathbf{x}^{\star}) = \mathcal{L}(\mathbf{x}^{\star}, \boldsymbol{\mu}^{\star})$.</p><p>By the relaxtion theorem, $\mathbf{x}^{\star}$ is optimal to $(P)$.
-Therefore by definition of Lagrange multiplier, $\boldsymbol{\mu}^{\star}$ is optimal to $(D)$.</p><p>Conversely, now let $\mathbf{x}^{\star}$ be optimal to $(P)$ and $\boldsymbol{\mu}^{\star}$ be a Lagrange multiplier (i.e., optimal to $(D)$).</p><p>Then, the second and third conditions hold by definition.</p><p>Further, by optimality of $\mathbf{x}^{\star}$ to $(P)$ and definition of Lagrange multiplier, we have,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Firstly, let $(\mathbf{x}^{\star}, \boldsymbol{\mu}^{\star})$ satisfy the four conditions.
+The first and third condition means $\mathbf{x}^{\star}$ is a optimal solution to a relaxation.</p>
+<p>The second condition means $\mathbf{x}^{\star}$ is feasible to $(P)$.
+Fourth condition ensures that $f(\mathbf{x}^{\star}) = f_R(\mathbf{x}^{\star}) = \mathcal{L}(\mathbf{x}^{\star}, \boldsymbol{\mu}^{\star})$.</p>
+<p>By the relaxtion theorem, $\mathbf{x}^{\star}$ is optimal to $(P)$.
+Therefore by definition of Lagrange multiplier, $\boldsymbol{\mu}^{\star}$ is optimal to $(D)$.</p>
+<p>Conversely, now let $\mathbf{x}^{\star}$ be optimal to $(P)$ and $\boldsymbol{\mu}^{\star}$ be a Lagrange multiplier (i.e., optimal to $(D)$).</p>
+<p>Then, the second and third conditions hold by definition.</p>
+<p>Further, by optimality of $\mathbf{x}^{\star}$ to $(P)$ and definition of Lagrange multiplier, we have,
 $$
 f(\mathbf{x}) = f^{\star} = \begin{align*} &#x26; \inf \ \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}^{\star}) \newline &#x26; \text{subject to} \ \mathbf{x} \in \mathbf{X} \end{align*} \ ,
 $$
@@ -296,37 +338,45 @@ f(\mathbf{x}^{\star}) &#x26; = \mathcal{L}(\mathbf{x}^{\star}, \boldsymbol{\mu}^
 &#x26; \implies \sum_{i=1}^m \mu_i^{\star} g_i(\mathbf{x}^{\star}) = 0 \newline
 &#x26; \implies \mu_i^{\star} g_i(\mathbf{x}^{\star}) = 0, \ i = 1, \ldots, m _\blacksquare.
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If $\mathbf{X} = \mathbb{R}^n$, point one of the theorem implies that,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If $\mathbf{X} = \mathbb{R}^n$, point one of the theorem implies that,
 $$
 \begin{align*}
 \nabla_{\mathbf{x}} \mathcal{L}(\mathbf{x}^{\star}, \boldsymbol{\mu}^{\star}) &#x26; = \mathbf{0} \newline
 \nabla f(\mathbf{x}^{\star}) + \sum_{i=1}^m \mu_i^{\star} \nabla g_i(\mathbf{x}^{\star}) &#x26; = \mathbf{0}
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Global Optimality Conditions and KKT Points<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the problem,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider the problem,
 $$
 \begin{align*}
 \text{minimize} \ &#x26; x_1^2 + \frac{1}{100} x_2^2 \newline
 \text{subject to} \ &#x26; -x_1^2 - x_2^2 + 1 \leq 0
 \end{align*}
 $$
-Find points fulfilling the global optimality conditions and KKT points.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+Find points fulfilling the global optimality conditions and KKT points.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>How do we find points fulfilling the global optimality conditions?
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>How do we find points fulfilling the global optimality conditions?
 Firstly, we note that, it is only possible if $q^{\star} = f^{\star}$, in which case $\boldsymbol{\mu}^{\star}$ solves the dual problem.
-One strategy is to,</p><ol>
+One strategy is to,</p>
+<ol>
 <li>Define the Lagrangian,</li>
 <li>Derive the dual function,</li>
 <li>Solve the dual problem to get $\boldsymbol{\mu}^{\star}$,</li>
 <li>Use it to find $\mathbf{x}^{\star}$ fulfilling the global optimality conditions.</li>
-</ol><p>We form the Lagrangian,
+</ol>
+<p>We form the Lagrangian,
 $$
 \mathcal{L}(\mathbf{x}, \mu) = x_1^2 + \frac{1}{100} x_2^2 + \mu(-x_1^2 - x_2^2 + 1) = (1 - \mu)x_1^2 + \left(\frac{1}{100} - \mu\right)x_2^2 + \mu,
 $$
@@ -378,7 +428,8 @@ $$
 $$
 Thus, the points fulfilling the global optimality conditions are $\mathbf{x}^{\star} = \begin{bmatrix} 0 &#x26; \pm 1 \end{bmatrix}^T$ and $\mu^{\star} = \frac{1}{100}$ fulfill the global optimality condition fulfill the global optimality conditions.
 </p><figure><img alt="The feasible region, gradient field of the objective function, the points fulfilling the global optimality conditions and the KKT points." loading="lazy" decoding="async"  width="447" height="422" src="/_astro/example_question_regions5.ima7wJg3_25fixt.svg" ><figcaption>The feasible region, gradient field of the objective function, the points fulfilling the global optimality conditions and the KKT points.</figcaption></figure>
-From Figure 1, we can verify that the KKT points are $\begin{bmatrix} 0 &#x26; \pm 1 \end{bmatrix}^T$ and $\begin{bmatrix} \pm 1 &#x26; 0 \end{bmatrix}^T$.<p></p><p>However, the KKT points $\begin{bmatrix} \pm 1 &#x26; 0 \end{bmatrix}^T$ do not fulfill the global optimality conditions.
+From Figure 1, we can verify that the KKT points are $\begin{bmatrix} 0 &#x26; \pm 1 \end{bmatrix}^T$ and $\begin{bmatrix} \pm 1 &#x26; 0 \end{bmatrix}^T$.<p></p>
+<p>However, the KKT points $\begin{bmatrix} \pm 1 &#x26; 0 \end{bmatrix}^T$ do not fulfill the global optimality conditions.
 In these points we will find $\mu = 1$, and thus,
 $$
 \begin{align*}
@@ -386,19 +437,27 @@ $$
 &#x26; = \underset{\mathbf{x} \in \mathbb{R}^2}{\arg \inf} \ -\frac{99}{100} x_2^2 + 1 \newline
 &#x26; = \emptyset
 \end{align*}
-$$</p></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Strong Duality<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the primal problem $(P)$ and let $f^{\star}$ and $q^{\star}$ be the optimal values of the primal problem and the dual problem, respectively.</p><p>Further, let $f^{\star} > -\infty$ and let $f, g_i, \ i = 1, \ldots, m$ be convex functions and $\mathbf{X}$ be a convex set.</p><p>Finally, assume that, $\exists \ \mathbf{x}_0 \in \mathbf{X}$ such that, $g_i(\mathbf{x}_0) &#x3C; 0, \ i = 1, \ldots, m$ (Slater’s condition).
-Then, $f^{\star} = q^{\star}$ and there exists a Lagrange multiplier $\boldsymbol{\mu}^{\star}$.</p><p>Moreover, if $\mathbf{x}^{\star}$ is optimal to $(P)$, then $(\mathbf{x}^{\star}, \boldsymbol{\mu}^{\star})$ satisfies the global optimality conditions.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider the primal problem $(P)$ and let $f^{\star}$ and $q^{\star}$ be the optimal values of the primal problem and the dual problem, respectively.</p>
+<p>Further, let $f^{\star} > -\infty$ and let $f, g_i, \ i = 1, \ldots, m$ be convex functions and $\mathbf{X}$ be a convex set.</p>
+<p>Finally, assume that, $\exists \ \mathbf{x}_0 \in \mathbf{X}$ such that, $g_i(\mathbf{x}_0) &#x3C; 0, \ i = 1, \ldots, m$ (Slater’s condition).
+Then, $f^{\star} = q^{\star}$ and there exists a Lagrange multiplier $\boldsymbol{\mu}^{\star}$.</p>
+<p>Moreover, if $\mathbf{x}^{\star}$ is optimal to $(P)$, then $(\mathbf{x}^{\star}, \boldsymbol{\mu}^{\star})$ satisfies the global optimality conditions.</p>
+</div>
 </details>
 <h2 id="linear-programming-and-farkas-lemma">Linear Programming and Farkas’ Lemma</h2>
 <p>We will now (very shortly) introduce Linear Programming (LP) and prove Farkas’ lemma using duality.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Linear Programming<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A linear progrm (LP) on standard form is defined as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A linear progrm (LP) on standard form is defined as,
 $$
 \begin{align*}
 (P) \quad &#x26;
@@ -413,12 +472,14 @@ $$
 Thus,  the Lagrangian for a LP is,
 $$
 \mathcal{L}(\mathbf{x}, \mathbf{y}) = \mathbf{c}^T \mathbf{x} + \mathbf{y}^T (b - A \mathbf{x}).
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>With this, we can now prove Farkas’ lemma in a very elegant way using duality.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Farkas’ Lemma<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $A \in \mathbb{R}^{m \times n}$ and $\mathbf{b} \in \mathbb{R}^m$. Then, exactly one of the following systems is solvable,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $A \in \mathbb{R}^{m \times n}$ and $\mathbf{b} \in \mathbb{R}^m$. Then, exactly one of the following systems is solvable,
 $$
 \begin{cases}
 A \mathbf{x} = \mathbf{b} \newline
@@ -429,15 +490,18 @@ A \mathbf{x} = \mathbf{b} \newline
 A^T \mathbf{y} \leq 0 \newline
 \mathbf{b}^T \mathbf{y} > 0
 \end{cases}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Farkas’ Lemma<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If the first system has a solution $\mathbf{x}$, then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If the first system has a solution $\mathbf{x}$, then,
 $$
 \mathbf{b}^T \mathbf{y} = \mathbf{x}^T A^T \mathbf{y} \leq 0,
 $$
-But $\mathbf{x} \geq 0$ so $A^T \mathbf{y} \leq 0$ cannot hold, which means that the second system is infeasible.</p><p>Assume that the second system is infeasible. Consider the LP,
+But $\mathbf{x} \geq 0$ so $A^T \mathbf{y} \leq 0$ cannot hold, which means that the second system is infeasible.</p>
+<p>Assume that the second system is infeasible. Consider the LP,
 $$
 \begin{align*}
 \min \ &#x26; \mathbf{0}^T \mathbf{x} \newline
@@ -455,7 +519,8 @@ $$
 $$
 Since the second system is infeasible, $\mathbf{y} = \mathbf{0}$ is an optimal solution to the primal problem with optimal value $0$.
 Hence the Strong Duality theorem implies that there exists an optimal solution $\mathbf{x}^{\star}$ to the dual problem with optimal value $0$.
-This solution is feasible to the first system.</p><p>What we have proved above is the equivalence,
+This solution is feasible to the first system.</p>
+<p>What we have proved above is the equivalence,
 $$
 (I) \iff \neg (II)
 $$
@@ -463,7 +528,8 @@ Logically, this is equivalent to the statement that,
 $$
 \neg (I) \iff (II)
 $$
-We have hence established that precisely one of the systems is solvable. $_\blacksquare$</p></div>
+We have hence established that precisely one of the systems is solvable. $_\blacksquare$</p>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/tma947/tma947_7/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 7 - Optimality Conditions and Karush-Kuhn-Tucker Conditions II </span> </div>  </a>  <a href="/notes/master/tma947/tma947_9/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 9 - Linear Programming: Introduction </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

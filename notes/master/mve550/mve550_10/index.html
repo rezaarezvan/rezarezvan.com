@@ -136,31 +136,38 @@ Then we will look at inference for branching processes, Poisson processes, and f
 <h2 id="multinomial-dirichlet-conjugacy">Multinomial-Dirichlet Conjugacy</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Multinomial Distribution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A vector $x = (x_1, x_2, \ldots, x_k)$ of non-negative integers has a Multinomial distribution with parameters $n$ and $p$, where $n > 0$ is an integer and $p$ is a probability vector of length $k$, if $\sum_{i = 1}^k x_i = n$ and the probability mass function is given by,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A vector $x = (x_1, x_2, \ldots, x_k)$ of non-negative integers has a Multinomial distribution with parameters $n$ and $p$, where $n > 0$ is an integer and $p$ is a probability vector of length $k$, if $\sum_{i = 1}^k x_i = n$ and the probability mass function is given by,
 $$
 \pi(x \mid n, p) = \frac{n!}{x_1! x_2! \ldots x_k!} p_1^{x_1} p_2^{x_2} \ldots p_k^{x_k}.
 $$
-We write $x \sim \mathrm{Multinomial}(n, p)$.</p></div>
+We write $x \sim \mathrm{Multinomial}(n, p)$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Dirichlet Distribution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A vector $p = (p_1, p_2, \ldots, p_k)$ of non-negative real numbers satisfying $\sum_{i = 1}^k p_i = 1$ has a Dirichlet distribution with parameter vector $\alpha = (\alpha_1, \alpha_2, \ldots, \alpha_k)$, if it has probability density function,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A vector $p = (p_1, p_2, \ldots, p_k)$ of non-negative real numbers satisfying $\sum_{i = 1}^k p_i = 1$ has a Dirichlet distribution with parameter vector $\alpha = (\alpha_1, \alpha_2, \ldots, \alpha_k)$, if it has probability density function,
 $$
 \pi(p \mid \alpha) = \frac{\Gamma(\alpha_1 + \alpha_2 + \ldots + \alpha_k)}{\Gamma(\alpha_1) \Gamma(\alpha_2) \ldots \Gamma(\alpha_k)} p_1^{\alpha_1 - 1} p_2^{\alpha_2 - 1} \ldots p_k^{\alpha_k - 1},
 $$
 where $\alpha_i > 0$ for all $i = 1, 2, \ldots, k$.
-We write $p \sim \mathrm{Dirichlet}(\alpha)$.</p></div>
+We write $p \sim \mathrm{Dirichlet}(\alpha)$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Multinomial-Dirichlet Conjugacy<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $x = (x_1, x_2, \ldots, x_k)$ be a vector of counts with $x \sim \mathrm{Multinomial}(n, p)$ and prior $p \sim \mathrm{Dirichlet}(\alpha)$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $x = (x_1, x_2, \ldots, x_k)$ be a vector of counts with $x \sim \mathrm{Multinomial}(n, p)$ and prior $p \sim \mathrm{Dirichlet}(\alpha)$.
 Then the posterior distribution of $p$ given $x$ is,
 $$
 p \mid x \sim \mathrm{Dirichlet}(\alpha_1 + x_1, \alpha_2 + x_2, \ldots, \alpha_k + x_k).
 $$
-Further, if $p \sim \mathrm{Dirichlet}(\alpha)$, then $\mathbb{E}[p_i] = \frac{\alpha_i}{\sum_{j = 1}^k \alpha_j}$ for $i = 1, 2, \ldots, k$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+Further, if $p \sim \mathrm{Dirichlet}(\alpha)$, then $\mathbb{E}[p_i] = \frac{\alpha_i}{\sum_{j = 1}^k \alpha_j}$ for $i = 1, 2, \ldots, k$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Multinomial-Dirichlet Conjugacy<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $\pi(x \mid p) = \mathrm{Multinomial}(x; n, p)$ and $\pi(p) = \mathrm{Dirichlet}(p; \alpha)$, respectively.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $\pi(x \mid p) = \mathrm{Multinomial}(x; n, p)$ and $\pi(p) = \mathrm{Dirichlet}(p; \alpha)$, respectively.
 Then,
 $$
 \begin{align*}
@@ -170,10 +177,13 @@ $$
 &#x26; \propto_p p_1^{\alpha_1 + x_1 - 1} p_2^{\alpha_2 + x_2 - 1} \ldots p_k^{\alpha_k + x_k - 1} \newline
 &#x26; = \mathrm{Dirichlet}(p; \alpha_1 + x_1, \alpha_2 + x_2, \ldots, \alpha_k + x_k) \ _\blacksquare
 \end{align*}
-$$</p></div>
-</details><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+$$</p>
+</div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Expectation of Dirichlet Distribution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $p \sim \mathrm{Dirichlet}(\alpha)$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $p \sim \mathrm{Dirichlet}(\alpha)$.
 Then,
 $$
 \begin{align*}
@@ -184,12 +194,15 @@ $$
 &#x26; = \alpha_i \cdot \frac{1}{\alpha_1 + \alpha_2 + \ldots + \alpha_k} \newline
 &#x26; = \frac{\alpha_i}{\sum_{j = 1}^k \alpha_j} \ _\blacksquare
 \end{align*}
-$$</p></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Predictions for The Multinomial-Dirichlet Model<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If $p \sim \mathrm{Dirichlet}(\alpha)$ and $x \mid p \sim \mathrm{Multinomial}(n, p)$, then the predictive distribution is given by,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If $p \sim \mathrm{Dirichlet}(\alpha)$ and $x \mid p \sim \mathrm{Multinomial}(n, p)$, then the predictive distribution is given by,
 $$
 \pi(x) = \frac{n!}{x_1! x_2! \ldots x_k!} \cdot \frac{\Gamma(\alpha_1 + x_1)}{\Gamma(\alpha_1)} \cdot \frac{\Gamma(\alpha_2 + x_2)}{\Gamma(\alpha_2)} \cdots \frac{\Gamma(\alpha_k + x_k)}{\Gamma(\alpha_k)} \cdot \frac{\Gamma(\sum_{i = 1}^k \alpha_i)}{\Gamma(n + \sum_{i = 1}^k \alpha_i)}.
 $$
@@ -198,12 +211,15 @@ Further, if $x_{\text{new}}$ is a vector of new counts, then, as $p \mid x \sim 
 $$
 \pi(x_{\text{new}} = e_i \mid x) = \frac{\alpha_i + x_i}{\sum_{j = 1}^k \alpha_j + n}.
 $$
-The $\alpha_i$ in the prior are often called pseudocounts, as they can be interpreted as prior counts added to the observed counts.</p></div>
+The $\alpha_i$ in the prior are often called pseudocounts, as they can be interpreted as prior counts added to the observed counts.</p>
+</div>
 </details>
 <h2 id="hidden-markov-models-hmms">Hidden Markov Models (HMMs)</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Hidden Markov Model<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A Hidden Markov Model (HMMs) consists of:</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A Hidden Markov Model (HMMs) consists of:</p>
+<ul>
 <li>A Markov chain $X_0, \ldots, X_n, \ldots$ and,</li>
 <li>another sequence $Y_0, \ldots, Y_n, \ldots$ such that,
 $$
@@ -216,30 +232,41 @@ $$
 Generally, $Y_0, \ldots, Y_n$ are called observations and $X_0, \ldots, X_n$ are called hidden states.
 The $X_i$‘s represent the “underlying process” that the observed values $Y_i$‘s depend on.
 Further, generally the $X_k$ have a finite state space.</li>
-</ul></div>
+</ul>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Inference in HMMs<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>When the parameters of the HMM are known, we want to know about the values of the hidden variables $X_i$, for example,</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>When the parameters of the HMM are known, we want to know about the values of the hidden variables $X_i$, for example,</p>
+<ul>
 <li>What is the most likely sequence $X_0, X_1, \ldots, X_n$ given the data?</li>
 <li>What is the probability distribution for a single $X_i$ given the data?
 However, when the parameters of the HMM are unknown, we need to infer these from some data.</li>
-</ul><p>If data with all $X_i$ and $Y_i$ known is available, inference for parameters is based on counts of transitions.
+</ul>
+<p>If data with all $X_i$ and $Y_i$ known is available, inference for parameters is based on counts of transitions.
 The inference for the Markov chain is exactly as for the Markov chains we have looked at before.
-The inference for the emission probabilities, i.e., the parameters of $P(Y_k \mid X_k)$, can be done independently of the inference for the Markov chain.</p></div>
+The inference for the emission probabilities, i.e., the parameters of $P(Y_k \mid X_k)$, can be done independently of the inference for the Markov chain.</p>
+</div>
 </details>
 <h2 id="bayesian-inference-for-branching-processes">Bayesian Inference for Branching Processes</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Bayesian Inference for Galton-Watson Branching Processes<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Say you have observed some data, and you want to find a Galton-Watson branching process that appropriately models the data, to then make predictions about future observations.</p><p>Recall that a branching process is characterized by the probability vector $a = (a_0, a_1, a_2, \ldots)$, where $a_i$ is the probability for $i$ offspring in the offspring process.</p><p>Let $y_1, y_2, \ldots, y_n$ be the counts of offspring in $n$ observations of the offspring process. If $a$ is given, we have the likelihood,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Say you have observed some data, and you want to find a Galton-Watson branching process that appropriately models the data, to then make predictions about future observations.</p>
+<p>Recall that a branching process is characterized by the probability vector $a = (a_0, a_1, a_2, \ldots)$, where $a_i$ is the probability for $i$ offspring in the offspring process.</p>
+<p>Let $y_1, y_2, \ldots, y_n$ be the counts of offspring in $n$ observations of the offspring process. If $a$ is given, we have the likelihood,
 $$
 \pi(y_1, y_2, \ldots, y_n \mid a) \coloneqq \prod_{i = 1}^n a_{y_i}.
 $$
-Thus, to complete the model, we need a prior on $a$.</p><p>Since $a$ has an infinite length, and we have a finite number of observations, we need to put information from the context into the prior, to get a sensible posterior.</p></div>
+Thus, to complete the model, we need a prior on $a$.</p>
+<p>Since $a$ has an infinite length, and we have a finite number of observations, we need to put information from the context into the prior, to get a sensible posterior.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Using a Binomial Likelihood<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Assume the offspring process is $\mathrm{Binomial}(N, p)$ for some parameter $p$ and a fixed (known) $N$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Assume the offspring process is $\mathrm{Binomial}(N, p)$ for some parameter $p$ and a fixed (known) $N$.
 By definition, we get the likelihood,
 $$
 \pi(y_1, y_2, \ldots, y_n \mid p) \coloneqq \prod_{i = 1}^n \mathrm{Binomial}(y_i; N, p)
@@ -248,56 +275,73 @@ A possibility is to use a prior $p \sim \mathrm{Beta}(\alpha, \beta)$. Writing $
 $$
 p \mid \mathcal{D} \sim \mathrm{Beta}(\alpha + S, \beta + nN - S).
 $$
-where $\mathcal{D} = {y_1, y_2, \ldots, y_n}$ is the data.</p><p>More generally, if $\pi(p) = f(p)$ for any positive function integrating to 1 on $[0, 1]$, we get the posterior,
+where $\mathcal{D} = {y_1, y_2, \ldots, y_n}$ is the data.</p>
+<p>More generally, if $\pi(p) = f(p)$ for any positive function integrating to 1 on $[0, 1]$, we get the posterior,
 $$
 \pi(p \mid \mathcal{D}) \propto_p \mathrm{Beta}(p; S + 1, nN - S + 1) f(p).
 $$
 We can then for example compute numerically the posterior probability that the branching process is supercritical, i.e., that $P(p > \frac{1}{N} \mid \mathcal{D})$, with,
 $$
 \int_{\frac{1}{N}}^1 \pi(p \mid \mathcal{D}) \ dp = \frac{\int_{\frac{1}{N}}^1 \mathrm{Beta}(p; S + 1, nN - S + 1) f(p) \ dp}{\int_0^1 \mathrm{Beta}(p; S + 1, nN - S + 1) f(p) \ dp}.
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Using a Multinomial Likelihood<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Assume there is a maximum of $N$ offspring and that now $p = (p_0, p_1, \ldots, p_N)$ is an (unknown) probability vector such that $p_i$ is the probability of $i$ offspring.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Assume there is a maximum of $N$ offspring and that now $p = (p_0, p_1, \ldots, p_N)$ is an (unknown) probability vector such that $p_i$ is the probability of $i$ offspring.
 By definition, we get the likelihood,
 $$
 \pi(y_1, y_2, \ldots, y_n \mid p) \coloneqq \mathrm{Multinomial}(c; p),
 $$
-where $c = (c_0, c_1, \ldots, c_N)$ is the vector of counts in the data of cases with $0, \ldots, N$ offspring, respectively.</p><p>If we use a prior $p \sim \mathrm{Dirichlet}(\alpha)$, where $\alpha = (\alpha_0, \alpha_1, \ldots, \alpha_N)$ is a vector of pseudocounts, we get the posterior,
+where $c = (c_0, c_1, \ldots, c_N)$ is the vector of counts in the data of cases with $0, \ldots, N$ offspring, respectively.</p>
+<p>If we use a prior $p \sim \mathrm{Dirichlet}(\alpha)$, where $\alpha = (\alpha_0, \alpha_1, \ldots, \alpha_N)$ is a vector of pseudocounts, we get the posterior,
 $$
 p \mid \mathcal{D} \sim \mathrm{Dirichlet}(\alpha + c),
 $$
 with expecation,
 $$
 \mathbb{E}[p_i \mid \mathcal{D}] = \frac{\alpha_i + c_i}{\sum_{j = 0}^N (\alpha_j + c_j)}.
-$$</p></div>
+$$</p>
+</div>
 </details>
 <h2 id="bayesian-inference-for-poisson-processes">Bayesian Inference for Poisson Processes</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Bayesian Inference for Poisson Processes<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For a homogeneous Poisson process, we setup up a prior $\pi(\lambda)$ for its parameter $\lambda$, and find the posterior given the observations.</p><p>The likelihood for observing $y$ events in an interval of length $t$ is given by,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For a homogeneous Poisson process, we setup up a prior $\pi(\lambda)$ for its parameter $\lambda$, and find the posterior given the observations.</p>
+<p>The likelihood for observing $y$ events in an interval of length $t$ is given by,
 $$
 \mathrm{Poisson}(y; \lambda t) = \exp(-\lambda t) \frac{(\lambda t)^y}{y!} \propto_{\lambda} \exp(-\lambda t) \lambda^y.
 $$
-A convenient prior to use is $\lambda \sim \mathrm{Gamma}(\alpha, \beta)$.</p><p>In this case, the posterior becomes,
+A convenient prior to use is $\lambda \sim \mathrm{Gamma}(\alpha, \beta)$.</p>
+<p>In this case, the posterior becomes,
 $$
 \lambda \mid \mathcal{D} \sim \mathrm{Gamma}(\alpha + y, \beta + t),
 $$
 and the predictive distribution for the number of observations $y_n$ in a different interval of length $u$ becomes,
 $$
 \pi(y_n) = \mathrm{Negative-Binomial}\left(y_n; \alpha, \frac{\beta}{\beta + u}\right).
-$$</p></div>
+$$</p>
+</div>
 </details>
 <h2 id="bayesian-inference-for-continuous-time-markov-chains">Bayesian Inference for Continuous-Time Markov Chains</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Bayesian Inference for Continuous-Time Markov Chains<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Lastyl, recall that a continuous-time Markov chain with finite state space is completely characterized by its holding times parameter vector $q$ and the transition matrix $\tilde{P}$ of its embedded Markov chain.</p><p>Parametrizing instead with the “alarm clock” parameters $q_{ij}$ gives an equivalent description of the process.</p><p>The two parts of the data can be considered independently are,</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Lastyl, recall that a continuous-time Markov chain with finite state space is completely characterized by its holding times parameter vector $q$ and the transition matrix $\tilde{P}$ of its embedded Markov chain.</p>
+<p>Parametrizing instead with the “alarm clock” parameters $q_{ij}$ gives an equivalent description of the process.</p>
+<p>The two parts of the data can be considered independently are,</p>
+<ul>
 <li>We learn about $\tilde{P}$ from the counts of transitions between states, and</li>
 <li>We learn about $q$ from the observed lengths of stays the process has in each state.</li>
-</ul><p>For $\tilde{P}$ the situation is analogous to the one for discrete-time Markov chains, except that the diagonal of $\tilde{P}$ must be zero, so the prior must exclude the possibility of non-zero diagonal elements.</p><p>For example, for $\tilde{P}_1$, the first row of $\tilde{P}$, we might use the prior $\mathrm{Dirichlet}(0, 1, \ldots, 1)$, i.e., a Dirichlet prior with a zero pseudocount for the first element.</p><p>The holding times in state $i$ are distributed as $\mathrm{Exponential}(q_i)$.
+</ul>
+<p>For $\tilde{P}$ the situation is analogous to the one for discrete-time Markov chains, except that the diagonal of $\tilde{P}$ must be zero, so the prior must exclude the possibility of non-zero diagonal elements.</p>
+<p>For example, for $\tilde{P}_1$, the first row of $\tilde{P}$, we might use the prior $\mathrm{Dirichlet}(0, 1, \ldots, 1)$, i.e., a Dirichlet prior with a zero pseudocount for the first element.</p>
+<p>The holding times in state $i$ are distributed as $\mathrm{Exponential}(q_i)$.
 If we have observed a total holding time of $h$ over $n$ intervals, that data has likelihood proportional to $e^{-hq_i}q_i^n$.
-Using $q_i \sim \mathrm{Gamma}(\alpha, \beta)$ as prior results in the posterior $q_i \mid \mathcal{D} \sim \mathrm{Gamma}(\alpha + n, \beta + h)$.</p></div>
+Using $q_i \sim \mathrm{Gamma}(\alpha, \beta)$ as prior results in the posterior $q_i \mid \mathcal{D} \sim \mathrm{Gamma}(\alpha + n, \beta + h)$.</p>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/mve550/mve550_9/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 9 - Continuous-Time Markov Chains I </span> </div>  </a>  <a href="/notes/master/mve550/mve550_11/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 11 - Continuous-Time Markov Chains II </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

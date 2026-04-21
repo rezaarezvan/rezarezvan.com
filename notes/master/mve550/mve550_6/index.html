@@ -133,21 +133,28 @@ Last modified: January 30, 2026 </div>  <div data-orientation="vertical" role="n
 <h2 id="discrete-time-markov-chains-with-continuous-state-space">Discrete-Time Markov Chains with Continuous State Space</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Discrete-Time Markov Chains with Continuous State Space<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Our so far basic definitions are the same. $\{X_i\}_{i = 0, 1, \ldots}$ is a set of continuous random satisfying the Markov property,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Our so far basic definitions are the same. $\{X_i\}_{i = 0, 1, \ldots}$ is a set of continuous random satisfying the Markov property,
 $$
 \pi(X_{n + 1} \mid X_0, X_1, \ldots, X_n) = \pi(X_{n + 1} \mid X_n)
 $$
-for all $n$.</p><p>The limiting distribution has the same definition. A stationary distribution is a density $f(x)$ satisfying,
+for all $n$.</p>
+<p>The limiting distribution has the same definition. A stationary distribution is a density $f(x)$ satisfying,
 $$
 f(x_{n + 1}) = \int \pi(x_{n + 1} \mid x_n) f(x_n) \ dx_n.
 $$
-Ergodicity still means (with adjusted definitions) that the Markov chain is irreducible, aperiodic, and positive recurrent.</p><p>Ergodic Markov chains have a unique limiting distribution; Theorem same as before.</p><p>The Strong Law of Large Numbers for Markov Chains also holds in this setting.
-Lastly, the theory for Metropolis-Hastings is also OK (although, some technical complications in the proof arise).</p></div>
+Ergodicity still means (with adjusted definitions) that the Markov chain is irreducible, aperiodic, and positive recurrent.</p>
+<p>Ergodic Markov chains have a unique limiting distribution; Theorem same as before.</p>
+<p>The Strong Law of Large Numbers for Markov Chains also holds in this setting.
+Lastly, the theory for Metropolis-Hastings is also OK (although, some technical complications in the proof arise).</p>
+</div>
 </details>
 <h3 id="bayesian-inference">Bayesian Inference</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: MCMC for Bayesian Inference<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider that we have some data $y_1, \ldots, y_n$, and we want to make a probability prediction for $y_{\text{new}}$.</p><p>We (often) define a parameter $\theta$, and a probabilistic model so that $y_1, \ldots, y_n, y_{\text{new}}$ are all conditionally independent given $\theta$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider that we have some data $y_1, \ldots, y_n$, and we want to make a probability prediction for $y_{\text{new}}$.</p>
+<p>We (often) define a parameter $\theta$, and a probabilistic model so that $y_1, \ldots, y_n, y_{\text{new}}$ are all conditionally independent given $\theta$,
 $$
 \pi(y_1, \ldots, y_n, y_{\text{new}}, \theta) = \left[\prod_{i=1}^{n} \pi(y_i \mid \theta) \right] \pi(y_{\text{new} \mid \theta} \pi(\theta).
 $$
@@ -158,29 +165,34 @@ $$
 &#x26; = \mathbb{E}_{\theta \mid y_1, \ldots, y_n}[\pi(y_{\text{new}} \mid \theta)] \newline
 \end{align*}
 $$
-Using strong law of large numbers, we can make predictions by,</p><ul>
+Using strong law of large numbers, we can make predictions by,</p>
+<ul>
 <li>Simulating $\theta_1, \ldots, \theta_k$ from the posterior $\pi(\theta \mid y_1, \ldots, y_n)$.</li>
 <li>Averaging,
 $$
 \mathbb{E}_{\theta \mid y_1, \ldots, y_n}[\pi(y_{\text{new}} \mid \theta)] \approx \frac{1}{k} \sum_{i = 1}^{k} \pi(y_{\text{new}} \mid \theta_i)
 $$
 However, simulating from the posterior is often difficult. MCMC can help us here by simulating from a Markov chain having the posterior as its limiting distribution.</li>
-</ul><p>By the strong law of large numbers for Markov chains, we still have (as $k \to \infty$),
+</ul>
+<p>By the strong law of large numbers for Markov chains, we still have (as $k \to \infty$),
 $$
 \mathbb{E}_{\theta \mid y_1, \ldots, y_n}[\pi(y_{\text{new}} \mid \theta)] = \lim_{k \to \infty} \frac{1}{k} \sum_{i = 1}^{k} \pi(y_{\text{new}} \mid \theta_i)
 $$
-when $\theta_1, \ldots, \theta_k$ is a realization from a Markov chain with the posterior $\pi(\theta \mid y_1, \ldots, y_n)$ as its limiting distribution.</p><p>As $\pi(\theta \mid y_1, \ldots, y_n) \propto \prod_{i = 1}^{n} \pi(y_i \mid \theta) \pi(\theta)$, we can use Metropolis-Hastings with some proposal distribution $q(\theta^{\star} \mid \theta)$ and acceptance probability,
+when $\theta_1, \ldots, \theta_k$ is a realization from a Markov chain with the posterior $\pi(\theta \mid y_1, \ldots, y_n)$ as its limiting distribution.</p>
+<p>As $\pi(\theta \mid y_1, \ldots, y_n) \propto \prod_{i = 1}^{n} \pi(y_i \mid \theta) \pi(\theta)$, we can use Metropolis-Hastings with some proposal distribution $q(\theta^{\star} \mid \theta)$ and acceptance probability,
 $$
 a = \min\left(1, \frac{\pi(\theta^{\star} \mid y_1, \ldots, y_n) q(\theta \mid \theta^{\star})}{\pi(\theta \mid y_1, \ldots, y_n) q(\theta^{\star} \mid \theta)}\right)
 $$
 To avoid underflow we generate $U \sim \mathrm{Uniform}(0, 1)$ and accept if,
 $$
 U > \exp\left(\sum_{i = 1}^{n} \left(\log \pi(y_i \mid \theta^{\star}) - \log \pi(y_i \mid \theta) \right) + \log \pi(\theta^{\star}) - \log \pi(\theta) + \log q(\theta \mid \theta^{\star}) - \log q(\theta^{\star} \mid \theta)\right)
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Toy Example<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the following,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider the following,
 $$
 \begin{align*}
 y \mid p &#x26; \sim \mathrm{Binomial}(n = 17, p) \newline
@@ -188,7 +200,8 @@ p &#x26; \sim \mathrm{Beta}(\alpha = 2.3, \beta = 4.1) \newline
 y_{\text{new}} \mid p &#x26; \sim \mathrm{Binomial}(n = 3, p) \newline
 \end{align*}
 $$
-We would like to compute $P(y_{\text{new}} = 1 \mid y = 4)$.</p><p>We first note that,
+We would like to compute $P(y_{\text{new}} = 1 \mid y = 4)$.</p>
+<p>We first note that,
 $$
 p \mid y \sim \mathrm{Beta}(\alpha = 2.3 + y, \beta = 4.1 + n - y)
 $$
@@ -205,7 +218,8 @@ Since $y = 4$ and $n = 17$, the posterior is $\mathrm{Beta}(6.3, 17.1)$, predict
 $$
 \binom{3}{1} \frac{B(6.3 + 1, 17.1 + 2)}{B(6.3, 17.1)} = 0.3933
 $$
-Alternatively, we can use MCMC to estimate this value.</p></div>
+Alternatively, we can use MCMC to estimate this value.</p>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/mve550/mve550_5/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 5 - Branching Processes and MCMC </span> </div>  </a>  <a href="/notes/master/mve550/mve550_7/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 7 - Poisson Processes I </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

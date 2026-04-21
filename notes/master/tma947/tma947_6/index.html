@@ -153,55 +153,72 @@ $$</p>
 <p>But, let’s firstly define the cone of descent directions and cone of feasible directions.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Cone of Descent Directions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The cone of descent directions in $\mathbf{x} \in S$ is,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The cone of descent directions in $\mathbf{x} \in S$ is,
 $$
 \overset{\circ}{F}(\mathbf{x}) \coloneqq \{ \mathbf{p} \in \mathbb{R}^n \mid \nabla f(\mathbf{x})^T \mathbf{p} &#x3C; 0 \}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Cone of Feasible Directions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $S \subseteq \mathbb{R}^n$ be a non-empty and closed set. The cone of feasible directions at $\mathbf{x} \in S$ is,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $S \subseteq \mathbb{R}^n$ be a non-empty and closed set. The cone of feasible directions at $\mathbf{x} \in S$ is,
 $$
 R_S(\mathbf{x}) \coloneqq \{ \mathbf{p} \in \mathbb{R}^n \mid \exists \delta > 0, \ \mathbf{x} + \alpha \mathbf{p} \in S, \ \forall \alpha \in [0, \delta] \}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>With these, we can rewrite our previous optimality condition as follows.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Optimality Condition using Cones<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \mathbf{x}^{\star} \text{ is a local minimum of } (P) \implies \overset{\circ}{F}(\mathbf{x}^{\star}) \cap R_S(\mathbf{x}^{\star}) = \emptyset
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Cone of Feasible Directions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $S = \{\mathbf{x} \in \mathbb{R}^2 \mid x_2 = x_1^2 \}$</p><p>We can rewrite $S$ as $S = \{\mathbf{x} \in \mathbb{R}^2 \mid -x_1^2 + x_2 = 0 \}$.</p><p>Thus, $R_S(\mathbf{x}) = \emptyset$ for all $\mathbf{x} \in S$.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $S = \{\mathbf{x} \in \mathbb{R}^2 \mid x_2 = x_1^2 \}$</p>
+<p>We can rewrite $S$ as $S = \{\mathbf{x} \in \mathbb{R}^2 \mid -x_1^2 + x_2 = 0 \}$.</p>
+<p>Thus, $R_S(\mathbf{x}) = \emptyset$ for all $\mathbf{x} \in S$.</p>
+</div>
 </details>
 <p>Now, we can introduce the tangent cone.</p>
 <h3 id="tangent-cone">Tangent Cone</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Tangent Cone<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $S \subseteq \mathbb{R}^n$. The tangent cone at $\mathbf{x} \in S$ is,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $S \subseteq \mathbb{R}^n$. The tangent cone at $\mathbf{x} \in S$ is,
 $$
 \begin{align*}
 T_S(\mathbf{x}) &#x26; \coloneqq \{ \mathbf{p} \in \mathbb{R}^n \mid \exists \{\mathbf{x}_k\}_{k=1}^{\infty} \subseteq S, \exists \{\lambda_t\}_{t=1}^{\infty} \subset (0, \infty), \newline
 &#x26; \quad \quad \text{such that} \ \lim_{t \to \infty} \mathbf{x}_t = \mathbf{x}, \ \text{and} \newline
 &#x26; \quad \quad \lim_{k \to \infty} \lambda_k (\mathbf{x}_k - \mathbf{x}) = \mathbf{p} \}
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Tangent Cone<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $S = \{\mathbf{x} \in \mathbb{R}^2 \mid x_2 = x_1^2 \}$ and consider the point $\mathbf{x} = \mathbf{0}$.</p><p>Thus, the tangent cone at $\mathbf{0}$ is,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $S = \{\mathbf{x} \in \mathbb{R}^2 \mid x_2 = x_1^2 \}$ and consider the point $\mathbf{x} = \mathbf{0}$.</p>
+<p>Thus, the tangent cone at $\mathbf{0}$ is,
 $$
 T_S(\mathbf{0}) = \{ \mathbf{p} \in \mathbb{R}^2 \mid p_2 = 0 \}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Geometric Optimality Conditions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $S \subseteq \mathbb{R}^n$ and $f \in C^1$ on $S$. Then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $S \subseteq \mathbb{R}^n$ and $f \in C^1$ on $S$. Then,
 $$
 \mathbf{x}^{\star} \text{ is a local minimum of } (P) \implies \overset{\circ}{F}(\mathbf{x}^{\star}) \cap T_S(\mathbf{x}^{\star}) = \emptyset
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>To get more useful conditions, we will need more concrete feasible regions.</p>
 <p>Consider this form of optimization problems,</p>
@@ -214,14 +231,17 @@ $$</p>
 <p>where $f, g_i \in C^1$ for $i = 1, \ldots, m$. Thus, $S = \{\mathbf{x} \in \mathbb{R}^n \mid g_i(\mathbf{x}) \leq 0, \ i = 1, \ldots, m \}$.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Active Constraints<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The set of active constraints at $\mathbf{x} \in S$ is,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The set of active constraints at $\mathbf{x} \in S$ is,
 $$
 \mathcal{I}(\mathbf{x}) \coloneqq \{ i \in \{1, \ldots, m\} \mid g_i(\mathbf{x}) = 0 \}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Active Constraints<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $g_i : \mathbb{R}^2 \to \mathbb{R}$ for $i = 1, 2, 3$ where,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $g_i : \mathbb{R}^2 \to \mathbb{R}$ for $i = 1, 2, 3$ where,
 $$
 \begin{align*}
 g_1(\mathbf{x}) &#x26; = -x_1 \newline
@@ -237,54 +257,69 @@ g_2(\bar{\mathbf{x}}) &#x26; = -0 = 0 \newline
 g_3(\bar{\mathbf{x}}) &#x26; = 1^2 + 0 - 1 = 0
 \end{align*}
 $$
-Thus, $\mathcal{I}(\bar{\mathbf{x}}) = \{2, 3\}$.</p></div>
+Thus, $\mathcal{I}(\bar{\mathbf{x}}) = \{2, 3\}$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Inner Gradient Cone<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>a
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>a
 The inner gradient cone at $\mathbf{x} \in S$ is,
 $$
 \overset{\circ}{G}(\mathbf{x}) \coloneqq \{ \mathbf{p} \in \mathbb{R}^n \mid \nabla g_i(\mathbf{x})^T \mathbf{p} &#x3C; 0, \ \forall i \in \mathcal{I}(\mathbf{x}) \}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Gradient Cone<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The gradient cone at $\mathbf{x} \in S$ is,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The gradient cone at $\mathbf{x} \in S$ is,
 $$
 G(\mathbf{x}) \coloneqq \{ \mathbf{p} \in \mathbb{R}^n \mid \nabla g_i(\mathbf{x})^T \mathbf{p} \leq 0, \ \forall i \in \mathcal{I}(\mathbf{x}) \}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The only difference between the inner gradient cone and the gradient cone is that the inequalities are strict in the inner gradient cone.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The only difference between the inner gradient cone and the gradient cone is that the inequalities are strict in the inner gradient cone.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Gradient Cone Relations<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $S \subseteq \mathbb{R}^n$ be defined as above and let $\mathbf{x} \in S$. Then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $S \subseteq \mathbb{R}^n$ be defined as above and let $\mathbf{x} \in S$. Then,
 $$
 \overset{\circ}{G}(\mathbf{x}) \subseteq R_S(\mathbf{x}) \subseteq T_S(\mathbf{x}) \subseteq G(\mathbf{x})
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-400 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-600 dark:text-indigo-300" data-lucide="puzzle" viewBox="0 0 24 24"><use href="#puzzle"></use></svg>Lemma: Optimality Condition using Gradient Cone<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-600 dark:text-indigo-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \mathbf{x}^{\star} \text{ is a local minimum of } (P) \implies \overset{\circ}{F}(\mathbf{x}^{\star}) \cap \overset{\circ}{G}(\mathbf{x}^{\star}) = \emptyset
-$$</p></div>
+$$</p>
+</div>
 </details>
 <h2 id="abadies-constraint-qualifications-and-karush-kuhn-tucker-conditions">Abadie’s Constraint Qualifications and Karush-Kuhn-Tucker Conditions</h2>
 <p>With all these definitions, we can now introduce Abadie’s constraint qualifications (and later the Karush-Kuhn-Tucker conditions).</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Abadie’s Constraint Qualifications<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Abadie’s constraint qualifications is said to hold in $\mathbf{x} \in S$ if,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Abadie’s constraint qualifications is said to hold in $\mathbf{x} \in S$ if,
 $$
 T_S(\mathbf{x}) = G(\mathbf{x})
 $$
-In other words, Abadie’s constraint qualifications holds in $\mathbf{x} \in S$ if the tangent cone and the gradient cone are equal.</p></div>
+In other words, Abadie’s constraint qualifications holds in $\mathbf{x} \in S$ if the tangent cone and the gradient cone are equal.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Gradient Cone<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $S = \{\mathbf{x} \in \mathbb{R}^2 \mid \underbrace{(x_1 - 1)^2 + x_2^2}_{g_1(\mathbf{x})} \leq 1, \ \underbrace{(x_1 + 1)^2 + x_2^2}_{g_2(\mathbf{x})} \leq 1 \}$ and consider the point $\mathbf{x} = \begin{bmatrix} 0 &#x26; 0 \end{bmatrix}^T$.
-Compute $R_S(\mathbf{x})$, $T_S(\mathbf{x})$, $\overset{\circ}{G}(\mathbf{x})$ and $G(\mathbf{x})$ and determine if Abadie’s constraint qualifications holds in $\mathbf{x}$.</p><p>Firstly, we rewrite our constraints to normal form,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $S = \{\mathbf{x} \in \mathbb{R}^2 \mid \underbrace{(x_1 - 1)^2 + x_2^2}_{g_1(\mathbf{x})} \leq 1, \ \underbrace{(x_1 + 1)^2 + x_2^2}_{g_2(\mathbf{x})} \leq 1 \}$ and consider the point $\mathbf{x} = \begin{bmatrix} 0 &#x26; 0 \end{bmatrix}^T$.
+Compute $R_S(\mathbf{x})$, $T_S(\mathbf{x})$, $\overset{\circ}{G}(\mathbf{x})$ and $G(\mathbf{x})$ and determine if Abadie’s constraint qualifications holds in $\mathbf{x}$.</p>
+<p>Firstly, we rewrite our constraints to normal form,
 $$
 \begin{align*}
 g_1(\mathbf{x}) &#x26; = (x_1 - 1)^2 + x_2^2 - 1 \leq 0 \newline
@@ -293,7 +328,10 @@ g_2(\mathbf{x}) &#x26; = (x_1 + 1)^2 + x_2^2 - 1 \leq 0
 $$
 Since we are working in $\mathbb{R}^2$, we can easily visualize the problem.
 </p><figure><img alt="Feasible Regions visualization" loading="lazy" decoding="async"  width="562" height="402" src="/_astro/example_question_regions.CNc-iDQd_1KtMVj.svg" ><figcaption>Feasible Regions visualization</figcaption></figure>
-We can see that there is only one single point that meets both constraints, which is $\mathbf{x} = \begin{bmatrix} 0 &#x26; 0 \end{bmatrix}^T$.<p></p><p>Thus, we know that there are no feasible directions, i.e., $R_S(\mathbf{x}) = \emptyset$.</p><p>Since we only have one point, the only allowed sequence that converges to $\mathbf{x}$ is the constant sequence $\mathbf{x}_k = \mathbf{x}$ for all $k$, i.e., $T_S(\mathbf{x}) = \{ \mathbf{0} \}$, the zero vector.</p><p>Now, we compute the gradients of the constraints,
+We can see that there is only one single point that meets both constraints, which is $\mathbf{x} = \begin{bmatrix} 0 &#x26; 0 \end{bmatrix}^T$.<p></p>
+<p>Thus, we know that there are no feasible directions, i.e., $R_S(\mathbf{x}) = \emptyset$.</p>
+<p>Since we only have one point, the only allowed sequence that converges to $\mathbf{x}$ is the constant sequence $\mathbf{x}_k = \mathbf{x}$ for all $k$, i.e., $T_S(\mathbf{x}) = \{ \mathbf{0} \}$, the zero vector.</p>
+<p>Now, we compute the gradients of the constraints,
 $$
 \begin{align*}
 \nabla g_1(\mathbf{x}) &#x26; = \begin{bmatrix} 2(x_1 - 1) \newline 2x_2 \end{bmatrix} = \begin{bmatrix} -2 \newline 0 \end{bmatrix} \newline
@@ -311,11 +349,13 @@ $$
 Finally, we can say that Abadie’s constraint qualifications does not hold in $\mathbf{x}$ since,
 $$
 T_S(\mathbf{x}) = \{ \mathbf{0} \} \neq \{ \mathbf{p} \in \mathbb{R}^2 \mid p_1 = 0 \} = G(\mathbf{x})
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Karush-Kuhn-Tucker (KKT) Conditions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Assume that Abadie’s constraint qualifications holds in $\mathbf{x}^{\star} \in S$. Then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Assume that Abadie’s constraint qualifications holds in $\mathbf{x}^{\star} \in S$. Then,
 $$
 \begin{align*}
 \mathbf{x}^{\star} \text{ is a local minimum of } (P) &#x26; \implies \text{The following system is solvable for } \mu, \newline
@@ -325,12 +365,14 @@ $$
 \mu_i \geq 0, \ i = 1, \ldots, m
 \end{cases}
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>To prove the KKT conditions, we will need Farkas’ lemma (which is a theorem, but for historical reasons is called a lemma).</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Farkas’ Lemma<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $A \in \mathbb{R}^{m \times n}$ and $\mathbf{b} \in \mathbb{R}^m$. Then, exactly one of the following systems is solvable,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $A \in \mathbb{R}^{m \times n}$ and $\mathbf{b} \in \mathbb{R}^m$. Then, exactly one of the following systems is solvable,
 $$
 \begin{cases}
 A \mathbf{x} = \mathbf{b} \newline
@@ -341,12 +383,14 @@ A \mathbf{x} = \mathbf{b} \newline
 A^T \mathbf{y} \leq 0 \newline
 \mathbf{b}^T \mathbf{y} > 0
 \end{cases}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>We will not prove this now, we will prove this later on, more specifically in a LP setting.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Karush-Kuhn-Tucker (KKT) Conditions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We know that,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We know that,
 $$
 \begin{align*}
 \mathbf{x}^{\star} \text{ is a local minimum of } (P) &#x26; \implies \overset{\circ}{F}(\mathbf{x}^{\star}) \cap T_S(\mathbf{x}^{\star}) = \emptyset \newline
@@ -373,11 +417,13 @@ A \mathbf{x} = \mathbf{b} \newline
 \newline
 &#x26; \text{which are precisely the KKT conditions.} \ _\blacksquare
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ul>
 <li>If $g_i(\mathbf{x}^{\star}) = 0$ (i.e., the constraint is active), then $\mu_i$ can be any non-negative value, i.e., $\mu_i \geq 0$.</li>
 <li>If $g_i(\mathbf{x}^{\star}) &#x3C; 0$ (i.e., the constraint is inactive), then $\mu_i = 0$.</li>
 <li>$-\nabla f(\mathbf{x}^{\star})$ should be a <strong>non-negative linear combination</strong> of the gradients of the active constraints $\nabla g_i(\mathbf{x}^{\star})$ for $i \in \mathcal{I}(\mathbf{x}^{\star})$.
@@ -385,15 +431,19 @@ $$</p></div>
 <li>We can interpret the above as a generalization of the normal cone, since we assumed convexity, here we do not assume convexity.</li>
 </ul>
 </li>
-</ul></div>
+</ul>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: KKT Point<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A KKT point is a point $\mathbf{x} \in S$, where the KKT system is solvable for some $\mu$.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A KKT point is a point $\mathbf{x} \in S$, where the KKT system is solvable for some $\mu$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: KKT Point<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the following optimization problem,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider the following optimization problem,
 $$
 \begin{cases}
 \min &#x26; -x_1 + x_2 \newline
@@ -401,10 +451,12 @@ $$
 &#x26; -x_2 \leq 0
 \end{cases}
 $$
-Which points are KKT points?</p><p>(a) $\mathbf{x}_1 = \begin{bmatrix} 0 &#x26; 0 \end{bmatrix}^T$ (b) $\mathbf{x}_2 = \begin{bmatrix} -1 &#x26; 0 \end{bmatrix}^T$ (c) $\mathbf{x}_3 = \begin{bmatrix} 1 &#x26; 0 \end{bmatrix}^T$
+Which points are KKT points?</p>
+<p>(a) $\mathbf{x}_1 = \begin{bmatrix} 0 &#x26; 0 \end{bmatrix}^T$ (b) $\mathbf{x}_2 = \begin{bmatrix} -1 &#x26; 0 \end{bmatrix}^T$ (c) $\mathbf{x}_3 = \begin{bmatrix} 1 &#x26; 0 \end{bmatrix}^T$
 </p><figure><img alt="The feasible region" loading="lazy" decoding="async"  width="565" height="422" src="/_astro/example_question_regions2.BP5lz1C5_mp4Ay.svg" ><figcaption>The feasible region</figcaption></figure>
 Again, since we are in $\mathbb{R}^2$, we can easily visualize the problem.
-We can see that the feasible region is the upper half of the unit circle, including the boundary.<p></p><p>The next step is to calculate the gradients of the cost and constraints,
+We can see that the feasible region is the upper half of the unit circle, including the boundary.<p></p>
+<p>The next step is to calculate the gradients of the cost and constraints,
 $$
 \begin{align*}
 \nabla f(\mathbf{x}) &#x26; = \begin{bmatrix} -1 \newline 1 \end{bmatrix} \newline
@@ -413,7 +465,11 @@ $$
 \end{align*}
 $$
 </p><figure><img alt="The feasible region and gradients of the cost and constraints" loading="lazy" decoding="async"  width="565" height="422" src="/_astro/example_question_regions3.DVln_Jso_Z2sBIfz.svg" ><figcaption>The feasible region and gradients of the cost and constraints</figcaption></figure>
-We can draw these out to get a better understanding.<p></p><p>As we stated previously, the (negative) gradient of the cost should be a non-negative linear combination of the gradients of the active constraints.</p><p>We can see that for $\mathbf{x}_2$, the negative gradient can be expressed as a linear combination, but not a non-negative linear combination, thus $\mathbf{x}_2$ is not a KKT point.</p><p>For $\mathbf{x}_1$, since only one constraint is active, we can see that the negative gradient cannot be expressed as a linear combination of the gradient of the active constraint, thus $\mathbf{x}_1$ is not a KKT point.</p><p>However, for $\mathbf{x}_3$, we can express the negative gradient as a non-negative linear combination of the gradients of the active constraints, thus $\mathbf{x}_3$ is a KKT point, or,
+We can draw these out to get a better understanding.<p></p>
+<p>As we stated previously, the (negative) gradient of the cost should be a non-negative linear combination of the gradients of the active constraints.</p>
+<p>We can see that for $\mathbf{x}_2$, the negative gradient can be expressed as a linear combination, but not a non-negative linear combination, thus $\mathbf{x}_2$ is not a KKT point.</p>
+<p>For $\mathbf{x}_1$, since only one constraint is active, we can see that the negative gradient cannot be expressed as a linear combination of the gradient of the active constraint, thus $\mathbf{x}_1$ is not a KKT point.</p>
+<p>However, for $\mathbf{x}_3$, we can express the negative gradient as a non-negative linear combination of the gradients of the active constraints, thus $\mathbf{x}_3$ is a KKT point, or,
 $$
 \begin{cases}
 \nabla f(\mathbf{x}_3) + \mu_1 \nabla g_1(\mathbf{x}_3) + \mu_2 \nabla g_2(\mathbf{x}_3) = 0 \newline
@@ -428,7 +484,8 @@ $$
 \end{cases}} \newline
 \end{cases}
 $$
-Thus, the only KKT point is $\mathbf{x}_3 = \begin{bmatrix} 1 &#x26; 0 \end{bmatrix}^T$ with multipliers $\mu_1 = \frac{1}{2}$ and $\mu_2 = 1$.</p></div>
+Thus, the only KKT point is $\mathbf{x}_3 = \begin{bmatrix} 1 &#x26; 0 \end{bmatrix}^T$ with multipliers $\mu_1 = \frac{1}{2}$ and $\mu_2 = 1$.</p>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/tma947/tma947_5/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 5 - Algorithms for Unconstrained Problems </span> </div>  </a>  <a href="/notes/master/tma947/tma947_7/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 7 - Optimality Conditions and Karush-Kuhn-Tucker Conditions II </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

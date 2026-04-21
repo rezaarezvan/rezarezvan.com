@@ -137,7 +137,8 @@ Most recently, we studied continuous-time discrete state space processes (Poisso
 <h2 id="brownian-motion">Brownian Motion</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Brownian Motion<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In a gas, atoms bump into each other and change course randomly. Over time, how does a single atom move, on average?
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>In a gas, atoms bump into each other and change course randomly. Over time, how does a single atom move, on average?
 If $f(x, t)$ represents the probability density for the position $x$ of an atom at time $t$ moving along a line, Albert Einstein showd that <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>,
 $$
 \frac{\partial f}{\partial t} = \frac{1}{2} \frac{\partial^2 f}{\partial x^2}.
@@ -146,11 +147,15 @@ Which has the solution,
 $$
 f(x, t) = \frac{1}{\sqrt{2 \pi t}} e^{-\frac{x^2}{2t}}.
 $$
-This means that the position of the atom at time $t$ is normally distributed with mean $0$ and variance $t$, i.e., $X_t \sim \mathcal{N}(0, t)$.</p><p>These random movements are called Brownian motion (or Wiener process).</p></div>
+This means that the position of the atom at time $t$ is normally distributed with mean $0$ and variance $t$, i.e., $X_t \sim \mathcal{N}(0, t)$.</p>
+<p>These random movements are called Brownian motion (or Wiener process).</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Brownian Motion<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Brownian motion is a continuous-time stochastic process $\{B_t\}_{t \geq 0}$ with the following properties:</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Brownian motion is a continuous-time stochastic process $\{B_t\}_{t \geq 0}$ with the following properties:</p>
+<ol>
 <li>
 <p>$B_0 = 0$.</p>
 </li>
@@ -166,18 +171,22 @@ This means that the position of the atom at time $t$ is normally distributed wit
 <li>
 <p>The function $t \mapsto B_t$ is continuous with probability $1$ (almost surely).</p>
 </li>
-</ol></div>
+</ol>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Simulation of Brownian Motion<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Given time points $0 \eqqcolon t_0 &#x3C; t_1 &#x3C; t_2 &#x3C; \ldots &#x3C; t_n$, we write for $i > 0$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Given time points $0 \eqqcolon t_0 &#x3C; t_1 &#x3C; t_2 &#x3C; \ldots &#x3C; t_n$, we write for $i > 0$,
 $$
 B_{t_i} = B_{t_{i - 1}} + (B_{t_i} - B_{t_{i - 1}}) = B_{t_{i - 1}} + Z_i,
 $$
-where $Z_i \sim \mathcal{N}(0, t_i - t_{i - 1})$.</p><p>Thus, we get for independent $Z_1, Z_2, \ldots, Z_n$,
+where $Z_i \sim \mathcal{N}(0, t_i - t_{i - 1})$.</p>
+<p>Thus, we get for independent $Z_1, Z_2, \ldots, Z_n$,
 $$
 B_{t_n} = \sum_{i = 1}^{n} Z_i.
-$$</p><p>This gives a simple way to simulate Brownian motion at discrete time points.
+$$</p>
+<p>This gives a simple way to simulate Brownian motion at discrete time points.
 A good way to simulate the path $t \mapsto B_t$ on $t \in [0, a]$ is to set $t_i = \frac{a_i}{n}$, simulate independently,
 $$
 Z_i \sim \mathcal{N}\left(0, \frac{a}{n}\right),
@@ -185,14 +194,19 @@ $$
 and compute,
 $$
 B_{t_i} = \sum_{j = 1}^{i} Z_j,
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We could also write $Z_i = \sqrt{\frac{a}{n}} Y_i$ where $Y_i \sim \mathcal{N}(0, 1)$ are standard normal random variables.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We could also write $Z_i = \sqrt{\frac{a}{n}} Y_i$ where $Y_i \sim \mathcal{N}(0, 1)$ are standard normal random variables.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Fractal Nature of Brownian Motion<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>What if we have a Brownian motion path simulated as above, and want to plot it at twice the detail (i.e., at $2n$ points instead of $n$)?
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>What if we have a Brownian motion path simulated as above, and want to plot it at twice the detail (i.e., at $2n$ points instead of $n$)?
 We have,
 $$
 \begin{align*}
@@ -208,15 +222,21 @@ Since we have Normal-Normal conjugacy,
 $$
 Z_{i0} \mid Z_i \sim \mathcal{N}\left(\frac{1}{2} Z_i, \frac{a}{4n}\right).
 $$
-So we get $B_{t_{i + \frac{a}{2n}}}$ by simulating $Z_{i0}$ given $Z_i$ as above and adding the result to $B_{t_i}$.</p></div>
+So we get $B_{t_{i + \frac{a}{2n}}}$ by simulating $Z_{i0}$ given $Z_i$ as above and adding the result to $B_{t_i}$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Computations with Brownian Motion<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>To compute probabilities for Brownian motions, we generally use the properties of the Normal distribution and the independent increments.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>To compute probabilities for Brownian motions, we generally use the properties of the Normal distribution and the independent increments.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Probability Computation with Brownian Motion<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Show that $B_1 + B_3 + 2 B_7 \sim \mathcal{N}(0, 50)$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Show that $B_1 + B_3 + 2 B_7 \sim \mathcal{N}(0, 50)$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We can write,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We can write,
 $$
 \begin{align*}
 B_1 + B_3 + 2 B_7 &#x26; = B_1 + (B_3 - B_1) + B_1 + 2 (B_7 - B_3) + 2 B_3 \newline
@@ -252,13 +272,19 @@ $$
 \mathrm{Var}(B_1 + B_3 + 2 B_7) &#x26; = 4^2 + 2^2 \cdot 2 + 2^2 \cdot 4 = 50. \newline
 \end{align*}
 $$
-Thus, $B_1 + B_3 + 2 B_7 \sim \mathcal{N}(0, 50)$. $_\blacksquare$</p></div>
-</details></div>
-</details><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
+Thus, $B_1 + B_3 + 2 B_7 \sim \mathcal{N}(0, 50)$. $_\blacksquare$</p>
+</div>
+</details>
+</div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Conditional Distribution with Brownian Motion<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Show that $P(B_2 > 0 \mid B_1 = 1) = 0.8413$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Show that $P(B_2 > 0 \mid B_1 = 1) = 0.8413$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We can rewrite the conditional probability as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We can rewrite the conditional probability as,
 $$
 P(B_2 - B_1 > 0 - 1 \mid B_1 = 1).
 $$
@@ -271,13 +297,19 @@ Thus, we have,
 $$
 P(B_2 - B_1 > -1) = P\left(Z > -1\right) = 0.8413,
 $$
-where $Z \sim \mathcal{N}(0, 1)$. $_\blacksquare$ (we can compute this with <code>1 - pnorm(-1, 0, 1)</code> in <code>R</code>).</p></div>
-</details></div>
-</details><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
+where $Z \sim \mathcal{N}(0, 1)$. $_\blacksquare$ (we can compute this with <code>1 - pnorm(-1, 0, 1)</code> in <code>R</code>).</p>
+</div>
+</details>
+</div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Covariance Computation with Brownian Motion<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Show that $\mathrm{Cov}(B_s, B_t) = \min(s, t)$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Show that $\mathrm{Cov}(B_s, B_t) = \min(s, t)$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Without loss of generality, assume that $s \leq t$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Without loss of generality, assume that $s \leq t$.
 We can write,
 $$
 \begin{align*}
@@ -291,37 +323,60 @@ Conversely, if $t \leq s$, we would get $\mathrm{Cov}(B_s, B_t) = t$.
 Thus, we have,
 $$
 \mathrm{Cov}(B_s, B_t) = \min(s, t) \ _\blacksquare .
-$$</p></div>
-</details></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Brownian Motion as Limit of Random Walks<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A random walk is a discrete-time Markov chain $S_0, S_1, S_2, \ldots$ where $S_0 = 0$ and,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A random walk is a discrete-time Markov chain $S_0, S_1, S_2, \ldots$ where $S_0 = 0$ and,
 $$
 S_n = Y_1 + Y_2 + \ldots + Y_n,
 $$
-and $Y_1, Y_2, \ldots$ are i.i.d. random variables. Assume $\mathbb{E}[Y_i] = 0$.</p><p>Further, if we assume $\mathrm{Var}(Y_i) = 1$, we get $\mathrm{Var}(S_n) = n$.</p><p>Interpolating between the values $S_n$ we can make this into a continuous-time process $S_t$ where $\mathrm{Var}(S_t) \approx t$.</p><p>We may scale with an $s > 0$ to get processes $S_t^{(s)} = \frac{S_{st}}{\sqrt{s}}$ where we get $\lim_{s \to \infty} \mathrm{Var}(S_t^{(s)}) = t$.</p><p>It turns out that the processes $S_t^{(s)}$ when $s \to \infty$ are exactly Brownian motion, no matter what type of $Y_i$ we start with.</p><p>This is the Donsker’s invariance principle, which is a generalization of the central limit theorem to stochastic processes <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>.</p></div>
+and $Y_1, Y_2, \ldots$ are i.i.d. random variables. Assume $\mathbb{E}[Y_i] = 0$.</p>
+<p>Further, if we assume $\mathrm{Var}(Y_i) = 1$, we get $\mathrm{Var}(S_n) = n$.</p>
+<p>Interpolating between the values $S_n$ we can make this into a continuous-time process $S_t$ where $\mathrm{Var}(S_t) \approx t$.</p>
+<p>We may scale with an $s > 0$ to get processes $S_t^{(s)} = \frac{S_{st}}{\sqrt{s}}$ where we get $\lim_{s \to \infty} \mathrm{Var}(S_t^{(s)}) = t$.</p>
+<p>It turns out that the processes $S_t^{(s)}$ when $s \to \infty$ are exactly Brownian motion, no matter what type of $Y_i$ we start with.</p>
+<p>This is the Donsker’s invariance principle, which is a generalization of the central limit theorem to stochastic processes <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>.</p>
+</div>
 </details>
 <h2 id="gaussian-processes">Gaussian Processes</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="rotate-ccw" viewBox="0 0 24 24"><use href="#rotate-ccw"></use></svg>Recall: Multivariate Normal Distribution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A set of random variables $X_1, X_2, \ldots, X_k$ has a multivariate normal distribution if, for all real $a_1, a_2, \ldots, a_k$, $a_1 X_1 + a_2 X_2 + \ldots + a_k X_k$ is normally distributed.</p><p>It is completely determined by the expectation vector $\mu = (\mathbb{E}[X_1], \mathbb{E}[X_2], \ldots, \mathbb{E}[X_k])$ and the $(k \times k)$ covariance matrix $\Sigma$ where $\Sigma_{ij} = \mathrm{Cov}(X_i, X_j)$.</p><p>The joint density function on the vector $x = (x_1, x_2, \ldots, x_k)$ is given by,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A set of random variables $X_1, X_2, \ldots, X_k$ has a multivariate normal distribution if, for all real $a_1, a_2, \ldots, a_k$, $a_1 X_1 + a_2 X_2 + \ldots + a_k X_k$ is normally distributed.</p>
+<p>It is completely determined by the expectation vector $\mu = (\mathbb{E}[X_1], \mathbb{E}[X_2], \ldots, \mathbb{E}[X_k])$ and the $(k \times k)$ covariance matrix $\Sigma$ where $\Sigma_{ij} = \mathrm{Cov}(X_i, X_j)$.</p>
+<p>The joint density function on the vector $x = (x_1, x_2, \ldots, x_k)$ is given by,
 $$
 \pi(x) = \frac{1}{|2 \pi \Sigma|^{1/2}} \exp\left(-\frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu)\right).
 $$
-where $|2 \pi \Sigma|$ is the determinant of the matrix $2 \pi \Sigma$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+where $|2 \pi \Sigma|$ is the determinant of the matrix $2 \pi \Sigma$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>All marginal distributions and all conditional distributions are also multivariate normal.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>All marginal distributions and all conditional distributions are also multivariate normal.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Gaussian Process<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A Gaussian process is a continuous-time stochastic process $\{X_t\}_{t \geq 0}$ with the property that for all $n \geq 1$ and $0 \leq t_1 &#x3C; t_2 &#x3C; \ldots &#x3C; t_n$, $X_{t_1}, X_{t_2}, \ldots, X_{t_n}$ have a multivariate normal distribution.</p><p>Thus, a Gaussian process is completely determined by its mean function $\mathbb{E}[X_t]$ and its covariance function $\mathrm{Cov}(X_s, X_t)$.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A Gaussian process is a continuous-time stochastic process $\{X_t\}_{t \geq 0}$ with the property that for all $n \geq 1$ and $0 \leq t_1 &#x3C; t_2 &#x3C; \ldots &#x3C; t_n$, $X_{t_1}, X_{t_2}, \ldots, X_{t_n}$ have a multivariate normal distribution.</p>
+<p>Thus, a Gaussian process is completely determined by its mean function $\mathbb{E}[X_t]$ and its covariance function $\mathrm{Cov}(X_s, X_t)$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Brownian Motion as a Gaussian Process<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Brownian motion is a Gaussian process, as we can show that any $a_1 B_{t_1} + a_2 B_{t_2} + \ldots + a_n B_{t_n}$ is normally distributed.</p><p>A Gaussian process $\{X_t\}_{t \geq 0}$ is a Brownian motion if and only if,</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Brownian motion is a Gaussian process, as we can show that any $a_1 B_{t_1} + a_2 B_{t_2} + \ldots + a_n B_{t_n}$ is normally distributed.</p>
+<p>A Gaussian process $\{X_t\}_{t \geq 0}$ is a Brownian motion if and only if,</p>
+<ol>
 <li>
 <p>$X_0 = 0$.</p>
 </li>
@@ -334,29 +389,42 @@ where $|2 \pi \Sigma|$ is the determinant of the matrix $2 \pi \Sigma$.</p><deta
 <li>
 <p>The function $t \mapsto X_t$ is continuous with probability $1$ (almost surely).</p>
 </li>
-</ol></div>
+</ol>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Transformations of Brownian Motion<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The following transformations of Brownian motion also yield Brownian motion:</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The following transformations of Brownian motion also yield Brownian motion:</p>
+<ul>
 <li>$\{-B_t\}_{t \geq 0}$, negating the process yields another (reflected) Brownian motion.</li>
 <li>$\{B_{t + s} - B_s\}_{t \geq 0}$ for any fixed $s \geq 0$, shifting the time origin yields another Brownian motion.</li>
 <li>$\{\frac{1}{\sqrt{a}} B_{a t}\}_{t \geq 0}$ for any fixed $a > 0$, scaling time and space yields another Brownian motion.</li>
 <li>The process $\{X_t\}_{t \geq 0}$ where $X_0 = 0$ and $X_t = t B_{\frac{1}{t}}$ for $t > 0$, time inversion yields another Brownian motion.</li>
-</ul></div>
+</ul>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Stopping Times<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We saw above that, for any fixed $t$ $(B_{t + s} - B_s)_{t \geq 0}$ is a Brownian motion.
-Does thius phenomenon also hold if we start the chain anew from $T$ when $T$ is random? It depends.</p><p>If $T$ is the largest value less than 1 where $B_T = 0$, then $(B_{T + s} - B_T)_{s \geq 0}$ is not a Brownian motion.</p><p>If $T$ is the smallest value where $B_T = a$ for some constant $a$, then $(B_{T + s} - B_T)_{s \geq 0}$ is a Brownian motion.
-The reason is that the event $T = t$ can be determined based on $B_r$ where $0 \leq r \leq t$.</p><p>Random $T$‘s that have this property are called stopping times. For these $B_{T + s} - B_T$ is a Brownian motion.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We saw above that, for any fixed $t$ $(B_{t + s} - B_s)_{t \geq 0}$ is a Brownian motion.
+Does thius phenomenon also hold if we start the chain anew from $T$ when $T$ is random? It depends.</p>
+<p>If $T$ is the largest value less than 1 where $B_T = 0$, then $(B_{T + s} - B_T)_{s \geq 0}$ is not a Brownian motion.</p>
+<p>If $T$ is the smallest value where $B_T = a$ for some constant $a$, then $(B_{T + s} - B_T)_{s \geq 0}$ is a Brownian motion.
+The reason is that the event $T = t$ can be determined based on $B_r$ where $0 \leq r \leq t$.</p>
+<p>Random $T$‘s that have this property are called stopping times. For these $B_{T + s} - B_T$ is a Brownian motion.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: The Distribution of the First Hitting Time<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Given that $a \neq 0$, what is the distribution of the first hitting time $T_a = \min\{t : B_t = a\}$?</p><p>We will prove that,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Given that $a \neq 0$, what is the distribution of the first hitting time $T_a = \min\{t : B_t = a\}$?</p>
+<p>We will prove that,
 $$
 \frac{1}{T_a} \sim \mathrm{Gamma}\left(\frac{1}{2}, \frac{a^2}{2}\right).
-$$</p><p>Assuming that $a > 0$ and using that $T_a$ is a stopping time we get for any $t > 0$ that $P(B_{\frac{1}{t}} > a \mid T_a &#x3C; \frac{1}{t}) = P(B_{\frac{1}{t} - T_a} > 0) = \frac{1}{2}$.</p><p>We also have,
+$$</p>
+<p>Assuming that $a > 0$ and using that $T_a$ is a stopping time we get for any $t > 0$ that $P(B_{\frac{1}{t}} > a \mid T_a &#x3C; \frac{1}{t}) = P(B_{\frac{1}{t} - T_a} > 0) = \frac{1}{2}$.</p>
+<p>We also have,
 $$
 \begin{align*}
 P(B_{\frac{1}{t}} > a \mid T_a &#x3C; \frac{1}{t}) &#x26; = \frac{P(B_{\frac{1}{t}} > a, T_a &#x3C; \frac{1}{t})}{P(T_a &#x3C; \frac{1}{t})} \newline
@@ -373,11 +441,14 @@ $$
 Taking the derivative with respect to $t$ we get the Gamma density,
 $$
 \pi_{1/T_a}(t) = 2 \frac{1}{\sqrt{2 \pi}} \exp\left(-\frac{1}{2} \left(a \sqrt{t}\right)^2\right) \frac{a}{2} t^{-1/2}.
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Maximum of Brownian Motion<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We can define $M_t \coloneqq \max_{0 \leq s \leq t} B_s$.</p><p>We may compute for $a > 0$ (using the results above),
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We can define $M_t \coloneqq \max_{0 \leq s \leq t} B_s$.</p>
+<p>We may compute for $a > 0$ (using the results above),
 $$
 \begin{align*}
 P(M_t > a) &#x26; = P(T_a &#x3C; t) \newline
@@ -385,11 +456,15 @@ P(M_t > a) &#x26; = P(T_a &#x3C; t) \newline
 &#x26; = P(|B_t| > a).
 \end{align*}
 $$
-Thus, $M_t$ has the same d istribution as $|B_t|$, i.e., the absolute value of $B_t$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
+Thus, $M_t$ has the same d istribution as $|B_t|$, i.e., the absolute value of $B_t$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>What is the probability that $M_3 > 5$?</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>What is the probability that $M_3 > 5$?</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We have,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We have,
 $$
 \begin{align*}
 P(M_3 > 5) &#x26; = P(|B_3| > 5) \newline
@@ -398,13 +473,19 @@ P(M_3 > 5) &#x26; = P(|B_3| > 5) \newline
 &#x26; = 0.046.
 \end{align*}
 $$
-where $Z \sim \mathcal{N}(0, 1)$. $_\blacksquare$ (we can compute this with <code>2 * (1 - pnorm(5 / sqrt(3), 0, 1))</code> in <code>R</code>).</p></div>
-</details></div>
-</details><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
+where $Z \sim \mathcal{N}(0, 1)$. $_\blacksquare$ (we can compute this with <code>2 * (1 - pnorm(5 / sqrt(3), 0, 1))</code> in <code>R</code>).</p>
+</div>
+</details>
+</div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Find $t$ such that $P(M_t \leq 4) = 0.9$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Find $t$ such that $P(M_t \leq 4) = 0.9$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We have,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We have,
 $$
 \begin{align*}
 P(M_t \leq 4) &#x26; = P(|B_t| \leq 4) \newline
@@ -416,9 +497,12 @@ Setting this equal to $0.9$ we get,
 $$
 P\left(Z > \frac{4}{\sqrt{t}}\right) = 0.05.
 $$
-Looking up in the standard normal table (or using <code>qnorm(0.95, 0, 1)</code> in <code>R</code>) we get $\frac{4}{\sqrt{t}} = 1.645$ and thus $t = 5.92$. $_\blacksquare$</p></div>
-</details></div>
-</details></div>
+Looking up in the standard normal table (or using <code>qnorm(0.95, 0, 1)</code> in <code>R</code>) we get $\frac{4}{\sqrt{t}} = 1.645$ and thus $t = 5.92$. $_\blacksquare$</p>
+</div>
+</details>
+</div>
+</details>
+</div>
 </details>
 <section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
 <ol>

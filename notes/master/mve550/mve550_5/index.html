@@ -134,7 +134,9 @@ Then, we will introduce Markov Chain Monte Carlo (MCMC) and some algorithms rela
 <h2 id="branching-processes">Branching Processes</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Branching Processes<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Many real-world phenomena can be described as developing with a tree-like structure, for example,</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Many real-world phenomena can be described as developing with a tree-like structure, for example,</p>
+<ul>
 <li>
 <p>Growth of cells.</p>
 </li>
@@ -150,13 +152,19 @@ Then, we will introduce Markov Chain Monte Carlo (MCMC) and some algorithms rela
 <li>
 <p>Spread of a surname over generations. <label for="sn-1" class="sidenote-toggle sidenote-number" aria-describedby="sn-1-note">1</label><input type="checkbox" id="sn-1" class="sidenote-checkbox" aria-label="Toggle sidenote 1"><span class="sidenote" role="note" id="sn-1-note"><span class="sidenote-number-inline">1</span>This was the original motivation for studying branching processes by Francis Galton and Henry William Watson in the 19th century.</span></p>
 </li>
-</ul><p>The process with which one node gives rise to “children” can be described as random.
-We will assume the probabilistic properties of this process is the same for all nodes.</p><p>Further, we will assume all nodes are organized into generatiomns, we are only concerned with the size of each generation.</p><p>Lastly, the important questions we are interested in are; How large are the generations? How much does the size vary? Will the process die out eventually (i.e., reach a generation with size 0)?</p></div>
+</ul>
+<p>The process with which one node gives rise to “children” can be described as random.
+We will assume the probabilistic properties of this process is the same for all nodes.</p>
+<p>Further, we will assume all nodes are organized into generatiomns, we are only concerned with the size of each generation.</p>
+<p>Lastly, the important questions we are interested in are; How large are the generations? How much does the size vary? Will the process die out eventually (i.e., reach a generation with size 0)?</p>
+</div>
 </details>
 <h3 id="definitions-and-properties">Definitions and Properties</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Galton-Watson Branching Process<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A (Galton-Watson) branching process is a discrete Markov chain $Z_0, Z_1, \ldots, Z_n, \ldots$ where,</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A (Galton-Watson) branching process is a discrete Markov chain $Z_0, Z_1, \ldots, Z_n, \ldots$ where,</p>
+<ul>
 <li>
 <p>The state space is the non-negative integers.</p>
 </li>
@@ -170,16 +178,23 @@ Z_n = \sum_{i = 1}^{Z_{n - 1}} X_i
 $$
 Connecting each of the $Z_n$ individuals in generation $n$ with their offspring in generation $n + 1$ we get a tree illustrating the branching process.</p>
 </li>
-</ul><p>The offspring distribution is described by the probability vector $a = (a_0, a_1, \ldots)$ where $a_j = P(X_i = j)$.</p><p>We will mainly focus on the interesting cases where we assume $a_0 > 0$ (i.e., there is a positive probability of having no offspring) and $a_0 + a_1 &#x3C; 1$ (i.e., there is a positive probability of having more than one offspring).</p></div>
+</ul>
+<p>The offspring distribution is described by the probability vector $a = (a_0, a_1, \ldots)$ where $a_j = P(X_i = j)$.</p>
+<p>We will mainly focus on the interesting cases where we assume $a_0 > 0$ (i.e., there is a positive probability of having no offspring) and $a_0 + a_1 &#x3C; 1$ (i.e., there is a positive probability of having more than one offspring).</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Expected Size of Generations in a Branching Process and Classification of Branching Processes<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Note that the state 0 is abosribing, this absorbtion is called extinction.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Note that the state 0 is abosribing, this absorbtion is called extinction.
 Also, as $a_0 > 0$, all nonzero states are transient.
-Let $\mu = \mathbb{E}[X_i] = \sum_{j=0}^{\infty} j \cdot a_j$, i.e., the expected number of offspring per individual.</p></div>
-</details><p>Then, we may compute that,
+Let $\mu = \mathbb{E}[X_i] = \sum_{j=0}^{\infty} j \cdot a_j$, i.e., the expected number of offspring per individual.</p>
+</div>
+</details>
+<p>Then, we may compute that,
 $$
 \begin{align*}
 \mathbb{E}[Z_n] &#x26; = \mathbb{E}\left(\sum_{i = 1}^{Z_{n-1}}\right) \newline
@@ -192,7 +207,8 @@ Thus, we directly get that,
 $$
 \mathbb{E}[Z_n] = \mu^n \cdot \underbrace{\mathbb{E}[Z_0]}_{\coloneqq 1} = \mu^n
 $$
-Based on the value of $\mu$, we classify branching processes into three categories:</p><ol>
+Based on the value of $\mu$, we classify branching processes into three categories:</p>
+<ol>
 <li>
 <p>Subcritical branching processes: $\mu &#x3C; 1$. The expected generation size decreases over time, $\lim_{n \to \infty} \mathbb{E}[Z_n] = 0$.</p>
 </li>
@@ -202,15 +218,21 @@ Based on the value of $\mu$, we classify branching processes into three categori
 <li>
 <p>Supercritical branching processes: $\mu > 1$. The expected generation size increases over time, $\lim_{n \to \infty} \mathbb{E}[Z_n] = \infty$.</p>
 </li>
-</ol><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+</ol>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>One can prove that if $\lim_{n \to \infty} Z_n = 0$, then the probability of extinction is 1.
-We will do this later.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>One can prove that if $\lim_{n \to \infty} Z_n = 0$, then the probability of extinction is 1.
+We will do this later.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Variance of Generation Sizes in a Branching Process<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $\mu$ be defined as above, and let $\sigma^2 = \mathrm{Var}(X_i)$ be the variance of the number of children.</p><p>Using the law of total variance we get,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $\mu$ be defined as above, and let $\sigma^2 = \mathrm{Var}(X_i)$ be the variance of the number of children.</p>
+<p>Using the law of total variance we get,
 $$
 \begin{align*}
 \mathrm{Var}(Z_n) &#x26; = \mathrm{Var}(\mathbb{E}[Z_n \mid Z_{n - 1}]) + \mathbb{E}[\mathrm{Var}(Z_n \mid Z_{n - 1})] \newline
@@ -226,11 +248,14 @@ $$
 n \sigma^2 &#x26; \text{if } \mu = 1 \newline
 \sigma^2 \mu^{n - 1} \frac{\mu^n - 1}{\mu - 1} &#x26; \text{if } \mu \neq 1
 \end{cases}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Extinction Probability of a Branching Process<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $X$ denote an offspring variable and $e$ the probability of extinction.</p><p>Using first-step analysis,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $X$ denote an offspring variable and $e$ the probability of extinction.</p>
+<p>Using first-step analysis,
 $$
 \begin{align*}
 e &#x26; = \sum_{k = 0}^{\infty} P(X = k) P(\text{extinction of } k \text{ processes}) \newline
@@ -240,37 +265,49 @@ $$
 where we define the probability generating function (PGF) $G_X(s)$ as,
 $$
 G_X(s) = \mathbb{E}[s^X]
-$$</p><p>Let $e_n$ be the probability of extinction by generation $n$. Using first-step analysis again, we get,
+$$</p>
+<p>Let $e_n$ be the probability of extinction by generation $n$. Using first-step analysis again, we get,
 $$
 \begin{align*}
 e_n &#x26; = \sum_{k = 0}^{\infty} P(X = k) P(\text{extinction by generation } n - 1 \text{ of } k \text{ processes}) \newline
 &#x26; = \sum_{k = 0}^{\infty} P(X = k) e_{n - 1}^k = \mathbb{E}_X[e_{n - 1}^X] = G_X(e_{n - 1})
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Extinction Probability Theorem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $G_X$ be the probability generating function for the offspring distribution for a branching process.
-The probability of eventual extinction is the smallest positive root of the equation $G_X(s) = s$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $G_X$ be the probability generating function for the offspring distribution for a branching process.
+The probability of eventual extinction is the smallest positive root of the equation $G_X(s) = s$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If $s = x$ is any positive solution to $G_X(s) = s$, then $e \leq x$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If $s = x$ is any positive solution to $G_X(s) = s$, then $e \leq x$.
 We have $0 = e_0 &#x3C; x$. We have that $G_X$ is an increasing function, as,
 $$
 s_0 &#x3C; s_1 \implies \sum_{k = 0}^{\infty} P(X = k) s_0^k &#x3C; \sum_{k = 0}^{\infty} P(X = k) s_1^k \implies G_X(s_0) &#x3C; G_X(s_1)
 $$
-Thus, applying $G_X$ repeatedly we get $e_n &#x3C; x$ and thus $e = \lim_{n \to \infty} e_n \leq x$.</p></div>
-</details></div>
+Thus, applying $G_X$ repeatedly we get $e_n &#x3C; x$ and thus $e = \lim_{n \to \infty} e_n \leq x$.</p>
+</div>
+</details>
+</div>
 </details>
 <h3 id="probability-generating-functions">Probability Generating Functions</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Probability Generating Functions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For any discrete random variable $X$ taking values in $\{0, 1, 2, \ldots\}$, define the probability function $G_X(s)$ as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For any discrete random variable $X$ taking values in $\{0, 1, 2, \ldots\}$, define the probability function $G_X(s)$ as,
 $$
 G_X(s) = \mathbb{E}[s^X] = \sum_{k = 0}^{\infty} P(X = k) s^k
 $$
-The series converges absolutely for $\Vert s \Vert \leq 1$. We assume $s$ is a real number in $[0, 1]$.</p><p>We get a 1-1 correspondence between probability vectors on $\{0, 1, 2, \ldots\}$ and functions represented by a series where the coefficients sum to 1.</p><p>Specifically, if $G_X(s) = G_Y(s)$ for all $s$ for random variables $X$ and $Y$, then $X$ and $Y$ have the same distribution.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+The series converges absolutely for $\Vert s \Vert \leq 1$. We assume $s$ is a real number in $[0, 1]$.</p>
+<p>We get a 1-1 correspondence between probability vectors on $\{0, 1, 2, \ldots\}$ and functions represented by a series where the coefficients sum to 1.</p>
+<p>Specifically, if $G_X(s) = G_Y(s)$ for all $s$ for random variables $X$ and $Y$, then $X$ and $Y$ have the same distribution.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Properties of Probability Generating Functions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ul>
 <li>
 <p>To go from $X$ to $G_X(s)$, we compute the (in)finite sum.</p>
 </li>
@@ -295,7 +332,8 @@ $$</p>
 <li>
 <p>As a consequence, $\mathrm{Var}(X) = G_X^{\prime \prime}(1) + G_X^{\prime}(1) - (G_X^{\prime}(1))^2$</p>
 </li>
-</ul><p>Further, assume we have a branching process $Z_0, Z_1, \ldots$ with independent offspring variables $X_i$ all with the same distribution as $X$.
+</ul>
+<p>Further, assume we have a branching process $Z_0, Z_1, \ldots$ with independent offspring variables $X_i$ all with the same distribution as $X$.
 By writing $G_n(s) = G_{Z_n}(s) = \mathbb{E}[s^{Z_n}]$ and $G_X(s) = \mathbb{E}[s^X]$, we get,
 $$
 \begin{align*}
@@ -309,60 +347,83 @@ $$
 As $G_0(s) = \mathbb{E}[s^{Z_0}] = s$, it follows that,
 $$
 G_n(s) = \underbrace{G_X(G_X(\ldots G_X(s) \ldots))}_{n \text{ times}}
-$$</p></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Extinction Probability Theorem (Addition)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $G_X$ be the probability generating function for the offspring distribution for a branching process.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $G_X$ be the probability generating function for the offspring distribution for a branching process.
 The probability of eventual extinction is the smallest positive root of the equation $G_X(s) = s$.
-Also, if the process is critical ($\mu = 1$) then the extinction probability is 1.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+Also, if the process is critical ($\mu = 1$) then the extinction probability is 1.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Of the last sentence<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In the critical case,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>In the critical case,
 $$
 G_X^{\prime}(1) = \mathbb{E}[X] = \mu = 1
 $$
 As $G_X^{\prime \prime}(s) > 0$ for $s \in (0, 1)$, we get that $G_X^{\prime}(s) &#x3C; 1$ for $s \in (0, 1)$, and $\frac{d}{ds}(G(s) - s) &#x3C; 0$ for $s \in (0, 1)$.
-As $G(1) - 1 = 0$ for any probability generating function, we get that $G(s) = s$ has its smallest positive root at $s = 1$.</p></div>
-</details></div>
+As $G(1) - 1 = 0$ for any probability generating function, we get that $G(s) = s$ has its smallest positive root at $s = 1$.</p>
+</div>
+</details>
+</div>
 </details>
 <h2 id="markov-chain-monte-carlo-mcmc">Markov Chain Monte Carlo (MCMC)</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Markov Chain Monte Carlo (MCMC)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>So far we have used Markov chains in the following way</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>So far we have used Markov chains in the following way</p>
+<ol>
 <li>
 <p>Define a Markov chain</p>
 </li>
 <li>
 <p>Find its limiting distribution, if it exists</p>
 </li>
-</ol><p>Now, we want to,</p><ol>
+</ol>
+<p>Now, we want to,</p>
+<ol>
 <li>Start with a desired distribution</li>
-</ol><p>Construct a Markov chain having this limiting distribution</p><p>In many contexts we want to compute the expecation $\mathbb{E}[r(X)]$ for some random variable $X$ and some function $r$.</p><p>One way to approximate this is to generate samples $x_1, \ldots, x_N$ from $X$ and use,
+</ol>
+<p>Construct a Markov chain having this limiting distribution</p>
+<p>In many contexts we want to compute the expecation $\mathbb{E}[r(X)]$ for some random variable $X$ and some function $r$.</p>
+<p>One way to approximate this is to generate samples $x_1, \ldots, x_N$ from $X$ and use,
 $$
 \mathbb{E}[r(X)] = \lim_{N \to \infty} \frac{1}{N} \sum_{k = 1}^{N} r(x_k) \approx \frac{1}{N} \sum_{k = 1}^{N} r(x_k)
 $$
-Thus, the idea is simulating from a Markov chain having $X$ as its limiting distribution generates an approximate sample. Average over it as above.</p></div>
+Thus, the idea is simulating from a Markov chain having $X$ as its limiting distribution generates an approximate sample. Average over it as above.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Is an approximate sample good enough?<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We know this works in classical statistics.</p><p>Strong law of large numbers of samples: If $Y_1, Y_2, \ldots, Y_m$ and $Y$ are i.i.d random variables from a distribution with finite mean, and if $\mathbb{E}[r(Y)]$ exists, then, with probability 1,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We know this works in classical statistics.</p>
+<p>Strong law of large numbers of samples: If $Y_1, Y_2, \ldots, Y_m$ and $Y$ are i.i.d random variables from a distribution with finite mean, and if $\mathbb{E}[r(Y)]$ exists, then, with probability 1,
 $$
 \lim_{m \to \infty} \frac{r(Y_1) + r(Y_2) + \ldots + r(Y_m)}{m} = \mathbb{E}[r(Y)]
 $$
-There is a corresponding result for Markov chains.</p><p>Strong law of large numbers for Markov chains: If $X_0, X_1, \ldots$ is an ergodic Markov chain with stationary distribution $\pi$, and if $\mathbb{E}_{X \sim \pi}[r(X)]$ exists, then, with probability 1,
+There is a corresponding result for Markov chains.</p>
+<p>Strong law of large numbers for Markov chains: If $X_0, X_1, \ldots$ is an ergodic Markov chain with stationary distribution $\pi$, and if $\mathbb{E}_{X \sim \pi}[r(X)]$ exists, then, with probability 1,
 $$
 \lim_{m \to \infty} \frac{r(X_0) + r(X_1) + \ldots + r(X_m)}{m} = \mathbb{E}_{X \sim \pi}[r(X)]
 $$
-where $X$ has distribution $\pi$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+where $X$ has distribution $\pi$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>When using this theorem in practice, one might improve accuracy by throwing away the first sequence $X_1, \ldots, X_s$ for $s &#x3C; m$ before computing the average. The first sequence is then called the burn-in.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>When using this theorem in practice, one might improve accuracy by throwing away the first sequence $X_1, \ldots, X_s$ for $s &#x3C; m$ before computing the average. The first sequence is then called the burn-in.</p>
+</div>
+</details>
+</div>
 </details>
 <h3 id="examples">Examples</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Toy Example of MCMC<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the Markov chain $X_0, X_1, \ldots$ with states $\{0, 1, 2\}$ and with,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider the Markov chain $X_0, X_1, \ldots$ with states $\{0, 1, 2\}$ and with,
 $$
 P =
 \begin{bmatrix}
@@ -371,7 +432,8 @@ P =
 0.2 &#x26; 0 &#x26; 0.8
 \end{bmatrix}
 $$
-One can find that the limiting distribution is $v = (\frac{20}{23}, \frac{2}{23}, \frac{1}{23})$.</p><p>Consider the function $r(x) = x^5$. If $X$ is a random variable with the limiting distribution,
+One can find that the limiting distribution is $v = (\frac{20}{23}, \frac{2}{23}, \frac{1}{23})$.</p>
+<p>Consider the function $r(x) = x^5$. If $X$ is a random variable with the limiting distribution,
 $$
 \mathbb{E}[r(X)] = 0^5 \cdot \frac{20}{23} + 1^5 \cdot \frac{2}{23} + 2^5 \cdot \frac{1}{23} = \frac{34}{23} = 1.4783
 $$
@@ -383,21 +445,27 @@ We also get for $X_0, X_1, \ldots$ that,
 $$
 \lim_{n \to \infty} \frac{r(X_1) + r(X_2) + \ldots + r(X_n)}{n} = 1.4783
 $$
-but in this case the limit is approached more slowly.</p></div>
+but in this case the limit is approached more slowly.</p>
+</div>
 </details>
 <h3 id="the-metropolis-hastings-algorithm-gibbs-sampling-and-the-ising-model">The Metropolis-Hastings Algorithm, Gibbs Sampling, and The Ising Model</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: The Metropolis-Hastings Algorithm<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Metropolis-Hastings algorithm is a method to construct a Markov chain having a desired limiting distribution.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Metropolis-Hastings algorithm is a method to construct a Markov chain having a desired limiting distribution.
 Let $\theta$ be a random variable with probability mass function $\pi( \theta)$.
-We also assume given a proposal distribution $T(\theta_{\text{new}} \mid \theta)$, which, for every given $\theta$, provides a PMF for a new $\theta_{\text{new}}$.</p><p>Finally, we define, for $\theta$ and $\theta_{\text{new}}$, the acceptance probability,
+We also assume given a proposal distribution $T(\theta_{\text{new}} \mid \theta)$, which, for every given $\theta$, provides a PMF for a new $\theta_{\text{new}}$.</p>
+<p>Finally, we define, for $\theta$ and $\theta_{\text{new}}$, the acceptance probability,
 $$
 a = \min\left(1, \frac{\pi(\theta_{\text{new}}) T(\theta \mid \theta_{\text{new}})}{\pi(\theta) T(\theta_{\text{new}} \mid \theta)}\right)
 $$
 The Metropolis-Hastings algorithm is: Starting with some initial value $\theta_0$, generate $\theta_1, \theta_2, \ldots$ by, at each step, proposing a new $\theta$ based on the old using the proposal function and accepting it with probability $a$.
-If it is not accepted, the old value is used again.</p><p>If this defines an ergodic Markov chain, its unique stationary distribution is $\pi(\theta)$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+If it is not accepted, the old value is used again.</p>
+<p>If this defines an ergodic Markov chain, its unique stationary distribution is $\pi(\theta)$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $P$ be the transition matrix of the Markov chain defined by the Metropolis-Hastings algorithm.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $P$ be the transition matrix of the Markov chain defined by the Metropolis-Hastings algorithm.
 We need to show that $\pi P = \pi$.
 It suffices to show that the detailed balance equations are satisfied, i.e., that,
 $$
@@ -432,15 +500,20 @@ $$
 &#x26; = \pi(\theta_{\text{new}}) P_{\theta_{\text{new}} \theta}
 \end{align*}
 $$
-Thus, in both cases, the detailed balance equations are satisfied, so $\pi$ is the stationary distribution of the chain.</p></div>
-</details></div>
+Thus, in both cases, the detailed balance equations are satisfied, so $\pi$ is the stationary distribution of the chain.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Gibbs Sampling<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For any probability model over a vector $\theta = (\theta_1, \theta_2, \ldots, \theta_n)$, consider a Metropolis-Hastings proposal function changing only one coordinate, with the value of this coordinate simulated from the conditional distribution given the remaining coordinates.
-The acceptance probability is always 1, so the proposal is always accepted.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For any probability model over a vector $\theta = (\theta_1, \theta_2, \ldots, \theta_n)$, consider a Metropolis-Hastings proposal function changing only one coordinate, with the value of this coordinate simulated from the conditional distribution given the remaining coordinates.
+The acceptance probability is always 1, so the proposal is always accepted.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $\theta = (\theta_1, \theta_2, \ldots, \theta_n)$ and $\theta_{\text{new}} = (\theta_1, \ldots, \theta_{i - 1}, \theta_{i,\text{new}}, \theta_{i + 1}, \ldots, \theta_n)$ differ only in coordinate $i$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $\theta = (\theta_1, \theta_2, \ldots, \theta_n)$ and $\theta_{\text{new}} = (\theta_1, \ldots, \theta_{i - 1}, \theta_{i,\text{new}}, \theta_{i + 1}, \ldots, \theta_n)$ differ only in coordinate $i$.
 The proposal distribution is,
 $$
 T(\theta_{\text{new}} \mid \theta) = P(\theta_i = \theta_{i,\text{new}} \mid \theta_1, \ldots, \theta_{i - 1}, \theta_{i + 1}, \ldots, \theta_n)
@@ -483,23 +556,34 @@ $$
 {\pi(\theta)\pi(\theta_{\text{new}})} = 1 ,
 \end{align*}
 $$
-Thus, the proposal is always accepted.</p></div>
-</details><p>Putting together an algorithm updating different coordinates in different steps may create an ergodic Markov chain.</p><p>This is called Gibbs sampling.
-Sometimes the conditional distributions are easy to derive. Then this is an easy-to-use version of Metropolis-Hastings.</p></div>
+Thus, the proposal is always accepted.</p>
+</div>
+</details>
+<p>Putting together an algorithm updating different coordinates in different steps may create an ergodic Markov chain.</p>
+<p>This is called Gibbs sampling.
+Sometimes the conditional distributions are easy to derive. Then this is an easy-to-use version of Metropolis-Hastings.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: The Ising Model<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Uses a grid of vertices; We will assume an $n \times n$ grid.
-Two vertices $v$ and $w$ are neighbours, denoted $v \sim w$, if they are next to each other in the grid.</p><p>Each vertex $v$ can have value $+1$ or $-1$ (called its “spin”); We denote this by $\sigma_{v} = 1$ or $\sigma_{v} = -1$.</p><p>A configuration $\sigma$ consists of a choice of $+1$ or $-1$ for each vertex. Thus, the set $\Omega$ of possible configurations has $2^(n^2)$ elements.
-We define the energy of a configuration as $E(\sigma) = - \sum_{v \sim w} \sigma_v \sigma_w$.</p><p>The Gibbs distribution is the probability mass function on $\Omega$ defined by,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Uses a grid of vertices; We will assume an $n \times n$ grid.
+Two vertices $v$ and $w$ are neighbours, denoted $v \sim w$, if they are next to each other in the grid.</p>
+<p>Each vertex $v$ can have value $+1$ or $-1$ (called its “spin”); We denote this by $\sigma_{v} = 1$ or $\sigma_{v} = -1$.</p>
+<p>A configuration $\sigma$ consists of a choice of $+1$ or $-1$ for each vertex. Thus, the set $\Omega$ of possible configurations has $2^(n^2)$ elements.
+We define the energy of a configuration as $E(\sigma) = - \sum_{v \sim w} \sigma_v \sigma_w$.</p>
+<p>The Gibbs distribution is the probability mass function on $\Omega$ defined by,
 $$
 \pi(\sigma) \propto \exp(-\beta E(\sigma))
 $$
-where $\beta$ is a parameter of the model; $\frac{1}{\beta}$ is called the temperature.</p><p>It turns out that when the temperature is high, samples from the model will show a chaotic pattern of spins, but when the temperature sinks below the phase transition value, samples will show chunks of neighbouring vertices with the same spin, i.e., the system will be “magnetized”.</p></div>
+where $\beta$ is a parameter of the model; $\frac{1}{\beta}$ is called the temperature.</p>
+<p>It turns out that when the temperature is high, samples from the model will show a chaotic pattern of spins, but when the temperature sinks below the phase transition value, samples will show chunks of neighbouring vertices with the same spin, i.e., the system will be “magnetized”.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Simulating from the Ising Model using Gibbs Sampling<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For a vertex configuration $\sigma$ and a vertex $v$, let $\sigma_{-v}$ denote the part of $\sigma$ that does not involve $v$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For a vertex configuration $\sigma$ and a vertex $v$, let $\sigma_{-v}$ denote the part of $\sigma$ that does not involve $v$.
 Prpose a new configuration $\sigma^{\star}$ given an old configuration $\sigma$ by first choosing a vertex $v$, then, let $\sigma^{\star}$ be identical to $\sigma$ except possibly at $v$.
 Decide the spin at $v$ using the conditional distribution given $\sigma_{-v}$,
 $$
@@ -512,7 +596,8 @@ $$
 &#x26; = \frac{1}{1 + \exp(-2 \beta \sum_{v \sim w} \sigma_w)} \newline
 \end{align*}
 $$
-This works, but we will dicuss an even better approach “perfect sampling” later.</p></div>
+This works, but we will dicuss an even better approach “perfect sampling” later.</p>
+</div>
 </details>
 <h2 id="perfect-sampling">Perfect Sampling</h2>
 <p>So far, we have seen that MCMC means,</p>
@@ -526,59 +611,88 @@ When using a Markov chain, it is generally very difficult to find the rate of co
 <p>There are some exceptions to this, we will now look at Perfect Sampling, where you prove that you have reached the limiting distribution exactly.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Perfect Sampling<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Given an ergodic Markov chain with finite state space of size $k$ and limiting distribution $\pi$.
-The idea is that, given $n$ prove that $X_n$ actually has reached the limit distribution $\pi$.</p><p>If we can rpove that the distribution at $X_n$ is independent of the starting state $X_0$, then we might be able to conclude that $X_n$ has the limiting distribution $\pi$.</p><p>Construct $k$ Markov chains that are dependent (“coupled”) but which are marginally Markov chains as above.
-If they start at the $k$ possible value at $X_0$ but have identical values at $X_n$, then we are done.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Given an ergodic Markov chain with finite state space of size $k$ and limiting distribution $\pi$.
+The idea is that, given $n$ prove that $X_n$ actually has reached the limit distribution $\pi$.</p>
+<p>If we can rpove that the distribution at $X_n$ is independent of the starting state $X_0$, then we might be able to conclude that $X_n$ has the limiting distribution $\pi$.</p>
+<p>Construct $k$ Markov chains that are dependent (“coupled”) but which are marginally Markov chains as above.
+If they start at the $k$ possible value at $X_0$ but have identical values at $X_n$, then we are done.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$n$ cannot be determined as the first value where the $k$ chains meet, it must be determined independently of such information.
-Thus, usually one wants to generate chains $X_{-n}, X_{-n + 1}, \ldots, X_0$ where $X_0$ has the limiting distribution, and we stepwise increase $n$ to make all chains coalesce to one chain at time 0.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$n$ cannot be determined as the first value where the $k$ chains meet, it must be determined independently of such information.
+Thus, usually one wants to generate chains $X_{-n}, X_{-n + 1}, \ldots, X_0$ where $X_0$ has the limiting distribution, and we stepwise increase $n$ to make all chains coalesce to one chain at time 0.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Using same source of randomness for all chains<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the chains $X^{(j)}_{-n}, \ldots, X^{(j)}_0$ for $j = 1, 2, \ldots, k$.
-Instead of simulating $X^{(j)}_{i + 1}$ based on $X^{(j)}_i$ independently for each j, we define a function $g$ so that $X^{(j)}_{i + 1} = g(X^{(j)}_i, U_i)$ for all $j$ where $U_i \sim \mathrm{Uniform}(0, 1)$.</p><p>Thus, if two chains have identical values in $X_i$, they will also be identical in $X_{i + 1}$.</p><p>Thus, for a particular $n$, if all chains have not converged at $X_0$, we simulate $k$ chains from $X_{-2n}$ to $X_{-n}$.
-They might only hit a subset of the $k$ states at $X_{-n}$ and thus might coalesce to one state at $X_0$ using the old simulations. If not, double $n$ again.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider the chains $X^{(j)}_{-n}, \ldots, X^{(j)}_0$ for $j = 1, 2, \ldots, k$.
+Instead of simulating $X^{(j)}_{i + 1}$ based on $X^{(j)}_i$ independently for each j, we define a function $g$ so that $X^{(j)}_{i + 1} = g(X^{(j)}_i, U_i)$ for all $j$ where $U_i \sim \mathrm{Uniform}(0, 1)$.</p>
+<p>Thus, if two chains have identical values in $X_i$, they will also be identical in $X_{i + 1}$.</p>
+<p>Thus, for a particular $n$, if all chains have not converged at $X_0$, we simulate $k$ chains from $X_{-2n}$ to $X_{-n}$.
+They might only hit a subset of the $k$ states at $X_{-n}$ and thus might coalesce to one state at $X_0$ using the old simulations. If not, double $n$ again.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Monotonicity<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>One smart question is, do we need to keep track of all $k$ chains?
-We define a partial ordering on as et as a relation $x \leq y$ between some pairs $x$ and $y$ in the set, such that,</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>One smart question is, do we need to keep track of all $k$ chains?
+We define a partial ordering on as et as a relation $x \leq y$ between some pairs $x$ and $y$ in the set, such that,</p>
+<ul>
 <li>
 <p>If $x \leq y$ and $y \leq x$ then $x = y$.</p>
 </li>
 <li>
 <p>If $x \leq y$ and $y \leq z$ then $x \leq z$.</p>
 </li>
-</ul><p>We will need that our partial ordering has a minimal element (an $m$ such that $m \leq x$ for all $x$) and a maximal element (an $M$ such that $x \leq M$ for all $x$).</p><p>If we have a partial ordering on the state space of the Markov chain and if $x \leq y$ implies $g(x, U) \leq g(y, U)$, then $g$ is monotone.</p><p>We can then prove that we only need to keep track of the chain starting at $m$ and the chain starting at $M$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+</ul>
+<p>We will need that our partial ordering has a minimal element (an $m$ such that $m \leq x$ for all $x$) and a maximal element (an $M$ such that $x \leq M$ for all $x$).</p>
+<p>If we have a partial ordering on the state space of the Markov chain and if $x \leq y$ implies $g(x, U) \leq g(y, U)$, then $g$ is monotone.</p>
+<p>We can then prove that we only need to keep track of the chain starting at $m$ and the chain starting at $M$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If the chains starting at $m$ and $M$ coalesce at time 0, then for any other chain starting at $x$, we have $m \leq x \leq M$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If the chains starting at $m$ and $M$ coalesce at time 0, then for any other chain starting at $x$, we have $m \leq x \leq M$.
 By monotonicity, we get that the chain starting at $m$ is less than or equal to the chain starting at $x$ at all times, and the chain starting at $M$ is greater than or equal to the chain starting at $x$ at all times.
-Thus, if the chains starting at $m$ and $M$ are equal at time 0, the chain starting at $x$ must also be equal to them at time 0.</p></div>
-</details></div>
+Thus, if the chains starting at $m$ and $M$ are equal at time 0, the chain starting at $x$ must also be equal to them at time 0.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Simulating from the Ising Model using Perfect Sampling<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We saw above how to use Gibbs sampling to simulate from the Ising model. We then simulated from the conditional distributions, using,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We saw above how to use Gibbs sampling to simulate from the Ising model. We then simulated from the conditional distributions, using,
 $$
 \pi(\sigma_v^{\star} = 1 \mid \sigma_{-v}) = \ldots = \frac{1}{1 + \exp(-2 \beta \sum_{v \sim w} \sigma_w)}
 $$
-Now, we extend this method into a perfect sampling.</p><p>Define the partial ordering on configurations $\sigma, \tau$ be defining,
+Now, we extend this method into a perfect sampling.</p>
+<p>Define the partial ordering on configurations $\sigma, \tau$ be defining,
 $$
 \sigma \leq \tau \iff \sigma_v \leq \tau_v \text{ for all vertices } v
 $$
-We have minimal and maximal elements $m = (-1, \ldots, -1)$ and $M = (1, \ldots, 1)$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+We have minimal and maximal elements $m = (-1, \ldots, -1)$ and $M = (1, \ldots, 1)$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>iF $\sigma \leq \tau$, then for all $v$ $\pi(\sigma_v^{\star} = 1 \mid \sigma_{-v}) \leq \pi(\tau_v^{\star} = 1 \mid \tau_{-v})$.</p></div>
-</details><p>Defining $g(\sigma, U)_v = 2 I (U \leq \pi(\sigma_v^{\star} = 1 \mid \sigma_{-v}) ) - 1$, makes $g$ monotone.</p><p>Given an Ising model with $\beta > 0$, start with choosing an integer $n > 0$ and setting configurations,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>iF $\sigma \leq \tau$, then for all $v$ $\pi(\sigma_v^{\star} = 1 \mid \sigma_{-v}) \leq \pi(\tau_v^{\star} = 1 \mid \tau_{-v})$.</p>
+</div>
+</details>
+<p>Defining $g(\sigma, U)_v = 2 I (U \leq \pi(\sigma_v^{\star} = 1 \mid \sigma_{-v}) ) - 1$, makes $g$ monotone.</p>
+<p>Given an Ising model with $\beta > 0$, start with choosing an integer $n > 0$ and setting configurations,
 $$
 \begin{align*}
 \sigma^{(-n)} &#x26; = m = (-1, \ldots, -1) \newline
 \tau^{(-n)} &#x26; = M = (1, \ldots, 1) \newline
 \end{align*}
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Perfect Sampling for the Ising Model<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ul>
 <li>
 <p>For $i = -n +1, \ldots, 0$ set $\sigma^{(i)} = \sigma^{(i - 1)}$, $\tau^{(i)} = \tau^{(i - 1)}$ and then,</p>
 <ul>
@@ -594,8 +708,10 @@ $$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-
 <li>
 <p>If $\sigma^{(0)} = \tau^{(0)}$, this is the result. Otherwise, double $n$ and repeat.</p>
 </li>
-</ul></div>
-</details></div>
+</ul>
+</div>
+</details>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/mve550/mve550_4/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 4 - Markov chains II </span> </div>  </a>  <a href="/notes/master/mve550/mve550_6/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 6 - MCMC for Bayesian Inference </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

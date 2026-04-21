@@ -170,10 +170,14 @@ $$</p>
 <p>Activation functions introduce <strong>non-linearity</strong>, enabling neural networks to approximate complex, non-linear functions.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="alert-circle" viewBox="0 0 24 24"><use href="#alert-circle"></use></svg>Problem: Exercise: Why does the neuron have a bias input?<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The bias input allows the neuron to shift the activation function to the left or right, this can be useful in certain cases.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The bias input allows the neuron to shift the activation function to the left or right, this can be useful in certain cases.</p>
+</div>
+</details>
+</div>
 </details>
 <h3 id="the-network">The Network</h3>
 <p>Let’s write the equation for a single neuron in a more compact form.</p>
@@ -229,11 +233,15 @@ $$
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="alert-circle" viewBox="0 0 24 24"><use href="#alert-circle"></use></svg>Problem: Exercise: Is it necessary to apply the same activation function to all layers in a neural network?<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>No, it is not necessary to apply the same activation function to all layers.
-Different activation functions can be used in different layers, depending on the problem at hand.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>No, it is not necessary to apply the same activation function to all layers.
+Different activation functions can be used in different layers, depending on the problem at hand.</p>
+</div>
+</details>
+</div>
 </details>
 <p>This is the basic structure of a neural network, I will not go into more detail about the <em>training process</em>, but I will mention that these weights and biases are <em>learned</em> (from the data) through an optimization process called <em>backpropagation</em> <sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>.</p>
 <p>There are a ton of resources to understand these concepts, even we tried to explain these concepts in our thesis.
@@ -268,12 +276,16 @@ $$</p>
 <p>There is a more elegant way it is presented (and especially used!) in classical information theory. But I will leave that for yourself to read and discover :).</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="alert-circle" viewBox="0 0 24 24"><use href="#alert-circle"></use></svg>Problem: Exercise: Does Shannon-Entropy have a lower and upper bound?<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Yes, the lower bound of entropy is 0 and the upper bound is $\log |\chi|$.
-Where $|\chi|$ is the cardinality or the number of elements in the set $\chi$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Yes, the lower bound of entropy is 0 and the upper bound is $\log |\chi|$.
+Where $|\chi|$ is the cardinality or the number of elements in the set $\chi$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution: Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \begin{align*}
 &#x26;\textbf{We want to show } 0 \leq H(X) \leq \log |\chi|. \newline
 &#x26;\textbf{Lower Bound (}H(X) \ge 0\textbf): \newline
@@ -289,9 +301,12 @@ Where $|\chi|$ is the cardinality or the number of elements in the set $\chi$.</
 &#x26;\quad \text{Note, one could also solve this using Lagrange multipliers to find this maximum.} \newline \newline
 &#x26;\text{Hence, combining both bounds, we have } 0 \le H(X) \le \log |\chi|. \newline
 \end{align*}
-$$</p></div>
-</details></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
+</details>
+</div>
 </details>
 <h1 id="entropy-based-uncertainty-quantification-framework">Entropy-based Uncertainty Quantification Framework</h1>
 <p>From what we have seen, we can view a neural network as a <strong>function</strong>.</p>
@@ -330,19 +345,29 @@ It is therefore meaningful to examine the <strong>probability distribution</stro
 <p>With this framework, we want to search for the <strong>underlying distribution of the model</strong> and the <strong>properties of the distribution</strong>.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="alert-circle" viewBox="0 0 24 24"><use href="#alert-circle"></use></svg>Problem: Exercise: What is the difference between the entropy of the model and the entropy of the prediction?<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The entropy of the model is the entropy of <strong>multiple predictions</strong> given the same fixed input $\mathbf{x}$, whereas the entropy of the prediction is the <strong>entropy of the probability vector</strong> for a <strong>single prediction</strong>.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The entropy of the model is the entropy of <strong>multiple predictions</strong> given the same fixed input $\mathbf{x}$, whereas the entropy of the prediction is the <strong>entropy of the probability vector</strong> for a <strong>single prediction</strong>.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="alert-circle" viewBox="0 0 24 24"><use href="#alert-circle"></use></svg>Problem: Exercise: Is there a difference if you add noise to the input image instead of the weights?<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Yes and no.</p><p>Adding noise to the input image will perturb the image itself, which is different from perturbing the weights.
-However, conceptually, the idea is the same.</p><p>We can view the noise to the input image as corresponding weights in the first layer of the network.
-Meaning that the first layer of the network is now stochastic, instead of all the weights in the network.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Yes and no.</p>
+<p>Adding noise to the input image will perturb the image itself, which is different from perturbing the weights.
+However, conceptually, the idea is the same.</p>
+<p>We can view the noise to the input image as corresponding weights in the first layer of the network.
+Meaning that the first layer of the network is now stochastic, instead of all the weights in the network.</p>
+</div>
+</details>
+</div>
 </details>
 <h3 id="proposed-metrics">Proposed Metrics</h3>
 <p>With this entropy-based uncertainty quantification framework, we propose two metrics to quantify the uncertainty of a neural network model.</p>
@@ -376,11 +401,15 @@ $$</p>
 <p>$\pi_{\sigma}$ is the difference in accuracy between the perturbed and the original model.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="alert-circle" viewBox="0 0 24 24"><use href="#alert-circle"></use></svg>Problem: Exercise: Should you calculate the PI for a single image, a batch of images, or the entire dataset?<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The most meaningful way to calculate the PI is to calculate it for the entire dataset.
-You can of course calculate it for a single image or a batch of images, but the most meaningful interpretation is when you calculate it for the entire dataset.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The most meaningful way to calculate the PI is to calculate it for the entire dataset.
+You can of course calculate it for a single image or a batch of images, but the most meaningful interpretation is when you calculate it for the entire dataset.</p>
+</div>
+</details>
+</div>
 </details>
 <h4 id="psi-perturbation-stability-index">PSI: Perturbation Stability Index</h4>
 <p>But PI doesn’t tell us anything about the <em>inherent uncertainty</em> of the model.</p>
@@ -432,13 +461,18 @@ Compared to the four on the left (highest entropy), which <strong>will most like
 This just means that this specific models <strong>prefers</strong> digit fours that have the characteristics of the one on the right, to the one on the left.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="alert-circle" viewBox="0 0 24 24"><use href="#alert-circle"></use></svg>Problem: Exercise: Why do you think the model prefers the digit four on the right?<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check" viewBox="0 0 24 24"><use href="#check"></use></svg>Answer<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>While there is no right answer (i.e., we haven’t proved this), we hypothesize two things.</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>While there is no right answer (i.e., we haven’t proved this), we hypothesize two things.</p>
+<ol>
 <li>There are more digit fours that resemble the one on the right in the dataset.</li>
 <li>The right digit four has a more unique shape (i.e., characteristic crossover lines for drawing a four), which the model has learned to classify and indicate fours.</li>
-</ol></div>
-</details></div>
+</ol>
+</div>
+</details>
+</div>
 </details>
 <h1 id="conclusion">Conclusion</h1>
 <p>I hope you’ve understood this framework of quantifying uncertainty in neural networks and enjoyed this post :).</p>

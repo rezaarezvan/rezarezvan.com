@@ -134,8 +134,12 @@ We will discuss some fundamental theory and their applications.</p>
 <h2 id="graphical-models">Graphical Models</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Graphical Models<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Graphical models are a powerful framework to represent and learn structured probability models.</p><p>The main idea behind graphical models is that they capture a way in which a joint distribution can be factorized into product of factors, each depending only on a subset of variables.
-They are generally useful for, visualizing the structure of a probabilistic model, encoding structural information (i.e., dependencies) about involved random variables, and provide structure in computations, i.e., provide graph-based algorithms for computations, inference, and prediction.</p><p>There are three main types of graphical models,</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Graphical models are a powerful framework to represent and learn structured probability models.</p>
+<p>The main idea behind graphical models is that they capture a way in which a joint distribution can be factorized into product of factors, each depending only on a subset of variables.
+They are generally useful for, visualizing the structure of a probabilistic model, encoding structural information (i.e., dependencies) about involved random variables, and provide structure in computations, i.e., provide graph-based algorithms for computations, inference, and prediction.</p>
+<p>There are three main types of graphical models,</p>
+<ol>
 <li>
 <p>Bayesian Networks (or Bayes nets) which are DAGs <label for="sn-1" class="sidenote-toggle sidenote-number" aria-describedby="sn-1-note">1</label><input type="checkbox" id="sn-1" class="sidenote-checkbox" aria-label="Toggle sidenote 1"><span class="sidenote" role="note" id="sn-1-note"><span class="sidenote-number-inline">1</span>Directed Acyclic Graphs (DAGs) are graphs with directed edges and no cycles.</span>. They represent a set of random variables and their conditional dependence structure.</p>
 </li>
@@ -145,26 +149,32 @@ They are generally useful for, visualizing the structure of a probabilistic mode
 <li>
 <p>Factor Graphs. Which are more convenient for the purposes of inference and learning.</p>
 </li>
-</ol></div>
+</ol>
+</div>
 </details>
 <h3 id="bayesian-networks">Bayesian Networks</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Bayesian Networks<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In a Bayesian network, we have two types of elements.</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>In a Bayesian network, we have two types of elements.</p>
+<ol>
 <li>
 <p>Nodes represents the random variables and more specifically, an empty node is an unobserved variable, while a shaded node is an observed variable.</p>
 </li>
 <li>
 <p>Edges represents the relationships between the random variables.</p>
 </li>
-</ol><p>Further, the bayesian netowrk encodes a factorization of a join distribution.</p><p>Assume we have $K$ random variables $\{\mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_K\}$ with join probability distribution $p(\mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_K)$, we know by the chain rule of probability that,
+</ol>
+<p>Further, the bayesian netowrk encodes a factorization of a join distribution.</p>
+<p>Assume we have $K$ random variables $\{\mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_K\}$ with join probability distribution $p(\mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_K)$, we know by the chain rule of probability that,
 $$
 \begin{align*}
 p(\mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_K) &#x26; = p(\mathsf{x}_1) p(\mathsf{x}_2 \mid \mathsf{x}_1) p(\mathsf{x}_3 \mid \mathsf{x}_1, \mathsf{x}_2) \cdots p(\mathsf{x}_K \mid \mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_{K-1}) \newline
 &#x26; = \prod_{i=1}^{K} p(\mathsf{x}_i \mid p(\mathsf{x}_i)) \newline
 \end{align*}
 $$
-To build a Bayesian network we need,</p><ol>
+To build a Bayesian network we need,</p>
+<ol>
 <li>
 <p>Introduce a node for each $\mathsf{x}$ and associate the node with $p(\mathsf{x} \mid \cdot)$.</p>
 </li>
@@ -174,56 +184,75 @@ To build a Bayesian network we need,</p><ol>
 <li>
 <p>Edge from node $\mathsf{x}$ to node $\tilde{\mathsf{x}}$, $\mathsf{x}$ parent of $\tilde{\mathsf{x}}$, $\tilde{\mathsf{x}}$ child of $\mathsf{x}$.</p>
 </li>
-</ol></div>
+</ol>
+</div>
 </details>
 <figure><img alt="Example Bayesian Network" loading="lazy" decoding="async"  width="326" height="187" src="/_astro/bayesian_network.DZQoy2OW_Z1R7Xyx.svg" ><figcaption>Example Bayesian Network</figcaption></figure>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Bayesian Network Example<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the network in Figure 1, the corresponding joint distribution is given by,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider the network in Figure 1, the corresponding joint distribution is given by,
 $$
 p(x_1, x_2, x_3, x_4, x_5) = p(x_1) p(x_2) p(x_3 \mid x_1) p(x_4 \mid x_1, x_3) p(x_5 \mid x_2, x_3, x_4)
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Bayesian Networks (Continued)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A Bayesian network is a directed acyclic graph (DAG) whose nodes represents random variables $\{\mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_K\}$ with an associated joint distribution that factorizes as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A Bayesian network is a directed acyclic graph (DAG) whose nodes represents random variables $\{\mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_K\}$ with an associated joint distribution that factorizes as,
 $$
 p(\mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_K) = \prod_{k = 1}^{K} p(\mathsf{x}_k \mid \mathsf{x}_{\mathcal{P}(\mathsf{x}_k)}),
 $$
-where $\mathcal{P}(\mathsf{x}_k)$ denotes the set of parents of node $\mathsf{x}_k$ in the graph.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+where $\mathcal{P}(\mathsf{x}_k)$ denotes the set of parents of node $\mathsf{x}_k$ in the graph.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Note that $\mathsf{x}_{\mathcal{P}(\mathsf{x}_k)}$ accounts for statistical dependence of $\mathsf{x}_k$ with all the preceding variables $\{\mathsf{x}_1, \ldots, \mathsf{x}_{k-1}\}$ according to selected order.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Note that $\mathsf{x}_{\mathcal{P}(\mathsf{x}_k)}$ accounts for statistical dependence of $\mathsf{x}_k$ with all the preceding variables $\{\mathsf{x}_1, \ldots, \mathsf{x}_{k-1}\}$ according to selected order.
 The corresponding Bayesian network encodes,
 $$
 \mathsf{x}_k \perp \{\mathsf{x}_1, \ldots, \mathsf{x}_{k-1}\} \setminus \mathcal{P}(\mathsf{x}_k) \mid \mathsf{x}_{\mathcal{P}(\mathsf{x}_k)}
-$$</p></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Bayesian Polynomial Regression<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the joint distribution condtioned on input data and model parameters,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider the joint distribution condtioned on input data and model parameters,
 $$
 p(y_{\mathcal{D}}, \mathbf{w} \mid x_{\mathcal{D}}, \alpha, \sigma^2) = p(\mathbf{w} \mid \alpha) \prod_{i=1}^{N} p(y_i \mid \mathbf{x}_i, \mathbf{w}, \sigma^2)
-$$</p></div>
+$$</p>
+</div>
 </details>
 <figure><img alt="Bayesian Polynomial Regression Network" loading="lazy" decoding="async"  width="289" height="212" src="/_astro/polynomial_network.CEp8P_Wa_2hKrmq.svg" ><figcaption>Bayesian Polynomial Regression Network</figcaption></figure>
 <h3 id="causal-relationships">Causal Relationships</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Causal Relationships<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Bayesian networks are especially useful for modeling causal relationships between variables.</p><p>If we can identify causal relationships among random variables, this must mean there is a natural order on variables, i.e., random variables that appear later caused by a subset of preceding variables.</p><p>Causing random variables for random variable $\mathsf{x}_k$ are included in $\mathcal{P}(\mathsf{x}_k)$.
-Which means conditioning on $\mathsf{x}_{\mathcal{P}(\mathsf{x}_k)}$, $\mathsf{x}_k$ is independent of all other preceding variables.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Bayesian networks are especially useful for modeling causal relationships between variables.</p>
+<p>If we can identify causal relationships among random variables, this must mean there is a natural order on variables, i.e., random variables that appear later caused by a subset of preceding variables.</p>
+<p>Causing random variables for random variable $\mathsf{x}_k$ are included in $\mathcal{P}(\mathsf{x}_k)$.
+Which means conditioning on $\mathsf{x}_{\mathcal{P}(\mathsf{x}_k)}$, $\mathsf{x}_k$ is independent of all other preceding variables.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Ancestral Sampling<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>However, we usually have a problem when dealing with causal relationships, i.e., obtaining marginals is not a trivial task.</p><p>But we can approximate exact distribution by an empirical one built from samples and perfect task for Bayesian networks.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>However, we usually have a problem when dealing with causal relationships, i.e., obtaining marginals is not a trivial task.</p>
+<p>But we can approximate exact distribution by an empirical one built from samples and perfect task for Bayesian networks.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Ancestral Sampling<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Assume,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Assume,
 $$
 p(\mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_K) = \prod_{k = 1}^{K} p(\mathsf{x}_k \mid \mathsf{x}_{\mathcal{P}(\mathsf{x}_k)}),
 $$
-i.e., ordered variables $\{\mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_K\}$, with no arrow from any node to any lower numbered node.</p><ol>
+i.e., ordered variables $\{\mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_K\}$, with no arrow from any node to any lower numbered node.</p>
+<ol>
 <li>
 <p>Draw sample for $\mathsf{x}_1$ from $p(\mathsf{x}_1)$.</p>
 </li>
@@ -236,18 +265,23 @@ i.e., ordered variables $\{\mathsf{x}_1, \mathsf{x}_2, \ldots, \mathsf{x}_K\}$, 
 <li>
 <p>Draw sample for $\mathsf{x}_K$ from $p(\mathsf{x}_K \mid \mathsf{x}_{\mathcal{P}(\mathsf{x}_K)})$.</p>
 </li>
-</ol><p>Thus, we have obtained a sample from the joint distribution.</p><p>To sample from a marginal distribution we,</p><ul>
+</ol>
+<p>Thus, we have obtained a sample from the joint distribution.</p>
+<p>To sample from a marginal distribution we,</p>
+<ul>
 <li>
 <p>Take sampled values for required nodes and ignore those remaining ones.</p>
 </li>
 <li>
 <p>$p(\mathsf{x}_2, \mathsf{x}_4)$: sample from $p(\mathsf{x}_1, \ldots, \mathsf{x}_K)$, retain $\hat{\mathsf{x}}_2$ and $\hat{\mathsf{x}}_4$ and discard $\{\hat{\mathsf{x}}_{j \neq 2,4}\}$.</p>
 </li>
-</ul></div>
+</ul>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Conditional Independence<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We know from classical probability theory that two random variables $a$ and $b$ are conditionally independent given a third random variable $c$ if,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We know from classical probability theory that two random variables $a$ and $b$ are conditionally independent given a third random variable $c$ if,
 $$
 p(a, b \mid c) = p(a \mid c) p(b \mid c)
 $$
@@ -258,39 +292,52 @@ $$
 This can also be written as,
 $$
 p(a \mid b, c) = \frac{p(a, b, c)}{p(b, c)} = \frac{p(a, b \mid c)}{p(b \mid c)} = \frac{p(a \mid c) p(b \mid c)}{p(b \mid c)} = p(a \mid c)
-$$</p></div>
+$$</p>
+</div>
 </details>
 <figure><img alt="The three basic structures for conditional independence" loading="lazy" decoding="async"  width="630" height="161" src="/_astro/conditional_independence.DD87eB_V_1tDNFF.svg" ><figcaption>The three basic structures for conditional independence</figcaption></figure>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Types of Connections<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Observe Figure 3, in the case of a tail-to-tail connection,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Observe Figure 3, in the case of a tail-to-tail connection,
 $$
 p(a, b \mid c) = \frac{p(a, b, c)}{p(c)} = \frac{p(a \mid c) p(b \mid c) p(c)}{p(c)} = p(a \mid c) p(b \mid c) \implies a \perp b \mid c
 $$
-i.e., $a$ and $b$ are independent if node in between is observed.</p><p>In the case of a head-to-tail connection,
+i.e., $a$ and $b$ are independent if node in between is observed.</p>
+<p>In the case of a head-to-tail connection,
 $$
 p(a, b \mid c) = \frac{p(a, b, c)}{p(c)} = \frac{p(a) p(c \mid a) p(b \mid c)}{p(c)} = p(a \mid c) p(b \mid c) \implies a \perp b \mid c
 $$
-i.e., $a$ and $b$ are independent if node in between is observed.</p><p>In the case of a head-to-head connection,
+i.e., $a$ and $b$ are independent if node in between is observed.</p>
+<p>In the case of a head-to-head connection,
 $$
 p(a, b) = \int p(a, b, c) \ dc = \int p(c \mid a, b) p(a) p(b) \ dc = p(a) p(b) \implies a \perp b \mid \emptyset
 $$
-i.e., $a$ and $b$ are independent if node in between and any of its descendants are not observed.</p></div>
+i.e., $a$ and $b$ are independent if node in between and any of its descendants are not observed.</p>
+</div>
 </details>
 <h3 id="d-separation">$d$-Separation</h3>
 <figure><img alt="Are $a$ and $b$ conditionally independent given $c$?" loading="lazy" decoding="async"  width="279" height="252" src="/_astro/d_separation.GuOT9bOK_hnYV2.svg" ><figcaption>Are $a$ and $b$ conditionally independent given $c$?</figcaption></figure>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: d-Separation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>This leads to asking a more general question.
-Are $a$ and $b$ conditionally independent given $c$? (see Figure 4)></p><p>Or, in more general, isa given subset of variables $\mathcal{A}$ independent of another set $\mathcal{B}$ conditioned on a third subset $\mathcal{C}$? ($\mathsf{x}_{\mathcal{A}} \perp \mathsf{x}_{\mathcal{B}} \mid \mathsf{x}_{\mathcal{C}}$)
-Thus, the goal is to determine independencies directly from the directed acyclic graph.</p><p>We can define the concept of $d$-separation as. If all paths from any node in $\mathcal{A}$ to any node in $\mathcal{B}$ given the nodes in $\mathcal{C}$ are blocked, then $\mathcal{A} \perp \mathcal{B} \mid \mathcal{C}$.</p><p>Or more formally as.</p><p>Let $G$ be a directed graph and $\mathcal{A}$, $\mathcal{B}$, and $\mathcal{C}$ disjoint sets of nodes. Then, if all paths from any node in $\mathcal{A}$ to any node in $\mathcal{B}$ given the nodes in $\mathcal{C}$ are blocked, $\mathcal{A}$ and $\mathcal{B}$ are said to be $d$-separated by $\mathcal{C}$ and $\mathcal{A} \perp \mathcal{B} \mid \mathcal{C}$.</p><p>A path between $\mathcal{A}$ and $\mathcal{B}$ is blocked if the path includes either,</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>This leads to asking a more general question.
+Are $a$ and $b$ conditionally independent given $c$? (see Figure 4)></p>
+<p>Or, in more general, isa given subset of variables $\mathcal{A}$ independent of another set $\mathcal{B}$ conditioned on a third subset $\mathcal{C}$? ($\mathsf{x}_{\mathcal{A}} \perp \mathsf{x}_{\mathcal{B}} \mid \mathsf{x}_{\mathcal{C}}$)
+Thus, the goal is to determine independencies directly from the directed acyclic graph.</p>
+<p>We can define the concept of $d$-separation as. If all paths from any node in $\mathcal{A}$ to any node in $\mathcal{B}$ given the nodes in $\mathcal{C}$ are blocked, then $\mathcal{A} \perp \mathcal{B} \mid \mathcal{C}$.</p>
+<p>Or more formally as.</p>
+<p>Let $G$ be a directed graph and $\mathcal{A}$, $\mathcal{B}$, and $\mathcal{C}$ disjoint sets of nodes. Then, if all paths from any node in $\mathcal{A}$ to any node in $\mathcal{B}$ given the nodes in $\mathcal{C}$ are blocked, $\mathcal{A}$ and $\mathcal{B}$ are said to be $d$-separated by $\mathcal{C}$ and $\mathcal{A} \perp \mathcal{B} \mid \mathcal{C}$.</p>
+<p>A path between $\mathcal{A}$ and $\mathcal{B}$ is blocked if the path includes either,</p>
+<ul>
 <li>
 <p>A head-to-tail or tail-to-tail node which is in $\mathcal{C}$, or,</p>
 </li>
 <li>
 <p>A head-to-head node, and neither the node nor any of its descendants in $\mathcal{C}$.</p>
 </li>
-</ul></div>
+</ul>
+</div>
 </details>
 <p>So, to answer our question to Figure 4.</p>
 <p>Path from $a$ to $b$ are not blocked by $f$, since a tail-to-tail node and $f$ is unobserved.</p>
@@ -303,18 +350,25 @@ Path blocked by $e$, as a head-to-head node and neither the node nor any of its 
 <p>Hence, $a \perp b \mid f$ holds from the DAG.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Markov Blanket<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In a directed graphical model, a node is conditionally independent of all other nodes given its parents, children and co-parnets.</p><p>The Markov blanket of node $\mathsf{x}_i$ is the minimal set of nodes that isolates $\mathsf{x}_i$ from the rest of the graph.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>In a directed graphical model, a node is conditionally independent of all other nodes given its parents, children and co-parnets.</p>
+<p>The Markov blanket of node $\mathsf{x}_i$ is the minimal set of nodes that isolates $\mathsf{x}_i$ from the rest of the graph.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Structured Learning<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>What if the Bayesian network is not known? (i.e., we do not know the structure of the graph)</p><p>Bayesian networks can be learned from data without a pre-specified structure.</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>What if the Bayesian network is not known? (i.e., we do not know the structure of the graph)</p>
+<p>Bayesian networks can be learned from data without a pre-specified structure.</p>
+<ul>
 <li>
 <p>Different algorithms can be employed to learn network structure by analyzing the data and inferring most likely graph structure that best fits observed dependencies.</p>
 </li>
 <li>
 <p>Once structure and parameters are learned, the Bayesian network can be used for prediction.</p>
 </li>
-</ul></div>
+</ul>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/ssy316/ssy316_3/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 4 &amp; 5 - Linear Models for Classification </span> </div>  </a>  <a href="/notes/master/ssy316/ssy316_5/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 7 - Graphical Models II </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

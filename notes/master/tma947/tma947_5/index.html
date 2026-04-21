@@ -143,18 +143,26 @@ $$</p>
 <p>We will firstly look at line search methods.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Line Search Methods<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A line search algorithm has the form,
-Step 0: Set $k=0$ and choose an initial guess $\mathbf{x}_0$.</p><p>Step 1: Find search direction, $\mathbf{p}_k \in \mathbb{R}^n$.</p><p>Step 2: Perform line search, i.e., find step length $\alpha_k > 0$, such that $f(\mathbf{x}_k + \alpha_k \mathbf{p}_k) &#x3C; f(\mathbf{x}_k)$.</p><p>Step 3: Update, $\mathbf{x}_{k+1} = \mathbf{x}_k + \alpha_k \mathbf{p}_k$.</p><p>Step 4: If termination criterion is satisfied, stop. Otherwise, set $k = k + 1$ and go to Step 1.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A line search algorithm has the form,
+Step 0: Set $k=0$ and choose an initial guess $\mathbf{x}_0$.</p>
+<p>Step 1: Find search direction, $\mathbf{p}_k \in \mathbb{R}^n$.</p>
+<p>Step 2: Perform line search, i.e., find step length $\alpha_k > 0$, such that $f(\mathbf{x}_k + \alpha_k \mathbf{p}_k) &#x3C; f(\mathbf{x}_k)$.</p>
+<p>Step 3: Update, $\mathbf{x}_{k+1} = \mathbf{x}_k + \alpha_k \mathbf{p}_k$.</p>
+<p>Step 4: If termination criterion is satisfied, stop. Otherwise, set $k = k + 1$ and go to Step 1.</p>
+</div>
 </details>
 <p>Steps 0, 3, and 4 are trivial, therefore, we will spend most of our time on Steps 1 and 2.</p>
 <h2 id="step-1---search-direction">Step 1 - Search Direction</h2>
 <p>To understand how we should find a search direction, let’s recap what a descent direction is.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Descent direction<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $\mathbf{x}_k \in S$, a vector $\mathbf{p}_k \in \mathbb{R}^n$ is called a <em>descent direction</em> with respect to $f$ at the point $\mathbf{x}_k$, if,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $\mathbf{x}_k \in S$, a vector $\mathbf{p}_k \in \mathbb{R}^n$ is called a <em>descent direction</em> with respect to $f$ at the point $\mathbf{x}_k$, if,
 $$
 \exists \delta > 0 : f(\mathbf{x}_k + \alpha \mathbf{p}_k) &#x3C; f(\mathbf{x}_K), \quad \forall \alpha \in (0, \delta]
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Thus, $\mathbf{p}_k = -\nabla f(\mathbf{x}_k)$ is a descent direction (if $\nabla f(\mathbf{x}_k) \neq 0$).
 It is called the <em>steepest descent direction</em> (since the gradient points in the direction of steepest <strong>ascent</strong>, the negative gradient points in the direction of steepest <strong>descent</strong>).</p>
@@ -162,20 +170,25 @@ It is called the <em>steepest descent direction</em> (since the gradient points 
 <p>We will mainly derive two methods for finding a search direction, but for this we need the following lemma.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-400 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-600 dark:text-indigo-300" data-lucide="puzzle" viewBox="0 0 24 24"><use href="#puzzle"></use></svg>Lemma: Descent direction<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-600 dark:text-indigo-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $f \in C^1$ and $\mathbf{Q} \in \mathbb{R}^{n \times n}$ be symmetric and positive definite matrix, if $\nabla f(\mathbf{x}_k) \neq 0$, then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $f \in C^1$ and $\mathbf{Q} \in \mathbb{R}^{n \times n}$ be symmetric and positive definite matrix, if $\nabla f(\mathbf{x}_k) \neq 0$, then,
 $$
 \mathbf{p}_k = -\mathbf{Q} \nabla f(\mathbf{x}_k) \ \text{is a descent direction.}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$\mathbf{Q} = \mathbf{I}$ gives the steepest descent direction.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$\mathbf{Q} = \mathbf{I}$ gives the steepest descent direction.</p>
+</div>
 </details>
 <p>We will now introduce Newton’s method.</p>
 <h2 id="newtons-method">Newton’s Method</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Newton’s Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $f \in C^2$ and $\nabla^2 f(\mathbf{x}_k)$ be positive definite, i.e., $\nabla^2 f(\mathbf{x}_k) \succ 0$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $f \in C^2$ and $\nabla^2 f(\mathbf{x}_k)$ be positive definite, i.e., $\nabla^2 f(\mathbf{x}_k) \succ 0$.
 By a second-order Taylor expansion of $f$ around $\mathbf{x}_k$, we have,
 $$
 f(\mathbf{x}_k + \mathbf{p}) \approx \underbrace{f(\mathbf{x}_k) + \nabla f(\mathbf{x}_k)^T \mathbf{p} + \frac{1}{2} \mathbf{p}^T \nabla^2 f(\mathbf{x}_k) \mathbf{p}}_{\eqqcolon \varphi_{\mathbf{x}_k}(\mathbf{p})} + \mathcal{O}(\ldots)
@@ -191,7 +204,8 @@ $$
 \nabla f(\mathbf{x}_k) + \nabla^2 f(\mathbf{x}_k) \mathbf{p} &#x26; = 0 \newline
 \mathbf{p} &#x26; = -\underbrace{\left(\nabla^2 f(\mathbf{x}_k)\right)^{-1}}_{\text{has inverse due to full rank assumption, i.e.,} \ \succ 0} \nabla f(\mathbf{x}_k)
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Some remarks about Newton’s method. When the Hessian $\nabla^2 f(\mathbf{x}_k)$ is positive definite, then $\mathbf{p}_k$ is a descent direction (by the lemma).</p>
 <p>However, if $\nabla^2 f(\mathbf{x}_k)$ is negative definite (may also be non invertible), then $\mathbf{p}_k$ is an ascent direction.
@@ -199,34 +213,48 @@ This means that Newton’s method works for both minimization and maximization p
 <p>How do we solve this issue? Perturbing the Hessian matrix so it can be made positive definite.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Levenberg-Marquardt modification<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We take the search direction,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We take the search direction,
 $$
 \mathbf{p}_k = -\left(\nabla^2 f(\mathbf{x}_k) + \gamma \mathbf{I}\right)^{-1} \nabla f(\mathbf{x}_k),
 $$
 for $\gamma > 0$ such that $\nabla^2 f(\mathbf{x}_k) + \gamma \mathbf{I} \succ 0$.
-An interesting thing to consider is what is the lower bound needed for $\gamma$ to make the matrix positive definite?</p><p>Let $(\lambda_i, \mathbf{v}_i)$ be the eigenpairs of $\nabla^2 f(\mathbf{x}_k)$, then the eigenpairs of $\nabla^2 f(\mathbf{x}_k) + \gamma \mathbf{I}$ are $(\lambda_i + \gamma, \mathbf{v}_i)$.
-Thus, we need $\gamma > -\lambda_{\min}$, where $\lambda_{\min}$ is the smallest eigenvalue of $\nabla^2 f(\mathbf{x}_k)$.</p></div>
+An interesting thing to consider is what is the lower bound needed for $\gamma$ to make the matrix positive definite?</p>
+<p>Let $(\lambda_i, \mathbf{v}_i)$ be the eigenpairs of $\nabla^2 f(\mathbf{x}_k)$, then the eigenpairs of $\nabla^2 f(\mathbf{x}_k) + \gamma \mathbf{I}$ are $(\lambda_i + \gamma, \mathbf{v}_i)$.
+Thus, we need $\gamma > -\lambda_{\min}$, where $\lambda_{\min}$ is the smallest eigenvalue of $\nabla^2 f(\mathbf{x}_k)$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ul>
 <li>When $\gamma = 0$, we have the original Newton’s method, why?</li>
-</ul><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+</ul>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Because $\nabla^2 f(\mathbf{x}_k) + 0 \mathbf{I} = \nabla^2 f(\mathbf{x}_k)$.</p></div>
-</details><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Because $\nabla^2 f(\mathbf{x}_k) + 0 \mathbf{I} = \nabla^2 f(\mathbf{x}_k)$.</p>
+</div>
+</details>
+<ul>
 <li>When $\gamma \to \infty$, we have the steepest descent method, why?</li>
-</ul><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+</ul>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Because $\left(\nabla^2 f(\mathbf{x}_k) + \gamma \mathbf{I}\right)^{-1} \approx \mathbf{I}$, when $\gamma$ is large, thus $\mathbf{p}_k \approx -\mathbf{I} \nabla f(\mathbf{x}_k) = -\nabla f(\mathbf{x}_k)$.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Because $\left(\nabla^2 f(\mathbf{x}_k) + \gamma \mathbf{I}\right)^{-1} \approx \mathbf{I}$, when $\gamma$ is large, thus $\mathbf{p}_k \approx -\mathbf{I} \nabla f(\mathbf{x}_k) = -\nabla f(\mathbf{x}_k)$.</p>
+</div>
+</details>
+</div>
 </details>
 <p>We will note that computing the Hessian and its inverse is expensive, therefore, <strong>quasi-Newton methods</strong> are often used instead, where one approximatates the Hessian.</p>
 <p>We will not go into them, but it is good to know that they exist.</p>
 <p>Let’s also summarize the algorithms strengths and weaknesses.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="list" viewBox="0 0 24 24"><use href="#list"></use></svg>Summary: Strengths and Weaknesses of Steepest Descent and Newton’s Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Steepest Descent:</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Steepest Descent:</p>
+<ul>
 <li>Strengths:
 <ul>
 <li>Cheap (only need gradient).</li>
@@ -237,7 +265,9 @@ Thus, we need $\gamma > -\lambda_{\min}$, where $\lambda_{\min}$ is the smallest
 <li>“Zig-zagging” behavior ~ needs many (cheap) iterations.</li>
 </ul>
 </li>
-</ul><p>Newton’s Method:</p><ul>
+</ul>
+<p>Newton’s Method:</p>
+<ul>
 <li>Strengths:
 <ul>
 <li>Fast convergence ~ needs few (expensive) iterations.</li>
@@ -248,7 +278,8 @@ Thus, we need $\gamma > -\lambda_{\min}$, where $\lambda_{\min}$ is the smallest
 <li>Expensive (need Hessian and its inverse).</li>
 </ul>
 </li>
-</ul></div>
+</ul>
+</div>
 </details>
 <h2 id="step-2---line-search">Step 2 - Line Search</h2>
 <p>We will now look at how to perform a line search, i.e., how to find a step length $\alpha_k > 0$ such that $f(\mathbf{x}_k + \alpha_k \mathbf{p}_k) &#x3C; f(\mathbf{x}_k)$.</p>
@@ -262,30 +293,41 @@ Most of the time, it is unnecessary (since (on average) it may be unlikely that 
 <p>We will often use the <strong>Armijo Step Length Rule</strong>,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Armijo Step Length Rule<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>To find $\alpha$ that gives “sufficient decrease”, note that,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>To find $\alpha$ that gives “sufficient decrease”, note that,
 $$
 f(\mathbf{x}_k + \alpha \mathbf{p}_k) \approx f(\mathbf{x}_k) + \alpha \nabla f(\mathbf{x}_k)^T \mathbf{p}_k,
 $$
 where $\alpha \nabla f(\mathbf{x}_k)^T \mathbf{p}_k$ is the prediction of change of $f$ from point $\mathbf{x}_k$ to $\mathbf{x}_k + \alpha \mathbf{p}_k$.
-But we want to ensure that the predicted change is not too large and that the actual change is “sufficiently” large.</p><p>Solution to this problem, accept a step length $\alpha$ if it achieves a fraction $\mu$ of the predicted decrease, i.e., if,
+But we want to ensure that the predicted change is not too large and that the actual change is “sufficiently” large.</p>
+<p>Solution to this problem, accept a step length $\alpha$ if it achieves a fraction $\mu$ of the predicted decrease, i.e., if,
 $$
 f(\mathbf{x}_k + \alpha \mathbf{p}_k) \leq f(\mathbf{x}_k) + \mu \alpha \nabla f(\mathbf{x}_k)^T \mathbf{p}_k,
 $$
-then we accept $\alpha$ as our step length.</p><p>else, let $\alpha = \frac{\alpha}{2}$ and repeat until the condition is satisfied.</p></div>
+then we accept $\alpha$ as our step length.</p>
+<p>else, let $\alpha = \frac{\alpha}{2}$ and repeat until the condition is satisfied.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Eventually, some $\alpha$ will satisfy the condition.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Eventually, some $\alpha$ will satisfy the condition.</p>
+</div>
 </details>
 <h2 id="step-4---termination-criteria">Step 4 - Termination Criteria</h2>
 <p>We will now look at some termination criterias that are commonly used.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Termination Criteria<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Three common termination criteria are,</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Three common termination criteria are,</p>
+<ol>
 <li>$\Vert \nabla f(\mathbf{x}_k) \Vert &#x3C; \epsilon_1(1 + |f(\mathbf{x}_k|)$ for some small $\epsilon_1 > 0$.</li>
 <li>$f(\mathbf{x}_{k - 1}) - f(\mathbf{x}_k) &#x3C; \epsilon_2(1 + |f(\mathbf{x}_k|)$ for some small $\epsilon_2 > 0$.</li>
 <li>$\Vert \mathbf{x}_k - \mathbf{x}_{k - 1} \Vert &#x3C; \epsilon_3(1 + \Vert \mathbf{x}_k \Vert)$ for some small $\epsilon_3 > 0$.</li>
-</ol><p>The first criterion checks if we are close to a stationary point, the second checks if we have a small change in function value, and the third checks if we have a small change in the solution.</p><p>The factors $(1 + |f(\mathbf{x}_k|)$ and $(1 + \Vert \mathbf{x}_k \Vert)$ are included to make the criteria scale-invariant (i.e., independent of the scaling of $f$ and $\mathbf{x}$).</p></div>
+</ol>
+<p>The first criterion checks if we are close to a stationary point, the second checks if we have a small change in function value, and the third checks if we have a small change in the solution.</p>
+<p>The factors $(1 + |f(\mathbf{x}_k|)$ and $(1 + \Vert \mathbf{x}_k \Vert)$ are included to make the criteria scale-invariant (i.e., independent of the scaling of $f$ and $\mathbf{x}$).</p>
+</div>
 </details>
 <p>Now, we have covered all the steps of a line search method, but it is also of interest to look at the <em>convergence</em> of such methods, so let’s do that.</p>
 <h2 id="convergence">Convergence</h2>
@@ -296,32 +338,43 @@ $$</p>
 <p>We will formalize this, but for now, let’s go over some conditions over our search direction $\mathbf{p}_k$.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Descent direction conditions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>All search directions $\mathbf{p}_k$ should satisfy the following conditions,</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>All search directions $\mathbf{p}_k$ should satisfy the following conditions,</p>
+<ol>
 <li>$\Vert \mathbf{p}_k \Vert$ is bounded, i.e., $\exists M > 0 : \Vert \mathbf{p}_k \Vert \leq M, \ \forall k$.</li>
 <li>$\Vert \mathbf{p}_k \Vert \geq s_1 \Vert \nabla f(\mathbf{x}_k) \Vert$, for some $s_1 > 0$.</li>
 <li>$-\frac{\nabla f(\mathbf{x}_k)^T \mathbf{p}_k}{\Vert \nabla f(\mathbf{x}_k) \Vert \Vert \mathbf{p}_k \Vert} \geq s_2$, for some $s_2 > 0$.</li>
-</ol><p>Condition 1 ensures that the step length does not become too large.</p><p>Condition 2 ensures that the step length does not become too small (or, that we actually move and do not get stuck).</p><p>Condition 3 ensures that $\mathbf{p}_k$ is a descent direction (since $\nabla f(\mathbf{x}_k)^T \mathbf{p}_k &#x3C; 0$).</p></div>
+</ol>
+<p>Condition 1 ensures that the step length does not become too large.</p>
+<p>Condition 2 ensures that the step length does not become too small (or, that we actually move and do not get stuck).</p>
+<p>Condition 3 ensures that $\mathbf{p}_k$ is a descent direction (since $\nabla f(\mathbf{x}_k)^T \mathbf{p}_k &#x3C; 0$).</p>
+</div>
 </details>
 <p>We will now state a theorem regarding convergence.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Convergence of Line Search Methods<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $f \in C^1$ and assume for $\mathbf{x}_0$, the level set,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $f \in C^1$ and assume for $\mathbf{x}_0$, the level set,
 $$
 \{\mathbf{x} \in \mathbb{R}^n \mid f(\mathbf{x}) \leq f(\mathbf{x}_0) \} \ \text{is bounded.}
 $$
 Furthermore, assume $\mathbf{p}_k$ satisfies the descent direction conditions and that $\alpha_k$ is chosen by the Armijo step length rule.
-Then,</p><ol>
+Then,</p>
+<ol>
 <li>The sequence $\{\mathbf{x}_k \}$ is bounded.</li>
 <li>The sequence $\{f(\mathbf{x}_k) \}$ is decreasing and lower bounded.</li>
 <li>Every limit point of $\{\mathbf{x}_k \}$ is a stationary point, or in looser terms,
 $$
 “\lim_{k \to \infty} \mathbf{x}_k = \mathbf{x}^* : \nabla f(\mathbf{x}^*) = 0”
 $$</li>
-</ol></div>
+</ol>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The steepest descent direction fulfills conditions 2 and 3 with $s_2 = s_3 = 1$.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The steepest descent direction fulfills conditions 2 and 3 with $s_2 = s_3 = 1$.</p>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/tma947/tma947_4/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 4 - Introduction to Optimality Conditions </span> </div>  </a>  <a href="/notes/master/tma947/tma947_6/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 6 - Optimality Conditions and Karush-Kuhn-Tucker Conditions I </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

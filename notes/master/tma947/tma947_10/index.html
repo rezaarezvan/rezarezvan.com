@@ -133,7 +133,8 @@ Last modified: January 30, 2026 </div>  <div data-orientation="vertical" role="n
 <p>Firstly, let’s recap the setting we are working with.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="rotate-ccw" viewBox="0 0 24 24"><use href="#rotate-ccw"></use></svg>Recall: Linear Program on Standard Form<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>An LP on standard form is,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>An LP on standard form is,
 $$
 \begin{align*}
 \min \ &#x26; \mathbf{c}^T \mathbf{x} \newline
@@ -141,32 +142,44 @@ $$
 \ &#x26; \mathbf{x} \geq \mathbf{0}
 \end{align*}
 $$
-where $A \in \mathbb{R}^{m \times n}$, $\mathbf{b} \in \mathbb{R}^m$, $\mathbf{c} \in \mathbb{R}^n$ and $\mathbf{x} \in \mathbb{R}^n$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+where $A \in \mathbb{R}^{m \times n}$, $\mathbf{b} \in \mathbb{R}^m$, $\mathbf{c} \in \mathbb{R}^n$ and $\mathbf{x} \in \mathbb{R}^n$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We will also assume that $\mathrm{rank}(A) = m, m \leq n$ and $\mathbf{b} \geq \mathbf{0}$.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We will also assume that $\mathrm{rank}(A) = m, m \leq n$ and $\mathbf{b} \geq \mathbf{0}$.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="rotate-ccw" viewBox="0 0 24 24"><use href="#rotate-ccw"></use></svg>Recall: Basic Feasible Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Recall the standard form polyhedron $P = \{\mathbf{x} \in \mathbb{R}^n \mid A \mathbf{x} = \mathbf{b}, \ \mathbf{x} \geq \mathbf{0}\}$.
-A point $\bar{\mathbf{x}}$ is called a basic feasible solution (BFS), if,</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Recall the standard form polyhedron $P = \{\mathbf{x} \in \mathbb{R}^n \mid A \mathbf{x} = \mathbf{b}, \ \mathbf{x} \geq \mathbf{0}\}$.
+A point $\bar{\mathbf{x}}$ is called a basic feasible solution (BFS), if,</p>
+<ol>
 <li>$\bar{\mathbf{x}}$ is a basic solution, i.e., $A \bar{\mathbf{x}} = \mathbf{b}$ and the columns of $A$ corresponding to the non-zero components of $\bar{\mathbf{x}}$ are linearly independent,</li>
 <li>$\bar{\mathbf{x}} \geq \mathbf{0}$</li>
-</ol><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+</ol>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A BFS is a point in the feasible region (polyhedron) $P$.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A BFS is a point in the feasible region (polyhedron) $P$.</p>
+</div>
+</details>
+</div>
 </details>
 <h2 id="the-simplex-method">The Simplex Method</h2>
 <p>We will now introduce the Simplex method, which consists of four steps.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: The Simplex Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ol>
 <li>Determine if the current BFS is optimal. If it is, stop.</li>
 <li>If it is not optimal, find a search direction $\mathbf{d}$ to an adjacent BFS that decreases the objective function (adjacent and descent).</li>
 <li>Determine the step length $\theta$ to the adjacent BFS in the direction $\mathbf{d}$.</li>
 <li>Update to the new BFS $\mathbf{x} + \theta \mathbf{d}$ and go to step 1.</li>
-</ol></div>
+</ol>
+</div>
 </details>
 <p>We will now go through each step in detail, however, we will go in the order (2), (1), (3), (4), you will see why soon.</p>
 <h3 id="step-2-finding-an-adjacent-descent-direction">Step 2: Finding an Adjacent Descent Direction</h3>
@@ -201,10 +214,12 @@ B \mathbf{d}_B &#x26; = -N \mathbf{e}_j \newline
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Search Direction<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We consider search directions of the form,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We consider search directions of the form,
 $$
 \mathbf{d} = \begin{bmatrix} -B^{-1} N \mathbf{e}_j \newline \mathbf{e}_j \end{bmatrix}, \quad j \in {1, \ldots, n - m}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Further, we want to ensure that the search direction is a descent direction, i.e., $\nabla_{\mathbf{x}} f(\bar{\mathbf{x}})^T \mathbf{d} &#x3C; 0$, i.e., $\mathbf{c}^T \mathbf{d} &#x3C; 0$.</p>
 <p>Now, consider again analogously partitioning $\mathbf{c} = \begin{bmatrix} \mathbf{c}_B \newline \mathbf{c}_N \end{bmatrix}$.</p>
@@ -217,11 +232,13 @@ $$
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Reduced Cost<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $\bar{\mathbf{x}}$ be a BFS corresponding to the partitioning $A = \begin{bmatrix} B &#x26; N \end{bmatrix}$, the reduced costs for this partitioning is defined as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $\bar{\mathbf{x}}$ be a BFS corresponding to the partitioning $A = \begin{bmatrix} B &#x26; N \end{bmatrix}$, the reduced costs for this partitioning is defined as,
 $$
 \tilde{\mathbf{c}_N}^T = \mathbf{c}_N^T - \mathbf{c}_B^T B^{-1} N
 $$
-The $j$-th component of the reduced costs $\tilde{c}_{N_j}$ is called the reduced cost of the non-basic variable $x_{N_j}$.</p></div>
+The $j$-th component of the reduced costs $\tilde{c}_{N_j}$ is called the reduced cost of the non-basic variable $x_{N_j}$.</p>
+</div>
 </details>
 <p>It is possible that there are multiple non-basic variables with negative reduced costs, in that case, which one should we choose?</p>
 <p>In general, it will suffice to choose the one with the most negative reduced cost, i.e.,
@@ -231,16 +248,22 @@ $$</p>
 <p>Let’s now define the optimality condition.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Optimality Check<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $\bar{\mathbf{x}}$ be a BFS corresponding to the partitioning $A = \begin{bmatrix} B &#x26; N \end{bmatrix}$, and $\tilde{\mathbf{c}_N}^T = \mathbf{c}_N^T - \mathbf{c}_B^T B^{-1} N$ be the reduced costs for this partitioning,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $\bar{\mathbf{x}}$ be a BFS corresponding to the partitioning $A = \begin{bmatrix} B &#x26; N \end{bmatrix}$, and $\tilde{\mathbf{c}_N}^T = \mathbf{c}_N^T - \mathbf{c}_B^T B^{-1} N$ be the reduced costs for this partitioning,
 $$
 \tilde{\mathbf{c}_N}^T \geq \mathbf{0} \implies \bar{\mathbf{x}} \text{ is optimal}
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>G> > The above statement is a sufficient condition for optimality, which is nice.</p><p>Further, note that, if we do not have any degeneracy, then the above statement is a necessary and sufficient condition for optimality, i.e.,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>G> > The above statement is a sufficient condition for optimality, which is nice.</p>
+<p>Further, note that, if we do not have any degeneracy, then the above statement is a necessary and sufficient condition for optimality, i.e.,
 $$
 \tilde{\mathbf{c}_N}^T \geq \mathbf{0} \iff \bar{\mathbf{x}} \text{ is optimal (no degeneracy)}
-$$</p></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
 </details>
 <h3 id="step-3-determining-the-step-length">Step 3: Determining the Step Length</h3>
 <p>We now have a search direction $\mathbf{d} = \begin{bmatrix} -B^{-1} N \mathbf{e}_j \newline \mathbf{e}_j \end{bmatrix}$, and we want to determine the step length $\theta$ such that $\bar{\mathbf{x}} + \theta \mathbf{d}$ is an adjacent BFS.</p>
@@ -254,23 +277,34 @@ $$</p></div>
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Recall that we want $\mathbf{x} \geq \mathbf{0}$, thus we need to ensure that both $\bar{\mathbf{x}}_B - \theta B^{-1} N \mathbf{e}_j \geq \mathbf{0}$ and $\bar{\mathbf{x}}_N + \theta \mathbf{e}_j \geq \mathbf{0}$.</p><p>We know by definition of a BFS that $\bar{\mathbf{x}}_B \geq \mathbf{0}$ and $\bar{\mathbf{x}}_N = \mathbf{0}$, thus the second condition is satisfied for any $\theta \geq 0$.</p><p>The first condition however can cause problems, if $-B^{-1} N \mathbf{e}_j \leq \mathbf{0}$, then we can increase $\theta$ indefinitely and still satisfy the condition, i.e., the LP is unbounded!</p><p>If $-B^{-1} N \mathbf{e}_j \not\leq \mathbf{0}$, then we can find at least one component $i$ such that $(-B^{-1} N \mathbf{e}_j)_i > 0$, and thus we can increase $\theta$ until the $i$-th component of $\bar{\mathbf{x}}_B - \theta B^{-1} N \mathbf{e}_j$ is zero.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Recall that we want $\mathbf{x} \geq \mathbf{0}$, thus we need to ensure that both $\bar{\mathbf{x}}_B - \theta B^{-1} N \mathbf{e}_j \geq \mathbf{0}$ and $\bar{\mathbf{x}}_N + \theta \mathbf{e}_j \geq \mathbf{0}$.</p>
+<p>We know by definition of a BFS that $\bar{\mathbf{x}}_B \geq \mathbf{0}$ and $\bar{\mathbf{x}}_N = \mathbf{0}$, thus the second condition is satisfied for any $\theta \geq 0$.</p>
+<p>The first condition however can cause problems, if $-B^{-1} N \mathbf{e}_j \leq \mathbf{0}$, then we can increase $\theta$ indefinitely and still satisfy the condition, i.e., the LP is unbounded!</p>
+<p>If $-B^{-1} N \mathbf{e}_j \not\leq \mathbf{0}$, then we can find at least one component $i$ such that $(-B^{-1} N \mathbf{e}_j)_i > 0$, and thus we can increase $\theta$ until the $i$-th component of $\bar{\mathbf{x}}_B - \theta B^{-1} N \mathbf{e}_j$ is zero.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Minimum Ratio Test<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \theta^{\star} = \underset{k : (B^{-1} N \mathbf{e}_j)_k > 0}{\min} \frac{(B^{-1} \mathbf{b})_k}{(B^{-1} N \mathbf{e}_j)_k}
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We note that the index $k$ that attains the minimum is interesting.
-This index $k$ tells us which basic variable will become non-basic in the next iteration, i.e., which column of $B$ will be replaced by the $j$-th column of $N$.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We note that the index $k$ that attains the minimum is interesting.
+This index $k$ tells us which basic variable will become non-basic in the next iteration, i.e., which column of $B$ will be replaced by the $j$-th column of $N$.</p>
+</div>
+</details>
+</div>
 </details>
 <h3 id="step-4-update-to-the-new-bfs">Step 4: Update to the New BFS</h3>
 <p>We now have everything we need to perform the update to the new BFS.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Simplex Update<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Assume that we have a search direction $\mathbf{d}$ from (2) and a step length $\theta^{\star}$ from (3), then the new BFS is,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Assume that we have a search direction $\mathbf{d}$ from (2) and a step length $\theta^{\star}$ from (3), then the new BFS is,
 $$
 \bar{\mathbf{x}}^{\text{new}} = \bar{\mathbf{x}} + \theta^{\star} \mathbf{d}
 $$
@@ -278,40 +312,56 @@ Similarly, we can update the basis matrix $B$ by,
 $$
 \tilde{B}^{-1} b,
 $$
-where $\tilde{B}$ is the basis matrix obtained by replacing the $k$-th column of $B$ with the $j$-th column of $N$, where $k$ is the index that attains the minimum in the minimum ratio test.</p></div>
+where $\tilde{B}$ is the basis matrix obtained by replacing the $k$-th column of $B$ with the $j$-th column of $N$, where $k$ is the index that attains the minimum in the minimum ratio test.</p>
+</div>
 </details>
 <p>Let’s now formally write out the Simplex method.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: The Simplex Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ol>
 <li>Let $\bar{\mathbf{x}}$ be a initial BFS, corresponding to the partitioning $A = \begin{bmatrix} B &#x26; N \end{bmatrix}$.</li>
 <li>Compute the reduced costs $\tilde{\mathbf{c}_N}^T = \mathbf{c}_N^T - \mathbf{c}_B^T B^{-1} N$.</li>
-</ol><ul>
+</ol>
+<ul>
 <li>If $\tilde{\mathbf{c}_N}^T \geq \mathbf{0}$, stop, $\bar{\mathbf{x}}$ is optimal.</li>
 <li>Else, choose $j \in \underset{k : (\tilde{\mathbf{c}_N})_k &#x3C; 0}{\arg \min} (\tilde{\mathbf{c}_N})_k$.</li>
-</ul><ol start="3">
+</ul>
+<ol start="3">
 <li>Compute the search direction $\mathbf{d} = \begin{bmatrix} -B^{-1} N \mathbf{e}_j \newline \mathbf{e}_j \end{bmatrix}$.</li>
-</ol><ul>
+</ol>
+<ul>
 <li>If $-B^{-1} N \mathbf{e}_j \leq \mathbf{0}$, stop, the LP is unbounded.</li>
-</ul><ol start="4">
+</ul>
+<ol start="4">
 <li>Compute the step length $\theta^{\star} = \underset{k : (B^{-1} N \mathbf{e}_j)_k > 0}{\min} \frac{(B^{-1} \mathbf{b})_k}{(B^{-1} N \mathbf{e}_j)_k}$.</li>
 <li>Update to the new BFS $\bar{\mathbf{x}}^{\text{new}} = \bar{\mathbf{x}} + \theta^{\star} \mathbf{d}$ and update the basis matrix $B$ by replacing the $k$-th column of $B$ with the $j$-th column of $N$, where $k$ is the index that attains the minimum in the minimum ratio test.</li>
 <li>Repeat from step 2.</li>
-</ol></div>
+</ol>
+</div>
 </details>
 <p>We will now state a theorem regarding the convergence of the Simplex method and prove it.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Finite Termination of the Simplex Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If $P$ is nonempty and there is no degeneracy, then the Simplex method terminates in a finite number of iterations with an optimal solution or with the conclusion that the problem is unbounded.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If $P$ is nonempty and there is no degeneracy, then the Simplex method terminates in a finite number of iterations with an optimal solution or with the conclusion that the problem is unbounded.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If a BFS is non-degenerate, then it has exactly $m$ positive components, and hence a unique basis matrix.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If a BFS is non-degenerate, then it has exactly $m$ positive components, and hence a unique basis matrix.
 We know that if the search direction is unbounded, then the LP is unbounded and terminates.
-Otherwise, the basis is either optimal or $\theta^{\star} > 0$.</p><p>Therefore, in each iteration, the objective function is strictly decreased.
-Hence, no BFS can be revisited, and since there is a finite number of BFSs, the method must terminate in a finite number of iterations.</p></div>
-</details><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+Otherwise, the basis is either optimal or $\theta^{\star} > 0$.</p>
+<p>Therefore, in each iteration, the objective function is strictly decreased.
+Hence, no BFS can be revisited, and since there is a finite number of BFSs, the method must terminate in a finite number of iterations.</p>
+</div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Remember that there are $\binom{n}{m}$ possible basis matrices, thus at most $\binom{n}{m}$ iterations, i.e., the worst-case complexity is exponential in $n$ and $m$.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Remember that there are $\binom{n}{m}$ possible basis matrices, thus at most $\binom{n}{m}$ iterations, i.e., the worst-case complexity is exponential in $n$ and $m$.</p>
+</div>
+</details>
+</div>
 </details>
 <h2 id="initial-bfs-and-phase-i-problem">Initial BFS and Phase-I problem</h2>
 <p>We have now covered the Simplex method, however, we have not discussed how to find an initial BFS.</p>
@@ -327,7 +377,8 @@ $$</p>
 <p>However, in general, we will not be this lucky, but we can construct an auxiliary LP, called the Phase-I problem, to find an initial BFS.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Phase-I Problem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Given an LP on standard form, we can construct the Phase-I problem,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Given an LP on standard form, we can construct the Phase-I problem,
 $$
 \begin{align*}
 \min \ &#x26; \mathbf{1}^T \mathbf{y} \newline
@@ -335,21 +386,28 @@ $$
 \ &#x26; \mathbf{x}, \mathbf{y} \geq \mathbf{0}
 \end{align*}
 $$
-where $\mathbf{1} = \begin{bmatrix} 1 &#x26; 1 &#x26; \ldots &#x26; 1 \end{bmatrix}^T \in \mathbb{R}^m$ and $\mathbf{y} \in \mathbb{R}^m$ are artificial variables.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+where $\mathbf{1} = \begin{bmatrix} 1 &#x26; 1 &#x26; \ldots &#x26; 1 \end{bmatrix}^T \in \mathbb{R}^m$ and $\mathbf{y} \in \mathbb{R}^m$ are artificial variables.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Phase-I problem always has an initial BFS, namely $(\mathbf{x} = \mathbf{0}, \mathbf{y} = \mathbf{b})^T$, with basis matrix $B = I$.</p><p>Further, the Phase-I problem is always feasible.</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Phase-I problem always has an initial BFS, namely $(\mathbf{x} = \mathbf{0}, \mathbf{y} = \mathbf{b})^T$, with basis matrix $B = I$.</p>
+<p>Further, the Phase-I problem is always feasible.</p>
+<ol>
 <li>
 <p>If the optimal value of the Phase-I problem is zero, then the original LP is feasible,</p>
 </li>
 <li>
 <p>If the optimal value of the Phase-I problem is positive, then the original LP is infeasible.</p>
 </li>
-</ol></div>
-</details></div>
+</ol>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: An example using the Simplex Method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the LP,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider the LP,
 $$
 \begin{align*}
 \min \ &#x26; -x_1 - x_2 \newline
@@ -357,9 +415,11 @@ $$
 \ &#x26; -x_1 + x_2 \leq \frac{1}{2} \newline
 \ &#x26; x_1, x_2 \geq 0
 \end{align*}
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We first convert the LP to standard form by introducing slack variables,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We first convert the LP to standard form by introducing slack variables,
 $$
 \begin{align*}
 \min \ &#x26; -x_1 - x_2 \newline
@@ -439,7 +499,8 @@ Thus, it is not unbounded, and we can use the minimum ratio test,
 $$
 \underset{k : (B^{-1} N \mathbf{e}_1)_k > 0}{\min} \frac{(B^{-1} \mathbf{b})_k}{(B^{-1} N \mathbf{e}_1)_k} = \frac{2}{2} = 1
 $$
-Thus, the minimizing argument is $k = 1$, i.e., the first basic variable, $(\mathbf{x}_B)_1 = s_1$ is the outgoing variable.</p><p>Iteration 2,
+Thus, the minimizing argument is $k = 1$, i.e., the first basic variable, $(\mathbf{x}_B)_1 = s_1$ is the outgoing variable.</p>
+<p>Iteration 2,
 $$
 \begin{align*}
 \mathbf{x}_B &#x26; =
@@ -500,7 +561,8 @@ Thus, it is not unbounded, and we can use the minimum ratio test,
 $$
 \underset{k : (B^{-1} N \mathbf{e}_1)_k > 0}{\min} \frac{(B^{-1} \mathbf{b})_k}{(B^{-1} N \mathbf{e}_1)_k} = \min \left( \frac{1}{\frac{1}{2}}, \frac{\frac{3}{2}}{\frac{3}{2}} \right) = 1
 $$
-Thus, the minimizing argument is $k = 2$, i.e., the second basic variable, $(\mathbf{x}_B)_2 = s_2$ is the outgoing variable.</p><p>Iteration 3,
+Thus, the minimizing argument is $k = 2$, i.e., the second basic variable, $(\mathbf{x}_B)_2 = s_2$ is the outgoing variable.</p>
+<p>Iteration 3,
 $$
 \begin{align*}
 \mathbf{x}_B &#x26; =
@@ -548,8 +610,11 @@ $$
 &#x26; = \begin{bmatrix} \frac{2}{3} &#x26; \frac{1}{3} \end{bmatrix}
 \end{align*}
 $$
-Since $\tilde{\mathbf{c}_N}^T \geq \mathbf{0}$, we are optimal, and we can stop.</p><p>This means that $\mathbf{x}^{\star} = \begin{bmatrix} x_1^{\star} &#x26; x_2^{\star} &#x26; s_1^{\star} &#x26; s_2^{\star} \end{bmatrix}^T = \begin{bmatrix} \frac{1}{2} &#x26; 1 &#x26; 0 &#x26; 0 \end{bmatrix}^T$ is an optimal solution to the original LP.</p></div>
-</details></div>
+Since $\tilde{\mathbf{c}_N}^T \geq \mathbf{0}$, we are optimal, and we can stop.</p>
+<p>This means that $\mathbf{x}^{\star} = \begin{bmatrix} x_1^{\star} &#x26; x_2^{\star} &#x26; s_1^{\star} &#x26; s_2^{\star} \end{bmatrix}^T = \begin{bmatrix} \frac{1}{2} &#x26; 1 &#x26; 0 &#x26; 0 \end{bmatrix}^T$ is an optimal solution to the original LP.</p>
+</div>
+</details>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/tma947/tma947_9/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 9 - Linear Programming: Introduction </span> </div>  </a>  <a href="/notes/master/tma947/tma947_11/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 11 - Linear Programming: Duality and Sensitivity Analysis </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

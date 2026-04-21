@@ -134,15 +134,23 @@ In this part, we will continue our discussion on unsupervised learning by explor
 <h2 id="dimensionality-reduction">Dimensionality Reduction</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Dimensionality Reduction<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The goal of dimensionality reduction is to learn a mapping from the high-dimensional (visible) space $\mathbf{x} \in \mathbb{R}^d$ to a low-dimensional (latent) space $\mathbf{z} \in \mathbb{R}^m$ with $m \ll d$.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The goal of dimensionality reduction is to learn a mapping from the high-dimensional (visible) space $\mathbf{x} \in \mathbb{R}^d$ to a low-dimensional (latent) space $\mathbf{z} \in \mathbb{R}^m$ with $m \ll d$.</p>
+</div>
 </details>
 <h3 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Principal Component Analysis (PCA)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>PCA finds a linear (and orthogonal, but more formally on this later) projection of high-dimensional data $\mathbf{x} \in \mathbb{R}^d$ to a low-dimensional subspace $\mathbf{z} \in \mathbb{R}^m$ such that $\mathbf{z}$ is a good approximation of the data (i..e, retains as much valuable information as possible).</p><p>PCA accomplishes this by finding the directions (principal components) that capture the maximum variance in the data.</p><p>The intuition is that, our complex data may appear high-dimensional, but there may only be a few degrees of variability (latent factors) that explain most of the variability in the data.
-For example, in face recognition, there are only a few latent factors that are able to describe most of the variability (lightning, pose, identity).</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-500 dark:bg-emerald-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>PCA finds a linear (and orthogonal, but more formally on this later) projection of high-dimensional data $\mathbf{x} \in \mathbb{R}^d$ to a low-dimensional subspace $\mathbf{z} \in \mathbb{R}^m$ such that $\mathbf{z}$ is a good approximation of the data (i..e, retains as much valuable information as possible).</p>
+<p>PCA accomplishes this by finding the directions (principal components) that capture the maximum variance in the data.</p>
+<p>The intuition is that, our complex data may appear high-dimensional, but there may only be a few degrees of variability (latent factors) that explain most of the variability in the data.
+For example, in face recognition, there are only a few latent factors that are able to describe most of the variability (lightning, pose, identity).</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-500 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-600 dark:text-emerald-300" data-lucide="pen-tool" viewBox="0 0 24 24"><use href="#pen-tool"></use></svg>Derivation: Principal Component Analysis (PCA)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-600 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Thus, we understand that a good approximation of the data → reconstruction error made by projection is minimum, which means,</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Thus, we understand that a good approximation of the data → reconstruction error made by projection is minimum, which means,</p>
+<ul>
 <li>We project $\mathbf{x}$ onto $\mathbf{z}$.</li>
 <li>We want our approximation $\hat{\mathbf{x}}$ (arising from the projection onto $\mathbf{z}$) to be as close as possible to the original data $\mathbf{x}$.</li>
 <li>Distortion measure: Thus, we can take the squared distance between our original data point $\mathbf{x}_n$ and its (approximate) reconstruction $\hat{\mathbf{x}}$, averaged over all data points,
@@ -151,8 +159,10 @@ $$
 $$
 But, how can we find a linear subspace that minimizes the reconstruction error?
 Firstly, we have to choose a 1-dimensional subspace, which can be specified by a unit vector $\mathbf{u}$.</li>
-</ul><p>Secondly, we can project 2-dimensional data points onto it by $z = \mathbf{u}^T \mathbf{u}$.
-Lastly, we can coordinate in the original space that represents the projection onto $\mathbf{u}$ by $(\mathbf{u}^T \mathbf{x}) \mathbf{u}$.</p><p>Thus, we can write the reconstruction error as,
+</ul>
+<p>Secondly, we can project 2-dimensional data points onto it by $z = \mathbf{u}^T \mathbf{u}$.
+Lastly, we can coordinate in the original space that represents the projection onto $\mathbf{u}$ by $(\mathbf{u}^T \mathbf{x}) \mathbf{u}$.</p>
+<p>Thus, we can write the reconstruction error as,
 $$
 \mathcal{L}(\mathbf{u}) = \frac{1}{N} \sum_{i = 1}^N \Vert \mathbf{x}_i - \hat{\mathbf{x}}_i \Vert^2, \quad \hat{\mathbf{x}}_i = (\mathbf{u}^T \mathbf{x}_i) \mathbf{u}
 $$
@@ -162,13 +172,22 @@ Using the Pythagorean theorem, we have,
 $$
 r^2 + v^2 = d^2,
 $$
-$r^2$ contributes to the reconstruction error, while $v^2$ contributes to the variance of the projected data within the subspace.</p><p>This means that, minimizing the reconstruction error is equivalent to maximizing the variance of the projected data!</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+$r^2$ contributes to the reconstruction error, while $v^2$ contributes to the variance of the projected data within the subspace.</p>
+<p>This means that, minimizing the reconstruction error is equivalent to maximizing the variance of the projected data!</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>However, note that this can be a double-edged sword. PCA can be “misled” by directions in which variance is high because of the measurement scale → Always standardize the data first.</p></div>
-</details></div>
-</details><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>However, note that this can be a double-edged sword. PCA can be “misled” by directions in which variance is high because of the measurement scale → Always standardize the data first.</p>
+</div>
+</details>
+</div>
+</details>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Principal Component Analysis (PCA)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Formally, principal components are a sequence of $m$ (unit) vectors where the $i$-th vector is the direction of a line that best fits the data while being orthogonal to the first $i - 1$ vectors.</p><p>Thus, the best-fitting line is equivalent with the direction along which the data shows maximum variance.</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Formally, principal components are a sequence of $m$ (unit) vectors where the $i$-th vector is the direction of a line that best fits the data while being orthogonal to the first $i - 1$ vectors.</p>
+<p>Thus, the best-fitting line is equivalent with the direction along which the data shows maximum variance.</p>
+<ol>
 <li>
 <p>1st PC: Direction in space along which projections have largest variance.</p>
 </li>
@@ -178,12 +197,16 @@ $r^2$ contributes to the reconstruction error, while $v^2$ contributes to the va
 <li>
 <p>$k$-th PC: Variance-maximizing direction orthogonal to previous $k - 1$ components.</p>
 </li>
-</ol></div>
-</details></div>
+</ol>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-500 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-600 dark:text-emerald-300" data-lucide="pen-tool" viewBox="0 0 24 24"><use href="#pen-tool"></use></svg>Derivation: Reconstruction Error and Variance<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-600 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $\{\mathbf{x}_i \in \mathbb{R}^d\}$ be the high-dimensional observations. Further, let $\mathbf{u}_j \in \mathbb{R}^d$ and $z_i = \mathbf{u}_1^T \mathbf{x}_i$ be the $j$-th principal direction and the projection of $\mathbf{x}_i$ onto $\mathbf{u}_j$, respectively.</p><p>Then, we can consider the best 1-dimensional space $\mathbf{u}_1$ as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $\{\mathbf{x}_i \in \mathbb{R}^d\}$ be the high-dimensional observations. Further, let $\mathbf{u}_j \in \mathbb{R}^d$ and $z_i = \mathbf{u}_1^T \mathbf{x}_i$ be the $j$-th principal direction and the projection of $\mathbf{x}_i$ onto $\mathbf{u}_j$, respectively.</p>
+<p>Then, we can consider the best 1-dimensional space $\mathbf{u}_1$ as,
 $$
 \begin{align*}
 \mathcal{L}(\mathbf{u}_1) &#x26; = \frac{1}{N} \sum_{i = 1}^N \Vert \mathbf{x}_i - \hat{\mathbf{x}}_i \Vert^2 \newline
@@ -218,45 +241,60 @@ However, we need to prevent $\Vert \mathbf{u}_1 \Vert \to \infty$, we can add th
 $$
 \mathbf{u}_1^{\star} = \underset{\mathbf{u}_1}{\arg\max} \ \mathbf{u}_1^T \mathbf{S} \mathbf{u}_1 + \lambda_1 (1 - \mathbf{u}_1^T \mathbf{u}_1)
 $$
-where $\lambda_1$ is a Lagrange multiplier.</p><p>By taking the derivative with respect to $\mathbf{u}_1$ and setting it to zero, we have,
+where $\lambda_1$ is a Lagrange multiplier.</p>
+<p>By taking the derivative with respect to $\mathbf{u}_1$ and setting it to zero, we have,
 $$
 \mathbf{S} \mathbf{u}_1 = \lambda_1 \mathbf{u}_1
 $$
-which corresponds to the eigenvector equation of the matrix $\mathbf{S}$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
+which corresponds to the eigenvector equation of the matrix $\mathbf{S}$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="rotate-ccw" viewBox="0 0 24 24"><use href="#rotate-ccw"></use></svg>Recall: Eigenvalues and Eigenvectors<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $\mathbf{A}$ be a (real-valued) $n \times n$ matrix. Then $\lambda \in \mathbb{R}$ and a nonzero vector $\mathbf{v}$ are said to be an eigenvalue and corresponding eigenvector of $\mathbf{A}$ if,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Let $\mathbf{A}$ be a (real-valued) $n \times n$ matrix. Then $\lambda \in \mathbb{R}$ and a nonzero vector $\mathbf{v}$ are said to be an eigenvalue and corresponding eigenvector of $\mathbf{A}$ if,
 $$
 \mathbf{A} \mathbf{v} = \lambda \mathbf{v}
 $$
-The linear transformation of $\mathbf{A}$ on the eigenvector $\mathbf{v}$ only changes its magnitude by the factor $\lambda$ (i.e., scaling) but not its direction.</p><p>A $n \times n$ matrix $\mathbf{A}$ with $n$ linearly independent eigenvectors $\mathbf{v}_i$ can be factorized as,
+The linear transformation of $\mathbf{A}$ on the eigenvector $\mathbf{v}$ only changes its magnitude by the factor $\lambda$ (i.e., scaling) but not its direction.</p>
+<p>A $n \times n$ matrix $\mathbf{A}$ with $n$ linearly independent eigenvectors $\mathbf{v}_i$ can be factorized as,
 $$
 \mathbf{A} = \mathbf{V} \boldsymbol{\Lambda} \mathbf{V}^{-1}
 $$
-where $\mathbf{V} = (\mathbf{v}_1, \ldots, \mathbf{v}_n)$ is the $n \times n$ matrix whose columns are the eigenvectors of $\mathbf{A}$ and $\boldsymbol{\Lambda} = \mathrm{diag}(\lambda_1, \ldots, \lambda_n)$ is the diagonal matrix whose entries are the corresponding eigenvalues.</p></div>
-</details><p>Thus, $\mathbf{u}_1$ is an eigenvector of $\mathbf{S}$. By left-multiplying the equation above by $\mathbf{u}_1^T$ and using the fact that $\mathbf{u}_1^T \mathbf{u}_1 = 1$, we have,
+where $\mathbf{V} = (\mathbf{v}_1, \ldots, \mathbf{v}_n)$ is the $n \times n$ matrix whose columns are the eigenvectors of $\mathbf{A}$ and $\boldsymbol{\Lambda} = \mathrm{diag}(\lambda_1, \ldots, \lambda_n)$ is the diagonal matrix whose entries are the corresponding eigenvalues.</p>
+</div>
+</details>
+<p>Thus, $\mathbf{u}_1$ is an eigenvector of $\mathbf{S}$. By left-multiplying the equation above by $\mathbf{u}_1^T$ and using the fact that $\mathbf{u}_1^T \mathbf{u}_1 = 1$, we have,
 $$
 \begin{align*}
 \mathbf{u}_1^T \mathbf{S} \mathbf{u}_1 &#x26; = \lambda_1 \mathbf{u}_1^T \mathbf{u}_1 \newline
 &#x26; = \lambda_1
 \end{align*}
 $$
-Thus, $\mathrm{Var}[\mathbf{z}_1 \approx \mathbf{u}_1^T \mathbf{S} \mathbf{u}_1$ is maximized when we set $\mathbf{u}_1$ equal to the eigenvector with the largest eigenvalue $\lambda_1$.</p><p>We can define additional principal components in an incremental fashion by choosing each new direction to be that which maximizes the projected variance amongst all possible directions orthogonal to those already considered.</p><p>The optimal projection onto a $m$-dimensional space is defined by the $m$ eigenvectors $\mathbf{u}_1, \ldots, \mathbf{u}_m$ of the data covariance matrix $\mathbf{S}$ corresponding to the $m$ largest eigenvalues $\lambda_1 \geq \lambda_2 \geq \ldots \geq \lambda_m$.</p></div>
+Thus, $\mathrm{Var}[\mathbf{z}_1 \approx \mathbf{u}_1^T \mathbf{S} \mathbf{u}_1$ is maximized when we set $\mathbf{u}_1$ equal to the eigenvector with the largest eigenvalue $\lambda_1$.</p>
+<p>We can define additional principal components in an incremental fashion by choosing each new direction to be that which maximizes the projected variance amongst all possible directions orthogonal to those already considered.</p>
+<p>The optimal projection onto a $m$-dimensional space is defined by the $m$ eigenvectors $\mathbf{u}_1, \ldots, \mathbf{u}_m$ of the data covariance matrix $\mathbf{S}$ corresponding to the $m$ largest eigenvalues $\lambda_1 \geq \lambda_2 \geq \ldots \geq \lambda_m$.</p>
+</div>
 </details>
 <h2 id="probabilistic-pca">Probabilistic PCA</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Probabilistic PCA<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Probabilistic PCA (PPCA) is a probabilistic reformulation of PCA that models the data generation process using a latent variable model.
-It introduces an explicit $m$-dimensional latent variable $\mathbf{z}$ corresponding to the principal-component subspace.</p><p>It defines the probabilistic model,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Probabilistic PCA (PPCA) is a probabilistic reformulation of PCA that models the data generation process using a latent variable model.
+It introduces an explicit $m$-dimensional latent variable $\mathbf{z}$ corresponding to the principal-component subspace.</p>
+<p>It defines the probabilistic model,
 $$
 \begin{align*}
 p(\mathbf{z}) &#x26; = \mathcal{N}(\mathbf{z} \mid \mathbf{0}, \mathbf{I}), \newline
 p(\mathbf{x} \mid \mathbf{z}) &#x26; = \mathcal{N(\mathbf{x} \mid \mathbf{W} \mathbf{z} + \boldsymbol{\mu}, \sigma^2 \mathbf{I})},
 \end{align*}
 $$
-where $\mathbf{W}$ is a $d \times m$ matrix with columns spanning a linear subspace within the data space that corresponds to the principal subspace.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+where $\mathbf{W}$ is a $d \times m$ matrix with columns spanning a linear subspace within the data space that corresponds to the principal subspace.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Here, $\mathbf{W}, \boldsymbol{\mu}, \sigma^2$ are the model parameters to be learned from data.</p></div>
-</details><p>By ML learning, we know that,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Here, $\mathbf{W}, \boldsymbol{\mu}, \sigma^2$ are the model parameters to be learned from data.</p>
+</div>
+</details>
+<p>By ML learning, we know that,
 $$
 \begin{align*}
 \{\mathbf{W}, \boldsymbol{\mu}, \sigma^{2}\}^{\star} &#x26; \coloneqq \underset{\{\mathbf{W}, \boldsymbol{\mu}, \sigma^2\}}{\arg\max} \ \log p(\mathcal{D} \mid \mathbf{W}, \boldsymbol{\mu}, \sigma^2) \newline
@@ -271,11 +309,14 @@ p(\mathbf{x}) &#x26; = \int p(\mathbf{x} \mid \mathbf{z}) p(\mathbf{z}) \ d\math
 &#x26; = \mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}, \mathbf{C})
 \end{align*}
 $$
-where $\mathbf{C} = \mathbf{W} \mathbf{W}^T + \sigma^2 \mathbf{I}$.</p><p>Once we fit the model, we can compute the probabilistic latent embeddings using $p(\mathbf{z} \mid \mathbf{x})$,
+where $\mathbf{C} = \mathbf{W} \mathbf{W}^T + \sigma^2 \mathbf{I}$.</p>
+<p>Once we fit the model, we can compute the probabilistic latent embeddings using $p(\mathbf{z} \mid \mathbf{x})$,
 $$
 p(\mathbf{z} \mid \mathbf{x}) \coloneqq \frac{p(\mathbf{x} \mid \mathbf{z}) p(\mathbf{z})}{p(\mathbf{x})} = \mathcal{N}(\mathbf{z} \mid \mathbf{M} \mathbf{W}^T (\mathbf{x} - \boldsymbol{\mu}), \sigma^{-2} \mathbf{M}),
 $$
-where $\mathbf{M} = \mathbf{W}^T \mathbf{W} + \sigma^2 \mathbf{I}$</p><p>PCA corresponds to the posterior mean $\mathbb{E}[\mathbf{z} \mid \mathbf{x}]$ (using ML learning) in the limiting case $\sigma^2 \to 0$.</p></div>
+where $\mathbf{M} = \mathbf{W}^T \mathbf{W} + \sigma^2 \mathbf{I}$</p>
+<p>PCA corresponds to the posterior mean $\mathbb{E}[\mathbf{z} \mid \mathbf{x}]$ (using ML learning) in the limiting case $\sigma^2 \to 0$.</p>
+</div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/ssy316/ssy316_9/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 12 - Unsupervised Learning I </span> </div>  </a>  <a href="#" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full pointer-events-none opacity-50 cursor-not-allowed" aria-disabled="true">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> You&#39;re at the newest post! </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement

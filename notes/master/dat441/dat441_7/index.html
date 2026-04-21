@@ -141,7 +141,10 @@ Further, MC methods sample and average the returns of each state(-action pair) t
 <p>We wil adapt the idea of general policy iteration (GPI) to MC methods.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>With DP we compute value functions from knowledge of the MDP (the dynamics $\mathcal{p}$).</p><p>With MC methods we learn value functions from sample returns without knowledge of the MDP.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>With DP we compute value functions from knowledge of the MDP (the dynamics $\mathcal{p}$).</p>
+<p>With MC methods we learn value functions from sample returns without knowledge of the MDP.</p>
+</div>
 </details>
 <h3 id="prediction">Prediction</h3>
 <p>So, we have stated that our goal with MC methods is to learn the state-value function $v_{\pi}$ for a given policy $\pi$.
@@ -152,10 +155,15 @@ As more returns are observed, the average should converge to the expected return
 <p>The first-visit MC method estimates $v_{\pi}(s)$ as the average of the returns following the first visit to state $s$ in each episode.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: First-Visit MC Prediction<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Input: a policy $\pi$ to be evaluated.</p><p>Initialize:</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Input: a policy $\pi$ to be evaluated.</p>
+<p>Initialize:</p>
+<ul>
 <li>$V(s)$, arbitrarily for all $s \in \mathcal{S}$</li>
 <li>$\mathrm{Returns}(s) \leftarrow []$, an empty list for all $s \in \mathcal{S}$</li>
-</ul><p>Loop forever (for each episode):</p><ul>
+</ul>
+<p>Loop forever (for each episode):</p>
+<ul>
 <li>Generate an episode following $\pi$: $S_0, A_0, R_1, \ldots, S_{T-1}, A_{T-1}, R_T$</li>
 <li>$G \leftarrow 0$</li>
 <li>Loop for each step of episode, $t = T - 1, T - 2, \ldots, 0$:
@@ -169,13 +177,17 @@ As more returns are observed, the average should converge to the expected return
 </li>
 </ul>
 </li>
-</ul></div>
+</ul>
+</div>
 </details>
 <p>For every-visit MC, we simply remove the condition that the return is only appended for the first visit to state $s$ in each episode.</p>
 <p>We will not formally prove the convergence of these methods, but for first-visit MC the idea is the following.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Each return is an independent, identically distributed (i.i.d.) estimate of $v_{\pi}(s)$ with finite variance (since we have finite returns in an episodic task).</p><p>Thus, by the law of large numbers, the average of these returns converges to the expected value $v_{\pi}(s)$ as the number of returns (i.e., visits to state $s$) approaches infinity.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Each return is an independent, identically distributed (i.i.d.) estimate of $v_{\pi}(s)$ with finite variance (since we have finite returns in an episodic task).</p>
+<p>Thus, by the law of large numbers, the average of these returns converges to the expected value $v_{\pi}(s)$ as the number of returns (i.e., visits to state $s$) approaches infinity.</p>
+</div>
 </details>
 <h4 id="action-values">Action Values</h4>
 <p>We stated that one of the strengths of MC methods are that they do not require a model of the dynamics $\mathcal{p}$.</p>
@@ -185,7 +197,9 @@ As more returns are observed, the average should converge to the expected return
 <p>However, we have to deal with a new problem, many state-action pairs may never be visited (why?), thus we cannot estimate their values.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>It is possible that, under a certain policy $\pi$, some state-action pairs are never visited, simply because the policy $\pi$ never selects those actions in those states.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>It is possible that, under a certain policy $\pi$, some state-action pairs are never visited, simply because the policy $\pi$ never selects those actions in those states.</p>
+</div>
 </details>
 <p>With no returns to average, the MC estimates of the other actions will not improve with experience, and thus we cannot improve the policy.</p>
 <p>The solution, exploration!</p>
@@ -199,12 +213,15 @@ As more returns are observed, the average should converge to the expected return
 <p>As in the case for DP, for policy improvement, we improve the policy by making it greedy with respect to the current action-value function estimate.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Policy Improvement for MC Control<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For each $s \in \mathcal{S}$ and for any action-value function $q$, we deterministically choose an action with maximum action value,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For each $s \in \mathcal{S}$ and for any action-value function $q$, we deterministically choose an action with maximum action value,
 $$
 \pi(s) \coloneqq \underset{a \in \mathcal{A}(s)}{\arg\max} \ q(s, a)
-$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+$$</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Policy Improvement for MC Control<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The policy improvement theorem then applies to $\pi_k$ and $\pi_{k + 1}$ (the greedy policy with respect to $q_{\pi_k}$), because,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The policy improvement theorem then applies to $\pi_k$ and $\pi_{k + 1}$ (the greedy policy with respect to $q_{\pi_k}$), because,
 $$
 \begin{align*}
 q_{\pi_k}(s, \pi_{k + 1}(s)) &#x26; = q_{\pi_k}\left(s, \underset{a \in \mathcal{A}(s)}{\arg\max} \ q_{\pi_k}(s, a)\right) \newline
@@ -213,8 +230,11 @@ q_{\pi_k}(s, \pi_{k + 1}(s)) &#x26; = q_{\pi_k}\left(s, \underset{a \in \mathcal
 &#x26; \geq v_{\pi_k}(s)
 \end{align*}
 $$
-Thus, we are assured that each $\pi_{k + 1}$ is uniformly better than $\pi_k$, or just as good as $\pi_k$, in which case they are both optimal policies (by the definition of optimal policies).</p><p>Thus, the overall process converges to the optimal policy and optimal (action-)value function.</p></div>
-</details></div>
+Thus, we are assured that each $\pi_{k + 1}$ is uniformly better than $\pi_k$, or just as good as $\pi_k$, in which case they are both optimal policies (by the definition of optimal policies).</p>
+<p>Thus, the overall process converges to the optimal policy and optimal (action-)value function.</p>
+</div>
+</details>
+</div>
 </details>
 <p>However, we have made two unlikely assumptions to obtain the MC convergence result.</p>
 <ol>
@@ -223,15 +243,22 @@ Thus, we are assured that each $\pi_{k + 1}$ is uniformly better than $\pi_k$, o
 </ol>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>An idea we can try, we may give up trying to complete policy evaluation before returning to policy improvement.</p><p>As we have seen previously, an extreme case is value iteration, where we interleave policy evaluation and policy improvement at every step.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>An idea we can try, we may give up trying to complete policy evaluation before returning to policy improvement.</p>
+<p>As we have seen previously, an extreme case is value iteration, where we interleave policy evaluation and policy improvement at every step.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Monte Carlo Control with Exploring Starts<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Initialize:</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Initialize:</p>
+<ul>
 <li>$\pi(s) \in \mathcal{A}(s)$, arbitrarily for all $s \in \mathcal{S}$</li>
 <li>$Q(s, a)$, arbitrarily for all $s \in \mathcal{S}, a \in \mathcal{A}(s)$</li>
 <li>$\mathrm{Returns}(s, a) \leftarrow []$, an empty list for all $s \in \mathcal{S}, a \in \mathcal{A}(s)$</li>
-</ul><p>Loop forever (for each episode):</p><ul>
+</ul>
+<p>Loop forever (for each episode):</p>
+<ul>
 <li>Choose $S_0 \in \mathcal{S}, A_0 \in \mathcal{A}(S_0)$ randomly such that all pairs have probability $> 0$ (exploring starts)</li>
 <li>Generate an episode from $S_0, A_0$ following $\pi$: $S_0, A_0, R_1, \ldots, S_{T-1}, A_{T-1}, R_T$</li>
 <li>$G \leftarrow 0$</li>
@@ -247,7 +274,10 @@ Thus, we are assured that each $\pi_{k + 1}$ is uniformly better than $\pi_k$, o
 </li>
 </ul>
 </li>
-</ul><p>Again, if we remove the condition that the return is only appended for the first visit to the state-action pair in each episode, we get the every-visit version of this algorithm.</p><p>Further, note that the last step is value iteration, since we update the policy at every step of every episode.</p></div>
+</ul>
+<p>Again, if we remove the condition that the return is only appended for the first visit to the state-action pair in each episode, we get the every-visit version of this algorithm.</p>
+<p>Further, note that the last step is value iteration, since we update the policy at every step of every episode.</p>
+</div>
 </details>
 <h3 id="on-policy-vs-off-policy">On-Policy vs Off-Policy</h3>
 <p>How can we avoid the unlikely assumption of exploring starts?</p>
@@ -259,27 +289,37 @@ Thus, we are assured that each $\pi_{k + 1}$ is uniformly better than $\pi_k$, o
 <p>In on-policy methods, we say that our policy is soft.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Soft Policy<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$\pi(a|s) > 0$ for all $s \in \mathcal{S}, a \in \mathcal{A}(s)$.
-but gradually will shift closer to a deterministic optimal policy.</p><p>Here, we use $\epsilon$-greedy policies, where with probability $1 - \epsilon$ we select the greedy action (i.e., maximal estimated action value), and with probability $\epsilon$ we select an action uniformly at random from the set of available actions.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$\pi(a|s) > 0$ for all $s \in \mathcal{S}, a \in \mathcal{A}(s)$.
+but gradually will shift closer to a deterministic optimal policy.</p>
+<p>Here, we use $\epsilon$-greedy policies, where with probability $1 - \epsilon$ we select the greedy action (i.e., maximal estimated action value), and with probability $\epsilon$ we select an action uniformly at random from the set of available actions.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>What is the probability given to selecting the greedy action?</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>What is the probability given to selecting the greedy action?</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We understand that with probability $1 - \epsilon$ we select the greedy action, but we also need to consider the probability of selecting the greedy action when we select an action uniformly at random, thus,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We understand that with probability $1 - \epsilon$ we select the greedy action, but we also need to consider the probability of selecting the greedy action when we select an action uniformly at random, thus,
 $$
 \begin{align*}
 P(\text{greedy action}) &#x26; = P(\text{greedy action} | \text{greedy}) P(\text{greedy}) + P(\text{greedy action} | \text{random}) P(\text{random}) \newline
 &#x26; = (1 - \epsilon) + \frac{\epsilon}{|\mathcal{A}(s)|} \newline
 &#x26; = 1 - \epsilon + \frac{\epsilon}{|\mathcal{A}(s)|}
 \end{align*}
-$$</p></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: On-Policy First-Visit MC Control<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Algorithm parameter: small $\epsilon > 0$
-Initialize:</p><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Algorithm parameter: small $\epsilon > 0$
+Initialize:</p>
+<ul>
 <li>$\pi \leftarrow$ an arbitrary $\epsilon$-soft policy</li>
 <li>$Q(s, a) \in \mathbb{R}$, arbitrarily for all $s \in \mathcal{S}, a \in \mathcal{A}(s)$</li>
 <li>$\mathrm{Returns}(s, a) \leftarrow []$, an empty list for all $s \in \mathcal{S}, a \in \mathcal{A}(s)$
@@ -303,15 +343,19 @@ Repeat forever (for each episode):</li>
 </li>
 </ul>
 </li>
-</ul></div>
+</ul>
+</div>
 </details>
 <h4 id="analysis-of-epsilon-greedy-policy-for-mc-control">Analysis of $\epsilon$-greedy policy for MC Control</h4>
 <p>We will now analyze the policy improvement step of the on-policy MC control algorithm.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Policy Improvement for On-Policy MC Control<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Any $\epsilon$-greedy policy $\pi^{\prime}$ with respect to $q_{\pi}$ is an improvement over any $\epsilon$-greedy policy $\pi$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Any $\epsilon$-greedy policy $\pi^{\prime}$ with respect to $q_{\pi}$ is an improvement over any $\epsilon$-greedy policy $\pi$.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Policy Improvement for On-Policy MC Control<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Again, this is assured by the policy improvement theorem,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Again, this is assured by the policy improvement theorem,
 $$
 \begin{align*}
 q_{\pi}(s, \pi^{\prime}(s)) &#x26; = \sum_{a \in \mathcal{A}(s)} \pi^{\prime}(a|s) q_{\pi}(s, a) \newline
@@ -326,12 +370,16 @@ q_{\pi}(s, \pi^{\prime}(s)) &#x26; \geq \frac{\epsilon}{|\mathcal{A}(s)|} \sum_{
 &#x26; = v_{\pi}(s)
 \end{align*}
 $$
-Thus, $\pi^{\prime} \geq \pi$ (i.e., $v_{\pi^{\prime}}(s) \geq v_{\pi}(s)$ for all $s \in \mathcal{S}$).</p></div>
-</details></div>
+Thus, $\pi^{\prime} \geq \pi$ (i.e., $v_{\pi^{\prime}}(s) \geq v_{\pi}(s)$ for all $s \in \mathcal{S}$).</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We can only achieve the bewst policy among the $\epsilon$-greedy policies, but on the other hand, we have eliminated the need for exploring starts.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We can only achieve the bewst policy among the $\epsilon$-greedy policies, but on the other hand, we have eliminated the need for exploring starts.</p>
+</div>
 </details>
 <h4 id="off-policy-prediction-via-importance-sampling">Off-Policy Prediction via Importance Sampling</h4>
 <p>(Online) control methods face a dilemma, since they seek to learn action values conditional on subsequent optimal behavior, but they need to behave non-optimally in order to explore all actions.</p>

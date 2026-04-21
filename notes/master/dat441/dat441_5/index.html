@@ -159,11 +159,13 @@ $$</p>
 <h4 id="markov-property">Markov Property</h4>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Markov Property<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>“The future is independent of the past, given the present.”, or in other words,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>“The future is independent of the past, given the present.”, or in other words,
 $$
 P(S_t = s, R_t = r | S_{t-1}, A_{t-1}, R_{t-1}, \ldots, R_1, S_0, A_0) = P(S_t = s, R_t = r | S_{t-1}, A_{t-1})
 $$
-The probability of each possible value for $S_t$ and $R_t$ depends on the immediately preceding state $S_{t-1}$ and action $A_{t-1}$, and not on any of the earlier ones.</p></div>
+The probability of each possible value for $S_t$ and $R_t$ depends on the immediately preceding state $S_{t-1}$ and action $A_{t-1}$, and not on any of the earlier ones.</p>
+</div>
 </details>
 <h4 id="markov-decision-process-mdp">Markov Decision Process (MDP)</h4>
 <p>A <strong>Markov Decision Process (MDP)</strong> is a tuple $(\mathcal{S}, \mathcal{A}, \mathcal{p}, \gamma)$, where,</p>
@@ -179,13 +181,18 @@ The probability of each possible value for $S_t$ and $R_t$ depends on the immedi
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \sum_{s^{\prime} \in \mathcal{S}} \sum_{r \in \mathcal{R}} \mathcal{p}(s^{\prime}, r | s, a) = 1, \quad \forall s \in \mathcal{S}, a \in \mathcal{A}
 $$
-Why?</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+Why?</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Because the sum of probabilities of all possible next states and rewards given the current state and action must equal 1. We are never in a state where our action and state lead to an impossible outcome.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Because the sum of probabilities of all possible next states and rewards given the current state and action must equal 1. We are never in a state where our action and state lead to an impossible outcome.</p>
+</div>
+</details>
+</div>
 </details>
 <h4 id="other-useful-transition-probabilities">Other Useful Transition Probabilities</h4>
 <p>We can derive some other useful transition probabilities from $\mathcal{p}$.</p>
@@ -208,17 +215,24 @@ $$</li>
 <p>The agent’s <strong>goal</strong> is to maximize not the immediate reward, but the cumulative reward in the long run.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-300 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-500 dark:text-indigo-200" data-lucide="file-text" viewBox="0 0 24 24"><use href="#file-text"></use></svg>Proposition: Reward Hypothesis<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-500 dark:text-indigo-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>All goals and purposes imposed on an agent can be described as the act of maximization of the expected value of the cumulative sum of a received scalar signal.</p><p>Rewards are provided in such a way that maximizing them (cumulatively) will achieve the desired outcome.</p><p>The reward signal specifies the agent what should be achieved, however, not how to achieve it.
-The “how” is specified by the RL algorithm/policy.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>All goals and purposes imposed on an agent can be described as the act of maximization of the expected value of the cumulative sum of a received scalar signal.</p>
+<p>Rewards are provided in such a way that maximizing them (cumulatively) will achieve the desired outcome.</p>
+<p>The reward signal specifies the agent what should be achieved, however, not how to achieve it.
+The “how” is specified by the RL algorithm/policy.</p>
+</div>
 </details>
 <h3 id="returns-episodic-tasks-and-continuing-tasks">Returns, Episodic Tasks, and Continuing Tasks</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Episodic Tasks<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>When the agent-environment interaction breaks naturally into subsequences, each of which is called an <strong>episode</strong> (e.g., a game of chess, a robot navigating a maze).</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>When the agent-environment interaction breaks naturally into subsequences, each of which is called an <strong>episode</strong> (e.g., a game of chess, a robot navigating a maze).</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Return<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider the sequence of rewards received after time step $t$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Consider the sequence of rewards received after time step $t$,
 $$
 R_{t+1}, R_{t+2}, R_{t+3}, \ldots
 $$
@@ -226,23 +240,35 @@ The return quantity is the sum of the rewards, where $T$ is the final time step 
 $$
 G_t \coloneqq R_{t+1} + R_{t+2} + R_{t+3} + \ldots + R_T
 $$
-Thus, the goal is to maximize the expected return, $\mathbb{E}[G_t]$.</p></div>
+Thus, the goal is to maximize the expected return, $\mathbb{E}[G_t]$.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Continuing Tasks<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>When the agent-environment interaction continues indefinitely, without end (e.g., a robot that must keep walking without falling over).</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>When the agent-environment interaction continues indefinitely, without end (e.g., a robot that must keep walking without falling over).</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Discounted Return<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We can’t define return in the same way as in episodic tasks, because the sum of rewards may diverge to infinity ($T = \infty$).
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We can’t define return in the same way as in episodic tasks, because the sum of rewards may diverge to infinity ($T = \infty$).
 Instead, we define the <strong>discounted return</strong>,
 $$
 G_t \coloneqq R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \gamma^3 R_{t+4} + \ldots = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}
 $$
-where $\gamma \in [0, 1)$ is the discount factor.</p><p>The discount factor determines the present value of future rewards. Why?</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+where $\gamma \in [0, 1)$ is the discount factor.</p>
+<p>The discount factor determines the present value of future rewards. Why?</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A reward received $k$ time steps in the future is worth only $\gamma^{k - 1}$ times what it would be worth if it were received immediately.</p></div>
-</details><p>If $\gamma &#x3C; 1$, the infinite sum above has a finite value, as long as the reward sequence $\{R_k\}$, is bounded.</p><p>If $\gamma = 0$, the agent is “myopic” (short-sighted), caring only about immediate rewards.</p><p>As $\gamma$ approaches 1, the agent becomes more far-sighted, valuing future rewards more strongly.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A reward received $k$ time steps in the future is worth only $\gamma^{k - 1}$ times what it would be worth if it were received immediately.</p>
+</div>
+</details>
+<p>If $\gamma &#x3C; 1$, the infinite sum above has a finite value, as long as the reward sequence $\{R_k\}$, is bounded.</p>
+<p>If $\gamma = 0$, the agent is “myopic” (short-sighted), caring only about immediate rewards.</p>
+<p>As $\gamma$ approaches 1, the agent becomes more far-sighted, valuing future rewards more strongly.</p>
+</div>
 </details>
 <h3 id="unification-of-episodic-and-continuing-rl">Unification of Episodic and Continuing RL</h3>
 <p>We can unify episodic and continuing tasks in two ways.</p>
@@ -270,30 +296,38 @@ $$</p>
 <p>This works for all time steps $t &#x3C; T$, even if termination occurs at $t + 1$, provided we define $G_T = 0$.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-600 dark:bg-pink-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-700 dark:text-pink-300" data-lucide="dumbbell" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>Exercise<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-700 dark:text-pink-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Compute $G_t$ if the reward is constant +1.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Compute $G_t$ if the reward is constant +1.</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If $R_t = 1$ for all $t$, then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If $R_t = 1$ for all $t$, then,
 $$
 \begin{align*}
 G_t &#x26; = 1 + \gamma + \gamma^2 + \gamma^3 + \ldots \newline
 &#x26; = \sum_{k=0}^{\infty} \gamma^k \newline
 &#x26; = \frac{1}{1 - \gamma}, \quad \text{for }\gamma &#x3C; 1 \newline
 \end{align*}
-$$</p></div>
-</details></div>
+$$</p>
+</div>
+</details>
+</div>
 </details>
 <h3 id="policies-and-value-functions">Policies and Value Functions</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Policy<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A policy, $\pi$, is a mapping from states to probabilities of selecting each possible action.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A policy, $\pi$, is a mapping from states to probabilities of selecting each possible action.
 Thus, $\pi(a | s)$ is the probability that action $a$ is taken when in state $s$.
 $$
 \pi(a | s) = P(A_t = a | S_t = s)
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Value Function<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A value function of states (or of state-action pairs) estimates how good it is for the agent to be in a given state (or, how good it is to perform a given action in a given state).
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>A value function of states (or of state-action pairs) estimates how good it is for the agent to be in a given state (or, how good it is to perform a given action in a given state).
 $$
 \begin{align*}
 v_{\pi}(s) &#x26; \coloneqq \mathbb{E}_{\pi, \mathcal{p}}[G_t | S_t = s] \newline
@@ -302,82 +336,114 @@ v_{\pi}(s) &#x26; \coloneqq \mathbb{E}_{\pi, \mathcal{p}}[G_t | S_t = s] \newlin
 q_{\pi}(s, a) &#x26; \coloneqq \mathbb{E}_{\pi, \mathcal{p}}[G_t | S_t = s, A_t = a] \newline
 &#x26; = \mathbb{E}_{\pi, \mathcal{p}}\left[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \middle| S_t = s, A_t = a\right], \ \forall s \in \mathcal{S}, a \in \mathcal{A}(s)
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The value functions $v_{\pi}(s)$ and $q_{\pi}(s, a)$ can be estimated from experience.</p><p>For exam ple, if an agent follows policy $\pi$ and maintains an average, for each state encountered, of the actual returns that have followed that state, then the average will converge to the state’s value, $v_{\pi}(s)$, as the number of time that state is encountered approaches infinity.</p><p>If separate averages are kept for each action taken in each state, then these averages will similarly converge to the action-values, $q_{\pi}(s, a)$.</p><p>Such estimation methods are called <strong>Monte Carlo methods</strong>, because they involve averaging over many random samples of actual returns.</p><p>In the case that our state space is (too) large or continuous, we can approximate $v_{\pi}(s)$ or $q_{\pi}(s, a)$ with some parameterized function (e.g., a neural network).
-Or, adjust the parameter to better match the observed returns.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The value functions $v_{\pi}(s)$ and $q_{\pi}(s, a)$ can be estimated from experience.</p>
+<p>For exam ple, if an agent follows policy $\pi$ and maintains an average, for each state encountered, of the actual returns that have followed that state, then the average will converge to the state’s value, $v_{\pi}(s)$, as the number of time that state is encountered approaches infinity.</p>
+<p>If separate averages are kept for each action taken in each state, then these averages will similarly converge to the action-values, $q_{\pi}(s, a)$.</p>
+<p>Such estimation methods are called <strong>Monte Carlo methods</strong>, because they involve averaging over many random samples of actual returns.</p>
+<p>In the case that our state space is (too) large or continuous, we can approximate $v_{\pi}(s)$ or $q_{\pi}(s, a)$ with some parameterized function (e.g., a neural network).
+Or, adjust the parameter to better match the observed returns.</p>
+</div>
 </details>
 <h3 id="bellman-equation-for-value-functions">Bellman Equation for Value Functions</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Bellman Equation for $v_{\pi}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The value of a state under a policy can be decomposed into two parts: the immediate reward plus the discounted value of the next state,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The value of a state under a policy can be decomposed into two parts: the immediate reward plus the discounted value of the next state,
 $$
 v_{\pi}(s) = \sum_{a} \pi(a | s) \sum_{s^{\prime}, r} \mathcal{p}(s^{\prime}, r | s, a) [r + \gamma v_{\pi}(s^{\prime})], \quad \forall s \in \mathcal{S}
 $$
-where the sums are over all possible actions, next states, and rewards.</p><p>In other words, The value of the current state must equal the (discounted) value of the expected next state, plus reward along the way.</p></div>
+where the sums are over all possible actions, next states, and rewards.</p>
+<p>In other words, The value of the current state must equal the (discounted) value of the expected next state, plus reward along the way.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Bellman Equation for $v_{\pi}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \begin{align*}
 v_{\pi}(s) &#x26; = \mathbb{E}_{\pi, \mathcal{p}}[G_t | S_t = s] \newline
 &#x26; = \mathbb{E}_{\pi, \mathcal{p}}[R_{t+1} + \gamma G_{t+1} | S_t = s] \newline
 &#x26; = \sum_a \pi(a | s) \sum_{s^{\prime}, r} \mathcal{p}(s^{\prime}, r | s, a) [r + \gamma \mathbb{E}_{\pi}[G_{t+1} | S_{t+1} = s^{\prime}]] \newline
 &#x26; = \sum_a \pi(a | s) \sum_{s^{\prime}, r} \mathcal{p}(s^{\prime}, r | s, a) [r + \gamma v_{\pi}(s^{\prime})], \quad \forall s \in \mathcal{S} \newline
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <h4 id="optimal-policies-and-optimal-value-functions">Optimal Policies and Optimal Value Functions</h4>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Policy Ordering<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We say that policy $\pi$ is better than or equal to policy $\pi^{\prime}$ ($\pi \geq \pi^{\prime}$) if and only if,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We say that policy $\pi$ is better than or equal to policy $\pi^{\prime}$ ($\pi \geq \pi^{\prime}$) if and only if,
 $$
 v_{\pi}(s) \geq v_{\pi^{\prime}}(s), \quad \forall s \in \mathcal{S}
 $$
-There is always at least one policy that is better than or equal to all other policies, we denote all such policies (there may be more than one) as $\pi_{\star}$, and call any of them an <strong>optimal policy</strong>.</p><p>All of the optimal policies share the same optimal value function $v_{\star}$. Why?</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+There is always at least one policy that is better than or equal to all other policies, we denote all such policies (there may be more than one) as $\pi_{\star}$, and call any of them an <strong>optimal policy</strong>.</p>
+<p>All of the optimal policies share the same optimal value function $v_{\star}$. Why?</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Because if there were two different optimal value functions, then one of the corresponding policies would have to be better than the other, contradicting the definition of optimal policies.</p></div>
-</details><p>Optimal policies also share the same optimal action-value function, $q_{\star}$. Why?</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Because if there were two different optimal value functions, then one of the corresponding policies would have to be better than the other, contradicting the definition of optimal policies.</p>
+</div>
+</details>
+<p>Optimal policies also share the same optimal action-value function, $q_{\star}$. Why?</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Same reasoning as above.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Same reasoning as above.</p>
+</div>
+</details>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Optimal Value Functions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The optimal state-value function, $v_{\star}$, is defined as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The optimal state-value function, $v_{\star}$, is defined as,
 $$
 v_{\star}(s) \coloneqq \underset{\pi}{\max} \ v_{\pi}(s), \quad \forall s \in \mathcal{S}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Optimal Action-Value Function<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The optimal action-value function, $q_{\star}$, is defined as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The optimal action-value function, $q_{\star}$, is defined as,
 $$
 \begin{align*}
 q_{\star}(s, a) \coloneqq \underset{\pi}{\max} \ q_{\pi}(s, a), \quad \forall s \in \mathcal{S}, a \in \mathcal{A}(s)
 &#x26; = \mathbb{E}[R_{t+1} + \gamma v_{\star}(S_{t+1}) | S_t = s, A_t = a] \newline
 \end{align*}
 $$
-Why can we rewrite it to the second line?</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+Why can we rewrite it to the second line?</p>
+<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Because the optimal action-value function can be expressed in terms of the immediate reward and the optimal state-value function of the next state, as the agent will always act optimally thereafter.</p></div>
-</details></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Because the optimal action-value function can be expressed in terms of the immediate reward and the optimal state-value function of the next state, as the agent will always act optimally thereafter.</p>
+</div>
+</details>
+</div>
 </details>
 <h3 id="bellman-optimality-equations">Bellman Optimality Equations</h3>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Bellman Optimality Equation for $v_{\star}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Bellman equation for optimal state values is written without reference to any policy.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Bellman equation for optimal state values is written without reference to any policy.
 Thus, the Bellman optimality equation expresses the value of a state under an optimal policy must equal the expected return for the best action from that state,
 $$
 v_{\star}(s) = \max_a \sum_{s^{\prime}, r} \mathcal{p}(s^{\prime}, r | s, a) [r + \gamma v_{\star}(s^{\prime})], \quad \forall s \in \mathcal{S}
 $$
-where the sums are over all possible next states and rewards.</p></div>
+where the sums are over all possible next states and rewards.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Bellman Optimality Equation for $v_{\star}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \begin{align*}
 v_{\star}(s) &#x26; = \max_{a \in \mathcal{A}(s)} q_{\star}(s, a) \newline
 &#x26; = \underset{a}{\max} \ \mathbb{E}_{\pi_{\star}, \mathcal{p}}[G_t | S_t = s, A_t = a] \newline
@@ -385,31 +451,41 @@ v_{\star}(s) &#x26; = \max_{a \in \mathcal{A}(s)} q_{\star}(s, a) \newline
 &#x26; = \underset{a}{\max} \ \mathbb{E}_{\mathcal{p}}[R_{t+1} + \gamma v_{\star}(S_{t+1}) | S_t = s, A_t = a] \newline
 &#x26; = \underset{a}{\max} \ \sum_{s^{\prime}, r} \mathcal{p}(s^{\prime}, r | s, a) [r + \gamma v_{\star}(s^{\prime})], \quad \forall s
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Bellman Optimality Equation for $q_{\star}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Bellman optimality equation for action values is,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>The Bellman optimality equation for action values is,
 $$
 q_{\star}(s, a) = \sum_{s^{\prime}, r} \mathcal{p}(s^{\prime}, r | s, a) [r + \gamma \max_{a^{\prime}} q_{\star}(s^{\prime}, a^{\prime})], \quad \forall s \in \mathcal{S}, a \in \mathcal{A}(s)
 $$
-where the sums are over all possible next states and rewards.</p></div>
+where the sums are over all possible next states and rewards.</p>
+</div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-amber-500 dark:bg-amber-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-amber-700 dark:text-amber-300" data-lucide="check-square" viewBox="0 0 24 24"><use href="#check-square"></use></svg>Proof: Bellman Optimality Equation for $q_{\star}$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-amber-700 dark:text-amber-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>$$
 \begin{align*}
 q_{\star}(s, a) &#x26; = \mathbb{E}_{\pi{\star}, \mathcal{p}}[R_{t+1} + \gamma \ \underset{a^{\prime}}{\max} \ q_{\star}(S_{t+1}, a^{\prime}) | S_t = s, A_t = a] \newline
 &#x26; = \sum_{s^{\prime}, r} \mathcal{p}(s^{\prime}, r | s, a) [r + \gamma \ \underset{a^{\prime}}{\max} \ q_{\star}(s^{\prime}, a^{\prime})], \quad \forall s \in \mathcal{S}, a \in \mathcal{A}(s) \newline
 \end{align*}
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Once one has $v_{\star}$ (or $q_{\star}$), it is relatively easy to determine an optimal policy $\pi_{\star}$, why?</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>For each state $s$, there will be one or more actions at which the maximum is obtained in the Bellman optimality equation.
-Any policy that assigns nonzero probability <strong>only</strong> to these actions is an optimal policy.</p><p>Further, one-step search or greedy search based on immediate consideration (i.e., evaluating short-term consequences based on $v_{\star}$) is sufficient for an optimal policy in long-term.</p><p>$v_{\star}$ already takes into account the reward consequences of all possible future behavior.</p><p>With $q_{\star}$, for any state $s$, it can simply find any action that maximizes $q_{\star}(s, a)$.
-Further, with $q_{\star}$, nothing more is needed to be known about the dynamics of the environment.</p></div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>For each state $s$, there will be one or more actions at which the maximum is obtained in the Bellman optimality equation.
+Any policy that assigns nonzero probability <strong>only</strong> to these actions is an optimal policy.</p>
+<p>Further, one-step search or greedy search based on immediate consideration (i.e., evaluating short-term consequences based on $v_{\star}$) is sufficient for an optimal policy in long-term.</p>
+<p>$v_{\star}$ already takes into account the reward consequences of all possible future behavior.</p>
+<p>With $q_{\star}$, for any state $s$, it can simply find any action that maximizes $q_{\star}(s, a)$.
+Further, with $q_{\star}$, nothing more is needed to be known about the dynamics of the environment.</p>
+</div>
 </details>
 <h3 id="solving-bellman-optimality-equation">Solving Bellman Optimality Equation</h3>
 <p>Explicitly solving the Bellman optimality equation might be akin to an exhaustive search over all possiblities.</p>

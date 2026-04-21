@@ -143,11 +143,13 @@ $$</p>
 <p>Recall the definition of Brownian motion,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Definition: Brownian motion —   $\beta(t)$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ol>
 <li>Any increment $\Delta \beta(t) = \beta(t^{\prime}) - \beta(t) \sim \mathcal{N}(0, (t^{\prime} - t))$.</li>
 <li>Increments are independent unless intervals overlap.</li>
 <li>$\beta(0) = 0$.</li>
-</ol></div>
+</ol>
+</div>
 </details>
 <p>We can see that the variance grows linearly with time, we can argue for this given independent and stationary intervals.</p>
 <p>For an interval $[t_0, t_1, t_2]$ with $t_0 &#x3C; t_1 &#x3C; t_2$, we have</p>
@@ -189,7 +191,8 @@ $$</p>
 <p>Let’s summarize the properties of Brownian motion,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Continuous but non-differentiable<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ul>
 <li>Brownian motion is (in mean square) continuous. It is also everywhere continuous with probability 1 (almost surely).</li>
 <li>Brownian motion is mean square non-differentiable. It is also nowhere differentiable with probability 1 (almost surely).</li>
 <li>A standard Brownian motion $(Q = 1)$ is often called a Wiener process <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>.</li>
@@ -197,7 +200,8 @@ $$</p>
 <li>Brownian motion has independent and stationary increments and is the most famous Lévy process <sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>.</li>
 <li>It is Markovian, i.e., $p(x(t_i) | x(t_1), \ldots, x(t_{i-1})) = p(x(t_i) | x(t_{i-1}))$ if $t_j > t_{j_1}$ for all $j$.</li>
 <li>It is non-monotonic on all intervals, and it is a fractal.</li>
-</ul></div>
+</ul>
+</div>
 </details>
 <h2 id="brownian-motion-and-riemann-integral">Brownian motion and Riemann integral</h2>
 <p>A quick technical note, the Riemann-<strong>Stieltjes</strong> integral is defined as,</p>
@@ -209,10 +213,12 @@ $$</p>
 <p>Let’s first recall the definition of the Riemann integral,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Definition: Riemann integral<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If the limit exists, and is the same for any $t^{\star}_i \in [t_i, t_{i+1}]$, the Riemann integral is defined as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>If the limit exists, and is the same for any $t^{\star}_i \in [t_i, t_{i+1}]$, the Riemann integral is defined as,
 $$
 \int_{a}^{b} f(t) \ dt \triangleq \lim_{\substack{n \to \infty \newline |P| \to 0}} \sum_{i=0}^{n-1} (t_{i+1} - t_i) f(t^{\star}_i).
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>Suppose the limit exists for an arbitrary $t^{\star}_i \in [t_i, t_{i+1}]$, do we get the same limit for $\forall t^{\star}_i \in [t_i, t_{i+1}]$?</p>
 <p>Recall that $P(t)$ is a partition of $[a, b]: a = t_0 &#x3C; t_1 &#x3C; \ldots &#x3C; t_n = b$.</p>
@@ -278,10 +284,12 @@ $$</p>
 <p>Instead, we define the Itô integral as,</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Definition: Itô integrals<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We define the Itô integral (of the diffusion term) as,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>We define the Itô integral (of the diffusion term) as,
 $$
 \int_{t_0}^{t} L(x(s), s) \ d\beta(s) = \underset{\substack{n \to \infty \newline |P| \to 0}}{\text{l.i.m}} \sum_{i=0}^{n-1} L(x(t_i), t_i) (\beta(t_{i + 1}) - \beta(t_i)).
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>The difference compared to using Riemann(-Stieltjes) sums is that $t^{\star}_i = t_i$.</p>
 <p>We finally have our definition of our SDEs,</p>
@@ -301,11 +309,14 @@ dx(t) \approx f(x(t_i), t_i) \ dt + L(x(t_i), t_i) \ d\beta(t), \quad \forall t_
 $$</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Definition: The Euler-Maruyama method<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>To simulate $x(t)$ from (1), draw $x(t_0) \sim p(x(t_0))$ and repeat for $i = 0, \ldots$,</p><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>To simulate $x(t)$ from (1), draw $x(t_0) \sim p(x(t_0))$ and repeat for $i = 0, \ldots$,</p>
+<ol>
 <li>Sample the Brownian motion, $\Delta \beta_i \sim \mathcal{N}(0, \Delta t)$.</li>
 <li>Predict the mean, $\hat{x}(t_{i + 1}) = x(t_i) + (t_{i + 1} - t_i) f(x(t_i), t_i)$.</li>
 <li>Sample the new state, $x(t_{i + 1}) = \hat{x}(t_{i + 1}) + L(x(t_i), t_i) \Delta \beta_i$.</li>
-</ol></div>
+</ol>
+</div>
 </details>
 <h2 id="second-order-stochastic-integrals">Second-Order Stochastic Integrals</h2>
 <p>We can also define the <strong>second-order</strong> stochastic integrals,</p>
@@ -326,10 +337,12 @@ $$</p>
 <p>This is known as <strong>concentration of measure</strong> <sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>, a key result in many fields.</p>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Theorem on second-order stochastic integrals (scalar case)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Under suitable regularity conditions (e.g., g(t) is independent of future increments $\Delta \beta$),
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<p>Under suitable regularity conditions (e.g., g(t) is independent of future increments $\Delta \beta$),
 $$
 \int_{a}^{b} g(t) (d \beta(t))^2 = \int_{a}^{b} g(t) dt.
-$$</p></div>
+$$</p>
+</div>
 </details>
 <p>In this context, we can simply replace (d$\beta(t)$)$^2$ by $dt$ and the Brownian motion does not introduce extra stochasticity.</p>
 <h2 id="summary">Summary</h2>
@@ -338,11 +351,13 @@ $$</p></div>
 </ul>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Definition: Brownian motion —   $\beta(t)$<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
+<ol>
 <li>Any increment $\Delta \beta(t) = \beta(t^{\prime}) - \beta(t) \sim \mathcal{N}(0, (t^{\prime} - t))$.</li>
 <li>Increments are independent unless intervals overlap.</li>
 <li>$\beta(0) = 0$.</li>
-</ol></div>
+</ol>
+</div>
 </details>
 <ul>
 <li>
