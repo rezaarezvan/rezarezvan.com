@@ -32,7 +32,7 @@
 
     document.addEventListener('DOMContentLoaded', init)
     document.addEventListener('astro:page-load', init)
-  </script><title>Part 3 - Markov chains I | rezarezvan.com</title><meta name="title" content="Part 3 - Markov chains I | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com/notes/master/mve550/mve550_3/"><meta property="og:title" content="Part 3 - Markov chains I"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.com/static/1200x630.png"><meta property="og:image:alt" content="Part 3 - Markov chains I"><meta property="og:type" content="website"><meta property="og:locale" content="en"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezarezvan.com/notes/master/mve550/mve550_3/"><meta name="twitter:title" content="Part 3 - Markov chains I"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.com/static/1200x630.png"><meta name="twitter:image:alt" content="Part 3 - Markov chains I"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/Layout.70UBWv6H.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <div id="site-header-shell" class="bg-background/50 sticky top-0 z-50 divide-y backdrop-blur-sm xl:divide-none"> <header> <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3"> <a href="/" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center justify-center gap-3">  <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64" class="text-foreground size-11 min-[300px]:size-12"> <defs> <path id="brand-r" d="M4.303861-3.466999C4.333748-3.805729 4.333748-4.164384 4.333748-4.493151C4.333748-4.622665 4.293898-5.051059 4.283935-5.100872C4.64259-5.718555 5.021171-6.256538 5.628892-6.256538C6.356164-6.256538 6.146949-4.991283 6.366127-4.772105C6.465753-4.672478 6.60523-4.622665 6.734745-4.612702L5.449564-3.865504C5.001245-3.795766 4.513076-3.576588 4.303861-3.466999ZM4.164384-5.459527C3.92528-6.107098 3.327522-6.834371 2.620174-6.834371C1.693649-6.834371 1.036115-6.216687 .797011-5.977584C.518057-5.69863 .288917-5.399751 .288917-5.001245C.288917-4.473225 .697385-4.11457 1.006227-3.676214C1.066002-3.596513 1.135741-3.506849 1.135741-3.407223C1.135741-3.088418 .806974-2.769614 .498132-2.600249L.647572-2.49066C1.235367-2.789539 1.872976-3.188045 1.872976-3.825654C1.872976-4.383562 .986301-4.931507 .986301-5.339975C.986301-5.947696 1.39477-6.206725 1.952677-6.206725C2.420922-6.206725 2.86924-5.877958 3.128269-5.489415C3.516812-4.911582 3.526775-4.124533 3.526775-3.656289C3.526775-2.351183 3.437111-1.205479 2.371108-.478207C2.132005-.737235 1.77335-1.05604 1.43462-1.05604C.926526-1.05604 .508095-.37858 .268991 0L.37858 .159402C.557908-.079701 .797011-.259029 1.105853-.259029C1.315068-.259029 1.693649 .049813 1.912827 .268991C2.460772-.18929 3.028643-.737235 3.58655-1.185554C3.985056-1.793275 4.164384-2.470735 4.26401-3.227895C4.533001-3.307597 4.951432-3.417186 5.180573-3.417186C5.469489-3.417186 5.798257-3.277709 6.007472-3.068493C6.127024-2.948941 6.296389-2.759651 6.296389-1.783313C6.296389-1.494396 6.276463-1.205479 6.266501-.896638L6.90411 .268991L8.229141-.737235V-.896638C8.029888-.816936 7.691158-.687422 7.641345-.687422C7.402242-.687422 7.212951-1.225405 7.113325-1.534247C7.023661-1.803238 6.983811-2.839352 6.953923-3.496887C6.694894-3.716065 6.445828-3.865504 5.937733-3.865504C6.615193-4.403487 7.392279-4.782067 8.029888-5.021171L7.960149-5.150685C7.840598-5.13076 7.711083-5.110834 7.581569-5.110834C6.933998-5.110834 7.0934-5.628892 7.063512-5.88792C7.003736-6.396015 6.814446-6.834371 6.266501-6.834371C5.379826-6.834371 4.732254-6.176837 4.204234-5.50934L4.164384-5.459527Z"></path> <path id="brand-r-small" d="M1.8132-3.805729V-4.124533C1.58406-4.313823 1.364882-4.513076 1.155666-4.722291L.14944-3.795766L.268991-3.696139L.647572-3.855542C.747198-3.785803 .846824-3.716065 .936488-3.636364C.996264-3.716065 1.026152-3.038605 1.026152-2.440847C1.026152-1.833126 1.026152-1.334994 .966376-.747198C1.295143-.408468 1.62391-.079701 1.992528 .209215L3.447073-.826899L3.427148-1.016189L2.540473-.597758C2.231631-.826899 1.8132-1.195517 1.8132-1.514321V-3.486924C1.872976-3.576588 2.022416-3.706102 2.181818-3.825654C2.410959-3.606476 2.739726-3.337484 3.008717-3.337484C3.128269-3.337484 3.247821-3.35741 3.337484-3.437111L3.92528-3.985056L3.935243-4.11457C3.845579-4.064757 3.666252-3.965131 3.556663-3.965131C3.317559-3.965131 3.048568-4.403487 2.899128-4.672478L1.8132-3.805729Z"></path> </defs> <g transform="translate(6.080000 49.058272) scale(4.952874)" fill="currentColor"> <use x="0" y="0" href="#brand-r"></use> <use x="6.589332" y="0" href="#brand-r-small"></use> </g> </svg> <span class="hidden h-full text-lg font-medium min-[300px]:block">rezarezvan.com</span>  </a> <div class="flex items-center sm:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:flex sm:gap-6"> <a href="/blog/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/notes/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> notes<span>/</span>  </a><a href="/research/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> research<span>/</span>  </a><a href="/thoughts/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> thoughts<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center px-2 text-sm transition-colors duration-300 ease-in-out hover:rounded hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+  </script><title>Part 3 - Markov chains I | rezarezvan.com</title><meta name="title" content="Part 3 - Markov chains I | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com/notes/master/mve550/mve550_3/"><meta property="og:title" content="Part 3 - Markov chains I"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.com/static/1200x630.png"><meta property="og:image:alt" content="Part 3 - Markov chains I"><meta property="og:type" content="website"><meta property="og:locale" content="en"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezarezvan.com/notes/master/mve550/mve550_3/"><meta name="twitter:title" content="Part 3 - Markov chains I"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.com/static/1200x630.png"><meta name="twitter:image:alt" content="Part 3 - Markov chains I"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/Layout.CtgQpYe0.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <div id="site-header-shell" class="bg-background/50 sticky top-0 z-50 divide-y backdrop-blur-sm xl:divide-none"> <header> <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3"> <a href="/" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center justify-center gap-3">  <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64" class="text-foreground size-11 min-[300px]:size-12"> <defs> <path id="brand-r" d="M4.303861-3.466999C4.333748-3.805729 4.333748-4.164384 4.333748-4.493151C4.333748-4.622665 4.293898-5.051059 4.283935-5.100872C4.64259-5.718555 5.021171-6.256538 5.628892-6.256538C6.356164-6.256538 6.146949-4.991283 6.366127-4.772105C6.465753-4.672478 6.60523-4.622665 6.734745-4.612702L5.449564-3.865504C5.001245-3.795766 4.513076-3.576588 4.303861-3.466999ZM4.164384-5.459527C3.92528-6.107098 3.327522-6.834371 2.620174-6.834371C1.693649-6.834371 1.036115-6.216687 .797011-5.977584C.518057-5.69863 .288917-5.399751 .288917-5.001245C.288917-4.473225 .697385-4.11457 1.006227-3.676214C1.066002-3.596513 1.135741-3.506849 1.135741-3.407223C1.135741-3.088418 .806974-2.769614 .498132-2.600249L.647572-2.49066C1.235367-2.789539 1.872976-3.188045 1.872976-3.825654C1.872976-4.383562 .986301-4.931507 .986301-5.339975C.986301-5.947696 1.39477-6.206725 1.952677-6.206725C2.420922-6.206725 2.86924-5.877958 3.128269-5.489415C3.516812-4.911582 3.526775-4.124533 3.526775-3.656289C3.526775-2.351183 3.437111-1.205479 2.371108-.478207C2.132005-.737235 1.77335-1.05604 1.43462-1.05604C.926526-1.05604 .508095-.37858 .268991 0L.37858 .159402C.557908-.079701 .797011-.259029 1.105853-.259029C1.315068-.259029 1.693649 .049813 1.912827 .268991C2.460772-.18929 3.028643-.737235 3.58655-1.185554C3.985056-1.793275 4.164384-2.470735 4.26401-3.227895C4.533001-3.307597 4.951432-3.417186 5.180573-3.417186C5.469489-3.417186 5.798257-3.277709 6.007472-3.068493C6.127024-2.948941 6.296389-2.759651 6.296389-1.783313C6.296389-1.494396 6.276463-1.205479 6.266501-.896638L6.90411 .268991L8.229141-.737235V-.896638C8.029888-.816936 7.691158-.687422 7.641345-.687422C7.402242-.687422 7.212951-1.225405 7.113325-1.534247C7.023661-1.803238 6.983811-2.839352 6.953923-3.496887C6.694894-3.716065 6.445828-3.865504 5.937733-3.865504C6.615193-4.403487 7.392279-4.782067 8.029888-5.021171L7.960149-5.150685C7.840598-5.13076 7.711083-5.110834 7.581569-5.110834C6.933998-5.110834 7.0934-5.628892 7.063512-5.88792C7.003736-6.396015 6.814446-6.834371 6.266501-6.834371C5.379826-6.834371 4.732254-6.176837 4.204234-5.50934L4.164384-5.459527Z"></path> <path id="brand-r-small" d="M1.8132-3.805729V-4.124533C1.58406-4.313823 1.364882-4.513076 1.155666-4.722291L.14944-3.795766L.268991-3.696139L.647572-3.855542C.747198-3.785803 .846824-3.716065 .936488-3.636364C.996264-3.716065 1.026152-3.038605 1.026152-2.440847C1.026152-1.833126 1.026152-1.334994 .966376-.747198C1.295143-.408468 1.62391-.079701 1.992528 .209215L3.447073-.826899L3.427148-1.016189L2.540473-.597758C2.231631-.826899 1.8132-1.195517 1.8132-1.514321V-3.486924C1.872976-3.576588 2.022416-3.706102 2.181818-3.825654C2.410959-3.606476 2.739726-3.337484 3.008717-3.337484C3.128269-3.337484 3.247821-3.35741 3.337484-3.437111L3.92528-3.985056L3.935243-4.11457C3.845579-4.064757 3.666252-3.965131 3.556663-3.965131C3.317559-3.965131 3.048568-4.403487 2.899128-4.672478L1.8132-3.805729Z"></path> </defs> <g transform="translate(6.080000 49.058272) scale(4.952874)" fill="currentColor"> <use x="0" y="0" href="#brand-r"></use> <use x="6.589332" y="0" href="#brand-r-small"></use> </g> </svg> <span class="hidden h-full text-lg font-medium min-[300px]:block">rezarezvan.com</span>  </a> <div class="flex items-center sm:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:flex sm:gap-6"> <a href="/blog/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/notes/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> notes<span>/</span>  </a><a href="/research/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> research<span>/</span>  </a><a href="/thoughts/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> thoughts<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center px-2 text-sm transition-colors duration-300 ease-in-out hover:rounded hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
 &nbsp;Search
 </button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="A5vRo" prefix="r20" component-url="/_astro/mobile-menu.C1-MAW53.js" component-export="default" renderer-url="/_astro/client.DT7drjUY.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r20R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
   ;(() => {
@@ -135,11 +135,9 @@ Finally, we will discuss induction and limiting and stationary distributions.</p
 <h2 id="markov-chains">Markov Chains</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Number Game<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>Consider a game, at each time step $i$, you are at position $1, 2,$ or $3$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Consider a game, at each time step $i$, you are at position $1, 2,$ or $3$.
 We write $X_i = 1$, $X_i = 2$, or $X_i = 3$ for $i = 0, 1, 2, \ldots$.
-At each time step, you move to a higher number (or from $3$ to $1$) with probability $p$, or stay put with probability $1 - p$.</p>
-<p>The transitions can be specified with,
+At each time step, you move to a higher number (or from $3$ to $1$) with probability $p$, or stay put with probability $1 - p$.</p><p>The transitions can be specified with,
 $$
 \begin{align*}
 P(X_{i+1} = 1 \mid X_i = 1) &#x26; = 1 - p, &#x26; P(X_{i+1} = 2 \mid X_i = 1) &#x26; = p, &#x26; P(X_{i+1} = 3 \mid X_i = 1) &#x26; = 0, \newline
@@ -156,18 +154,15 @@ P =
 p &#x26; 0 &#x26; 1 - p
 \end{bmatrix}
 $$
-The sequence $X_0, X_1, X_2, \ldots$ is an example of a Markov chain.</p>
-</div>
+The sequence $X_0, X_1, X_2, \ldots$ is an example of a Markov chain.</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Markov Chain<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>Let $S$ be a discrete set (not necessarily finite), called the state space. A Markov Chain is a sequence of random variables $X_0, X_1, X_2, \ldots$ taking values in $S$, with the property,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $S$ be a discrete set (not necessarily finite), called the state space. A Markov Chain is a sequence of random variables $X_0, X_1, X_2, \ldots$ taking values in $S$, with the property,
 $$
 \pi(X_{n+1} \mid X_0, X_1, \ldots, X_n) = \pi(X_{n+1} \mid X_n)
 $$
-for all $n \geq 1$.</p>
-<p>The chain is said to be time-homogeneous if, for all $n \geq 0$ <label for="sn-1" class="sidenote-toggle sidenote-number" aria-describedby="sn-1-note">1</label><input type="checkbox" id="sn-1" class="sidenote-checkbox" aria-label="Toggle sidenote 1"><span class="sidenote" role="note" id="sn-1-note"><span class="sidenote-number-inline">1</span>We generally assume this unless otherwise stated.</span>,
+for all $n \geq 1$.</p><p>The chain is said to be time-homogeneous if, for all $n \geq 0$ <label for="sn-1" class="sidenote-toggle sidenote-number" aria-describedby="sn-1-note">1</label><input type="checkbox" id="sn-1" class="sidenote-checkbox" aria-label="Toggle sidenote 1"><span class="sidenote" role="note" id="sn-1-note"><span class="sidenote-number-inline">1</span>We generally assume this unless otherwise stated.</span>,
 $$
 \pi(X_{n+1} \mid X_n) = \pi(X_1 \mid X_0)
 $$
@@ -175,31 +170,22 @@ The transition matrix is defined with,
 $$
 P_{ij} = \pi(X_{n+1} = j \mid X_n = i)
 $$
-Further, a stochastic matrix is a square matrix $P$ with non-negative entries, satisfying $P \mathbf{1} = \mathbf{1}$, where $\mathbf{1}$ is a row vector of ones (i.e., all rows sum to one).</p>
-<p>Lastly, all transition matrices are stochastic matrices, and all stochastic matrices can be used as transition matrices.</p>
-</div>
+Further, a stochastic matrix is a square matrix $P$ with non-negative entries, satisfying $P \mathbf{1} = \mathbf{1}$, where $\mathbf{1}$ is a row vector of ones (i.e., all rows sum to one).</p><p>Lastly, all transition matrices are stochastic matrices, and all stochastic matrices can be used as transition matrices.</p></div>
 </details>
 <h2 id="basic-computations-and-long-term-evolution">Basic Computations and Long Term Evolution</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Basic Computations with Markov Chains<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>If $v$ is a vector describing the probability distribution of states at stage $k$, then $vP$ is the vector describing the probability distribution of states at stage $k + 1$.
-Further, if $v$ is a vector describing the probability distribution of states at stage $k$, then $vP^n$ is the vector describing the probability distribution of states at stage $k + n$.</p>
-<p>Thus, the probability to go from state $i$ to state $j$ in $n$ steps is given by $(P^n)_{ij}$, but we will write $P^n_{ij}$.</p>
-<p>The Champman-Kolmogorov <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup> relationship $P^{n + m}_{ij} = \sum_{k} P^m_{ik} P^n_{kj}$ is derived from $P^{m + n} = P^m P^n$.</p>
-<p>Lastly, the probability of being at $i_1$ at stage $n_1$, and then at $i_2$ in stage $n_2$ and so on up to $i_k$ at stage $n_k$, with $n_1 &#x3C; n_2 &#x3C; \ldots &#x3C; n_k$, is by the product of corresponding entries of powers of the transition matrix,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If $v$ is a vector describing the probability distribution of states at stage $k$, then $vP$ is the vector describing the probability distribution of states at stage $k + 1$.
+Further, if $v$ is a vector describing the probability distribution of states at stage $k$, then $vP^n$ is the vector describing the probability distribution of states at stage $k + n$.</p><p>Thus, the probability to go from state $i$ to state $j$ in $n$ steps is given by $(P^n)_{ij}$, but we will write $P^n_{ij}$.</p><p>The Champman-Kolmogorov <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup> relationship $P^{n + m}_{ij} = \sum_{k} P^m_{ik} P^n_{kj}$ is derived from $P^{m + n} = P^m P^n$.</p><p>Lastly, the probability of being at $i_1$ at stage $n_1$, and then at $i_2$ in stage $n_2$ and so on up to $i_k$ at stage $n_k$, with $n_1 &#x3C; n_2 &#x3C; \ldots &#x3C; n_k$, is by the product of corresponding entries of powers of the transition matrix,
 $$
 (p_0 P^{n_1})_{i_1} (P^{n_2 - n_1})_{i_1 i_2} (P^{n_3 - n_2})_{i_2 i_3} \cdots (P^{n_k - n_{k-1}})_{i_{k-1} i_k}
-$$</p>
-</div>
+$$</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Long Term Evolution of Markov Chains<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>When the number of states in $S$ is finite and not too big, we can investigate the long term behavior by computing $P^n$ for large $n$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>When the number of states in $S$ is finite and not too big, we can investigate the long term behavior by computing $P^n$ for large $n$.
 In some cases, the powers stabilize into a matrix where all rows are identical.
-It may also stabilize without identical rows, or it may not stabilize at all.</p>
-<p>Note, that if $P$ is block-diagonal <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>, it may combine several of these behaviors,
+It may also stabilize without identical rows, or it may not stabilize at all.</p><p>Note, that if $P$ is block-diagonal <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>, it may combine several of these behaviors,
 $$
 \text{If } P =
 \begin{bmatrix}
@@ -215,16 +201,11 @@ P_1^n &#x26; 0 &#x26; \ldots &#x26; 0 \newline
 \vdots &#x26; \vdots &#x26; \ddots &#x26; 0 \newline
 0 &#x26; 0 &#x26; \ldots &#x26; P_k^n
 \end{bmatrix}
-$$</p>
-<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Long Term Evolution Using Simulation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>If $S$ is large of infinite, we may instead investigate the long term behavior using simulation.</p>
-<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If $S$ is large of infinite, we may instead investigate the long term behavior using simulation.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-emerald-600 dark:bg-emerald-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-emerald-700 dark:text-emerald-300" data-lucide="cpu" viewBox="0 0 24 24"><use href="#cpu"></use></svg>Algorithm: Simulating a Markov Chain<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-emerald-700 dark:text-emerald-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>Repeat many times:</p>
-<ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Repeat many times:</p><ul>
 <li>
 <p>Draw $x_0$ according to $\pi(x_0)$</p>
 </li>
@@ -235,19 +216,14 @@ $$</p>
 <p>Draw $x_i$ according to $\pi(x_i \mid x_{i-1})$
 Use the distribution of the $x_n$ to approximate the distribution of $X_n$.</p>
 </li>
-</ul>
-</div>
-</details>
-</div>
-</details>
-</div>
+</ul></div>
+</details></div>
+</details></div>
 </details>
 <h2 id="induction-limiting-and-stationary-distributions">Induction, Limiting and Stationary Distributions</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Proving stuff using Induction<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>Many results about Markov chains can be proved using induction.</p>
-<ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Many results about Markov chains can be proved using induction.</p><ol>
 <li>
 <p>Formulate a statement $S(n)$ depending on a non-negative integer $n$.</p>
 </li>
@@ -257,13 +233,9 @@ Use the distribution of the $x_n$ to approximate the distribution of $X_n$.</p>
 <li>
 <p>Prove that if $S(n)$ is true, then $S(n + 1)$ is true (the inductive step).</p>
 </li>
-</ol>
-<p>With this, one may conclude that $S(n)$ is true for all non-negative integers $n$.</p>
-<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
+</ol><p>With this, one may conclude that $S(n)$ is true for all non-negative integers $n$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: 2-state Markov Chain<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>Any 2-state Markov Chain has the transition matrix $\begin{bmatrix} 1 - p &#x26; p \newline q &#x26; 1 - q \end{bmatrix}$ for some $0 &#x3C; p &#x3C; 1$ and $0 &#x3C; q &#x3C; 1$.</p>
-<p>We can prove by induction that, for any $n \geq 0$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Any 2-state Markov Chain has the transition matrix $\begin{bmatrix} 1 - p &#x26; p \newline q &#x26; 1 - q \end{bmatrix}$ for some $0 &#x3C; p &#x3C; 1$ and $0 &#x3C; q &#x3C; 1$.</p><p>We can prove by induction that, for any $n \geq 0$,
 $$
 \begin{bmatrix}
 1 - p &#x26; p \newline
@@ -280,12 +252,9 @@ p &#x26; -p \newline
 \end{bmatrix} (1 - p - q)^n
 \right]
 $$
-We can use this to study what happens when $n$ goes to infinity.</p>
-<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
+We can use this to study what happens when $n$ goes to infinity.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-pink-300 dark:bg-pink-950/5">
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-pink-500 dark:text-pink-200" data-lucide="check-circle-2" viewBox="0 0 24 24"><use href="#check-circle-2"></use></svg>Solution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-pink-500 dark:text-pink-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>We proceed by induction.</p>
-<ul>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We proceed by induction.</p><ul>
 <li>Base case ($n = 0$):
 $$
 \begin{bmatrix}
@@ -387,58 +356,42 @@ q &#x26; p \newline
 q &#x26; p
 \end{bmatrix}
 $$</li>
-</ul>
-</div>
-</details>
-</div>
-</details>
-</div>
+</ul></div>
+</details></div>
+</details></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Limiting Distribution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>A limiting distribution for a Markov chain with transition matrix $P$ is a probability vector $v$ such that,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A limiting distribution for a Markov chain with transition matrix $P$ is a probability vector $v$ such that,
 $$
 \lim_{n \to \infty} (P^n)_{ij} = v_j
 $$
-for all states $i$ and $j$.</p>
-<p>An equivalent formulation is, the limit $\lim_{n \to \infty} (P^n)_{ij}$ exists and does not depend on $i$.</p>
-<p>Another equivalent formulation is, $\lim_{n \to \infty} P^n$ is a stochastic matrix with all rows identical.</p>
-<p>Further, a Markov chain has either no or one unique limiting distribution.
-If a limiting distribution exists, its probabilities correspond to the proportion of time steps the chain spends at each state in the long run.</p>
-</div>
+for all states $i$ and $j$.</p><p>An equivalent formulation is, the limit $\lim_{n \to \infty} (P^n)_{ij}$ exists and does not depend on $i$.</p><p>Another equivalent formulation is, $\lim_{n \to \infty} P^n$ is a stochastic matrix with all rows identical.</p><p>Further, a Markov chain has either no or one unique limiting distribution.
+If a limiting distribution exists, its probabilities correspond to the proportion of time steps the chain spends at each state in the long run.</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Stationary Distribution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>A stationary distribution for a Markov chain is a distribution that is unchanged when applying one step of the Markov chain.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A stationary distribution for a Markov chain is a distribution that is unchanged when applying one step of the Markov chain.
 If $P$ is the transition matrix, then a probability vector $v$ represents a stationary distribution if and only if,
 $$
 vP = v
 $$
 A Markov chain can have zero, one, or many stationary distributions.
-Limiting distributions are always stationary distributions (but not necessarily vice versa).</p>
-</div>
+Limiting distributions are always stationary distributions (but not necessarily vice versa).</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Regular Transition Matrices<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>A stochastic matrix $P$ is positive if all entries are strictly positive, i.e., $P_{ij} > 0$ for all $i$ and $j$.
-A stochastic matrix $P$ is regular if $P^n$ is positive for some $n > 0$.</p>
-</div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>A stochastic matrix $P$ is positive if all entries are strictly positive, i.e., $P_{ij} > 0$ for all $i$ and $j$.
+A stochastic matrix $P$ is regular if $P^n$ is positive for some $n > 0$.</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-indigo-500 dark:bg-indigo-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-indigo-700 dark:text-indigo-400" data-lucide="check-circle" viewBox="0 0 24 24"><use href="#check-circle"></use></svg>Theorem: Limit Theorem for Regular Markov Chains<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-indigo-700 dark:text-indigo-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>If the transition matrix $P$ is regular, the limiting distribution exists.
-There are no other stationary distributions and the limiting distribution is positive, i.e., all states have positive probability in the limiting distribution.</p>
-</div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>If the transition matrix $P$ is regular, the limiting distribution exists.
+There are no other stationary distributions and the limiting distribution is positive, i.e., all states have positive probability in the limiting distribution.</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Finding Stationary Distributions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>Find the $v$ satisfying $vP = v$ by, for example,</p>
-<ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Find the $v$ satisfying $vP = v$ by, for example,</p><ol>
 <li>
 <p>Solving the linear system $vP = v$</p>
 </li>
@@ -448,36 +401,23 @@ There are no other stationary distributions and the limiting distribution is pos
 <li>
 <p>Computing an eigenvector for the transpose $P^T$ belonging to the eigenvalue 1.</p>
 </li>
-</ol>
-<p>Having found a $v$ satisfying $vP = v$, if the transition matrix $P$ is regular, we know $v$ represents the unique limiting distribution and the unique stationary distribution.</p>
-<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
+</ol><p>Having found a $v$ satisfying $vP = v$, if the transition matrix $P$ is regular, we know $v$ represents the unique limiting distribution and the unique stationary distribution.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Random Walks on Undirected Graphs<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>An undirected graph consists of nodes and undirected edges connecting them.
-An undirected graph defines a random walk Markov chain by, at every time step, following one of the edges out of a node, with equal probability.</p>
-<p>When the graph is finite, we show that the vector $u$ is a stationary distribution, where $u_i = \frac{\mathrm{deg}(i)}{S}$, where $\mathrm{deg}(i)$ is the number of edges going into node $i$ and $S$ is the sum over all nodes of their degrees.</p>
-<p>If we further generalize, a weighted undirected graph is a graph with a positive weight at any edge between $i$ and $j$ for all $i$ and $j$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>An undirected graph consists of nodes and undirected edges connecting them.
+An undirected graph defines a random walk Markov chain by, at every time step, following one of the edges out of a node, with equal probability.</p><p>When the graph is finite, we show that the vector $u$ is a stationary distribution, where $u_i = \frac{\mathrm{deg}(i)}{S}$, where $\mathrm{deg}(i)$ is the number of edges going into node $i$ and $S$ is the sum over all nodes of their degrees.</p><p>If we further generalize, a weighted undirected graph is a graph with a positive weight at any edge between $i$ and $j$ for all $i$ and $j$.
 If we define the Markov chain by choosing the next node with probabilities according to the weights.
-Then, when the graph is finite, the vector $u$ is a stationary distribution, where $u_i = \frac{w(i)}{e}$, where $w(i)$ is the sum of the weights of the edges going into $i$, and $e$ is the total sum over all nodes of their $w(i)$ values.</p>
-</div>
-</details>
-</div>
+Then, when the graph is finite, the vector $u$ is a stationary distribution, where $u_i = \frac{w(i)}{e}$, where $w(i)$ is the sum of the weights of the edges going into $i$, and $e$ is the total sum over all nodes of their $w(i)$ values.</p></div>
+</details></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Moving Between States<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>State $j$ is accessible from state $i$ if $(P^n)_{ij} > 0$ for some $n \geq 0$.
-States $i$ and $j$ communicate if $i$ is accessible from $j$ and $j$ is accessible from $i$.</p>
-<p>“Communication” is transitive, i.e., if $i$ communicates with $j$ and $j$ communicates with $k$, then $i$ communicates with $k$.</p>
-<p>Communication is an equivalence relation, subdividing all states into communication classes.
-Communication classes can be found for example by drawing transition graphs.</p>
-<p>Lastly, a Markov chain is irreducible if it has exactly one communication class.</p>
-</div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>State $j$ is accessible from state $i$ if $(P^n)_{ij} > 0$ for some $n \geq 0$.
+States $i$ and $j$ communicate if $i$ is accessible from $j$ and $j$ is accessible from $i$.</p><p>“Communication” is transitive, i.e., if $i$ communicates with $j$ and $j$ communicates with $k$, then $i$ communicates with $k$.</p><p>Communication is an equivalence relation, subdividing all states into communication classes.
+Communication classes can be found for example by drawing transition graphs.</p><p>Lastly, a Markov chain is irreducible if it has exactly one communication class.</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Recurrence and Transience<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>Let $T_j$ be the first passage time to state $j$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Let $T_j$ be the first passage time to state $j$,
 $$
 T_j = \min {n > 0 : X_n = j }
 $$
@@ -485,26 +425,16 @@ Let $f_j$ be the probability that a chain starting at $j$ will return to $j$,
 $$
 f_j = P(T_j &#x3C; \infty \mid X_0 = j)
 $$
-A state $j$ is recurrent if a chain starting at $j$ will eventually revisit $j$, i.e., if $f_j = 1$.</p>
-<p>A state $j$ is transient if a chain starting at $j$ has a positive probability of never revisiting $j$, i.e., if $f_j &#x3C; 1$.</p>
-<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+A state $j$ is recurrent if a chain starting at $j$ will eventually revisit $j$, i.e., if $f_j = 1$.</p><p>A state $j$ is transient if a chain starting at $j$ has a positive probability of never revisiting $j$, i.e., if $f_j &#x3C; 1$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>The expected number of visits at $j$ when the chain starts at $i$ is given by $\sum_{n = 0}^{\infty} (P^n)_{ij}$.</p>
-</div>
-</details>
-<p>$j$ is recurrent if and only if $\sum_{n = 0}^{\infty} (P^n)_{jj} = \infty$.</p>
-<p>$j$ is transient if and only if $\sum_{n = 0}^{\infty} (P^n)_{jj} &#x3C; \infty$.</p>
-</div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The expected number of visits at $j$ when the chain starts at $i$ is given by $\sum_{n = 0}^{\infty} (P^n)_{ij}$.</p></div>
+</details><p>$j$ is recurrent if and only if $\sum_{n = 0}^{\infty} (P^n)_{jj} = \infty$.</p><p>$j$ is transient if and only if $\sum_{n = 0}^{\infty} (P^n)_{jj} &#x3C; \infty$.</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: Communication Classes<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>The states of a communication class are either all recurrent or all transient.
-The states of a finite irreducible Markov chain are all recurrent.</p>
-<p>If a state is recurrent, only states inside its communication class are accessible from it.
-If no states outside a finite communication class are accessible from it, then the class consists of recurrent states.</p>
-</div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The states of a communication class are either all recurrent or all transient.
+The states of a finite irreducible Markov chain are all recurrent.</p><p>If a state is recurrent, only states inside its communication class are accessible from it.
+If no states outside a finite communication class are accessible from it, then the class consists of recurrent states.</p></div>
 </details>
 <section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
 <ol>

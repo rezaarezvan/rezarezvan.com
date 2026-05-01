@@ -32,7 +32,7 @@
 
     document.addEventListener('DOMContentLoaded', init)
     document.addEventListener('astro:page-load', init)
-  </script><title>Part 4 &amp; 5 - Linear Models for Classification | rezarezvan.com</title><meta name="title" content="Part 4 &#38; 5 - Linear Models for Classification | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com/notes/master/ssy316/ssy316_3/"><meta property="og:title" content="Part 4 &#38; 5 - Linear Models for Classification"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.com/static/1200x630.png"><meta property="og:image:alt" content="Part 4 &#38; 5 - Linear Models for Classification"><meta property="og:type" content="website"><meta property="og:locale" content="en"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezarezvan.com/notes/master/ssy316/ssy316_3/"><meta name="twitter:title" content="Part 4 &#38; 5 - Linear Models for Classification"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.com/static/1200x630.png"><meta name="twitter:image:alt" content="Part 4 &#38; 5 - Linear Models for Classification"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/Layout.70UBWv6H.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <div id="site-header-shell" class="bg-background/50 sticky top-0 z-50 divide-y backdrop-blur-sm xl:divide-none"> <header> <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3"> <a href="/" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center justify-center gap-3">  <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64" class="text-foreground size-11 min-[300px]:size-12"> <defs> <path id="brand-r" d="M4.303861-3.466999C4.333748-3.805729 4.333748-4.164384 4.333748-4.493151C4.333748-4.622665 4.293898-5.051059 4.283935-5.100872C4.64259-5.718555 5.021171-6.256538 5.628892-6.256538C6.356164-6.256538 6.146949-4.991283 6.366127-4.772105C6.465753-4.672478 6.60523-4.622665 6.734745-4.612702L5.449564-3.865504C5.001245-3.795766 4.513076-3.576588 4.303861-3.466999ZM4.164384-5.459527C3.92528-6.107098 3.327522-6.834371 2.620174-6.834371C1.693649-6.834371 1.036115-6.216687 .797011-5.977584C.518057-5.69863 .288917-5.399751 .288917-5.001245C.288917-4.473225 .697385-4.11457 1.006227-3.676214C1.066002-3.596513 1.135741-3.506849 1.135741-3.407223C1.135741-3.088418 .806974-2.769614 .498132-2.600249L.647572-2.49066C1.235367-2.789539 1.872976-3.188045 1.872976-3.825654C1.872976-4.383562 .986301-4.931507 .986301-5.339975C.986301-5.947696 1.39477-6.206725 1.952677-6.206725C2.420922-6.206725 2.86924-5.877958 3.128269-5.489415C3.516812-4.911582 3.526775-4.124533 3.526775-3.656289C3.526775-2.351183 3.437111-1.205479 2.371108-.478207C2.132005-.737235 1.77335-1.05604 1.43462-1.05604C.926526-1.05604 .508095-.37858 .268991 0L.37858 .159402C.557908-.079701 .797011-.259029 1.105853-.259029C1.315068-.259029 1.693649 .049813 1.912827 .268991C2.460772-.18929 3.028643-.737235 3.58655-1.185554C3.985056-1.793275 4.164384-2.470735 4.26401-3.227895C4.533001-3.307597 4.951432-3.417186 5.180573-3.417186C5.469489-3.417186 5.798257-3.277709 6.007472-3.068493C6.127024-2.948941 6.296389-2.759651 6.296389-1.783313C6.296389-1.494396 6.276463-1.205479 6.266501-.896638L6.90411 .268991L8.229141-.737235V-.896638C8.029888-.816936 7.691158-.687422 7.641345-.687422C7.402242-.687422 7.212951-1.225405 7.113325-1.534247C7.023661-1.803238 6.983811-2.839352 6.953923-3.496887C6.694894-3.716065 6.445828-3.865504 5.937733-3.865504C6.615193-4.403487 7.392279-4.782067 8.029888-5.021171L7.960149-5.150685C7.840598-5.13076 7.711083-5.110834 7.581569-5.110834C6.933998-5.110834 7.0934-5.628892 7.063512-5.88792C7.003736-6.396015 6.814446-6.834371 6.266501-6.834371C5.379826-6.834371 4.732254-6.176837 4.204234-5.50934L4.164384-5.459527Z"></path> <path id="brand-r-small" d="M1.8132-3.805729V-4.124533C1.58406-4.313823 1.364882-4.513076 1.155666-4.722291L.14944-3.795766L.268991-3.696139L.647572-3.855542C.747198-3.785803 .846824-3.716065 .936488-3.636364C.996264-3.716065 1.026152-3.038605 1.026152-2.440847C1.026152-1.833126 1.026152-1.334994 .966376-.747198C1.295143-.408468 1.62391-.079701 1.992528 .209215L3.447073-.826899L3.427148-1.016189L2.540473-.597758C2.231631-.826899 1.8132-1.195517 1.8132-1.514321V-3.486924C1.872976-3.576588 2.022416-3.706102 2.181818-3.825654C2.410959-3.606476 2.739726-3.337484 3.008717-3.337484C3.128269-3.337484 3.247821-3.35741 3.337484-3.437111L3.92528-3.985056L3.935243-4.11457C3.845579-4.064757 3.666252-3.965131 3.556663-3.965131C3.317559-3.965131 3.048568-4.403487 2.899128-4.672478L1.8132-3.805729Z"></path> </defs> <g transform="translate(6.080000 49.058272) scale(4.952874)" fill="currentColor"> <use x="0" y="0" href="#brand-r"></use> <use x="6.589332" y="0" href="#brand-r-small"></use> </g> </svg> <span class="hidden h-full text-lg font-medium min-[300px]:block">rezarezvan.com</span>  </a> <div class="flex items-center sm:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:flex sm:gap-6"> <a href="/blog/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/notes/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> notes<span>/</span>  </a><a href="/research/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> research<span>/</span>  </a><a href="/thoughts/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> thoughts<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center px-2 text-sm transition-colors duration-300 ease-in-out hover:rounded hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
+  </script><title>Part 4 &amp; 5 - Linear Models for Classification | rezarezvan.com</title><meta name="title" content="Part 4 &#38; 5 - Linear Models for Classification | rezarezvan.com"><meta name="description" content="Personal website and course notes repository"><link rel="canonical" href="https://rezarezvan.com/notes/master/ssy316/ssy316_3/"><meta property="og:title" content="Part 4 &#38; 5 - Linear Models for Classification"><meta property="og:description" content="Personal website and course notes repository"><meta property="og:image" content="https://rezarezvan.com/static/1200x630.png"><meta property="og:image:alt" content="Part 4 &#38; 5 - Linear Models for Classification"><meta property="og:type" content="website"><meta property="og:locale" content="en"><meta property="og:site_name" content="rezarezvan.com"><meta property="og:url" content="https://rezarezvan.com/notes/master/ssy316/ssy316_3/"><meta name="twitter:title" content="Part 4 &#38; 5 - Linear Models for Classification"><meta name="twitter:description" content="Personal website and course notes repository"><meta property="twitter:image" content="https://rezarezvan.com/static/1200x630.png"><meta name="twitter:image:alt" content="Part 4 &#38; 5 - Linear Models for Classification"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/Layout.CtgQpYe0.css"></head><body> <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <div id="site-header-shell" class="bg-background/50 sticky top-0 z-50 divide-y backdrop-blur-sm xl:divide-none"> <header> <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3"> <a href="/" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center justify-center gap-3">  <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64" class="text-foreground size-11 min-[300px]:size-12"> <defs> <path id="brand-r" d="M4.303861-3.466999C4.333748-3.805729 4.333748-4.164384 4.333748-4.493151C4.333748-4.622665 4.293898-5.051059 4.283935-5.100872C4.64259-5.718555 5.021171-6.256538 5.628892-6.256538C6.356164-6.256538 6.146949-4.991283 6.366127-4.772105C6.465753-4.672478 6.60523-4.622665 6.734745-4.612702L5.449564-3.865504C5.001245-3.795766 4.513076-3.576588 4.303861-3.466999ZM4.164384-5.459527C3.92528-6.107098 3.327522-6.834371 2.620174-6.834371C1.693649-6.834371 1.036115-6.216687 .797011-5.977584C.518057-5.69863 .288917-5.399751 .288917-5.001245C.288917-4.473225 .697385-4.11457 1.006227-3.676214C1.066002-3.596513 1.135741-3.506849 1.135741-3.407223C1.135741-3.088418 .806974-2.769614 .498132-2.600249L.647572-2.49066C1.235367-2.789539 1.872976-3.188045 1.872976-3.825654C1.872976-4.383562 .986301-4.931507 .986301-5.339975C.986301-5.947696 1.39477-6.206725 1.952677-6.206725C2.420922-6.206725 2.86924-5.877958 3.128269-5.489415C3.516812-4.911582 3.526775-4.124533 3.526775-3.656289C3.526775-2.351183 3.437111-1.205479 2.371108-.478207C2.132005-.737235 1.77335-1.05604 1.43462-1.05604C.926526-1.05604 .508095-.37858 .268991 0L.37858 .159402C.557908-.079701 .797011-.259029 1.105853-.259029C1.315068-.259029 1.693649 .049813 1.912827 .268991C2.460772-.18929 3.028643-.737235 3.58655-1.185554C3.985056-1.793275 4.164384-2.470735 4.26401-3.227895C4.533001-3.307597 4.951432-3.417186 5.180573-3.417186C5.469489-3.417186 5.798257-3.277709 6.007472-3.068493C6.127024-2.948941 6.296389-2.759651 6.296389-1.783313C6.296389-1.494396 6.276463-1.205479 6.266501-.896638L6.90411 .268991L8.229141-.737235V-.896638C8.029888-.816936 7.691158-.687422 7.641345-.687422C7.402242-.687422 7.212951-1.225405 7.113325-1.534247C7.023661-1.803238 6.983811-2.839352 6.953923-3.496887C6.694894-3.716065 6.445828-3.865504 5.937733-3.865504C6.615193-4.403487 7.392279-4.782067 8.029888-5.021171L7.960149-5.150685C7.840598-5.13076 7.711083-5.110834 7.581569-5.110834C6.933998-5.110834 7.0934-5.628892 7.063512-5.88792C7.003736-6.396015 6.814446-6.834371 6.266501-6.834371C5.379826-6.834371 4.732254-6.176837 4.204234-5.50934L4.164384-5.459527Z"></path> <path id="brand-r-small" d="M1.8132-3.805729V-4.124533C1.58406-4.313823 1.364882-4.513076 1.155666-4.722291L.14944-3.795766L.268991-3.696139L.647572-3.855542C.747198-3.785803 .846824-3.716065 .936488-3.636364C.996264-3.716065 1.026152-3.038605 1.026152-2.440847C1.026152-1.833126 1.026152-1.334994 .966376-.747198C1.295143-.408468 1.62391-.079701 1.992528 .209215L3.447073-.826899L3.427148-1.016189L2.540473-.597758C2.231631-.826899 1.8132-1.195517 1.8132-1.514321V-3.486924C1.872976-3.576588 2.022416-3.706102 2.181818-3.825654C2.410959-3.606476 2.739726-3.337484 3.008717-3.337484C3.128269-3.337484 3.247821-3.35741 3.337484-3.437111L3.92528-3.985056L3.935243-4.11457C3.845579-4.064757 3.666252-3.965131 3.556663-3.965131C3.317559-3.965131 3.048568-4.403487 2.899128-4.672478L1.8132-3.805729Z"></path> </defs> <g transform="translate(6.080000 49.058272) scale(4.952874)" fill="currentColor"> <use x="0" y="0" href="#brand-r"></use> <use x="6.589332" y="0" href="#brand-r-small"></use> </g> </svg> <span class="hidden h-full text-lg font-medium min-[300px]:block">rezarezvan.com</span>  </a> <div class="flex items-center sm:gap-4"> <nav class="hidden items-center gap-4 text-sm sm:flex sm:gap-6"> <a href="/blog/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> blog<span>/</span>  </a><a href="/notes/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> notes<span>/</span>  </a><a href="/research/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> research<span>/</span>  </a><a href="/thoughts/" class="inline-block duration-300 ease-in-out hover:text-foreground/30 transition-colors"> thoughts<span>/</span>  </a> </nav> <button id="magnifying-glass" aria-label="Search" class="flex items-center px-2 text-sm transition-colors duration-300 ease-in-out hover:rounded hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z" fill="currentColor"></path> </svg>
 &nbsp;Search
 </button> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="A5vRo" prefix="r20" component-url="/_astro/mobile-menu.C1-MAW53.js" component-export="default" renderer-url="/_astro/client.DT7drjUY.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;MobileMenu&quot;,&quot;value&quot;:true}" await-children><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9 md:hidden" title="Menu" type="button" id="radix-:r20R0:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><span class="sr-only">Toggle menu</span></button><!--astro:end--></astro-island> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9" id="theme-toggle" title="Toggle theme"> <svg width="1em" height="1em" class="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">Toggle theme</span> </button> <script data-astro-rerun>
   ;(() => {
@@ -133,33 +133,22 @@ Last modified: January 30, 2026 </div>  <div data-orientation="vertical" role="n
 <h2 id="the-classification-problem">The Classification Problem</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Classification Problem<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>In classification, the goal is, given a training set $\mathcal{D} \coloneqq \{(\mathbf{x}_1, y_1=, \ldots, (\mathbf{x}_N , y_N)\}$, with $y_i \in \{C_1, \ldots, C_k\}$, assign (classify) a new example $\mathbf{x}$ to one of the classes $C_i$.
-Usually, for convenience $y_i \in \{1, \ldots, K\}$.</p>
-<p>More mathematically, we can think of it as dividing the input space into decision regions $\mathcal{R}_i, i \in [K]$ (points in $\mathcal{R}_i$ are assigned to class $C_i$).
-Thus, for linear models, the decision boundaries (surfaces) are linear functions of $\mathbf{x}$ (i.e., $(d - 1)$-dimensional hyperplanes).</p>
-</div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In classification, the goal is, given a training set $\mathcal{D} \coloneqq \{(\mathbf{x}_1, y_1=, \ldots, (\mathbf{x}_N , y_N)\}$, with $y_i \in \{C_1, \ldots, C_k\}$, assign (classify) a new example $\mathbf{x}$ to one of the classes $C_i$.
+Usually, for convenience $y_i \in \{1, \ldots, K\}$.</p><p>More mathematically, we can think of it as dividing the input space into decision regions $\mathcal{R}_i, i \in [K]$ (points in $\mathcal{R}_i$ are assigned to class $C_i$).
+Thus, for linear models, the decision boundaries (surfaces) are linear functions of $\mathbf{x}$ (i.e., $(d - 1)$-dimensional hyperplanes).</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Modeling Approaches<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>There are three main approaches to modeling classification problems.</p>
-<p>Discriminative Deterministic Models: Model directly the deterministic mapping between $\mathbf{x}$ and $y$ via a parametrized function $\mu(\mathbf{x}, \mathbf{w})$ (discriminant function).</p>
-<p>However, a more powerful approach is to model $p(C_k \mid \mathbf{x})$ in an inference stage, then use this distribution to make optimal decisions.</p>
-<p>Discriminative Probabilistic Models: Model $p(C_k \mid \mathbf{x})$ via a parametrized model.</p>
-<p>Generative Probabilistic Models: Model $p(\mathbf{x}, y)$ specifying $p(y)$ ($p(C_k)$) and $p(\mathbf{x} \mid y)$ ($p(\mathbf{x} \mid C_k)$). Then,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>There are three main approaches to modeling classification problems.</p><p>Discriminative Deterministic Models: Model directly the deterministic mapping between $\mathbf{x}$ and $y$ via a parametrized function $\mu(\mathbf{x}, \mathbf{w})$ (discriminant function).</p><p>However, a more powerful approach is to model $p(C_k \mid \mathbf{x})$ in an inference stage, then use this distribution to make optimal decisions.</p><p>Discriminative Probabilistic Models: Model $p(C_k \mid \mathbf{x})$ via a parametrized model.</p><p>Generative Probabilistic Models: Model $p(\mathbf{x}, y)$ specifying $p(y)$ ($p(C_k)$) and $p(\mathbf{x} \mid y)$ ($p(\mathbf{x} \mid C_k)$). Then,
 $$
 p(C_k \mid \mathbf{x}) = \frac{p(\mathbf{x} \mid C_k) p(C_k)}{p(\mathbf{x})}
-$$</p>
-</div>
+$$</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Generalized Linear Models and Activation Functions<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>Recall, in the linear regression setting, $\mu(\mathbf{x}, \mathbf{w})$ is a linear function of $\mathbf{w}$, where in the simplest case we had $\mu(\mathbf{x}, \mathbf{w}) = \mathbf{w}^T \mathbf{x} + w_0$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Recall, in the linear regression setting, $\mu(\mathbf{x}, \mathbf{w})$ is a linear function of $\mathbf{w}$, where in the simplest case we had $\mu(\mathbf{x}, \mathbf{w}) = \mathbf{w}^T \mathbf{x} + w_0$.
 However, in classification, we need to ensure that the output is a discrete range or the posterior probabilities (i.e., $[0, 1]$ and sum to one).
-Thus, generalized linear models are models where $\mu(\mathbf{x}, \mathbf{w}) = a(\mathbf{w}^T \mathbf{x})$, where $a(\cdot)$ is an activation function that maps the output of the linear function to the desired range.</p>
-<p>For example, in binary classification, using a discriminative deterministic model, the simplest form would be,
+Thus, generalized linear models are models where $\mu(\mathbf{x}, \mathbf{w}) = a(\mathbf{w}^T \mathbf{x})$, where $a(\cdot)$ is an activation function that maps the output of the linear function to the desired range.</p><p>For example, in binary classification, using a discriminative deterministic model, the simplest form would be,
 $$
 \hat{y}(\mathbf{x}, \mathbf{w}) = \mathrm{sign}(\mathbf{w}^T \mathbf{x} + w_0)
 $$
@@ -177,18 +166,14 @@ $$
 and thus,
 $$
 \hat{y}(\mathbf{x}, \mathbf{W}) = \underset{k}{\arg\max} \ \mu_k(\mathbf{x})
-$$</p>
-<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+$$</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>One can interpret $\mu_k(\mathbf{x})$ as $p(y = k \mid \mathbf{x})$.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>One can interpret $\mu_k(\mathbf{x})$ as $p(y = k \mid \mathbf{x})$.
 Further, the decision boundary between $C_k$ and $C_j$ is given by the hyperplane,
 $$
 \{\mathbf{x} : (\mathbf{w}_k - \mathbf{w}_j)^T \mathbf{x} + (w_{k, 0} - w_{j, 0}) = 0\}
-$$</p>
-</div>
-</details>
-</div>
+$$</p></div>
+</details></div>
 </details>
 <h2 id="linear-probabilistic-models-for-classification">Linear (Probabilistic) Models for Classification</h2>
 <p>As we have discussed, discriminative probabilistic models aim at modeling $p(C_k \mid \mathbf{x})$ directly.
@@ -206,8 +191,7 @@ $$</p>
 <figure><img alt="Logistic Sigmoid Function" loading="lazy" decoding="async"  width="548" height="438" src="/_astro/logistic_sigmoid.DG0cqJYr_iaxna.svg" ><figcaption>Logistic Sigmoid Function</figcaption></figure>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: Logistic Regression for Binary Classification<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>In the binary classification setting, one can derive,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In the binary classification setting, one can derive,
 $$
 \begin{align*}
 p(\mathsf{y} = C_1 \mid \boldsymbol{\phi}, \mathbf{x}, \mathbf{w}) &#x26; = p(\mathsf{y} = C_1 \mid \boldsymbol{\phi}(\mathbf{x}), \mathbf{w}) \newline
@@ -215,8 +199,7 @@ p(\mathsf{y} = C_1 \mid \boldsymbol{\phi}, \mathbf{x}, \mathbf{w}) &#x26; = p(\m
 &#x26; = \frac{1}{1 + \exp(-\mathbf{w}^T \boldsymbol{\phi}(\mathbf{x}))} \eqqcolon \sigma(\mathbf{w}^T \boldsymbol{\phi}(\mathbf{x})) \newline
 \end{align*}
 $$
-For an $M$-dimensional feature space $\boldsymbol{\phi}$, i.e., $M$ adjustable parameters.</p>
-<p>Thus, for inference, the misclassification error is minimized by,
+For an $M$-dimensional feature space $\boldsymbol{\phi}$, i.e., $M$ adjustable parameters.</p><p>Thus, for inference, the misclassification error is minimized by,
 $$
 \begin{cases}
 \mathbf{x} \in C_1, &#x26; \text{if } p(C_1 \mid \boldsymbol{\phi}(\mathbf{x}), \mathbf{w}) > \frac{1}{2} \newline
@@ -230,8 +213,7 @@ $$
 \mathbf{x} \in C_2, &#x26; \text{if } \mathbf{w}^T \boldsymbol{\phi}(\mathbf{x}) &#x3C; 0
 \end{cases}
 $$
-Thus, the decision boundary is given by the hyperplane $\mathbf{w}^T \boldsymbol{\phi}(\mathbf{x}) = 0$.</p>
-<p>As previously, for learning we use ML learning,
+Thus, the decision boundary is given by the hyperplane $\mathbf{w}^T \boldsymbol{\phi}(\mathbf{x}) = 0$.</p><p>As previously, for learning we use ML learning,
 $$
 \mathbf{w}^{\star} = \underset{\mathbf{w}}{\arg\max} \ p(y_{\mathcal{D}} \mid x_{\mathcal{D}}, \mathbf{w})
 $$
@@ -253,33 +235,24 @@ $$
 &#x26; = \underset{\mathbf{w}}{\arg\min} \ -\sum_{i=1}^{N} \left(y_i \log(p(\mathsf{y} = C_1 \mid \boldsymbol{\phi}(\mathbf{x}_i), \mathbf{w})) + (1 - y_i) \log(1 - p(\mathsf{y} = C_1 \mid \boldsymbol{\phi}(\mathbf{x}_i), \mathbf{w})) \right) \newline
 \end{align*}
 $$
-Which is the cross-entropy loss function.</p>
-<p>However, this has no closed-form solution, but NLL has unique minimum unless classes are perfectly separated by a hyperplane.
-The NLL function is also concave and the derivatives and Hessian can easily be computed $\Rightarrow$ We can use iterative optimization methods such as gradient descent or Newton-Raphson to find $\mathbf{w}^{\star}$.</p>
-<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
+Which is the cross-entropy loss function.</p><p>However, this has no closed-form solution, but NLL has unique minimum unless classes are perfectly separated by a hyperplane.
+The NLL function is also concave and the derivatives and Hessian can easily be computed $\Rightarrow$ We can use iterative optimization methods such as gradient descent or Newton-Raphson to find $\mathbf{w}^{\star}$.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="rotate-ccw" viewBox="0 0 24 24"><use href="#rotate-ccw"></use></svg>Recall: Maximum A Posteriori Learning<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>ML can lead to overfitting when too many parameters are used compared to training examples. That is, a large value of $\Vert \mathbf{w} \Vert$ a manifestation of overfitting.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>ML can lead to overfitting when too many parameters are used compared to training examples. That is, a large value of $\Vert \mathbf{w} \Vert$ a manifestation of overfitting.
 By introducing a prior on $\mathbf{w}$ that gives lower probability to larger values, e.g., $\mathbf{w} \sim \mathcal{N}(0, \alpha^{-1} \mathbf{I})$, we can use MAP learning to mitigate overfitting.
 Further, recall that the MAP criterion is defined as,
 $$
 \mathbf{w}_{\text{MAP}} \coloneqq \underset{\mathbf{w}}{\arg\max} \ L_{\mathcal{D}}(\mathbf{w}) + \frac{\lambda}{N} \Vert \mathbf{w} \Vert^2.
-$$</p>
-</div>
-</details>
-<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+$$</p></div>
+</details><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>Note that ML learning will only return a single $\mathbf{w}$. Thus, to deal with uncertainty in estimating $\mathbf{w}$, we need to determine the posterior distribution $p(\mathbf{w} \mid \mathcal{D})$.</p>
-</div>
-</details>
-</div>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Note that ML learning will only return a single $\mathbf{w}$. Thus, to deal with uncertainty in estimating $\mathbf{w}$, we need to determine the posterior distribution $p(\mathbf{w} \mid \mathcal{D})$.</p></div>
+</details></div>
 </details>
 <h2 id="bayesian-logistic-regression">Bayesian Logistic Regression</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Bayesian Logistic Regression<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>We want to compute the full posterior $p(\mathbf{w} \mid \mathcal{D})$. However, exact Bayesian inference for logistic regression is not possible, as exact evaluation of $p(\mathbf{w} \mid \mathcal{D})$ is intractable.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>We want to compute the full posterior $p(\mathbf{w} \mid \mathcal{D})$. However, exact Bayesian inference for logistic regression is not possible, as exact evaluation of $p(\mathbf{w} \mid \mathcal{D})$ is intractable.
 $$
 \begin{align*}
 p(\mathbf{w} \mid \mathcal{D}) &#x26; \propto p(\mathbf{w}) p(y_{\mathcal{D}} \mid x_{\mathcal{D}}, \mathbf{w}) \newline
@@ -287,29 +260,22 @@ p(\mathbf{w} \mid \mathcal{D}) &#x26; \propto p(\mathbf{w}) p(y_{\mathcal{D}} \m
 \end{align*}
 $$
 Thus, this is more complex than normal linear regression models (cannot integrate exactly over $\mathbf{w}$ since posterior is not Gaussian).
-Thus, we need to introduce some approximations such as Laplace approximation.</p>
-</div>
+Thus, we need to introduce some approximations such as Laplace approximation.</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: The Laplace Approximation<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>The Laplace approximation aimds to find a Gaussian approximation to a posterior distribution.
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The Laplace approximation aimds to find a Gaussian approximation to a posterior distribution.
 In the case of a single continuous random variable $\mathsf{z}$,
 $$
 p(z) = \frac{1}{Z} f(z)
 $$
 where $Z$ (unknown) is the normalization constant ($Z = \int f(z) \ dz$).
-Thus, the goal is to find a Gaussian approximation $q(z)$ centered on a mode of $p(z)$.</p>
-<ol>
+Thus, the goal is to find a Gaussian approximation $q(z)$ centered on a mode of $p(z)$.</p><ol>
 <li>Find a mode of $p(z)$ (i.e., $p’(z_0) = 0$)</li>
-</ol>
-<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
+</ol><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>Since the logarithm of a Gaussian is a quadratic function, we can equivalently find the mode of $\log p(z)$.</p>
-</div>
-</details>
-<ol start="2">
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Since the logarithm of a Gaussian is a quadratic function, we can equivalently find the mode of $\log p(z)$.</p></div>
+</details><ol start="2">
 <li>Taylor series expansion of $\log f(z)$ around $z_0$ up to second order,
 $$
 \begin{align*}
@@ -330,9 +296,7 @@ q(z) &#x26; = \left(\frac{A}{2 \pi}\right)^{1/2} \exp \left(-\frac{A}{2} (z - z_
 &#x26; = \mathcal{N}(z \mid z_0, A^{-1}) \newline
 \end{align*}
 $$</li>
-</ol>
-<p>In higher dimensions, $p(\mathbf{z}) = \frac{1}{Z} f(\mathbf{z})$.</p>
-<ol>
+</ol><p>In higher dimensions, $p(\mathbf{z}) = \frac{1}{Z} f(\mathbf{z})$.</p><ol>
 <li>
 <p>We find a mode of $p(\mathbf{z})$ (i.e., $\nabla f(\mathbf{z} = 0)$).</p>
 </li>
@@ -362,18 +326,15 @@ q(\mathbf{z}) &#x26; = \frac{|\mathbf{A}|^{1/2}}{(2 \pi)^{d/2}} \exp \left(-\fra
 \end{align*}
 $$</p>
 </li>
-</ol>
-</div>
+</ol></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Bayesian Logistic Regression (Continued)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>Thus, we can use a Laplace approximation, but we also need to select a prior for $\mathbf{w} \Rightarrow$ a Gaussian prior,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Thus, we can use a Laplace approximation, but we also need to select a prior for $\mathbf{w} \Rightarrow$ a Gaussian prior,
 $$
 p(\mathbf{w}) = \mathcal{N}(\mathbf{w} \mid \mathbf{m}_0, \mathbf{S}_0) \quad \left(\mathcal{N}(\mathbf{w} \mid 0, \alpha^{-1} \mathbf{I})\right)
 $$
-Thus, we again, define the log-likelihood and proceed as follows,</p>
-<ol>
+Thus, we again, define the log-likelihood and proceed as follows,</p><ol>
 <li>
 <p>We maximize $p(\mathbf{w} \mid \mathcal{D})$ (MAP solution $\mathbf{w}_{\text{MAP}}$) $\Rightarrow$ defines the mean of the Gaussian.</p>
 </li>
@@ -396,11 +357,9 @@ p(\mathbf{w} \mid \mathcal{D}) = \frac{p(\mathbf{w}) p(y_{\mathcal{D}} \mid x_{\
 $$
 Given $\boldsymbol{\phi}$ (or $\mathbf{x}$), we can forecast $y$ via the predictive distribution.</p>
 </li>
-</ol>
-<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
+</ol><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Predictive Distribution<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>The predictive distribution for class $C_1$, $p(y = C_1 \mid \mathcal{D}, \boldsymbol{\phi})$ is given by,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>The predictive distribution for class $C_1$, $p(y = C_1 \mid \mathcal{D}, \boldsymbol{\phi})$ is given by,
 $$
 p(y = C_1 \mid \mathcal{D}, \boldsymbol{\phi}) = \int p(C_1 \mid \boldsymbol{\phi}, \mathbf{w}) p(\mathbf{w} \mid \mathcal{D}) \ d\mathbf{w}.
 $$
@@ -434,43 +393,34 @@ p(C_1 \mid \mathcal{D}, \boldsymbol{\phi}) &#x26; \approx \int \sigma(a) \mathca
 &#x26; \approx \Phi \left( \frac{\mu_a}{\left(\lambda^{-2} + \sigma_a^2\right)^{1/2}} \right) \newline
 &#x26; \approx \sigma \left( \frac{\mu_a}{\left(1 + \frac{\pi \sigma_a^2}{8}\right)^{1/2}} \right) \newline
 \end{align*}
-$$</p>
-</div>
-</details>
-</div>
+$$</p></div>
+</details></div>
 </details>
 <h2 id="multi-class-classification">Multi-Class Classification</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Multi-Class Logistic Regression<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>In multi-class classification with $K$ classes, we can generalize logistic regression using the softmax function,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In multi-class classification with $K$ classes, we can generalize logistic regression using the softmax function,
 $$
 p(\mathsf{y} = i \mid \mathsf{\mathbf{x}} = \mathbf{x}) = \frac{\exp(\mathbf{w}_i^T \mathbf{x})}{\sum_{j=1}^{K} \exp(\mathbf{w}_j^T \mathbf{x})}
-$$</p>
-</div>
+$$</p></div>
 </details>
 <figure><img alt="Multi-Class Linear and Quadratic Regression" loading="lazy" decoding="async"  width="551" height="258" src="/_astro/multi_class_regression_linear_and_quadratic.lVjLaEd3_Z20mtuN.svg" ><figcaption>Multi-Class Linear and Quadratic Regression</figcaption></figure>
 <h2 id="generative-probabilistic-models-for-classification">Generative Probabilistic Models for Classification</h2>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: Generative Probabilistic Models for Classification<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>As we have discussed, making more assumptions about the data by considering distribution of covariates $\mathbf{x}$, we may suffer from bias when our model is incorrectly selected.
-The capability to capture properties of $\mathbf{x}$ can improve learning if $p(\mathbf{x} \mid y)$ has significant structure.</p>
-<p>Since different models for $p(\mathbf{x} \mid C_i)$ lead to different generative models, generative models are typically defined by assuming,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>As we have discussed, making more assumptions about the data by considering distribution of covariates $\mathbf{x}$, we may suffer from bias when our model is incorrectly selected.
+The capability to capture properties of $\mathbf{x}$ can improve learning if $p(\mathbf{x} \mid y)$ has significant structure.</p><p>Since different models for $p(\mathbf{x} \mid C_i)$ lead to different generative models, generative models are typically defined by assuming,
 $$
 \mathbf{x} \mid \mathsf{y} = y \sim \mathrm{exponential}(\eta_y)
 $$
 i.e., the exponential family,
 $$
 p(\mathbf{x} \mid \boldsymbol{\eta}) = \frac{1}{Z(\boldsymbol{\eta})} h(\mathbf{x}) \exp(\boldsymbol{\eta}^T \mathbf{u}(\mathbf{x}))
-$$</p>
-<p>For example, Gaussian Discriminant Analysis (GDA), the class-conditional density is modeled by a multivariate Gaussian.</p>
-</div>
+$$</p><p>For example, Gaussian Discriminant Analysis (GDA), the class-conditional density is modeled by a multivariate Gaussian.</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Linear Discriminant Analysis (LDA)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>in LDA, the principle is that $\mathbf{x} \in \mathbb{R}^d$ is Gaussian distributed for each class $C_k$, with covariance matrix $\mathbf{\Sigma}_k = \mathbf{\Sigma}$ (shared across classes),
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>in LDA, the principle is that $\mathbf{x} \in \mathbb{R}^d$ is Gaussian distributed for each class $C_k$, with covariance matrix $\mathbf{\Sigma}_k = \mathbf{\Sigma}$ (shared across classes),
 $$
 \mathbf{x} \mid \mathsf{y} = C_k \sim \mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}_k, \mathbf{\Sigma})
 $$
@@ -479,11 +429,9 @@ $$
 p(\mathbf{x} \mid \mathsf{y} = C_k) = \frac{1}{(2 \pi)^{d/2} |\mathbf{\Sigma}|^{1/2}} \exp \left( -\frac{1}{2} (\mathbf{x} - \boldsymbol{\mu}_k)^T \mathbf{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu}_k) \right)
 $$
 Thus, fitting an LDA model to data is equivalent to estimating the class means $\boldsymbol{\mu}_k$, the shared covariance matrix $\mathbf{\Sigma}$, and the class priors $p(C_k)$.
-As the name suggests, LDA gives rise to linear decision boundaries between classes.</p>
-<details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
+As the name suggests, LDA gives rise to linear decision boundaries between classes.</p><details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-500 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-600 dark:text-sky-300" data-lucide="code" viewBox="0 0 24 24"><use href="#code"></use></svg>Example: LDA Decision Boundary in the Two-Class Case<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-600 dark:text-sky-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>$$
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>$$
 \begin{align*}
 \log \frac{p(\mathsf{y} = C_i \mid \mathbf{x})}{p(\mathsf{y} = C_j \mid \mathbf{x})} &#x26; = \log \frac{p(\mathbf{x} \mid C_i) p(\mathsf{y} = C_i)}{p(\mathbf{x} \mid C_j) p(\mathsf{y} = C_j)} \newline
 &#x26; = \log \frac{p(\mathbf{x} \mid C_i)}{p(\mathbf{x} \mid C_j)} + \log \frac{p(\mathsf{y} = C_i)}{p(\mathsf{y} = C_j)} \newline
@@ -498,15 +446,12 @@ $$
 w_0 &#x26; = -\frac{1}{2} \boldsymbol{\mu}_i^T \mathbf{\Sigma}^{-1} \boldsymbol{\mu}_i + \frac{1}{2} \boldsymbol{\mu}_j^T \mathbf{\Sigma}^{-1} \boldsymbol{\mu}_j + \log \frac{p(\mathsf{y} = C_i)}{p(\mathsf{y} = C_j)} \newline
 \end{align*}
 $$
-Thus, the decision boundaries are points for which $p(\mathsf{y} = C_i \mid \mathbf{x}) = p(\mathsf{y} = C_j \mid \mathbf{x})$ $\Rightarrow$ $\{\mathbf{x} : w_0 + \mathbf{w}^T \mathbf{x} = 0\}$, which is a hyperplane.</p>
-</div>
-</details>
-</div>
+Thus, the decision boundaries are points for which $p(\mathsf{y} = C_i \mid \mathbf{x}) = p(\mathsf{y} = C_j \mid \mathbf{x})$ $\Rightarrow$ $\{\mathbf{x} : w_0 + \mathbf{w}^T \mathbf{x} = 0\}$, which is a hyperplane.</p></div>
+</details></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-teal-600 dark:bg-teal-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-teal-700 dark:text-teal-400" data-lucide="book-open" viewBox="0 0 24 24"><use href="#book-open"></use></svg>Definition: Quadratic Discriminant Analysis (QDA)<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-teal-700 dark:text-teal-400" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>In QDA, the principle is that $\mathbf{x} \in \mathbb{R}^d$ is Gaussian distributed for each class $C_k$, with covariance matrix $\mathbf{\Sigma}_k$ (different across classes),
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In QDA, the principle is that $\mathbf{x} \in \mathbb{R}^d$ is Gaussian distributed for each class $C_k$, with covariance matrix $\mathbf{\Sigma}_k$ (different across classes),
 $$
 \mathbf{x} \mid \mathsf{y} = C_k \sim \mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}_k, \mathbf{\Sigma}_k)
 $$
@@ -518,13 +463,11 @@ Thus, the discriminant functions are,
 $$
 \log \frac{p(\mathsf{y} = C_i \mid \mathbf{x})}{p(\mathsf{y} = C_j \mid \mathbf{x})} = -\frac{1}{2} \log |\mathbf{\Sigma}_i| - \frac{1}{2} (\mathbf{x} - \boldsymbol{\mu}_i)^T \mathbf{\Sigma}_i^{-1} (\mathbf{x} - \boldsymbol{\mu}_i) + \log \frac{p(C_i)}{p(C_j)}
 $$
-The decision boundaries are quadratic functions of $\mathbf{x}$ (since covariance matrices differ across classes).</p>
-</div>
+The decision boundaries are quadratic functions of $\mathbf{x}$ (since covariance matrices differ across classes).</p></div>
 </details>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-sky-300 dark:bg-sky-950/10" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-sky-500 dark:text-sky-200" data-lucide="lightbulb" viewBox="0 0 24 24"><use href="#lightbulb"></use></svg>Intuition: GDA Learning<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-sky-500 dark:text-sky-200" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>In the two-class case, we need to fit model and determine values $(\boldsymbol{\mu}_1, \boldsymbol{\mu}_2, \mathbf{\Sigma}, \mathbf{\pi})$,
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>In the two-class case, we need to fit model and determine values $(\boldsymbol{\mu}_1, \boldsymbol{\mu}_2, \mathbf{\Sigma}, \mathbf{\pi})$,
 $$
 (\boldsymbol{\mu}_1^{\star}, \boldsymbol{\mu}_2^{\star}, \mathbf{\Sigma}^{\star}, \pi^{\star}) = \underset{(\boldsymbol{\mu}_1, \boldsymbol{\mu}_2, \mathbf{\Sigma}, \pi)}{\arg\max} \ p(\mathcal{D} \mid \boldsymbol{\mu}_1, \boldsymbol{\mu}_2, \mathbf{\Sigma}, \pi)
 $$
@@ -553,16 +496,13 @@ $$
 \boldsymbol{\mu}_k^{\star} &#x26; = \frac{1}{N_k} \sum_{i=1}^{N} \mathbb{I}(y_i = C_k) \mathbf{x}_i \newline
 \mathbf{\Sigma}^{\star} &#x26; = \sum_{k=1}^{K} \frac{N_k}{N} \mathbf{S}_k \newline
 \end{align*}
-$$</p>
-</div>
+$$</p></div>
 </details>
 <figure><img alt="Multi-Class LDA" loading="lazy" decoding="async"  width="552" height="435" src="/_astro/multi_class_lda.B8DYETqx_Z1IjJT9.svg" ><figcaption>Multi-Class LDA</figcaption></figure>
 <figure><img alt="Multi-Class QDA" loading="lazy" decoding="async"  width="554" height="435" src="/_astro/multi_class_qda.CWF3daXZ_L2lcY.svg" ><figcaption>Multi-Class QDA</figcaption></figure>
 <details class="group relative px-4 py-3 my-6 border-l-4 text-base border-blue-500 dark:bg-blue-950/5" open>
 <summary class="flex items-center cursor-pointer font-medium text-base [&#x26;::-webkit-details-marker]:hidden"><svg class="mr-2 w-6 h-6 text-blue-700 dark:text-blue-300" data-lucide="info" viewBox="0 0 24 24"><use href="#info"></use></svg>Note: GDA<svg class="ml-auto w-5 h-5 transform transition-transform duration-200 group-open:rotate-180 text-blue-700 dark:text-blue-300" data-lucide="chevron-down" viewBox="0 0 24 24"><use href="#chevron-down"></use></svg></summary>
-<div class="mt-2 text-base leading-relaxed prose dark:prose-invert">
-<p>Two alternative ways to realize quadratic decision boundaries are:</p>
-<ol>
+<div class="mt-2 text-base leading-relaxed prose dark:prose-invert"><p>Two alternative ways to realize quadratic decision boundaries are:</p><ol>
 <li>
 <p>Apply QDA in the original $d$-dimensional space $\mathbf{x} = (x_1, \ldots, x_d)$.</p>
 </li>
@@ -570,8 +510,7 @@ $$</p>
 <p>Apply LDA in an augmented spasce of dimension $d^2 + 1$, $\mathbf{x}^{\prime} = (x_1, \ldots, x_d, x_1^2, \ldots, x_d^2, x_1 x_2, \ldots, x_{d-1} x_d)$.
 Since, linear functions in the augmented space corresponds to quadratic functions in the original $d$-dimensional space.</p>
 </li>
-</ol>
-</div>
+</ol></div>
 </details> </article> <nav class="col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2"> <a href="/notes/master/ssy316/ssy316_2/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-start size-full" aria-disabled="false">  <svg width="1em" height="1em" viewBox="0 0 24 24" class="mr-2 size-4 transition-transform group-hover:-translate-x-1" data-icon="lucide:arrow-left">   <use href="#ai:lucide:arrow-left"></use>  </svg> <div class="flex flex-col items-start overflow-hidden text-wrap"> <span class="text-muted-foreground text-left text-xs"> Previous Post </span> <span class="w-full text-left text-sm text-balance text-ellipsis"> Part 2 &amp; 3 - Bayesian Linear Regression </span> </div>  </a>  <a href="/notes/master/ssy316/ssy316_4/" class="duration-300 ease-in-out gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[>svg]:px-3 rounded-lg group flex items-center justify-end size-full" aria-disabled="false">  <div class="flex flex-col items-end overflow-hidden text-wrap"> <span class="text-muted-foreground text-right text-xs"> Next Post </span> <span class="w-full text-right text-sm text-balance text-ellipsis"> Part 6 - Graphical Models I </span> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="ml-2 size-4 transition-transform group-hover:translate-x-1" data-icon="lucide:arrow-right">   <use href="#ai:lucide:arrow-right"></use>  </svg>  </a> </nav> <div class="col-start-2"> <section class="mx-auto mt-12"> <script data-astro-rerun src="https://giscus.app/client.js" data-repo="rezaarezvan/rezarezvan.com" data-repo-id="R_kgDOHvQr3w" data-category="General" data-category-id="DIC_kwDOHvQr384CiWVC" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script> </section> <script>
   function updateGiscusTheme() {
     const element = document.documentElement
