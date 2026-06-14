@@ -71,12 +71,12 @@ A binary test <span class="katex"><span class="katex-mathml"><math xmlns="http:/
 <p>This convention is arbitrary and can be reversed.</p>
 <h3 id="how-good-is-a-test">How Good is a Test?</h3>
 <p>But how do we determine how good a test is?</p>
-<figure class="astro-figure"><img alt="An ideal test scenario. Our threshold captures boundary perfectly." loading="lazy" decoding="async" width="807" height="400" src="/_astro/T.CMe4rzyY_Lp741.webp" srcset=""><figcaption>An ideal test scenario. Our threshold captures boundary perfectly.</figcaption></figure>
-<p>In Figure 1, we see that the test is perfect.
+<figure class="astro-figure" id="fig:t"><img alt="An ideal test scenario. Our threshold captures boundary perfectly." loading="lazy" decoding="async" width="807" height="400" src="/_astro/T.CMe4rzyY_Lp741.webp" srcset=""><figcaption>An ideal test scenario. Our threshold captures boundary perfectly.</figcaption></figure>
+<p>In <a href="#fig:t" class="xref xref-fig">Figure 1</a>, we see that the test is perfect.
 The threshold is set at the boundary between the two classes.</p>
-<figure class="astro-figure"><img alt="A real-world test scenario. Our threshold captures boundary imperfectly." loading="lazy" decoding="async" width="784" height="398" src="/_astro/T2.BypW5Byo_ZKJtVd.webp" srcset=""><figcaption>A real-world test scenario. Our threshold captures boundary imperfectly.</figcaption></figure>
+<figure class="astro-figure" id="fig:t2"><img alt="A real-world test scenario. Our threshold captures boundary imperfectly." loading="lazy" decoding="async" width="784" height="398" src="/_astro/T2.BypW5Byo_ZKJtVd.webp" srcset=""><figcaption>A real-world test scenario. Our threshold captures boundary imperfectly.</figcaption></figure>
 <p>But, in reality and real-world data, our two distributions might not have an ideal boundary.
-Thus, no matter how we set our threshold, we will have some <strong>false positives</strong> and <strong>false negatives</strong> (the purple areas in Figure 2).</p>
+Thus, no matter how we set our threshold, we will have some <strong>false positives</strong> and <strong>false negatives</strong> (the purple areas in <a href="#fig:t2" class="xref xref-fig">Figure 2</a>).</p>
 <p>We have two terms that (numerically) describe these,</p>
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext>Specificity</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mtext>Correctly identified negatives</mtext><mtext>Actual negatives</mtext></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext>Sensitivity</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mtext>Correctly identified positives</mtext><mtext>Actual positives</mtext></mfrac><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align*}
 \text{Specificity} &amp;= \frac{\text{Correctly identified negatives}}{\text{Actual negatives}} \newline

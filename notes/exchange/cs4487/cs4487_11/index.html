@@ -68,8 +68,8 @@ The architecture was designed for hand-written digit recongition (MNIST).</p>
 For example, ReLU is used, they use so called ‘local response normalization’, dropout is utilized, as well as max pooling, some data augmentation techniques and SGD with momentum.</p>
 <p>Many consider AlexNet as the start of the deep learning revolution.
 Partly because of the deep(er) architecture and the tricks used along with it, but also since it was one of the first networks to be trained on GPUs.</p>
-<figure class="astro-figure"><img alt="AlexNet Architecture" loading="lazy" decoding="async" width="1192" height="392" src="/_astro/AN.BXUnV40Z_10hevi.webp" srcset=""><figcaption>AlexNet Architecture</figcaption></figure>
-<p>We can see that in Figure 5, it is split in two pipelines because it was trained on 2 GPUs simultaneously.</p>
+<figure class="astro-figure" id="fig:an"><img alt="AlexNet Architecture" loading="lazy" decoding="async" width="1192" height="392" src="/_astro/AN.BXUnV40Z_10hevi.webp" srcset=""><figcaption>AlexNet Architecture</figcaption></figure>
+<p>We can see that in <a href="#fig:an" class="xref xref-fig">Figure 5</a>, it is split in two pipelines because it was trained on 2 GPUs simultaneously.</p>
 <h4 id="vggnet">VGGNet</h4>
 <p>VGGNet was the runner-up in ILSVRC 2014. It was developed by the Visual Geometry Group at the University of Oxford.</p>
 <p>It has the same style as LeNet and AlexNet, but made some other design choices.</p>
@@ -118,8 +118,8 @@ Adds a parameter to each channel of a convolutional block so that the network ad
 <h3 id="object-detection">Object Detection</h3>
 <p>Goal: Identify and locate objects within an image or video.
 Not only does this involve recognizing the object categories within an image, but also accurately detemining their locations in it.</p>
-<figure class="astro-figure"><img alt="Object Detection" loading="lazy" decoding="async" width="578" height="532" src="/_astro/OD.CfUxXPrN_21shtV.webp" srcset=""><figcaption>Object Detection</figcaption></figure>
-<p>Typically, represented as bounding boxes, as seen in Figure 8.</p>
+<figure class="astro-figure" id="fig:od"><img alt="Object Detection" loading="lazy" decoding="async" width="578" height="532" src="/_astro/OD.CfUxXPrN_21shtV.webp" srcset=""><figcaption>Object Detection</figcaption></figure>
+<p>Typically, represented as bounding boxes, as seen in <a href="#fig:od" class="xref xref-fig">Figure 8</a>.</p>
 <h4 id="ms-coco">MS COCO</h4>
 <p>Microsoft Common Objects in Context (MS COCO) is a large-scale dataset for object detection, segmentation, and captioning.</p>
 <p>It consists of over a million images, encompassing 80 different object categories.</p>
