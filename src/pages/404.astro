@@ -1,0 +1,61 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Link from '@/components/Link.astro'
+import PageHead from '@/components/PageHead.astro'
+import { buttonVariants } from '@/lib/button-variants'
+import Layout from '@/layouts/Layout.astro'
+import { cn } from '@/lib/utils'
+---
+
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title="404" noindex />
+  <Breadcrumbs items={[{ label: '???', icon: 'lucide:circle-help' }]} />
+
+  <section class="not-found">
+    <div class="not-found-copy">
+      <h1>404: Page not found</h1>
+      <p class="prose">Oops! The page you're looking for doesn't exist.</p>
+    </div>
+    <Link
+      href="/"
+      class={cn(buttonVariants({ variant: 'outline' }), 'not-found-link')}
+    >
+      <span aria-hidden="true">&larr;</span>
+      Go to home page
+    </Link>
+  </section>
+</Layout>
+
+<style>
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-s);
+    text-align: center;
+  }
+
+  .not-found-copy {
+    max-width: 28rem;
+  }
+
+  h1 {
+    margin-block: 0 var(--space-s);
+    font-size: var(--step-3);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .not-found-link {
+    gap: var(--space-2xs);
+  }
+
+  .not-found-link span {
+    display: inline-block;
+    transition: transform 0.15s ease;
+  }
+
+  .not-found-link:hover span {
+    transform: translateX(-0.25rem);
+  }
+</style>

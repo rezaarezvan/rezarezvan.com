@@ -1,0 +1,200 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import InlineMathText from '@/components/InlineMathText.astro'
+import Link from '@/components/Link.astro'
+import PageHead from '@/components/PageHead.astro'
+import Layout from '@/layouts/Layout.astro'
+import {
+  capitalizeWords,
+  getPostUrl,
+  getSchoolBreadcrumbLabel,
+  getSchoolUrl,
+} from '@/lib/school-utils'
+import { formatDate } from '@/lib/utils'
+import { hasInlineMath } from '@/lib/math-utils'
+import Icon from '@/components/Icon.astro'
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+
+export interface Props {
+  subject: string
+  subjectEntries: CollectionEntry<'bachelor' | 'master' | 'exchange'>[]
+  collection: 'bachelor' | 'master' | 'exchange'
+}
+
+const { subject, subjectEntries, collection } = Astro.props
+const subjectName =
+  capitalizeWords(subjectEntries[0]?.data.school?.[0] || subject) ||
+  'Unknown Subject'
+
+const subjectImages = import.meta.glob(
+  `../../content/notes/{bachelor,master,exchange}/imgs/*.{jpg,jpeg,png,gif,webp,avif}`,
+  { eager: true, import: 'default' },
+) as Record<string, ImageMetadata>
+
+function getSubjectImage(subjectSlug: string) {
+  const imagePath = Object.keys(subjectImages).find((path) =>
+    path.toLowerCase().includes(subjectSlug.toLowerCase()),
+  )
+  return imagePath ? subjectImages[imagePath] : null
+}
+
+const subjectImage = getSubjectImage(subject)
+---
+
+<Layout
+  class="max-w-3xl"
+  math={subjectEntries.some((entry) => hasInlineMath(entry.data.title))}
+>
+  <PageHead
+    slot="head"
+    title={`${subjectName}`}
+    description={`${subjectName} (${subject.toUpperCase()})`}
+  />
+  <Breadcrumbs
+    items={[
+      {
+        href: getSchoolUrl(),
+        label: getSchoolBreadcrumbLabel(collection),
+        icon: 'lucide:graduation-cap',
+      },
+      { label: subjectName, icon: 'lucide:book-open' },
+    ]}
+  />
+
+  <section class="school-subject-hero" data-pagefind-ignore>
+    {subjectImage && (
+        <Image
+          src={subjectImage}
+          alt={`${subjectName} image`}
+          class="school-subject-hero-image"
+          width={800}
+          height={450}
+          format="webp"
+          quality={75}
+          loading="eager"
+          aria-hidden="true"
+        />
+      )}
+    <h1>
+      {subjectName}
+      <span> ({subject.toUpperCase()}) </span>
+    </h1>
+  </section>
+
+  <section data-pagefind-ignore>
+    {subjectEntries.length > 0 ? (
+        <ul class="school-post-list">
+          {subjectEntries.map((entry) => (
+            <li>
+              <Link
+                href={getPostUrl(collection, entry.id)}
+                class="school-post-card"
+              >
+                <div class="school-post-card-copy">
+                  <h2><InlineMathText text={entry.data.title} /></h2>
+                  <p>
+                    {entry.data.description}
+                  </p>
+                  <div class="school-post-card-meta">
+                    <Icon name="calendar" class="size-3.5" />
+                    <span>{formatDate(entry.data.date)}</span>
+                  </div>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="school-empty">
+          No posts available for this subject.
+        </p>
+      )}
+  </section>
+</Layout>
+
+<style>
+  .school-subject-hero {
+    position: relative;
+    margin-block-end: var(--space-xl);
+    padding-block: var(--space-xl);
+  }
+
+  .school-subject-hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-xl);
+    object-fit: cover;
+    opacity: 0.4;
+  }
+
+  .school-subject-hero h1 {
+    position: relative;
+    z-index: 10;
+    margin: 0;
+    text-align: center;
+    font-size: var(--step-3);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .school-subject-hero h1 span {
+    color: var(--muted-foreground);
+    font-weight: var(--font-weight-normal);
+  }
+
+  .school-post-list,
+  .school-post-card-copy {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .school-post-list {
+    gap: var(--space-s);
+  }
+
+  .school-post-card {
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-s);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .school-post-card:hover {
+    background-color: color-mix(in oklab, var(--secondary) 50%, transparent);
+  }
+
+  .school-post-card-copy {
+    gap: var(--space-2xs);
+  }
+
+  .school-post-card h2 {
+    margin: 0;
+    font-size: var(--step-1);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .school-post-card p {
+    margin: 0;
+    color: var(--muted-foreground);
+    font-size: var(--step--1);
+  }
+
+  .school-post-card-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
+
+  .school-empty {
+    color: var(--muted-foreground);
+    text-align: center;
+  }
+</style>

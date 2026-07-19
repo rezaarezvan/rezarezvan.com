@@ -1,0 +1,269 @@
+---
+const bundlePath = `${import.meta.env.BASE_URL}pagefind/`
+---
+
+<dialog
+  class="search-dialog"
+  data-search-dialog
+  data-bundle-path={bundlePath}
+  data-development={import.meta.env.DEV ? '' : undefined}
+>
+  <section class="search-panel" aria-labelledby="search-title">
+    <header class="search-header">
+      <div>
+        <h2 id="search-title">Search</h2>
+        <p>Essays, lecture notes, and research</p>
+      </div>
+      <button
+        type="button"
+        class="search-close"
+        data-search-close
+        aria-label="Close search"
+      >
+        ×
+      </button>
+    </header>
+
+    <label class="search-field">
+      <span class="sr-only">Search this site</span>
+      <input
+        type="search"
+        autocomplete="off"
+        placeholder="Start typing…"
+        data-search-input
+        aria-describedby="search-status"
+      >
+    </label>
+
+    <p
+      id="search-status"
+      class="search-status"
+      data-search-status
+      aria-live="polite"
+    >
+      Type to search the site.
+    </p>
+    <ol class="search-results" data-search-results></ol>
+  </section>
+</dialog>
+
+<style>
+  .search-dialog {
+    width: min(44rem, calc(100% - 2 * var(--space-s)));
+    max-height: min(80vh, 44rem);
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--gray-2);
+    color: var(--foreground);
+    box-shadow: var(--shadow-md);
+  }
+
+  .search-dialog::backdrop {
+    background: color-mix(in oklab, light-dark(#2c2416, #000) 55%, transparent);
+    backdrop-filter: blur(var(--blur-sm));
+  }
+
+  .search-panel {
+    max-height: min(80vh, 44rem);
+    padding: var(--space-s);
+    overflow-y: auto;
+  }
+
+  .search-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: var(--space-s);
+    margin-block-end: var(--space-s);
+  }
+
+  .search-header h2,
+  .search-header p {
+    margin: 0;
+  }
+
+  .search-header h2 {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: var(--font-weight-normal);
+  }
+
+  .search-header p,
+  .search-status {
+    color: var(--muted-foreground);
+    font-size: var(--step--1);
+  }
+
+  .search-close {
+    min-width: 2rem;
+    min-height: 2rem;
+    border-radius: var(--radius-sm);
+    color: var(--muted-foreground);
+    font-size: var(--step-1);
+    line-height: 1;
+  }
+
+  .search-close:hover,
+  .search-close:focus-visible {
+    background: var(--gray-3);
+    color: var(--foreground);
+  }
+
+  .search-field input {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--background);
+    padding: var(--space-xs) var(--space-s);
+    color: var(--foreground);
+    font: inherit;
+    outline: none;
+  }
+
+  .search-field input:focus-visible {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--ring) 30%, transparent);
+  }
+
+  .search-status {
+    margin-block: var(--space-xs);
+  }
+
+  .search-results {
+    display: grid;
+    gap: var(--space-2xs);
+    padding: 0;
+    list-style: none;
+  }
+
+  .search-results :global(li) {
+    border-block-start: 1px solid var(--border);
+    padding-block-start: var(--space-xs);
+  }
+
+  .search-results :global(a) {
+    color: var(--primary);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .search-results :global(p) {
+    margin-block: var(--space-3xs) 0;
+    color: var(--muted-foreground);
+    font-size: var(--step--1);
+  }
+
+  .search-results :global(mark) {
+    background: color-mix(in oklab, var(--gold-9) 30%, transparent);
+    color: inherit;
+  }
+</style>
+
+<script is:inline>
+  const dialog = document.querySelector('[data-search-dialog]')
+  const trigger = document.getElementById('magnifying-glass')
+  const close = dialog?.querySelector('[data-search-close]')
+  const input = dialog?.querySelector('[data-search-input]')
+  const status = dialog?.querySelector('[data-search-status]')
+  const results = dialog?.querySelector('[data-search-results]')
+  let pagefind
+  let timer = 0
+  let request = 0
+
+  const setStatus = (message) => {
+    if (status) status.textContent = message
+  }
+
+  const loadPagefind = () => {
+    if (!dialog) return Promise.reject(new Error('Search dialog unavailable'))
+    if (!pagefind) {
+      const path = `${dialog.dataset.bundlePath}pagefind.js`
+      pagefind = import(/* @vite-ignore */ path).then(async (module) => {
+        await module.init?.()
+        return module
+      })
+    }
+    return pagefind
+  }
+
+  const clearResults = () => {
+    results?.replaceChildren()
+  }
+
+  const renderResults = async (query) => {
+    const currentRequest = ++request
+    setStatus('Searching…')
+
+    try {
+      const api = await loadPagefind()
+      const response = await api.search(query)
+      const entries = await Promise.all(
+        response.results.slice(0, 12).map((result) => result.data()),
+      )
+      if (currentRequest !== request || input?.value.trim() !== query) return
+
+      clearResults()
+      for (const entry of entries) {
+        const item = document.createElement('li')
+        const link = document.createElement('a')
+        const excerpt = document.createElement('p')
+        link.href = entry.url
+        link.textContent = entry.meta?.title || entry.url
+        excerpt.innerHTML = entry.excerpt || ''
+        item.append(link, excerpt)
+        results?.append(item)
+      }
+
+      setStatus(
+        entries.length === 0
+          ? `No results for “${query}”.`
+          : `${entries.length} result${entries.length === 1 ? '' : 's'}.`,
+      )
+    } catch (error) {
+      console.error('Pagefind search failed', error)
+      clearResults()
+      setStatus(
+        dialog?.hasAttribute('data-development')
+          ? 'Search is available after a production build.'
+          : 'The search index is temporarily unavailable.',
+      )
+    }
+  }
+
+  trigger?.addEventListener('click', () => {
+    dialog?.showModal()
+    input?.focus()
+  })
+
+  close?.addEventListener('click', () => dialog?.close())
+  dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close()
+  })
+  dialog?.addEventListener('close', () => {
+    if (input) input.value = ''
+    clearResults()
+    setStatus('Type to search the site.')
+    trigger?.focus()
+  })
+  results?.addEventListener('click', (event) => {
+    if (event.target instanceof Element && event.target.closest('a')) {
+      dialog?.close()
+    }
+  })
+  input?.addEventListener('input', () => {
+    window.clearTimeout(timer)
+    const query = input.value.trim()
+    if (!query) {
+      ++request
+      clearResults()
+      setStatus('Type to search the site.')
+      return
+    }
+    timer = window.setTimeout(() => renderResults(query), 150)
+  })
+</script>

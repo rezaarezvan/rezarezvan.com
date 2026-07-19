@@ -1,0 +1,24 @@
+---
+// Renders the bibliography for a post as a numbered list. Entries come from
+// getCitationEntries() (src/lib/bibliography.ts): exactly the entries the post
+// cites via `@cite:key`, in order of first citation — the same numbering
+// src/lib/markdown/references.ts assigns to the inline markers.
+import type { CitationEntry } from '@/lib/bibliography'
+
+interface Props {
+  entries?: CitationEntry[]
+}
+
+const { entries = [] } = Astro.props
+---
+
+{entries.length > 0 && (
+    <section class="references" aria-label="References">
+      <h2 id="references">References</h2>
+      <ol>
+        {entries.map(({ key, html }, index) => (
+          <li id={`ref-${index + 1}`} data-cite-key={key} set:html={html} />
+        ))}
+      </ol>
+    </section>
+  )}

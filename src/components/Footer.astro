@@ -1,0 +1,34 @@
+---
+import { SITE } from '@/consts'
+---
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span class="site-footer-copy">
+      &copy; {new Date().getFullYear()} • {SITE.title}
+    </span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding-block: 1rem;
+  }
+
+  .site-footer-inner {
+    width: 100%;
+    margin-inline: auto;
+    max-width: var(--shell-width);
+    padding-inline: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .site-footer-copy {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
+</style>

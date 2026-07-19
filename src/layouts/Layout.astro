@@ -1,0 +1,110 @@
+---
+import '@/styles/reset.css'
+import '@/styles/fonts.css'
+import '@/styles/color.css'
+import '@/styles/shape.css'
+import '@/styles/layout.css'
+import '@/styles/typography.css'
+import '@/styles/typography-headings.css'
+import '@/styles/typography-inline.css'
+import '@/styles/typography-lists.css'
+import '@/styles/typography-block.css'
+import '@/styles/typography-tables.css'
+import '@/styles/callout.css'
+import '@/styles/academic.css'
+import '@/styles/sidenotes.css'
+import '@/styles/buttons.css'
+import '@/styles/icon-button.css'
+import '@/styles/bar.css'
+import '@/styles/utilities.css'
+import '@/styles/texture.css'
+import '@/styles/essay.css'
+import katexStylesheet from 'katex/dist/katex.min.css?url'
+
+import Footer from '@/components/Footer.astro'
+import Head from '@/components/Head.astro'
+import Header from '@/components/Header.astro'
+import PageFind from '@/components/PageFind.astro'
+import { SITE } from '@/consts'
+
+interface Props {
+  class?: string
+  math?: boolean
+}
+
+const { class: className, math = false } = Astro.props
+---
+
+<!doctype html>
+<html lang={SITE.locale}>
+  <Head>
+    {math && <link rel="stylesheet" href={katexStylesheet} />}
+    <slot name="head" />
+  </Head>
+  <body>
+    <div class="site-shell">
+      <slot name="backdrop" />
+      <div id="site-header-shell" class="site-header-shell" data-bar>
+        <Header />
+        <slot name="table-of-contents" />
+      </div>
+      <main class="site-main">
+        <div class:list={['site-main-inner', className]}>
+          <slot />
+        </div>
+      </main>
+      <Footer />
+      <PageFind />
+    </div>
+  </body>
+</html>
+
+<style>
+  .site-shell {
+    position: relative;
+    display: flex;
+    height: fit-content;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-family: var(--font-serif);
+  }
+
+  .site-header-shell {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .site-header-shell > * + * {
+    border-top: 1px solid var(--border);
+  }
+
+  @media (min-width: 1280px) {
+    .site-header-shell > * + * {
+      border-top: none;
+    }
+  }
+
+  .site-main {
+    flex-grow: 1;
+  }
+
+  .site-main-inner {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-inline: 1rem;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .site-main-inner.max-w-3xl {
+    max-width: var(--shell-width);
+  }
+
+  .site-main-inner.listing-shell {
+    max-width: var(--listing-width);
+  }
+</style>

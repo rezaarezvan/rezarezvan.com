@@ -1,0 +1,146 @@
+---
+import BrandMonogram from '@/components/BrandMonogram.astro'
+import Link from '@/components/Link.astro'
+import ThemeToggle from '@/components/ThemeToggle.astro'
+import MobileMenu from '@/components/MobileMenu.astro'
+import { NAV_LINKS, SITE } from '@/consts'
+---
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <Link href="/" class="site-brand">
+      <BrandMonogram />
+      <span class="site-brand-title">{SITE.title}</span>
+    </Link>
+    <nav class="site-nav">
+      {NAV_LINKS.map((item) => (
+          <Link href={item.href} class="site-nav-link">
+            {item.label}
+          </Link>
+        ))}
+    </nav>
+
+    <div class="site-actions">
+      <button
+        type="button"
+        id="magnifying-glass"
+        aria-label="Search"
+        class="site-search"
+      >
+        <svg
+          height="16"
+          stroke-linejoin="round"
+          viewBox="0 0 16 16"
+          width="16"
+          style="color: currentcolor;"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M3.5 7C3.5 5.067 5.067 3.5 7 3.5C8.933 3.5 10.5 5.067 10.5 7C10.5 7.88461 10.1718 8.69256 9.63058 9.30876L9.30876 9.63058C8.69256 10.1718 7.88461 10.5 7 10.5C5.067 10.5 3.5 8.933 3.5 7ZM9.96544 11.0261C9.13578 11.6382 8.11014 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2C9.76142 2 12 4.23858 12 7C12 8.11014 11.6382 9.13578 11.0261 9.96544L14.0303 12.9697L14.5607 13.5L13.5 14.5607L12.9697 14.0303L9.96544 11.0261Z"
+            fill="currentColor"
+          ></path>
+        </svg>
+        <span class="site-search-label">Search</span>
+      </button>
+      <MobileMenu />
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header-inner {
+    margin-inline: auto;
+    max-width: var(--shell-width);
+    display: flex;
+    align-items: center;
+    gap: clamp(var(--space-xs), 3vw, var(--space-l));
+    padding-inline: 1rem;
+    padding-block: 0.75rem;
+  }
+
+  .site-header-inner :global(.site-brand) {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .site-brand-title {
+    display: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  @media (min-width: 300px) {
+    .site-brand-title {
+      display: block;
+    }
+  }
+
+  .site-nav {
+    display: none;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 768px) {
+    .site-nav {
+      display: flex;
+    }
+  }
+
+  .site-nav :global(.site-nav-link) {
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+
+  .site-nav :global(.site-nav-link:hover) {
+    color: var(--muted-foreground);
+  }
+
+  .site-actions {
+    margin-inline-start: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3xs);
+  }
+
+  @media (min-width: 640px) {
+    .site-actions {
+      gap: 1rem;
+    }
+  }
+
+  .site-search {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  .site-search-label {
+    display: none;
+  }
+
+  @media (min-width: 64rem) {
+    .site-search-label {
+      display: inline;
+    }
+  }
+
+  .site-search:hover,
+  .site-search:focus-visible {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+</style>

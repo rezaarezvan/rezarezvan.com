@@ -1,0 +1,107 @@
+---
+import Icon from '@/components/Icon.astro'
+import { NAV_LINKS } from '@/consts'
+---
+
+<details class="mobile-menu">
+  <summary
+    class="mobile-menu-trigger"
+    data-icon-button
+    title="Menu"
+    aria-label="Toggle menu"
+  >
+    <Icon name="menu" class="size-5" />
+    <span class="sr-only">Toggle menu</span>
+  </summary>
+  <div class="mobile-menu-content">
+    {NAV_LINKS.map((item) => (
+        <a href={item.href} class="mobile-menu-link">
+          {item.label}
+        </a>
+      ))}
+  </div>
+</details>
+
+<style>
+  .mobile-menu {
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-menu {
+      display: none;
+    }
+  }
+
+  .mobile-menu-trigger {
+    list-style: none;
+  }
+
+  .mobile-menu-trigger::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-menu-content {
+    position: absolute;
+    right: 0;
+    z-index: 50;
+    margin-top: 0.5rem;
+    display: flex;
+    min-width: 8rem;
+    flex-direction: column;
+    gap: 0.125rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--background);
+    padding: 0.25rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  .mobile-menu-link {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    padding: 0.375rem 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .mobile-menu-link:hover {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+</style>
+
+<script>
+  function setupMobileMenu() {
+    const menus = () =>
+      Array.from(
+        document.querySelectorAll<HTMLDetailsElement>('details.mobile-menu'),
+      )
+
+    const closeAll = (except?: HTMLDetailsElement) => {
+      for (const menu of menus()) {
+        if (menu !== except) menu.open = false
+      }
+    }
+
+    document.addEventListener('click', (event) => {
+      const target = event.target as Node
+      for (const menu of menus()) {
+        if (menu.open && !menu.contains(target)) menu.open = false
+      }
+    })
+
+    for (const menu of menus()) {
+      const summary = menu.querySelector('summary')
+      summary?.addEventListener('click', () => {
+        // Close other open menus when one opens.
+        if (!menu.open) closeAll(menu)
+      })
+    }
+  }
+
+  setupMobileMenu()
+</script>

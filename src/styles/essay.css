@@ -1,0 +1,63 @@
+/* Typographic title page and drop cap for essays. */
+
+.essay-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+  text-align: center;
+}
+
+.essay-hero-title {
+  margin-bottom: 0.5rem;
+  padding-block: 0.5rem;
+  scroll-margin-top: 7.75rem;
+  font-family: var(--font-serif);
+  font-size: calc(var(--step-3) * 1.15);
+  line-height: 1.2;
+  font-weight: var(--font-weight-normal);
+  font-synthesis-weight: none;
+  text-wrap: balance;
+}
+
+.essay-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  margin-bottom: 1rem;
+  color: var(--muted-foreground);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  font-variant-numeric: lining-nums;
+}
+
+/* A short gilt rule closing the title page. */
+.essay-hero::after {
+  content: '';
+  inline-size: 6rem;
+  border-block-end: 1px solid var(--gold-9);
+  margin-block-start: var(--space-2xs);
+}
+
+/* Drop cap on the opening paragraph. */
+.prose[data-essay] > p:first-of-type::first-letter {
+  -webkit-initial-letter: 3;
+  initial-letter: 3;
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-normal);
+  color: var(--primary);
+  margin-inline-end: 0.12em;
+}
+
+/* Firefox has no initial-letter — approximate with a float. */
+@supports not (initial-letter: 3) {
+  .prose[data-essay] > p:first-of-type::first-letter {
+    float: left;
+    font-size: 3.05em;
+    line-height: 0.82;
+    padding-block-start: 0.06em;
+  }
+}

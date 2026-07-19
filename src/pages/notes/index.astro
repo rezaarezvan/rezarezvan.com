@@ -1,0 +1,307 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Link from '@/components/Link.astro'
+import PageHead from '@/components/PageHead.astro'
+import Layout from '@/layouts/Layout.astro'
+import { capitalizeWords, getAllSubjects } from '@/lib/school-utils'
+import Icon from '@/components/Icon.astro'
+import { Image } from 'astro:assets'
+
+const bachelorImages = import.meta.glob(
+  '../../content/notes/bachelor/imgs/*.{jpg,jpeg,png,gif,webp,avif}',
+  { eager: true, import: 'default' },
+)
+
+const masterImages = import.meta.glob(
+  '../../content/notes/master/imgs/*.{jpg,jpeg,png,gif,webp,avif}',
+  { eager: true, import: 'default' },
+)
+
+const exchangeImages = import.meta.glob(
+  '../../content/notes/exchange/imgs/*.{jpg,jpeg,png,gif,webp,avif}',
+  { eager: true, import: 'default' },
+)
+
+function getSubjectImage(
+  subjectSlug: string,
+  imageCollection: Record<string, any>,
+) {
+  const imagePath = Object.keys(imageCollection).find((path) =>
+    path.toLowerCase().includes(subjectSlug.toLowerCase()),
+  )
+  return imagePath ? imageCollection[imagePath] : null
+}
+
+const bachelorSubjects = await getAllSubjects('bachelor')
+const masterSubjects = await getAllSubjects('master')
+const exchangeSubjects = await getAllSubjects('exchange')
+
+const levels = [
+  {
+    name: 'Master',
+    slug: 'master',
+    subjects: masterSubjects,
+    images: masterImages,
+    description:
+      'Note that FEEN008 is actually PhD course, but I took it during my master studies :)',
+  },
+  {
+    name: 'Exchange',
+    slug: 'exchange',
+    subjects: exchangeSubjects,
+    images: exchangeImages,
+    description: 'Exchange semester at City University of Hong Kong',
+  },
+  {
+    name: 'Bachelor',
+    slug: 'bachelor',
+    subjects: bachelorSubjects,
+    images: bachelorImages,
+  },
+].filter((level) => level.subjects.length > 0)
+---
+
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title="Lecture Notes" />
+  <Breadcrumbs items={[{ label: 'Notes', icon: 'lucide:graduation-cap' }]} />
+
+  <section class="notes-page" data-pagefind-ignore>
+    <header class="notes-head">
+      <p>
+        Lecture notes from my studies at Chalmers and City University of Hong
+        Kong.
+      </p>
+    </header>
+    {levels.map((level) => (
+        <section class="notes-level">
+          <h2>{level.name}</h2>
+          <p class="notes-level-description">{level.description}</p>
+
+          <div class="notes-grid">
+            {level.subjects.map((subject) => {
+              const subjectImage = getSubjectImage(subject.slug, level.images)
+
+              return (
+                <Link
+                  href={`/notes/${level.slug}/${subject.slug}`}
+                  class="notes-card"
+                >
+                  <div class="notes-card-body">
+                    <div class="notes-card-head">
+                      <div class="notes-card-kicker">
+                        {level.name} • {subject.slug.toUpperCase()}
+                      </div>
+                      <h3>
+                        {capitalizeWords(subject.title)}
+                      </h3>
+                    </div>
+
+                    {subjectImage && (
+                      <div class="notes-card-image-frame">
+                        <Image
+                          src={subjectImage}
+                          alt=""
+                          class="notes-card-image"
+                          width={400}
+                          height={240}
+                          format="webp"
+                          quality={80}
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  <div class="notes-card-footer">
+                    <div class="notes-card-meta">
+                      <div class="notes-card-count">
+                        <Icon
+                          name="file-text"
+                          class="notes-card-icon"
+                        />
+                        <span>
+                          {subject.count}{' '}
+                          {subject.count === 1 ? 'post' : 'posts'}
+                        </span>
+                      </div>
+                      <Icon
+                        name="arrow-right"
+                        class="notes-card-arrow"
+                      />
+                    </div>
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        </section>
+      ))}
+
+    {levels.length === 0 && (
+        <div class="notes-empty">
+          <Icon
+            name="book-open"
+            class="notes-empty-icon"
+          />
+          <p>No courses found.</p>
+        </div>
+      )}
+  </section>
+</Layout>
+
+<style>
+  .notes-head p,
+  .notes-level-description,
+  .notes-empty p {
+    margin: 0;
+  }
+
+  .notes-head p,
+  .notes-empty p {
+    font-size: var(--step-1);
+  }
+
+  .notes-level {
+    margin-block-end: var(--space-m);
+  }
+
+  .notes-level h2 {
+    margin-block: var(--space-s);
+    font-size: var(--step-2);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .notes-level-description {
+    margin-block-end: var(--space-s);
+  }
+
+  .notes-grid {
+    display: grid;
+    align-items: stretch;
+    gap: var(--space-m);
+  }
+
+  @media (min-width: 40rem) {
+    .notes-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .notes-card {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background-color: color-mix(in oklab, var(--card) 45%, transparent);
+    text-decoration: none;
+    transition: border-color 0.15s ease;
+  }
+
+  .notes-card:hover {
+    border-color: var(--gray-8);
+  }
+
+  .notes-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: var(--space-s);
+  }
+
+  .notes-card-head {
+    display: flex;
+    min-height: 3.5rem;
+    flex-direction: column;
+    margin-block-end: var(--space-s);
+  }
+
+  .notes-card-kicker {
+    margin-block-end: var(--space-xs);
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+  }
+
+  .notes-card h3 {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: var(--step-0);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.2;
+    transition: color 0.15s ease;
+  }
+
+  .notes-card:hover h3 {
+    color: var(--primary);
+  }
+
+  .notes-card-image-frame {
+    height: 7rem;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xs);
+  }
+
+  .notes-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.82) sepia(0.08);
+  }
+
+  .notes-card-footer {
+    border-top: 1px solid var(--border);
+    padding: var(--space-xs) var(--space-s);
+  }
+
+  .notes-card-meta,
+  .notes-card-count {
+    display: flex;
+    align-items: center;
+  }
+
+  .notes-card-meta {
+    justify-content: space-between;
+  }
+
+  .notes-card-count {
+    gap: var(--space-2xs);
+    font-size: var(--step--1);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .notes-card-icon,
+  .notes-card-arrow {
+    width: 1rem;
+    height: 1rem;
+    color: var(--muted-foreground);
+  }
+
+  .notes-card-arrow {
+    transition: transform 0.15s ease;
+  }
+
+  .notes-card:hover .notes-card-arrow {
+    transform: translateX(0.25rem);
+  }
+
+  .notes-empty {
+    padding-block: var(--space-xl);
+    text-align: center;
+  }
+
+  .notes-empty-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-inline: auto;
+    margin-block-end: var(--space-s);
+    color: var(--muted-foreground);
+  }
+</style>

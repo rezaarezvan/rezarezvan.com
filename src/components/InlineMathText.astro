@@ -1,0 +1,17 @@
+---
+import { renderInlineMath } from '@/lib/math-utils'
+
+interface Props {
+  text: string
+}
+
+const { text } = Astro.props
+---
+
+<span class="inline-math-text" set:html={renderInlineMath(text)} />
+
+<style>
+  .inline-math-text :global(.katex) {
+    font-size: 1em;
+  }
+</style>

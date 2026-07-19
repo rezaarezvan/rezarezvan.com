@@ -1,0 +1,123 @@
+/* Callouts (:::type[label] directives). The 24 per-type accent colors are set
+   inline as --callout-accent by the callouts markdown plugin; the text color is
+   derived from the accent. */
+.prose {
+  [data-callout] {
+    --callout-accent: var(--muted-foreground);
+    --callout-text: light-dark(
+      oklch(from var(--callout-accent) 0.48 calc(c * 1.05) h),
+      oklch(from var(--callout-accent) 0.83 calc(c * 0.5) h)
+    );
+
+    position: relative;
+    margin-block: 1.5rem;
+    padding-block: 0.75rem;
+    padding-inline: 1rem;
+    border-inline-start: 4px solid var(--callout-accent);
+    background: color-mix(in oklab, var(--callout-accent) 5%, transparent);
+  }
+
+  [data-callout] > summary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: var(--callout-text);
+    font-weight: var(--font-weight-medium);
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    svg {
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    :is(strong, b) {
+      color: inherit;
+    }
+
+    svg:last-child {
+      margin-inline-start: auto;
+      transition: transform 150ms ease;
+    }
+
+    span span {
+      font-weight: var(--font-weight-normal);
+      color: color-mix(in oklab, var(--callout-text) 80%, var(--foreground));
+    }
+
+    /* Math in the title inherits the (legible) title color rather than KaTeX's
+       own; keeps the parenthetical formula crisp instead of washed out. */
+    .katex {
+      color: currentColor;
+    }
+  }
+
+  [data-callout][open] > summary {
+    margin-block-end: 0.75rem;
+
+    svg:last-child {
+      rotate: 180deg;
+    }
+  }
+
+  [data-callout] > :last-child {
+    margin-block-end: 0;
+  }
+
+  /* End-of-proof (QED) marker. */
+  [data-callout='proof'][open] > :last-child::after {
+    content: '∎';
+    float: right;
+    margin-inline-start: 0.5rem;
+    color: var(--callout-text);
+  }
+
+  /* KaTeX */
+  :is(.katex, .katex *) {
+    letter-spacing: normal;
+  }
+
+  .katex-display {
+    max-inline-size: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    margin-block: 1.5rem;
+    padding-block: 0.5rem;
+  }
+
+  /* Let wide formulas establish the scrollable width instead of escaping the
+     prose column. Numbered equations reserve room for KaTeX's absolute tag. */
+  .katex-display > .katex {
+    inline-size: max-content;
+    min-inline-size: 100%;
+  }
+
+  /* KaTeX positions equation numbers absolutely inside `.katex-html`.
+     Reserve the number's gutter in that same positioning container so a wide
+     formula cannot run underneath it. */
+  .katex-display .katex-html:has(> .tag) {
+    padding-inline-end: 3em;
+  }
+
+  /* Inline math highlights (formerly \colorbox; rendered via \htmlClass).
+     Semi-transparent tints so they read on both light and dark backgrounds. */
+  .katex :is(.eq-hl-purple, .eq-hl-pink, .eq-hl-lime) {
+    border-radius: 0.2em;
+    padding: 0.05em 0.18em;
+  }
+  .katex .eq-hl-purple {
+    background-color: color-mix(in oklab, oklch(50% 0.11 330) 22%, transparent);
+  }
+  .katex .eq-hl-pink {
+    background-color: color-mix(in oklab, oklch(58% 0.13 20) 22%, transparent);
+  }
+  .katex .eq-hl-lime {
+    background-color: color-mix(in oklab, oklch(60% 0.11 125) 22%, transparent);
+  }
+}

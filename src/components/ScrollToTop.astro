@@ -1,0 +1,65 @@
+---
+import Icon from '@/components/Icon.astro'
+---
+
+<button
+  type="button"
+  data-icon-button
+  data-scroll-top
+  title="Scroll to top"
+  aria-label="Scroll to top"
+>
+  <Icon name="arrow-up" class="size-4" />
+</button>
+
+<style>
+  button {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 50;
+    visibility: hidden;
+    border: 1px solid var(--border);
+    background-color: color-mix(in oklab, var(--background) 90%, transparent);
+    color: var(--foreground);
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(var(--blur-xs));
+    transition:
+      visibility 0.15s ease,
+      opacity 0.15s ease,
+      background-color 0.15s ease;
+  }
+
+  button[data-visible] {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+
+<script>
+  const updateScrollToTop = () => {
+    const button = document.querySelector<HTMLElement>('[data-scroll-top]')
+    if (!button) return
+
+    const footerTop = document
+      .querySelector('footer')
+      ?.getBoundingClientRect().top
+    const footerVisible =
+      footerTop !== undefined && footerTop <= window.innerHeight
+    const visible = window.scrollY > 300 && !footerVisible
+
+    button.toggleAttribute('data-visible', visible)
+  }
+
+  window.addEventListener('scroll', updateScrollToTop, { passive: true })
+  window.addEventListener('resize', updateScrollToTop)
+  updateScrollToTop()
+
+  document.addEventListener('click', (event) => {
+    if ((event.target as Element).closest('[data-scroll-top]')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  })
+</script>

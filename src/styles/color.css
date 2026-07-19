@@ -1,0 +1,76 @@
+:root {
+  /* Conservation paper (light) / neutral library (dark). Radix step semantics kept:
+     1-2 backgrounds, 3-5 fills, 6-8 borders, 9-10 solids, 11 muted text, 12 ink. */
+  --gray-1: light-dark(#f7f3e8, #15130f);
+  --gray-2: light-dark(#f2ede2, #1b1813);
+  --gray-3: light-dark(#ebe4d7, #211e18);
+  --gray-4: light-dark(#e4dacb, #29251e);
+  --gray-5: light-dark(#dccfbf, #312c24);
+  --gray-6: light-dark(#cfc0a8, #3b352b);
+  --gray-7: light-dark(#bcaa8e, #4b4337);
+  --gray-8: light-dark(#a18c70, #615747);
+  --gray-9: light-dark(#83745c, #776a55);
+  --gray-10: light-dark(#766750, #897b65);
+  --gray-11: light-dark(#5e5548, #b6aa95);
+  --gray-12: light-dark(#29261f, #eee7d9);
+
+  --oxblood-9: light-dark(#8b3a3a, #a14a3f);
+  --oxblood-11: light-dark(#7d2f2f, #d08d6f);
+  --gold-9: light-dark(#a8853d, #8a6d3b);
+  --gold-11: light-dark(#6e5827, #c9a86a);
+
+  /* The working accent: oxblood ink by day, candlelit gold by night. */
+  --accent-ink: light-dark(#7f3535, #c6a66a);
+
+  --red-9: light-dark(#b0442c, #c25a41);
+  --red-11: light-dark(#9a3a24, #e0906f);
+
+  --background: var(--gray-1);
+  --foreground: var(--gray-12);
+  --primary: var(--accent-ink);
+  --primary-foreground: var(--gray-1);
+  --muted: var(--gray-3);
+  --muted-foreground: var(--gray-11);
+  --destructive: var(--red-11);
+  --border: var(--gray-6);
+  --ring: var(--gray-8);
+
+  /* Local semantic tokens mapped onto the upstream Radix ramp. */
+  --secondary: var(--gray-2);
+  --secondary-foreground: var(--foreground);
+  --accent: var(--gray-3);
+  --accent-foreground: var(--foreground);
+  --card: var(--gray-2);
+  --card-foreground: var(--foreground);
+
+  color-scheme: light dark;
+}
+
+/* The ThemeToggle sets [data-theme]; drive color-scheme so light-dark() resolves
+   to the chosen theme (overriding the OS default above). */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+*,
+::before,
+::after,
+::backdrop,
+::file-selector-button {
+  border-color: var(--border);
+
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 0.25rem;
+    border-radius: var(--radius-sm);
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}

@@ -1,0 +1,41 @@
+---
+interface Props {
+  orientation?: 'horizontal' | 'vertical'
+  class?: string
+  className?: string
+  [key: string]: unknown
+}
+
+const {
+  orientation = 'horizontal',
+  class: cls,
+  className,
+  ...rest
+} = Astro.props
+---
+
+<span
+  aria-hidden="true"
+  data-orientation={orientation}
+  data-slot="separator-root"
+  class:list={['separator', `separator-${orientation}`, cls, className]}
+  {...rest}
+></span>
+
+<style>
+  .separator {
+    background-color: var(--border);
+    flex-shrink: 0;
+  }
+
+  .separator-horizontal {
+    height: 1px;
+    width: 100%;
+  }
+
+  .separator-vertical {
+    width: 1px;
+    height: 1rem;
+    align-self: center;
+  }
+</style>

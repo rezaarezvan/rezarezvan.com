@@ -1,0 +1,51 @@
+<section class="giscus-section">
+  <script
+    is:inline
+    src="https://giscus.app/client.js"
+    data-repo="rezaarezvan/rezarezvan.com"
+    data-repo-id="R_kgDOHvQr3w"
+    data-category="General"
+    data-category-id="DIC_kwDOHvQr384CiWVC"
+    data-mapping="og:title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="gruvbox_light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+</section>
+
+<script is:inline>
+  function updateGiscusTheme() {
+    const element = document.documentElement
+    const theme =
+      element.getAttribute('data-theme') === 'dark'
+        ? 'gruvbox_dark'
+        : 'gruvbox_light'
+    const iframe = document.querySelector('iframe.giscus-frame')
+    if (!iframe) return
+    iframe.contentWindow.postMessage(
+      { giscus: { setConfig: { theme } } },
+      'https://giscus.app',
+    )
+  }
+
+  const observer = new MutationObserver(updateGiscusTheme)
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme'],
+  })
+
+  window.addEventListener('load', updateGiscusTheme, { once: true })
+</script>
+
+<style>
+  .giscus-section {
+    margin-inline: auto;
+    margin-block-start: var(--space-xl);
+  }
+</style>

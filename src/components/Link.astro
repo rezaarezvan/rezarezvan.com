@@ -1,0 +1,44 @@
+---
+interface Props {
+  href: string
+  external?: boolean
+  class?: string
+  underline?: boolean
+  [key: string]: any
+}
+
+const { href, external, class: className, underline, ...rest } = Astro.props
+---
+
+<a
+  href={href}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+  class:list={['link', underline && 'link-underline', className]}
+  {...rest}
+>
+  <slot />
+</a>
+
+<style>
+  .link {
+    display: inline-block;
+    transition:
+      color 0.3s ease,
+      text-decoration-color 0.3s ease;
+  }
+
+  .link.btn {
+    display: inline-flex;
+  }
+
+  .link-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--muted-foreground);
+    text-underline-offset: 3px;
+  }
+
+  .link-underline:hover {
+    text-decoration-color: var(--foreground);
+  }
+</style>

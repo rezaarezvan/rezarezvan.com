@@ -1,0 +1,36 @@
+---
+import SchoolSubjectLayout from '@/components/School/SchoolSubjectLayout.astro'
+import { getAllSubjects, getSubjectEntries } from '@/lib/school-utils'
+
+export async function getStaticPaths() {
+  const levels = ['bachelor', 'master', 'exchange'] as const
+  const paths = []
+
+  for (const level of levels) {
+    const subjects = await getAllSubjects(level)
+    for (const subject of subjects) {
+      paths.push({
+        params: {
+          level: level,
+          subject: subject.slug,
+        },
+        props: {
+          level: level,
+          subject: subject.slug,
+        },
+      })
+    }
+  }
+
+  return paths
+}
+
+const { level, subject } = Astro.props
+const subjectEntries = await getSubjectEntries(level, subject)
+---
+
+<SchoolSubjectLayout
+  subject={subject}
+  subjectEntries={subjectEntries}
+  collection={level}
+/>

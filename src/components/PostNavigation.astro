@@ -1,0 +1,175 @@
+---
+import Link from '@/components/Link.astro'
+import InlineMathText from '@/components/InlineMathText.astro'
+import { buttonVariants } from '@/lib/button-variants'
+import { getPostUrl } from '@/lib/school-utils'
+import { cn } from '@/lib/utils'
+import Icon from '@/components/Icon.astro'
+
+interface Post {
+  id: string
+  data: {
+    title: string
+    [key: string]: any
+  }
+  collection?: string
+}
+
+interface Props {
+  newerPost: Post | null
+  olderPost: Post | null
+}
+
+const { newerPost, olderPost } = Astro.props
+
+function getPostUrlHelper(post: Post | null): string {
+  if (!post) return '#'
+
+  // Handle school collections
+  if (
+    post.collection &&
+    ['bachelor', 'master', 'exchange'].includes(post.collection)
+  ) {
+    return getPostUrl(post.collection as any, post.id)
+  }
+
+  if (post.collection && post.collection !== 'essays') {
+    return `/${post.collection}/${post.id}/#post-title`
+  }
+
+  return `/essays/${post.id}/#post-title`
+}
+---
+
+<nav class="post-navigation">
+  <Link
+    href={getPostUrlHelper(olderPost)}
+    class={cn(
+      buttonVariants({ variant: 'outline' }),
+      'post-nav-card post-nav-card-previous',
+      !olderPost && 'post-nav-disabled',
+    )}
+    aria-disabled={!olderPost}
+  >
+    <Icon name="arrow-left" class="post-nav-icon post-nav-icon-left" />
+    <div class="post-nav-copy post-nav-copy-left">
+      <span class="post-nav-label"> Previous </span>
+      <span class="post-nav-title">
+        <InlineMathText
+          text={olderPost?.data.title || "You're at the oldest entry"}
+        />
+      </span>
+    </div>
+  </Link>
+
+  <Link
+    href={getPostUrlHelper(newerPost)}
+    class={cn(
+      buttonVariants({ variant: 'outline' }),
+      'post-nav-card post-nav-card-next',
+      !newerPost && 'post-nav-disabled',
+    )}
+    aria-disabled={!newerPost}
+  >
+    <div class="post-nav-copy post-nav-copy-right">
+      <span class="post-nav-label"> Next </span>
+      <span class="post-nav-title">
+        <InlineMathText
+          text={newerPost?.data.title || "You're at the newest entry"}
+        />
+      </span>
+    </div>
+    <Icon name="arrow-right" class="post-nav-icon post-nav-icon-right" />
+  </Link>
+</nav>
+
+<style>
+  .post-navigation {
+    grid-column-start: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-s);
+  }
+
+  @media (min-width: 40rem) {
+    .post-navigation {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .post-nav-card {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    border-radius: var(--radius-lg);
+  }
+
+  .post-nav-card-previous {
+    justify-content: flex-start;
+  }
+
+  .post-nav-card-next {
+    justify-content: flex-end;
+  }
+
+  .post-nav-disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .post-nav-copy {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    overflow: hidden;
+    text-wrap: wrap;
+  }
+
+  .post-nav-copy-left {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .post-nav-copy-right {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .post-nav-label {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
+
+  .post-nav-title {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: balance;
+    font-size: var(--step--1);
+  }
+
+  .post-nav-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+  }
+
+  .post-nav-icon-left {
+    margin-inline-end: var(--space-2xs);
+  }
+
+  .post-nav-icon-right {
+    margin-inline-start: var(--space-2xs);
+  }
+
+  .post-nav-card:hover .post-nav-icon-left {
+    transform: translateX(-0.25rem);
+  }
+
+  .post-nav-card:hover .post-nav-icon-right {
+    transform: translateX(0.25rem);
+  }
+</style>

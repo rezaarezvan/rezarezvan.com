@@ -1,0 +1,39 @@
+/* Paper grain: a tiled feTurbulence noise laid over the whole page so the
+   parchment reads as laid paper rather than a flat fill. Sits above the sticky
+   header (z-index 50) on purpose — the frosted bar would otherwise look
+   suspiciously smooth against the grainy page. */
+
+:root {
+  --paper-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  background: var(--paper-noise) repeat 0 0 / 300px 300px;
+  mix-blend-mode: multiply;
+  opacity: 0.08;
+}
+
+/* multiply is invisible on a near-black ground — blend softly in the dark. */
+:root[data-theme='dark'] body::after {
+  mix-blend-mode: soft-light;
+  opacity: 0.12;
+}
+
+/* Pre-hydration / no-JS fallback when the OS prefers dark. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) body::after {
+    mix-blend-mode: soft-light;
+    opacity: 0.12;
+  }
+}
+
+@media print {
+  body::after {
+    display: none;
+  }
+}

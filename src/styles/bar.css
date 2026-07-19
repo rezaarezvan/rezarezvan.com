@@ -1,0 +1,4 @@
+[data-bar] {
+  background-color: color-mix(in oklab, var(--background) 90%, transparent);
+  backdrop-filter: blur(var(--blur-xs));
+}

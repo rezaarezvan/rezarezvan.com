@@ -1,0 +1,118 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Giscus from '@/components/Giscus.astro'
+import InlineMathText from '@/components/InlineMathText.astro'
+import References from '@/components/References.astro'
+import { getCitationEntries } from '@/lib/bibliography'
+import PaintingBackdrop from '@/components/PaintingBackdrop.astro'
+import PostHead from '@/components/PostHead.astro'
+import PostNavigation from '@/components/PostNavigation.astro'
+import ScrollToTop from '@/components/ScrollToTop.astro'
+import TableOfContents from '@/components/TableOfContents.astro'
+import Separator from '@/components/ui/Separator.astro'
+import Layout from '@/layouts/Layout.astro'
+import {
+  getAdjacentEssays,
+  getAllEssays,
+  getEssayReadingTime,
+} from '@/lib/essay-utils'
+import { getLastRevision } from '@/lib/modified-time'
+import { containsMath, hasInlineMath } from '@/lib/math-utils'
+import { formatDate } from '@/lib/utils'
+import { render } from 'astro:content'
+export async function getStaticPaths() {
+  const essays = await getAllEssays()
+  return essays.map((essay) => ({
+    params: { id: essay.id },
+    props: essay,
+  }))
+}
+
+const post = Astro.props
+const currentPostId = Astro.params.id as string
+const { Content, headings } = await render(post)
+
+const modifiedDate = getLastRevision('essays', currentPostId, post.data.date)
+const lastModified = modifiedDate ? formatDate(modifiedDate) : null
+
+const navigation = await getAdjacentEssays(currentPostId)
+const postReadingTime = getEssayReadingTime(post)
+---
+
+<Layout
+  math={containsMath(post.body) ||
+    [post, navigation.newer, navigation.older].some(
+      (entry) => entry && hasInlineMath(entry.data.title),
+    )}
+>
+  <PostHead slot="head" post={post} />
+  {post.data.image && (
+    <PaintingBackdrop slot="backdrop" image={post.data.image} />
+  )}
+  {headings?.length > 0 && (
+      <TableOfContents
+        slot="table-of-contents"
+        headings={headings}
+        source={post.body}
+      />
+    )}
+
+  <section class="post-grid">
+    <div class="col-start-2">
+      <Breadcrumbs
+        items={[
+          {
+            href: '/essays/',
+            label: 'Essays',
+            icon: 'lucide:library-big',
+          },
+          ...[
+            {
+              href: `/essays/${currentPostId}/`,
+
+              label: post.data.title,
+
+              icon: 'lucide:book-open-text',
+            },
+          ],
+        ]}
+      />
+    </div>
+
+    <section class="col-start-2 essay-hero">
+      <h1 class="essay-hero-title" id="post-title">
+        <InlineMathText text={post.data.title} />
+      </h1>
+
+      <div class="essay-hero-meta">
+        <span>{formatDate(post.data.date)}</span>
+        {lastModified && (
+            <>
+              <Separator orientation="vertical" className="h-4!" />
+              <span>Revised: {lastModified}</span>
+            </>
+          )}
+        <Separator orientation="vertical" className="h-4!" />
+        <span>{postReadingTime}</span>
+      </div>
+    </section>
+
+    <PostNavigation newerPost={navigation.newer} olderPost={navigation.older} />
+
+    <article class="prose col-start-2" data-essay>
+      <Content />
+      <References entries={getCitationEntries(post.body ?? '')} />
+    </article>
+
+    <PostNavigation newerPost={navigation.newer} olderPost={navigation.older} />
+    <div class="col-start-2">
+      <Giscus />
+    </div>
+  </section>
+
+  <ScrollToTop />
+
+  <script>
+    import '@/scripts/sidenotes'
+  </script>
+</Layout>

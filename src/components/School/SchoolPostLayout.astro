@@ -1,0 +1,187 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Giscus from '@/components/Giscus.astro'
+import InlineMathText from '@/components/InlineMathText.astro'
+import References from '@/components/References.astro'
+import { getCitationEntries } from '@/lib/bibliography'
+import PostHead from '@/components/PostHead.astro'
+import PostNavigation from '@/components/PostNavigation.astro'
+import ScrollToTop from '@/components/ScrollToTop.astro'
+import TableOfContents from '@/components/TableOfContents.astro'
+import Badge from '@/components/ui/Badge.astro'
+import Separator from '@/components/ui/Separator.astro'
+import Layout from '@/layouts/Layout.astro'
+import {
+  capitalizeWords,
+  getSchoolBreadcrumbLabel,
+  getSchoolUrl,
+  getSubjectUrl,
+} from '@/lib/school-utils'
+import { getLastModified } from '@/lib/modified-time'
+import { containsMath, hasInlineMath, plainInlineMath } from '@/lib/math-utils'
+import { formatDate, readingTimeSchool } from '@/lib/utils'
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+
+export interface Props {
+  post: CollectionEntry<'bachelor' | 'master' | 'exchange'>
+  prevPost: CollectionEntry<'bachelor' | 'master' | 'exchange'> | null
+  nextPost: CollectionEntry<'bachelor' | 'master' | 'exchange'> | null
+  collection: 'bachelor' | 'master' | 'exchange'
+  Content: any
+  headings: any[]
+}
+
+const { post, prevPost, nextPost, collection, Content, headings } = Astro.props
+
+const modifiedDate = getLastModified(collection, post.id)
+const lastModified = modifiedDate ? formatDate(modifiedDate) : null
+
+// Extract subject info
+const [subjectSlug] = post.id.split('/')
+const subjectName =
+  capitalizeWords(post.data.school?.[0] || subjectSlug) || 'Unknown Subject'
+const subjectCode = subjectSlug?.toUpperCase() || ''
+---
+
+<Layout
+  math={containsMath(post.body) ||
+    [post, prevPost, nextPost].some(
+      (entry) => entry && hasInlineMath(entry.data.title),
+    )}
+>
+  <PostHead slot="head" post={post} />
+  {headings?.length > 0 && (
+      <TableOfContents
+        slot="table-of-contents"
+        headings={headings}
+        source={post.body}
+      />
+    )}
+
+  <section class="post-grid">
+    <div class="col-start-2">
+      <Breadcrumbs
+        items={[
+          {
+            href: getSchoolUrl(),
+            label: getSchoolBreadcrumbLabel(collection),
+            icon: 'lucide:graduation-cap',
+          },
+          {
+            href: getSubjectUrl(collection, subjectSlug),
+            label: subjectName,
+            icon: 'lucide:book-open',
+          },
+          { label: post.data.title, icon: 'lucide:file-text' },
+        ]}
+      />
+    </div>
+
+    {post.data.image && (
+        <Image
+          src={post.data.image}
+          alt={plainInlineMath(post.data.title)}
+          width={1200}
+          height={630}
+          class="school-post-image"
+        />
+      )}
+
+    <section class="school-post-hero col-start-2">
+      <div class="school-post-hero-copy">
+        <h1 id="post-title">
+          <InlineMathText text={post.data.title} />
+        </h1>
+
+        <div class="school-post-meta">
+          <div class="school-post-meta-row">
+            <Badge variant="outline">{subjectCode}</Badge>
+            <Separator orientation="vertical" className="h-4!" />
+            <span>Date: {formatDate(post.data.date)}</span>
+            <Separator orientation="vertical" className="h-4!" />
+            {lastModified && (
+                <>
+                  <div>
+                    Last modified: {lastModified}
+                  </div>
+                </>
+              )}
+            <Separator orientation="vertical" className="h-4!" />
+            <span>{readingTimeSchool(post.body || '')}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <PostNavigation olderPost={prevPost} newerPost={nextPost} />
+
+    <article class="prose col-start-2">
+      <Content />
+      <References entries={getCitationEntries(post.body ?? '')} />
+    </article>
+
+    <PostNavigation olderPost={prevPost} newerPost={nextPost} />
+    <div class="col-start-2">
+      <Giscus />
+    </div>
+  </section>
+
+  <ScrollToTop />
+
+  <script>
+    import '@/scripts/sidenotes'
+  </script>
+
+  <style>
+    .school-post-image {
+      grid-column: 1 / -1;
+      width: 100%;
+      max-width: 64rem;
+      margin-inline: auto;
+      object-fit: cover;
+    }
+
+    .school-post-hero {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-m);
+      text-align: center;
+    }
+
+    .school-post-hero-copy {
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      margin-block: 0 var(--space-2xs);
+      scroll-margin-top: 7.75rem;
+      font-family: var(--font-serif);
+      font-size: var(--step-3);
+      line-height: 1.15;
+      font-weight: var(--font-weight-normal);
+      font-synthesis-weight: none;
+      text-wrap: pretty;
+    }
+
+    .school-post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2xs);
+      margin-block-end: var(--space-s);
+      color: var(--muted-foreground);
+      font-size: var(--step--1);
+    }
+
+    .school-post-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2xs);
+    }
+  </style>
+</Layout>

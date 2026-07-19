@@ -1,0 +1,132 @@
+---
+import Link from '@/components/Link.astro'
+import InlineMathText from '@/components/InlineMathText.astro'
+import { getEssayReadingTime } from '@/lib/essay-utils'
+import { getLastRevision } from '@/lib/modified-time'
+import { formatDate } from '@/lib/utils'
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  essay: CollectionEntry<'essays'>
+}
+
+const { essay } = Astro.props
+const readingTime = getEssayReadingTime(essay)
+const revised = getLastRevision('essays', essay.id, essay.data.date)
+---
+
+<Link
+  href={`/essays/${essay.id}/`}
+  class:list={['essay-list-item', { 'has-image': essay.data.image }]}
+>
+  {essay.data.image && (
+    <div class="essay-list-media" aria-hidden="true">
+      <Image
+        src={essay.data.image}
+        alt=""
+        widths={[176, 352]}
+        sizes="(max-width: 35rem) 88px, 136px"
+        class="essay-list-image"
+      />
+    </div>
+  )}
+
+  <div class="essay-list-copy">
+    <h3><InlineMathText text={essay.data.title} /></h3>
+    {essay.data.description && <p>{essay.data.description}</p>}
+    <div class="essay-list-meta">
+      <time datetime={essay.data.date.toISOString()}>
+        {formatDate(essay.data.date)}
+      </time>
+      <span aria-hidden="true">·</span>
+      {revised && (
+        <>
+          <span>Revised: {formatDate(revised)}</span>
+          <span aria-hidden="true">·</span>
+        </>
+      )}
+      <span>{readingTime}</span>
+    </div>
+  </div>
+</Link>
+
+<style>
+  .essay-list-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xs);
+    padding-block: var(--space-xs);
+    border-block-start: 1px solid var(--border);
+    color: var(--foreground);
+    text-decoration: none;
+  }
+
+  .essay-list-item.has-image {
+    grid-template-columns: clamp(5.5rem, 18vw, 8.5rem) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .essay-list-media {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--muted);
+  }
+
+  .essay-list-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.82) sepia(0.08);
+    transition: filter 0.2s ease;
+  }
+
+  .essay-list-item:hover .essay-list-image {
+    filter: saturate(0.96) sepia(0.03);
+  }
+
+  .essay-list-copy {
+    min-width: 0;
+  }
+
+  h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: var(--step-1);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  p {
+    display: -webkit-box;
+    margin-block: var(--space-3xs) 0;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: var(--muted-foreground);
+    font-size: var(--step--1);
+    line-height: 1.35;
+  }
+
+  .essay-list-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3xs);
+    margin-block-start: var(--space-2xs);
+    color: var(--muted-foreground);
+    font-size: var(--step--1);
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  @media (max-width: 24rem) {
+    .essay-list-item.has-image {
+      grid-template-columns: 5rem minmax(0, 1fr);
+    }
+
+    p {
+      display: none;
+    }
+  }
+</style>

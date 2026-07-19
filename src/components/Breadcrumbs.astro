@@ -1,0 +1,94 @@
+---
+import Icon from '@/components/Icon.astro'
+import InlineMathText from '@/components/InlineMathText.astro'
+
+export interface BreadcrumbItem {
+  href?: string
+  label: string
+  icon?: string
+}
+
+interface Props {
+  items: BreadcrumbItem[]
+}
+
+const { items } = Astro.props
+---
+
+<nav aria-label="breadcrumb" data-slot="breadcrumb">
+  <ol class="breadcrumbs">
+    <li class="breadcrumb-item">
+      <a class="breadcrumb-link" href="/" aria-label="Home">
+        <Icon name="home" class="size-4 shrink-0" />
+      </a>
+    </li>
+    {items.map((item, index) => (
+        <>
+          <li role="presentation" aria-hidden="true">
+            <Icon name="chevron-right" class="size-3.5" />
+          </li>
+          <li class="breadcrumb-item">
+            {index === items.length - 1 ? (
+              <span aria-current="page" class="breadcrumb-current">
+                <span class="breadcrumb-content">
+                  {item.icon && (
+                    <Icon name={item.icon} class="size-4 shrink-0" />
+                  )}
+                  <InlineMathText text={item.label} />
+                </span>
+              </span>
+            ) : (
+              <a
+                class="breadcrumb-link"
+                href={item.href}
+              >
+                <span class="breadcrumb-content">
+                  {item.icon && <Icon name={item.icon} class="size-4" />}
+                  <InlineMathText text={item.label} />
+                </span>
+              </a>
+            )}
+          </li>
+        </>
+      ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3xs) var(--space-2xs);
+    color: var(--muted-foreground);
+    font-size: var(--step--1);
+    overflow-wrap: break-word;
+  }
+
+  @media (min-width: 40rem) {
+    .breadcrumbs {
+      column-gap: var(--space-xs);
+    }
+  }
+
+  .breadcrumb-item,
+  .breadcrumb-content {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+  }
+
+  .breadcrumb-link {
+    color: inherit;
+    transition: color 0.15s ease;
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--foreground);
+  }
+
+  .breadcrumb-current {
+    color: var(--foreground);
+    font-weight: var(--font-weight-normal);
+  }
+</style>

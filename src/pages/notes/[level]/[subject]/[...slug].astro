@@ -1,0 +1,45 @@
+---
+import SchoolPostLayout from '@/components/School/SchoolPostLayout.astro'
+import { getAdjacentSubjectPosts } from '@/lib/school-utils'
+import { getCollection, render } from 'astro:content'
+
+export async function getStaticPaths() {
+  const levels = ['bachelor', 'master', 'exchange'] as const
+  const paths = []
+
+  for (const level of levels) {
+    const posts = await getCollection(level)
+    for (const post of posts.filter((p) => !p.data.draft)) {
+      const [subject, ...slugParts] = post.id.split('/')
+
+      if (!subject || slugParts.length === 0) continue
+
+      paths.push({
+        params: {
+          level: level,
+          subject: subject,
+          slug: slugParts.join('/'),
+        },
+        props: { post, level },
+      })
+    }
+  }
+
+  return paths
+}
+
+const { post, level } = Astro.props
+const { Content, headings } = await render(post)
+
+const identifier = post.id || ''
+const { prev, next } = await getAdjacentSubjectPosts(level, identifier)
+---
+
+<SchoolPostLayout
+  post={post}
+  prevPost={prev}
+  nextPost={next}
+  collection={level}
+  Content={Content}
+  headings={headings}
+/>

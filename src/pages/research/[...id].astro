@@ -1,0 +1,267 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Giscus from '@/components/Giscus.astro'
+import InlineMathText from '@/components/InlineMathText.astro'
+import PaintingBackdrop from '@/components/PaintingBackdrop.astro'
+import PostHead from '@/components/PostHead.astro'
+import References from '@/components/References.astro'
+import ScrollToTop from '@/components/ScrollToTop.astro'
+import TableOfContents from '@/components/TableOfContents.astro'
+import Separator from '@/components/ui/Separator.astro'
+import { getCitationEntries } from '@/lib/bibliography'
+import { buttonVariants } from '@/lib/button-variants'
+import { getLastRevision } from '@/lib/modified-time'
+import { containsMath, hasInlineMath } from '@/lib/math-utils'
+import Layout from '@/layouts/Layout.astro'
+import { getAllPublications } from '@/lib/research-utils'
+import { cn, formatDate } from '@/lib/utils'
+import Icon from '@/components/Icon.astro'
+import { render } from 'astro:content'
+
+export async function getStaticPaths() {
+  const publications = await getAllPublications()
+  return publications.map((publication) => ({
+    params: { id: publication.id },
+    props: publication,
+  }))
+}
+
+const publication = Astro.props
+const publicationId = Astro.params.id as string
+const { Content, headings } = await render(publication)
+const revised = getLastRevision(
+  'research',
+  publicationId,
+  publication.data.date,
+)
+
+const formatAuthors = (
+  authors: string[],
+  myName: string,
+  authorNotes: Record<string, string> = {},
+) => {
+  const formattedAuthors = authors.map((author) => {
+    let formatted = author
+
+    if (authorNotes[author]) {
+      formatted += `<sup>${authorNotes[author]}</sup>`
+    }
+
+    if (author === myName) {
+      return `<strong>${formatted}</strong>`
+    }
+
+    return formatted
+  })
+
+  if (formattedAuthors.length === 1) return formattedAuthors[0]
+  if (formattedAuthors.length === 2)
+    return `${formattedAuthors[0]} and ${formattedAuthors[1]}`
+  return `${formattedAuthors.slice(0, -1).join(', ')}, and ${formattedAuthors[formattedAuthors.length - 1]}`
+}
+
+const myName = publication.data.myName || 'Reza Rezvan'
+const authors = formatAuthors(
+  publication.data.authors,
+  myName,
+  publication.data.authorNotes,
+)
+
+const uniqueAuthorNotes: Record<string, string> = {}
+if (publication.data.authorNotes) {
+  Object.entries(publication.data.authorNotes).forEach(([_, symbol]) => {
+    if (uniqueAuthorNotes[symbol]) return
+
+    const authorsWithNote = publication.data.authors.filter(
+      (a) =>
+        publication.data.authorNotes &&
+        publication.data.authorNotes[a] === symbol,
+    )
+
+    if (authorsWithNote.length > 1) {
+      uniqueAuthorNotes[symbol] = 'Equal contribution'
+    } else if (symbol.includes('*')) {
+      uniqueAuthorNotes[symbol] = 'Corresponding author'
+    }
+  })
+}
+---
+
+<Layout
+  math={containsMath(publication.body) || hasInlineMath(publication.data.title)}
+>
+  <PostHead slot="head" post={publication} />
+  {publication.data.image && (
+    <PaintingBackdrop slot="backdrop" image={publication.data.image} />
+  )}
+  {headings?.length > 0 && (
+      <TableOfContents
+        slot="table-of-contents"
+        headings={headings}
+        source={publication.body}
+      />
+    )}
+  <section class="post-grid">
+    <div class="col-start-2">
+      <Breadcrumbs
+        items={[
+          {
+            href: '/research/',
+            label: 'Research',
+            icon: 'lucide:flask-conical',
+          },
+          { label: publication.data.title, icon: 'lucide:file-text' },
+        ]}
+      />
+    </div>
+
+    <section class="publication-hero essay-hero col-start-2">
+      <div class="publication-hero-body">
+        <h1 class="essay-hero-title">
+          <InlineMathText text={publication.data.title} />
+        </h1>
+
+        <p class="publication-authors" set:html={authors} />
+
+        {Object.keys(uniqueAuthorNotes).length > 0 && (
+            <ul class="publication-author-notes">
+              {Object.entries(uniqueAuthorNotes).map(([symbol, meaning]) => (
+                <li>
+                  <sup>{symbol}</sup> {meaning}
+                </li>
+              ))}
+            </ul>
+          )}
+
+        <p class="publication-venue">
+          {publication.data.venue}
+          {publication.data.venueShort && (
+              <span> ({publication.data.venueShort})</span>
+            )}
+          <span>{formatDate(publication.data.date)}</span>
+          {revised && (
+            <>
+              <Separator orientation="vertical" />
+              <span>Revised: {formatDate(revised)}</span>
+            </>
+          )}
+        </p>
+
+        <div class="publication-actions">
+          {publication.data.paperUrl && (
+              <a
+                href={publication.data.paperUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={cn(
+                  buttonVariants({ variant: 'outline' }),
+                  'publication-action',
+                )}
+              >
+                <Icon name="file-text" class="size-4" />
+                Paper
+              </a>
+            )}
+          {publication.data.codeUrl && (
+              <a
+                href={publication.data.codeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={cn(
+                  buttonVariants({ variant: 'outline' }),
+                  'publication-action',
+                )}
+              >
+                <Icon name="code" class="size-4" />
+                Code
+              </a>
+            )}
+          {publication.data.datasetUrl && (
+              <a
+                href={publication.data.datasetUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={cn(
+                  buttonVariants({ variant: 'outline' }),
+                  'publication-action',
+                )}
+              >
+                <Icon name="database" class="size-4" />
+                Dataset
+              </a>
+            )}
+          {publication.data.doiUrl && (
+              <a
+                href={publication.data.doiUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={cn(
+                  buttonVariants({ variant: 'outline' }),
+                  'publication-action',
+                )}
+              >
+                <Icon name="link" class="size-4" />
+                DOI
+              </a>
+            )}
+        </div>
+      </div>
+    </section>
+
+    <article class="prose col-start-2">
+      <Content />
+      <References entries={getCitationEntries(publication.body ?? '')} />
+    </article>
+
+    <div class="col-start-2">
+      <Giscus />
+    </div>
+  </section>
+
+  <ScrollToTop />
+
+  <style>
+    .publication-hero-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .publication-authors {
+      margin-block: 0 var(--space-2xs);
+      font-size: var(--step-1);
+    }
+
+    .publication-author-notes,
+    .publication-venue {
+      margin-block: 0 var(--space-2xs);
+      color: var(--muted-foreground);
+      font-size: var(--step--1);
+    }
+
+    .publication-venue {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2xs);
+      font-style: italic;
+    }
+
+    .publication-venue span {
+      margin-inline-start: 0;
+    }
+
+    .publication-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2xs);
+      margin-block: var(--space-s);
+    }
+
+    .publication-action {
+      gap: 0.375rem;
+    }
+  </style>
+</Layout>

@@ -1,0 +1,364 @@
+---
+import Link from '@/components/Link.astro'
+import EssayListItem from '@/components/EssayListItem.astro'
+import PageHead from '@/components/PageHead.astro'
+import { buttonVariants } from '@/lib/button-variants'
+import { ACADEMIC_LINKS, SITE } from '@/consts'
+import Layout from '@/layouts/Layout.astro'
+import { getRecentEssays } from '@/lib/essay-utils'
+import { containsMath, hasInlineMath } from '@/lib/math-utils'
+import { Image } from 'astro:assets'
+import { getCollection, render } from 'astro:content'
+import pfp from './_whoami.png'
+
+const formatNewsDate = (date: Date) =>
+  Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+  }).format(date)
+
+const essays = await getRecentEssays(SITE.featuredPostCount)
+const news = await Promise.all(
+  (await getCollection('news'))
+    .filter((item) => !item.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .map(async (entry) => {
+      const { Content } = await render(entry)
+      return { entry, Content }
+    }),
+)
+---
+
+<Layout
+  class="max-w-3xl"
+  math={news.some(({ entry }) => containsMath(entry.body)) ||
+    essays.some((essay) => hasInlineMath(essay.data.title))}
+>
+  <PageHead slot="head" title="Home" />
+  <section class="home-page" data-pagefind-ignore>
+    <div class="home-intro">
+      <figure class="home-profile">
+        <Image
+          src={pfp}
+          alt="Portrait of Reza Rezvan"
+          width={250}
+          height={300}
+          loading="eager"
+          format="webp"
+          quality={82}
+          class="home-profile-image"
+          fetchpriority="high"
+        />
+        <figcaption class="home-profile-caption">
+          <div class="home-profile-email">
+            Email:
+            <a href="mailto:rezvan@chalmers.se" class="home-link">
+              <b><tt>rezvan@chalmers.se</tt></b>
+            </a>
+          </div>
+          <nav class="home-profile-links" aria-label="Academic profiles">
+            {ACADEMIC_LINKS.map((item) => (
+              <Link
+                href={item.href}
+                external={item.href.startsWith('http')}
+                class="home-academic-link"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </figcaption>
+      </figure>
+
+      <div class="home-bio">
+        <h1 class="home-title">
+          <span class="home-title-name" lang="en">Reza Rezvan</span>
+          <span lang="fa">(رضا رضوان)</span>
+        </h1>
+        <p>
+          I'm a PhD student at the
+          <a
+            href="https://www.chalmers.se/en/departments/cse/our-research/data-science-and-ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="home-link"
+            >Data Science and AI department at Chalmers University of Technology</a
+          >
+          under the supervision of
+          <a
+            href="https://www.annalouisegautier.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="home-link"
+            >Anna Gautier.</a
+          >
+        </p>
+        <p>
+          My interests are in multi-agent reinforcement learning and sequential
+          decision-making, especially in settings concerning uncertainty,
+          partial observability and risk.
+        </p>
+        <p>
+          Previously, I completed my Master's degree in
+          <a
+            href="https://www.chalmers.se/en/education/programmes/masters-programmes/data-science-and-ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="home-link"
+            >Data Science and AI</a
+          >
+          and my Bachelor's degree in
+          <a
+            href="https://www.chalmers.se/en/education/programmes/masters-programmes/computer-science-and-engineering/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="home-link"
+            >Computer Science and Engineering</a
+          >
+          at Chalmers University of Technology in 2026 and 2024, respectively.
+        </p>
+        <p>
+          I have also spent summers interning in industry at
+          <a
+            href="https://www.ericsson.com/en"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="home-link"
+            >Ericsson</a
+          >
+          and
+          <a
+            href="https://www.huawei.com/en"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="home-link"
+            >Huawei</a
+          >
+          twice, working in R&D roles.
+        </p>
+      </div>
+    </div>
+
+    <section class="home-sections">
+      <section class="home-section">
+        <h2 class="home-section-title">News</h2>
+        <ul class="home-news-list">
+          {news.map(({ entry, Content }) => (
+              <li class="home-news-item">
+                <div class="home-news-date">
+                  {formatNewsDate(entry.data.date)}
+                </div>
+                <div class="home-news-content">
+                  <Content />
+                </div>
+              </li>
+            ))}
+        </ul>
+      </section>
+
+      <section class="home-section">
+        <div class="home-section-header">
+          <h2 class="home-section-title">Latest Essay</h2>
+          <Link
+            href="/essays/"
+            class={buttonVariants({
+              variant: 'ghost',
+              className: 'home-all-link',
+            })}
+          >
+            See all <span aria-hidden="true">&rarr;</span>
+          </Link>
+        </div>
+
+        <ul class="home-card-list">
+          {essays.map((essay) => (
+              <li><EssayListItem essay={essay} /></li>
+            ))}
+        </ul>
+      </section>
+    </section>
+  </section>
+</Layout>
+
+<style>
+  .home-page,
+  .home-sections,
+  .home-section,
+  .home-bio,
+  .home-card-list,
+  .home-news-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-page {
+    gap: var(--space-s);
+  }
+
+  .home-intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+
+  @media (min-width: 64rem) {
+    .home-intro {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  .home-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (min-width: 64rem) {
+    .home-profile {
+      width: 250px;
+      flex-shrink: 0;
+    }
+  }
+
+  .home-profile-image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin-inline: auto;
+    margin-block-end: var(--space-xs);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+  }
+
+  .home-profile-caption {
+    width: 100%;
+    max-width: 250px;
+    margin-inline: auto;
+    text-align: center;
+    font-size: var(--step--1);
+  }
+
+  .home-profile-email {
+    white-space: nowrap;
+  }
+
+  .home-profile-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2xs);
+    margin-block-start: var(--space-2xs);
+    white-space: nowrap;
+  }
+
+  .home-bio {
+    gap: var(--space-3xs);
+  }
+
+  .home-academic-link {
+    color: var(--primary);
+  }
+
+  .home-bio p {
+    margin: 0;
+    line-height: calc(var(--leading-offset) + 1em);
+    color: var(--prose-foreground);
+  }
+
+  .home-title {
+    margin: 0;
+    font-size: var(--step-2);
+    font-weight: var(--font-weight-normal);
+  }
+
+  .home-title-name {
+    font-weight: var(--font-weight-medium);
+  }
+
+  .home-link,
+  .home-news-content :global(a) {
+    color: var(--primary);
+  }
+
+  .home-sections {
+    gap: var(--space-s);
+  }
+
+  .home-section {
+    gap: var(--space-s);
+  }
+
+  .home-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-s);
+  }
+
+  .home-section-title {
+    margin: 0;
+    font-size: var(--step-1);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .home-news-list {
+    max-height: 6rem;
+    gap: var(--space-s);
+    padding-inline-end: var(--space-2xs);
+    overflow-y: auto;
+  }
+
+  .home-news-item {
+    display: grid;
+    gap: var(--space-3xs);
+  }
+
+  @media (min-width: 40rem) {
+    .home-news-item {
+      grid-template-columns: 9rem 1fr;
+      gap: var(--space-m);
+    }
+  }
+
+  .home-news-date {
+    font-size: var(--step--1);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .home-news-content {
+    font-size: var(--step--1);
+    line-height: 1.35;
+  }
+
+  .home-news-content :global(p) {
+    margin: 0;
+  }
+
+  .home-news-content :global(strong) {
+    font-weight: var(--font-weight-medium);
+  }
+
+  .home-news-content :global(code) {
+    font-family: var(--font-mono);
+  }
+
+  .home-news-content :global(em) {
+    font-style: italic;
+  }
+
+  .home-all-link span {
+    display: inline-block;
+    margin-inline-start: 0.375rem;
+    transition: transform 0.15s ease;
+  }
+
+  .home-all-link:hover span {
+    transform: translateX(0.25rem);
+  }
+
+  .home-card-list {
+    gap: var(--space-m);
+  }
+</style>

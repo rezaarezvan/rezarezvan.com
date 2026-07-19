@@ -1,0 +1,330 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Link from '@/components/Link.astro'
+import PageHead from '@/components/PageHead.astro'
+import { buttonVariants } from '@/lib/button-variants'
+import Layout from '@/layouts/Layout.astro'
+import { cn } from '@/lib/utils'
+import Icon from '@/components/Icon.astro'
+import { Image } from 'astro:assets'
+import afaEpisodeFigure from './_afa-episode.svg'
+import claudesLensFigure from './_claudeslens-logo.png'
+import causalityFigure from './_diffusion-causality-overview.svg'
+
+const projects = [
+  {
+    title: 'A Deeper Understanding of Active Feature Acquisition',
+    image: null,
+    imageAlt: '',
+    imageCaption: '',
+    highlight: null,
+    wideFigure: false,
+    body: 'My MSc thesis studied active feature acquisition as sequential decision-making under costly and missing information. We developed AFABench as a modular evaluation framework and extended the AFA POMDP to missing data during training, showing how missing data can distort both beliefs and the acquisition routes a policy learns to value.',
+    links: [],
+  },
+  {
+    title:
+      'AFABench: A Generic Framework for Benchmarking Active Feature Acquisition',
+    image: afaEpisodeFigure,
+    imageAlt:
+      'An AFABench episode where a policy sequentially acquires features before prediction.',
+    imageCaption: 'AFABench evaluation episode.',
+    highlight: {
+      title: 'Accepted to KDD 2026',
+      body: 'Datasets & Benchmarks Track. 513 complete submissions, with an overall acceptance rate of about 29%.',
+    },
+    wideFigure: true,
+    body: 'AFABench is a generic framework for benchmarking active feature acquisition in classification. It standardizes episode interfaces, budget protocols, datasets, methods, and diagnostics so myopic, subset-based, and reinforcement-learning policies can be compared under the same cost-performance trade-off.',
+    links: [
+      {
+        href: 'https://arxiv.org/abs/2508.14734',
+        label: 'arXiv',
+        icon: 'lucide:file-text',
+        external: true,
+      },
+      {
+        href: 'https://doi.org/10.1145/3770855.3817493',
+        label: 'DOI',
+        icon: 'lucide:link',
+        external: true,
+      },
+      {
+        href: 'https://github.com/Linusaronsson/AFA-Benchmark',
+        label: 'Code',
+        icon: 'lucide:code',
+        external: true,
+      },
+    ],
+  },
+  {
+    title: 'Scaling Generative Models for Molecular Dynamics',
+    image: null,
+    imageAlt: '',
+    imageCaption: '',
+    highlight: null,
+    wideFigure: false,
+    body: 'At AIMLeNS, I worked on scaling generative models for molecular dynamics. This project shaped how I think about generative modeling in scientific settings, where useful models must respect geometry, sampling behavior, robustness, and the physical structure of the system being studied.',
+    links: [
+      {
+        href: 'https://psolsson.github.io/',
+        label: 'AIMLeNS',
+        icon: 'lucide:external-link',
+        external: true,
+      },
+    ],
+  },
+  {
+    title:
+      'Causality-Δ: Jacobian-Based Dependency Analysis in Flow Matching Models',
+    image: causalityFigure,
+    imageAlt:
+      'Overview of Jacobian-based dependency analysis in flow matching models.',
+    imageCaption: 'Jacobian-based dependency analysis in flow matching.',
+    highlight: null,
+    wideFigure: true,
+    body: 'Causality-Δ studies how local derivative information can expose dependency structure in flow-matching generative models. We use Jacobian-vector products to trace how latent perturbations propagate through learned dynamics, giving a practical way to inspect model geometry while keeping a clear boundary between local dependence and causal intervention.',
+    links: [
+      {
+        href: 'https://arxiv.org/abs/2602.02793',
+        label: 'arXiv',
+        icon: 'lucide:file-text',
+        external: true,
+      },
+      {
+        href: 'https://github.com/rezaarezvan/causdiff',
+        label: 'Code',
+        icon: 'lucide:code',
+        external: true,
+      },
+    ],
+  },
+  {
+    title: 'ClaudesLens: Uncertainty Quantification in Computer Vision Models',
+    image: claudesLensFigure,
+    imageAlt: 'ClaudesLens project logo.',
+    imageCaption: 'ClaudesLens project logo.',
+    highlight: null,
+    wideFigure: false,
+    body: 'My BSc thesis studied uncertainty quantification in computer vision models using Shannon entropy as a practical measure of predictive uncertainty. We focused on how confidence changes under perturbations and when a model output should be treated with caution rather than accepted as a reliable prediction.',
+    links: [
+      {
+        href: 'https://arxiv.org/abs/2406.13008',
+        label: 'arXiv',
+        icon: 'lucide:file-text',
+        external: true,
+      },
+      {
+        href: 'https://github.com/rezaarezvan/MVEX11',
+        label: 'Code',
+        icon: 'lucide:code',
+        external: true,
+      },
+      {
+        href: '/research/claudeslens/',
+        label: 'Write-up',
+        icon: 'lucide:book-open',
+        external: false,
+      },
+    ],
+  },
+]
+---
+
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title="Research" />
+  <Breadcrumbs items={[{ label: 'Research', icon: 'lucide:flask-conical' }]} />
+
+  <section class="research-page" data-pagefind-ignore>
+    <section class="research-intro">
+      <div class="prose">
+        <p>
+          I am primarily interested in (multi-agent) sequential decision-making
+          and reinforcement learning. I want to understand how systems can learn
+          from experience, plan ahead, and reason about the consequences of
+          actions in realistic settings with partial observability, uncertainty,
+          and risk constraints.
+        </p>
+      </div>
+    </section>
+
+    <section class="research-projects">
+      <h2>Selected Projects</h2>
+      {projects.map((project) => (
+          <article class="research-project">
+            <div class="research-project-copy">
+            <h3>{project.title}</h3>
+              {project.links.length > 0 && (
+                <div class="research-project-links">
+                  {project.links.map((link) => (
+                    <Link
+                      href={link.href}
+                      external={link.external ?? true}
+                      class={cn(
+                        buttonVariants({
+                          variant: 'outline',
+                          size: 'sm',
+                        }),
+                        'research-button',
+                      )}
+                    >
+                      <Icon name={link.icon} class="size-4" />
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+                )}
+              {project.highlight && (
+                <div class="research-highlight">
+                  <Icon name="award" class="research-highlight-icon" />
+                  <div>
+                    <div class="research-highlight-title">
+                      {project.highlight.title}
+                    </div>
+                    <div class="research-highlight-body">
+                      {project.highlight.body}
+                    </div>
+                  </div>
+                </div>
+              )}
+              <div class="prose">
+                <p>{project.body}</p>
+              </div>
+            </div>
+
+            {project.image && (
+              <figure class="research-figure">
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt}
+                  width={1200}
+                  height={560}
+                  class={cn(
+                    'research-figure-image',
+                    project.wideFigure ? 'is-wide' : 'is-contained',
+                  )}
+                />
+                {project.imageCaption && (
+                  <figcaption>
+                    {project.imageCaption}
+                  </figcaption>
+                )}
+              </figure>
+            )}
+          </article>
+        ))}
+    </section>
+  </section>
+</Layout>
+
+<style>
+  .research-page,
+  .research-intro,
+  .research-projects,
+  .research-project-copy {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .research-page {
+    gap: var(--space-m);
+  }
+
+  .research-intro {
+    gap: var(--space-m);
+  }
+
+  .research-project-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .research-button {
+    gap: var(--space-2xs);
+  }
+
+  .research-projects {
+    gap: var(--space-l);
+  }
+
+  .research-projects > h2 {
+    margin: 0;
+    font-size: var(--step-2);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .research-project {
+    display: grid;
+    gap: var(--space-l);
+    border-top: 1px solid var(--border);
+    padding-block-start: var(--space-l);
+  }
+
+  .research-project-copy {
+    gap: var(--space-s);
+  }
+
+  .research-project-copy h3 {
+    margin: 0;
+    font-size: var(--step-2);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .research-highlight {
+    display: flex;
+    align-self: stretch;
+    gap: var(--space-xs);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background-color: color-mix(in oklab, var(--secondary) 40%, transparent);
+    padding: var(--space-xs);
+    font-size: var(--step--1);
+  }
+
+  .research-highlight-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    margin-block-start: 0.125rem;
+  }
+
+  .research-highlight-title {
+    font-weight: var(--font-weight-medium);
+  }
+
+  .research-highlight-body {
+    color: var(--muted-foreground);
+  }
+
+  .research-figure {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background-color: white;
+    padding: var(--space-s);
+    text-align: center;
+  }
+
+  .research-figure-image {
+    width: 100%;
+    height: auto;
+    margin-inline: auto;
+    object-fit: contain;
+  }
+
+  .research-figure-image.is-contained {
+    max-height: 20rem;
+  }
+
+  .research-figure figcaption {
+    max-width: 24rem;
+    margin-block-start: var(--space-xs);
+    color: var(--muted-foreground);
+    font-size: var(--step--1);
+  }
+</style>

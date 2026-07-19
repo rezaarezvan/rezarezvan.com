@@ -1,0 +1,91 @@
+---
+import Icon from '@/components/Icon.astro'
+---
+
+<button
+  type="button"
+  id="theme-toggle"
+  data-icon-button
+  aria-label="Toggle theme"
+  title="Toggle theme"
+>
+  <span class="theme-icon theme-icon-light"><Icon name="sun" /></span>
+  <span class="theme-icon theme-icon-dark"><Icon name="moon" /></span>
+  <span class="sr-only">Toggle theme</span>
+</button>
+
+<style>
+  #theme-toggle {
+    color: inherit;
+  }
+
+  .theme-icon {
+    display: inline-flex;
+  }
+
+  .theme-icon-dark {
+    display: none;
+  }
+
+  :global(:root[data-theme="dark"]) .theme-icon-light {
+    display: none;
+  }
+
+  :global(:root[data-theme="dark"]) .theme-icon-dark {
+    display: inline-flex;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme])) .theme-icon-light {
+      display: none;
+    }
+
+    :global(:root:not([data-theme])) .theme-icon-dark {
+      display: inline-flex;
+    }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<script is:inline>
+  ;(() => {
+    const theme = (() => {
+      const localStorageTheme = localStorage?.getItem('theme') ?? ''
+      if (['dark', 'light'].includes(localStorageTheme)) {
+        return localStorageTheme
+      }
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark'
+      }
+      return 'light'
+    })()
+
+    document.documentElement.setAttribute('data-theme', theme)
+    window.localStorage.setItem('theme', theme)
+  })()
+</script>
+
+<script>
+  function handleToggleClick() {
+    const element = document.documentElement
+    const currentTheme = element.getAttribute('data-theme')
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+    element.setAttribute('data-theme', newTheme)
+    localStorage.setItem('theme', newTheme)
+  }
+
+  document
+    .getElementById('theme-toggle')
+    ?.addEventListener('click', handleToggleClick)
+</script>
