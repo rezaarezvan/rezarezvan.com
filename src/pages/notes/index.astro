@@ -67,6 +67,7 @@ const levels = [
 
   <section class="notes-page" data-pagefind-ignore>
     <header class="notes-head">
+      <h1>Lecture Notes</h1>
       <p>
         Lecture notes from my studies at Chalmers and City University of Hong
         Kong.
@@ -151,15 +152,26 @@ const levels = [
 </Layout>
 
 <style>
+  .notes-head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+  }
+
+  .notes-head h1,
   .notes-head p,
-  .notes-level-description,
-  .notes-empty p {
+  .notes-year {
     margin: 0;
   }
 
-  .notes-head p,
-  .notes-empty p {
-    font-size: var(--step-1);
+  .notes-head h1 {
+    font-size: var(--step-3);
+    font-weight: var(--font-weight-normal);
+  }
+
+  .notes-head p {
+    color: var(--prose-foreground);
+    font-size: var(--step-0);
   }
 
   .notes-level {

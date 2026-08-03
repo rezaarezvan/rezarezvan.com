@@ -20,7 +20,14 @@ const projects = [
     highlight: null,
     wideFigure: false,
     body: 'My MSc thesis studied active feature acquisition as sequential decision-making under costly and missing information. We developed AFABench as a modular evaluation framework and extended the AFA POMDP to missing data during training, showing how missing data can distort both beliefs and the acquisition routes a policy learns to value.',
-    links: [],
+    links: [
+      {
+        href: 'https://odr.chalmers.se/items/998015d3-6673-44db-b73a-47c46421b7c3',
+        label: 'Thesis',
+        icon: 'lucide:file-text',
+        external: true,
+      },
+    ],
   },
   {
     title:
@@ -138,7 +145,7 @@ const projects = [
     <section class="research-intro">
       <div class="prose">
         <p>
-          I am primarily interested in (multi-agent) sequential decision-making
+          I am primarily interested in multi-agent sequential decision-making
           and reinforcement learning. I want to understand how systems can learn
           from experience, plan ahead, and reason about the consequences of
           actions in realistic settings with partial observability, uncertainty,
