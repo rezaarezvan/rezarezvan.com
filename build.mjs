@@ -18,6 +18,7 @@ function run(command, args) {
 
 try {
   run('node', ['scripts/check-equation-references.mjs'])
+  run('npx', ['astro', 'check', '--minimumSeverity', 'error'])
   run('npx', ['astro', 'build', '--outDir', outputDir])
 
   run('node', ['scripts/check-rendered-markdown.mjs', outputDir])
