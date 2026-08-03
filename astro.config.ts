@@ -7,8 +7,9 @@ import { calloutDirectives } from './src/lib/markdown/callouts'
 import { equationNumbering } from './src/lib/markdown/equations'
 import { externalLinks } from './src/lib/markdown/external-links'
 import { figures } from './src/lib/markdown/figures'
+import { footnotes } from './src/lib/markdown/footnotes'
 import { headingAnchors } from './src/lib/markdown/heading-anchors'
-import { marginNotes } from './src/lib/markdown/margin-notes'
+import { headingIds } from './src/lib/markdown/heading-ids'
 import { katexMath } from './src/lib/markdown/math'
 import { crossReferences } from './src/lib/markdown/references'
 import { tableDirectives } from './src/lib/markdown/tables'
@@ -34,12 +35,13 @@ export default defineConfig({
     processor: satteri({
       features: { directive: true, math: true },
       mdastPlugins: [
+        headingIds,
+        footnotes,
         calloutDirectives,
         tableDirectives,
         inlineExpressiveCode,
         equationNumbering,
         katexMath,
-        marginNotes,
         crossReferences,
       ],
       hastPlugins: [

@@ -19,6 +19,7 @@ import {
 import { getLastRevision } from '@/lib/modified-time'
 import { containsMath, hasInlineMath } from '@/lib/math-utils'
 import { formatDate } from '@/lib/utils'
+import '@/styles/annotations.css'
 import { render } from 'astro:content'
 export async function getStaticPaths() {
   const essays = await getAllEssays()
@@ -54,6 +55,8 @@ const postReadingTime = getEssayReadingTime(post)
         slot="table-of-contents"
         headings={headings}
         source={post.body}
+        title={post.data.title}
+        readingTime={postReadingTime}
       />
     )}
 
@@ -113,6 +116,6 @@ const postReadingTime = getEssayReadingTime(post)
   <ScrollToTop />
 
   <script>
-    import '@/scripts/sidenotes'
+    import '@/scripts/annotations'
   </script>
 </Layout>

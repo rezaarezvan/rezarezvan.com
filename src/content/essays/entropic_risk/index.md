@@ -128,6 +128,7 @@ At the largest tested budget of 1,600 transition samples, the empirical model re
 | $\beta = 0$ | $100.0\%$ |
 | $\beta = 1$ | $99.9\%$ |
 | $\beta = 1.25$ | $99.3\%$ |
+
 :::
 
 As per @tbl:exact-policy-recovery, the runs reproduce the qualitative behavior reported in the paper.
@@ -209,6 +210,7 @@ Results are averaged over 100 independent runs.
 | $\beta = 0$ | $6{,}400$ transitions |
 | $\beta = 1$ | $25{,}600$ transitions |
 | $\beta = 1.25$ | $25{,}600$ transitions |
+
 :::
 
 As per @tbl:model-free-budget, the model-free learner required a larger sample budget than the model-based method to achieve exact optimal-policy recovery.

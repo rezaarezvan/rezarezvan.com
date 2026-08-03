@@ -1,0 +1,210 @@
+/* Rich previews for ordinary footnotes and scientific citations. Canonical
+   endnotes and bibliography entries remain in the document as the fallback. */
+.prose :is(a[data-footnote-ref], a[data-citation-ref]) {
+  border-radius: var(--radius-sm);
+  box-decoration-break: clone;
+  text-decoration: none;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+/* Ordinary footnote numbers are compact boxed annotations. The persistent
+   outline distinguishes them from scientific citations before interaction. */
+.prose a[data-footnote-ref] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 1.55em;
+  block-size: 1.55em;
+  padding-inline: 0.28em;
+  color: var(--muted-foreground);
+  background: transparent;
+  border: 1px solid transparent;
+  font-weight: var(--font-weight-medium);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.prose a[data-footnote-ref]::before {
+  content: '[';
+}
+
+.prose a[data-footnote-ref]::after {
+  content: ']';
+}
+
+.prose :is(a[data-footnote-ref], a[data-citation-ref]):is(
+    :hover,
+    :focus-visible,
+    [data-annotation-active],
+    [data-sidenote-active]
+  ) {
+  color: var(--foreground);
+  background-color: var(--secondary);
+}
+
+.prose a[data-footnote-ref]:is(
+    :hover,
+    :focus-visible,
+    [data-annotation-active],
+    [data-sidenote-active]
+  ) {
+  border-color: var(--foreground);
+}
+
+.annotation-preview {
+  z-index: 80;
+  width: min(22rem, calc(100vw - 2 * var(--space-s)));
+  max-height: min(24rem, calc(100vh - 2 * var(--space-s)));
+  overflow: auto;
+  padding: var(--space-xs) var(--space-s);
+  color: var(--foreground);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--step--1);
+  line-height: 1.5;
+  text-align: start;
+}
+
+.annotation-preview[hidden] {
+  display: none;
+}
+
+.annotation-preview[data-preview-mode='floating'] {
+  position: fixed;
+  inset-block-start: var(--annotation-top);
+  inset-inline-start: var(--annotation-left);
+}
+
+.annotation-preview[data-preview-mode='inline'] {
+  position: relative;
+  width: 100%;
+  max-height: none;
+  margin-block: var(--space-xs);
+  box-shadow: none;
+}
+
+.annotation-preview-body > :first-child {
+  margin-block-start: 0;
+}
+
+.annotation-preview-body > :last-child {
+  margin-block-end: 0;
+}
+
+.annotation-preview-jump {
+  display: inline-block;
+  margin-block-start: var(--space-xs);
+  font-size: 0.9em;
+  font-weight: var(--font-weight-medium);
+  color: var(--muted-foreground);
+}
+
+.prose .footnotes li:target,
+.prose .references li:target {
+  background-color: var(--secondary);
+}
+
+/* Wide reading layouts mirror canonical footnotes into the right margin. */
+.footnote-sidenote {
+  display: none;
+}
+
+@media (min-width: 80rem) {
+  .prose[data-footnotes-ready] {
+    position: relative;
+    margin-block-end: var(--footnote-overflow, 0px);
+  }
+
+  .prose[data-footnotes-ready] .footnote-sidenote {
+    position: absolute;
+    inset-block-start: var(--footnote-top, 0px);
+    inset-inline-start: calc(100% + var(--space-m));
+    display: grid;
+    width: 15rem;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 0.45rem;
+    margin: 0;
+    padding: 0.25rem 0.35rem;
+    color: color-mix(in oklab, var(--foreground) 68%, transparent);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    transition: color 0.15s ease;
+    border-radius: var(--radius-xs);
+  }
+
+  .footnote-sidenote-number {
+    grid-column: 1;
+    color: var(--muted-foreground);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .footnote-sidenote-body {
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  .footnote-sidenote-body[data-collapsed]:not([data-expanded]) {
+    max-height: 14.5em;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+  }
+
+  .footnote-sidenote-body > :first-child {
+    margin-block-start: 0;
+  }
+
+  .footnote-sidenote-body > :last-child {
+    margin-block-end: 0;
+  }
+
+  .footnote-sidenote-more {
+    grid-column: 2;
+    justify-self: start;
+    margin-block-start: 0.25rem;
+    padding: 0;
+    color: var(--muted-foreground);
+    background: none;
+    border: 0;
+    font: inherit;
+    font-weight: var(--font-weight-medium);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  .footnote-sidenote-more:hover {
+    color: var(--foreground);
+    text-decoration-color: currentColor;
+  }
+
+  .footnote-sidenote:is([data-active], [data-current]) {
+    color: var(--foreground);
+  }
+
+  .footnote-sidenote[data-active] {
+    background: var(--secondary);
+  }
+
+  .footnote-sidenote[data-active] .footnote-sidenote-number {
+    color: var(--foreground);
+  }
+}
+
+@media print {
+  .footnote-sidenote {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prose :is(a[data-footnote-ref], a[data-citation-ref]),
+  .footnote-sidenote {
+    transition: none;
+  }
+}

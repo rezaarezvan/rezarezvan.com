@@ -35,6 +35,7 @@ These are the notations that we will use, there is no need to go through them th
 |  $\mathbf{X}$  | Input Space |
 |  $\mathbf{Y}$  | Output Space |
 |  $\| \mathbf{Y} \|$  | Number of Classes in Output Space |
+
 :::
 
 ## What, Why, and How?
@@ -1449,3 +1450,4 @@ I will leave the derivation as an exercise for you, but the assumption is that o
 [^8]: [Wikipedia, Lagrangian](https://en.wikipedia.org/wiki/Lagrangian)
 [^9]: [Wikipedia, Quadratic Programming](https://en.wikipedia.org/wiki/Quadratic_programming)
 [^10]: [Sequential Minimal Optimization](https://en.wikipedia.org/wiki/Sequential_minimal_optimization)
+[^11]: [Wikipedia, Mathematical optimization](https://en.wikipedia.org/wiki/Mathematical_optimization)

@@ -8,10 +8,10 @@ I am grateful to have had the opportunity to meet all the brilliant and kind peo
 
 ---
 
-I still remember the first statistics lecture I had with Moritz. His enthusiasm for the subject was contagious, and it sparked my interest in understanding the (un)certainty::margin[[An exact science to make sense of an uncertain and inexact world ❤️](https://x.com/MoritzSchauer/status/1778091483226128700)] of the world:).
+I still remember the first statistics lecture I had with Moritz. His enthusiasm for the subject was contagious, and it sparked my interest in understanding the (un)certainty[^note-1] of the world:).
 I will be forever grateful that he believed in my crazy (and perhaps too complex:)) idea for a bachelor's thesis, truly the catalyst for my interest in research and academia.
 
-To this day, I still feel lucky that I got the opportunity to work with Richard::margin[Essentially going against [this](https://torkar.github.io/phd.html)] and Moritz on what would become the foundation of my research interests and skills.
+To this day, I still feel lucky that I got the opportunity to work with Richard[^note-2] and Moritz on what would become the foundation of my research interests and skills.
 
 The work with Richard and Moritz also led me to the opportunity to work with Simon and the AIMLeNS group.
 I simply wish we had more time to work on `SemlaITO`:), summers are short!
@@ -54,3 +54,6 @@ I hope that by sharing my journey, I can inspire others to follow their passions
 I am excited to start this new chapter in my life and I hope to make the most out of it.
 
 ![Little Reza with a moose:).](./imgs/lilreza2.png)
+
+[^note-1]: [An exact science to make sense of an uncertain and inexact world ❤️](https://x.com/MoritzSchauer/status/1778091483226128700)
+[^note-2]: Essentially going against [this](https://torkar.github.io/phd.html)

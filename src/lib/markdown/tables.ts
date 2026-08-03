@@ -1,6 +1,5 @@
-import type { Html, Paragraph } from 'mdast'
+import type { Paragraph } from 'mdast'
 import { defineMdastPlugin } from 'satteri'
-import { renderLabelNodes } from './callouts'
 
 type DirectiveNode = {
   type: string
@@ -9,7 +8,7 @@ type DirectiveNode = {
   children?: unknown[]
 }
 
-function captionFromLabel(node: DirectiveNode): string | null {
+function labelFromDirective(node: DirectiveNode): Paragraph | null {
   if (!Array.isArray(node.children)) return null
 
   const first = node.children[0] as Paragraph | undefined
@@ -18,8 +17,7 @@ function captionFromLabel(node: DirectiveNode): string | null {
     (first.data as { directiveLabel?: boolean } | undefined)?.directiveLabel ===
       true
 
-  if (!isLabel || !Array.isArray(first.children)) return null
-  return renderLabelNodes(first.children)
+  return isLabel ? first : null
 }
 
 type MaybeNode = { type?: string; children?: unknown[]; value?: unknown }
@@ -78,10 +76,7 @@ export function tableDirectives() {
     containerDirective(node, ctx) {
       if (node.name.toLowerCase() !== 'table') return
 
-      const caption = captionFromLabel(node as DirectiveNode)
-      if (caption !== null && Array.isArray(node.children)) {
-        ctx.removeNode(node.children[0])
-      }
+      const label = labelFromDirective(node as DirectiveNode)
 
       stripFenceArtifactRow(node as DirectiveNode, ctx)
 
@@ -93,12 +88,18 @@ export function tableDirectives() {
         typeof node.attributes?.id === 'string' ? node.attributes.id : null
       const id = rawId ? `tbl:${rawId}` : `tbl-${number}`
 
-      const figcaption: Html = {
-        type: 'html',
-        value: `<figcaption><span class="table-number">Table ${number}:</span> ${caption ?? ''}</figcaption>`,
+      if (label) {
+        ctx.setProperty(label, 'data', { hName: 'figcaption' } as never)
+        ctx.prependChild(label, {
+          type: 'html',
+          value: `<span class="table-number">Table ${number}:</span> `,
+        })
+      } else {
+        ctx.prependChild(node, {
+          type: 'html',
+          value: `<figcaption><span class="table-number">Table ${number}:</span></figcaption>`,
+        })
       }
-      // Caption above the table (ML-paper convention).
-      ctx.prependChild(node, figcaption)
 
       ctx.setProperty(node, 'data', {
         hName: 'figure',

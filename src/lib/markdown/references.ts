@@ -248,7 +248,7 @@ function refAnchor(prefix: string, entry: RefEntry): Html {
   if (prefix === 'cite') {
     return {
       type: 'html',
-      value: `<sup class="cite"><a href="#${escapeAttr(entry.id)}">${entry.number}</a></sup>`,
+      value: `<sup class="cite"><a href="#${escapeAttr(entry.id)}" data-citation-ref aria-label="Scientific reference ${entry.number}">${entry.number}</a></sup>`,
     }
   }
 

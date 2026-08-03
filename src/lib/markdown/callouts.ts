@@ -1,16 +1,5 @@
-import type {
-  Delete,
-  Emphasis,
-  Html,
-  InlineCode,
-  Link,
-  Paragraph,
-  PhrasingContent,
-  Strong,
-} from 'mdast'
+import type { Html, Paragraph } from 'mdast'
 import { defineMdastPlugin } from 'satteri'
-import { decodeHTML } from 'entities'
-import katex from 'katex'
 import type { MdastNode } from 'satteri'
 import { icon } from './icons'
 import { THEOREM_TYPES } from './references'
@@ -70,76 +59,19 @@ function capitalize(value: string): string {
   return value.charAt(0).toUpperCase() + value.slice(1)
 }
 
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-}
-
-function renderInline(nodes: PhrasingContent[]): string {
-  return nodes.map(renderInlineNode).join('')
-}
-
-function renderInlineNode(node: PhrasingContent): string {
-  const maybeValueNode = node as PhrasingContent & { value?: unknown }
-
-  if (node.type === 'inlineMath' && typeof maybeValueNode.value === 'string') {
-    return katex.renderToString(maybeValueNode.value, {
-      strict: 'ignore',
-      throwOnError: false,
-    })
-  }
-
-  switch (node.type) {
-    case 'text':
-      return escapeHtml(node.value)
-    case 'html':
-      return node.value
-    case 'inlineCode':
-      return `<code>${escapeHtml((node as InlineCode).value)}</code>`
-    case 'emphasis':
-      return `<em>${renderInline((node as Emphasis).children)}</em>`
-    case 'strong':
-      return `<strong>${renderInline((node as Strong).children)}</strong>`
-    case 'delete':
-      return `<del>${renderInline((node as Delete).children)}</del>`
-    case 'link': {
-      const link = node as Link
-      const title = link.title ? ` title="${escapeHtml(link.title)}"` : ''
-      return `<a href="${escapeHtml(link.url)}"${title}>${renderInline(link.children)}</a>`
-    }
-    case 'break':
-      return '<br />'
-    default: {
-      return escapeHtml(
-        typeof maybeValueNode.value === 'undefined'
-          ? ''
-          : String(maybeValueNode.value),
-      )
-    }
-  }
-}
-
-function summaryHtmlRaw(
-  type: string,
-  labelHtml: string | null,
-  number: number | null,
-): Html {
+function summaryHtmlRaw(type: string, number: number | null): Html {
   // Theorem-like callouts render their proper word + auto number (e.g.
   // "Definition 3"); others just capitalize the type name.
   const theorem = THEOREM_TYPES[type]
   const heading = theorem ? theorem.word : capitalize(type)
   const main = number !== null ? `${heading} ${number}` : heading
-  const title = labelHtml ? `${main} <span>(${labelHtml})</span>` : main
 
   return {
     type: 'html',
     value: [
       '<summary>',
       icon(calloutConfig[type]?.icon ?? 'info'),
-      `<span>${title}</span>`,
+      `<span>${main}</span>`,
       icon('chevron-down'),
       '</summary>',
     ].join(''),
@@ -158,82 +90,7 @@ function detailsData(type: string, open: boolean, id: string | null) {
   }
 }
 
-// Satteri parses a directive label (`:::type[label]`) only minimally: `` `code` ``
-// becomes an `inlineCode` node, but `*emph*`/`**strong**`, `$…$` math, HTML
-// entities, and smartypants typography all stay as raw `text`. The legacy
-// blockquote path got full inline Markdown for free, so to keep labels lossless
-// across the migration we replicate those text transforms ourselves on each
-// `text` node, while non-text nodes (code, links) render via `renderInlineNode`.
-
-// Educated punctuation matching Satteri's body-text smartypants so labels read
-// identically to the legacy callouts (en/em dashes, curly quotes, ellipsis).
-function smartypants(text: string): string {
-  return text
-    .replace(/---/g, '—')
-    .replace(/--/g, '–')
-    .replace(/\.\.\./g, '…')
-    .replace(/"(?=\S)/g, '“')
-    .replace(/"/g, '”')
-    .replace(/(?<=[\p{L}\p{N}.,!?])'/gu, '’')
-    .replace(/'(?=\S)/g, '‘')
-    .replace(/'/g, '’')
-}
-
-// Decode entities + smartypants, then tokenize `**strong**` / `*emph*` / `_em_`,
-// HTML-escaping the literal remainder.
-function renderLabelMarkup(text: string): string {
-  const value = smartypants(decodeHTML(text))
-  let out = ''
-  let index = 0
-  while (index < value.length) {
-    if (value.startsWith('**', index)) {
-      const end = value.indexOf('**', index + 2)
-      if (end !== -1) {
-        out += `<strong>${escapeHtml(value.slice(index + 2, end))}</strong>`
-        index = end + 2
-        continue
-      }
-    }
-    const char = value[index]
-    if (char === '*' || char === '_') {
-      const end = value.indexOf(char, index + 1)
-      if (end !== -1) {
-        out += `<em>${escapeHtml(value.slice(index + 1, end))}</em>`
-        index = end + 1
-        continue
-      }
-    }
-    out += escapeHtml(char)
-    index += 1
-  }
-  return out
-}
-
-function renderLabelTextWithMath(value: string): string {
-  return value
-    .split(/(\$[^$]*\$)/g)
-    .map((part) =>
-      part.length > 1 && part.startsWith('$') && part.endsWith('$')
-        ? katex.renderToString(part.slice(1, -1), {
-            strict: 'ignore',
-            throwOnError: false,
-          })
-        : renderLabelMarkup(part),
-    )
-    .join('')
-}
-
-export function renderLabelNodes(nodes: PhrasingContent[]): string {
-  return nodes
-    .map((node) =>
-      node.type === 'text'
-        ? renderLabelTextWithMath(node.value)
-        : renderInlineNode(node),
-    )
-    .join('')
-}
-
-function getDirectiveLabelHtml(node: Readonly<DirectiveNode>): string | null {
+function getDirectiveLabel(node: Readonly<DirectiveNode>): Paragraph | null {
   if (!Array.isArray(node.children)) return null
 
   const first = node.children[0] as Paragraph | undefined
@@ -242,10 +99,7 @@ function getDirectiveLabelHtml(node: Readonly<DirectiveNode>): string | null {
     (first.data as { directiveLabel?: boolean } | undefined)?.directiveLabel ===
       true
 
-  if (!isLabel || !Array.isArray(first.children)) return null
-
-  const html = renderLabelNodes(first.children).trim()
-  return html || null
+  return isLabel ? first : null
 }
 
 export function calloutDirectives() {
@@ -260,8 +114,7 @@ export function calloutDirectives() {
       const type = node.name.toLowerCase()
       if (!calloutConfig[type]) return
 
-      const labelHtml = getDirectiveLabelHtml(node)
-      if (labelHtml !== null) ctx.removeNode(node.children[0])
+      const label = getDirectiveLabel(node)
 
       const closed = !!node.attributes && 'closed' in node.attributes
       const open = !closed && !calloutConfig[type]?.defaultClosed
@@ -281,7 +134,22 @@ export function calloutDirectives() {
       const id =
         typeof node.attributes?.id === 'string' ? node.attributes.id : null
 
-      ctx.prependChild(node, summaryHtmlRaw(type, labelHtml, number))
+      if (label) {
+        const theorem = THEOREM_TYPES[type]
+        const heading = theorem ? theorem.word : capitalize(type)
+        const main = number !== null ? `${heading} ${number}` : heading
+        ctx.setProperty(label, 'data', { hName: 'summary' } as never)
+        ctx.prependChild(label, {
+          type: 'html',
+          value: `${icon(calloutConfig[type]?.icon ?? 'info')}<span>${main}<span> (`,
+        })
+        ctx.appendChild(label, {
+          type: 'html',
+          value: `)</span></span>${icon('chevron-down')}`,
+        })
+      } else {
+        ctx.prependChild(node, summaryHtmlRaw(type, number))
+      }
       ctx.setProperty(node, 'data', detailsData(type, open, id) as never)
     },
   })

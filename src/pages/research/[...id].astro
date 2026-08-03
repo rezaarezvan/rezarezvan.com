@@ -14,8 +14,14 @@ import { getLastRevision } from '@/lib/modified-time'
 import { containsMath, hasInlineMath } from '@/lib/math-utils'
 import Layout from '@/layouts/Layout.astro'
 import { getAllPublications } from '@/lib/research-utils'
-import { cn, formatDate } from '@/lib/utils'
+import {
+  calculateWordCountFromHtml,
+  cn,
+  formatDate,
+  readingTime,
+} from '@/lib/utils'
 import Icon from '@/components/Icon.astro'
+import '@/styles/annotations.css'
 import { render } from 'astro:content'
 
 export async function getStaticPaths() {
@@ -33,6 +39,9 @@ const revised = getLastRevision(
   'research',
   publicationId,
   publication.data.date,
+)
+const publicationReadingTime = readingTime(
+  calculateWordCountFromHtml(publication.body),
 )
 
 const formatAuthors = (
@@ -99,6 +108,8 @@ if (publication.data.authorNotes) {
         slot="table-of-contents"
         headings={headings}
         source={publication.body}
+        title={publication.data.title}
+        readingTime={publicationReadingTime}
       />
     )}
   <section class="post-grid">
@@ -219,6 +230,10 @@ if (publication.data.authorNotes) {
   </section>
 
   <ScrollToTop />
+
+  <script>
+    import '@/scripts/annotations'
+  </script>
 
   <style>
     .publication-hero-body {

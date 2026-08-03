@@ -29,7 +29,7 @@ function cloneElement(node: Readonly<Element>): Element {
 // `<figure>` with a `<figcaption>`. When the image title is a `fig:` label the
 // figure gets that id so `@fig:` cross-references (see references.ts) can link
 // to it; the visible "Figure N:" prefix is added via CSS counters
-// (src/styles/sidenotes.css).
+// (src/styles/academic.css).
 export function figures() {
   return defineHastPlugin({
     name: 'figures',

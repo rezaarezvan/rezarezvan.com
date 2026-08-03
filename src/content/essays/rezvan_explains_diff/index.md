@@ -23,7 +23,7 @@ $$
 \frac{d\mathbf{x}(t)}{dt} = \mathbf{f}(\mathbf{x}(t), t), \quad \mathbf{x}(0) = \mathbf x_0,
 $$
 
-where $\mathbf{x}(t) \in \mathbb{R}^d$ represents the state of the system at time $t$ ::margin[Here state refers to the system's variables at a given time, such as position, velocity, etc.], $\mathbf{f}: \mathbb{R}^d \times [0,T] \mapsto \mathbb{R}^d$ is the velocity field guiding the evolution, and $\mathbf x_0$ is the initial condition. Solutions to this equation yield deterministic trajectories through state space.
+where $\mathbf{x}(t) \in \mathbb{R}^d$ represents the state of the system at time $t$ [^note-1], $\mathbf{f}: \mathbb{R}^d \times [0,T] \mapsto \mathbb{R}^d$ is the velocity field guiding the evolution, and $\mathbf x_0$ is the initial condition. Solutions to this equation yield deterministic trajectories through state space.
 
 ![Two examples of ODEs](./imgs/deterministic_ODE.svg)
 
@@ -64,7 +64,7 @@ But how do we solve these integrals?
 To understand how we can integrate random functions/sequences, let's quickly recap the basics for convergence, continuity, differentiability, and Riemann integrals.
 
 :::definition[Continuity]
-A function $f(x)$ is continuous at $a$ if $\lim_{x \to a} f(x) = f(a)$. ::margin[This is a very basic definition of continuity, we could introduce the formal definition from real analysis, but we can sacrifice some rigor here to save us some time :).]
+A function $f(x)$ is continuous at $a$ if $\lim_{x \to a} f(x) = f(a)$. [^note-2]
 :::
 
 :::definition[Differentiability]
@@ -113,7 +113,7 @@ Now, take some time and think about some possible ways to define convergence for
 ::::exercise[Convergence of random variables]
 A few (decently) intuitive ways are,
 :::answer
-The sequence of random variables $x_n$ is said to converge to $x$ ::margin[Here we will write the proper notation for our random variables for some definitions, $x_n(\omega)$, where $\omega$ is the sample space.],
+The sequence of random variables $x_n$ is said to converge to $x$ [^note-3],
 - **with probability 1 (almost surely)** if,
 $$
 Pr[\lim_{n \to \infty} x_n(\omega) = x(\omega)] = 1.
@@ -263,7 +263,7 @@ Now that we understand the properties of Brownian motion, let's see what happens
 
 Let's first recall the definition of the Riemann integral,
 :::definition[Riemann integral]
-If the limit exists, and is the same for any $t^{\star}_i \in [t_i, t_{i+1}]$, the Riemann integral is defined as ::margin[A quick technical note: for Brownian increments we are really talking about a Riemann-Stieltjes integral setup.],
+If the limit exists, and is the same for any $t^{\star}_i \in [t_i, t_{i+1}]$, the Riemann integral is defined as [^note-4],
 $$
 \int_{a}^{b} f(t) \ dt \triangleq \lim_{\substack{n \to \infty \newline |P| \to 0}} \sum_{i=0}^{n-1} (t_{i+1} - t_i) f(t^{\star}_i).
 $$
@@ -1111,7 +1111,7 @@ $$
 \nabla_{\mathbf{x}} \log p(\mathbf{x}(t), t)
 $$
 
-is known as the **score function** ::margin[The score is the gradient of the log-density, so it points toward increasing probability mass.] and is the basis for **score-based generative models**.
+is known as the **score function** [^note-5] and is the basis for **score-based generative models**.
 In words, the score tells us which direction increases density the fastest, so it is exactly the correction term we need when we try to run a noising process backward.
 
 ### Reverse-Time Euler-Maruyama Method
@@ -1363,7 +1363,7 @@ Our **goal** is to, given $\mathbf{x}(0) \sim p_{\text{init}}(\mathbf{x}(0))$, m
 $\sigma_t = 0$ **Flow model**: The SDE is reduced to an ODE (e.g., Flow Matching).
 $\sigma_t \neq 0$ **Diffusion model**: The SDE is a stochastic process (e.g., Denoising Diffusion Probabilistic Models).
 
-The useful mental model is that both families choose a probability path $p_t$ between noise and data ::margin[Think of $p_t$ as a movie of distributions, each $t$ is one frame.].
+The useful mental model is that both families choose a probability path $p_t$ between noise and data [^note-6].
 The main difference is whether we follow that path with an ODE or with an SDE.
 :::
 
@@ -1401,7 +1401,7 @@ $$
 p_0(\cdot | \mathbf{z}) = p_{\text{init}}(\cdot) \text{ and } p_1(\cdot | \mathbf{z}) = \delta_{\mathbf{z}}(\cdot) \text{ for all } \mathbf{z} \in \mathbb{R}^d.
 $$
 
-Such a path $p_t(\cdot | \mathbf{z})$ is called a **conditional probability path** ::margin[Each path is conditioned on a target sample $\mathbf{z}$, so it describes how noise morphs into that specific endpoint.].
+Such a path $p_t(\cdot | \mathbf{z})$ is called a **conditional probability path** [^note-7].
 
 #### Step 2: Marginalization
 Each conditional path induces a **marginal probability path**,
@@ -1670,7 +1670,7 @@ At this point, the big picture is hopefully clearer, denoising diffusion, score 
 They are three ways of describing the same transport problem.
 
 ### Doob's $h$-transform gives the reverse drift
-One of the nicest conceptual connections from the course is that the reverse diffusion drift has the same structure as Doob's $h$-transform ::margin[The $h$-transform is the classical way to turn an unconditional diffusion into a bridge conditioned on future information.].
+One of the nicest conceptual connections from the course is that the reverse diffusion drift has the same structure as Doob's $h$-transform [^note-8].
 If we condition a forward process to end up in the right place, we add a drift correction of the form $L^2 \nabla \log h$.
 That is exactly the same kind of correction term that appears in the reverse SDE, where the score $\nabla \log p_t$ pushes noisy samples back toward regions of high data density.
 
@@ -1727,3 +1727,12 @@ At the sampler level, the same unification shows up again, DDIM is diffusion wit
 Diffusion keeps the stochasticity.
 Flow matching sets it to zero.
 Score matching learns the field that lets you move between the two descriptions.
+
+[^note-1]: Here state refers to the system's variables at a given time, such as position, velocity, etc.
+[^note-2]: This is a very basic definition of continuity, we could introduce the formal definition from real analysis, but we can sacrifice some rigor here to save us some time :).
+[^note-3]: Here we will write the proper notation for our random variables for some definitions, $x_n(\omega)$, where $\omega$ is the sample space.
+[^note-4]: A quick technical note: for Brownian increments we are really talking about a Riemann-Stieltjes integral setup.
+[^note-5]: The score is the gradient of the log-density, so it points toward increasing probability mass.
+[^note-6]: Think of $p_t$ as a movie of distributions, each $t$ is one frame.
+[^note-7]: Each path is conditioned on a target sample $\mathbf{z}$, so it describes how noise morphs into that specific endpoint.
+[^note-8]: The $h$-transform is the classical way to turn an unconditional diffusion into a bridge conditioned on future information.

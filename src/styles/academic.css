@@ -44,13 +44,13 @@
 
   /* Citations and the generated references list. */
   .cite {
-    color: var(--primary);
+    color: var(--muted-foreground);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
   }
 
   .cite:hover {
-    text-decoration: underline;
+    color: var(--foreground);
   }
 
   .references {
@@ -69,4 +69,59 @@
     font-size: var(--step--1);
     font-variant-numeric: lining-nums tabular-nums;
   }
+}
+
+/* Figures share one document counter across nested sections. */
+article,
+.prose {
+  counter-reset: figure;
+}
+
+section {
+  counter-reset: none !important;
+}
+
+.research-projects {
+  counter-reset: figure !important;
+}
+
+.research-projects article {
+  counter-reset: none !important;
+}
+
+.prose .astro-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block: 2rem;
+  counter-increment: figure;
+}
+
+/* Museum mount: theme-aware paper with a restrained gilt inner rule. */
+.prose .astro-figure img {
+  max-width: 100%;
+  height: auto;
+  padding: var(--space-s);
+  background-color: light-dark(#fbf8f0, #211e18);
+  border: 1px solid var(--gray-7);
+  outline: 1px solid color-mix(in oklab, var(--gold-9) 35%, transparent);
+  outline-offset: -5px;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-sm);
+}
+
+.prose .astro-figure figcaption {
+  margin-block-start: 0.5rem;
+  color: var(--muted-foreground);
+  font-size: var(--step--1);
+  font-style: italic;
+  text-align: center;
+}
+
+.prose .astro-figure figcaption::before {
+  content: 'Figure ' counter(figure) ': ';
+  color: var(--primary);
+  font-style: normal;
+  font-weight: var(--font-weight-medium);
+  font-variant-numeric: lining-nums;
 }

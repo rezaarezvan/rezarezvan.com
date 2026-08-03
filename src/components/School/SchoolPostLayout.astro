@@ -20,6 +20,7 @@ import {
 import { getLastModified } from '@/lib/modified-time'
 import { containsMath, hasInlineMath, plainInlineMath } from '@/lib/math-utils'
 import { formatDate, readingTimeSchool } from '@/lib/utils'
+import '@/styles/annotations.css'
 import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 
@@ -42,6 +43,7 @@ const [subjectSlug] = post.id.split('/')
 const subjectName =
   capitalizeWords(post.data.school?.[0] || subjectSlug) || 'Unknown Subject'
 const subjectCode = subjectSlug?.toUpperCase() || ''
+const postReadingTime = readingTimeSchool(post.body || '')
 ---
 
 <Layout
@@ -56,6 +58,8 @@ const subjectCode = subjectSlug?.toUpperCase() || ''
         slot="table-of-contents"
         headings={headings}
         source={post.body}
+        title={post.data.title}
+        readingTime={postReadingTime}
       />
     )}
 
@@ -108,7 +112,7 @@ const subjectCode = subjectSlug?.toUpperCase() || ''
                 </>
               )}
             <Separator orientation="vertical" className="h-4!" />
-            <span>{readingTimeSchool(post.body || '')}</span>
+            <span>{postReadingTime}</span>
           </div>
         </div>
       </div>
@@ -130,7 +134,7 @@ const subjectCode = subjectSlug?.toUpperCase() || ''
   <ScrollToTop />
 
   <script>
-    import '@/scripts/sidenotes'
+    import '@/scripts/annotations'
   </script>
 
   <style>

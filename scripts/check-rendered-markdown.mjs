@@ -60,6 +60,9 @@ function fail(file, check, content = '', index = 0) {
 
 for (const file of files) {
   const content = readFileSync(file, 'utf8')
+  const contentWithoutCode = content
+    .replace(/<pre\b[\s\S]*?<\/pre>/gi, '')
+    .replace(/<code\b[\s\S]*?<\/code>/gi, '')
   aggregate.push(content)
 
   const checks = [
@@ -68,7 +71,16 @@ for (const file of files) {
       pattern:
         /\[!(?:NOTE|TIP|WARNING|CAUTION|IMPORTANT|DEFINITION|AXIOM|NOTATION|THEOREM|LEMMA|COROLLARY|PROPOSITION|CONJECTURE|PROOF|REMARK|INTUITION|RECALL|EXAMPLE|EXPLANATION|EXERCISE|PROBLEM|ANSWER|SOLUTION|SUMMARY|ALGORITHM|DERIVATION)(?:[/\]])/g,
     },
-    { name: 'margin note source leaked', pattern: /::margin\[/g },
+    {
+      name: 'margin note source leaked',
+      pattern: /::margin\[/g,
+      ignoreCode: true,
+    },
+    {
+      name: 'footnote source leaked',
+      pattern: /\[\^[A-Za-z0-9][\w.-]*\]/g,
+      ignoreCode: true,
+    },
     { name: 'KaTeX client rendering leaked', pattern: /renderMathInElement/gi },
     { name: 'KaTeX render error', pattern: /class="katex-error"/g },
     {
@@ -79,12 +91,18 @@ for (const file of files) {
       name: 'unresolved cross-reference leaked',
       pattern:
         /@(?:fig|eq|tbl|thm|def|lem|cor|prop|conj|ax|ex|exer|prob|rem|cite):[A-Za-z0-9][\w.-]*/g,
+      ignoreCode: true,
+    },
+    {
+      name: 'citation is missing its preview hook',
+      pattern: /<sup class="cite"><a(?![^>]*\bdata-citation-ref\b)/g,
     },
   ]
 
   for (const check of checks) {
-    for (const match of content.matchAll(check.pattern)) {
-      fail(file, check.name, content, match.index ?? 0)
+    const checkedContent = check.ignoreCode ? contentWithoutCode : content
+    for (const match of checkedContent.matchAll(check.pattern)) {
+      fail(file, check.name, checkedContent, match.index ?? 0)
     }
   }
 
@@ -98,6 +116,20 @@ for (const file of files) {
     ids.add(id)
   }
   idsByFile.set(file, ids)
+
+  for (const match of content.matchAll(
+    /<h[2-6]\b[^>]*\bid=(?:"([^"]*)"|'([^']*)')[^>]*>/gi,
+  )) {
+    const id = match[1] ?? match[2]
+    if (!id || id.startsWith('-')) {
+      fail(
+        file,
+        `invalid content heading id: #${id}`,
+        content,
+        match.index ?? 0,
+      )
+    }
+  }
 
   const noindex = /<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(
     content,
@@ -184,6 +216,27 @@ const expectations = [
     name: 'figure captions were rendered',
     pattern:
       /<figure class="astro-figure">[\s\S]*<figcaption>[^<]+<\/figcaption>[\s\S]*<\/figure>/,
+  },
+  {
+    name: 'semantic math heading slug was rendered',
+    pattern: /\bid="k-means-clustering"/,
+  },
+  {
+    name: 'ordinary footnotes expose preview targets',
+    pattern: /<a [^>]*\bdata-footnote-ref(?:\s|=|>)/,
+  },
+  {
+    name: 'ordinary footnotes render inside callouts',
+    pattern:
+      /<details[^>]+data-callout=[\s\S]*?<\/summary>[\s\S]*?data-footnote-ref/,
+  },
+  {
+    name: 'canonical footnote sections were rendered',
+    pattern: /<section[^>]+data-footnotes/,
+  },
+  {
+    name: 'scientific citations expose preview targets',
+    pattern: /<a [^>]*\bdata-citation-ref(?:\s|=|>)/,
   },
 ]
 
