@@ -1,5 +1,6 @@
 import { glob } from 'astro/loaders'
-import { defineCollection, z } from 'astro:content'
+import { z } from 'astro/zod'
+import { defineCollection } from 'astro:content'
 
 const essays = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/essays' }),
@@ -81,10 +82,10 @@ const research = defineCollection({
       myName: z.string().default('Reza Rezvan'),
       venue: z.string().optional(),
       venueShort: z.string().optional(),
-      paperUrl: z.string().url().optional(),
-      codeUrl: z.string().url().optional(),
-      datasetUrl: z.string().url().optional(),
-      doiUrl: z.string().url().optional(),
+      paperUrl: z.url().optional(),
+      codeUrl: z.url().optional(),
+      datasetUrl: z.url().optional(),
+      doiUrl: z.url().optional(),
       image: image().optional(),
       draft: z.boolean().optional(),
     }),

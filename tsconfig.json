@@ -5,5 +5,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "exclude": ["prod", "node_modules"]
+  "exclude": ["prod", "node_modules", "dist", ".tmp", ".astro"]
 }
