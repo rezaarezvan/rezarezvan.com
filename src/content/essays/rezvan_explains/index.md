@@ -511,7 +511,7 @@ This is why we have $-1$ and $+1$ as class labels.
 
 Our linear classifier will separate the feature space into 2 half-spaces
 
-![Linear Halfspace Example](linear_halfspace.svg)
+![A hyperplane splits the plane into a positive and a negative halfspace.](linear_halfspace.svg)
 
 In a $N$-dimensional feature space $\mathbf{x} \in \mathbb{R}^N$ our parameters are $\mathbf{w} \in \mathbb{R}^N$.
 
@@ -523,7 +523,7 @@ But how do we find the parameters $(\mathbf{w}, b)$?
 Logistic regression takes a **probabilistic** approach to classification.
 But there's a problem, to take a probabilistic approach we need a function to map the value of $f(\mathbf{x}) = \mathbf{w}^T \mathbf{x} + b$ to a probability value (between 0 and 1).
 
-![Sigmoid function](sigmoid.svg)
+![The sigmoid function, which squashes any real input into the interval (0, 1).](sigmoid.svg)
 
 Luckily, the **sigmoid function** maps any real-value to $[0, 1]$. It is defined as,
 
@@ -600,7 +600,7 @@ This is what the **Support Vector Machine (SVM)** does, a **purely geometric app
 
 For now, let's assume that our data is **linearly separable**.
 
-![Linearly separable data](iris_linear_separation.svg)
+![Two iris species that a single linear boundary separates, using petal length and width.](iris_linear_separation.svg)
 
 If our data is linearly separable, we will have many possible solutions for a hyperplane.
 We need somekind of **criterion** to choose the best hyperplane.
@@ -608,7 +608,7 @@ We need somekind of **criterion** to choose the best hyperplane.
 ###### Maximum Margin Principle
 Let us define a naive criterion, the **maximum margin principle**.
 
-![Maximum margin principle](margin_principle.svg)
+![The maximum margin principle: the boundary sits as far as it can from the closest point of either class.](margin_principle.svg)
 
 We define the **distance between the separating line and the closest point** as the **margin**.
 Intuitively, we think of this space as the amount of "wiggle room" for any potential errors in estimating $\mathbf{w}$.
@@ -660,7 +660,7 @@ Thus, maximizing the margin is a good idea because it allows the most uncertaint
 ###### Soft-Margin
 So far we have assumed that the data is **completely linearly separable**, but this is rarely the case in practice.
 
-![Soft-margin](soft_margin_principle.svg)
+![The soft-margin case: a few points are allowed across the margin, each paying a slack.](soft_margin_principle.svg)
 
 Let's now imagine that the data is *almost* linearly separable, but there are a few points that are on the wrong side of the hyperplane.
 
@@ -719,7 +719,7 @@ $$
 where $\chi$ is our convex set.
 
 
-![Convex set and line segment.](convex_sets.svg)
+![A convex set contains every line segment between two of its points; a non-convex one does not.](convex_sets.svg)
 
 A function, $f : \mathbb{R}^N \mapsto \mathbb{R}$ is **convex** if $\text{dom}(f)$ is a *convex set* **and**,
 
@@ -727,7 +727,7 @@ $$
 f(\alpha \mathbf{x}^{(1)} + (1 - \alpha) \mathbf{x}^{(2)}) \leq \alpha f(\mathbf{x}^{(1)}) + (1 - \alpha) f(\mathbf{x}^{(2)})
 $$
 
-![Convex function.](convex_functions.svg)
+![A function is convex when every line segment between two points on its graph lies above the curve.](convex_functions.svg)
 
 The most simple way one can understand convex functions is, **any line segment between two points lies above the curve**.
 
