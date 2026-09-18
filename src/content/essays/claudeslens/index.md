@@ -4,7 +4,7 @@ date: 2024-06-18
 image: "../../../assets/paintings/fish-still-life.webp"
 draft: true
 ---
-# Introduction
+## Introduction
 I finally finished my undergrad and would like to make a blog post about what I have been working on these past ~6 months.
 
 The title of our thesis is:
@@ -33,7 +33,7 @@ I'm going to explain what we did and our proposed framework.
 
 Let's start what lies at the heart of this project, **neural networks**.
 
-# Neural Networks
+## Neural Networks
 There are many ways to explain neural networks, in this post I will use a mathematical approach which will let us view the entire network as a single function.
 
 ### The Neuron
@@ -136,7 +136,7 @@ This is the basic structure of a neural network, I will not go into more detail 
 There are a ton of resources to understand these concepts, even we tried to explain these concepts in our thesis.
 I highly encourage you to read about it, it is one of the most important concepts of modern deep learning [^4].
 
-# Computer Vision
+## Computer Vision
 Now that we have a basic understanding of neural networks, we can move on to computer vision.
 
 Computer vision is a field of computer science that focuses on **replicating** parts of the complexity of the **human vision system** and enabling computers to **identify and process objects in images and videos** in the same way that humans do.
@@ -155,7 +155,7 @@ For most images, we represent each pixel as a 3-dimensional vector, where each e
 So, a single pixel in an image is represented as a vector, therefore a whole image can be represented as a 3-dimensional **tensor**.
 We will just think of a tensor as a **matrix of matrices**, as long as the input has the numerical properties for matrix and vector operations.
 
-# Entropy
+## Entropy
 Now that we have covered the basics of neural networks and computer vision (in our use case that is), we can move on to the main topic of this thesis, **entropy**.
 
 ### Uncertainty in Information Theory
@@ -205,7 +205,7 @@ $$
 ::::
 :::::
 
-# Entropy-based Uncertainty Quantification Framework
+## Entropy-based Uncertainty Quantification Framework
 From what we have seen, we can view a neural network as a **function**.
 
 In our case &mdash; since we're dealing with classification &mdash; our function spits out a **probability vector** where each element corresponds to the probability of the input belonging to a specific class (refer back to @fig:nn if you think this is unclear).
@@ -355,7 +355,7 @@ $$
 The function mapping $\mathbf{x} \mapsto h$ can be understood as the probability of making a correct prediction within all draws from the data, which have **the same entropy as $\mathbf{x}$**.
 This means we can **categorize images based on their entropy** and gain insight into the model's predictions without seeing the ground truth label.
 
-# Results
+## Results
 Now, during the majority of the project and the results section in our report, we adopted our framework to three different models to investigate **whether our hypothesis held**.
 
 **In short, yes**, so I won't bore you with those results and graphs.
@@ -382,7 +382,7 @@ While there is no right answer (i.e., we haven't proved this), we hypothesize tw
 :::
 ::::
 
-# Conclusion
+## Conclusion
 I hope you've understood this framework of quantifying uncertainty in neural networks and enjoyed this post :).
 
 I've started to see a lot more people talk about uncertainty quantification [^6] this year.
@@ -390,7 +390,7 @@ Which makes me happy, it is an interesting field with a lot of potential applica
 
 My closing statement is that, don't forget that statistics is an exact science making sense of an uncertain and inexact world [^7].
 
-# Acknowledgements
+## Acknowledgements
 I want to thank my supervisor, my group members, and the people that proofread this blog post.
 
 [^4]: [Andrej Karpathy, "Yes you should understand backprop."](https://karpathy.medium.com/yes-you-should-understand-backprop-e2f06eab496b)

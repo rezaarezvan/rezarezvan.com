@@ -1,4 +1,9 @@
 .prose {
+  > :is(p, ul, ol, figure, details, section, .equation, .katex-display) {
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto 80px;
+  }
+
   blockquote {
     border-inline-start: 2px solid var(--border);
     padding-inline-start: 1.25em;

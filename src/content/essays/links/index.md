@@ -4,7 +4,7 @@ date: 2024-07-17
 image: "../../../assets/paintings/harbour-scene.webp"
 draft: true
 ---
-# Links
+## Links
 Here are some links (personal websites, blogs etc) that I find interesting and inspiring:
 - [hitorilabs.com](https://hitorilabs.com)
 - [juw.ee](https://juw.ee)

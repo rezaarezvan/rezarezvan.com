@@ -3,7 +3,11 @@ import { z } from 'astro/zod'
 import { defineCollection } from 'astro:content'
 
 const essays = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/essays' }),
+  loader: glob({
+    deferRender: true,
+    pattern: '**/*.md',
+    base: './src/content/essays',
+  }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -16,6 +20,7 @@ const essays = defineCollection({
 
 const bachelor = defineCollection({
   loader: glob({
+    deferRender: true,
     pattern: '**/*.md',
     base: './src/content/notes/bachelor',
   }),
@@ -32,6 +37,7 @@ const bachelor = defineCollection({
 
 const master = defineCollection({
   loader: glob({
+    deferRender: true,
     pattern: '**/*.md',
     base: './src/content/notes/master',
   }),
@@ -48,6 +54,7 @@ const master = defineCollection({
 
 const exchange = defineCollection({
   loader: glob({
+    deferRender: true,
     pattern: '**/*.md',
     base: './src/content/notes/exchange',
   }),
@@ -63,7 +70,11 @@ const exchange = defineCollection({
 })
 
 const news = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/news' }),
+  loader: glob({
+    deferRender: true,
+    pattern: '**/*.md',
+    base: './src/content/news',
+  }),
   schema: z.object({
     date: z.coerce.date(),
     draft: z.boolean().optional(),
@@ -71,7 +82,11 @@ const news = defineCollection({
 })
 
 const research = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/research' }),
+  loader: glob({
+    deferRender: true,
+    pattern: '**/*.md',
+    base: './src/content/research',
+  }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),

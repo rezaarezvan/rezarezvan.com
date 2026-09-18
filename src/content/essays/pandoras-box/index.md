@@ -23,8 +23,8 @@ Naturally, I want to provide my slice to the discourse, as I feel like that many
 
 As many others, I recently saw the trailer for the upcoming [Artificial (2026)](https://www.youtube.com/watch?v=rDZplZFnbOk) movie about OpenAI.
 I still remember playing around in the GPT-3 playground with the `davinci-002` model, it already felt like magic in those days.
-[The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) argued what I summarize as "search is king"; general purpose methods when paired with (extensive) computational resources turn out to work wonders.
-So why is it that these "search is king" systems have triumphed as they have done?
+[The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) argued what I call "search is king": general purpose methods when paired with (extensive) computational resources turn out to work wonders.
+Is it a mystery that these "search is king" systems have triumphed as they have done?
 
 As many others have argued [^3], I argue that many knowledge problems are underlying search problems; this is especially true for **modern** [^4] software where we are often faced with a problem where we often know a solution a priori, but the challenge lies in a finding a sufficient [^5] solution for our specific needs.
 Practical software has always been about creating verifiable systems that solve exact problems.
