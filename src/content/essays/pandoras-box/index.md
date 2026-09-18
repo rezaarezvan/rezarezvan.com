@@ -2,6 +2,7 @@
 title: "Opening Pandora's Box in the 21st Century"
 date: 2026-09-18
 image: "../../../assets/paintings/hercules.webp"
+draft: true
 ---
 ## Standing at the Crossroads
 > "Only Hope remained there in an unbreakable home within under the rim of the great jar" -- Hesiod, Works and Days, 96–97, trans. Evelyn-White. @cite:Hesiod1914
