@@ -59,9 +59,10 @@
     text-align: end;
   }
 
-  /* Section breaks as an asterism rather than a bare rule. */
   hr {
     margin-block: var(--space-l);
+    height: auto;
+    overflow: visible;
     border: 0;
     text-align: center;
   }
