@@ -47,6 +47,35 @@ function targetFromHash(link: HTMLAnchorElement): HTMLElement | null {
   }
 }
 
+function revealTarget(link: HTMLAnchorElement): void {
+  const target = targetFromHash(link)
+  target
+    ?.closest<HTMLDetailsElement>('details.footnotes')
+    ?.setAttribute('open', '')
+}
+
+function locationTarget(): HTMLElement | null {
+  if (!location.hash) return null
+  try {
+    return document.getElementById(decodeURIComponent(location.hash.slice(1)))
+  } catch {
+    return null
+  }
+}
+
+async function restoreFragmentPosition(): Promise<void> {
+  const target = locationTarget()
+  if (!target) return
+
+  const disclosure = target.closest<HTMLDetailsElement>('details.footnotes')
+  if (disclosure && target.tagName !== 'SUMMARY') disclosure.open = true
+
+  await document.fonts.ready
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }))
+  })
+}
+
 function clonedBody(target: HTMLElement, className: string): HTMLElement {
   const body = document.createElement('div')
   body.className = className
@@ -232,7 +261,10 @@ for (const record of previewRecords) {
   })
   trigger.addEventListener('blur', () => schedulePreviewClose(record))
   trigger.addEventListener('click', (event) => {
-    if (!previewEnabled(record)) return
+    if (!previewEnabled(record)) {
+      revealTarget(trigger)
+      return
+    }
     if (floatingPreview.matches || record.openedFromFocus) {
       closeActivePreview()
       return
@@ -249,8 +281,15 @@ for (const record of previewRecords) {
   preview.addEventListener('focusout', () => schedulePreviewClose(record))
   preview
     .querySelector<HTMLAnchorElement>('.annotation-preview-jump')
-    ?.addEventListener('click', closeActivePreview)
+    ?.addEventListener('click', (event) => {
+      revealTarget(event.currentTarget as HTMLAnchorElement)
+      closeActivePreview()
+    })
 }
+
+if (document.readyState === 'complete') restoreFragmentPosition()
+else addEventListener('load', restoreFragmentPosition, { once: true })
+addEventListener('hashchange', restoreFragmentPosition)
 
 document.addEventListener('click', (event) => {
   if (!activePreview || floatingPreview.matches) return
@@ -282,8 +321,8 @@ addEventListener('resize', scheduleFloatingPreview, { passive: true })
 floatingPreview.addEventListener('change', closeActivePreview)
 
 // On wide screens the canonical footnotes are mirrored into the right margin.
-// The endnotes remain untouched, so links, print, and no-script use all retain
-// their ordinary Markdown behavior.
+// The canonical endnotes remain available in their disclosure, so links,
+// print, and no-script use all retain ordinary Markdown behavior.
 const footnotePairs: FootnotePair[] = []
 const footnoteMarkers = Array.from(
   document.querySelectorAll<HTMLAnchorElement>('.prose a[data-footnote-ref]'),
@@ -301,7 +340,7 @@ for (const [index, marker] of footnoteMarkers.entries()) {
   const number = document.createElement('span')
   number.className = 'footnote-sidenote-number'
   number.setAttribute('aria-hidden', 'true')
-  number.textContent = `[${marker.textContent?.trim() || index + 1}]`
+  number.textContent = marker.textContent?.trim() || String(index + 1)
 
   const body = clonedBody(target, 'footnote-sidenote-body')
   body.id = `footnote-sidenote-body-${index + 1}`

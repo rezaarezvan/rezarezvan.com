@@ -8,11 +8,37 @@
   }
 
   ul {
-    list-style-type: disc;
+    list-style-type: none;
+
+    > li {
+      position: relative;
+    }
+
+    > li::before {
+      content: '✧';
+      position: absolute;
+      inset-block-start: 0.12em;
+      inset-inline-end: calc(100% + 0.45rem);
+      color: var(--muted-foreground);
+      font-size: 0.8em;
+      line-height: inherit;
+    }
+
+    ul > li::before {
+      content: '✦';
+    }
+
+    ul ul > li::before {
+      content: '✧';
+    }
 
     &.contains-task-list {
       list-style-type: none;
       padding-inline-start: 0;
+
+      > li::before {
+        content: none;
+      }
     }
   }
 

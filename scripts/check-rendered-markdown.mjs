@@ -232,7 +232,7 @@ const expectations = [
   },
   {
     name: 'canonical footnote sections were rendered',
-    pattern: /<section[^>]+data-footnotes/,
+    pattern: /<details[^>]+data-footnotes/,
   },
   {
     name: 'scientific citations expose preview targets',

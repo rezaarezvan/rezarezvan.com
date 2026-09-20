@@ -34,11 +34,11 @@
   font-variant-numeric: lining-nums;
 }
 
-/* A short gilt rule closing the title page. */
+/* A short editorial rule closing the title page. */
 .essay-hero::after {
   content: '';
   inline-size: 6rem;
-  border-block-end: 1px solid var(--gold-9);
+  border-block-end: 1px solid var(--ornament);
   margin-block-start: var(--space-2xs);
 }
 

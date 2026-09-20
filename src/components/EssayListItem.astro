@@ -97,6 +97,19 @@ const revised = getLastRevision('essays', essay.id, essay.data.date)
     font-weight: var(--font-weight-medium);
     line-height: 1.15;
     text-wrap: balance;
+    text-decoration: underline;
+    text-decoration-color: color-mix(
+      in oklab,
+      var(--foreground) 34%,
+      transparent
+    );
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.12em;
+    transition: text-decoration-color 0.15s ease;
+  }
+
+  .essay-list-item:hover h3 {
+    text-decoration-color: currentColor;
   }
 
   p {

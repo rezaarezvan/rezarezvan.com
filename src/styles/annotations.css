@@ -125,26 +125,38 @@
     inset-block-start: var(--footnote-top, 0px);
     inset-inline-start: calc(100% + var(--space-m));
     display: grid;
-    width: 15rem;
-    grid-template-columns: auto minmax(0, 1fr);
-    column-gap: 0.45rem;
+    width: 15.5rem;
+    grid-template-columns: minmax(0, 1fr);
     margin: 0;
-    padding: 0.25rem 0.35rem;
+    padding: 0.6rem 0.35rem 0.5rem;
     color: color-mix(in oklab, var(--foreground) 68%, transparent);
-    font-size: 0.82rem;
-    line-height: 1.45;
+    font-size: 0.9rem;
+    line-height: 1.5;
     transition: color 0.15s ease;
-    border-radius: var(--radius-xs);
+    border-block: 1px dotted var(--gray-8);
   }
 
   .footnote-sidenote-number {
-    grid-column: 1;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    display: grid;
+    min-width: 2rem;
+    height: 1.45rem;
+    place-items: center;
+    padding-inline: 0.35rem;
+    border: 1px dotted var(--gray-8);
+    border-block-end: 0;
+    background: var(--background);
     color: var(--muted-foreground);
+    font-weight: var(--font-weight-medium);
     font-variant-numeric: tabular-nums;
+    line-height: 1;
+    transform: translateY(calc(-100% + 1px));
   }
 
   .footnote-sidenote-body {
-    grid-column: 2;
+    grid-column: 1;
     min-width: 0;
   }
 
@@ -163,7 +175,7 @@
   }
 
   .footnote-sidenote-more {
-    grid-column: 2;
+    grid-column: 1;
     justify-self: start;
     margin-block-start: 0.25rem;
     padding: 0;
@@ -188,7 +200,9 @@
   }
 
   .footnote-sidenote[data-active] {
-    background: var(--secondary);
+    background: var(--background);
+    outline: 3px double var(--gray-8);
+    outline-offset: 3px;
   }
 
   .footnote-sidenote[data-active] .footnote-sidenote-number {

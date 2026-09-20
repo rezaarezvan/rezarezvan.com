@@ -11,7 +11,7 @@ type CalloutConfig = {
 }
 
 // Desaturated "pigment" accents (chroma 0.07-0.14, L 46-62%) tuned to read as
-// inks on the parchment/candlelit palette. Family hues: slate, olive, ochre,
+// inks on the neutral editorial palette. Family hues: slate, olive, ochre,
 // brick, aubergine, verdigris, indigo, gold leaf, wash blue, sienna, oxblood,
 // forest. Lightness staggers within a family mirror the original palette.
 export const calloutConfig: Record<string, CalloutConfig> = {

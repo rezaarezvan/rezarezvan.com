@@ -97,14 +97,14 @@ section {
   counter-increment: figure;
 }
 
-/* Museum mount: theme-aware paper with a restrained gilt inner rule. */
+/* A light paper mount separates plots from the reading surface. */
 .prose .astro-figure img {
   max-width: 100%;
   height: auto;
   padding: var(--space-s);
-  background-color: light-dark(#fbf8f0, #211e18);
+  background-color: var(--gray-2);
   border: 1px solid var(--gray-7);
-  outline: 1px solid color-mix(in oklab, var(--gold-9) 35%, transparent);
+  outline: 1px solid color-mix(in oklab, var(--ornament) 28%, transparent);
   outline-offset: -5px;
   border-radius: var(--radius-xs);
   box-shadow: var(--shadow-sm);

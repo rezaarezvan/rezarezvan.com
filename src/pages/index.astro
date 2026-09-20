@@ -9,7 +9,7 @@ import { getRecentEssays } from '@/lib/essay-utils'
 import { containsMath, hasInlineMath } from '@/lib/math-utils'
 import { Image } from 'astro:assets'
 import { getCollection, render } from 'astro:content'
-import pfp from './_whoami.png'
+import pfp from './_whoami.jpg'
 
 const formatNewsDate = (date: Date) =>
   Intl.DateTimeFormat('en-US', {
@@ -43,10 +43,10 @@ const news = await Promise.all(
           src={pfp}
           alt="Portrait of Reza Rezvan"
           width={250}
-          height={300}
+          densities={[1, 2]}
           loading="eager"
           format="webp"
-          quality={82}
+          quality={88}
           class="home-profile-image"
           fetchpriority="high"
         />
@@ -200,10 +200,15 @@ const news = await Promise.all(
   .home-intro {
     display: flex;
     flex-direction: column;
-    gap: var(--space-s);
+    gap: var(--space-m);
   }
 
   @media (min-width: 64rem) {
+    :global(html:has(.home-page)),
+    :global(body:has(.home-page)) {
+      overflow-y: hidden;
+    }
+
     .home-intro {
       flex-direction: row;
       align-items: flex-start;
@@ -230,8 +235,14 @@ const news = await Promise.all(
     margin-inline: auto;
     margin-block-end: var(--space-xs);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xs);
     object-fit: cover;
+  }
+
+  @media (min-width: 64rem) {
+    .home-profile-image {
+      height: 300px;
+    }
   }
 
   .home-profile-caption {
@@ -259,6 +270,7 @@ const news = await Promise.all(
   }
 
   .home-academic-link {
+    --underline: color-mix(in oklab, var(--foreground) 38%, transparent);
     color: var(--primary);
   }
 
@@ -280,6 +292,7 @@ const news = await Promise.all(
 
   .home-link,
   .home-news-content :global(a) {
+    --underline: color-mix(in oklab, var(--foreground) 38%, transparent);
     color: var(--primary);
   }
 

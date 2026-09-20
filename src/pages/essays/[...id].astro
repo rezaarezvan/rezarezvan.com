@@ -102,7 +102,7 @@ const postReadingTime = getEssayReadingTime(post)
 
     <PostNavigation newerPost={navigation.newer} olderPost={navigation.older} />
 
-    <article class="prose col-start-2" data-essay>
+    <article class="prose col-start-2" data-editorial data-essay>
       <Content />
       <References entries={getCitationEntries(post.body ?? '')} />
     </article>

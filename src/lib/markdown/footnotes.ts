@@ -137,7 +137,7 @@ export function footnotes() {
       children: [
         {
           type: 'html',
-          value: '<h2 class="sr-only" id="footnote-label">Footnotes</h2>',
+          value: '<summary id="footnote-label">Footnotes</summary>',
         },
         {
           type: 'containerDirective',
@@ -148,7 +148,7 @@ export function footnotes() {
         },
       ],
       data: {
-        hName: 'section',
+        hName: 'details',
         hProperties: {
           dataFootnotes: '',
           className: ['footnotes'],

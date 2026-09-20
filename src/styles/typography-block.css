@@ -14,6 +14,51 @@
     }
   }
 
+  &[data-editorial] > blockquote {
+    position: relative;
+    max-width: 35rem;
+    margin: var(--space-l) auto;
+    padding: var(--space-s) clamp(2rem, 7vw, 3.5rem);
+    border: 0;
+    color: var(--foreground);
+    font-size: var(--step-1);
+    font-style: italic;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  &[data-editorial] > blockquote::before,
+  &[data-editorial] > blockquote::after {
+    position: absolute;
+    color: color-mix(in oklab, var(--muted-foreground) 38%, transparent);
+    font-size: 3.5rem;
+    font-style: normal;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  &[data-editorial] > blockquote::before {
+    content: '“';
+    inset-block-start: 0;
+    inset-inline-start: 0.5rem;
+  }
+
+  &[data-editorial] > blockquote::after {
+    content: '”';
+    inset-inline-end: 0.5rem;
+    inset-block-end: -0.25rem;
+  }
+
+  &[data-editorial] > blockquote > :last-child {
+    margin-block-end: 0;
+  }
+
+  &[data-editorial] > blockquote > :last-child:not(:first-child) {
+    font-size: 0.86em;
+    font-style: normal;
+    text-align: end;
+  }
+
   /* Section breaks as an asterism rather than a bare rule. */
   hr {
     margin-block: var(--space-l);
@@ -24,7 +69,7 @@
   hr::after {
     content: '⁂';
     font-size: var(--step-0);
-    color: var(--gold-9);
+    color: var(--ornament);
   }
 
   :is(img, video) {
@@ -42,8 +87,38 @@
 
   .footnotes {
     margin-block-start: var(--space-l);
+  }
+
+  .footnotes > summary {
+    width: fit-content;
+    scroll-margin-block-start: 8rem;
+    color: var(--muted-foreground);
+    font-size: var(--step--1);
+    font-weight: var(--font-weight-normal);
+    list-style: none;
+    user-select: none;
+  }
+
+  .footnotes > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .footnotes > summary::before {
+    content: '▸';
+    display: inline-block;
+    width: 1em;
+    color: color-mix(in oklab, var(--muted-foreground) 72%, transparent);
+    transition: transform 0.15s ease;
+  }
+
+  .footnotes[open] > summary::before {
+    transform: rotate(90deg);
+  }
+
+  .footnotes > ol {
+    margin-block-start: var(--space-s);
     padding-block-start: var(--space-s);
-    border-block-start: 1.5px solid var(--border);
+    border-block-start: 1px solid var(--border);
   }
 
   :is(math, math *) {
@@ -94,5 +169,21 @@
     .collapsible-start summary {
       margin-block: var(--space-3xs);
     }
+  }
+}
+
+@media print {
+  .prose .footnotes > summary {
+    display: none;
+  }
+
+  .prose .footnotes > ol {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prose .footnotes > summary::before {
+    transition: none;
   }
 }
