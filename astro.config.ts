@@ -3,10 +3,11 @@ import { defineConfig } from 'astro/config'
 import sitemap from '@astrojs/sitemap'
 
 import { satteri } from '@astrojs/markdown-satteri'
+import { algorithmDirectives } from './src/lib/markdown/algorithms'
 import { calloutDirectives } from './src/lib/markdown/callouts'
 import { equationNumbering } from './src/lib/markdown/equations'
 import { externalLinks } from './src/lib/markdown/external-links'
-import { figures } from './src/lib/markdown/figures'
+import { figureCaptions, figures } from './src/lib/markdown/figures'
 import { footnotes } from './src/lib/markdown/footnotes'
 import { headingAnchors } from './src/lib/markdown/heading-anchors'
 import { headingIds } from './src/lib/markdown/heading-ids'
@@ -39,6 +40,8 @@ export default defineConfig({
         footnotes,
         calloutDirectives,
         tableDirectives,
+        algorithmDirectives,
+        figureCaptions,
         inlineExpressiveCode,
         equationNumbering,
         katexMath,

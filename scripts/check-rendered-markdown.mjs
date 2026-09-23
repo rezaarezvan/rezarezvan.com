@@ -90,7 +90,7 @@ for (const file of files) {
     {
       name: 'unresolved cross-reference leaked',
       pattern:
-        /@(?:fig|eq|tbl|thm|def|lem|cor|prop|conj|ax|ex|exer|prob|rem|cite):[A-Za-z0-9][\w.-]*/g,
+        /@(?:fig|eq|tbl|alg|thm|def|lem|cor|prop|conj|ax|ex|exer|prob|rem|cite):[A-Za-z0-9][\w.-]*/g,
       ignoreCode: true,
     },
     {
@@ -216,6 +216,11 @@ const expectations = [
     name: 'figure captions were rendered',
     pattern:
       /<figure class="astro-figure">[\s\S]*<figcaption>[^<]+<\/figcaption>[\s\S]*<\/figure>/,
+  },
+  {
+    name: 'algorithm floats were rendered',
+    pattern:
+      /<figure class="algorithm" id="[^"]+"><figcaption><span class="algorithm-number">Algorithm \d+:<\/span>/,
   },
   {
     name: 'semantic math heading slug was rendered',

@@ -51,7 +51,6 @@ export const calloutConfig: Record<string, CalloutConfig> = {
     defaultClosed: true,
   },
   summary: { icon: 'list', accent: 'oklch(50% 0.09 150)' },
-  algorithm: { icon: 'cpu', accent: 'oklch(50% 0.09 150)' },
   derivation: { icon: 'pen-tool', accent: 'oklch(54% 0.08 150)' },
 }
 

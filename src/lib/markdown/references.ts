@@ -38,6 +38,7 @@ const REF_FORMATS: Record<string, RefFormat> = {
   fig: { word: 'Figure' },
   eq: { word: 'Equation', paren: true },
   tbl: { word: 'Table' },
+  alg: { word: 'Algorithm' },
   cite: { word: 'Reference' },
   ...Object.fromEntries(
     Object.values(THEOREM_TYPES).map((t) => [t.prefix, { word: t.word }]),
@@ -149,6 +150,7 @@ function collectRegistry(root: Root): Map<string, RefEntry> {
   let figureCount = 0
   let equationCount = 0
   let tableCount = 0
+  let algorithmCount = 0
   const theoremCounts = new Map<string, number>()
 
   walkMdast(root, (node) => {
@@ -197,8 +199,8 @@ function collectRegistry(root: Root): Map<string, RefEntry> {
       return
     }
 
-    // Container directives: theorem-like callouts (numbered per type) and
-    // `:::table[Caption]{#label}` (numbered as tables).
+    // Container directives: theorem-like callouts (numbered per type),
+    // `:::table[Caption]{#label}` and `:::algorithm[Caption]{#alg:label}`.
     if (typed.type === 'containerDirective') {
       const rawName = (node as { name?: unknown }).name
       const name = typeof rawName === 'string' ? rawName.toLowerCase() : ''
@@ -214,6 +216,19 @@ function collectRegistry(root: Root): Map<string, RefEntry> {
             id,
             number: tableCount,
             word: 'Table',
+            paren: false,
+          })
+        }
+        return
+      }
+
+      if (name === 'algorithm') {
+        algorithmCount += 1
+        if (attrId) {
+          registry.set(attrId, {
+            id: attrId,
+            number: algorithmCount,
+            word: 'Algorithm',
             paren: false,
           })
         }

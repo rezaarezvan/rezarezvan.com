@@ -8,7 +8,7 @@ type DirectiveNode = {
   children?: unknown[]
 }
 
-function labelFromDirective(node: DirectiveNode): Paragraph | null {
+export function labelFromDirective(node: DirectiveNode): Paragraph | null {
   if (!Array.isArray(node.children)) return null
 
   const first = node.children[0] as Paragraph | undefined
