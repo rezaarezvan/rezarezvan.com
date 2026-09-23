@@ -135,30 +135,11 @@
   }
 }
 
-/* Figures share one document counter across nested sections. */
-article,
-.prose {
-  counter-reset: figure;
-}
-
-section {
-  counter-reset: none !important;
-}
-
-.research-projects {
-  counter-reset: figure !important;
-}
-
-.research-projects article {
-  counter-reset: none !important;
-}
-
 .prose .astro-figure {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-block: 2rem;
-  counter-increment: figure;
 }
 
 /* A light paper mount separates plots from the reading surface. */
@@ -182,8 +163,7 @@ section {
   text-align: center;
 }
 
-.prose .astro-figure figcaption::before {
-  content: 'Figure ' counter(figure) ': ';
+.prose .astro-figure .figure-number {
   color: var(--primary);
   font-style: normal;
   font-weight: var(--font-weight-medium);

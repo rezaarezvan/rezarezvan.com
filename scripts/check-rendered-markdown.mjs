@@ -215,7 +215,7 @@ const expectations = [
   {
     name: 'figure captions were rendered',
     pattern:
-      /<figure class="astro-figure">[\s\S]*<figcaption>[^<]+<\/figcaption>[\s\S]*<\/figure>/,
+      /<figure class="astro-figure">[\s\S]*<figcaption><span class="figure-number">Figure \d+:<\/span> [^<]+<\/figcaption>[\s\S]*<\/figure>/,
   },
   {
     name: 'algorithm floats were rendered',

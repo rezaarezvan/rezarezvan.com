@@ -60,9 +60,10 @@ function captionChildren(caption: string): ElementContent[] {
 // Wraps a standalone image (a paragraph containing only an `<img>`) in a
 // `<figure>` with a `<figcaption>`. When the image title is a `fig:` label the
 // figure gets that id so `@fig:` cross-references (see references.ts) can link
-// to it; the visible "Figure N:" prefix is added via CSS counters
-// (src/styles/academic.css).
+// to it. Numbers follow document order, matching references.ts.
 export function figures() {
+  let count = 0
+
   return defineHastPlugin({
     name: 'figures',
     element: {
@@ -91,9 +92,16 @@ export function figures() {
         }
 
         const children: ElementContent[] = [figureImage]
+        count += 1
 
         if (caption) {
-          children.push(h('figcaption', captionChildren(caption)) as Element)
+          children.push(
+            h('figcaption', [
+              h('span', { class: 'figure-number' }, `Figure ${count}:`),
+              text(' '),
+              ...captionChildren(caption),
+            ]) as Element,
+          )
         }
 
         return h(
