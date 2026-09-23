@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="468pt" height="230.4pt" viewBox="0 0 346.666667 170.666667" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<style>:root { --axis-color:#2a241c; --grid-color:rgba(42, 36, 28, 0.14); --black:#000000;--c1:#D55E00;--c2:#009E73;--c3:#56B4E9;--c4:#CC79A7;--c5:#E69F00;--c6:#C7B42E;--c7:#999999;--c8:#0072B2;--gray:#999999;--grey:#999999;--octonary:#0072B2;--primary:#D55E00;--quaternary:#CC79A7;--quinary:#E69F00;--secondary:#009E73;--senary:#C7B42E;--septenary:#999999;--tertiary:#56B4E9;--white:#ffffff; }
+@media (prefers-color-scheme:dark) {
+  :root { --axis-color:#e6dfd2; --grid-color:rgba(230, 223, 210, 0.16); --black:#FFFFFF;--c1:#E36A1C;--c2:#23AB7F;--c3:#3F9FD3;--c4:#C673A1;--c5:#C38819;--c6:#847500;--c7:#929292;--c8:#1F81C2;--gray:#929292;--grey:#929292;--octonary:#1F81C2;--primary:#E36A1C;--quaternary:#C673A1;--quinary:#C38819;--secondary:#23AB7F;--senary:#847500;--septenary:#929292;--tertiary:#3F9FD3;--white:#000000; }
+}
+.plot3d path,.plot3d polygon { stroke:var(--axis-color); }
+.plot3d-grid line { stroke:var(--grid-color); }</style>
+
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g class="patch">
+   <path d="M 0 170.67 
+L 346.67 170.67 
+L 346.67 0 
+L 0 0 
+L 0 170.67 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g class="patch">
+    <path d="M 47.35 127.14 
+L 339.47 127.14 
+L 339.47 2.16 
+L 47.35 2.16 
+L 47.35 127.14 
+z
+" style="fill: none"/>
+   </g>
+   <g class="axis">
+    <g class="tick xtick">
+     <g id="line2d_1">
+      <path d="M 64.54 127.14 
+L 64.54 2.16 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="mffb8127b41" d="M 0 0 
+L 0 3 
+" style="stroke:var(--axis-color); stroke-width: 0.7"/>
+      </defs>
+      <g>
+       <use xlink:href="#mffb8127b41" x="64.538039" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_1" class="text">
+      <!-- $\mathdefault{4}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(62.018039 144.717667) scale(0.105 -0.105)">
+       <defs>
+        <path id="EBGaramond-Regular-8d1" d="M 1344 -19 
+Q 1312 -19 1270 0 
+Q 1229 19 1229 64 
+Q 1229 96 1267 115 
+Q 1306 134 1344 141 
+Q 1645 179 1741 268 
+Q 1837 358 1837 512 
+L 1837 1107 
+Q 1837 1139 1792 1152 
+Q 1747 1165 1741 1165 
+Q 1478 1165 1251 1155 
+Q 1024 1146 774 1136 
+Q 525 1126 186 1120 
+Q 160 1120 141 1142 
+Q 122 1165 122 1184 
+Q 122 1197 128 1203 
+Q 211 1306 249 1347 
+Q 288 1389 313 1417 
+Q 339 1446 378 1504 
+L 2067 3930 
+Q 2106 3987 2160 4048 
+Q 2214 4109 2259 4109 
+L 2394 4109 
+Q 2426 4109 2403 4064 
+Q 2381 4019 2381 4019 
+L 653 1536 
+Q 646 1523 640 1500 
+Q 634 1478 653 1478 
+L 1760 1478 
+Q 1786 1478 1811 1494 
+Q 1837 1510 1837 1530 
+L 1837 2522 
+Q 1837 2637 1894 2662 
+Q 1990 2714 2099 2730 
+Q 2208 2746 2253 2746 
+Q 2323 2746 2336 2643 
+Q 2349 2541 2349 2336 
+L 2349 1510 
+Q 2349 1472 2381 1472 
+Q 2451 1466 2515 1466 
+Q 2579 1466 2637 1466 
+Q 2726 1466 2819 1469 
+Q 2912 1472 3014 1478 
+Q 3085 1478 3085 1427 
+Q 3085 1350 3027 1267 
+Q 2970 1184 2950 1184 
+Q 2880 1184 2797 1187 
+Q 2714 1190 2637 1190 
+Q 2579 1190 2528 1187 
+Q 2477 1184 2438 1178 
+Q 2413 1171 2384 1158 
+Q 2355 1146 2355 1139 
+L 2355 538 
+Q 2355 352 2441 281 
+Q 2528 211 2784 141 
+Q 2822 134 2860 108 
+Q 2899 83 2899 51 
+Q 2899 -19 2803 -19 
+Q 2624 -19 2518 -9 
+Q 2413 0 2323 6 
+Q 2234 13 2080 13 
+Q 1920 13 1821 6 
+Q 1722 0 1619 -9 
+Q 1517 -19 1344 -19 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#EBGaramond-Regular-8d1" transform="translate(0 0.796875)"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick xtick">
+     <g id="line2d_3">
+      <path d="M 98.9 127.14 
+L 98.9 2.16 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#mffb8127b41" x="98.904118" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_2" class="text">
+      <!-- $\mathdefault{6}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(96.384118 144.717667) scale(0.105 -0.105)">
+       <defs>
+        <path id="EBGaramond-Regular-8d3" d="M 1612 -102 
+Q 1286 -102 985 45 
+Q 684 192 492 489 
+Q 300 787 300 1235 
+Q 300 1594 383 1888 
+Q 467 2182 595 2409 
+Q 723 2637 854 2800 
+Q 985 2963 1075 3053 
+Q 1235 3219 1484 3424 
+Q 1734 3629 2063 3814 
+Q 2393 4000 2784 4102 
+Q 2841 4115 2876 4096 
+Q 2912 4077 2899 4058 
+Q 2873 4000 2818 3971 
+Q 2764 3942 2732 3930 
+Q 2304 3744 1993 3507 
+Q 1683 3270 1440 2918 
+Q 1337 2765 1196 2499 
+Q 1056 2234 953 1907 
+Q 851 1581 851 1248 
+Q 857 896 998 649 
+Q 1139 403 1347 275 
+Q 1555 147 1766 141 
+Q 2028 134 2226 323 
+Q 2425 512 2425 909 
+Q 2425 1107 2351 1276 
+Q 2278 1446 2147 1555 
+Q 2016 1664 1843 1664 
+Q 1676 1664 1558 1645 
+Q 1440 1626 1331 1568 
+Q 1273 1542 1263 1571 
+Q 1254 1600 1286 1638 
+Q 1337 1690 1372 1722 
+Q 1408 1754 1459 1792 
+Q 1529 1843 1718 1923 
+Q 1907 2003 2086 2003 
+Q 2310 2003 2499 1900 
+Q 2688 1798 2806 1622 
+Q 2924 1446 2924 1216 
+Q 2924 819 2726 521 
+Q 2528 224 2227 61 
+Q 1926 -102 1612 -102 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#EBGaramond-Regular-8d3" transform="translate(0 0.703125)"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick xtick">
+     <g id="line2d_5">
+      <path d="M 133.27 127.14 
+L 133.27 2.16 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#mffb8127b41" x="133.270196" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_3" class="text">
+      <!-- $\mathdefault{8}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(130.750196 144.717667) scale(0.105 -0.105)">
+       <defs>
+        <path id="EBGaramond-Regular-8d5" d="M 1549 -90 
+Q 1254 -90 995 35 
+Q 736 160 576 384 
+Q 416 608 416 902 
+Q 416 1184 563 1382 
+Q 710 1581 912 1712 
+Q 1114 1843 1274 1933 
+Q 1318 1958 1305 1971 
+Q 1293 1984 1254 2016 
+Q 1062 2182 892 2332 
+Q 723 2483 617 2672 
+Q 512 2861 512 3130 
+Q 512 3379 685 3584 
+Q 858 3789 1126 3910 
+Q 1395 4032 1677 4032 
+Q 1933 4032 2166 3926 
+Q 2400 3821 2547 3629 
+Q 2694 3437 2694 3174 
+Q 2694 2944 2579 2800 
+Q 2464 2656 2355 2560 
+Q 2266 2483 2195 2428 
+Q 2125 2374 2016 2291 
+Q 1933 2234 1933 2211 
+Q 1933 2189 1984 2157 
+Q 2342 1907 2576 1664 
+Q 2810 1421 2810 1050 
+Q 2810 717 2624 461 
+Q 2438 205 2150 57 
+Q 1862 -90 1549 -90 
+z
+M 1843 2291 
+Q 2067 2477 2134 2701 
+Q 2202 2925 2202 3219 
+Q 2202 3488 2064 3683 
+Q 1926 3878 1645 3878 
+Q 1498 3878 1350 3795 
+Q 1203 3712 1104 3571 
+Q 1005 3430 1005 3258 
+Q 1005 3014 1097 2873 
+Q 1190 2733 1360 2614 
+Q 1530 2496 1754 2310 
+Q 1773 2298 1798 2288 
+Q 1824 2278 1843 2291 
+z
+M 1638 96 
+Q 1920 96 2109 304 
+Q 2298 512 2298 794 
+Q 2298 992 2186 1171 
+Q 2074 1350 1901 1507 
+Q 1728 1664 1542 1792 
+Q 1459 1856 1414 1856 
+Q 1389 1856 1338 1818 
+Q 1133 1651 1030 1481 
+Q 928 1312 928 1005 
+Q 928 781 1011 573 
+Q 1094 365 1254 230 
+Q 1414 96 1638 96 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#EBGaramond-Regular-8d5"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick xtick">
+     <g id="line2d_7">
+      <path d="M 167.64 127.14 
+L 167.64 2.16 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#mffb8127b41" x="167.636275" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_4" class="text">
+      <!-- $\mathdefault{10}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(162.596275 144.717667) scale(0.105 -0.105)">
+       <defs>
+        <path id="EBGaramond-Regular-8ce" d="M 685 -19 
+Q 589 -19 589 58 
+Q 589 115 685 141 
+Q 928 205 1085 259 
+Q 1242 314 1315 413 
+Q 1389 512 1389 698 
+L 1389 3142 
+Q 1389 3328 1222 3382 
+Q 1056 3437 851 3450 
+Q 787 3456 736 3481 
+Q 685 3507 685 3558 
+Q 685 3603 733 3635 
+Q 781 3667 845 3674 
+Q 1133 3718 1360 3785 
+Q 1587 3853 1805 4070 
+Q 1811 4077 1837 4077 
+Q 1869 4077 1894 4061 
+Q 1920 4045 1914 4019 
+Q 1901 3923 1894 3811 
+Q 1888 3699 1888 3565 
+L 1888 621 
+Q 1888 461 1949 377 
+Q 2010 294 2157 246 
+Q 2304 198 2566 134 
+Q 2605 128 2640 105 
+Q 2675 83 2675 51 
+Q 2675 -19 2586 -19 
+Q 2310 -19 2105 -3 
+Q 1901 13 1645 13 
+Q 1389 13 1168 -3 
+Q 947 -19 685 -19 
+z
+" transform="scale(0.015625)"/>
+        <path id="EBGaramond-Regular-8cd" d="M 1568 -90 
+Q 1242 -90 1002 89 
+Q 762 269 602 566 
+Q 442 864 365 1222 
+Q 288 1581 288 1933 
+Q 288 2298 365 2669 
+Q 442 3040 605 3347 
+Q 768 3654 1024 3843 
+Q 1280 4032 1632 4032 
+Q 1959 4032 2199 3853 
+Q 2439 3674 2599 3376 
+Q 2759 3078 2835 2723 
+Q 2912 2368 2912 2022 
+Q 2912 1664 2835 1293 
+Q 2759 922 2595 608 
+Q 2432 294 2179 102 
+Q 1927 -90 1568 -90 
+z
+M 1677 77 
+Q 1933 77 2090 336 
+Q 2247 595 2317 1011 
+Q 2387 1427 2387 1907 
+Q 2387 2266 2333 2611 
+Q 2279 2957 2167 3238 
+Q 2055 3520 1891 3686 
+Q 1728 3853 1511 3853 
+Q 1255 3853 1104 3603 
+Q 954 3354 886 2941 
+Q 819 2528 819 2048 
+Q 819 1690 873 1338 
+Q 928 986 1033 701 
+Q 1139 416 1299 246 
+Q 1459 77 1677 77 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#EBGaramond-Regular-8ce" transform="translate(0 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-8cd" transform="translate(47.999954 0.296875)"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick xtick">
+     <g id="line2d_9">
+      <path d="M 202 127.14 
+L 202 2.16 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#mffb8127b41" x="202.002353" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_5" class="text">
+      <!-- $\mathdefault{12}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(196.962353 144.717667) scale(0.105 -0.105)">
+       <defs>
+        <path id="EBGaramond-Regular-8cf" d="M 2681 -19 
+Q 2617 -19 2473 -9 
+Q 2329 0 2153 9 
+Q 1977 19 1817 19 
+Q 1696 19 1472 12 
+Q 1248 6 1001 3 
+Q 755 0 569 -6 
+Q 384 -13 332 -13 
+Q 307 -13 255 28 
+Q 204 70 204 96 
+Q 204 128 217 141 
+Q 230 154 256 179 
+L 1350 1312 
+Q 1670 1645 1881 2057 
+Q 2092 2470 2092 2893 
+Q 2092 3232 1887 3427 
+Q 1683 3622 1408 3622 
+Q 1145 3622 921 3478 
+Q 697 3334 563 3104 
+Q 518 3014 454 3014 
+Q 428 3014 393 3068 
+Q 358 3123 358 3206 
+Q 358 3283 451 3417 
+Q 544 3552 710 3693 
+Q 876 3834 1106 3933 
+Q 1337 4032 1606 4032 
+Q 2086 4032 2358 3737 
+Q 2630 3443 2630 2976 
+Q 2630 2720 2499 2409 
+Q 2368 2099 2163 1856 
+Q 2080 1754 1916 1584 
+Q 1753 1414 1564 1222 
+Q 1376 1030 1206 860 
+Q 1036 691 927 579 
+Q 819 467 819 454 
+Q 819 422 908 410 
+Q 1120 390 1472 390 
+Q 1856 390 2201 410 
+Q 2387 422 2489 441 
+Q 2592 461 2662 521 
+Q 2732 582 2809 710 
+Q 2835 749 2876 803 
+Q 2918 858 2969 858 
+Q 3001 858 3007 832 
+Q 3014 806 3014 781 
+Q 3014 736 2943 557 
+Q 2873 378 2822 134 
+Q 2803 32 2758 6 
+Q 2713 -19 2681 -19 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#EBGaramond-Regular-8ce" transform="translate(0 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-8cf" transform="translate(47.999954 0.296875)"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick xtick">
+     <g id="line2d_11">
+      <path d="M 236.37 127.14 
+L 236.37 2.16 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#mffb8127b41" x="236.368431" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_6" class="text">
+      <!-- $\mathdefault{14}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(231.328431 144.717667) scale(0.105 -0.105)">
+       <use xlink:href="#EBGaramond-Regular-8ce" transform="translate(0 0.796875)"/>
+       <use xlink:href="#EBGaramond-Regular-8d1" transform="translate(47.999954 0.796875)"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick xtick">
+     <g id="line2d_13">
+      <path d="M 270.73 127.14 
+L 270.73 2.16 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#mffb8127b41" x="270.73451" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_7" class="text">
+      <!-- $\mathdefault{16}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(265.69451 144.717667) scale(0.105 -0.105)">
+       <use xlink:href="#EBGaramond-Regular-8ce" transform="translate(0 0.703125)"/>
+       <use xlink:href="#EBGaramond-Regular-8d3" transform="translate(47.999954 0.703125)"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick xtick">
+     <g id="line2d_15">
+      <path d="M 305.1 127.14 
+L 305.1 2.16 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#mffb8127b41" x="305.100588" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_8" class="text">
+      <!-- $\mathdefault{18}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(300.060588 144.717667) scale(0.105 -0.105)">
+       <use xlink:href="#EBGaramond-Regular-8ce" transform="translate(0 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-8d5" transform="translate(47.999954 0.296875)"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick xtick">
+     <g id="line2d_17">
+      <path d="M 339.47 127.14 
+L 339.47 2.16 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#mffb8127b41" x="339.466667" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_9" class="text">
+      <!-- $\mathdefault{20}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(334.426667 144.717667) scale(0.105 -0.105)">
+       <use xlink:href="#EBGaramond-Regular-8cf"/>
+       <use xlink:href="#EBGaramond-Regular-8cd" transform="translate(47.999954 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="text_10" class="text">
+     <!-- $x$ -->
+     <g style="fill:var(--axis-color)" transform="translate(190.770833 164.930667) scale(0.12 -0.12)">
+      <defs>
+       <path id="EBGaramond-Italic-34a" d="M 154 -90 
+Q 58 -90 -25 -29 
+Q -109 32 -109 154 
+Q -109 230 -61 323 
+Q -13 416 57 486 
+Q 128 557 179 557 
+Q 230 557 252 521 
+Q 275 486 282 442 
+Q 320 294 403 294 
+Q 493 288 576 371 
+Q 768 570 905 733 
+Q 1043 896 1242 1126 
+Q 1286 1171 1261 1242 
+L 1018 2138 
+Q 998 2208 979 2227 
+Q 960 2246 922 2246 
+Q 877 2246 781 2166 
+Q 685 2086 563 1914 
+Q 550 1894 524 1852 
+Q 499 1811 454 1811 
+Q 410 1811 410 1920 
+Q 410 2016 477 2137 
+Q 544 2259 646 2377 
+Q 749 2496 870 2573 
+Q 992 2650 1094 2650 
+Q 1280 2650 1363 2323 
+L 1523 1645 
+Q 1542 1542 1613 1632 
+L 2061 2272 
+Q 2157 2406 2310 2528 
+Q 2464 2650 2637 2650 
+Q 2765 2650 2861 2550 
+Q 2957 2451 2963 2374 
+Q 2970 2330 2925 2243 
+Q 2880 2157 2819 2089 
+Q 2758 2022 2701 2022 
+Q 2630 2022 2586 2131 
+Q 2554 2221 2522 2249 
+Q 2490 2278 2445 2278 
+Q 2304 2278 2080 2010 
+Q 1990 1907 1884 1776 
+Q 1779 1645 1658 1459 
+Q 1632 1421 1625 1369 
+Q 1619 1318 1645 1235 
+L 1862 448 
+Q 1888 365 1926 329 
+Q 1965 294 1997 294 
+Q 2086 294 2204 432 
+Q 2323 570 2419 806 
+Q 2458 896 2502 896 
+Q 2528 896 2544 873 
+Q 2560 851 2560 755 
+Q 2560 666 2509 525 
+Q 2458 384 2368 243 
+Q 2278 102 2156 6 
+Q 2035 -90 1894 -90 
+Q 1715 -90 1632 19 
+Q 1549 128 1491 339 
+Q 1459 474 1420 630 
+Q 1382 787 1350 922 
+Q 1331 998 1308 1004 
+Q 1286 1011 1248 960 
+Q 1094 768 940 563 
+Q 787 358 627 173 
+Q 493 13 381 -38 
+Q 269 -90 154 -90 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#EBGaramond-Italic-34a" transform="translate(0 0.59375)"/>
+     </g>
+    </g>
+   </g>
+   <g class="axis">
+    <g class="tick ytick">
+     <g id="line2d_19">
+      <path d="M 47.35 121.94 
+L 339.47 121.94 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_20">
+      <defs>
+       <path id="md54551f048" d="M 0 0 
+L -3 0 
+" style="stroke:var(--axis-color); stroke-width: 0.7"/>
+      </defs>
+      <g>
+       <use xlink:href="#md54551f048" x="47.355" y="121.936493" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_11" class="text">
+      <!-- $\mathdefault{2.5}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(27.86 127.223243) scale(0.105 -0.105)">
+       <defs>
+        <path id="EBGaramond-Regular-998" d="M 736 -90 
+Q 595 -90 489 16 
+Q 384 122 384 262 
+Q 384 410 489 512 
+Q 595 614 736 614 
+Q 883 614 985 512 
+Q 1088 410 1088 262 
+Q 1088 122 985 16 
+Q 883 -90 736 -90 
+z
+" transform="scale(0.015625)"/>
+        <path id="EBGaramond-Regular-8d2" d="M 698 -243 
+Q 627 -243 544 -227 
+Q 461 -211 461 -166 
+Q 461 -115 547 -80 
+Q 634 -45 691 -45 
+Q 1197 -45 1526 137 
+Q 1856 320 2019 595 
+Q 2182 870 2182 1146 
+Q 2182 1395 2035 1587 
+Q 1888 1779 1552 1939 
+Q 1216 2099 646 2246 
+Q 563 2317 528 2387 
+Q 493 2458 493 2541 
+Q 493 2656 550 2841 
+Q 608 3027 681 3222 
+Q 755 3418 800 3558 
+Q 864 3744 1062 3789 
+Q 1357 3866 1686 3923 
+Q 2016 3981 2387 4013 
+Q 2438 4019 2460 3984 
+Q 2483 3949 2458 3904 
+Q 2432 3853 2403 3798 
+Q 2374 3744 2349 3693 
+Q 2266 3507 2112 3488 
+Q 1946 3469 1725 3449 
+Q 1504 3430 1305 3411 
+Q 1107 3392 1011 3373 
+Q 966 3366 902 3260 
+Q 838 3155 787 3036 
+Q 736 2918 730 2867 
+Q 723 2822 739 2790 
+Q 755 2758 813 2746 
+Q 1171 2643 1465 2537 
+Q 1760 2432 1978 2317 
+Q 2336 2131 2512 1878 
+Q 2688 1626 2688 1235 
+Q 2688 883 2477 576 
+Q 2266 269 1907 64 
+Q 1651 -77 1344 -160 
+Q 1037 -243 698 -243 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#EBGaramond-Regular-8cf"/>
+       <use xlink:href="#EBGaramond-Regular-998" transform="translate(47.999954 0)"/>
+       <use xlink:href="#EBGaramond-Regular-8d2" transform="translate(70.999939 0)"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick ytick">
+     <g id="line2d_21">
+      <path d="M 47.35 95.9 
+L 339.47 95.9 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_22">
+      <g>
+       <use xlink:href="#md54551f048" x="47.355" y="95.898125" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_12" class="text">
+      <!-- $\mathdefault{5.0}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(27.86 101.184875) scale(0.105 -0.105)">
+       <use xlink:href="#EBGaramond-Regular-8d2"/>
+       <use xlink:href="#EBGaramond-Regular-998" transform="translate(47.999954 0)"/>
+       <use xlink:href="#EBGaramond-Regular-8cd" transform="translate(70.999939 0)"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick ytick">
+     <g id="line2d_23">
+      <path d="M 47.35 69.86 
+L 339.47 69.86 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_24">
+      <g>
+       <use xlink:href="#md54551f048" x="47.355" y="69.859757" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_13" class="text">
+      <!-- $\mathdefault{7.5}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(27.86 75.146507) scale(0.105 -0.105)">
+       <defs>
+        <path id="EBGaramond-Regular-8d4" d="M 812 -205 
+Q 742 -205 710 -157 
+Q 678 -109 678 -38 
+Q 678 -19 723 64 
+Q 768 147 812 224 
+L 2624 3462 
+Q 2636 3482 2633 3501 
+Q 2630 3520 2560 3526 
+L 921 3526 
+Q 768 3526 652 3468 
+Q 537 3411 428 3232 
+Q 409 3200 367 3136 
+Q 326 3072 275 3072 
+Q 249 3072 239 3104 
+Q 230 3136 230 3162 
+Q 230 3194 239 3235 
+Q 249 3277 256 3302 
+Q 288 3443 316 3628 
+Q 345 3814 358 3936 
+Q 364 3981 386 3993 
+Q 409 4006 422 4006 
+Q 435 4006 598 3977 
+Q 761 3949 960 3949 
+Q 1107 3949 1238 3945 
+Q 1369 3942 1593 3942 
+Q 1907 3942 2223 3945 
+Q 2540 3949 2774 3958 
+Q 3008 3968 3065 3974 
+Q 3078 3974 3091 3945 
+Q 3104 3917 3104 3891 
+Q 3104 3840 3056 3753 
+Q 3008 3667 2950 3584 
+Q 2892 3501 2860 3443 
+L 934 -32 
+Q 908 -83 870 -144 
+Q 832 -205 812 -205 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#EBGaramond-Regular-8d4" transform="translate(0 0.203125)"/>
+       <use xlink:href="#EBGaramond-Regular-998" transform="translate(47.999954 0.203125)"/>
+       <use xlink:href="#EBGaramond-Regular-8d2" transform="translate(70.999939 0.203125)"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick ytick">
+     <g id="line2d_25">
+      <path d="M 47.35 43.82 
+L 339.47 43.82 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_26">
+      <g>
+       <use xlink:href="#md54551f048" x="47.355" y="43.821389" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_14" class="text">
+      <!-- $\mathdefault{10.0}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(22.82 49.108139) scale(0.105 -0.105)">
+       <use xlink:href="#EBGaramond-Regular-8ce" transform="translate(0 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-8cd" transform="translate(47.999954 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-998" transform="translate(95.999908 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-8cd" transform="translate(118.999893 0.296875)"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick ytick">
+     <g id="line2d_27">
+      <path d="M 47.35 17.78 
+L 339.47 17.78 
+" clip-path="url(#pb690f7b795)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_28">
+      <g>
+       <use xlink:href="#md54551f048" x="47.355" y="17.783021" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_15" class="text">
+      <!-- $\mathdefault{12.5}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(22.82 23.069771) scale(0.105 -0.105)">
+       <use xlink:href="#EBGaramond-Regular-8ce" transform="translate(0 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-8cf" transform="translate(47.999954 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-998" transform="translate(95.999908 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-8d2" transform="translate(118.999893 0.296875)"/>
+      </g>
+     </g>
+    </g>
+    <g id="text_16" class="text">
+     <!-- $y$ -->
+     <g style="fill:var(--axis-color)" transform="translate(14.244 67.112083) rotate(-90) scale(0.12 -0.12)">
+      <defs>
+       <path id="EBGaramond-Italic-34b" d="M -346 -1856 
+Q -442 -1856 -538 -1789 
+Q -634 -1722 -634 -1587 
+Q -634 -1459 -554 -1363 
+Q -474 -1267 -384 -1267 
+Q -320 -1267 -275 -1302 
+Q -230 -1338 -186 -1376 
+Q -141 -1414 -96 -1443 
+Q -51 -1472 6 -1472 
+Q 230 -1472 476 -1187 
+Q 723 -902 934 -474 
+Q 1082 -173 1130 188 
+Q 1178 550 1178 986 
+Q 1178 1459 1110 1740 
+Q 1043 2022 956 2147 
+Q 870 2272 806 2272 
+Q 742 2272 668 2198 
+Q 595 2125 534 2029 
+Q 474 1933 448 1856 
+Q 442 1824 403 1747 
+Q 365 1670 326 1670 
+Q 301 1670 285 1724 
+Q 269 1779 269 1850 
+Q 269 2048 374 2230 
+Q 480 2413 633 2531 
+Q 787 2650 928 2650 
+Q 1229 2650 1357 2227 
+Q 1446 1952 1516 1545 
+Q 1587 1139 1555 499 
+Q 1549 384 1577 390 
+Q 1606 397 1651 480 
+Q 1862 883 2032 1414 
+Q 2202 1946 2202 2586 
+Q 2202 2618 2250 2662 
+Q 2298 2707 2323 2707 
+Q 2362 2707 2448 2627 
+Q 2534 2547 2534 2432 
+Q 2534 2035 2336 1497 
+Q 2138 960 1779 358 
+Q 1421 -243 947 -832 
+Q 723 -1107 492 -1340 
+Q 262 -1574 48 -1715 
+Q -166 -1856 -346 -1856 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#EBGaramond-Italic-34b" transform="translate(0 0.703125)"/>
+     </g>
+    </g>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="med803c19e4" d="M 0 2.12 
+C 0.56 2.12 1.1 1.9 1.5 1.5 
+C 1.9 1.1 2.12 0.56 2.12 0 
+C 2.12 -0.56 1.9 -1.1 1.5 -1.5 
+C 1.1 -1.9 0.56 -2.12 0 -2.12 
+C -0.56 -2.12 -1.1 -1.9 -1.5 -1.5 
+C -1.9 -1.1 -2.12 -0.56 -2.12 0 
+C -2.12 0.56 -1.9 1.1 -1.5 1.5 
+C -1.1 1.9 -0.56 2.12 0 2.12 
+z
+" style="stroke:var(--c8)"/>
+    </defs>
+    <g clip-path="url(#pb690f7b795)">
+     <use xlink:href="#med803c19e4" x="167.636275" y="70.276371" style="fill:var(--c8); stroke:var(--c8)"/>
+     <use xlink:href="#med803c19e4" x="133.270196" y="77.46296" style="fill:var(--c8); stroke:var(--c8)"/>
+     <use xlink:href="#med803c19e4" x="219.185392" y="15.283338" style="fill:var(--c8); stroke:var(--c8)"/>
+     <use xlink:href="#med803c19e4" x="150.453235" y="73.921742" style="fill:var(--c8); stroke:var(--c8)"/>
+     <use xlink:href="#med803c19e4" x="184.819314" y="66.630999" style="fill:var(--c8); stroke:var(--c8)"/>
+     <use xlink:href="#med803c19e4" x="236.368431" y="55.903192" style="fill:var(--c8); stroke:var(--c8)"/>
+     <use xlink:href="#med803c19e4" x="98.904118" y="84.64955" style="fill:var(--c8); stroke:var(--c8)"/>
+     <use xlink:href="#med803c19e4" x="64.538039" y="91.83614" style="fill:var(--c8); stroke:var(--c8)"/>
+     <use xlink:href="#med803c19e4" x="202.002353" y="63.089781" style="fill:var(--c8); stroke:var(--c8)"/>
+     <use xlink:href="#med803c19e4" x="116.087157" y="81.108332" style="fill:var(--c8); stroke:var(--c8)"/>
+     <use xlink:href="#med803c19e4" x="81.721078" y="88.294922" style="fill:var(--c8); stroke:var(--c8)"/>
+    </g>
+   </g>
+   <g class="patch">
+    <path d="M 47.35 127.14 
+L 47.35 2.16 
+" style="fill: none; stroke:var(--axis-color); stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g class="patch">
+    <path d="M 47.35 127.14 
+L 339.47 127.14 
+" style="fill: none; stroke:var(--axis-color); stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb690f7b795">
+   <rect x="47.355" y="2.16" width="292.111667" height="124.984167"/>
+  </clipPath>
+ </defs>
+</svg>
