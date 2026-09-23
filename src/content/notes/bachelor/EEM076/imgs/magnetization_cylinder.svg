@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="218.927pt" height="267.577pt" viewBox="0 0 162.168 198.205">
+<style>:root { --axis-color:#2a241c; --grid-color:rgba(42, 36, 28, 0.14); --black:#000000;--c1:#D55E00;--c2:#009E73;--c3:#56B4E9;--c4:#CC79A7;--c5:#E69F00;--c6:#C7B42E;--c7:#999999;--c8:#0072B2;--gray:#999999;--grey:#999999;--octonary:#0072B2;--primary:#D55E00;--quaternary:#CC79A7;--quinary:#E69F00;--secondary:#009E73;--senary:#C7B42E;--septenary:#999999;--tertiary:#56B4E9;--white:#ffffff; }
+@media (prefers-color-scheme:dark) {
+  :root { --axis-color:#e6dfd2; --grid-color:rgba(230, 223, 210, 0.16); --black:#FFFFFF;--c1:#E36A1C;--c2:#23AB7F;--c3:#3F9FD3;--c4:#C673A1;--c5:#C38819;--c6:#847500;--c7:#929292;--c8:#1F81C2;--gray:#929292;--grey:#929292;--octonary:#1F81C2;--primary:#E36A1C;--quaternary:#C673A1;--quinary:#C38819;--secondary:#23AB7F;--senary:#847500;--septenary:#929292;--tertiary:#3F9FD3;--white:#000000; }
+}
+.plot3d path,.plot3d polygon { stroke:var(--axis-color); }
+.plot3d-grid line { stroke:var(--grid-color); }</style>
+
+<defs>
+<g class="glyph">
+<g id="magnetization_cylinder_glyph-0-0">
+<path d="M 5.359375 -1.375 C 5.359375 -1.421875 5.3125 -1.453125 5.265625 -1.453125 C 5.171875 -1.453125 5.15625 -1.40625 5.125 -1.265625 C 4.984375 -0.703125 4.796875 -0.09375 4.40625 -0.09375 C 4.125 -0.09375 4.109375 -0.34375 4.109375 -0.53125 C 4.109375 -0.75 4.203125 -1.09375 4.265625 -1.390625 L 4.53125 -2.421875 L 4.71875 -3.203125 C 4.78125 -3.4375 4.890625 -3.84375 4.890625 -3.875 C 4.890625 -4.03125 4.765625 -4.125 4.625 -4.125 C 4.546875 -4.125 4.34375 -4.078125 4.265625 -3.796875 L 3.59375 -1.140625 C 3.546875 -0.953125 3.546875 -0.921875 3.421875 -0.78125 C 3.3125 -0.609375 2.9375 -0.09375 2.328125 -0.09375 C 1.796875 -0.09375 1.625 -0.484375 1.625 -0.9375 C 1.625 -1.21875 1.71875 -1.546875 1.75 -1.71875 L 2.1875 -3.4375 C 2.234375 -3.609375 2.296875 -3.921875 2.296875 -3.984375 C 2.296875 -4.125 2.1875 -4.21875 2.0625 -4.21875 C 1.96875 -4.21875 1.765625 -4.1875 1.6875 -3.875 L 0.296875 1.65625 C 0.28125 1.703125 0.265625 1.765625 0.265625 1.8125 C 0.265625 1.953125 0.375 2.0625 0.53125 2.0625 C 0.796875 2.0625 0.859375 1.84375 0.921875 1.5625 C 1.03125 1.171875 0.96875 1.359375 1.375 -0.203125 C 1.609375 0.015625 1.96875 0.09375 2.296875 0.09375 C 2.90625 0.09375 3.328125 -0.3125 3.546875 -0.609375 C 3.640625 -0.109375 4.046875 0.09375 4.375 0.09375 C 4.671875 0.09375 4.890625 -0.078125 5.0625 -0.421875 C 5.21875 -0.75 5.359375 -1.328125 5.359375 -1.375 Z M 5.359375 -1.375 "/>
+</g>
+<g id="magnetization_cylinder_glyph-1-0">
+<path d="M 7.546875 -2.9375 C 7.546875 -3.015625 7.484375 -3.0625 7.421875 -3.0625 C 7.421875 -3.0625 7.34375 -3.0625 7.328125 -3.015625 C 7.296875 -3 7.296875 -2.96875 7.203125 -2.75 C 6.828125 -1.703125 6.28125 -0.34375 4.265625 -0.34375 L 3.125 -0.34375 C 2.953125 -0.34375 2.921875 -0.34375 2.859375 -0.359375 C 2.71875 -0.375 2.71875 -0.390625 2.71875 -0.484375 C 2.71875 -0.578125 2.734375 -0.640625 2.765625 -0.75 L 4.390625 -7.25 C 4.5 -7.703125 4.53125 -7.8125 5.578125 -7.8125 C 5.90625 -7.8125 5.984375 -7.8125 5.984375 -8.046875 C 5.984375 -8.15625 5.859375 -8.15625 5.8125 -8.15625 C 5.5625 -8.15625 5.296875 -8.140625 5.0625 -8.140625 L 3.453125 -8.140625 C 3.234375 -8.140625 2.96875 -8.15625 2.734375 -8.15625 C 2.640625 -8.15625 2.515625 -8.15625 2.515625 -7.9375 C 2.515625 -7.8125 2.625 -7.8125 2.796875 -7.8125 C 3.53125 -7.8125 3.53125 -7.71875 3.53125 -7.59375 C 3.53125 -7.59375 3.53125 -7.5 3.484375 -7.3125 L 1.859375 -0.890625 C 1.75 -0.46875 1.734375 -0.34375 0.890625 -0.34375 C 0.671875 -0.34375 0.546875 -0.34375 0.546875 -0.125 C 0.546875 0 0.625 0 0.859375 0 L 6.21875 0 C 6.484375 0 6.484375 -0.015625 6.578125 -0.234375 L 7.5 -2.765625 C 7.515625 -2.828125 7.546875 -2.90625 7.546875 -2.9375 Z M 7.546875 -2.9375 "/>
+</g>
+<g id="magnetization_cylinder_glyph-1-1">
+<path d="M 8.4375 -0.234375 C 8.4375 -0.34375 8.328125 -0.34375 8.15625 -0.34375 C 7.5 -0.34375 7.484375 -0.453125 7.453125 -0.8125 L 6.71875 -8.265625 C 6.6875 -8.515625 6.640625 -8.53125 6.515625 -8.53125 C 6.390625 -8.53125 6.328125 -8.515625 6.21875 -8.328125 L 2.03125 -1.328125 C 1.609375 -0.625 1.203125 -0.375 0.640625 -0.34375 C 0.5 -0.328125 0.40625 -0.328125 0.40625 -0.125 C 0.40625 -0.046875 0.46875 0 0.546875 0 L 1.515625 -0.03125 C 1.859375 -0.03125 2.25 0 2.578125 0 C 2.65625 0 2.796875 0 2.796875 -0.234375 C 2.796875 -0.328125 2.703125 -0.34375 2.625 -0.34375 C 2.359375 -0.375 2.125 -0.46875 2.125 -0.75 C 2.125 -0.921875 2.203125 -1.046875 2.359375 -1.3125 L 3.265625 -2.828125 L 6.3125 -2.828125 C 6.328125 -2.71875 6.328125 -2.625 6.328125 -2.515625 C 6.375 -2.203125 6.515625 -0.953125 6.515625 -0.734375 C 6.515625 -0.375 5.90625 -0.34375 5.71875 -0.34375 C 5.578125 -0.34375 5.453125 -0.34375 5.453125 -0.125 C 5.453125 0 5.5625 0 5.625 0 C 5.828125 0 6.078125 -0.03125 6.28125 -0.03125 L 6.953125 -0.03125 L 8.21875 0 C 8.3125 0 8.4375 0 8.4375 -0.234375 Z M 6.28125 -3.171875 L 3.46875 -3.171875 L 5.875 -7.1875 Z M 6.28125 -3.171875 "/>
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="var(--c3)" fill-opacity="0.18" d="M 33.957031 170.261719 L 33.957031 51.203125 C 33.957031 59.816406 56.800781 66.796875 84.980469 66.796875 C 113.160156 66.796875 136.003906 59.816406 136.003906 51.203125 L 136.003906 170.261719 C 136.003906 178.871094 113.160156 185.851562 84.980469 185.851562 C 56.800781 185.851562 33.957031 178.871094 33.957031 170.261719 "/>
+<path fill-rule="nonzero" fill="var(--c3)" fill-opacity="0.28" stroke-width="0.79701" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 51.023906 119.057875 C 51.023906 127.66725 28.180156 134.647719 0.00046875 134.647719 C -28.179219 134.647719 -51.022969 127.66725 -51.022969 119.057875 C -51.022969 110.444594 -28.179219 103.464125 0.00046875 103.464125 C 28.180156 103.464125 51.023906 110.444594 51.023906 119.057875 Z M 51.023906 119.057875 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.79701" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -51.022969 119.057875 L -51.022969 -0.00071875 C -51.022969 -8.610094 -28.179219 -15.590563 0.00046875 -15.590563 C 28.180156 -15.590563 51.023906 -8.610094 51.023906 -0.00071875 L 51.023906 119.057875 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -19.843281 121.889906 C -19.843281 123.143812 -22.382344 124.159437 -25.51125 124.159437 C -28.644063 124.159437 -31.183125 123.143812 -31.183125 121.889906 C -31.183125 120.639906 -28.644063 119.624281 -25.51125 119.624281 C -22.382344 119.624281 -19.843281 120.639906 -19.843281 121.889906 Z M -19.843281 121.889906 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -25.51125 121.889906 L -25.51125 128.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.390887 -0.00068 L 1.449481 1.120414 L 2.433856 -0.00068 L 1.449481 -1.117868 Z M 4.390887 -0.00068 " transform="matrix(0, -1, -1, 0, 59.46807, 44.11745)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="60.624" y="39.579"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 5.671156 C -28.347188 6.921156 -30.88625 7.936781 -34.015156 7.936781 C -37.147969 7.936781 -39.687031 6.921156 -39.687031 5.671156 C -39.687031 4.41725 -37.147969 3.401625 -34.015156 3.401625 C -30.88625 3.401625 -28.347188 4.41725 -28.347188 5.671156 Z M -28.347188 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 5.671156 L -34.015156 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 -0.00092375 L 1.448895 1.12017 L 2.437176 -0.00092375 L 1.448895 -1.118111 Z M 4.394207 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 25.511 C -28.347188 26.764906 -30.88625 27.780531 -34.015156 27.780531 C -37.147969 27.780531 -39.687031 26.764906 -39.687031 25.511 C -39.687031 24.261 -37.147969 23.245375 -34.015156 23.245375 C -30.88625 23.245375 -28.347188 24.261 -28.347188 25.511 Z M -28.347188 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 25.511 L -34.015156 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 -0.00092375 L 1.446079 1.12017 L 2.43436 -0.00092375 L 1.446079 -1.118111 Z M 4.391391 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 45.35475 C -28.347188 46.608656 -30.88625 47.624281 -34.015156 47.624281 C -37.147969 47.624281 -39.687031 46.608656 -39.687031 45.35475 C -39.687031 44.100844 -37.147969 43.089125 -34.015156 43.089125 C -30.88625 43.089125 -28.347188 44.100844 -28.347188 45.35475 Z M -28.347188 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 45.35475 L -34.015156 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 -0.00092375 L 1.446719 1.12017 L 2.435 -0.00092375 L 1.446719 -1.118111 Z M 4.392031 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 65.1985 C -28.347188 66.4485 -30.88625 67.464125 -34.015156 67.464125 C -37.147969 67.464125 -39.687031 66.4485 -39.687031 65.1985 C -39.687031 63.944594 -37.147969 62.928969 -34.015156 62.928969 C -30.88625 62.928969 -28.347188 63.944594 -28.347188 65.1985 Z M -28.347188 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 65.1985 L -34.015156 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 -0.00092375 L 1.447779 1.12017 L 2.43606 -0.00092375 L 1.447779 -1.118111 Z M 4.393091 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 85.04225 C -28.347188 86.29225 -30.88625 87.307875 -34.015156 87.307875 C -37.147969 87.307875 -39.687031 86.29225 -39.687031 85.04225 C -39.687031 83.788344 -37.147969 82.772719 -34.015156 82.772719 C -30.88625 82.772719 -28.347188 83.788344 -28.347188 85.04225 Z M -28.347188 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 85.04225 L -34.015156 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 -0.00092375 L 1.448839 1.12017 L 2.43712 -0.00092375 L 1.448839 -1.118111 Z M 4.394151 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 5.671156 C -5.6675 6.921156 -8.206563 7.936781 -11.339375 7.936781 C -14.468281 7.936781 -17.007344 6.921156 -17.007344 5.671156 C -17.007344 4.41725 -14.468281 3.401625 -11.339375 3.401625 C -8.206563 3.401625 -5.6675 4.41725 -5.6675 5.671156 Z M -5.6675 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 5.671156 L -11.339375 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 0.000825 L 1.448895 1.118013 L 2.437176 0.000825 L 1.448895 -1.120269 Z M 4.394207 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 25.511 C -5.6675 26.764906 -8.206563 27.780531 -11.339375 27.780531 C -14.468281 27.780531 -17.007344 26.764906 -17.007344 25.511 C -17.007344 24.261 -14.468281 23.245375 -11.339375 23.245375 C -8.206563 23.245375 -5.6675 24.261 -5.6675 25.511 Z M -5.6675 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 25.511 L -11.339375 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 0.000825 L 1.446079 1.118013 L 2.43436 0.000825 L 1.446079 -1.120269 Z M 4.391391 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 45.35475 C -5.6675 46.608656 -8.206563 47.624281 -11.339375 47.624281 C -14.468281 47.624281 -17.007344 46.608656 -17.007344 45.35475 C -17.007344 44.100844 -14.468281 43.089125 -11.339375 43.089125 C -8.206563 43.089125 -5.6675 44.100844 -5.6675 45.35475 Z M -5.6675 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 45.35475 L -11.339375 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 0.000825 L 1.446719 1.118013 L 2.435 0.000825 L 1.446719 -1.120269 Z M 4.392031 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 65.1985 C -5.6675 66.4485 -8.206563 67.464125 -11.339375 67.464125 C -14.468281 67.464125 -17.007344 66.4485 -17.007344 65.1985 C -17.007344 63.944594 -14.468281 62.928969 -11.339375 62.928969 C -8.206563 62.928969 -5.6675 63.944594 -5.6675 65.1985 Z M -5.6675 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 65.1985 L -11.339375 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 0.000825 L 1.447779 1.118013 L 2.43606 0.000825 L 1.447779 -1.120269 Z M 4.393091 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 85.04225 C -5.6675 86.29225 -8.206563 87.307875 -11.339375 87.307875 C -14.468281 87.307875 -17.007344 86.29225 -17.007344 85.04225 C -17.007344 83.788344 -14.468281 82.772719 -11.339375 82.772719 C -8.206563 82.772719 -5.6675 83.788344 -5.6675 85.04225 Z M -5.6675 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 85.04225 L -11.339375 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 0.000825 L 1.448839 1.118013 L 2.43712 0.000825 L 1.448839 -1.120269 Z M 4.394151 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 5.671156 C 17.008281 6.921156 14.469219 7.936781 11.340312 7.936781 C 8.2075 7.936781 5.668437 6.921156 5.668437 5.671156 C 5.668437 4.41725 8.2075 3.401625 11.340312 3.401625 C 14.469219 3.401625 17.008281 4.41725 17.008281 5.671156 Z M 17.008281 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 5.671156 L 11.340312 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 -0.0017625 L 1.448895 1.119331 L 2.437176 -0.0017625 L 1.448895 -1.11895 Z M 4.394207 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 25.511 C 17.008281 26.764906 14.469219 27.780531 11.340312 27.780531 C 8.2075 27.780531 5.668437 26.764906 5.668437 25.511 C 5.668437 24.261 8.2075 23.245375 11.340312 23.245375 C 14.469219 23.245375 17.008281 24.261 17.008281 25.511 Z M 17.008281 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 25.511 L 11.340312 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 -0.0017625 L 1.446079 1.119331 L 2.43436 -0.0017625 L 1.446079 -1.11895 Z M 4.391391 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 45.35475 C 17.008281 46.608656 14.469219 47.624281 11.340312 47.624281 C 8.2075 47.624281 5.668437 46.608656 5.668437 45.35475 C 5.668437 44.100844 8.2075 43.089125 11.340312 43.089125 C 14.469219 43.089125 17.008281 44.100844 17.008281 45.35475 Z M 17.008281 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 45.35475 L 11.340312 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 -0.0017625 L 1.446719 1.119331 L 2.435 -0.0017625 L 1.446719 -1.11895 Z M 4.392031 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 65.1985 C 17.008281 66.4485 14.469219 67.464125 11.340312 67.464125 C 8.2075 67.464125 5.668437 66.4485 5.668437 65.1985 C 5.668437 63.944594 8.2075 62.928969 11.340312 62.928969 C 14.469219 62.928969 17.008281 63.944594 17.008281 65.1985 Z M 17.008281 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 65.1985 L 11.340312 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 -0.0017625 L 1.447779 1.119331 L 2.43606 -0.0017625 L 1.447779 -1.11895 Z M 4.393091 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 85.04225 C 17.008281 86.29225 14.469219 87.307875 11.340312 87.307875 C 8.2075 87.307875 5.668437 86.29225 5.668437 85.04225 C 5.668437 83.788344 8.2075 82.772719 11.340312 82.772719 C 14.469219 82.772719 17.008281 83.788344 17.008281 85.04225 Z M 17.008281 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 85.04225 L 11.340312 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 -0.0017625 L 1.448839 1.119331 L 2.43712 -0.0017625 L 1.448839 -1.11895 Z M 4.394151 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 5.671156 C 39.684062 6.921156 37.148906 7.936781 34.016094 7.936781 C 30.883281 7.936781 28.348125 6.921156 28.348125 5.671156 C 28.348125 4.41725 30.883281 3.401625 34.016094 3.401625 C 37.148906 3.401625 39.684062 4.41725 39.684062 5.671156 Z M 39.684062 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 5.671156 L 34.016094 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 -0.00001375 L 1.448895 1.117174 L 2.437176 -0.00001375 L 1.448895 -1.117201 Z M 4.394207 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 25.511 C 39.684062 26.764906 37.148906 27.780531 34.016094 27.780531 C 30.883281 27.780531 28.348125 26.764906 28.348125 25.511 C 28.348125 24.261 30.883281 23.245375 34.016094 23.245375 C 37.148906 23.245375 39.684062 24.261 39.684062 25.511 Z M 39.684062 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 25.511 L 34.016094 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 -0.00001375 L 1.446079 1.117174 L 2.43436 -0.00001375 L 1.446079 -1.117201 Z M 4.391391 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 45.35475 C 39.684062 46.608656 37.148906 47.624281 34.016094 47.624281 C 30.883281 47.624281 28.348125 46.608656 28.348125 45.35475 C 28.348125 44.100844 30.883281 43.089125 34.016094 43.089125 C 37.148906 43.089125 39.684062 44.100844 39.684062 45.35475 Z M 39.684062 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 45.35475 L 34.016094 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 -0.00001375 L 1.446719 1.117174 L 2.435 -0.00001375 L 1.446719 -1.117201 Z M 4.392031 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 65.1985 C 39.684062 66.4485 37.148906 67.464125 34.016094 67.464125 C 30.883281 67.464125 28.348125 66.4485 28.348125 65.1985 C 28.348125 63.944594 30.883281 62.928969 34.016094 62.928969 C 37.148906 62.928969 39.684062 63.944594 39.684062 65.1985 Z M 39.684062 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 65.1985 L 34.016094 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 -0.00001375 L 1.447779 1.117174 L 2.43606 -0.00001375 L 1.447779 -1.117201 Z M 4.393091 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 85.04225 C 39.684062 86.29225 37.148906 87.307875 34.016094 87.307875 C 30.883281 87.307875 28.348125 86.29225 28.348125 85.04225 C 28.348125 83.788344 30.883281 82.772719 34.016094 82.772719 C 37.148906 82.772719 39.684062 83.788344 39.684062 85.04225 Z M 39.684062 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 85.04225 L 34.016094 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 -0.00001375 L 1.448839 1.117174 L 2.43712 -0.00001375 L 1.448839 -1.117201 Z M 4.394151 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 14.172344 126.143812 C 14.172344 127.393812 11.633281 128.409437 8.504375 128.409437 C 5.371562 128.409437 2.836406 127.393812 2.836406 126.143812 C 2.836406 124.889906 5.371562 123.874281 8.504375 123.874281 C 11.633281 123.874281 14.172344 124.889906 14.172344 126.143812 Z M 14.172344 126.143812 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 8.504375 126.143812 L 8.504375 132.608656 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392944 -0.000255 L 1.447631 1.120839 L 2.435912 -0.000255 L 1.447631 -1.117442 Z M 4.392944 -0.000255 " transform="matrix(0, -1, -1, 0, 93.48412, 39.8656)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="94.64" y="35.327"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 5.671156 C -28.347188 6.921156 -30.88625 7.936781 -34.015156 7.936781 C -37.147969 7.936781 -39.687031 6.921156 -39.687031 5.671156 C -39.687031 4.41725 -37.147969 3.401625 -34.015156 3.401625 C -30.88625 3.401625 -28.347188 4.41725 -28.347188 5.671156 Z M -28.347188 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 5.671156 L -34.015156 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 -0.00092375 L 1.448895 1.12017 L 2.437176 -0.00092375 L 1.448895 -1.118111 Z M 4.394207 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 25.511 C -28.347188 26.764906 -30.88625 27.780531 -34.015156 27.780531 C -37.147969 27.780531 -39.687031 26.764906 -39.687031 25.511 C -39.687031 24.261 -37.147969 23.245375 -34.015156 23.245375 C -30.88625 23.245375 -28.347188 24.261 -28.347188 25.511 Z M -28.347188 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 25.511 L -34.015156 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 -0.00092375 L 1.446079 1.12017 L 2.43436 -0.00092375 L 1.446079 -1.118111 Z M 4.391391 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 45.35475 C -28.347188 46.608656 -30.88625 47.624281 -34.015156 47.624281 C -37.147969 47.624281 -39.687031 46.608656 -39.687031 45.35475 C -39.687031 44.100844 -37.147969 43.089125 -34.015156 43.089125 C -30.88625 43.089125 -28.347188 44.100844 -28.347188 45.35475 Z M -28.347188 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 45.35475 L -34.015156 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 -0.00092375 L 1.446719 1.12017 L 2.435 -0.00092375 L 1.446719 -1.118111 Z M 4.392031 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 65.1985 C -28.347188 66.4485 -30.88625 67.464125 -34.015156 67.464125 C -37.147969 67.464125 -39.687031 66.4485 -39.687031 65.1985 C -39.687031 63.944594 -37.147969 62.928969 -34.015156 62.928969 C -30.88625 62.928969 -28.347188 63.944594 -28.347188 65.1985 Z M -28.347188 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 65.1985 L -34.015156 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 -0.00092375 L 1.447779 1.12017 L 2.43606 -0.00092375 L 1.447779 -1.118111 Z M 4.393091 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 85.04225 C -28.347188 86.29225 -30.88625 87.307875 -34.015156 87.307875 C -37.147969 87.307875 -39.687031 86.29225 -39.687031 85.04225 C -39.687031 83.788344 -37.147969 82.772719 -34.015156 82.772719 C -30.88625 82.772719 -28.347188 83.788344 -28.347188 85.04225 Z M -28.347188 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 85.04225 L -34.015156 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 -0.00092375 L 1.448839 1.12017 L 2.43712 -0.00092375 L 1.448839 -1.118111 Z M 4.394151 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 5.671156 C -5.6675 6.921156 -8.206563 7.936781 -11.339375 7.936781 C -14.468281 7.936781 -17.007344 6.921156 -17.007344 5.671156 C -17.007344 4.41725 -14.468281 3.401625 -11.339375 3.401625 C -8.206563 3.401625 -5.6675 4.41725 -5.6675 5.671156 Z M -5.6675 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 5.671156 L -11.339375 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 0.000825 L 1.448895 1.118013 L 2.437176 0.000825 L 1.448895 -1.120269 Z M 4.394207 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 25.511 C -5.6675 26.764906 -8.206563 27.780531 -11.339375 27.780531 C -14.468281 27.780531 -17.007344 26.764906 -17.007344 25.511 C -17.007344 24.261 -14.468281 23.245375 -11.339375 23.245375 C -8.206563 23.245375 -5.6675 24.261 -5.6675 25.511 Z M -5.6675 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 25.511 L -11.339375 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 0.000825 L 1.446079 1.118013 L 2.43436 0.000825 L 1.446079 -1.120269 Z M 4.391391 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 45.35475 C -5.6675 46.608656 -8.206563 47.624281 -11.339375 47.624281 C -14.468281 47.624281 -17.007344 46.608656 -17.007344 45.35475 C -17.007344 44.100844 -14.468281 43.089125 -11.339375 43.089125 C -8.206563 43.089125 -5.6675 44.100844 -5.6675 45.35475 Z M -5.6675 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 45.35475 L -11.339375 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 0.000825 L 1.446719 1.118013 L 2.435 0.000825 L 1.446719 -1.120269 Z M 4.392031 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 65.1985 C -5.6675 66.4485 -8.206563 67.464125 -11.339375 67.464125 C -14.468281 67.464125 -17.007344 66.4485 -17.007344 65.1985 C -17.007344 63.944594 -14.468281 62.928969 -11.339375 62.928969 C -8.206563 62.928969 -5.6675 63.944594 -5.6675 65.1985 Z M -5.6675 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 65.1985 L -11.339375 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 0.000825 L 1.447779 1.118013 L 2.43606 0.000825 L 1.447779 -1.120269 Z M 4.393091 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 85.04225 C -5.6675 86.29225 -8.206563 87.307875 -11.339375 87.307875 C -14.468281 87.307875 -17.007344 86.29225 -17.007344 85.04225 C -17.007344 83.788344 -14.468281 82.772719 -11.339375 82.772719 C -8.206563 82.772719 -5.6675 83.788344 -5.6675 85.04225 Z M -5.6675 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 85.04225 L -11.339375 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 0.000825 L 1.448839 1.118013 L 2.43712 0.000825 L 1.448839 -1.120269 Z M 4.394151 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 5.671156 C 17.008281 6.921156 14.469219 7.936781 11.340312 7.936781 C 8.2075 7.936781 5.668437 6.921156 5.668437 5.671156 C 5.668437 4.41725 8.2075 3.401625 11.340312 3.401625 C 14.469219 3.401625 17.008281 4.41725 17.008281 5.671156 Z M 17.008281 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 5.671156 L 11.340312 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 -0.0017625 L 1.448895 1.119331 L 2.437176 -0.0017625 L 1.448895 -1.11895 Z M 4.394207 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 25.511 C 17.008281 26.764906 14.469219 27.780531 11.340312 27.780531 C 8.2075 27.780531 5.668437 26.764906 5.668437 25.511 C 5.668437 24.261 8.2075 23.245375 11.340312 23.245375 C 14.469219 23.245375 17.008281 24.261 17.008281 25.511 Z M 17.008281 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 25.511 L 11.340312 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 -0.0017625 L 1.446079 1.119331 L 2.43436 -0.0017625 L 1.446079 -1.11895 Z M 4.391391 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 45.35475 C 17.008281 46.608656 14.469219 47.624281 11.340312 47.624281 C 8.2075 47.624281 5.668437 46.608656 5.668437 45.35475 C 5.668437 44.100844 8.2075 43.089125 11.340312 43.089125 C 14.469219 43.089125 17.008281 44.100844 17.008281 45.35475 Z M 17.008281 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 45.35475 L 11.340312 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 -0.0017625 L 1.446719 1.119331 L 2.435 -0.0017625 L 1.446719 -1.11895 Z M 4.392031 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 65.1985 C 17.008281 66.4485 14.469219 67.464125 11.340312 67.464125 C 8.2075 67.464125 5.668437 66.4485 5.668437 65.1985 C 5.668437 63.944594 8.2075 62.928969 11.340312 62.928969 C 14.469219 62.928969 17.008281 63.944594 17.008281 65.1985 Z M 17.008281 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 65.1985 L 11.340312 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 -0.0017625 L 1.447779 1.119331 L 2.43606 -0.0017625 L 1.447779 -1.11895 Z M 4.393091 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 85.04225 C 17.008281 86.29225 14.469219 87.307875 11.340312 87.307875 C 8.2075 87.307875 5.668437 86.29225 5.668437 85.04225 C 5.668437 83.788344 8.2075 82.772719 11.340312 82.772719 C 14.469219 82.772719 17.008281 83.788344 17.008281 85.04225 Z M 17.008281 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 85.04225 L 11.340312 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 -0.0017625 L 1.448839 1.119331 L 2.43712 -0.0017625 L 1.448839 -1.11895 Z M 4.394151 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 5.671156 C 39.684062 6.921156 37.148906 7.936781 34.016094 7.936781 C 30.883281 7.936781 28.348125 6.921156 28.348125 5.671156 C 28.348125 4.41725 30.883281 3.401625 34.016094 3.401625 C 37.148906 3.401625 39.684062 4.41725 39.684062 5.671156 Z M 39.684062 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 5.671156 L 34.016094 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 -0.00001375 L 1.448895 1.117174 L 2.437176 -0.00001375 L 1.448895 -1.117201 Z M 4.394207 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 25.511 C 39.684062 26.764906 37.148906 27.780531 34.016094 27.780531 C 30.883281 27.780531 28.348125 26.764906 28.348125 25.511 C 28.348125 24.261 30.883281 23.245375 34.016094 23.245375 C 37.148906 23.245375 39.684062 24.261 39.684062 25.511 Z M 39.684062 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 25.511 L 34.016094 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 -0.00001375 L 1.446079 1.117174 L 2.43436 -0.00001375 L 1.446079 -1.117201 Z M 4.391391 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 45.35475 C 39.684062 46.608656 37.148906 47.624281 34.016094 47.624281 C 30.883281 47.624281 28.348125 46.608656 28.348125 45.35475 C 28.348125 44.100844 30.883281 43.089125 34.016094 43.089125 C 37.148906 43.089125 39.684062 44.100844 39.684062 45.35475 Z M 39.684062 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 45.35475 L 34.016094 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 -0.00001375 L 1.446719 1.117174 L 2.435 -0.00001375 L 1.446719 -1.117201 Z M 4.392031 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 65.1985 C 39.684062 66.4485 37.148906 67.464125 34.016094 67.464125 C 30.883281 67.464125 28.348125 66.4485 28.348125 65.1985 C 28.348125 63.944594 30.883281 62.928969 34.016094 62.928969 C 37.148906 62.928969 39.684062 63.944594 39.684062 65.1985 Z M 39.684062 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 65.1985 L 34.016094 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 -0.00001375 L 1.447779 1.117174 L 2.43606 -0.00001375 L 1.447779 -1.117201 Z M 4.393091 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 85.04225 C 39.684062 86.29225 37.148906 87.307875 34.016094 87.307875 C 30.883281 87.307875 28.348125 86.29225 28.348125 85.04225 C 28.348125 83.788344 30.883281 82.772719 34.016094 82.772719 C 37.148906 82.772719 39.684062 83.788344 39.684062 85.04225 Z M 39.684062 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 85.04225 L 34.016094 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 -0.00001375 L 1.448839 1.117174 L 2.43712 -0.00001375 L 1.448839 -1.117201 Z M 4.394151 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 116.221937 C 34.016094 117.475844 31.477031 118.491469 28.348125 118.491469 C 25.215312 118.491469 22.67625 117.475844 22.67625 116.221937 C 22.67625 114.968031 25.215312 113.952406 28.348125 113.952406 C 31.477031 113.952406 34.016094 114.968031 34.016094 116.221937 Z M 34.016094 116.221937 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 28.348125 116.221937 L 28.348125 122.686781 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392179 -0.001325 L 1.446866 1.119769 L 2.435147 -0.001325 L 1.446866 -1.118512 Z M 4.392179 -0.001325 " transform="matrix(0, -1, -1, 0, 113.3268, 49.78671)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="114.482" y="45.248"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 5.671156 C -28.347188 6.921156 -30.88625 7.936781 -34.015156 7.936781 C -37.147969 7.936781 -39.687031 6.921156 -39.687031 5.671156 C -39.687031 4.41725 -37.147969 3.401625 -34.015156 3.401625 C -30.88625 3.401625 -28.347188 4.41725 -28.347188 5.671156 Z M -28.347188 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 5.671156 L -34.015156 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 -0.00092375 L 1.448895 1.12017 L 2.437176 -0.00092375 L 1.448895 -1.118111 Z M 4.394207 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 25.511 C -28.347188 26.764906 -30.88625 27.780531 -34.015156 27.780531 C -37.147969 27.780531 -39.687031 26.764906 -39.687031 25.511 C -39.687031 24.261 -37.147969 23.245375 -34.015156 23.245375 C -30.88625 23.245375 -28.347188 24.261 -28.347188 25.511 Z M -28.347188 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 25.511 L -34.015156 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 -0.00092375 L 1.446079 1.12017 L 2.43436 -0.00092375 L 1.446079 -1.118111 Z M 4.391391 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 45.35475 C -28.347188 46.608656 -30.88625 47.624281 -34.015156 47.624281 C -37.147969 47.624281 -39.687031 46.608656 -39.687031 45.35475 C -39.687031 44.100844 -37.147969 43.089125 -34.015156 43.089125 C -30.88625 43.089125 -28.347188 44.100844 -28.347188 45.35475 Z M -28.347188 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 45.35475 L -34.015156 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 -0.00092375 L 1.446719 1.12017 L 2.435 -0.00092375 L 1.446719 -1.118111 Z M 4.392031 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 65.1985 C -28.347188 66.4485 -30.88625 67.464125 -34.015156 67.464125 C -37.147969 67.464125 -39.687031 66.4485 -39.687031 65.1985 C -39.687031 63.944594 -37.147969 62.928969 -34.015156 62.928969 C -30.88625 62.928969 -28.347188 63.944594 -28.347188 65.1985 Z M -28.347188 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 65.1985 L -34.015156 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 -0.00092375 L 1.447779 1.12017 L 2.43606 -0.00092375 L 1.447779 -1.118111 Z M 4.393091 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 85.04225 C -28.347188 86.29225 -30.88625 87.307875 -34.015156 87.307875 C -37.147969 87.307875 -39.687031 86.29225 -39.687031 85.04225 C -39.687031 83.788344 -37.147969 82.772719 -34.015156 82.772719 C -30.88625 82.772719 -28.347188 83.788344 -28.347188 85.04225 Z M -28.347188 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 85.04225 L -34.015156 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 -0.00092375 L 1.448839 1.12017 L 2.43712 -0.00092375 L 1.448839 -1.118111 Z M 4.394151 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 5.671156 C -5.6675 6.921156 -8.206563 7.936781 -11.339375 7.936781 C -14.468281 7.936781 -17.007344 6.921156 -17.007344 5.671156 C -17.007344 4.41725 -14.468281 3.401625 -11.339375 3.401625 C -8.206563 3.401625 -5.6675 4.41725 -5.6675 5.671156 Z M -5.6675 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 5.671156 L -11.339375 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 0.000825 L 1.448895 1.118013 L 2.437176 0.000825 L 1.448895 -1.120269 Z M 4.394207 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 25.511 C -5.6675 26.764906 -8.206563 27.780531 -11.339375 27.780531 C -14.468281 27.780531 -17.007344 26.764906 -17.007344 25.511 C -17.007344 24.261 -14.468281 23.245375 -11.339375 23.245375 C -8.206563 23.245375 -5.6675 24.261 -5.6675 25.511 Z M -5.6675 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 25.511 L -11.339375 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 0.000825 L 1.446079 1.118013 L 2.43436 0.000825 L 1.446079 -1.120269 Z M 4.391391 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 45.35475 C -5.6675 46.608656 -8.206563 47.624281 -11.339375 47.624281 C -14.468281 47.624281 -17.007344 46.608656 -17.007344 45.35475 C -17.007344 44.100844 -14.468281 43.089125 -11.339375 43.089125 C -8.206563 43.089125 -5.6675 44.100844 -5.6675 45.35475 Z M -5.6675 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 45.35475 L -11.339375 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 0.000825 L 1.446719 1.118013 L 2.435 0.000825 L 1.446719 -1.120269 Z M 4.392031 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 65.1985 C -5.6675 66.4485 -8.206563 67.464125 -11.339375 67.464125 C -14.468281 67.464125 -17.007344 66.4485 -17.007344 65.1985 C -17.007344 63.944594 -14.468281 62.928969 -11.339375 62.928969 C -8.206563 62.928969 -5.6675 63.944594 -5.6675 65.1985 Z M -5.6675 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 65.1985 L -11.339375 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 0.000825 L 1.447779 1.118013 L 2.43606 0.000825 L 1.447779 -1.120269 Z M 4.393091 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 85.04225 C -5.6675 86.29225 -8.206563 87.307875 -11.339375 87.307875 C -14.468281 87.307875 -17.007344 86.29225 -17.007344 85.04225 C -17.007344 83.788344 -14.468281 82.772719 -11.339375 82.772719 C -8.206563 82.772719 -5.6675 83.788344 -5.6675 85.04225 Z M -5.6675 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 85.04225 L -11.339375 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 0.000825 L 1.448839 1.118013 L 2.43712 0.000825 L 1.448839 -1.120269 Z M 4.394151 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 5.671156 C 17.008281 6.921156 14.469219 7.936781 11.340312 7.936781 C 8.2075 7.936781 5.668437 6.921156 5.668437 5.671156 C 5.668437 4.41725 8.2075 3.401625 11.340312 3.401625 C 14.469219 3.401625 17.008281 4.41725 17.008281 5.671156 Z M 17.008281 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 5.671156 L 11.340312 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 -0.0017625 L 1.448895 1.119331 L 2.437176 -0.0017625 L 1.448895 -1.11895 Z M 4.394207 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 25.511 C 17.008281 26.764906 14.469219 27.780531 11.340312 27.780531 C 8.2075 27.780531 5.668437 26.764906 5.668437 25.511 C 5.668437 24.261 8.2075 23.245375 11.340312 23.245375 C 14.469219 23.245375 17.008281 24.261 17.008281 25.511 Z M 17.008281 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 25.511 L 11.340312 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 -0.0017625 L 1.446079 1.119331 L 2.43436 -0.0017625 L 1.446079 -1.11895 Z M 4.391391 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 45.35475 C 17.008281 46.608656 14.469219 47.624281 11.340312 47.624281 C 8.2075 47.624281 5.668437 46.608656 5.668437 45.35475 C 5.668437 44.100844 8.2075 43.089125 11.340312 43.089125 C 14.469219 43.089125 17.008281 44.100844 17.008281 45.35475 Z M 17.008281 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 45.35475 L 11.340312 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 -0.0017625 L 1.446719 1.119331 L 2.435 -0.0017625 L 1.446719 -1.11895 Z M 4.392031 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 65.1985 C 17.008281 66.4485 14.469219 67.464125 11.340312 67.464125 C 8.2075 67.464125 5.668437 66.4485 5.668437 65.1985 C 5.668437 63.944594 8.2075 62.928969 11.340312 62.928969 C 14.469219 62.928969 17.008281 63.944594 17.008281 65.1985 Z M 17.008281 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 65.1985 L 11.340312 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 -0.0017625 L 1.447779 1.119331 L 2.43606 -0.0017625 L 1.447779 -1.11895 Z M 4.393091 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 85.04225 C 17.008281 86.29225 14.469219 87.307875 11.340312 87.307875 C 8.2075 87.307875 5.668437 86.29225 5.668437 85.04225 C 5.668437 83.788344 8.2075 82.772719 11.340312 82.772719 C 14.469219 82.772719 17.008281 83.788344 17.008281 85.04225 Z M 17.008281 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 85.04225 L 11.340312 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 -0.0017625 L 1.448839 1.119331 L 2.43712 -0.0017625 L 1.448839 -1.11895 Z M 4.394151 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 5.671156 C 39.684062 6.921156 37.148906 7.936781 34.016094 7.936781 C 30.883281 7.936781 28.348125 6.921156 28.348125 5.671156 C 28.348125 4.41725 30.883281 3.401625 34.016094 3.401625 C 37.148906 3.401625 39.684062 4.41725 39.684062 5.671156 Z M 39.684062 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 5.671156 L 34.016094 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 -0.00001375 L 1.448895 1.117174 L 2.437176 -0.00001375 L 1.448895 -1.117201 Z M 4.394207 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 25.511 C 39.684062 26.764906 37.148906 27.780531 34.016094 27.780531 C 30.883281 27.780531 28.348125 26.764906 28.348125 25.511 C 28.348125 24.261 30.883281 23.245375 34.016094 23.245375 C 37.148906 23.245375 39.684062 24.261 39.684062 25.511 Z M 39.684062 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 25.511 L 34.016094 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 -0.00001375 L 1.446079 1.117174 L 2.43436 -0.00001375 L 1.446079 -1.117201 Z M 4.391391 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 45.35475 C 39.684062 46.608656 37.148906 47.624281 34.016094 47.624281 C 30.883281 47.624281 28.348125 46.608656 28.348125 45.35475 C 28.348125 44.100844 30.883281 43.089125 34.016094 43.089125 C 37.148906 43.089125 39.684062 44.100844 39.684062 45.35475 Z M 39.684062 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 45.35475 L 34.016094 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 -0.00001375 L 1.446719 1.117174 L 2.435 -0.00001375 L 1.446719 -1.117201 Z M 4.392031 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 65.1985 C 39.684062 66.4485 37.148906 67.464125 34.016094 67.464125 C 30.883281 67.464125 28.348125 66.4485 28.348125 65.1985 C 28.348125 63.944594 30.883281 62.928969 34.016094 62.928969 C 37.148906 62.928969 39.684062 63.944594 39.684062 65.1985 Z M 39.684062 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 65.1985 L 34.016094 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 -0.00001375 L 1.447779 1.117174 L 2.43606 -0.00001375 L 1.447779 -1.117201 Z M 4.393091 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 85.04225 C 39.684062 86.29225 37.148906 87.307875 34.016094 87.307875 C 30.883281 87.307875 28.348125 86.29225 28.348125 85.04225 C 28.348125 83.788344 30.883281 82.772719 34.016094 82.772719 C 37.148906 82.772719 39.684062 83.788344 39.684062 85.04225 Z M 39.684062 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 85.04225 L 34.016094 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 -0.00001375 L 1.448839 1.117174 L 2.43712 -0.00001375 L 1.448839 -1.117201 Z M 4.394151 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -2.835469 113.386 C -2.835469 114.639906 -5.374531 115.655531 -8.503438 115.655531 C -11.63625 115.655531 -14.175313 114.639906 -14.175313 113.386 C -14.175313 112.136 -11.63625 111.120375 -8.503438 111.120375 C -5.374531 111.120375 -2.835469 112.136 -2.835469 113.386 Z M -2.835469 113.386 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -8.503438 113.386 L -8.503438 119.850844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391101 -0.0006825 L 1.449695 1.120411 L 2.43407 -0.0006825 L 1.449695 -1.11787 Z M 4.391101 -0.0006825 " transform="matrix(0, -1, -1, 0, 76.47588, 52.62157)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="77.632" y="48.083"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 5.671156 C -28.347188 6.921156 -30.88625 7.936781 -34.015156 7.936781 C -37.147969 7.936781 -39.687031 6.921156 -39.687031 5.671156 C -39.687031 4.41725 -37.147969 3.401625 -34.015156 3.401625 C -30.88625 3.401625 -28.347188 4.41725 -28.347188 5.671156 Z M -28.347188 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 5.671156 L -34.015156 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 -0.00092375 L 1.448895 1.12017 L 2.437176 -0.00092375 L 1.448895 -1.118111 Z M 4.394207 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 25.511 C -28.347188 26.764906 -30.88625 27.780531 -34.015156 27.780531 C -37.147969 27.780531 -39.687031 26.764906 -39.687031 25.511 C -39.687031 24.261 -37.147969 23.245375 -34.015156 23.245375 C -30.88625 23.245375 -28.347188 24.261 -28.347188 25.511 Z M -28.347188 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 25.511 L -34.015156 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 -0.00092375 L 1.446079 1.12017 L 2.43436 -0.00092375 L 1.446079 -1.118111 Z M 4.391391 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 45.35475 C -28.347188 46.608656 -30.88625 47.624281 -34.015156 47.624281 C -37.147969 47.624281 -39.687031 46.608656 -39.687031 45.35475 C -39.687031 44.100844 -37.147969 43.089125 -34.015156 43.089125 C -30.88625 43.089125 -28.347188 44.100844 -28.347188 45.35475 Z M -28.347188 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 45.35475 L -34.015156 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 -0.00092375 L 1.446719 1.12017 L 2.435 -0.00092375 L 1.446719 -1.118111 Z M 4.392031 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 65.1985 C -28.347188 66.4485 -30.88625 67.464125 -34.015156 67.464125 C -37.147969 67.464125 -39.687031 66.4485 -39.687031 65.1985 C -39.687031 63.944594 -37.147969 62.928969 -34.015156 62.928969 C -30.88625 62.928969 -28.347188 63.944594 -28.347188 65.1985 Z M -28.347188 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 65.1985 L -34.015156 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 -0.00092375 L 1.447779 1.12017 L 2.43606 -0.00092375 L 1.447779 -1.118111 Z M 4.393091 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -28.347188 85.04225 C -28.347188 86.29225 -30.88625 87.307875 -34.015156 87.307875 C -37.147969 87.307875 -39.687031 86.29225 -39.687031 85.04225 C -39.687031 83.788344 -37.147969 82.772719 -34.015156 82.772719 C -30.88625 82.772719 -28.347188 83.788344 -28.347188 85.04225 Z M -28.347188 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -34.015156 85.04225 L -34.015156 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 -0.00092375 L 1.448839 1.12017 L 2.43712 -0.00092375 L 1.448839 -1.118111 Z M 4.394151 -0.00092375 " transform="matrix(0, -1, -1, 0, 50.96392, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="52.12" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 5.671156 C -5.6675 6.921156 -8.206563 7.936781 -11.339375 7.936781 C -14.468281 7.936781 -17.007344 6.921156 -17.007344 5.671156 C -17.007344 4.41725 -14.468281 3.401625 -11.339375 3.401625 C -8.206563 3.401625 -5.6675 4.41725 -5.6675 5.671156 Z M -5.6675 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 5.671156 L -11.339375 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 0.000825 L 1.448895 1.118013 L 2.437176 0.000825 L 1.448895 -1.120269 Z M 4.394207 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 25.511 C -5.6675 26.764906 -8.206563 27.780531 -11.339375 27.780531 C -14.468281 27.780531 -17.007344 26.764906 -17.007344 25.511 C -17.007344 24.261 -14.468281 23.245375 -11.339375 23.245375 C -8.206563 23.245375 -5.6675 24.261 -5.6675 25.511 Z M -5.6675 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 25.511 L -11.339375 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 0.000825 L 1.446079 1.118013 L 2.43436 0.000825 L 1.446079 -1.120269 Z M 4.391391 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 45.35475 C -5.6675 46.608656 -8.206563 47.624281 -11.339375 47.624281 C -14.468281 47.624281 -17.007344 46.608656 -17.007344 45.35475 C -17.007344 44.100844 -14.468281 43.089125 -11.339375 43.089125 C -8.206563 43.089125 -5.6675 44.100844 -5.6675 45.35475 Z M -5.6675 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 45.35475 L -11.339375 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 0.000825 L 1.446719 1.118013 L 2.435 0.000825 L 1.446719 -1.120269 Z M 4.392031 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 65.1985 C -5.6675 66.4485 -8.206563 67.464125 -11.339375 67.464125 C -14.468281 67.464125 -17.007344 66.4485 -17.007344 65.1985 C -17.007344 63.944594 -14.468281 62.928969 -11.339375 62.928969 C -8.206563 62.928969 -5.6675 63.944594 -5.6675 65.1985 Z M -5.6675 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 65.1985 L -11.339375 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 0.000825 L 1.447779 1.118013 L 2.43606 0.000825 L 1.447779 -1.120269 Z M 4.393091 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -5.6675 85.04225 C -5.6675 86.29225 -8.206563 87.307875 -11.339375 87.307875 C -14.468281 87.307875 -17.007344 86.29225 -17.007344 85.04225 C -17.007344 83.788344 -14.468281 82.772719 -11.339375 82.772719 C -8.206563 82.772719 -5.6675 83.788344 -5.6675 85.04225 Z M -5.6675 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M -11.339375 85.04225 L -11.339375 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 0.000825 L 1.448839 1.118013 L 2.43712 0.000825 L 1.448839 -1.120269 Z M 4.394151 0.000825 " transform="matrix(0, -1, -1, 0, 73.64145, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="74.798" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 5.671156 C 17.008281 6.921156 14.469219 7.936781 11.340312 7.936781 C 8.2075 7.936781 5.668437 6.921156 5.668437 5.671156 C 5.668437 4.41725 8.2075 3.401625 11.340312 3.401625 C 14.469219 3.401625 17.008281 4.41725 17.008281 5.671156 Z M 17.008281 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 5.671156 L 11.340312 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 -0.0017625 L 1.448895 1.119331 L 2.437176 -0.0017625 L 1.448895 -1.11895 Z M 4.394207 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 25.511 C 17.008281 26.764906 14.469219 27.780531 11.340312 27.780531 C 8.2075 27.780531 5.668437 26.764906 5.668437 25.511 C 5.668437 24.261 8.2075 23.245375 11.340312 23.245375 C 14.469219 23.245375 17.008281 24.261 17.008281 25.511 Z M 17.008281 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 25.511 L 11.340312 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 -0.0017625 L 1.446079 1.119331 L 2.43436 -0.0017625 L 1.446079 -1.11895 Z M 4.391391 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 45.35475 C 17.008281 46.608656 14.469219 47.624281 11.340312 47.624281 C 8.2075 47.624281 5.668437 46.608656 5.668437 45.35475 C 5.668437 44.100844 8.2075 43.089125 11.340312 43.089125 C 14.469219 43.089125 17.008281 44.100844 17.008281 45.35475 Z M 17.008281 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 45.35475 L 11.340312 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 -0.0017625 L 1.446719 1.119331 L 2.435 -0.0017625 L 1.446719 -1.11895 Z M 4.392031 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 65.1985 C 17.008281 66.4485 14.469219 67.464125 11.340312 67.464125 C 8.2075 67.464125 5.668437 66.4485 5.668437 65.1985 C 5.668437 63.944594 8.2075 62.928969 11.340312 62.928969 C 14.469219 62.928969 17.008281 63.944594 17.008281 65.1985 Z M 17.008281 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 65.1985 L 11.340312 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 -0.0017625 L 1.447779 1.119331 L 2.43606 -0.0017625 L 1.447779 -1.11895 Z M 4.393091 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 17.008281 85.04225 C 17.008281 86.29225 14.469219 87.307875 11.340312 87.307875 C 8.2075 87.307875 5.668437 86.29225 5.668437 85.04225 C 5.668437 83.788344 8.2075 82.772719 11.340312 82.772719 C 14.469219 82.772719 17.008281 83.788344 17.008281 85.04225 Z M 17.008281 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 11.340312 85.04225 L 11.340312 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 -0.0017625 L 1.448839 1.119331 L 2.43712 -0.0017625 L 1.448839 -1.11895 Z M 4.394151 -0.0017625 " transform="matrix(0, -1, -1, 0, 96.31855, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="97.474" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 5.671156 C 39.684062 6.921156 37.148906 7.936781 34.016094 7.936781 C 30.883281 7.936781 28.348125 6.921156 28.348125 5.671156 C 28.348125 4.41725 30.883281 3.401625 34.016094 3.401625 C 37.148906 3.401625 39.684062 4.41725 39.684062 5.671156 Z M 39.684062 5.671156 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 5.671156 L 34.016094 12.132094 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394207 -0.00001375 L 1.448895 1.117174 L 2.437176 -0.00001375 L 1.448895 -1.117201 Z M 4.394207 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 160.33952)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="155.799"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 25.511 C 39.684062 26.764906 37.148906 27.780531 34.016094 27.780531 C 30.883281 27.780531 28.348125 26.764906 28.348125 25.511 C 28.348125 24.261 30.883281 23.245375 34.016094 23.245375 C 37.148906 23.245375 39.684062 24.261 39.684062 25.511 Z M 39.684062 25.511 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 25.511 L 34.016094 31.975844 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.391391 -0.00001375 L 1.446079 1.117174 L 2.43436 -0.00001375 L 1.446079 -1.117201 Z M 4.391391 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 140.49686)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="135.957"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 45.35475 C 39.684062 46.608656 37.148906 47.624281 34.016094 47.624281 C 30.883281 47.624281 28.348125 46.608656 28.348125 45.35475 C 28.348125 44.100844 30.883281 43.089125 34.016094 43.089125 C 37.148906 43.089125 39.684062 44.100844 39.684062 45.35475 Z M 39.684062 45.35475 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 45.35475 L 34.016094 51.819594 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.392031 -0.00001375 L 1.446719 1.117174 L 2.435 -0.00001375 L 1.446719 -1.117201 Z M 4.392031 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 120.65375)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="116.114"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 65.1985 C 39.684062 66.4485 37.148906 67.464125 34.016094 67.464125 C 30.883281 67.464125 28.348125 66.4485 28.348125 65.1985 C 28.348125 63.944594 30.883281 62.928969 34.016094 62.928969 C 37.148906 62.928969 39.684062 63.944594 39.684062 65.1985 Z M 39.684062 65.1985 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 65.1985 L 34.016094 71.663344 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.393091 -0.00001375 L 1.447779 1.117174 L 2.43606 -0.00001375 L 1.447779 -1.117201 Z M 4.393091 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 100.81106)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="96.272"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 39.684062 85.04225 C 39.684062 86.29225 37.148906 87.307875 34.016094 87.307875 C 30.883281 87.307875 28.348125 86.29225 28.348125 85.04225 C 28.348125 83.788344 30.883281 82.772719 34.016094 82.772719 C 37.148906 82.772719 39.684062 83.788344 39.684062 85.04225 Z M 39.684062 85.04225 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill="none" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.016094 85.04225 L 34.016094 91.503187 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.89664" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.394151 -0.00001375 L 1.448839 1.117174 L 2.43712 -0.00001375 L 1.448839 -1.117201 Z M 4.394151 -0.00001375 " transform="matrix(0, -1, -1, 0, 118.99608, 80.96837)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-0-0" x="120.152" y="76.429"/>
+</g>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-0" x="15.94" y="114.818"/>
+</g>
+<path fill="none" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 48.187969 150.237562 C 37.758281 144.983656 31.820781 139.22975 27.004375 129.401625 " transform="matrix(1, 0, 0, -1, 84.98, 170.261)"/>
+<path fill-rule="nonzero" fill="var(--black)" fill-opacity="1" stroke-width="0.59776" stroke-linecap="butt" stroke-linejoin="miter" stroke="var(--black)" stroke-opacity="1" stroke-miterlimit="10" d="M 4.817405 -0.00058282 L 0.964751 1.455418 L 2.237486 -0.00137553 L 0.967136 -1.454905 Z M 4.817405 -0.00058282 " transform="matrix(-0.41817, 0.90833, 0.90833, 0.41817, 112.86268, 38.9682)"/>
+<g fill="var(--black)" fill-opacity="1">
+<use xlink:href="#magnetization_cylinder_glyph-1-1" x="137.453" y="24.109"/>
+</g>
+</svg>
