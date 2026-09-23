@@ -11,14 +11,14 @@ $$
 $$
 
 $$
-\lim_{(x, y) \to (a, b)} f(x) = L
+\lim_{(x, y) \to (a, b)} f(x, y) = L
 $$
 
-They work quite similiar, let's see the limit laws:
+They work quite similar, let's see the limit laws:
 
 1)
 $$
-\lim_{(x, y) \to (a, b)} f(x, y) \pm h(x, y) = L + M
+\lim_{(x, y) \to (a, b)} f(x, y) \pm h(x, y) = L \pm M
 $$
 
 2)
@@ -28,13 +28,13 @@ $$
 
 3)
 $$
-\lim_{(x, y) \to (a, b)} \dfrac{f(x, y)}{h(x, y} = \dfrac{L}{M} , M \neq 0
+\lim_{(x, y) \to (a, b)} \dfrac{f(x, y)}{h(x, y)} = \dfrac{L}{M}, \quad M \neq 0
 $$
 
-### Partial derivate
+### Partial derivative
 
 :::recall[Partial derivative]
-The *partial* derivate of a function of two variables **with respect to** x, denoted by $f_x$, is the function of two variables given by:
+The *partial* derivative of a function of two variables **with respect to** $x$, denoted by $f_x$, is the function of two variables given by:
 $$
 f_x(x, y) = \lim_{h \to 0} \dfrac{f(x + h, y) - f(x, y)}{h}
 $$
@@ -82,15 +82,17 @@ $$
 Let $z(x, y)$ be given implicitly, by equation of form $F(x, y, z) = 0$ where $F$ is differentiable and $F_z \neq 0$, then:
 
 $$
-\dfrac{\partial z}{\partial x} = -\dfrac{F_x}{F_z} \newline
-\dfrac{\partial z}{\partial y} = -\dfrac{F_y}{F_z} \newline
+\begin{align*}
+\dfrac{\partial z}{\partial x} & = -\dfrac{F_x}{F_z}, \newline
+\dfrac{\partial z}{\partial y} & = -\dfrac{F_y}{F_z}.
+\end{align*}
 $$
 :::
 
 ### Definition of directional derivatives
 The directional derivative of a function, $f$, of two variables, at point $(x_0, y_0)$ in the direction of a **unit** vector, $\vec{u}$.
 $$
-\vec{u} \langle a, b \rangle
+\vec{u} = \langle a, b \rangle
 $$
 
 We denoted the directional derivative with a $D_{\vec{u}} f$.
@@ -119,7 +121,7 @@ $$
 
 If we use the geometrical definition:
 $$
-D_{\vec{u}} f(x_0, y_0) = |\nabla f(x_0, y_0)| |\vec{u}| cos(\alpha)
+D_{\vec{u}} f(x_0, y_0) = |\nabla f(x_0, y_0)| |\vec{u}| \cos(\alpha)
 $$
 
 ### Gradient and level curves
@@ -131,22 +133,24 @@ $$
 Where $k$ is just any constant. For each point $(x_0, y_0)$, $\nabla f(x_0, y_0)$ is orthogonal to the level curve that contains $(x_0, y_0)$
 
 ### Critical points
-$(a, b)$ is a **critical point** if $\nabla f(a, b) = 0 \textbf{ or } \nabla f(a, b) \ \nexists$
+$(a, b)$ is a **critical point** if $\nabla f(a, b) = 0 \textbf{ or } \nabla f(a, b) \nexists$
 
 In other words, if $(a, b)$ is a critical point of local minimum/maximum then it is a critical point.
 
-However, the other way around this implication is not true. A critical point might not be a local minimum/maxium.
+However, the other way around this implication is not true. A critical point might not be a local minimum/maximum.
 
-### 2nd derivate test for functions of two variables
-Suppose $(a, b)$ is a critical point of a function, $f$, of two variables. Suppose 2nd order partial derivatives exists and are continous.
+### 2nd derivative test for functions of two variables
+Suppose $(a, b)$ is a critical point of a function, $f$, of two variables. Suppose 2nd order partial derivatives exists and are continuous.
 
 Let $D = D(a, b) = f_{xx}(a, b) f_{yy}(a,b) - \left(f_{xy} (a,b)\right)^2$
 
 Then:
 $$
-D > 0 \text{ and } f_{xx}(a, b) > 0 \ | \ \text{local minimum} \newline
-D > 0 \text{ and } f_{xx}(a, b) < 0 \ | \ \text{local maximum} \newline
-D < 0 \ | \ \text{neither, this is a saddle point} \newline
+\begin{align*}
+D > 0 \text{ and } f_{xx}(a, b) > 0 & \quad \text{local minimum}, \newline
+D > 0 \text{ and } f_{xx}(a, b) < 0 & \quad \text{local maximum}, \newline
+D < 0 & \quad \text{neither, this is a saddle point}.
+\end{align*}
 $$
 
 ### Lagrange multiplier method
@@ -155,9 +159,9 @@ $$
 To find minimum/maximum values of function, $f$, subject to constraint, $g(x, y) = k$, assuming minimum/maximum points exists and $\nabla g \neq 0$
 
 1. Find all numbers $x, y$ and $\lambda$, such that:
-$$
-\nabla f(x, y) = \lambda \nabla g(x, y) = k
-$$
+   $$
+   \nabla f(x, y) = \lambda \nabla g(x, y), \quad g(x, y) = k.
+   $$
 
 2. Compute values from step 1, choose the minimum/maximum value(s).
 :::
@@ -165,24 +169,23 @@ $$
 ### Type I region definition
 If $D$ is of type I, then:
 $$
-\iint_D f(x, y)\ dA = \int_a^b \int_{g_1(x)}^{g_2(x)} f(x, y)\ dy\ dx
+\iint_D f(x, y) \, dA = \int_a^b \int_{g_1(x)}^{g_2(x)} f(x, y) \, dy \, dx
 $$
 
 ### Type II region definition
 If $D$ is of type II, then:
 $$
-\iint_D f(x, y)\ dA = \int_c^d \int_{h_1(y)}^{h_2(y)} f(x, y)\ dx\ dy
+\iint_D f(x, y) \, dA = \int_c^d \int_{h_1(y)}^{h_2(y)} f(x, y) \, dx \, dy
 $$
 
 ### General case of variable change
 $$
-\iint_D f(x, y)\ dA
+\iint_D f(x, y) \, dA
 $$
 
 We want to rewrite this in terms of $u$ and $v$. Let's say that:
 $$
-x = g(u, v) \newline
-y = h(u, v)
+x = g(u, v), \quad y = h(u, v).
 $$
 
 We can say that we have a *transformation*, $T$, from the $uv$-plane to the $xy$-plane, given by our functions $g$ and $h$.
@@ -193,29 +196,29 @@ We need to make some assumptions of $T$ to make our lives easier.
 
 2) $T$ is an injective transformation (meaning it is 1-to-1). This means that we can express $u$ and $v$ in terms of $x$ and $y$.
 
-The jacobian matrix of a transformation, $T$, is:
+The Jacobian matrix of a transformation, $T$, is:
 
 $$
 \dfrac{\partial(x, y)}{\partial(u, v)} =
-det
+\det
 \begin{bmatrix}
 \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v}  \newline
 \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}
 \end{bmatrix}
 $$
 
-Suppose $T$ is a transformation, from the $uv$-plane to the $xy$-plane. Assuming that the jacobian for $T$, is non-zero, then:
+Suppose $T$ is a transformation, from the $uv$-plane to the $xy$-plane. Assuming that the Jacobian for $T$, is non-zero, then:
 $$
-\iint_D f(x, y)\ dA = \iint_S f(x(u, v), y(u, v)) \vert \tfrac{\partial(x, y)}{\partial(u, v)} \vert \ dA
+\iint_D f(x, y) \, dA = \iint_S f(x(u, v), y(u, v)) \left\vert \tfrac{\partial(x, y)}{\partial(u, v)} \right\vert \, dA.
 $$
 
 ### In three variables
 Let $x = x(u, v, w), y = y(u, v, w), z = z(u, v, w)$
 
-The jacobian is:
+The Jacobian is:
 $$
 \dfrac{\partial(x, y, z)}{\partial(u, v, w)} =
-det
+\det
 \begin{bmatrix}
 \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v}  & \dfrac{\partial x}{\partial w} \newline
 \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}  & \dfrac{\partial y}{\partial w} \newline
@@ -225,26 +228,26 @@ $$
 
 Just as we did before:
 $$
-\iiint_E f(x, y, z)\ dV = \iiint_S f(x(u, v, w), y(u, v, w), z(u, v, w)) \vert \tfrac{\partial(x, y, z)}{\partial(u, v, w)} \vert \ dV
+\iiint_E f(x, y, z) \, dV = \iiint_S f(x(u, v, w), y(u, v, w), z(u, v, w)) \left\vert \tfrac{\partial(x, y, z)}{\partial(u, v, w)} \right\vert \, dV.
 $$
 
 ### Polar coordinates
 $$
-\iint_S g(r, \theta)\ dA = \iint_S f(r cos(\theta), r sin(\theta)) \cdot r\ dA
+\iint_S g(r, \theta) \, dA = \iint_S f(r \cos(\theta), r \sin(\theta)) \cdot r \, dA
 $$
 
 It makes sense to change to polar coordinates if we have a circle/circle like shape.
 
 ### Cylindrical coordinates
 $$
-\iiint_E f(x, y, z)\ dV = \iiint_S f(r cos(\theta), r sin(\theta), z) \cdot r \ dV
+\iiint_E f(x, y, z) \, dV = \iiint_S f(r \cos(\theta), r \sin(\theta), z) \cdot r \, dV
 $$
 
 It makes sense to change to cylindrical coordinates when we have symmetry around one axis.
 
 ### Spherical coordinates
 $$
-\iiint_E f(x, y, z)\ dV = \iiint_S f(\rho sin(\varphi) cos(\theta), \rho sin(\varphi) sin(\theta), \rho cos(\varphi)) \cdot \rho^2 sin(\varphi) \ dV
+\iiint_E f(x, y, z) \, dV = \iiint_S f(\rho \sin(\varphi) \cos(\theta), \rho \sin(\varphi) \sin(\theta), \rho \cos(\varphi)) \cdot \rho^2 \sin(\varphi) \, dV
 $$
 
 It makes sense to change to spherical coordinates when our solid is bounded by spheres and/or cones.
@@ -254,7 +257,7 @@ Let $E$ be an arbitrary solid, with a density function, $\rho(x, y, z)$
 
 We say that the mass of the solid is:
 $$
-\iiint_E \rho(x, y, z)\ dV
+\iiint_E \rho(x, y, z) \, dV
 $$
 
 ### Center of Mass
@@ -264,28 +267,16 @@ Given a **physical** system with $m_i$ points, the center of mass has the coordi
 
 Therefore:
 $$
-x_0 = \dfrac{\sum m_i x_i}{\sum m_i}
+x_0 = \dfrac{\sum m_i x_i}{\sum m_i}, \quad y_0 = \dfrac{\sum m_i y_i}{\sum m_i}, \quad z_0 = \dfrac{\sum m_i z_i}{\sum m_i}.
 $$
 
+For an arbitrary solid, it's almost the same:
 $$
-y_0 = \dfrac{\sum m_i y_i}{\sum m_i}
-$$
-
-$$
-z_0 = \dfrac{\sum m_i z_i}{\sum m_i}
-$$
-
-For an arbitrary solid, it's almost sum same:
-$$
-x_0 = \dfrac{\iiint_E \rho(x, y, z) \cdot x\ dV}{\iiint_E \rho(x, y, z)\ dV}
-$$
-
-$$
-y_0 = \dfrac{\iiint_E \rho(x, y, z) \cdot y\ dV}{\iiint_E \rho(x, y, z)\ dV}
-$$
-
-$$
-z_0 = \dfrac{\iiint_E \rho(x, y, z) \cdot z\ dV}{\iiint_E \rho(x, y, z)\ dV}
+\begin{align*}
+x_0 & = \dfrac{\iiint_E \rho(x, y, z) \cdot x \, dV}{\iiint_E \rho(x, y, z) \, dV}, \newline
+y_0 & = \dfrac{\iiint_E \rho(x, y, z) \cdot y \, dV}{\iiint_E \rho(x, y, z) \, dV}, \newline
+z_0 & = \dfrac{\iiint_E \rho(x, y, z) \cdot z \, dV}{\iiint_E \rho(x, y, z) \, dV}.
+\end{align*}
 $$
 
 ### Parameterization over line
@@ -302,15 +293,11 @@ $$
 
 This means that:
 $$
-x(t) = x_0 + ta
-$$
-
-$$
-y(t) = y_0 + tb
-$$
-
-$$
-z(t) = z_0 + tc
+\begin{align*}
+x(t) & = x_0 + ta, \newline
+y(t) & = y_0 + tb, \newline
+z(t) & = z_0 + tc.
+\end{align*}
 $$
 
 ### Line integral
@@ -319,60 +306,62 @@ A curve, $C$, parameterized as $\vec{r}(t) = \langle x(t), y(t) \rangle$, for an
 Assuming $x(t)$ and $y(t)$ are differentiable.
 
 $$
-\int_C f(x, y) ds = \int_a^b f(x(t), y(t)) \sqrt{x^\prime(t)^2 + y^\prime(t)^2}\ dt
+\int_C f(x, y) \, ds = \int_a^b f(x(t), y(t)) \sqrt{x^\prime(t)^2 + y^\prime(t)^2} \, dt
 $$
 
 ### Non-differentiable lines
 There may be some cases where the parameterization isn't differentiable.
 
-Imagine we have a simple rectangular form. The four corners of the rectnagle will not be differentiable.
+Imagine we have a simple rectangular form. The four corners of the rectangle will not be differentiable.
 
 What we can do is divide $C$ into $n$ subcurves.
 
 $$
-C = C_1 \cup C_2 \cup \ldots \cup C_n
-$$
-
-$$
-\int_C f(x, y) ds = \sum_{j = 1}^{n} \int_{C_j} f(x, y) ds
+\begin{align*}
+C & = C_1 \cup C_2 \cup \ldots \cup C_n, \newline
+\int_C f(x, y) \, ds & = \sum_{j = 1}^{n} \int_{C_j} f(x, y) \, ds.
+\end{align*}
 $$
 
 ### Line integrals with respect to x or y
-So far we have integrated with respect to the arc length. But we can integrate with respect to x or y.
+So far we have integrated with respect to the arc length. But we can integrate with respect to $x$ or $y$.
 
 $$
-\int_C f(x, y)\ dx \text{ or } \int_C f(x, y)\ dy
-$$
-
-$$
-\int_C f(x, y)\ dx = \int_a^b f(x(t), y(t)) x^\prime(t)\ dt
+\int_C f(x, y) \, dx \quad \text{or} \quad \int_C f(x, y) \, dy
 $$
 
 $$
-\int_C f(x, y)\ dy = \int_a^b f(x(t), y(t)) y^\prime(t)\ dt
+\begin{align*}
+\int_C f(x, y) \, dx & = \int_a^b f(x(t), y(t)) x^\prime(t) \, dt, \newline
+\int_C f(x, y) \, dy & = \int_a^b f(x(t), y(t)) y^\prime(t) \, dt.
+\end{align*}
 $$
 
 ### Line integrals with three variables
 There is no difference in two or three variables:
 $$
-C \in \mathbb{R}^3 \newline
-f: C \rarr \mathbb{R}^3 \newline
-\vec{r}(t) = \langle x(t), y(t), z(t) \rangle \ | \ a \leq t \leq b
+\begin{align*}
+& C \subset \mathbb{R}^3, \newline
+& f: C \rarr \mathbb{R}, \newline
+& \vec{r}(t) = \langle x(t), y(t), z(t) \rangle, \quad a \leq t \leq b.
+\end{align*}
 $$
 
 $$
-\int_C f(x, y, z)\ ds = \int_a^b f(x(t), y(t), z(t)) \sqrt{x^\prime(t)^2 + y^\prime(t)^2 + z^\prime(t)^2}\ dt
+\int_C f(x, y, z) \, ds = \int_a^b f(x(t), y(t), z(t)) \sqrt{x^\prime(t)^2 + y^\prime(t)^2 + z^\prime(t)^2} \, dt
 $$
 
 ### Vector field
 A **vector field** is a function, $F$:
 $$
-F: D \subset \mathbb{R}^2 \rarr \mathbb{R}^2 \ | \ \text{2D} \newline
-F: D \subset \mathbb{R}^3 \rarr \mathbb{R}^3 \ | \ \text{3D}
+\begin{align*}
+F & : D \subset \mathbb{R}^2 \rarr \mathbb{R}^2 \quad \text{(2D)}, \newline
+F & : D \subset \mathbb{R}^3 \rarr \mathbb{R}^3 \quad \text{(3D)}.
+\end{align*}
 $$
 
 ### Gradient field
-By this definiton, we can say that.
+By this definition, we can say that.
 
 Let $f: D \subset \mathbb{R}^2 \rarr \mathbb{R}$ be a differentiable function. The gradient is $\nabla f(x, y) = \langle f_x(x, y), f_y(x, y) \rangle$.
 
@@ -391,7 +380,7 @@ In this case, $f$, is called a *potential* for $F$.
 If $C$ is parameterized as $\vec{r}(t) = \langle x(t), y(t), z(t) \rangle$ in the interval, $a \leq t \leq b$. Then:
 
 $$
-\int_C F \cdot dr = \int_a^b F(x(t), y(t), z(t)) \cdot \vec{r^\prime}(t)\ dt
+\int_C F \cdot dr = \int_a^b F(x(t), y(t), z(t)) \cdot \vec{r^\prime}(t) \, dt
 $$
 
 ### Conservative vector field
@@ -400,7 +389,7 @@ Let $D \subset \mathbb{R}^2$ be open (every point in $D$ has a small disc around
 Let $F: D \rarr \mathbb{R}^2$ be a vector field. Then $F$ is conservative (there exists a $f$ such that $\nabla f = F$), if and only if:
 
 $$
-\int_C F \cdot dr = 0 \ | \ \text{for every closed curve } C \subset D
+\int_C F \cdot dr = 0 \quad \text{for every closed curve } C \subset D.
 $$
 
 NB: This only applies for $\mathbb{R}^2$.
@@ -415,15 +404,15 @@ $$
 Let $C$ be a simple, closed curve oriented positively. Let $D$ be the region it surrounds and let $P, Q: D \rarr \mathbb{R}$.
 
 $$
-\int_C P\ dx + Q\ dy = \iint_D \dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}\ dx\ dy
+\int_C P \, dx + Q \, dy = \iint_D \dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y} \, dx \, dy
 $$
 
 Equivalently:
 $$
-\int_{\partial D} P\ dx + Q\ dy = \iint_D \dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}\ dx\ dy
+\int_{\partial D} P \, dx + Q \, dy = \iint_D \dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y} \, dx \, dy
 $$
 
-### Parameteric surface
+### Parametric surface
 A **parametric surface** is a region, $S \subset \mathbb{R}^3$, which is the image of a function, $r: D \rarr \mathbb{R}^3$, defined on a region $D \subset \mathbb{R}^2$ of the plane.
 
 Which means we can parameterize:
@@ -443,20 +432,20 @@ $$
 \vec{r_u} = x_u(u, v) \vec{i} + y_u(u, v) \vec{j} + z_u(u, v) \vec{k}
 $$
 
-And for the partial derivate of $v$:
+And for the partial derivative of $v$:
 $$
 \vec{r_v} = x_v(u, v) \vec{i} + y_v(u, v) \vec{j} + z_v(u, v) \vec{k}
 $$
 
 The tangent plane, $\pi$, to $S$, at the point $r(u_0, v_0)$ is the plane that contains $r_u(u_0, v_0)$ and $r_v(u_0, v_0)$.
 
-Equivalently, it is the plane perpendicular to the cross product of $r_u(u_0, v_0)$ and $r_v(u_0, v_0$, which goes through $r(u_0, v_0)$.
+Equivalently, it is the plane perpendicular to the cross product of $r_u(u_0, v_0)$ and $r_v(u_0, v_0)$, which goes through $r(u_0, v_0)$.
 
 ### Surface area
 Let $r: D \rarr \mathbb{R}^3$ be a parameterization for a surface, $S$.
 
 $$
-\text{Area}(s) = \iint_D | \vec{r_u} \times \vec{r_v} |\ dx\ dy
+\text{Area}(S) = \iint_D | \vec{r_u} \times \vec{r_v} | \, du \, dv.
 $$
 
 ### Surface integrals
@@ -465,13 +454,13 @@ Let $r: D \rarr \mathbb{R}^3$ be a parameterization of a surface, $S$.
 Let $f: S \rarr \mathbb{R}$ be a function, then:
 
 $$
-\iint_S f(x, y, z)\ dS = \iint_D f(\vec{r}(u, v))\ | \vec{r_u} \times \vec{r_v} |\ du\ dv
+\iint_S f(x, y, z) \, dS = \iint_D f(\vec{r}(u, v)) | \vec{r_u} \times \vec{r_v} | \, du \, dv
 $$
 
 ### Surface integrals over vector fields
-Let $S$ be a parametric surface, parameterized by, $\vec{r}: D \rarr \mathbb{R}^2$ and $F: \mathbb{R}^3 \rarr \mathbb{R}^3$, be a vector field. Then:
+Let $S$ be a parametric surface, parameterized by, $\vec{r}: D \rarr \mathbb{R}^3$ and $F: \mathbb{R}^3 \rarr \mathbb{R}^3$, be a vector field. Then:
 $$
-\iint_S \vec{F} \cdot dS = \iint_D \vec{F}(\vec{r}(u, v)) \cdot \vec{r_u} \times \vec{r_v}\ du\ dv
+\iint_S \vec{F} \cdot dS = \iint_D \vec{F}(\vec{r}(u, v)) \cdot (\vec{r_u} \times \vec{r_v}) \, du \, dv.
 $$
 
 We call this the flux of $\vec{F}$ through $S$.
@@ -479,34 +468,34 @@ We call this the flux of $\vec{F}$ through $S$.
 ### The Divergence Theorem
 For a vector field, $\vec{F}: \mathbb{R}^3 \rarr \mathbb{R}^3$, the **divergence** is:
 $$
-div\ \vec{F} = \dfrac{\partial P}{\partial x} + \dfrac{\partial Q}{\partial y} + \dfrac{\partial R}{\partial z}
+\operatorname{div} \vec{F} = \dfrac{\partial P}{\partial x} + \dfrac{\partial Q}{\partial y} + \dfrac{\partial R}{\partial z}.
 $$
 
 Let $S$ be a hollow surface and let $E$ be the 3-dimensional region it surrounds ($\partial E = S$).
 
 Then:
 $$
-\iint_S \vec{F} \cdot dS = \iiint_E div\ \vec{F}\ dV
+\iint_S \vec{F} \cdot dS = \iiint_E \operatorname{div} \vec{F} \, dV.
 $$
 
 Equivalently:
 $$
-\iint_{\partial E} \vec{F} \cdot dS = \iiint_E div\ \vec{F}\ dV
+\iint_{\partial E} \vec{F} \cdot dS = \iiint_E \operatorname{div} \vec{F} \, dV.
 $$
 
-### Stokes Theorem
-So far we have seen Green's Theorem as well as The Divergence theorem. But what is the reason that Green's Theorem only works in $\mathbb{R}^3$?
+### Stokes' Theorem
+So far we have seen Green's Theorem as well as The Divergence theorem. But what is the reason that Green's Theorem only works in $\mathbb{R}^2$?
 
-Well, Stokes Theorem is essentially Green's Theorem but in $\mathbb{R}^3$.
+Well, Stokes' Theorem is essentially Green's Theorem but in $\mathbb{R}^3$.
 
 For $\vec{F}: \mathbb{R}^3 \rarr \mathbb{R}^3$, we define its **curl** as:
 
 NB: it is also called **rot** and sometimes denoted as $\nabla \times \vec{F}$.
 $$
-curl\ \vec{F} = \langle \dfrac{\partial R}{\partial y} - \dfrac{\partial Q}{\partial z}, \dfrac{\partial P}{\partial z} - \dfrac{\partial R}{\partial x}, \dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y} \rangle
+\operatorname{curl} \vec{F} = \left\langle \dfrac{\partial R}{\partial y} - \dfrac{\partial Q}{\partial z}, \dfrac{\partial P}{\partial z} - \dfrac{\partial R}{\partial x}, \dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y} \right\rangle.
 $$
 
 If $S \subset \mathbb{R}^3$ is a surface, surrounded by a simple, closed curve in $\mathbb{R}^3$. Then:
 $$
-\int_C \vec{F} \cdot dr = \iint_S curl\ F\ dS
+\int_C \vec{F} \cdot dr = \iint_S \operatorname{curl} \vec{F} \cdot dS.
 $$
