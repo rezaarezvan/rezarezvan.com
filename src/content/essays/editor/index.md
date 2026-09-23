@@ -14,6 +14,7 @@ However, I wanted to it more *Vim-like* since it would be fun. So I did it. I le
 Here are some screenshots for preview.
 
 ![](screenshot1.png)
+
 ![](screenshot2.png)
 
 [Link to source code](https://github.com/rezaarezvan/text-editor)

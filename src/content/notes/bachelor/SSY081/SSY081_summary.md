@@ -74,6 +74,7 @@ y(t) = f(t) * h(t) \ | \ h(t) = h_1(t) * h_2(t)
 $$
 
 In the parallel case:
+
 ![](./imgs/par.png)
 
 $$
