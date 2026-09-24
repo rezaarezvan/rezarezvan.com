@@ -49,7 +49,7 @@ The neuron has two stages it goes through, **summation** and **activation**, vis
 
 The summation stage is where the neuron calculates the **weighted sum** of the inputs and the bias:
 $$
-z = \sum_{j=1}^{n} w_j x_j + b
+z = \sum_{j=1}^{n} w_j x_j + b.
 $$
 
 The activation function, denoted as $f$, calculates the neuron’s output $y = f(z)$ based on the weighted summation.
@@ -96,22 +96,22 @@ As we see in @fig:nn, we now have multiple neurons with numerous inter-neuron co
 
 The matrix-vector equation,
 $$
-\mathbf{a} = \mathbf{W_1} \mathbf{x} + \mathbf{b_1} = [a_1, a_2, \ldots, a_m],
+\mathbf{a} = \mathbf{W}_1 \mathbf{x} + \mathbf{b}_1 = [a_1, a_2, \ldots, a_m],
 $$
 
 yields each output of each neuron in the *hidden layer* (intermediate layers between the input and output layers).
 
 **Note**, I'm **explicitly leaving out** the required transpose operations out of the equations, in reality we need our matrix and vectors to match dimension, but our theory and intuition will still hold.
 
-$\mathbf{W_1}$ is the *weight matrix* with rows $\mathbf{w_i} = [w_{i, 1}, w_{i, 2}, \ldots, w_{i, n}]$ corresponding to the weights of the $i$-th neuron in the hidden layer.
+$\mathbf{W}_1$ is the *weight matrix* with rows $\mathbf{w}_i = [w_{i, 1}, w_{i, 2}, \ldots, w_{i, n}]$ corresponding to the weights of the $i$-th neuron in the hidden layer.
 
-The bias values are represented by $\mathbf{b_1} = [b_1, b_2, \ldots, b_m]$.
+The bias values are represented by $\mathbf{b}_1 = [b_1, b_2, \ldots, b_m]$.
 
-In the case of several layers, we work with multiple weight matrices and bias vectors, which we index as $\mathbf{W_j}$ and $\mathbf{b_j}$, respectively.
+In the case of several layers, we work with multiple weight matrices and bias vectors, which we index as $\mathbf{W}_j$ and $\mathbf{b}_j$, respectively.
 
 So, given an input $\mathbf{x}$, the output of the hidden layer (i.e., @fig:nn) is given by,
 $$
-\mathbf{a} = f.(\mathbf{W_1} \mathbf{x} + \mathbf{b_1}),
+\mathbf{a} = f.(\mathbf{W}_1 \mathbf{x} + \mathbf{b}_1),
 $$
 
 where the dot indicates that the activation function $f$ is applied element-wise.
@@ -119,8 +119,8 @@ where the dot indicates that the activation function $f$ is applied element-wise
 So the final output is therefore,
 $$
 \begin{align*}
-\mathbf{y} &= f.(\mathbf{W_2} \mathbf{a} + \mathbf{b_2}) \newline
-&= f.(\mathbf{W_2} f.(\mathbf{W_1} \mathbf{x} + \mathbf{b_1}) + \mathbf{b_2}). \nonumber
+\mathbf{y} &= f.(\mathbf{W}_2 \mathbf{a} + \mathbf{b}_2) \newline
+&= f.(\mathbf{W}_2 f.(\mathbf{W}_1 \mathbf{x} + \mathbf{b}_1) + \mathbf{b}_2).
 \end{align*}
 $$
 
@@ -144,6 +144,7 @@ Computer vision is a field of computer science that focuses on **replicating** p
 The most important thing that we will cover here is how we represent images numerically, so we can feed them into as input to neural networks.
 
 ### Images
+
 ![An RGB image with its corresponding channels.](https://upload.wikimedia.org/wikipedia/commons/5/56/RGB_channels_separation.png)
 
 The RGB channel illustration is from Wikimedia Commons [^rgb-channels].
@@ -187,18 +188,18 @@ Where $|\chi|$ is the cardinality or the number of elements in the set $\chi$.
 $$
 \begin{align*}
 &\textbf{We want to show } 0 \leq H(X) \leq \log |\chi|. \newline
-&\textbf{Lower Bound (}H(X) \ge 0\textbf): \newline
-&\quad H(X) = -\sum_{x \in \chi} p(x)\,\log p(x). \newline
-&\quad \text{Note that for any } 0 < p(x) \le 1,\, -\log p(x) \ge 0,\text{ hence each term } p(x)\,\bigl(-\log p(x)\bigr) \ge 0. \newline
-&\quad \text{Thus } H(X) \;=\; -\sum_{x \in \chi} p(x)\,\log p(x) \;\ge\; 0. \newline
-&\textbf{Upper Bound (}H(X) \le \log |\chi|\textbf): \newline
+&\textbf{Lower Bound (}H(X) \geq 0\textbf{)}: \newline
+&\quad H(X) = -\sum_{x \in \chi} p(x) \log p(x). \newline
+&\quad \text{Note that for any } 0 < p(x) \le 1,\, -\log p(x) \ge 0,\text{ hence each term } p(x) \bigl(-\log p(x)\bigr) \ge 0. \newline
+&\quad \text{Thus } H(X) = -\sum_{x \in \chi} p(x) \log p(x) \geq 0. \newline
+&\textbf{Upper Bound (}H(X) \leq \log |\chi|\textbf{)}: \newline
 &\quad \text{Using the concavity of the } \log \text{ function and by Jensen's inequality, we have} \newline
-&\quad -\sum_{x \in \chi} p(x)\,\log p(x) \;\le\; \log\Bigl(\lvert \chi \rvert \Bigr). \newline \newline
+&\quad -\sum_{x \in \chi} p(x) \log p(x) \leq \log\Bigl(\lvert \chi \rvert \Bigr). \newline
 &\quad \text{Alternatively, we can argue that for fixed } \lvert \chi \rvert, \newline
 &\quad \text{the uniform distribution } p(x) = \frac{1}{|\chi|} \text{ maximizes the entropy,} \newline
-&\quad \text{yielding } H(X) = -\sum_{x \in \chi} \frac{1}{|\chi|}\,\log \Bigl(\tfrac{1}{|\chi|}\Bigr) = \log\Bigl(\lvert \chi \rvert\Bigr). \newline \newline
-&\quad \text{Note, one could also solve this using Lagrange multipliers to find this maximum.} \newline \newline
-&\text{Hence, combining both bounds, we have } 0 \le H(X) \le \log |\chi|. \newline
+&\quad \text{yielding } H(X) = -\sum_{x \in \chi} \frac{1}{|\chi|} \log \Bigl(\tfrac{1}{|\chi|}\Bigr) = \log\Bigl(\lvert \chi \rvert\Bigr). \newline
+&\quad \text{Note, one could also solve this using Lagrange multipliers to find this maximum.} \newline
+&\text{Hence, combining both bounds, we have } 0 \le H(X) \le \log |\chi|.
 \end{align*}
 $$
 :::
@@ -234,21 +235,21 @@ $$
 \mathbf{W}_{\sigma} = \mathbf{W} + \sigma \mathbf{N},
 $$
 
-where $N \sim \mathcal{N}(0, 1)$ is a matrix &mdash; with the same shape of $\mathbf{W}$ &mdash; of random numbers drawn from a normal distribution.
+where $\mathbf{N} \sim \mathcal{N}(0, 1)$ is a matrix &mdash; with the same shape of $\mathbf{W}$ &mdash; of random numbers drawn from a normal distribution.
 $\sigma$ is a hyperparameter scalar that weights the amount of noise added to the weights.
 
 Now, the output becomes stochastic,
 
 $$
-\hat{y_{\sigma}} = \arg\max(\mathcal{F}(\mathbf{x}; \mathbf{W}_{\sigma})),
+\hat{y}_{\sigma} = \arg\max(\mathcal{F}(\mathbf{x}; \mathbf{W}_{\sigma})),
 $$
 
 note the difference from our original equation, we no longer treat $\mathbf{W}$ as an input, but rather a parameter of the function $\mathcal{F}$.
 
-By perturbing the weights and creating a single prediction **constitues a random experiment**.
+By perturbing the weights and creating a single prediction **constitutes a random experiment**.
 It is therefore meaningful to examine the **probability distribution** of the random variable $\mathcal{F}(\mathbf{x}; \mathbf{W}_{\sigma})$ for a fixed input.
 
-By repeating the experiment for a fixed input $\mathbf{x}$ and creating samples of $\mathcal{F}(\mathbf{x}; \mathbf{W_{\sigma}})$ but drawing different samples of $\mathbf{W_{\sigma}}^{(i)}, i = 1, \ldots, N$ we can empirically calculate the **entropy** $H_{\sigma}(\mathbf{x})$ **entropy distribution**.
+By repeating the experiment for a fixed input $\mathbf{x}$ and creating samples of $\mathcal{F}(\mathbf{x}; \mathbf{W}_{\sigma})$ but drawing different samples of $\mathbf{W}_{\sigma}^{(i)}, i = 1, \ldots, N$ we can empirically calculate the **entropy** $H_{\sigma}(\mathbf{x})$ **entropy distribution**.
 
 With this framework, we want to search for the **underlying distribution of the model** and the **properties of the distribution**.
 
@@ -279,7 +280,7 @@ In image classification &mdash; one of the most common and fundamental tasks in 
 Accuracy is defined as,
 
 $$
-\text{Acc}(f) = \frac{1}{N} \sum_{i=1}^{N} \mathbb{I}[y^{(i)} = f(\mathbf{x}^{(i)})],
+\operatorname{Acc}(f) = \frac{1}{N} \sum_{i=1}^{N} \mathbb{I}[y^{(i)} = f(\mathbf{x}^{(i)})],
 $$
 
 where $y^{(i)}$ is the true label of the $i$-th image, $f(\mathbf{x}^{(i)})$ is the predicted label of the $i$-th image and $\mathbb{I}[\cdot]$ is the indicator function defined as,
@@ -300,7 +301,7 @@ This is the idea behind the Perturbation Index (PI).
 The Perturbation Index (PI) is therefore defined as,
 
 $$
-\pi_{\sigma} = \text{Acc}(\mathcal{F}(\mathbf{x}; \mathbf{W}_{\sigma})) - \text{Acc}(\mathcal{F}(\mathbf{x}, \mathbf{W})).
+\pi_{\sigma} = \operatorname{Acc}(\mathcal{F}(\mathbf{x}; \mathbf{W}_{\sigma})) - \operatorname{Acc}(\mathcal{F}(\mathbf{x}, \mathbf{W})).
 $$
 
 $\pi_{\sigma}$ is the difference in accuracy between the perturbed and the original model.
@@ -321,13 +322,13 @@ $$
 H_{\sigma}(\mathbf{x}) = \lim_{n \to \infty} - \sum_{c \in \mathcal{C}} p_c^{(n)} \log p_c^{(n)},
 $$
 
-where $p_c^{(n)}$ is the proportion of predictions $\hat{y_{\sigma}}$ equal to the class index $c$ out of all $C$ classes in the $n$ samples of $\hat{y}_{\sigma}$ for a given input $\mathbf{x}$.
+where $p_c^{(n)}$ is the proportion of predictions $\hat{y}_{\sigma}$ equal to the class index $c$ out of all $C$ classes in the $n$ samples of $\hat{y}_{\sigma}$ for a given input $\mathbf{x}$.
 
 If the model generates varying predictions under perturbation, this might suggest uncertainty in the classification.
 In simpler terms, there **should be a negative correlation** between **prediction stability** and the **Shannon-Entropy** of the model.
 
 $$
-\psi_{\sigma} = \text{Acc}(\mathcal{F}(\mathbf{x}; \mathbf{W_{\sigma}})) - \text{Corr}(\mathbb{I}[\hat{y_{\sigma}} = Y], H_{\sigma}(\mathbf{x})).
+\psi_{\sigma} = \operatorname{Acc}(\mathcal{F}(\mathbf{x}; \mathbf{W}_{\sigma})) - \operatorname{Corr}(\mathbb{I}[\hat{y}_{\sigma} = Y], H_{\sigma}(\mathbf{x})).
 $$
 
 Now, this might look confusing at a first glance, but let me break it down.
@@ -349,7 +350,7 @@ A very important part of this framework is that the input $\mathbf{x}$ is **fixe
 Do images (given same perturbation level) with the **same entropy** yield similar predictions?
 
 $$
-p_{\sigma} = P(\hat{y_{\sigma}} = Y | H_{\sigma}(\mathbf{x}) = h), \quad \text{ where } h = H(\mathbf{x}).
+p_{\sigma} = P(\hat{y}_{\sigma} = Y \mid H_{\sigma}(\mathbf{x}) = h), \quad \text{where } h = H(\mathbf{x}).
 $$
 
 The function mapping $\mathbf{x} \mapsto h$ can be understood as the probability of making a correct prediction within all draws from the data, which have **the same entropy as $\mathbf{x}$**.
@@ -368,11 +369,11 @@ So we tested this!
 
 ![Highest (left) and lowest (right) entropy of the digit four for a specific model.](claudesresult.png "fig:entropy-extremes")
 
-From @fig:entropy-extremes, we can see that, if that specific model is presented with a digit four that resemble the one on the right (lowest entropy) **will most likely be classified correctly**.
+From @fig:entropy-extremes, we can see that, if that specific model is presented with a digit four that resembles the one on the right (lowest entropy) **will most likely be classified correctly**.
 Compared to the four on the left (highest entropy), which **will most likely be classified incorrectly**.
 
 **Note**, we are talking about the **inherent uncertainty of the model** here, not the entropy of the input itself.
-This just means that this specific models **prefers** digit fours that have the characteristics of the one on the right, to the one on the left.
+This just means that this specific model **prefers** digit fours that have the characteristics of the one on the right, to the one on the left.
 
 ::::problem[Exercise: Why do you think the model prefers the digit four on the right?]
 :::answer
