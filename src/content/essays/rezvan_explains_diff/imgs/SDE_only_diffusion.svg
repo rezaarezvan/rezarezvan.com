@@ -1,91 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="336.181496pt" height="334.018562pt" viewBox="0 0 336.181496 334.018562" xmlns="http://www.w3.org/2000/svg" version="1.1">
-        <style>
-            /* Light mode (default) */
-            .c1 { fill: #d62728 !important; stroke: #d62728 !important; }
-.c2 { fill: #2ca02c !important; stroke: #2ca02c !important; }
-.c3 { fill: #1f77b4 !important; stroke: #1f77b4 !important; }
-.c4 { fill: #9467bd !important; stroke: #9467bd !important; }
-.c5 { fill: #8c564b !important; stroke: #8c564b !important; }
-.c6 { fill: #e377c2 !important; stroke: #e377c2 !important; }
-.c7 { fill: #7f7f7f !important; stroke: #7f7f7f !important; }
-.c8 { fill: #bcbd22 !important; stroke: #bcbd22 !important; }
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="468pt" height="230.4pt" viewBox="0 0 346.666667 170.666667" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<style>:root { --axis-color:#2a241c; --grid-color:rgba(42, 36, 28, 0.14); --black:#000000;--c1:#D55E00;--c2:#009E73;--c3:#56B4E9;--c4:#CC79A7;--c5:#E69F00;--c6:#C7B42E;--c7:#999999;--c8:#0072B2;--gray:#999999;--grey:#999999;--octonary:#0072B2;--primary:#D55E00;--quaternary:#CC79A7;--quinary:#E69F00;--secondary:#009E73;--senary:#C7B42E;--septenary:#999999;--tertiary:#56B4E9;--white:#ffffff; }
+@media (prefers-color-scheme:dark) {
+  :root { --axis-color:#e6dfd2; --grid-color:rgba(230, 223, 210, 0.16); --black:#FFFFFF;--c1:#E36A1C;--c2:#23AB7F;--c3:#3F9FD3;--c4:#C673A1;--c5:#C38819;--c6:#847500;--c7:#929292;--c8:#1F81C2;--gray:#929292;--grey:#929292;--octonary:#1F81C2;--primary:#E36A1C;--quaternary:#C673A1;--quinary:#C38819;--secondary:#23AB7F;--senary:#847500;--septenary:#929292;--tertiary:#3F9FD3;--white:#000000; }
+}
+.plot3d path,.plot3d polygon { stroke:var(--axis-color); }
+.plot3d-grid line { stroke:var(--grid-color); }</style>
 
-            /* Text and graphic elements */
-            text, .text {
-                fill: #000000 !important;
-                stroke: none !important;
-            }
-
-            .axis line, .axis path, .tick line, .tick path, path.domain, line.grid {
-                stroke: #000000 !important;
-            }
-
-            .legend text {
-                fill: #000000 !important;
-            }
-
-            g.legend > g:first-child > path:first-child {
-                fill: rgba(255, 255, 255, 0.8) !important;
-                stroke: rgba(0, 0, 0, 0.1) !important;
-            }
-
-            [stroke="currentColor"], [stroke="black"] {
-                stroke: #000000 !important;
-            }
-
-            /* Dark mode via media query */
-            @media (prefers-color-scheme: dark) {
-                /* Dark theme colors */
-                .c1 { fill: #FF4A98 !important; stroke: #FF4A98 !important; }
-                .c2 { fill: #0AFAFA !important; stroke: #0AFAFA !important; }
-                .c3 { fill: #7F83FF !important; stroke: #7F83FF !important; }
-                .c4 { fill: #B4A0FF !important; stroke: #B4A0FF !important; }
-                .c5 { fill: #FFB86B !important; stroke: #FFB86B !important; }
-                .c6 { fill: #FF79C6 !important; stroke: #FF79C6 !important; }
-                .c7 { fill: #CCCCCC !important; stroke: #CCCCCC !important; }
-                .c8 { fill: #E6DB74 !important; stroke: #E6DB74 !important; }
-
-                /* Dark theme text and graphics */
-                text, .text {
-                    fill: #FFFFFF !important;
-                    stroke: none !important;
-                }
-
-                .axis line, .axis path, .tick line, .tick path, path.domain, line.grid {
-                    stroke: #FFFFFF !important;
-                }
-
-                .grid line {
-                    stroke: rgba(255, 255, 255, 0.2) !important;
-                }
-
-                .legend text {
-                    fill: #FFFFFF !important;
-                }
-
-                g.legend > g:first-child > path:first-child {
-                    fill: rgba(26, 26, 26, 0.8) !important;
-                    stroke: rgba(255, 255, 255, 0.1) !important;
-                }
-
-                [stroke="currentColor"], [stroke="black"] {
-                    stroke: #FFFFFF !important;
-                }
-            }
-        </style>
-        
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2025-04-02T14:42:14.627302</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.10.1, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -96,1249 +27,5087 @@
  </defs>
  <g id="figure_1">
   <g class="patch">
-   <path d="M 0 334.018562 
-L 336.181496 334.018562 
-L 336.181496 0 
+   <path d="M 0 170.67 
+L 346.67 170.67 
+L 346.67 0 
 L 0 0 
-L 0 334.018562 
+L 0 170.67 
 z
 " style="fill: none"/>
   </g>
   <g id="axes_1">
    <g class="patch">
-    <path d="M 55.458906 297.430125 
-L 321.570906 297.430125 
-L 321.570906 31.318125 
-L 55.458906 31.318125 
-L 55.458906 297.430125 
+    <path d="M 41.16 127.14 
+L 338.26 127.14 
+L 338.26 2.16 
+L 41.16 2.16 
+L 41.16 127.14 
 z
 " style="fill: none"/>
    </g>
    <g class="axis">
     <g class="tick xtick">
      <g id="line2d_1">
-      <path d="M 58.067847 297.430125 
-L 58.067847 31.318125 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 41.16 127.14 
+L 41.16 2.16 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
      </g>
      <g id="line2d_2">
       <defs>
-       <path id="m5858578aaf" d="M 0 0 
-L 0 3.5 
-" style="stroke: currentColor; stroke-width: 0.8"/>
+       <path id="mffb8127b41" d="M 0 0 
+L 0 3 
+" style="stroke:var(--axis-color); stroke-width: 0.7"/>
       </defs>
       <g>
-       <use xlink:href="#m5858578aaf" x="58.067847" y="297.430125" style="stroke: currentColor; stroke-width: 0.8"/>
+       <use xlink:href="#mffb8127b41" x="41.16" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
       </g>
      </g>
      <g id="text_1" class="text">
-      <!-- −10.0 -->
-      <g transform="translate(44.277457 311.268719) scale(0.09 -0.09)">
+      <!-- $\mathdefault{0.0}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(34.9125 144.717667) scale(0.105 -0.105)">
        <defs>
-        <path id="DejaVuSans-2212" d="M 678 2272 
-L 4684 2272 
-L 4684 1741 
-L 678 1741 
-L 678 2272 
+        <path id="EBGaramond-Regular-8cd" d="M 1568 -90 
+Q 1242 -90 1002 89 
+Q 762 269 602 566 
+Q 442 864 365 1222 
+Q 288 1581 288 1933 
+Q 288 2298 365 2669 
+Q 442 3040 605 3347 
+Q 768 3654 1024 3843 
+Q 1280 4032 1632 4032 
+Q 1959 4032 2199 3853 
+Q 2439 3674 2599 3376 
+Q 2759 3078 2835 2723 
+Q 2912 2368 2912 2022 
+Q 2912 1664 2835 1293 
+Q 2759 922 2595 608 
+Q 2432 294 2179 102 
+Q 1927 -90 1568 -90 
+z
+M 1677 77 
+Q 1933 77 2090 336 
+Q 2247 595 2317 1011 
+Q 2387 1427 2387 1907 
+Q 2387 2266 2333 2611 
+Q 2279 2957 2167 3238 
+Q 2055 3520 1891 3686 
+Q 1728 3853 1511 3853 
+Q 1255 3853 1104 3603 
+Q 954 3354 886 2941 
+Q 819 2528 819 2048 
+Q 819 1690 873 1338 
+Q 928 986 1033 701 
+Q 1139 416 1299 246 
+Q 1459 77 1677 77 
 z
 " transform="scale(0.015625)"/>
-        <path id="DejaVuSans-31" d="M 794 531 
-L 1825 531 
-L 1825 4091 
-L 703 3866 
-L 703 4441 
-L 1819 4666 
-L 2450 4666 
-L 2450 531 
-L 3481 531 
-L 3481 0 
-L 794 0 
-L 794 531 
-z
-" transform="scale(0.015625)"/>
-        <path id="DejaVuSans-30" d="M 2034 4250 
-Q 1547 4250 1301 3770 
-Q 1056 3291 1056 2328 
-Q 1056 1369 1301 889 
-Q 1547 409 2034 409 
-Q 2525 409 2770 889 
-Q 3016 1369 3016 2328 
-Q 3016 3291 2770 3770 
-Q 2525 4250 2034 4250 
-z
-M 2034 4750 
-Q 2819 4750 3233 4129 
-Q 3647 3509 3647 2328 
-Q 3647 1150 3233 529 
-Q 2819 -91 2034 -91 
-Q 1250 -91 836 529 
-Q 422 1150 422 2328 
-Q 422 3509 836 4129 
-Q 1250 4750 2034 4750 
-z
-" transform="scale(0.015625)"/>
-        <path id="DejaVuSans-2e" d="M 684 794 
-L 1344 794 
-L 1344 0 
-L 684 0 
-L 684 794 
+        <path id="EBGaramond-Regular-998" d="M 736 -90 
+Q 595 -90 489 16 
+Q 384 122 384 262 
+Q 384 410 489 512 
+Q 595 614 736 614 
+Q 883 614 985 512 
+Q 1088 410 1088 262 
+Q 1088 122 985 16 
+Q 883 -90 736 -90 
 z
 " transform="scale(0.015625)"/>
        </defs>
-       <use xlink:href="#DejaVuSans-2212"/>
-       <use xlink:href="#DejaVuSans-31" transform="translate(83.789062 0)"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(147.412109 0)"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(211.035156 0)"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(242.822266 0)"/>
+       <use xlink:href="#EBGaramond-Regular-8cd"/>
+       <use xlink:href="#EBGaramond-Regular-998" transform="translate(47.999954 0)"/>
+       <use xlink:href="#EBGaramond-Regular-8cd" transform="translate(70.999939 0)"/>
       </g>
      </g>
     </g>
     <g class="tick xtick">
      <g id="line2d_3">
-      <path d="M 90.679612 297.430125 
-L 90.679612 31.318125 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 90.68 127.14 
+L 90.68 2.16 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
      </g>
      <g id="line2d_4">
       <g>
-       <use xlink:href="#m5858578aaf" x="90.679612" y="297.430125" style="stroke: currentColor; stroke-width: 0.8"/>
+       <use xlink:href="#mffb8127b41" x="90.676528" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
       </g>
      </g>
      <g id="text_2" class="text">
-      <!-- −7.5 -->
-      <g transform="translate(79.752347 311.268719) scale(0.09 -0.09)">
+      <!-- $\mathdefault{0.5}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(84.429028 144.717667) scale(0.105 -0.105)">
        <defs>
-        <path id="DejaVuSans-37" d="M 525 4666 
-L 3525 4666 
-L 3525 4397 
-L 1831 0 
-L 1172 0 
-L 2766 4134 
-L 525 4134 
-L 525 4666 
-z
-" transform="scale(0.015625)"/>
-        <path id="DejaVuSans-35" d="M 691 4666 
-L 3169 4666 
-L 3169 4134 
-L 1269 4134 
-L 1269 2991 
-Q 1406 3038 1543 3061 
-Q 1681 3084 1819 3084 
-Q 2600 3084 3056 2656 
-Q 3513 2228 3513 1497 
-Q 3513 744 3044 326 
-Q 2575 -91 1722 -91 
-Q 1428 -91 1123 -41 
-Q 819 9 494 109 
-L 494 744 
-Q 775 591 1075 516 
-Q 1375 441 1709 441 
-Q 2250 441 2565 725 
-Q 2881 1009 2881 1497 
-Q 2881 1984 2565 2268 
-Q 2250 2553 1709 2553 
-Q 1456 2553 1204 2497 
-Q 953 2441 691 2322 
-L 691 4666 
+        <path id="EBGaramond-Regular-8d2" d="M 698 -243 
+Q 627 -243 544 -227 
+Q 461 -211 461 -166 
+Q 461 -115 547 -80 
+Q 634 -45 691 -45 
+Q 1197 -45 1526 137 
+Q 1856 320 2019 595 
+Q 2182 870 2182 1146 
+Q 2182 1395 2035 1587 
+Q 1888 1779 1552 1939 
+Q 1216 2099 646 2246 
+Q 563 2317 528 2387 
+Q 493 2458 493 2541 
+Q 493 2656 550 2841 
+Q 608 3027 681 3222 
+Q 755 3418 800 3558 
+Q 864 3744 1062 3789 
+Q 1357 3866 1686 3923 
+Q 2016 3981 2387 4013 
+Q 2438 4019 2460 3984 
+Q 2483 3949 2458 3904 
+Q 2432 3853 2403 3798 
+Q 2374 3744 2349 3693 
+Q 2266 3507 2112 3488 
+Q 1946 3469 1725 3449 
+Q 1504 3430 1305 3411 
+Q 1107 3392 1011 3373 
+Q 966 3366 902 3260 
+Q 838 3155 787 3036 
+Q 736 2918 730 2867 
+Q 723 2822 739 2790 
+Q 755 2758 813 2746 
+Q 1171 2643 1465 2537 
+Q 1760 2432 1978 2317 
+Q 2336 2131 2512 1878 
+Q 2688 1626 2688 1235 
+Q 2688 883 2477 576 
+Q 2266 269 1907 64 
+Q 1651 -77 1344 -160 
+Q 1037 -243 698 -243 
 z
 " transform="scale(0.015625)"/>
        </defs>
-       <use xlink:href="#DejaVuSans-2212"/>
-       <use xlink:href="#DejaVuSans-37" transform="translate(83.789062 0)"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(147.412109 0)"/>
-       <use xlink:href="#DejaVuSans-35" transform="translate(179.199219 0)"/>
+       <use xlink:href="#EBGaramond-Regular-8cd"/>
+       <use xlink:href="#EBGaramond-Regular-998" transform="translate(47.999954 0)"/>
+       <use xlink:href="#EBGaramond-Regular-8d2" transform="translate(70.999939 0)"/>
       </g>
      </g>
     </g>
     <g class="tick xtick">
      <g id="line2d_5">
-      <path d="M 123.291377 297.430125 
-L 123.291377 31.318125 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 140.19 127.14 
+L 140.19 2.16 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
      </g>
      <g id="line2d_6">
       <g>
-       <use xlink:href="#m5858578aaf" x="123.291377" y="297.430125" style="stroke: currentColor; stroke-width: 0.8"/>
+       <use xlink:href="#mffb8127b41" x="140.193056" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
       </g>
      </g>
      <g id="text_3" class="text">
-      <!-- −5.0 -->
-      <g transform="translate(112.364111 311.268719) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-2212"/>
-       <use xlink:href="#DejaVuSans-35" transform="translate(83.789062 0)"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(147.412109 0)"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(179.199219 0)"/>
+      <!-- $\mathdefault{1.0}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(133.945556 144.717667) scale(0.105 -0.105)">
+       <defs>
+        <path id="EBGaramond-Regular-8ce" d="M 685 -19 
+Q 589 -19 589 58 
+Q 589 115 685 141 
+Q 928 205 1085 259 
+Q 1242 314 1315 413 
+Q 1389 512 1389 698 
+L 1389 3142 
+Q 1389 3328 1222 3382 
+Q 1056 3437 851 3450 
+Q 787 3456 736 3481 
+Q 685 3507 685 3558 
+Q 685 3603 733 3635 
+Q 781 3667 845 3674 
+Q 1133 3718 1360 3785 
+Q 1587 3853 1805 4070 
+Q 1811 4077 1837 4077 
+Q 1869 4077 1894 4061 
+Q 1920 4045 1914 4019 
+Q 1901 3923 1894 3811 
+Q 1888 3699 1888 3565 
+L 1888 621 
+Q 1888 461 1949 377 
+Q 2010 294 2157 246 
+Q 2304 198 2566 134 
+Q 2605 128 2640 105 
+Q 2675 83 2675 51 
+Q 2675 -19 2586 -19 
+Q 2310 -19 2105 -3 
+Q 1901 13 1645 13 
+Q 1389 13 1168 -3 
+Q 947 -19 685 -19 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#EBGaramond-Regular-8ce" transform="translate(0 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-998" transform="translate(47.999954 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-8cd" transform="translate(70.999939 0.296875)"/>
       </g>
      </g>
     </g>
     <g class="tick xtick">
      <g id="line2d_7">
-      <path d="M 155.903142 297.430125 
-L 155.903142 31.318125 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 189.71 127.14 
+L 189.71 2.16 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
      </g>
      <g id="line2d_8">
       <g>
-       <use xlink:href="#m5858578aaf" x="155.903142" y="297.430125" style="stroke: currentColor; stroke-width: 0.8"/>
+       <use xlink:href="#mffb8127b41" x="189.709583" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
       </g>
      </g>
      <g id="text_4" class="text">
-      <!-- −2.5 -->
-      <g transform="translate(144.975876 311.268719) scale(0.09 -0.09)">
-       <defs>
-        <path id="DejaVuSans-32" d="M 1228 531 
-L 3431 531 
-L 3431 0 
-L 469 0 
-L 469 531 
-Q 828 903 1448 1529 
-Q 2069 2156 2228 2338 
-Q 2531 2678 2651 2914 
-Q 2772 3150 2772 3378 
-Q 2772 3750 2511 3984 
-Q 2250 4219 1831 4219 
-Q 1534 4219 1204 4116 
-Q 875 4013 500 3803 
-L 500 4441 
-Q 881 4594 1212 4672 
-Q 1544 4750 1819 4750 
-Q 2544 4750 2975 4387 
-Q 3406 4025 3406 3419 
-Q 3406 3131 3298 2873 
-Q 3191 2616 2906 2266 
-Q 2828 2175 2409 1742 
-Q 1991 1309 1228 531 
-z
-" transform="scale(0.015625)"/>
-       </defs>
-       <use xlink:href="#DejaVuSans-2212"/>
-       <use xlink:href="#DejaVuSans-32" transform="translate(83.789062 0)"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(147.412109 0)"/>
-       <use xlink:href="#DejaVuSans-35" transform="translate(179.199219 0)"/>
+      <!-- $\mathdefault{1.5}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(183.462083 144.717667) scale(0.105 -0.105)">
+       <use xlink:href="#EBGaramond-Regular-8ce" transform="translate(0 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-998" transform="translate(47.999954 0.296875)"/>
+       <use xlink:href="#EBGaramond-Regular-8d2" transform="translate(70.999939 0.296875)"/>
       </g>
      </g>
     </g>
     <g class="tick xtick">
      <g id="line2d_9">
-      <path d="M 188.514906 297.430125 
-L 188.514906 31.318125 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 239.23 127.14 
+L 239.23 2.16 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
      </g>
      <g id="line2d_10">
       <g>
-       <use xlink:href="#m5858578aaf" x="188.514906" y="297.430125" style="stroke: currentColor; stroke-width: 0.8"/>
+       <use xlink:href="#mffb8127b41" x="239.226111" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
       </g>
      </g>
      <g id="text_5" class="text">
-      <!-- 0.0 -->
-      <g transform="translate(181.3585 311.268719) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-30"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(63.623047 0)"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(95.410156 0)"/>
+      <!-- $\mathdefault{2.0}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(232.978611 144.717667) scale(0.105 -0.105)">
+       <defs>
+        <path id="EBGaramond-Regular-8cf" d="M 2681 -19 
+Q 2617 -19 2473 -9 
+Q 2329 0 2153 9 
+Q 1977 19 1817 19 
+Q 1696 19 1472 12 
+Q 1248 6 1001 3 
+Q 755 0 569 -6 
+Q 384 -13 332 -13 
+Q 307 -13 255 28 
+Q 204 70 204 96 
+Q 204 128 217 141 
+Q 230 154 256 179 
+L 1350 1312 
+Q 1670 1645 1881 2057 
+Q 2092 2470 2092 2893 
+Q 2092 3232 1887 3427 
+Q 1683 3622 1408 3622 
+Q 1145 3622 921 3478 
+Q 697 3334 563 3104 
+Q 518 3014 454 3014 
+Q 428 3014 393 3068 
+Q 358 3123 358 3206 
+Q 358 3283 451 3417 
+Q 544 3552 710 3693 
+Q 876 3834 1106 3933 
+Q 1337 4032 1606 4032 
+Q 2086 4032 2358 3737 
+Q 2630 3443 2630 2976 
+Q 2630 2720 2499 2409 
+Q 2368 2099 2163 1856 
+Q 2080 1754 1916 1584 
+Q 1753 1414 1564 1222 
+Q 1376 1030 1206 860 
+Q 1036 691 927 579 
+Q 819 467 819 454 
+Q 819 422 908 410 
+Q 1120 390 1472 390 
+Q 1856 390 2201 410 
+Q 2387 422 2489 441 
+Q 2592 461 2662 521 
+Q 2732 582 2809 710 
+Q 2835 749 2876 803 
+Q 2918 858 2969 858 
+Q 3001 858 3007 832 
+Q 3014 806 3014 781 
+Q 3014 736 2943 557 
+Q 2873 378 2822 134 
+Q 2803 32 2758 6 
+Q 2713 -19 2681 -19 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#EBGaramond-Regular-8cf"/>
+       <use xlink:href="#EBGaramond-Regular-998" transform="translate(47.999954 0)"/>
+       <use xlink:href="#EBGaramond-Regular-8cd" transform="translate(70.999939 0)"/>
       </g>
      </g>
     </g>
     <g class="tick xtick">
      <g id="line2d_11">
-      <path d="M 221.126671 297.430125 
-L 221.126671 31.318125 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 288.74 127.14 
+L 288.74 2.16 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
      </g>
      <g id="line2d_12">
       <g>
-       <use xlink:href="#m5858578aaf" x="221.126671" y="297.430125" style="stroke: currentColor; stroke-width: 0.8"/>
+       <use xlink:href="#mffb8127b41" x="288.742639" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
       </g>
      </g>
      <g id="text_6" class="text">
-      <!-- 2.5 -->
-      <g transform="translate(213.970265 311.268719) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-32"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(63.623047 0)"/>
-       <use xlink:href="#DejaVuSans-35" transform="translate(95.410156 0)"/>
+      <!-- $\mathdefault{2.5}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(282.495139 144.717667) scale(0.105 -0.105)">
+       <use xlink:href="#EBGaramond-Regular-8cf"/>
+       <use xlink:href="#EBGaramond-Regular-998" transform="translate(47.999954 0)"/>
+       <use xlink:href="#EBGaramond-Regular-8d2" transform="translate(70.999939 0)"/>
       </g>
      </g>
     </g>
     <g class="tick xtick">
      <g id="line2d_13">
-      <path d="M 253.738436 297.430125 
-L 253.738436 31.318125 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 338.26 127.14 
+L 338.26 2.16 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
      </g>
      <g id="line2d_14">
       <g>
-       <use xlink:href="#m5858578aaf" x="253.738436" y="297.430125" style="stroke: currentColor; stroke-width: 0.8"/>
+       <use xlink:href="#mffb8127b41" x="338.259167" y="127.144167" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
       </g>
      </g>
      <g id="text_7" class="text">
-      <!-- 5.0 -->
-      <g transform="translate(246.582029 311.268719) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-35"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(63.623047 0)"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(95.410156 0)"/>
+      <!-- $\mathdefault{3.0}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(332.011667 144.717667) scale(0.105 -0.105)">
+       <defs>
+        <path id="EBGaramond-Regular-8d0" d="M 1030 -243 
+Q 883 -243 716 -195 
+Q 550 -147 435 -83 
+Q 320 -19 320 32 
+Q 320 77 371 147 
+Q 422 218 489 272 
+Q 557 326 602 326 
+Q 672 326 729 288 
+Q 787 250 851 198 
+Q 934 128 1043 64 
+Q 1152 0 1331 0 
+Q 1568 0 1779 121 
+Q 1990 243 2128 457 
+Q 2266 672 2266 934 
+Q 2266 1184 2182 1414 
+Q 2099 1645 1936 1795 
+Q 1773 1946 1523 1946 
+Q 1453 1946 1334 1930 
+Q 1216 1914 1107 1850 
+Q 1075 1830 1033 1852 
+Q 992 1875 998 1907 
+Q 1024 1990 1075 2044 
+Q 1126 2099 1190 2125 
+Q 1248 2150 1376 2224 
+Q 1504 2298 1648 2410 
+Q 1792 2522 1894 2666 
+Q 1997 2810 1997 2982 
+Q 1997 3245 1827 3446 
+Q 1658 3648 1395 3648 
+Q 1146 3648 995 3561 
+Q 845 3475 755 3363 
+Q 666 3251 621 3164 
+Q 576 3078 538 3078 
+Q 512 3078 473 3116 
+Q 435 3155 435 3200 
+Q 435 3283 505 3420 
+Q 576 3558 726 3699 
+Q 877 3840 1110 3936 
+Q 1344 4032 1670 4032 
+Q 1882 4032 2070 3939 
+Q 2259 3846 2380 3683 
+Q 2502 3520 2502 3302 
+Q 2502 3072 2355 2816 
+Q 2208 2560 1830 2342 
+Q 1811 2336 1811 2320 
+Q 1811 2304 1837 2304 
+Q 2112 2304 2329 2166 
+Q 2547 2029 2678 1801 
+Q 2810 1574 2810 1299 
+Q 2810 941 2656 656 
+Q 2502 371 2246 169 
+Q 1990 -32 1673 -137 
+Q 1357 -243 1030 -243 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#EBGaramond-Regular-8d0"/>
+       <use xlink:href="#EBGaramond-Regular-998" transform="translate(47.999954 0)"/>
+       <use xlink:href="#EBGaramond-Regular-8cd" transform="translate(70.999939 0)"/>
       </g>
      </g>
     </g>
-    <g class="tick xtick">
-     <g id="line2d_15">
-      <path d="M 286.3502 297.430125 
-L 286.3502 31.318125 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_16">
-      <g>
-       <use xlink:href="#m5858578aaf" x="286.3502" y="297.430125" style="stroke: currentColor; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_8" class="text">
-      <!-- 7.5 -->
-      <g transform="translate(279.193794 311.268719) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-37"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(63.623047 0)"/>
-       <use xlink:href="#DejaVuSans-35" transform="translate(95.410156 0)"/>
-      </g>
-     </g>
-    </g>
-    <g class="tick xtick">
-     <g id="line2d_17">
-      <path d="M 318.961965 297.430125 
-L 318.961965 31.318125 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_18">
-      <g>
-       <use xlink:href="#m5858578aaf" x="318.961965" y="297.430125" style="stroke: currentColor; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_9" class="text">
-      <!-- 10.0 -->
-      <g transform="translate(308.942434 311.268719) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-31"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(63.623047 0)"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(127.246094 0)"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(159.033203 0)"/>
-      </g>
-     </g>
-    </g>
-    <g id="text_10" class="text">
+    <g id="text_8" class="text">
      <!-- $t$ -->
-     <g transform="translate(186.514906 324.738875) scale(0.1 -0.1)">
+     <g style="fill:var(--axis-color)" transform="translate(187.909583 164.930667) scale(0.12 -0.12)">
       <defs>
-       <path id="DejaVuSans-Oblique-74" d="M 2706 3500 
-L 2619 3053 
-L 1472 3053 
-L 1100 1153 
-Q 1081 1047 1072 975 
-Q 1063 903 1063 863 
-Q 1063 663 1183 572 
-Q 1303 481 1569 481 
-L 2150 481 
-L 2053 0 
-L 1503 0 
-Q 991 0 739 200 
-Q 488 400 488 806 
-Q 488 878 497 964 
-Q 506 1050 525 1153 
-L 897 3053 
-L 409 3053 
-L 500 3500 
-L 978 3500 
-L 1172 4494 
-L 1747 4494 
-L 1556 3500 
-L 2706 3500 
+       <path id="EBGaramond-Italic-223" d="M 410 -90 
+Q 326 -90 236 -3 
+Q 147 83 147 147 
+Q 147 256 176 333 
+Q 205 410 237 506 
+L 845 2214 
+Q 858 2259 835 2275 
+Q 813 2291 781 2291 
+L 525 2304 
+Q 442 2310 426 2339 
+Q 410 2368 410 2394 
+Q 410 2406 477 2476 
+Q 544 2547 627 2547 
+L 858 2547 
+Q 928 2547 953 2569 
+Q 979 2592 1011 2662 
+L 1165 2976 
+Q 1190 3027 1260 3094 
+Q 1331 3162 1404 3213 
+Q 1478 3264 1510 3264 
+Q 1562 3264 1574 3193 
+Q 1587 3123 1562 3059 
+L 1395 2630 
+Q 1370 2560 1478 2560 
+Q 1606 2560 1740 2541 
+Q 1875 2522 1958 2509 
+Q 2061 2490 2083 2467 
+Q 2106 2445 2106 2413 
+Q 2106 2400 2080 2371 
+Q 2054 2342 1984 2336 
+Q 1843 2330 1715 2320 
+Q 1587 2310 1446 2304 
+Q 1344 2298 1302 2272 
+Q 1261 2246 1248 2208 
+L 678 634 
+Q 589 378 794 378 
+Q 883 378 985 442 
+Q 1088 506 1184 589 
+Q 1280 672 1344 736 
+Q 1414 806 1465 800 
+Q 1517 794 1517 755 
+Q 1517 672 1402 544 
+Q 1235 365 1036 221 
+Q 838 77 665 -6 
+Q 493 -90 410 -90 
 z
 " transform="scale(0.015625)"/>
       </defs>
-      <use xlink:href="#DejaVuSans-Oblique-74" transform="translate(0 0.78125)"/>
+      <use xlink:href="#EBGaramond-Italic-223"/>
      </g>
     </g>
    </g>
    <g class="axis">
     <g class="tick ytick">
-     <g id="line2d_19">
-      <path d="M 55.458906 294.821184 
-L 321.570906 294.821184 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
+     <g id="line2d_15">
+      <path d="M 41.16 103.47 
+L 338.26 103.47 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
      </g>
-     <g id="line2d_20">
+     <g id="line2d_16">
       <defs>
-       <path id="m83bf1805db" d="M 0 0 
-L -3.5 0 
-" style="stroke: currentColor; stroke-width: 0.8"/>
+       <path id="md54551f048" d="M 0 0 
+L -3 0 
+" style="stroke:var(--axis-color); stroke-width: 0.7"/>
       </defs>
       <g>
-       <use xlink:href="#m83bf1805db" x="55.458906" y="294.821184" style="stroke: currentColor; stroke-width: 0.8"/>
+       <use xlink:href="#md54551f048" x="41.16" y="103.469784" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_9" class="text">
+      <!-- $\mathdefault{−5}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(22.82 108.756534) scale(0.105 -0.105)">
+       <defs>
+        <path id="EBGaramond-Regular-b26" d="M 410 1421 
+Q 378 1421 349 1446 
+Q 320 1472 320 1498 
+Q 320 1530 329 1603 
+Q 339 1677 374 1741 
+Q 410 1805 474 1805 
+L 3437 1805 
+Q 3469 1805 3494 1782 
+Q 3520 1760 3520 1728 
+Q 3520 1626 3465 1523 
+Q 3411 1421 3322 1421 
+L 410 1421 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#EBGaramond-Regular-b26" transform="translate(0 0.203125)"/>
+       <use xlink:href="#EBGaramond-Regular-8d2" transform="translate(59.999939 0.203125)"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick ytick">
+     <g id="line2d_17">
+      <path d="M 41.16 60.35 
+L 338.26 60.35 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#md54551f048" x="41.16" y="60.352558" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_10" class="text">
+      <!-- $\mathdefault{0}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(29.12 65.639308) scale(0.105 -0.105)">
+       <use xlink:href="#EBGaramond-Regular-8cd"/>
+      </g>
+     </g>
+    </g>
+    <g class="tick ytick">
+     <g id="line2d_19">
+      <path d="M 41.16 17.24 
+L 338.26 17.24 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--grid-color); stroke-width: 0.6; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_20">
+      <g>
+       <use xlink:href="#md54551f048" x="41.16" y="17.235331" style="fill:var(--axis-color); stroke:var(--axis-color); stroke-width: 0.7"/>
       </g>
      </g>
      <g id="text_11" class="text">
-      <!-- −10.0 -->
-      <g transform="translate(20.878125 298.240481) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-2212"/>
-       <use xlink:href="#DejaVuSans-31" transform="translate(83.789062 0)"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(147.412109 0)"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(211.035156 0)"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(242.822266 0)"/>
+      <!-- $\mathdefault{5}$ -->
+      <g style="fill:var(--axis-color)" transform="translate(29.12 22.522081) scale(0.105 -0.105)">
+       <use xlink:href="#EBGaramond-Regular-8d2" transform="translate(0 0.203125)"/>
       </g>
      </g>
     </g>
-    <g class="tick ytick">
-     <g id="line2d_21">
-      <path d="M 55.458906 262.209419 
-L 321.570906 262.209419 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_22">
-      <g>
-       <use xlink:href="#m83bf1805db" x="55.458906" y="262.209419" style="stroke: currentColor; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_12" class="text">
-      <!-- −7.5 -->
-      <g transform="translate(26.604375 265.628716) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-2212"/>
-       <use xlink:href="#DejaVuSans-37" transform="translate(83.789062 0)"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(147.412109 0)"/>
-       <use xlink:href="#DejaVuSans-35" transform="translate(179.199219 0)"/>
-      </g>
-     </g>
-    </g>
-    <g class="tick ytick">
-     <g id="line2d_23">
-      <path d="M 55.458906 229.597654 
-L 321.570906 229.597654 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_24">
-      <g>
-       <use xlink:href="#m83bf1805db" x="55.458906" y="229.597654" style="stroke: currentColor; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_13" class="text">
-      <!-- −5.0 -->
-      <g transform="translate(26.604375 233.016951) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-2212"/>
-       <use xlink:href="#DejaVuSans-35" transform="translate(83.789062 0)"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(147.412109 0)"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(179.199219 0)"/>
-      </g>
-     </g>
-    </g>
-    <g class="tick ytick">
-     <g id="line2d_25">
-      <path d="M 55.458906 196.98589 
-L 321.570906 196.98589 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_26">
-      <g>
-       <use xlink:href="#m83bf1805db" x="55.458906" y="196.98589" style="stroke: currentColor; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_14" class="text">
-      <!-- −2.5 -->
-      <g transform="translate(26.604375 200.405187) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-2212"/>
-       <use xlink:href="#DejaVuSans-32" transform="translate(83.789062 0)"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(147.412109 0)"/>
-       <use xlink:href="#DejaVuSans-35" transform="translate(179.199219 0)"/>
-      </g>
-     </g>
-    </g>
-    <g class="tick ytick">
-     <g id="line2d_27">
-      <path d="M 55.458906 164.374125 
-L 321.570906 164.374125 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_28">
-      <g>
-       <use xlink:href="#m83bf1805db" x="55.458906" y="164.374125" style="stroke: currentColor; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_15" class="text">
-      <!-- 0.0 -->
-      <g transform="translate(34.146094 167.793422) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-30"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(63.623047 0)"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(95.410156 0)"/>
-      </g>
-     </g>
-    </g>
-    <g class="tick ytick">
-     <g id="line2d_29">
-      <path d="M 55.458906 131.76236 
-L 321.570906 131.76236 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_30">
-      <g>
-       <use xlink:href="#m83bf1805db" x="55.458906" y="131.76236" style="stroke: currentColor; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_16" class="text">
-      <!-- 2.5 -->
-      <g transform="translate(34.146094 135.181657) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-32"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(63.623047 0)"/>
-       <use xlink:href="#DejaVuSans-35" transform="translate(95.410156 0)"/>
-      </g>
-     </g>
-    </g>
-    <g class="tick ytick">
-     <g id="line2d_31">
-      <path d="M 55.458906 99.150596 
-L 321.570906 99.150596 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_32">
-      <g>
-       <use xlink:href="#m83bf1805db" x="55.458906" y="99.150596" style="stroke: currentColor; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_17" class="text">
-      <!-- 5.0 -->
-      <g transform="translate(34.146094 102.569892) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-35"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(63.623047 0)"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(95.410156 0)"/>
-      </g>
-     </g>
-    </g>
-    <g class="tick ytick">
-     <g id="line2d_33">
-      <path d="M 55.458906 66.538831 
-L 321.570906 66.538831 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_34">
-      <g>
-       <use xlink:href="#m83bf1805db" x="55.458906" y="66.538831" style="stroke: currentColor; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_18" class="text">
-      <!-- 7.5 -->
-      <g transform="translate(34.146094 69.958128) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-37"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(63.623047 0)"/>
-       <use xlink:href="#DejaVuSans-35" transform="translate(95.410156 0)"/>
-      </g>
-     </g>
-    </g>
-    <g class="tick ytick">
-     <g id="line2d_35">
-      <path d="M 55.458906 33.927066 
-L 321.570906 33.927066 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.1; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_36">
-      <g>
-       <use xlink:href="#m83bf1805db" x="55.458906" y="33.927066" style="stroke: currentColor; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_19" class="text">
-      <!-- 10.0 -->
-      <g transform="translate(28.419844 37.346363) scale(0.09 -0.09)">
-       <use xlink:href="#DejaVuSans-31"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(63.623047 0)"/>
-       <use xlink:href="#DejaVuSans-2e" transform="translate(127.246094 0)"/>
-       <use xlink:href="#DejaVuSans-30" transform="translate(159.033203 0)"/>
-      </g>
-     </g>
-    </g>
-    <g id="text_20" class="text">
-     <!-- $x$ -->
-     <g transform="translate(14.798438 167.374125) rotate(-90) scale(0.1 -0.1)">
+    <g id="text_12" class="text">
+     <!-- $x(t)$ -->
+     <g style="fill:var(--axis-color)" transform="translate(14.244 72.812083) rotate(-90) scale(0.12 -0.12)">
       <defs>
-       <path id="DejaVuSans-Oblique-78" d="M 3841 3500 
-L 2234 1784 
-L 3219 0 
-L 2559 0 
-L 1819 1388 
-L 531 0 
-L -166 0 
-L 1556 1844 
-L 641 3500 
-L 1300 3500 
-L 1972 2234 
-L 3144 3500 
-L 3841 3500 
+       <path id="EBGaramond-Italic-34a" d="M 154 -90 
+Q 58 -90 -25 -29 
+Q -109 32 -109 154 
+Q -109 230 -61 323 
+Q -13 416 57 486 
+Q 128 557 179 557 
+Q 230 557 252 521 
+Q 275 486 282 442 
+Q 320 294 403 294 
+Q 493 288 576 371 
+Q 768 570 905 733 
+Q 1043 896 1242 1126 
+Q 1286 1171 1261 1242 
+L 1018 2138 
+Q 998 2208 979 2227 
+Q 960 2246 922 2246 
+Q 877 2246 781 2166 
+Q 685 2086 563 1914 
+Q 550 1894 524 1852 
+Q 499 1811 454 1811 
+Q 410 1811 410 1920 
+Q 410 2016 477 2137 
+Q 544 2259 646 2377 
+Q 749 2496 870 2573 
+Q 992 2650 1094 2650 
+Q 1280 2650 1363 2323 
+L 1523 1645 
+Q 1542 1542 1613 1632 
+L 2061 2272 
+Q 2157 2406 2310 2528 
+Q 2464 2650 2637 2650 
+Q 2765 2650 2861 2550 
+Q 2957 2451 2963 2374 
+Q 2970 2330 2925 2243 
+Q 2880 2157 2819 2089 
+Q 2758 2022 2701 2022 
+Q 2630 2022 2586 2131 
+Q 2554 2221 2522 2249 
+Q 2490 2278 2445 2278 
+Q 2304 2278 2080 2010 
+Q 1990 1907 1884 1776 
+Q 1779 1645 1658 1459 
+Q 1632 1421 1625 1369 
+Q 1619 1318 1645 1235 
+L 1862 448 
+Q 1888 365 1926 329 
+Q 1965 294 1997 294 
+Q 2086 294 2204 432 
+Q 2323 570 2419 806 
+Q 2458 896 2502 896 
+Q 2528 896 2544 873 
+Q 2560 851 2560 755 
+Q 2560 666 2509 525 
+Q 2458 384 2368 243 
+Q 2278 102 2156 6 
+Q 2035 -90 1894 -90 
+Q 1715 -90 1632 19 
+Q 1549 128 1491 339 
+Q 1459 474 1420 630 
+Q 1382 787 1350 922 
+Q 1331 998 1308 1004 
+Q 1286 1011 1248 960 
+Q 1094 768 940 563 
+Q 787 358 627 173 
+Q 493 13 381 -38 
+Q 269 -90 154 -90 
+z
+" transform="scale(0.015625)"/>
+       <path id="EBGaramond-Regular-a11" d="M 1517 -1370 
+Q 1453 -1370 1408 -1325 
+Q 1274 -1190 1117 -940 
+Q 960 -691 806 -371 
+Q 653 -51 528 310 
+Q 403 672 329 1033 
+Q 256 1395 256 1722 
+Q 256 2131 365 2540 
+Q 474 2950 646 3318 
+Q 819 3686 1014 3977 
+Q 1210 4269 1382 4442 
+Q 1453 4512 1555 4512 
+Q 1587 4512 1641 4483 
+Q 1696 4454 1696 4410 
+Q 1696 4403 1661 4352 
+Q 1626 4301 1613 4288 
+Q 1421 4064 1229 3686 
+Q 1037 3309 912 2825 
+Q 787 2342 787 1798 
+Q 787 1389 857 950 
+Q 928 512 1043 105 
+Q 1158 -301 1302 -617 
+Q 1446 -934 1594 -1107 
+Q 1600 -1114 1645 -1165 
+Q 1690 -1216 1690 -1229 
+Q 1690 -1293 1635 -1331 
+Q 1581 -1370 1517 -1370 
+z
+" transform="scale(0.015625)"/>
+       <path id="EBGaramond-Regular-a12" d="M 499 -1370 
+Q 435 -1370 380 -1331 
+Q 326 -1293 326 -1229 
+Q 326 -1216 371 -1165 
+Q 416 -1114 422 -1107 
+Q 570 -934 714 -617 
+Q 858 -301 973 105 
+Q 1088 512 1158 950 
+Q 1229 1389 1229 1798 
+Q 1229 2342 1104 2825 
+Q 979 3309 790 3686 
+Q 602 4064 403 4288 
+Q 397 4301 358 4352 
+Q 320 4403 320 4410 
+Q 320 4454 374 4483 
+Q 429 4512 461 4512 
+Q 563 4512 634 4442 
+Q 806 4269 1001 3977 
+Q 1197 3686 1369 3318 
+Q 1542 2950 1651 2540 
+Q 1760 2131 1760 1722 
+Q 1760 1395 1686 1033 
+Q 1613 672 1488 310 
+Q 1363 -51 1209 -371 
+Q 1056 -691 899 -940 
+Q 742 -1190 608 -1325 
+Q 563 -1370 499 -1370 
 z
 " transform="scale(0.015625)"/>
       </defs>
-      <use xlink:href="#DejaVuSans-Oblique-78" transform="translate(0 0.3125)"/>
+      <use xlink:href="#EBGaramond-Italic-34a" transform="translate(0 0.5)"/>
+      <use xlink:href="#EBGaramond-Regular-a11" transform="translate(43.799957 0.5)"/>
+      <use xlink:href="#EBGaramond-Italic-223" transform="translate(75.299927 0.5)"/>
+      <use xlink:href="#EBGaramond-Regular-a12" transform="translate(104.499893 0.5)"/>
      </g>
     </g>
    </g>
-   <g id="line2d_37">
-    <path d="M 55.458906 169.000288 
-L 56.796152 170.425731 
-L 58.133399 185.657013 
-L 59.470645 149.87452 
-L 60.807891 174.456212 
-L 62.145137 189.859062 
-L 63.482384 162.208581 
-L 64.81963 182.890128 
-L 66.156876 151.546143 
-L 67.494122 163.078421 
-L 68.831369 122.201117 
-L 70.168615 164.595535 
-L 71.505861 200.549936 
-L 72.843107 200.162776 
-L 74.180353 151.034623 
-L 75.5176 168.310253 
-L 76.854846 163.894302 
-L 78.192092 155.394929 
-L 79.529338 188.325556 
-L 80.866585 130.501731 
-L 82.203831 173.109127 
-L 84.878323 157.154856 
-L 86.21557 153.160213 
-L 87.552816 161.401889 
-L 88.890062 162.177835 
-L 90.227308 164.492272 
-L 91.564554 178.39143 
-L 92.901801 171.297993 
-L 94.239047 157.141714 
-L 95.576293 134.980462 
-L 96.913539 185.595252 
-L 98.250786 139.148287 
-L 99.588032 154.857216 
-L 100.925278 159.734311 
-L 102.262524 159.320637 
-L 103.599771 180.897 
-L 104.937017 169.401056 
-L 106.274263 129.752585 
-L 107.611509 162.046942 
-L 108.948755 208.512744 
-L 110.286002 169.662533 
-L 111.623248 142.268503 
-L 112.960494 208.227309 
-L 114.29774 174.236687 
-L 115.634987 179.087186 
-L 116.972233 161.050369 
-L 118.309479 123.624172 
-L 119.646725 154.306636 
-L 120.983972 149.210392 
-L 122.321218 141.980059 
-L 123.658464 161.757964 
-L 124.99571 168.863899 
-L 126.332957 144.165865 
-L 127.670203 138.418263 
-L 129.007449 181.195629 
-L 130.344695 207.166523 
-L 133.019188 117.56964 
-L 134.356434 167.111636 
-L 135.69368 136.363636 
-L 137.030926 162.459173 
-L 138.368173 133.73154 
-L 139.705419 136.39567 
-L 141.042665 161.833912 
-L 142.379911 157.214525 
-L 143.717158 129.726822 
-L 145.054404 147.258112 
-L 146.39165 135.502652 
-L 147.728896 106.860903 
-L 149.066142 176.071272 
-L 150.403389 161.774544 
-L 151.740635 206.141522 
-L 153.077881 193.321451 
-L 154.415127 176.423442 
-L 155.752374 154.131407 
-L 157.08962 103.843807 
-L 158.426866 137.814831 
-L 159.764112 149.990759 
-L 161.101359 140.481354 
-L 162.438605 108.242498 
-L 163.775851 193.272112 
-L 165.113097 198.19568 
-L 166.450343 152.611761 
-L 167.78759 162.971379 
-L 169.124836 178.080911 
-L 170.462082 124.017634 
-L 171.799328 163.877036 
-L 173.136575 147.84719 
-L 174.473821 190.485501 
-L 175.811067 189.438009 
-L 177.148313 203.583706 
-L 178.48556 159.055402 
-L 179.822806 142.83459 
-L 181.160052 170.265714 
-L 182.497298 116.82257 
-L 183.834544 174.209142 
-L 185.171791 176.190135 
-L 186.509037 157.312444 
-L 187.846283 182.506105 
-L 189.183529 154.490064 
-L 190.520776 148.813337 
-L 191.858022 132.837629 
-L 193.195268 101.721489 
-L 194.532514 145.845069 
-L 195.869761 157.2052 
-L 197.207007 109.452106 
-L 199.881499 143.687397 
-L 201.218745 146.345955 
-L 202.555992 167.553921 
-L 203.893238 152.310751 
-L 205.230484 147.151462 
-L 206.56773 187.330704 
-L 207.904977 140.356367 
-L 209.242223 147.335059 
-L 210.579469 157.012975 
-L 211.916715 142.497226 
-L 213.253962 170.534968 
-L 214.591208 207.514432 
-L 215.928454 195.07645 
-L 217.2657 123.362616 
-L 218.602946 208.158272 
-L 219.940193 118.929625 
-L 221.277439 186.158549 
-L 222.614685 154.807521 
-L 223.951931 169.545527 
-L 225.289178 164.085547 
-L 226.626424 114.694194 
-L 227.96367 209.537732 
-L 229.300916 192.313139 
-L 230.638163 168.37439 
-L 231.975409 191.052637 
-L 233.312655 179.913415 
-L 234.649901 139.438853 
-L 235.987147 176.760485 
-L 237.324394 153.804174 
-L 238.66164 174.088002 
-L 239.998886 200.68539 
-L 241.336132 190.426761 
-L 242.673379 158.774664 
-L 244.010625 171.449862 
-L 245.347871 196.413989 
-L 246.685117 163.09164 
-L 248.022364 174.435872 
-L 249.35961 138.546922 
-L 250.696856 111.859964 
-L 252.034102 147.142601 
-L 254.708595 179.315795 
-L 256.045841 180.273918 
-L 257.383087 166.111444 
-L 258.720333 161.596378 
-L 260.05758 194.36441 
-L 261.394826 156.517046 
-L 262.732072 178.361496 
-L 264.069318 161.290357 
-L 265.406565 156.19948 
-L 266.743811 173.431407 
-L 268.081057 229.720523 
-L 269.418303 157.917285 
-L 270.755549 137.151789 
-L 272.092796 152.176399 
-L 273.430042 210.368224 
-L 274.767288 193.543227 
-L 276.104534 167.745144 
-L 277.441781 178.014657 
-L 278.779027 149.207053 
-L 280.116273 175.789517 
-L 281.453519 163.661964 
-L 282.790766 175.60599 
-L 284.128012 168.835498 
-L 285.465258 144.573233 
-L 286.802504 161.83613 
-L 288.13975 150.280776 
-L 289.476997 125.14717 
-L 290.814243 180.20589 
-L 292.151489 175.987178 
-L 293.488735 163.918794 
-L 294.825982 177.107575 
-L 296.163228 162.499399 
-L 297.500474 108.472192 
-L 298.83772 135.340652 
-L 300.174967 168.273491 
-L 301.512213 173.059475 
-L 302.849459 212.342065 
-L 304.186705 157.858283 
-L 305.523951 152.896605 
-L 306.861198 198.189033 
-L 308.198444 159.873464 
-L 310.872936 133.856078 
-L 312.210183 139.695404 
-L 313.547429 137.969497 
-L 314.884675 200.708107 
-L 316.221921 162.001188 
-L 317.559168 186.048042 
-L 318.896414 191.469957 
-L 320.23366 146.955995 
-L 321.570906 205.167261 
-L 321.570906 205.167261 
-" clip-path="url(#pcc40061d80)" style="fill: none; stroke: #8000ff; stroke-width: 2; stroke-linecap: square"/>
+   <g id="line2d_21">
+    <path d="M 41.16 58.72 
+L 42.15 59.86 
+L 42.65 62.84 
+L 43.14 60.65 
+L 43.64 59.25 
+L 44.13 59.65 
+L 44.63 58.7 
+L 45.12 58.36 
+L 45.62 59.04 
+L 46.11 57.84 
+L 47.1 58.62 
+L 47.6 59.59 
+L 48.09 59.04 
+L 48.59 59.16 
+L 49.08 58.49 
+L 49.58 59.23 
+L 50.07 59.08 
+L 50.57 60.17 
+L 51.06 59.14 
+L 51.56 58.91 
+L 52.55 58.01 
+L 53.04 59.24 
+L 53.54 58.28 
+L 54.03 55.78 
+L 55.52 61.72 
+L 56.01 60.69 
+L 56.51 60.53 
+L 57.01 59.22 
+L 57.5 58.34 
+L 58.49 57.74 
+L 58.99 57.94 
+L 59.48 56.88 
+L 59.98 58.26 
+L 60.47 58.78 
+L 60.97 58.48 
+L 61.46 56.28 
+L 61.96 57.21 
+L 62.45 58.53 
+L 62.95 59.22 
+L 63.44 58.04 
+L 63.94 58.32 
+L 64.43 56.71 
+L 64.93 58.99 
+L 65.92 56.35 
+L 66.41 58.08 
+L 66.91 57.89 
+L 67.4 56.41 
+L 67.9 56.3 
+L 68.39 55.09 
+L 68.89 52.19 
+L 69.38 51.86 
+L 69.88 52.2 
+L 70.37 53.14 
+L 70.87 52.35 
+L 71.86 52.81 
+L 72.36 52.93 
+L 72.85 52.14 
+L 73.35 53.44 
+L 73.84 55.31 
+L 74.34 58.28 
+L 74.83 56.81 
+L 75.33 56.72 
+L 75.82 54.88 
+L 76.32 54.89 
+L 76.81 55.8 
+L 77.31 55.22 
+L 77.8 55.31 
+L 78.3 56.84 
+L 78.79 57.92 
+L 79.29 55.76 
+L 80.28 54.82 
+L 80.77 55.16 
+L 81.27 56 
+L 81.76 54.91 
+L 82.26 55.04 
+L 82.75 55.97 
+L 83.25 56.13 
+L 83.74 57.24 
+L 84.24 57 
+L 84.73 55.63 
+L 85.23 56.65 
+L 85.72 54.9 
+L 86.22 55.72 
+L 86.72 55.53 
+L 87.21 56.55 
+L 87.71 56.82 
+L 88.2 56.76 
+L 88.7 57.29 
+L 90.18 59.98 
+L 90.68 61.89 
+L 91.17 62.22 
+L 91.67 61.73 
+L 92.16 60.62 
+L 92.66 59.83 
+L 93.15 56.83 
+L 93.65 56.44 
+L 94.14 57 
+L 94.64 54.72 
+L 95.13 55.99 
+L 95.63 54.81 
+L 96.12 55.98 
+L 96.62 55.55 
+L 97.11 57.95 
+L 97.61 56.85 
+L 98.1 57.04 
+L 98.6 58.22 
+L 99.09 56.18 
+L 99.59 55.24 
+L 100.08 55.19 
+L 100.58 56.1 
+L 101.07 56.15 
+L 101.57 56.35 
+L 102.56 54.49 
+L 103.55 55.98 
+L 104.05 56.63 
+L 104.54 58.27 
+L 105.04 58.99 
+L 105.53 59.1 
+L 106.03 58.26 
+L 106.52 56.65 
+L 107.02 57.64 
+L 107.51 56.97 
+L 108.01 57.51 
+L 108.5 54.98 
+L 109 55.04 
+L 109.49 54.42 
+L 110.48 56.55 
+L 110.98 56.31 
+L 111.47 56.78 
+L 111.97 56.35 
+L 112.46 58.25 
+L 112.96 57.44 
+L 113.45 58.54 
+L 113.95 56.44 
+L 114.44 56.79 
+L 114.94 55.45 
+L 115.43 57.15 
+L 115.93 56.63 
+L 116.43 57.71 
+L 116.92 58.31 
+L 117.42 58.28 
+L 117.91 58.66 
+L 118.41 58.34 
+L 119.4 56.63 
+L 119.89 56.74 
+L 120.39 58.4 
+L 120.88 59.39 
+L 121.38 59.62 
+L 121.87 62.21 
+L 122.37 61.29 
+L 123.36 61.89 
+L 123.85 60.74 
+L 124.35 59.92 
+L 124.84 59.65 
+L 125.34 60.87 
+L 126.33 60.07 
+L 126.82 61.15 
+L 127.32 59.88 
+L 127.81 59.26 
+L 128.31 61.66 
+L 128.8 61.51 
+L 129.3 63.06 
+L 129.79 61.67 
+L 130.29 60.69 
+L 131.28 63.11 
+L 131.78 62.99 
+L 132.27 63.28 
+L 132.77 61.42 
+L 133.26 60.51 
+L 133.76 60.86 
+L 134.25 60.15 
+L 134.75 62.63 
+L 135.24 62.26 
+L 135.74 61.2 
+L 136.23 61.42 
+L 136.73 62.28 
+L 137.22 61.59 
+L 137.72 59.2 
+L 138.21 58.95 
+L 138.71 60.32 
+L 139.2 58.56 
+L 139.7 60.85 
+L 140.19 60.24 
+L 140.69 60.95 
+L 141.18 59.81 
+L 141.68 60.85 
+L 142.17 59.23 
+L 142.67 58.87 
+L 143.66 63.38 
+L 144.15 63.76 
+L 144.65 62.19 
+L 145.64 61.95 
+L 146.14 62.24 
+L 146.63 61.34 
+L 147.62 60.53 
+L 148.12 61.74 
+L 149.11 58.62 
+L 149.6 60.21 
+L 150.1 57.4 
+L 150.59 56.52 
+L 151.09 57.12 
+L 151.58 59.44 
+L 152.57 57.96 
+L 153.07 58.69 
+L 153.56 60.87 
+L 154.06 59.5 
+L 155.05 60.79 
+L 155.54 57.32 
+L 156.04 54.73 
+L 156.53 53.56 
+L 157.03 54.12 
+L 157.52 53.33 
+L 158.02 56.11 
+L 158.51 55.98 
+L 159.01 56.91 
+L 160 60.4 
+L 160.49 59.76 
+L 161.49 59.46 
+L 161.98 58.43 
+L 162.48 59.46 
+L 162.97 60.97 
+L 163.47 63.14 
+L 163.96 63.55 
+L 164.46 62.62 
+L 164.95 62.8 
+L 165.45 62.02 
+L 165.94 63.46 
+L 166.44 64.03 
+L 166.93 64.97 
+L 167.43 66.49 
+L 167.92 64.22 
+L 168.42 63.18 
+L 169.41 65.04 
+L 169.9 65.11 
+L 170.4 66.87 
+L 170.89 66.34 
+L 171.39 67.92 
+L 171.88 68.37 
+L 172.38 69.62 
+L 172.87 70.21 
+L 174.36 74.93 
+L 174.85 75.76 
+L 175.35 76.12 
+L 175.84 76.03 
+L 176.34 74.17 
+L 176.84 73.18 
+L 177.33 73.49 
+L 177.83 72.6 
+L 178.32 73.44 
+L 178.82 71.68 
+L 179.31 71.01 
+L 179.81 72.66 
+L 180.8 70.74 
+L 181.29 74.02 
+L 181.79 74.93 
+L 182.28 75.51 
+L 182.78 77.86 
+L 183.77 80.32 
+L 184.26 79.7 
+L 184.76 79.33 
+L 185.25 76.13 
+L 185.75 76.61 
+L 186.24 75.2 
+L 186.74 75.11 
+L 187.23 74.78 
+L 187.73 76.19 
+L 188.22 78.52 
+L 188.72 79.46 
+L 189.21 78.53 
+L 189.71 76.6 
+L 190.7 75.25 
+L 191.2 76.28 
+L 192.19 72.77 
+L 192.68 73.41 
+L 193.18 73.47 
+L 193.67 74.69 
+L 194.17 72.9 
+L 194.66 72.4 
+L 195.16 72.52 
+L 196.15 71.48 
+L 196.64 71.99 
+L 197.63 75.06 
+L 198.13 77.18 
+L 198.62 76.62 
+L 199.12 73.92 
+L 199.61 75.99 
+L 200.11 75.82 
+L 200.6 75.32 
+L 201.1 76.52 
+L 201.59 76.27 
+L 202.09 77.61 
+L 202.58 76.14 
+L 203.08 76.87 
+L 203.57 76.75 
+L 204.07 75.91 
+L 204.56 76.44 
+L 205.06 78.62 
+L 205.55 79.27 
+L 206.05 78.34 
+L 206.55 78.44 
+L 207.04 78.16 
+L 207.54 79.48 
+L 208.03 79.3 
+L 208.53 78.42 
+L 209.02 78.37 
+L 209.52 76.04 
+L 210.01 76.3 
+L 210.51 77.57 
+L 211 79.54 
+L 211.5 78.14 
+L 211.99 78.21 
+L 212.49 76.97 
+L 212.98 76.42 
+L 213.97 72.89 
+L 214.47 73.35 
+L 214.96 73.02 
+L 215.46 71.69 
+L 215.95 73.2 
+L 216.94 69.95 
+L 217.44 68.75 
+L 217.93 69 
+L 218.43 68.63 
+L 218.92 69.99 
+L 219.42 69.92 
+L 219.91 70.64 
+L 220.41 70.53 
+L 220.9 71.14 
+L 221.4 70.79 
+L 221.9 69.35 
+L 222.39 70.95 
+L 222.89 69.82 
+L 223.88 74.88 
+L 224.37 75.03 
+L 224.87 75.02 
+L 225.36 74.48 
+L 225.86 76.49 
+L 226.35 76.56 
+L 226.85 76.41 
+L 227.34 74.88 
+L 227.84 75.01 
+L 228.33 74.36 
+L 228.83 75.55 
+L 229.32 75.78 
+L 229.82 76.32 
+L 230.31 75.47 
+L 231.3 77.69 
+L 231.8 76.99 
+L 232.29 74.81 
+L 233.28 73.97 
+L 233.78 74.39 
+L 234.27 73.06 
+L 234.77 72.41 
+L 235.26 70.29 
+L 235.76 69.89 
+L 236.26 71.05 
+L 236.75 71.74 
+L 237.25 72.94 
+L 237.74 74.47 
+L 238.24 72.93 
+L 238.73 71.94 
+L 239.23 73.45 
+L 239.72 71.28 
+L 240.22 70.98 
+L 240.71 72.15 
+L 241.21 71.68 
+L 241.7 71.76 
+L 242.2 72.71 
+L 242.69 75.08 
+L 243.19 75.03 
+L 243.68 74.68 
+L 244.18 77.82 
+L 245.17 76.39 
+L 245.66 76.96 
+L 246.16 76.83 
+L 246.65 77.17 
+L 247.15 78.19 
+L 247.64 78.63 
+L 248.14 76.98 
+L 248.63 78.75 
+L 249.62 78.24 
+L 250.12 79.1 
+L 250.61 79.64 
+L 251.11 81.34 
+L 251.61 82.38 
+L 252.1 82.36 
+L 252.6 81.97 
+L 253.09 83.06 
+L 253.59 79.33 
+L 254.08 80.03 
+L 254.58 79.87 
+L 255.07 80.16 
+L 255.57 80.64 
+L 256.06 79.06 
+L 256.56 79.64 
+L 257.55 76.62 
+L 258.04 77.9 
+L 258.54 76.63 
+L 259.03 77.43 
+L 259.53 74.09 
+L 260.02 74.56 
+L 260.52 75.71 
+L 261.01 78.04 
+L 261.51 79.61 
+L 262 80.32 
+L 263.49 83.89 
+L 263.98 84.14 
+L 264.48 82.37 
+L 264.97 84.45 
+L 265.47 85.12 
+L 265.97 86.28 
+L 266.96 89.68 
+L 267.45 90.78 
+L 267.95 89.91 
+L 268.44 90.14 
+L 268.94 90.8 
+L 269.43 90.05 
+L 269.93 89.71 
+L 270.42 89.98 
+L 270.92 89.51 
+L 271.41 90.52 
+L 272.4 89.19 
+L 272.9 89.69 
+L 273.39 91.18 
+L 273.89 89.33 
+L 274.38 89.21 
+L 274.88 85.49 
+L 275.37 86.29 
+L 275.87 85.25 
+L 276.36 85.78 
+L 276.86 85.47 
+L 277.35 84.45 
+L 277.85 85.43 
+L 278.34 85.55 
+L 279.33 85.21 
+L 279.83 84.49 
+L 280.82 82.22 
+L 281.32 81.9 
+L 281.81 82.32 
+L 282.31 83.7 
+L 282.8 84.6 
+L 283.3 85.24 
+L 283.79 84.41 
+L 284.29 84.85 
+L 284.78 86.37 
+L 285.28 85.6 
+L 286.27 87.52 
+L 286.76 87.79 
+L 287.26 87.22 
+L 287.75 90.16 
+L 288.25 91.53 
+L 288.74 91.31 
+L 289.24 91.76 
+L 289.73 92.81 
+L 290.23 93.47 
+L 290.72 91.78 
+L 291.22 92.34 
+L 292.21 90.5 
+L 292.7 91.05 
+L 293.2 90.51 
+L 293.69 91.06 
+L 294.19 91.8 
+L 294.68 93.18 
+L 295.18 92.11 
+L 295.67 92.6 
+L 296.17 93.27 
+L 296.67 94.64 
+L 297.16 92.44 
+L 297.66 91.53 
+L 298.15 91.7 
+L 298.65 92.54 
+L 299.14 94.41 
+L 300.13 93.7 
+L 300.63 95.42 
+L 301.12 94 
+L 301.62 93.06 
+L 302.11 94.23 
+L 303.1 95.43 
+L 303.6 95.23 
+L 304.09 95.41 
+L 304.59 97.41 
+L 305.08 95.61 
+L 305.58 95.22 
+L 306.57 92.16 
+L 307.06 92.41 
+L 307.56 91.99 
+L 308.55 90.16 
+L 309.04 90.36 
+L 309.54 91.11 
+L 310.03 91.07 
+L 310.53 92.04 
+L 311.03 92.72 
+L 311.52 95.2 
+L 312.02 95.1 
+L 312.51 96.35 
+L 313.01 97.03 
+L 313.5 97.09 
+L 314 96.71 
+L 314.49 94.4 
+L 314.99 94.15 
+L 315.48 95.88 
+L 315.98 95.72 
+L 316.47 96.44 
+L 316.97 95.96 
+L 318.45 98.28 
+L 318.95 99.05 
+L 319.44 101.27 
+L 319.94 102.09 
+L 320.43 102.1 
+L 320.93 100.64 
+L 321.92 101.45 
+L 322.91 100.09 
+L 323.4 98.14 
+L 323.9 97.42 
+L 324.39 97.45 
+L 325.38 93.95 
+L 325.88 94.53 
+L 326.38 94.34 
+L 326.87 96.38 
+L 327.37 96.83 
+L 327.86 97.91 
+L 328.36 98.17 
+L 328.85 98.75 
+L 329.84 99.08 
+L 330.34 98.48 
+L 330.83 98.2 
+L 331.33 98.88 
+L 331.82 100.46 
+L 332.81 97.22 
+L 333.31 97.78 
+L 333.8 97.09 
+L 334.79 100.86 
+L 335.29 101.19 
+L 335.78 99.39 
+L 336.77 101.69 
+L 337.27 99.73 
+L 337.76 102.03 
+L 338.26 101.25 
+L 338.26 101.25 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--c8); stroke-opacity: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_22">
+    <path d="M 41.16 56.15 
+L 41.66 56.4 
+L 42.15 56.17 
+L 42.65 52.97 
+L 43.14 54.34 
+L 44.13 55.02 
+L 44.63 55.86 
+L 45.12 57.5 
+L 45.62 55.55 
+L 46.11 55.28 
+L 46.61 57.43 
+L 47.1 58.28 
+L 48.09 57.3 
+L 48.59 59.05 
+L 49.08 59.17 
+L 49.58 58.85 
+L 50.57 57.89 
+L 51.06 60.11 
+L 51.56 57.86 
+L 52.05 57.6 
+L 52.55 55.4 
+L 53.04 51.91 
+L 53.54 52.1 
+L 54.03 53.61 
+L 54.53 52.55 
+L 55.02 52.77 
+L 55.52 53.33 
+L 56.01 54.59 
+L 56.51 52.53 
+L 57.01 53.07 
+L 57.5 54.77 
+L 58 55.32 
+L 58.49 56.73 
+L 58.99 56.54 
+L 59.48 57.05 
+L 59.98 58.34 
+L 60.47 57.61 
+L 60.97 58.39 
+L 61.46 57.51 
+L 61.96 55.97 
+L 62.45 56.41 
+L 62.95 57.2 
+L 63.44 56.96 
+L 63.94 55.87 
+L 64.43 55.87 
+L 64.93 55.7 
+L 65.42 55.73 
+L 65.92 55.36 
+L 66.41 54.59 
+L 66.91 55.45 
+L 67.4 56.04 
+L 67.9 55.98 
+L 68.39 56.8 
+L 68.89 56.63 
+L 69.38 55.98 
+L 69.88 56 
+L 70.37 56.74 
+L 70.87 57.69 
+L 71.37 55.55 
+L 71.86 54.48 
+L 72.36 55.85 
+L 72.85 56.87 
+L 73.84 52.74 
+L 74.34 52.59 
+L 74.83 51.17 
+L 75.33 52.99 
+L 75.82 52.99 
+L 76.32 52.08 
+L 76.81 54.35 
+L 77.31 55.31 
+L 77.8 54.35 
+L 78.3 52.97 
+L 78.79 53.7 
+L 79.29 53.34 
+L 79.78 51.39 
+L 80.28 51.86 
+L 80.77 53.48 
+L 81.27 53.56 
+L 81.76 54.04 
+L 82.26 52.45 
+L 82.75 52.25 
+L 83.25 53.23 
+L 83.74 50.3 
+L 84.24 50.91 
+L 84.73 50.34 
+L 85.72 48.56 
+L 86.22 48.35 
+L 86.72 47.63 
+L 87.21 47.71 
+L 87.71 49.44 
+L 89.19 50.17 
+L 89.69 50.01 
+L 90.18 50.77 
+L 91.17 47.24 
+L 91.67 49.93 
+L 92.16 49.91 
+L 92.66 50.78 
+L 93.15 53.96 
+L 93.65 53.46 
+L 94.14 54.21 
+L 94.64 54.67 
+L 95.13 55.47 
+L 96.12 52.63 
+L 96.62 52.29 
+L 97.11 51.45 
+L 97.61 51.58 
+L 98.1 51.41 
+L 98.6 52.32 
+L 99.09 52.28 
+L 99.59 53.15 
+L 100.08 52.69 
+L 100.58 51.68 
+L 101.07 51.3 
+L 101.57 49.86 
+L 102.07 46.58 
+L 102.56 49.15 
+L 103.06 49.13 
+L 104.05 50.38 
+L 104.54 52.04 
+L 105.04 51.97 
+L 105.53 52.29 
+L 106.03 53.06 
+L 106.52 53.37 
+L 107.02 54.09 
+L 107.51 56.95 
+L 108.01 55.64 
+L 108.5 56.01 
+L 109 57.16 
+L 109.49 56.79 
+L 109.99 57.6 
+L 110.48 60.25 
+L 110.98 59.17 
+L 111.47 61.21 
+L 111.97 61.48 
+L 112.46 61.33 
+L 113.45 58.24 
+L 113.95 58.03 
+L 114.44 58.96 
+L 114.94 59.47 
+L 115.43 58.14 
+L 115.93 55.97 
+L 116.43 55.3 
+L 116.92 56.09 
+L 117.42 54.83 
+L 118.9 56.13 
+L 119.4 55.41 
+L 119.89 55.07 
+L 120.39 53.86 
+L 120.88 52.28 
+L 121.38 51.66 
+L 121.87 54.5 
+L 122.37 56.57 
+L 122.86 56.38 
+L 123.36 56.46 
+L 123.85 53.82 
+L 124.35 53.86 
+L 124.84 54.04 
+L 125.83 51.6 
+L 126.33 51.88 
+L 126.82 51.31 
+L 127.81 53.84 
+L 128.31 52.33 
+L 128.8 54.05 
+L 129.3 52.93 
+L 130.29 51.16 
+L 130.78 50.05 
+L 131.28 49.36 
+L 131.78 51.97 
+L 132.27 53.2 
+L 132.77 53.93 
+L 133.26 52.81 
+L 133.76 54.19 
+L 134.25 55.05 
+L 134.75 55.49 
+L 135.24 53.89 
+L 136.23 57.29 
+L 136.73 56.53 
+L 137.22 59.12 
+L 137.72 58.72 
+L 138.21 59.27 
+L 138.71 61.19 
+L 139.2 61.71 
+L 139.7 62.93 
+L 140.19 62.72 
+L 140.69 62.28 
+L 141.18 60.46 
+L 141.68 60.48 
+L 142.17 60.36 
+L 142.67 61.06 
+L 143.16 61.09 
+L 143.66 59.81 
+L 144.15 62.16 
+L 144.65 61.35 
+L 145.14 62.01 
+L 145.64 61.92 
+L 146.14 61.52 
+L 146.63 60.48 
+L 147.13 60.19 
+L 147.62 60.67 
+L 148.12 60.29 
+L 148.61 60.28 
+L 149.11 60.53 
+L 149.6 60.28 
+L 150.1 59.21 
+L 151.09 58.85 
+L 151.58 60.42 
+L 152.08 60.58 
+L 152.57 62.84 
+L 153.07 61.97 
+L 153.56 63.11 
+L 154.06 61.53 
+L 154.55 57.88 
+L 155.05 58.36 
+L 155.54 56.74 
+L 156.04 56.25 
+L 156.53 56.93 
+L 157.03 57.96 
+L 157.52 57.27 
+L 158.02 55.57 
+L 158.51 55.14 
+L 159.01 56.98 
+L 159.5 58.25 
+L 160 58.53 
+L 160.49 56.88 
+L 161.49 56.13 
+L 161.98 54.66 
+L 162.48 54.91 
+L 163.47 55.24 
+L 163.96 57.4 
+L 164.95 56.33 
+L 165.45 55.14 
+L 165.94 56.59 
+L 166.44 57.59 
+L 166.93 56.45 
+L 167.43 56.06 
+L 167.92 54.38 
+L 168.42 55.43 
+L 168.91 55.19 
+L 169.41 56.01 
+L 169.9 55.63 
+L 170.4 56.22 
+L 170.89 55.57 
+L 171.39 54.25 
+L 171.88 53.43 
+L 172.38 55.63 
+L 172.87 54.49 
+L 173.37 53.94 
+L 174.36 56.29 
+L 174.85 56.28 
+L 175.35 55.58 
+L 175.84 56.13 
+L 176.34 58.11 
+L 176.84 57.77 
+L 177.33 57.56 
+L 177.83 54.58 
+L 178.32 56.16 
+L 178.82 53.08 
+L 179.31 50.95 
+L 179.81 50.58 
+L 180.3 48.56 
+L 180.8 48.44 
+L 181.29 47.25 
+L 181.79 48.14 
+L 182.28 48.04 
+L 182.78 49.28 
+L 183.27 51.2 
+L 183.77 51.53 
+L 184.26 52.34 
+L 184.76 51.64 
+L 185.25 50.09 
+L 185.75 50.3 
+L 186.24 50.22 
+L 186.74 50 
+L 187.23 52.04 
+L 187.73 51.71 
+L 188.72 51.76 
+L 189.21 53.1 
+L 189.71 55.52 
+L 190.2 55.82 
+L 190.7 55.43 
+L 192.19 50.65 
+L 192.68 50.19 
+L 193.18 48.78 
+L 193.67 49.04 
+L 194.17 48.27 
+L 194.66 47.13 
+L 195.16 43.85 
+L 195.65 43.56 
+L 196.15 45.11 
+L 196.64 43.43 
+L 197.14 44.39 
+L 197.63 44.47 
+L 198.13 44.83 
+L 198.62 45.93 
+L 199.12 44.31 
+L 199.61 43.58 
+L 200.11 44.32 
+L 200.6 44.24 
+L 201.1 44.77 
+L 201.59 44.02 
+L 202.09 44.48 
+L 203.08 46.2 
+L 203.57 46.73 
+L 204.07 46.38 
+L 204.56 47.5 
+L 205.06 47.61 
+L 205.55 47.07 
+L 206.05 44.22 
+L 206.55 43.17 
+L 207.04 46.81 
+L 208.03 47.92 
+L 208.53 47.53 
+L 209.02 45.62 
+L 209.52 44.71 
+L 210.01 47.52 
+L 210.51 47.14 
+L 211 47.01 
+L 211.5 46.51 
+L 211.99 44.85 
+L 212.49 46.18 
+L 212.98 44.84 
+L 213.48 46.85 
+L 213.97 46.79 
+L 214.47 46.33 
+L 214.96 43.54 
+L 215.46 44.4 
+L 215.95 46.46 
+L 216.45 45.63 
+L 216.94 46.43 
+L 217.44 44.53 
+L 218.43 46.46 
+L 218.92 44.94 
+L 219.42 44.84 
+L 219.91 43.62 
+L 220.41 45.36 
+L 220.9 43.35 
+L 221.4 44.07 
+L 221.9 43.07 
+L 222.39 44.29 
+L 222.89 46.18 
+L 223.38 46.5 
+L 223.88 46.28 
+L 224.37 44.36 
+L 224.87 43.93 
+L 225.86 42.26 
+L 226.35 38.46 
+L 226.85 39.46 
+L 227.34 37.93 
+L 227.84 38.11 
+L 228.33 37.8 
+L 228.83 38.46 
+L 229.32 37.04 
+L 230.31 40.19 
+L 230.81 40.44 
+L 231.3 41.85 
+L 231.8 41 
+L 232.29 39.87 
+L 232.79 40.79 
+L 233.28 39.83 
+L 233.78 40.64 
+L 234.77 40.69 
+L 235.26 38.4 
+L 235.76 38.4 
+L 236.75 40.63 
+L 237.25 39.17 
+L 237.74 41.2 
+L 238.73 42.24 
+L 239.23 45.23 
+L 239.72 45.8 
+L 240.22 44.58 
+L 240.71 44.3 
+L 241.21 45.4 
+L 242.2 43.92 
+L 242.69 41.45 
+L 243.19 42.36 
+L 243.68 42.83 
+L 244.18 42.78 
+L 244.67 42.95 
+L 245.17 42.85 
+L 245.66 42.98 
+L 246.16 43.83 
+L 246.65 45.78 
+L 247.15 46.47 
+L 247.64 48.17 
+L 248.14 49.45 
+L 248.63 50.12 
+L 249.13 49.5 
+L 249.62 48.47 
+L 250.12 49.74 
+L 250.61 49.38 
+L 251.11 48.42 
+L 251.61 48.49 
+L 252.1 50.5 
+L 252.6 53.15 
+L 253.59 51.11 
+L 254.08 50.8 
+L 254.58 52.11 
+L 255.57 48.91 
+L 256.06 48.99 
+L 256.56 49.29 
+L 257.05 51.71 
+L 257.55 50.82 
+L 258.04 52.82 
+L 259.03 51.17 
+L 259.53 51.08 
+L 260.02 49.19 
+L 260.52 49.61 
+L 261.01 48.92 
+L 261.51 47.98 
+L 262 47.71 
+L 262.5 48.25 
+L 262.99 46.78 
+L 263.49 46.3 
+L 264.48 46.8 
+L 264.97 46.67 
+L 265.47 43.92 
+L 265.97 43.82 
+L 266.46 44.14 
+L 267.45 46.99 
+L 267.95 49.33 
+L 268.44 49.08 
+L 268.94 49.07 
+L 269.43 50.36 
+L 269.93 52.2 
+L 270.42 52.63 
+L 270.92 53.31 
+L 271.41 54.97 
+L 271.91 54.64 
+L 272.4 54.5 
+L 272.9 54.59 
+L 273.39 53.69 
+L 273.89 54.52 
+L 274.38 52.89 
+L 274.88 54.17 
+L 275.87 52.84 
+L 276.36 53.19 
+L 276.86 52.8 
+L 277.85 56.28 
+L 278.34 56.56 
+L 278.84 57.49 
+L 279.33 56.8 
+L 279.83 56.81 
+L 280.32 56.09 
+L 280.82 55.74 
+L 281.32 55.53 
+L 281.81 55.46 
+L 282.8 56.55 
+L 283.3 54.11 
+L 283.79 56.3 
+L 284.29 56.57 
+L 284.78 55.38 
+L 285.28 54.91 
+L 285.77 53.23 
+L 286.27 52.6 
+L 286.76 54.18 
+L 287.26 54.63 
+L 287.75 56.38 
+L 288.25 55.22 
+L 288.74 53.5 
+L 289.24 54.08 
+L 289.73 53.47 
+L 290.23 54.01 
+L 290.72 55.81 
+L 291.22 56.41 
+L 291.71 58.39 
+L 292.21 59.13 
+L 292.7 58.92 
+L 293.2 58.09 
+L 293.69 56.56 
+L 294.19 57.02 
+L 294.68 56.78 
+L 295.18 56.32 
+L 295.67 55.7 
+L 296.17 59.23 
+L 296.67 60.24 
+L 297.16 59.32 
+L 297.66 60.74 
+L 298.15 60.5 
+L 298.65 59.54 
+L 299.14 61.92 
+L 299.64 62.21 
+L 300.13 61.98 
+L 300.63 62.03 
+L 301.12 63.96 
+L 301.62 63.61 
+L 302.11 64.36 
+L 302.61 63.42 
+L 303.1 62.96 
+L 303.6 63.7 
+L 304.09 63.56 
+L 305.08 65.4 
+L 305.58 67.41 
+L 306.07 67.78 
+L 306.57 66.88 
+L 307.06 66.82 
+L 307.56 66.94 
+L 308.55 68.53 
+L 309.04 67.72 
+L 309.54 69.65 
+L 310.03 67.24 
+L 310.53 67.42 
+L 311.03 64.88 
+L 311.52 63.56 
+L 312.02 64.18 
+L 312.51 63.4 
+L 313.01 63.2 
+L 313.5 62.75 
+L 314 61.91 
+L 315.48 64.22 
+L 315.98 66.02 
+L 316.47 66.47 
+L 317.96 66.06 
+L 318.45 66.68 
+L 318.95 65.86 
+L 319.44 68.51 
+L 320.43 69.69 
+L 320.93 68.75 
+L 321.92 67.28 
+L 322.41 67.42 
+L 322.91 66.43 
+L 323.4 67.82 
+L 323.9 67.9 
+L 324.39 70.65 
+L 325.38 66.97 
+L 325.88 67.88 
+L 326.38 69.1 
+L 326.87 71.84 
+L 327.37 73.89 
+L 327.86 73.92 
+L 328.36 74.3 
+L 328.85 76.28 
+L 329.84 78.07 
+L 330.34 77.68 
+L 330.83 77 
+L 331.33 77.45 
+L 331.82 77.49 
+L 332.32 77.67 
+L 332.81 80.4 
+L 333.31 80.36 
+L 333.8 80.62 
+L 334.3 79.88 
+L 334.79 82.3 
+L 335.29 81.55 
+L 335.78 82.5 
+L 336.28 82.35 
+L 336.77 81.05 
+L 337.76 84.8 
+L 338.26 83.76 
+L 338.26 83.76 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--c8); stroke-opacity: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_23">
+    <path d="M 41.16 71.42 
+L 41.66 72.76 
+L 42.15 72.2 
+L 42.65 72.62 
+L 43.14 71.84 
+L 43.64 71.65 
+L 44.13 71.85 
+L 44.63 70.82 
+L 45.12 68.32 
+L 45.62 68.61 
+L 46.11 66.98 
+L 46.61 65.76 
+L 47.1 65.8 
+L 47.6 65.41 
+L 48.09 66.72 
+L 48.59 67.64 
+L 49.08 67.47 
+L 49.58 67.69 
+L 50.07 66.27 
+L 50.57 68.02 
+L 51.06 68.55 
+L 51.56 69.49 
+L 52.05 69.84 
+L 52.55 68.59 
+L 53.04 70.22 
+L 53.54 69.35 
+L 54.03 70.24 
+L 54.53 70.8 
+L 55.02 69.74 
+L 55.52 70.25 
+L 56.01 69.6 
+L 56.51 69.62 
+L 57.01 69.99 
+L 57.5 70.59 
+L 58 72.86 
+L 58.49 73.93 
+L 59.48 73.8 
+L 59.98 75.77 
+L 60.47 74.7 
+L 60.97 74.16 
+L 61.96 77.32 
+L 62.45 76.85 
+L 62.95 79.15 
+L 63.44 80.2 
+L 64.93 80.93 
+L 65.42 80.6 
+L 65.92 81.72 
+L 66.41 82.45 
+L 66.91 80.09 
+L 67.4 81.94 
+L 67.9 82.63 
+L 68.39 82.63 
+L 68.89 83.55 
+L 69.38 82.2 
+L 69.88 82.24 
+L 70.37 81.45 
+L 70.87 84.77 
+L 71.86 82.18 
+L 72.36 83.24 
+L 72.85 81.77 
+L 73.35 81.57 
+L 73.84 80.57 
+L 74.34 78.48 
+L 74.83 78.48 
+L 75.33 79.84 
+L 75.82 79.97 
+L 76.32 81.64 
+L 77.8 84.77 
+L 78.3 83.46 
+L 78.79 82.55 
+L 79.29 83.76 
+L 79.78 82.49 
+L 80.28 84.64 
+L 80.77 85.55 
+L 81.27 85.83 
+L 81.76 84.48 
+L 82.26 83.69 
+L 82.75 83.23 
+L 83.25 81.74 
+L 83.74 80.96 
+L 84.24 79.38 
+L 84.73 80.43 
+L 85.23 82.58 
+L 85.72 83.18 
+L 86.22 82.25 
+L 86.72 82.02 
+L 87.71 80.24 
+L 88.2 79.69 
+L 88.7 78.77 
+L 89.19 79.73 
+L 89.69 78.47 
+L 90.18 79.78 
+L 90.68 80 
+L 91.17 81.81 
+L 91.67 81.27 
+L 92.16 83.24 
+L 92.66 81.6 
+L 93.15 83.32 
+L 93.65 83.09 
+L 94.14 83.34 
+L 94.64 84.49 
+L 95.13 83.04 
+L 95.63 83.64 
+L 96.12 81.93 
+L 97.11 84.32 
+L 97.61 86.83 
+L 98.1 86.24 
+L 98.6 85.19 
+L 99.09 85 
+L 99.59 85.27 
+L 100.08 86.47 
+L 100.58 83.68 
+L 101.07 82.85 
+L 101.57 85.18 
+L 102.07 85.63 
+L 102.56 88.89 
+L 103.06 87.04 
+L 103.55 84.7 
+L 104.05 82.99 
+L 104.54 83.13 
+L 105.04 83.92 
+L 105.53 85.71 
+L 106.03 85.13 
+L 106.52 86.11 
+L 107.02 86.64 
+L 107.51 87.5 
+L 108.01 87.95 
+L 108.5 86.92 
+L 109 84.93 
+L 109.49 84.81 
+L 109.99 84.86 
+L 111.47 89.22 
+L 111.97 88.21 
+L 112.46 87.97 
+L 112.96 86.85 
+L 113.45 86.4 
+L 113.95 86.95 
+L 114.44 88.54 
+L 114.94 89.05 
+L 115.43 90.86 
+L 115.93 88.47 
+L 116.43 88.21 
+L 116.92 88.72 
+L 117.42 86.33 
+L 117.91 86.86 
+L 118.41 86.24 
+L 118.9 86.5 
+L 119.4 86.12 
+L 119.89 86.63 
+L 120.39 86.08 
+L 120.88 84.39 
+L 121.38 86 
+L 121.87 88.78 
+L 122.37 87.18 
+L 122.86 87.03 
+L 123.36 86.01 
+L 123.85 86.42 
+L 124.84 82.4 
+L 125.34 83.89 
+L 125.83 83.12 
+L 126.33 83.93 
+L 126.82 85.97 
+L 127.32 86.4 
+L 127.81 85.76 
+L 128.8 89.16 
+L 129.3 87.71 
+L 129.79 87.75 
+L 130.29 87.32 
+L 130.78 88.81 
+L 131.28 89.69 
+L 132.77 89.39 
+L 133.26 87.53 
+L 133.76 87.42 
+L 134.25 89.41 
+L 134.75 90.59 
+L 135.24 90.77 
+L 135.74 89.31 
+L 136.23 90.28 
+L 136.73 90.88 
+L 137.22 91.04 
+L 138.21 93.19 
+L 138.71 93.61 
+L 139.2 92.53 
+L 139.7 92.07 
+L 140.19 92.57 
+L 140.69 92.22 
+L 141.18 93.95 
+L 141.68 92.87 
+L 142.17 92.11 
+L 142.67 91.89 
+L 143.16 94.05 
+L 143.66 91.7 
+L 144.15 95.46 
+L 145.14 98.13 
+L 145.64 97.43 
+L 146.14 99.43 
+L 146.63 99.3 
+L 147.13 99.64 
+L 147.62 100.16 
+L 148.12 99.26 
+L 148.61 97.66 
+L 149.11 97.32 
+L 149.6 97.82 
+L 150.1 100.78 
+L 150.59 99.12 
+L 151.09 99.64 
+L 151.58 102.08 
+L 152.08 102.03 
+L 152.57 100.4 
+L 153.07 100.72 
+L 153.56 102.31 
+L 154.06 99.68 
+L 154.55 99.06 
+L 155.05 98.78 
+L 155.54 97.67 
+L 156.04 100.48 
+L 157.03 101.05 
+L 157.52 98.38 
+L 158.51 100.02 
+L 159.01 101.87 
+L 159.5 103.01 
+L 160 103.4 
+L 160.49 103.2 
+L 160.99 103.57 
+L 161.49 101.22 
+L 161.98 100.73 
+L 162.48 100.07 
+L 162.97 98.5 
+L 163.47 97.84 
+L 163.96 98.6 
+L 164.46 100.63 
+L 164.95 100.31 
+L 165.45 101.45 
+L 165.94 99.94 
+L 166.44 101.01 
+L 166.93 103.88 
+L 167.43 103.95 
+L 167.92 102.74 
+L 168.42 103.11 
+L 169.41 102.93 
+L 169.9 100.92 
+L 170.4 100.67 
+L 170.89 100.84 
+L 171.39 101.72 
+L 171.88 103.87 
+L 172.87 100.95 
+L 173.37 102.25 
+L 173.86 101.61 
+L 174.36 101.33 
+L 175.35 102.44 
+L 175.84 101.63 
+L 176.34 103.24 
+L 176.84 104.01 
+L 178.32 104.75 
+L 178.82 104.6 
+L 179.31 104.07 
+L 179.81 105.3 
+L 180.3 105.31 
+L 180.8 106.09 
+L 181.29 104.35 
+L 181.79 106.21 
+L 182.28 106.63 
+L 182.78 105.88 
+L 183.77 106.89 
+L 184.26 107.68 
+L 184.76 107.42 
+L 185.25 108.97 
+L 186.24 109.44 
+L 186.74 111.36 
+L 187.23 111.14 
+L 187.73 111.82 
+L 188.22 111.55 
+L 188.72 110.59 
+L 189.21 110.27 
+L 189.71 111.84 
+L 190.2 111.54 
+L 190.7 113.62 
+L 191.2 114.66 
+L 191.69 112.69 
+L 192.19 112.78 
+L 192.68 110.94 
+L 193.18 111.26 
+L 193.67 111.33 
+L 194.17 112.8 
+L 194.66 111.72 
+L 195.16 112.04 
+L 195.65 111.35 
+L 197.14 109.97 
+L 198.13 110.15 
+L 198.62 111.07 
+L 199.12 113.76 
+L 199.61 113.21 
+L 200.11 110.69 
+L 200.6 109.41 
+L 201.1 106.57 
+L 201.59 106.01 
+L 202.58 108.49 
+L 203.08 107.59 
+L 203.57 107.2 
+L 204.07 107.43 
+L 204.56 106.53 
+L 205.06 107.63 
+L 205.55 107 
+L 206.05 107.36 
+L 206.55 107.17 
+L 207.04 105.72 
+L 207.54 105.9 
+L 208.53 102.57 
+L 209.02 103.5 
+L 209.52 100.64 
+L 210.01 102.16 
+L 210.51 102.28 
+L 211 101.37 
+L 211.5 104.18 
+L 212.49 101.48 
+L 212.98 101.61 
+L 213.97 100.98 
+L 214.47 101.23 
+L 214.96 99.89 
+L 215.46 100.34 
+L 215.95 100.38 
+L 216.45 99.92 
+L 216.94 98.85 
+L 217.44 97.48 
+L 217.93 99.29 
+L 218.43 101.79 
+L 219.42 102 
+L 219.91 103.32 
+L 220.41 102.93 
+L 220.9 102.14 
+L 221.4 101.66 
+L 221.9 99.61 
+L 222.39 100.88 
+L 222.89 100.84 
+L 223.38 98.44 
+L 223.88 97.59 
+L 224.37 98.96 
+L 224.87 98.7 
+L 225.36 97.24 
+L 225.86 94.65 
+L 226.35 93.82 
+L 226.85 92.37 
+L 227.34 93.74 
+L 227.84 94.04 
+L 228.33 92.55 
+L 228.83 93.74 
+L 229.32 93.81 
+L 229.82 96.11 
+L 230.31 94.28 
+L 230.81 94.44 
+L 231.3 93.74 
+L 232.29 97.22 
+L 232.79 94.97 
+L 233.28 95.39 
+L 233.78 96.07 
+L 234.77 94.75 
+L 235.26 97.17 
+L 235.76 98.38 
+L 236.75 98.31 
+L 237.25 97.88 
+L 237.74 98.41 
+L 238.24 98.76 
+L 238.73 98.49 
+L 240.22 101.05 
+L 240.71 101.05 
+L 241.21 101.23 
+L 241.7 101.83 
+L 242.2 102.14 
+L 242.69 102.21 
+L 243.68 101.37 
+L 244.18 102.96 
+L 244.67 101.77 
+L 245.17 103.75 
+L 245.66 103.08 
+L 246.16 103.96 
+L 246.65 103.26 
+L 247.15 101.96 
+L 247.64 104.29 
+L 248.14 103.56 
+L 248.63 103.23 
+L 249.13 103.82 
+L 249.62 103.36 
+L 250.12 103.98 
+L 250.61 103.85 
+L 251.11 105.16 
+L 251.61 104.21 
+L 252.6 102.6 
+L 253.09 103.42 
+L 254.08 98.76 
+L 254.58 98.89 
+L 255.57 99.94 
+L 256.06 99.11 
+L 256.56 97.86 
+L 257.05 98.8 
+L 257.55 101.31 
+L 258.04 100.77 
+L 258.54 100.84 
+L 259.03 100.65 
+L 259.53 100.03 
+L 260.02 101.42 
+L 260.52 101.36 
+L 261.01 101.75 
+L 261.51 101.31 
+L 262 99.83 
+L 262.5 99.86 
+L 262.99 100.94 
+L 263.49 99.44 
+L 263.98 98.59 
+L 264.48 98.88 
+L 264.97 101.13 
+L 265.47 102.24 
+L 265.97 102.11 
+L 266.46 101.47 
+L 266.96 102.16 
+L 267.45 101.67 
+L 267.95 102.5 
+L 268.44 103.07 
+L 268.94 102.46 
+L 269.43 102.84 
+L 269.93 102.72 
+L 270.42 101.7 
+L 270.92 100.37 
+L 271.41 101.15 
+L 271.91 101.51 
+L 272.9 104.85 
+L 273.39 104.55 
+L 273.89 105.25 
+L 274.38 107.58 
+L 274.88 107 
+L 275.37 108.09 
+L 275.87 108.54 
+L 276.86 107.67 
+L 277.35 107.8 
+L 277.85 110.31 
+L 278.34 109.68 
+L 278.84 110.48 
+L 279.33 112.28 
+L 279.83 115.05 
+L 280.32 113.5 
+L 281.32 113.32 
+L 281.81 112.64 
+L 282.31 112.8 
+L 282.8 114.68 
+L 283.3 113.91 
+L 283.79 112.75 
+L 284.29 112.18 
+L 284.78 110.36 
+L 285.28 108.1 
+L 285.77 109.13 
+L 286.27 109.74 
+L 286.76 108.71 
+L 287.75 108.36 
+L 288.74 106.43 
+L 289.24 107.03 
+L 289.73 106.93 
+L 290.23 107.86 
+L 290.72 108.16 
+L 291.22 109.57 
+L 291.71 112.02 
+L 292.7 113.46 
+L 293.2 112.43 
+L 293.69 110.56 
+L 294.19 110.58 
+L 294.68 110.05 
+L 295.18 110.88 
+L 295.67 112.06 
+L 296.67 112.85 
+L 297.16 112.53 
+L 297.66 112.44 
+L 298.15 110.46 
+L 298.65 110.77 
+L 299.14 112.82 
+L 299.64 112.71 
+L 300.13 113.56 
+L 300.63 113.35 
+L 301.12 112.02 
+L 301.62 112.84 
+L 302.11 112.97 
+L 302.61 112.37 
+L 303.1 113.56 
+L 303.6 113.33 
+L 304.09 112.7 
+L 304.59 111.75 
+L 305.08 110.44 
+L 305.58 109.8 
+L 306.07 109.35 
+L 306.57 111.08 
+L 307.06 114.37 
+L 307.56 115.58 
+L 308.05 113.87 
+L 308.55 113.76 
+L 309.04 116.53 
+L 309.54 117.07 
+L 310.03 116.65 
+L 310.53 118.93 
+L 311.03 118.26 
+L 311.52 119.68 
+L 312.02 118.43 
+L 312.51 118.41 
+L 313.01 114.66 
+L 313.5 116.3 
+L 314 115.97 
+L 314.49 117.79 
+L 314.99 116.4 
+L 315.48 116.27 
+L 315.98 115.16 
+L 316.47 115.04 
+L 316.97 116.48 
+L 317.46 117.29 
+L 318.45 120.09 
+L 318.95 119.92 
+L 319.94 117.58 
+L 320.43 116.97 
+L 320.93 117.66 
+L 321.42 117.05 
+L 321.92 118.1 
+L 322.41 117.85 
+L 322.91 116.84 
+L 323.4 117.07 
+L 324.39 118.19 
+L 324.89 117.45 
+L 325.38 117.83 
+L 325.88 119.57 
+L 326.38 120.08 
+L 326.87 121.38 
+L 327.37 119.56 
+L 327.86 119.55 
+L 328.36 121.35 
+L 328.85 121.03 
+L 329.35 120.16 
+L 329.84 119.71 
+L 330.34 120.15 
+L 330.83 119.98 
+L 331.33 119.65 
+L 331.82 118.43 
+L 332.32 118 
+L 332.81 115.25 
+L 333.31 115.52 
+L 333.8 113.66 
+L 334.3 113.65 
+L 334.79 115.72 
+L 335.29 117.16 
+L 336.28 121.46 
+L 336.77 120.01 
+L 337.27 120.81 
+L 337.76 120.09 
+L 338.26 121.17 
+L 338.26 121.17 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--c8); stroke-opacity: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_24">
+    <path d="M 41.16 60.49 
+L 41.66 61.78 
+L 42.15 60.73 
+L 42.65 61.04 
+L 43.14 61.59 
+L 43.64 61.8 
+L 44.13 59.16 
+L 44.63 58.62 
+L 45.12 57.61 
+L 45.62 59.12 
+L 46.11 59.91 
+L 46.61 59.56 
+L 47.1 61.82 
+L 47.6 60.2 
+L 48.09 59.88 
+L 48.59 59.9 
+L 49.58 60.44 
+L 50.07 61.06 
+L 50.57 59.37 
+L 51.06 58.54 
+L 51.56 57.03 
+L 52.05 57.41 
+L 52.55 58.48 
+L 53.04 56.84 
+L 53.54 58.32 
+L 54.03 59.07 
+L 54.53 58.21 
+L 55.02 56.89 
+L 55.52 58.5 
+L 56.01 58.83 
+L 56.51 58.81 
+L 57.01 58.97 
+L 57.5 60.02 
+L 58 59.21 
+L 58.49 59.85 
+L 58.99 60.15 
+L 59.48 62.89 
+L 59.98 63.03 
+L 60.47 65.39 
+L 60.97 64.54 
+L 61.46 63.95 
+L 61.96 64.57 
+L 62.95 64.26 
+L 63.44 64.44 
+L 63.94 64.01 
+L 64.43 64.17 
+L 64.93 64.75 
+L 65.42 65.72 
+L 65.92 63.7 
+L 66.41 63.47 
+L 66.91 63.5 
+L 67.4 62.63 
+L 68.39 63.58 
+L 68.89 62.78 
+L 69.38 61.54 
+L 69.88 60.74 
+L 70.37 62.54 
+L 71.37 62.51 
+L 71.86 61.97 
+L 72.85 64.33 
+L 73.35 64.48 
+L 74.34 66.86 
+L 74.83 66.95 
+L 75.33 65.84 
+L 75.82 65.69 
+L 76.32 64.34 
+L 76.81 65.56 
+L 77.31 64.71 
+L 77.8 64.74 
+L 78.3 65.81 
+L 78.79 66.33 
+L 79.29 67.37 
+L 79.78 67.65 
+L 80.28 68.56 
+L 80.77 67.05 
+L 81.27 67.5 
+L 81.76 69.22 
+L 82.26 69.47 
+L 82.75 69.02 
+L 83.25 69.41 
+L 83.74 68.39 
+L 84.73 70.54 
+L 85.23 68.59 
+L 85.72 68.6 
+L 87.21 66.69 
+L 87.71 66.65 
+L 88.2 66.89 
+L 88.7 65.6 
+L 89.19 66.2 
+L 89.69 66.07 
+L 90.18 65.26 
+L 90.68 65.74 
+L 91.17 67.6 
+L 91.67 67.05 
+L 92.16 65.77 
+L 92.66 65.47 
+L 93.15 67.49 
+L 93.65 66.73 
+L 94.14 64.38 
+L 94.64 66.24 
+L 95.13 69.5 
+L 95.63 69.8 
+L 96.12 69.71 
+L 97.11 67.81 
+L 97.61 67.7 
+L 98.1 67.05 
+L 98.6 66.65 
+L 99.09 66.51 
+L 99.59 66.58 
+L 100.08 66.76 
+L 100.58 65.92 
+L 101.07 65.44 
+L 101.57 65.95 
+L 102.07 64.65 
+L 102.56 65.52 
+L 103.06 65.79 
+L 103.55 65.63 
+L 104.05 67.9 
+L 104.54 68.35 
+L 105.53 66.36 
+L 106.03 67.79 
+L 106.52 68.78 
+L 107.02 70.06 
+L 107.51 70.34 
+L 108.01 70.42 
+L 108.5 72.32 
+L 109 71.94 
+L 109.49 71.85 
+L 109.99 71.94 
+L 110.48 72.74 
+L 110.98 72.96 
+L 111.47 75.08 
+L 112.46 74.55 
+L 112.96 74.67 
+L 113.45 76.08 
+L 114.44 73.22 
+L 114.94 75.45 
+L 115.43 74.95 
+L 115.93 74.77 
+L 116.43 77.82 
+L 117.42 76.43 
+L 117.91 75.58 
+L 118.41 75.38 
+L 119.4 76.77 
+L 119.89 76.16 
+L 120.39 74.76 
+L 120.88 75.34 
+L 121.38 75.67 
+L 121.87 74.84 
+L 122.37 77.39 
+L 122.86 76.86 
+L 123.36 77.13 
+L 123.85 79.73 
+L 124.35 78.81 
+L 124.84 79.89 
+L 125.34 78.95 
+L 125.83 77.31 
+L 126.82 80.2 
+L 127.32 80.21 
+L 127.81 82.28 
+L 128.31 81.4 
+L 128.8 81.17 
+L 129.3 80 
+L 129.79 82.17 
+L 130.29 81.91 
+L 130.78 81.35 
+L 131.28 83.48 
+L 131.78 82.4 
+L 132.27 84.02 
+L 132.77 83.79 
+L 133.26 85.34 
+L 133.76 84.39 
+L 134.25 82.34 
+L 135.24 82.19 
+L 135.74 80.62 
+L 136.23 81.12 
+L 136.73 81.03 
+L 137.22 80.02 
+L 137.72 79.49 
+L 139.2 73.77 
+L 139.7 73.73 
+L 140.19 72.33 
+L 140.69 73.23 
+L 141.18 72.08 
+L 141.68 69.91 
+L 142.17 67.02 
+L 142.67 68.42 
+L 143.16 68.52 
+L 143.66 67.57 
+L 144.15 68.52 
+L 145.14 67.01 
+L 146.14 68 
+L 146.63 68.99 
+L 147.13 68.52 
+L 147.62 66.89 
+L 148.12 66.44 
+L 148.61 63.02 
+L 149.11 64.67 
+L 149.6 65.25 
+L 150.1 64.33 
+L 150.59 65.58 
+L 151.09 65.05 
+L 151.58 63.96 
+L 152.08 63.63 
+L 152.57 63.79 
+L 153.07 62.55 
+L 153.56 61.94 
+L 154.55 60.19 
+L 155.05 60.88 
+L 155.54 62.08 
+L 156.04 62.42 
+L 156.53 62.09 
+L 157.03 62.21 
+L 157.52 60.96 
+L 158.02 60.55 
+L 158.51 59.28 
+L 159.01 59.03 
+L 159.5 59.78 
+L 160 58.66 
+L 160.49 57.96 
+L 160.99 58.86 
+L 161.49 59.25 
+L 161.98 55.8 
+L 162.48 59.75 
+L 162.97 58.3 
+L 163.47 58.14 
+L 163.96 58.13 
+L 164.46 58.4 
+L 164.95 58.93 
+L 165.45 56.01 
+L 165.94 56.46 
+L 166.44 56.74 
+L 166.93 55.71 
+L 167.43 55.18 
+L 167.92 55.32 
+L 168.42 55.6 
+L 168.91 57.13 
+L 169.41 55.77 
+L 169.9 56.98 
+L 170.4 59.84 
+L 170.89 58.52 
+L 171.39 57.56 
+L 171.88 57.1 
+L 172.38 57.68 
+L 172.87 56.2 
+L 173.37 57.46 
+L 173.86 60.05 
+L 174.36 59.82 
+L 175.35 58.02 
+L 175.84 55.47 
+L 176.34 54.43 
+L 177.33 54.87 
+L 177.83 53.76 
+L 178.82 53.93 
+L 179.31 56.03 
+L 179.81 56.38 
+L 180.3 57.92 
+L 181.29 57.41 
+L 181.79 56.52 
+L 182.28 54.33 
+L 182.78 54.52 
+L 183.27 52.74 
+L 183.77 54.09 
+L 184.26 53.87 
+L 184.76 52.69 
+L 185.25 50.29 
+L 185.75 51.6 
+L 186.24 51.89 
+L 186.74 51.69 
+L 187.23 51.79 
+L 187.73 52.92 
+L 188.22 54.88 
+L 188.72 56.34 
+L 189.21 56.42 
+L 189.71 58.02 
+L 190.2 55.84 
+L 190.7 54.33 
+L 191.2 56.62 
+L 191.69 57.19 
+L 193.18 52.39 
+L 193.67 54.11 
+L 194.17 54.54 
+L 194.66 52.96 
+L 195.16 52.81 
+L 195.65 53.34 
+L 196.15 52.71 
+L 196.64 51.49 
+L 197.14 51.3 
+L 197.63 50.98 
+L 198.13 49.65 
+L 198.62 50.32 
+L 199.12 51.41 
+L 199.61 50.46 
+L 200.11 51.9 
+L 200.6 51.27 
+L 201.1 52.14 
+L 201.59 51.1 
+L 202.09 52.53 
+L 202.58 51.13 
+L 203.08 50.77 
+L 203.57 51.12 
+L 204.07 52.15 
+L 204.56 52.32 
+L 205.06 53.43 
+L 205.55 54.88 
+L 206.05 53.55 
+L 206.55 52.81 
+L 207.04 51.3 
+L 207.54 52.93 
+L 208.53 57.21 
+L 209.52 55.41 
+L 210.01 57.66 
+L 210.51 56.41 
+L 211 56.93 
+L 211.5 58.38 
+L 211.99 58.47 
+L 212.49 57.77 
+L 213.48 58.24 
+L 213.97 59.26 
+L 214.47 60.99 
+L 214.96 61.45 
+L 215.46 63.43 
+L 215.95 62.7 
+L 216.45 63.74 
+L 216.94 62.14 
+L 217.44 64.08 
+L 217.93 62.36 
+L 218.92 64.53 
+L 219.42 64.18 
+L 219.91 63.08 
+L 220.41 63.13 
+L 220.9 63.57 
+L 221.4 61.14 
+L 221.9 60.52 
+L 222.39 61.99 
+L 222.89 62.32 
+L 223.38 60.25 
+L 223.88 59.85 
+L 224.37 58.85 
+L 224.87 56.36 
+L 225.36 57.09 
+L 225.86 56.64 
+L 226.35 57.46 
+L 226.85 57.47 
+L 227.34 56.81 
+L 227.84 58.44 
+L 228.83 58.1 
+L 229.32 56.81 
+L 229.82 57.54 
+L 230.31 59.1 
+L 230.81 58.62 
+L 231.3 60 
+L 231.8 59.78 
+L 232.29 59.09 
+L 232.79 60.17 
+L 233.28 60.32 
+L 233.78 61.6 
+L 234.27 65.07 
+L 234.77 66.86 
+L 235.26 69.43 
+L 235.76 69.42 
+L 236.26 70.74 
+L 237.25 71.01 
+L 237.74 69.73 
+L 238.73 70.68 
+L 239.23 70.08 
+L 239.72 68.12 
+L 240.22 68.23 
+L 240.71 67.83 
+L 241.21 68.09 
+L 241.7 68.96 
+L 242.2 70.86 
+L 242.69 70.98 
+L 243.68 71.64 
+L 244.18 69.24 
+L 244.67 69.66 
+L 245.17 69.27 
+L 245.66 69.72 
+L 246.16 68.29 
+L 246.65 68.66 
+L 247.15 66.39 
+L 247.64 66.73 
+L 248.14 65.79 
+L 248.63 64.56 
+L 249.13 64.86 
+L 249.62 63.83 
+L 250.12 63.76 
+L 251.11 65.53 
+L 251.61 65.13 
+L 252.1 62.96 
+L 252.6 63.57 
+L 253.09 62.91 
+L 253.59 63.91 
+L 254.08 63.6 
+L 254.58 65.21 
+L 255.07 66.18 
+L 255.57 66.2 
+L 256.06 67.12 
+L 256.56 67.47 
+L 257.05 66.24 
+L 257.55 66.4 
+L 258.04 67.29 
+L 258.54 68.81 
+L 259.03 69.47 
+L 259.53 68.07 
+L 260.52 68.36 
+L 261.51 66.47 
+L 262 65.25 
+L 262.5 65.7 
+L 262.99 66.83 
+L 263.49 68.87 
+L 263.98 69.72 
+L 264.48 70.18 
+L 264.97 69.3 
+L 265.47 68.92 
+L 265.97 69.62 
+L 266.46 68.54 
+L 267.95 72.83 
+L 268.44 74.17 
+L 268.94 74.5 
+L 269.93 76.48 
+L 270.42 74.86 
+L 270.92 76.66 
+L 271.41 77.94 
+L 271.91 78.24 
+L 272.9 77.13 
+L 274.38 78.27 
+L 274.88 77.37 
+L 275.37 78.51 
+L 275.87 81.4 
+L 276.36 81.18 
+L 276.86 82.63 
+L 277.35 82.71 
+L 277.85 81.03 
+L 278.34 80.92 
+L 278.84 78.7 
+L 279.33 80.65 
+L 279.83 80.37 
+L 280.32 79.91 
+L 280.82 78.91 
+L 281.32 79.81 
+L 282.31 79.49 
+L 282.8 79.39 
+L 283.3 81.08 
+L 283.79 83.19 
+L 284.29 82.54 
+L 284.78 82.12 
+L 285.28 82.08 
+L 285.77 81.31 
+L 286.27 80 
+L 286.76 81.42 
+L 287.26 80.46 
+L 287.75 78.64 
+L 288.25 77.39 
+L 289.24 75.8 
+L 289.73 77.55 
+L 290.23 78.14 
+L 290.72 76.87 
+L 291.22 75.04 
+L 291.71 74.46 
+L 292.21 74.99 
+L 292.7 75.13 
+L 293.2 74.06 
+L 293.69 71.56 
+L 294.19 70.57 
+L 294.68 71.16 
+L 295.18 70.36 
+L 295.67 69.79 
+L 296.17 66.81 
+L 296.67 66.04 
+L 297.16 65.95 
+L 297.66 65.99 
+L 298.65 68.67 
+L 299.14 69.2 
+L 299.64 70.14 
+L 300.63 69.68 
+L 301.12 68.48 
+L 301.62 66.57 
+L 302.11 66.33 
+L 302.61 66.51 
+L 303.1 68.72 
+L 303.6 68.2 
+L 304.09 67.34 
+L 304.59 68.22 
+L 305.08 68.64 
+L 305.58 69.44 
+L 306.07 68.09 
+L 306.57 67.28 
+L 307.06 65.74 
+L 307.56 67.15 
+L 308.05 63.85 
+L 309.04 66.03 
+L 309.54 65.75 
+L 310.03 66.38 
+L 310.53 64.11 
+L 311.03 64.57 
+L 311.52 65.36 
+L 312.02 64.12 
+L 312.51 62.58 
+L 313.01 63.56 
+L 314 64.5 
+L 314.49 64.66 
+L 314.99 62.54 
+L 316.47 58.04 
+L 316.97 57.98 
+L 317.46 56.88 
+L 317.96 56.94 
+L 318.45 57.83 
+L 318.95 55.77 
+L 319.44 57.88 
+L 319.94 57.85 
+L 320.43 58.53 
+L 320.93 60.54 
+L 321.42 60.98 
+L 321.92 60.88 
+L 322.41 60.3 
+L 322.91 61.3 
+L 323.4 60.36 
+L 323.9 59.98 
+L 324.39 58.98 
+L 324.89 61.32 
+L 325.38 61.86 
+L 325.88 62.61 
+L 326.38 61.9 
+L 326.87 62.8 
+L 327.37 63.42 
+L 328.85 67.42 
+L 329.35 66.24 
+L 329.84 67.55 
+L 330.34 70.52 
+L 330.83 70.18 
+L 331.33 70.75 
+L 332.32 69.45 
+L 333.31 70.38 
+L 333.8 71.07 
+L 334.3 71.1 
+L 334.79 72.07 
+L 335.29 71.85 
+L 335.78 70.19 
+L 337.27 72.6 
+L 338.26 71.09 
+L 338.26 71.09 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--c8); stroke-opacity: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_25">
+    <path d="M 41.16 48.12 
+L 41.66 47.27 
+L 42.15 47.13 
+L 42.65 46.59 
+L 43.14 48.19 
+L 43.64 47.52 
+L 44.13 47.32 
+L 44.63 44.8 
+L 45.12 43.13 
+L 45.62 44.14 
+L 46.11 44.84 
+L 46.61 43.77 
+L 47.1 46.3 
+L 47.6 47.42 
+L 48.09 46.98 
+L 48.59 46.2 
+L 49.08 45.97 
+L 49.58 44.56 
+L 50.07 44.89 
+L 50.57 44.78 
+L 51.06 45.02 
+L 51.56 46.35 
+L 52.05 46.3 
+L 52.55 46.97 
+L 53.04 46.88 
+L 53.54 50.06 
+L 54.03 49.93 
+L 55.02 51.34 
+L 55.52 51.29 
+L 56.01 51.86 
+L 56.51 50.74 
+L 57.01 49.22 
+L 58 46.97 
+L 58.49 46.52 
+L 58.99 46.49 
+L 59.48 48.05 
+L 59.98 48.49 
+L 60.47 47.02 
+L 60.97 46.08 
+L 61.46 46.68 
+L 61.96 46.55 
+L 62.45 45.26 
+L 62.95 45.45 
+L 63.44 43.47 
+L 63.94 44.39 
+L 64.93 42.58 
+L 65.42 42.36 
+L 65.92 41.99 
+L 66.41 41.33 
+L 66.91 44.09 
+L 67.4 43.51 
+L 67.9 42.11 
+L 68.39 41.62 
+L 68.89 40.23 
+L 69.38 41.66 
+L 69.88 41.74 
+L 70.37 41.33 
+L 70.87 41.64 
+L 71.37 40.19 
+L 71.86 39.59 
+L 72.36 40.2 
+L 73.35 38.2 
+L 73.84 38.72 
+L 74.34 37.95 
+L 75.33 37.05 
+L 75.82 38.57 
+L 76.32 37.01 
+L 76.81 36.21 
+L 77.31 36.24 
+L 78.3 35.4 
+L 78.79 35.76 
+L 79.29 36.47 
+L 79.78 36.34 
+L 80.77 37.65 
+L 81.27 39.06 
+L 81.76 39.39 
+L 82.26 38.17 
+L 82.75 37.9 
+L 83.25 37.84 
+L 84.24 38.74 
+L 84.73 40.56 
+L 85.23 38.54 
+L 85.72 39.43 
+L 86.22 41.25 
+L 86.72 40.76 
+L 87.21 40.45 
+L 87.71 41.08 
+L 88.7 44.56 
+L 89.19 42.65 
+L 89.69 42.79 
+L 90.18 43.59 
+L 90.68 41.32 
+L 91.17 41.99 
+L 91.67 43.12 
+L 92.16 42.45 
+L 92.66 42.01 
+L 93.15 40.1 
+L 93.65 42 
+L 94.14 41.65 
+L 94.64 43.72 
+L 95.13 43.15 
+L 95.63 43.95 
+L 96.12 44.52 
+L 96.62 45.42 
+L 97.11 44.39 
+L 97.61 42.42 
+L 98.1 42.52 
+L 98.6 42.84 
+L 99.09 43.45 
+L 99.59 42.81 
+L 100.08 44.07 
+L 100.58 39.75 
+L 101.07 40.04 
+L 101.57 37.95 
+L 102.07 37.77 
+L 103.06 41.36 
+L 103.55 41.88 
+L 104.05 42.76 
+L 104.54 43.07 
+L 105.04 44.48 
+L 106.03 39.04 
+L 106.52 41.26 
+L 107.02 40.68 
+L 107.51 39.23 
+L 108.5 39.95 
+L 109 38.63 
+L 109.49 37.99 
+L 109.99 39.49 
+L 110.48 38.01 
+L 110.98 38.63 
+L 111.47 36.38 
+L 111.97 37.58 
+L 112.46 40.41 
+L 112.96 40.31 
+L 113.45 38.85 
+L 113.95 38.25 
+L 114.44 38.08 
+L 114.94 39.24 
+L 115.43 38.15 
+L 115.93 40.46 
+L 116.43 39.52 
+L 116.92 41.04 
+L 117.42 41.82 
+L 117.91 43.48 
+L 118.41 44.65 
+L 118.9 42.87 
+L 119.4 44.37 
+L 119.89 44.19 
+L 120.39 45.24 
+L 120.88 44.04 
+L 121.38 45.77 
+L 121.87 45.83 
+L 122.37 44.78 
+L 122.86 42.07 
+L 123.36 43.59 
+L 123.85 44.74 
+L 124.35 44.87 
+L 124.84 43.13 
+L 125.34 44.46 
+L 125.83 43.52 
+L 126.33 44.37 
+L 126.82 45.73 
+L 127.32 47.77 
+L 127.81 47.69 
+L 128.31 46.56 
+L 128.8 46.77 
+L 129.3 49.47 
+L 129.79 50.25 
+L 130.78 48.16 
+L 131.28 47.91 
+L 131.78 46.18 
+L 132.77 49.45 
+L 133.26 46.59 
+L 133.76 45.86 
+L 134.25 46.2 
+L 134.75 46.9 
+L 135.24 50.18 
+L 135.74 49.24 
+L 136.73 54.42 
+L 137.22 54.58 
+L 137.72 52.81 
+L 138.21 53.39 
+L 138.71 53.02 
+L 139.2 53.66 
+L 139.7 53.26 
+L 140.19 55.42 
+L 140.69 52.91 
+L 141.18 54.2 
+L 141.68 53.6 
+L 142.17 56.23 
+L 142.67 54.13 
+L 143.16 53.68 
+L 143.66 51.28 
+L 144.15 52.19 
+L 144.65 50.99 
+L 145.14 51.3 
+L 145.64 51.44 
+L 146.14 49.91 
+L 146.63 51.12 
+L 147.13 50.28 
+L 148.12 45.85 
+L 148.61 44.6 
+L 149.11 44.27 
+L 149.6 45.54 
+L 150.1 43.82 
+L 150.59 44.73 
+L 151.09 43.3 
+L 151.58 43.78 
+L 152.57 43.88 
+L 153.07 43.19 
+L 153.56 43.79 
+L 154.06 43.62 
+L 154.55 44.33 
+L 155.05 43.72 
+L 155.54 43.43 
+L 156.04 42.95 
+L 156.53 44.06 
+L 157.03 43.71 
+L 157.52 43.71 
+L 158.02 43.04 
+L 158.51 43.03 
+L 159.01 44.29 
+L 159.5 43.45 
+L 160 44.34 
+L 160.49 44.04 
+L 160.99 46.67 
+L 161.49 46.11 
+L 161.98 45.35 
+L 162.48 46.55 
+L 162.97 45.88 
+L 163.47 46.41 
+L 163.96 44.75 
+L 164.46 43.99 
+L 164.95 45.6 
+L 165.45 45.91 
+L 165.94 48.17 
+L 166.44 48.62 
+L 166.93 48.01 
+L 167.43 47.04 
+L 167.92 47.24 
+L 168.42 47.59 
+L 168.91 47.45 
+L 169.41 48.26 
+L 169.9 47.91 
+L 170.4 46.58 
+L 170.89 46.39 
+L 171.39 45.38 
+L 171.88 46.39 
+L 172.38 47.05 
+L 172.87 46.67 
+L 173.37 44.21 
+L 173.86 42.99 
+L 174.36 40.91 
+L 174.85 40.88 
+L 175.35 39.37 
+L 175.84 41.48 
+L 176.34 40.86 
+L 176.84 43.46 
+L 177.33 41.96 
+L 177.83 41.38 
+L 178.32 39.95 
+L 178.82 39.46 
+L 179.31 40.08 
+L 179.81 41.01 
+L 180.3 40.78 
+L 180.8 38.93 
+L 181.29 38.15 
+L 182.28 39.52 
+L 182.78 40.39 
+L 183.27 40.65 
+L 183.77 40.76 
+L 184.26 41.35 
+L 184.76 41.34 
+L 185.25 43.28 
+L 185.75 41.34 
+L 186.24 41.03 
+L 186.74 39.14 
+L 187.23 38.77 
+L 187.73 39 
+L 188.22 38.89 
+L 188.72 38.6 
+L 189.21 39.4 
+L 189.71 39.85 
+L 190.2 37.48 
+L 190.7 36.3 
+L 191.2 36.92 
+L 191.69 36.26 
+L 192.19 37.27 
+L 192.68 35.51 
+L 193.18 36.73 
+L 193.67 35.6 
+L 194.66 35.47 
+L 195.16 36.44 
+L 195.65 36.73 
+L 196.64 38.68 
+L 197.14 38.08 
+L 197.63 34.95 
+L 198.13 35.34 
+L 198.62 34.08 
+L 199.12 34.07 
+L 199.61 34.92 
+L 200.11 33.24 
+L 200.6 32.43 
+L 201.1 30.99 
+L 202.09 30.61 
+L 202.58 31.59 
+L 203.08 31.89 
+L 203.57 29.78 
+L 204.07 32.56 
+L 204.56 32.05 
+L 205.06 30.2 
+L 206.05 28.06 
+L 206.55 28.35 
+L 207.54 25.46 
+L 208.03 25.47 
+L 208.53 23.37 
+L 209.02 23.92 
+L 209.52 26.93 
+L 210.01 26.9 
+L 210.51 26.99 
+L 211 28 
+L 211.99 29.14 
+L 212.49 31.34 
+L 212.98 29.79 
+L 213.48 29.74 
+L 213.97 26.4 
+L 214.47 26.38 
+L 214.96 25.85 
+L 215.46 27.66 
+L 215.95 26.37 
+L 216.45 27.67 
+L 216.94 26.97 
+L 217.93 24.82 
+L 218.92 26.74 
+L 219.42 25.78 
+L 220.41 22.47 
+L 221.4 22.56 
+L 221.9 20.32 
+L 222.39 21.01 
+L 222.89 20.04 
+L 223.38 20.39 
+L 224.37 23.44 
+L 224.87 22.85 
+L 225.36 22.55 
+L 225.86 21.91 
+L 226.35 22.31 
+L 226.85 22.89 
+L 227.34 22.51 
+L 227.84 22.71 
+L 228.33 24.65 
+L 228.83 25.15 
+L 229.32 23.05 
+L 229.82 23.96 
+L 230.31 23.26 
+L 230.81 23.33 
+L 231.3 22.41 
+L 231.8 23.46 
+L 232.29 25 
+L 232.79 24.43 
+L 233.28 25.27 
+L 233.78 25.3 
+L 234.27 25.67 
+L 234.77 24.48 
+L 235.26 24.15 
+L 235.76 23.96 
+L 236.26 25.14 
+L 236.75 27.04 
+L 237.25 28.06 
+L 238.24 26.17 
+L 238.73 25.44 
+L 239.23 25.92 
+L 239.72 27.17 
+L 240.22 25.75 
+L 240.71 25.52 
+L 241.21 24.86 
+L 241.7 26 
+L 242.2 26.83 
+L 243.19 25.13 
+L 243.68 26.35 
+L 244.18 25.99 
+L 244.67 27.41 
+L 245.17 25.92 
+L 245.66 25.11 
+L 246.16 22.33 
+L 246.65 20.48 
+L 247.15 21.28 
+L 247.64 21.04 
+L 248.14 21.62 
+L 248.63 21.44 
+L 249.13 20.49 
+L 250.12 20.42 
+L 250.61 22.05 
+L 251.11 21.34 
+L 251.61 21.36 
+L 252.1 20.59 
+L 252.6 19.32 
+L 253.09 19.28 
+L 253.59 18.43 
+L 254.08 19.17 
+L 254.58 18.02 
+L 255.07 18.04 
+L 255.57 18.76 
+L 256.06 19.04 
+L 256.56 20.77 
+L 257.05 21.56 
+L 257.55 22.09 
+L 258.04 22.05 
+L 258.54 22.16 
+L 259.03 22.95 
+L 259.53 23.18 
+L 260.02 25.78 
+L 260.52 25.67 
+L 261.01 25 
+L 261.51 24.05 
+L 262 22.74 
+L 262.5 23 
+L 262.99 23.11 
+L 263.98 24.29 
+L 264.48 24.16 
+L 264.97 22.54 
+L 265.47 24.6 
+L 265.97 25.22 
+L 266.46 24.89 
+L 266.96 26.12 
+L 267.45 25.63 
+L 267.95 27.32 
+L 268.44 27.76 
+L 268.94 29.78 
+L 269.43 29.47 
+L 269.93 30.45 
+L 270.42 29.69 
+L 270.92 30.08 
+L 271.41 31.27 
+L 271.91 31.81 
+L 272.4 31.69 
+L 272.9 31.74 
+L 273.89 32.55 
+L 274.38 32.58 
+L 274.88 31.6 
+L 275.37 32.33 
+L 275.87 31.84 
+L 276.36 33.48 
+L 276.86 32.41 
+L 277.35 32.01 
+L 278.34 32.92 
+L 278.84 35.01 
+L 279.33 34.93 
+L 279.83 35.27 
+L 280.32 37 
+L 280.82 37.57 
+L 281.32 36.92 
+L 282.31 36.45 
+L 282.8 37.16 
+L 283.3 36.17 
+L 283.79 36.24 
+L 284.29 35.25 
+L 284.78 32.61 
+L 285.28 35.06 
+L 285.77 35.7 
+L 286.27 35.72 
+L 286.76 36.64 
+L 287.26 35.42 
+L 287.75 35.87 
+L 288.25 33.88 
+L 288.74 32.99 
+L 289.24 32.5 
+L 289.73 32.55 
+L 290.23 31.55 
+L 290.72 30.97 
+L 291.22 29.21 
+L 291.71 28.72 
+L 292.21 27.48 
+L 293.2 26.6 
+L 293.69 28.48 
+L 294.19 28.47 
+L 294.68 28 
+L 295.67 31.07 
+L 296.17 31.44 
+L 296.67 31.08 
+L 297.16 33.14 
+L 297.66 32.76 
+L 298.15 31.6 
+L 298.65 31.9 
+L 299.14 31.61 
+L 299.64 31.04 
+L 300.13 31.84 
+L 300.63 31.09 
+L 301.12 30.54 
+L 301.62 32.03 
+L 302.11 31.41 
+L 302.61 30.35 
+L 303.1 31.65 
+L 303.6 30.6 
+L 304.09 30.92 
+L 305.08 33.79 
+L 305.58 34.85 
+L 306.07 34.2 
+L 307.06 35.26 
+L 307.56 36.78 
+L 308.05 36.76 
+L 308.55 38.26 
+L 309.04 39.07 
+L 310.03 37.53 
+L 310.53 38.17 
+L 311.03 38.23 
+L 311.52 37.59 
+L 312.02 37.6 
+L 313.01 34.53 
+L 313.5 34.63 
+L 314 36.12 
+L 314.49 36.31 
+L 315.48 33.31 
+L 316.47 30.52 
+L 316.97 31.14 
+L 317.46 30.8 
+L 317.96 29.49 
+L 318.45 29.16 
+L 318.95 28.09 
+L 319.94 30.77 
+L 320.43 28.32 
+L 321.42 26.63 
+L 321.92 24.84 
+L 322.41 22.13 
+L 322.91 18.62 
+L 323.4 21.52 
+L 323.9 21.03 
+L 324.39 19.76 
+L 325.38 24.22 
+L 325.88 24.41 
+L 326.38 22.1 
+L 326.87 20.93 
+L 327.37 18.29 
+L 327.86 17.92 
+L 328.36 16.59 
+L 328.85 14.71 
+L 329.35 14.13 
+L 329.84 14.14 
+L 330.34 13.96 
+L 330.83 18.44 
+L 331.33 18.03 
+L 331.82 20.29 
+L 332.32 21.27 
+L 332.81 20.4 
+L 333.31 19.91 
+L 333.8 22.34 
+L 334.3 21.69 
+L 334.79 20.76 
+L 335.29 20.52 
+L 336.28 18.97 
+L 336.77 21.05 
+L 337.76 21.67 
+L 338.26 23.16 
+L 338.26 23.16 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--c8); stroke-opacity: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_26">
+    <path d="M 41.16 60.81 
+L 41.66 61.81 
+L 42.15 61.92 
+L 42.65 62.99 
+L 43.14 61.72 
+L 43.64 59.02 
+L 44.13 59.73 
+L 45.12 59.64 
+L 45.62 59.11 
+L 46.11 59.33 
+L 46.61 62.07 
+L 47.1 61.65 
+L 47.6 61.82 
+L 48.09 63.15 
+L 48.59 63.42 
+L 49.08 64.06 
+L 49.58 63.79 
+L 50.57 64.57 
+L 51.06 64.46 
+L 51.56 64.19 
+L 52.05 64.2 
+L 52.55 62.79 
+L 53.04 62.52 
+L 53.54 63.49 
+L 54.03 61.4 
+L 54.53 61.28 
+L 55.02 59.4 
+L 55.52 60.72 
+L 56.01 60.06 
+L 56.51 57.99 
+L 57.01 56.46 
+L 57.5 56.37 
+L 58.49 57.88 
+L 58.99 58.13 
+L 60.97 62.78 
+L 61.46 62.52 
+L 61.96 64.71 
+L 62.45 64.54 
+L 62.95 63.72 
+L 63.94 66.05 
+L 64.93 66.13 
+L 65.42 65 
+L 65.92 67.46 
+L 66.41 67.57 
+L 66.91 65.89 
+L 67.4 65.81 
+L 67.9 63.68 
+L 68.39 61.04 
+L 68.89 61.73 
+L 69.38 59.93 
+L 69.88 59.31 
+L 70.37 59.35 
+L 71.37 60.01 
+L 71.86 61.15 
+L 72.36 61.38 
+L 72.85 60.25 
+L 73.35 58.73 
+L 73.84 59.22 
+L 74.83 58.02 
+L 75.33 60.92 
+L 75.82 60.07 
+L 76.81 63.02 
+L 77.31 62.01 
+L 77.8 59.98 
+L 78.79 62.46 
+L 79.29 63.64 
+L 80.28 64.8 
+L 80.77 65.84 
+L 81.27 67.86 
+L 81.76 65.72 
+L 82.26 66.36 
+L 82.75 67.33 
+L 83.25 66.26 
+L 83.74 66.74 
+L 84.24 65.44 
+L 84.73 64.51 
+L 85.23 63.34 
+L 85.72 63.86 
+L 86.22 63.11 
+L 87.21 66.75 
+L 87.71 66.7 
+L 88.2 67.1 
+L 88.7 65.48 
+L 89.19 65.84 
+L 89.69 68.03 
+L 90.18 67.98 
+L 90.68 68.37 
+L 91.17 68.16 
+L 91.67 69.61 
+L 92.16 70.58 
+L 92.66 70.53 
+L 93.15 69.65 
+L 93.65 69.17 
+L 94.14 68.27 
+L 94.64 70.07 
+L 95.13 70.35 
+L 95.63 70.1 
+L 96.12 68.93 
+L 96.62 68.63 
+L 97.11 68.93 
+L 98.1 69.21 
+L 98.6 70.97 
+L 99.09 70.94 
+L 100.08 69.11 
+L 100.58 71.39 
+L 101.07 71.39 
+L 101.57 73.23 
+L 102.07 71.9 
+L 102.56 71.25 
+L 103.06 70.39 
+L 103.55 71.21 
+L 104.05 73.57 
+L 104.54 74.85 
+L 105.04 75.29 
+L 105.53 77.12 
+L 106.03 78.35 
+L 106.52 76.22 
+L 107.02 77.83 
+L 107.51 77.16 
+L 108.01 79.44 
+L 108.5 79.14 
+L 109 78.12 
+L 109.49 77.57 
+L 109.99 76.1 
+L 110.48 73.91 
+L 110.98 75.6 
+L 111.47 75.27 
+L 112.46 74.11 
+L 112.96 72.16 
+L 113.45 71.82 
+L 114.44 68.9 
+L 114.94 68.7 
+L 115.43 68.01 
+L 115.93 68.92 
+L 116.43 68.51 
+L 116.92 68.24 
+L 117.42 68.39 
+L 117.91 68.92 
+L 118.41 67.7 
+L 118.9 67.8 
+L 119.4 64.98 
+L 119.89 63.34 
+L 120.39 62.36 
+L 120.88 63.02 
+L 121.38 61.87 
+L 122.37 61.48 
+L 122.86 62.76 
+L 123.36 62 
+L 123.85 61.64 
+L 124.35 62.14 
+L 124.84 62.9 
+L 125.34 63.17 
+L 125.83 64.71 
+L 126.33 65.32 
+L 126.82 63.57 
+L 127.32 64.29 
+L 127.81 61.4 
+L 128.31 62.96 
+L 129.79 58.68 
+L 130.29 57.91 
+L 130.78 59.8 
+L 131.78 56.96 
+L 132.27 56.84 
+L 132.77 59.64 
+L 133.26 58.27 
+L 133.76 59.33 
+L 134.25 59.6 
+L 135.24 56.34 
+L 135.74 55.8 
+L 136.23 56.42 
+L 136.73 54.27 
+L 137.22 52.8 
+L 137.72 52.93 
+L 138.21 54.04 
+L 138.71 53.63 
+L 139.2 55.23 
+L 139.7 53.01 
+L 140.19 52.34 
+L 140.69 52.72 
+L 141.18 52.17 
+L 141.68 54.17 
+L 142.17 54.2 
+L 142.67 54.94 
+L 143.16 56.83 
+L 143.66 57.57 
+L 144.15 57.11 
+L 144.65 58.82 
+L 145.14 59.03 
+L 145.64 60.78 
+L 146.14 60.5 
+L 146.63 62.63 
+L 148.12 59.86 
+L 148.61 57.63 
+L 149.6 57.23 
+L 150.1 56.48 
+L 150.59 57.03 
+L 151.09 59.34 
+L 152.08 62.31 
+L 152.57 62.06 
+L 153.07 62.83 
+L 153.56 63.31 
+L 154.06 62.61 
+L 154.55 62.37 
+L 155.05 59.92 
+L 155.54 59.97 
+L 156.04 61.12 
+L 156.53 59.56 
+L 157.03 60.06 
+L 157.52 60.14 
+L 158.02 58.92 
+L 158.51 58.69 
+L 159.01 57.82 
+L 159.5 58.57 
+L 160 58.92 
+L 160.49 58.11 
+L 161.49 59.2 
+L 161.98 59.22 
+L 162.97 55.39 
+L 163.47 55.06 
+L 163.96 54.93 
+L 164.46 55.73 
+L 164.95 54.05 
+L 165.45 53.48 
+L 165.94 52.26 
+L 166.44 53.91 
+L 166.93 52.85 
+L 167.43 52.59 
+L 167.92 51.58 
+L 168.42 50.23 
+L 168.91 50.12 
+L 169.41 50.48 
+L 169.9 49.54 
+L 170.4 50.92 
+L 170.89 49.07 
+L 171.39 48.55 
+L 171.88 49.8 
+L 173.37 44.84 
+L 173.86 43.49 
+L 174.36 42.76 
+L 174.85 42.68 
+L 175.35 43.84 
+L 176.34 41.93 
+L 176.84 42.3 
+L 177.33 41.44 
+L 177.83 42.38 
+L 178.32 40.95 
+L 179.31 40.17 
+L 179.81 40.92 
+L 180.3 39.62 
+L 180.8 39.28 
+L 181.29 39.84 
+L 181.79 39.23 
+L 182.28 39.34 
+L 182.78 37.94 
+L 183.27 39.66 
+L 183.77 40.93 
+L 184.26 38.33 
+L 184.76 38.8 
+L 185.25 38.07 
+L 185.75 38.44 
+L 186.24 38.06 
+L 186.74 34.73 
+L 187.23 37.03 
+L 187.73 36.24 
+L 188.72 35.89 
+L 189.71 37.79 
+L 190.2 36.01 
+L 190.7 35.28 
+L 191.2 36.63 
+L 191.69 36.52 
+L 192.19 38.04 
+L 192.68 34.42 
+L 193.18 33.85 
+L 193.67 35.95 
+L 194.17 34.71 
+L 194.66 33.84 
+L 195.16 33.36 
+L 195.65 33.04 
+L 196.15 33.61 
+L 196.64 33.75 
+L 197.14 36.12 
+L 197.63 34.43 
+L 198.13 31.88 
+L 199.12 30.32 
+L 199.61 31.9 
+L 200.11 32.33 
+L 201.1 35.48 
+L 201.59 34.73 
+L 202.09 32.91 
+L 202.58 32.91 
+L 203.08 29.78 
+L 203.57 28.69 
+L 204.07 31.37 
+L 204.56 31.78 
+L 205.06 30.1 
+L 205.55 29.83 
+L 206.05 28.47 
+L 206.55 30.46 
+L 207.04 28.82 
+L 207.54 30.19 
+L 208.03 29.69 
+L 208.53 27.02 
+L 209.02 26.85 
+L 209.52 27.06 
+L 210.01 26.06 
+L 211 28.09 
+L 211.5 26.83 
+L 212.49 30.04 
+L 212.98 27.81 
+L 213.48 29.28 
+L 213.97 28.67 
+L 214.47 27.25 
+L 214.96 27.26 
+L 215.46 28.49 
+L 215.95 27.42 
+L 216.45 28.51 
+L 217.44 23.08 
+L 217.93 24.28 
+L 218.43 23.51 
+L 218.92 24.31 
+L 219.42 23.79 
+L 219.91 24.04 
+L 220.41 25.19 
+L 220.9 24.5 
+L 221.4 26.47 
+L 221.9 26.04 
+L 222.39 26.18 
+L 222.89 27.09 
+L 223.38 25.93 
+L 223.88 25.84 
+L 224.37 26.22 
+L 225.36 26.61 
+L 225.86 25.42 
+L 226.35 25.73 
+L 227.34 33.01 
+L 228.33 35.77 
+L 228.83 36.07 
+L 229.32 37.69 
+L 229.82 38.65 
+L 230.31 37 
+L 230.81 38.6 
+L 231.3 37.52 
+L 231.8 37.64 
+L 232.29 36.01 
+L 232.79 34.87 
+L 233.28 34.75 
+L 233.78 33.38 
+L 234.27 33.06 
+L 234.77 34.38 
+L 235.76 33.04 
+L 236.26 33.11 
+L 236.75 32.73 
+L 237.25 33.19 
+L 237.74 32.71 
+L 238.24 32.97 
+L 238.73 34.78 
+L 239.23 35.03 
+L 239.72 33 
+L 240.22 31.9 
+L 240.71 29.98 
+L 241.21 29.89 
+L 241.7 30.31 
+L 242.2 31.53 
+L 242.69 31.26 
+L 243.68 28.84 
+L 244.18 27.85 
+L 244.67 28.39 
+L 245.17 28.17 
+L 245.66 29.04 
+L 246.16 27.94 
+L 246.65 27.13 
+L 247.15 27.83 
+L 247.64 27.59 
+L 248.14 30.28 
+L 248.63 29.34 
+L 249.13 30.27 
+L 249.62 30.64 
+L 250.61 28.92 
+L 251.11 29.67 
+L 251.61 27.65 
+L 252.1 25.11 
+L 253.09 21.59 
+L 253.59 21.44 
+L 254.08 19.67 
+L 254.58 20.67 
+L 255.07 21.96 
+L 256.06 21.3 
+L 256.56 22.29 
+L 257.05 20.04 
+L 257.55 21.76 
+L 258.04 24.22 
+L 258.54 24.64 
+L 259.03 22.57 
+L 259.53 21.59 
+L 260.02 21.1 
+L 260.52 20.86 
+L 261.01 20.11 
+L 261.51 19.66 
+L 262 19.47 
+L 262.5 19.57 
+L 262.99 21.47 
+L 263.49 20.23 
+L 263.98 20.7 
+L 264.97 19.52 
+L 265.47 18.2 
+L 265.97 19.12 
+L 266.96 16.96 
+L 267.95 17.05 
+L 268.44 16.82 
+L 268.94 18.02 
+L 269.43 18.53 
+L 269.93 19.87 
+L 270.42 18.38 
+L 270.92 19.28 
+L 271.41 20.55 
+L 271.91 20.32 
+L 272.4 19.62 
+L 272.9 20.03 
+L 273.39 21.15 
+L 273.89 20.6 
+L 274.38 19.52 
+L 274.88 21.48 
+L 275.37 20.34 
+L 275.87 22.47 
+L 276.36 21.63 
+L 276.86 22.13 
+L 277.35 22.4 
+L 277.85 21.49 
+L 278.34 19.69 
+L 278.84 17.11 
+L 279.33 15.4 
+L 279.83 14.53 
+L 280.32 16.13 
+L 280.82 16.59 
+L 281.32 16.39 
+L 281.81 17.09 
+L 282.31 16.34 
+L 282.8 16.6 
+L 283.3 14.38 
+L 283.79 14.57 
+L 284.29 16.09 
+L 284.78 16.68 
+L 285.28 17.53 
+L 285.77 16.63 
+L 286.27 14.89 
+L 287.26 12.33 
+L 287.75 13.14 
+L 288.25 14.45 
+L 288.74 15.39 
+L 289.24 15.32 
+L 289.73 15.7 
+L 290.23 15.31 
+L 290.72 14.01 
+L 291.22 13.87 
+L 291.71 11.74 
+L 292.21 12.64 
+L 292.7 11.81 
+L 293.2 11.83 
+L 293.69 10.54 
+L 294.19 10.53 
+L 294.68 11.12 
+L 295.18 11.22 
+L 295.67 12.24 
+L 296.17 13.53 
+L 296.67 12.5 
+L 297.16 13.19 
+L 297.66 11.66 
+L 298.15 8.54 
+L 298.65 8.95 
+L 299.14 7.84 
+L 299.64 7.89 
+L 300.13 10.16 
+L 300.63 10.23 
+L 301.12 8.39 
+L 301.62 9.83 
+L 302.61 10.18 
+L 303.1 11.92 
+L 303.6 11.5 
+L 304.09 11.65 
+L 304.59 10.91 
+L 305.08 10.82 
+L 305.58 12.53 
+L 306.07 12.34 
+L 306.57 11.56 
+L 307.06 11.84 
+L 308.05 10.45 
+L 308.55 13.07 
+L 309.04 12.29 
+L 309.54 14.76 
+L 310.03 16.33 
+L 310.53 16.5 
+L 311.52 18.7 
+L 312.02 17.37 
+L 312.51 18.7 
+L 313.01 17.27 
+L 313.5 15.06 
+L 314 13.38 
+L 314.49 14.76 
+L 314.99 16.66 
+L 315.48 16.62 
+L 315.98 14.07 
+L 316.47 14.36 
+L 316.97 15.09 
+L 317.46 15.28 
+L 317.96 14.4 
+L 318.45 12.98 
+L 318.95 13.03 
+L 319.44 13.23 
+L 319.94 12.65 
+L 320.43 12.64 
+L 320.93 13.19 
+L 321.42 15.39 
+L 321.92 15.28 
+L 322.41 16.06 
+L 323.4 16.79 
+L 323.9 17.91 
+L 324.39 17.28 
+L 324.89 16.01 
+L 325.38 15.41 
+L 325.88 16.25 
+L 326.38 16.08 
+L 326.87 15.26 
+L 327.37 15.43 
+L 327.86 14.62 
+L 328.36 16.38 
+L 328.85 16.69 
+L 329.35 14.97 
+L 329.84 13.8 
+L 330.34 13.99 
+L 330.83 13.87 
+L 331.33 11.28 
+L 331.82 9.97 
+L 332.32 10.86 
+L 332.81 10.51 
+L 333.8 11.84 
+L 334.3 13.33 
+L 334.79 12.48 
+L 335.29 9.79 
+L 335.78 8.76 
+L 336.28 10.37 
+L 336.77 9.73 
+L 337.27 11.52 
+L 337.76 11.26 
+L 338.26 9.98 
+L 338.26 9.98 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--c8); stroke-opacity: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_27">
+    <path d="M 41.16 47.63 
+L 41.66 47.48 
+L 42.15 47.09 
+L 42.65 47.08 
+L 43.14 47.29 
+L 43.64 45.38 
+L 44.13 46.54 
+L 44.63 48.48 
+L 45.12 46.34 
+L 45.62 43.58 
+L 46.11 45.52 
+L 47.1 43.39 
+L 47.6 43.9 
+L 48.09 45.06 
+L 48.59 44.87 
+L 49.08 45.27 
+L 49.58 44.27 
+L 50.07 45.04 
+L 50.57 43.6 
+L 51.06 44.36 
+L 51.56 42.37 
+L 52.05 41.29 
+L 52.55 39.89 
+L 53.04 40.36 
+L 53.54 40.64 
+L 54.03 40.74 
+L 54.53 39.3 
+L 55.52 41.05 
+L 56.01 41.32 
+L 56.51 40.88 
+L 57.5 41.05 
+L 58 42.65 
+L 58.49 43.4 
+L 58.99 44.7 
+L 59.48 43.42 
+L 59.98 43.47 
+L 60.47 42.64 
+L 60.97 44.24 
+L 61.46 44.29 
+L 61.96 43.83 
+L 62.45 45.12 
+L 63.44 46.53 
+L 63.94 46.36 
+L 64.43 46.01 
+L 64.93 47.74 
+L 65.42 47.34 
+L 66.41 46.73 
+L 66.91 47.8 
+L 67.4 47.89 
+L 68.39 44.93 
+L 68.89 45.69 
+L 69.38 43.74 
+L 69.88 44.25 
+L 70.37 45.35 
+L 70.87 43.99 
+L 71.37 43.59 
+L 71.86 40.8 
+L 72.36 41.09 
+L 72.85 40.93 
+L 73.35 40.04 
+L 73.84 39.72 
+L 74.34 40.22 
+L 76.32 40.31 
+L 76.81 42.19 
+L 77.31 41.1 
+L 77.8 41.86 
+L 78.3 42.16 
+L 78.79 43.13 
+L 79.29 43.38 
+L 79.78 42.2 
+L 80.28 40.65 
+L 80.77 40.26 
+L 81.27 40.06 
+L 81.76 40.7 
+L 82.26 41.04 
+L 82.75 40.75 
+L 83.25 40.94 
+L 83.74 42.15 
+L 84.24 42.07 
+L 84.73 43.34 
+L 85.23 40.82 
+L 85.72 40.44 
+L 86.22 41.13 
+L 86.72 40.57 
+L 87.21 41.48 
+L 87.71 41.78 
+L 88.7 38.32 
+L 89.69 41.13 
+L 90.18 41.75 
+L 90.68 39 
+L 91.17 38.93 
+L 91.67 38.61 
+L 92.16 39.23 
+L 92.66 37.61 
+L 93.15 36.43 
+L 93.65 38.54 
+L 94.14 39.58 
+L 94.64 41.81 
+L 95.13 43.23 
+L 95.63 44.22 
+L 96.12 45.85 
+L 96.62 46.63 
+L 97.11 45.79 
+L 97.61 44.41 
+L 98.1 44.28 
+L 98.6 43.39 
+L 99.09 45.05 
+L 99.59 43.25 
+L 100.08 40.45 
+L 100.58 40.63 
+L 101.07 39.93 
+L 101.57 39.5 
+L 102.07 42.14 
+L 102.56 40.9 
+L 103.06 40.32 
+L 103.55 42.3 
+L 104.05 42.81 
+L 104.54 41.4 
+L 105.04 40.7 
+L 105.53 42.38 
+L 106.52 43.93 
+L 107.02 43.75 
+L 107.51 44.61 
+L 108.01 44.55 
+L 108.5 44.77 
+L 109 46.58 
+L 109.49 46.09 
+L 109.99 45.78 
+L 110.48 46.62 
+L 110.98 45.73 
+L 111.47 42.93 
+L 111.97 44.88 
+L 112.46 44.62 
+L 112.96 43.6 
+L 113.45 43.57 
+L 113.95 44.28 
+L 114.44 41.6 
+L 114.94 42.22 
+L 115.43 42.39 
+L 115.93 43.2 
+L 116.43 41.72 
+L 116.92 44.34 
+L 117.42 45.44 
+L 117.91 46.01 
+L 118.9 45.21 
+L 119.4 44.01 
+L 119.89 44.17 
+L 120.39 45.07 
+L 120.88 45.16 
+L 121.38 46.23 
+L 122.37 47.48 
+L 122.86 47.11 
+L 123.36 46.1 
+L 123.85 47.45 
+L 124.35 48.19 
+L 125.34 48.21 
+L 125.83 48.53 
+L 126.33 47.83 
+L 126.82 48.1 
+L 127.32 50.24 
+L 127.81 48.64 
+L 128.31 50.17 
+L 128.8 48.18 
+L 129.79 47.47 
+L 130.29 49.27 
+L 130.78 48.94 
+L 131.28 49.2 
+L 131.78 50.23 
+L 132.27 49.56 
+L 132.77 48.65 
+L 133.26 47.21 
+L 133.76 48.7 
+L 134.25 49.66 
+L 134.75 47.98 
+L 135.24 47.34 
+L 135.74 46.35 
+L 136.23 46.99 
+L 136.73 46.56 
+L 137.22 45.56 
+L 137.72 47.04 
+L 138.21 47.85 
+L 138.71 47.54 
+L 139.2 45.86 
+L 139.7 46.36 
+L 140.19 45.54 
+L 140.69 46.54 
+L 141.18 47.95 
+L 141.68 47.18 
+L 142.17 48.39 
+L 142.67 48.32 
+L 143.16 48.97 
+L 143.66 48.32 
+L 144.65 51.49 
+L 145.14 53.18 
+L 145.64 53.4 
+L 146.14 51.84 
+L 146.63 50.83 
+L 147.13 50.58 
+L 147.62 50.73 
+L 148.12 49.25 
+L 148.61 49.36 
+L 149.11 48.1 
+L 149.6 46.45 
+L 150.1 45.63 
+L 151.09 44.66 
+L 151.58 44.76 
+L 152.08 44.41 
+L 153.07 46.47 
+L 153.56 44.59 
+L 154.06 44.73 
+L 154.55 46.76 
+L 155.54 43.51 
+L 156.04 42.97 
+L 156.53 44.45 
+L 157.03 42.12 
+L 158.02 39.34 
+L 158.51 39.64 
+L 159.01 39.13 
+L 160 39.75 
+L 160.49 41.15 
+L 160.99 42.1 
+L 161.49 42.71 
+L 161.98 42.67 
+L 162.48 41.49 
+L 162.97 40.83 
+L 163.47 42.99 
+L 163.96 41.76 
+L 164.46 43.57 
+L 164.95 43 
+L 165.45 43.24 
+L 165.94 43.18 
+L 166.44 43.76 
+L 166.93 45.04 
+L 167.43 43.11 
+L 167.92 46.06 
+L 168.42 47.14 
+L 168.91 45.57 
+L 169.9 45.61 
+L 170.4 46.66 
+L 170.89 48.04 
+L 171.39 47.35 
+L 171.88 47.58 
+L 172.38 47.19 
+L 172.87 46.3 
+L 173.37 48.39 
+L 173.86 49.67 
+L 174.36 50.5 
+L 174.85 50.26 
+L 175.35 49.45 
+L 175.84 50.73 
+L 176.34 51.02 
+L 177.33 51.35 
+L 177.83 49.5 
+L 178.32 50.43 
+L 178.82 50.27 
+L 179.31 53.1 
+L 179.81 53.27 
+L 180.3 53.16 
+L 180.8 52.34 
+L 181.79 53.7 
+L 182.28 55.2 
+L 182.78 55.84 
+L 183.27 53 
+L 184.26 57.19 
+L 184.76 57.11 
+L 185.25 58.29 
+L 185.75 56.81 
+L 186.24 58.67 
+L 186.74 56.71 
+L 187.23 57.28 
+L 187.73 59.31 
+L 188.22 62.03 
+L 188.72 63.16 
+L 189.21 63.98 
+L 189.71 63.57 
+L 190.2 65.16 
+L 190.7 61.49 
+L 191.2 60.51 
+L 191.69 60.76 
+L 192.19 61.46 
+L 192.68 58.21 
+L 193.18 59.16 
+L 193.67 58.27 
+L 194.17 56.49 
+L 194.66 57.64 
+L 195.16 56.95 
+L 195.65 57.57 
+L 196.64 54.13 
+L 197.14 53.48 
+L 197.63 53.29 
+L 198.13 54.77 
+L 198.62 51.8 
+L 199.12 49.96 
+L 199.61 49.08 
+L 200.11 47.25 
+L 200.6 47.23 
+L 201.1 48.59 
+L 201.59 47.44 
+L 202.09 48.61 
+L 202.58 49.25 
+L 203.08 48.33 
+L 203.57 50.24 
+L 204.07 50.2 
+L 204.56 50.56 
+L 205.55 53.44 
+L 206.55 54.06 
+L 207.04 53.86 
+L 207.54 55.68 
+L 208.03 55.58 
+L 208.53 57.12 
+L 209.02 58.1 
+L 209.52 56.92 
+L 210.01 57.75 
+L 210.51 58.35 
+L 211 59.34 
+L 211.5 59.35 
+L 211.99 58.33 
+L 212.49 58.76 
+L 212.98 57.94 
+L 213.48 59.53 
+L 213.97 58.97 
+L 214.47 59.1 
+L 214.96 59.01 
+L 215.46 60.14 
+L 215.95 60.89 
+L 216.45 60.52 
+L 216.94 61.96 
+L 217.44 61.02 
+L 217.93 61.55 
+L 218.43 61 
+L 218.92 62.38 
+L 219.42 64.36 
+L 220.41 62.74 
+L 220.9 62.79 
+L 221.4 61.99 
+L 221.9 62.01 
+L 222.39 61.2 
+L 222.89 61.03 
+L 223.38 62.21 
+L 223.88 60.86 
+L 224.37 62.03 
+L 224.87 59.28 
+L 225.36 59.45 
+L 225.86 60.58 
+L 226.35 60.84 
+L 227.34 60.59 
+L 227.84 59.9 
+L 228.33 60.62 
+L 228.83 63.12 
+L 229.32 64.15 
+L 229.82 63.61 
+L 230.31 62.23 
+L 230.81 64.64 
+L 231.3 64.5 
+L 231.8 63.12 
+L 232.29 64.81 
+L 232.79 62.71 
+L 233.28 63.63 
+L 233.78 63.75 
+L 234.27 64.33 
+L 234.77 62.13 
+L 235.26 61 
+L 235.76 60.81 
+L 236.26 61.22 
+L 236.75 63.26 
+L 237.25 63.59 
+L 237.74 64.31 
+L 238.24 64.44 
+L 238.73 66.76 
+L 239.23 65.19 
+L 239.72 64.05 
+L 240.22 62.07 
+L 240.71 62.76 
+L 241.21 62.78 
+L 241.7 64.26 
+L 242.2 63.15 
+L 242.69 63.4 
+L 243.19 61.33 
+L 244.67 58.73 
+L 245.17 60.51 
+L 245.66 59.59 
+L 246.16 61.53 
+L 246.65 61.14 
+L 247.15 60.38 
+L 247.64 61.77 
+L 248.14 62.52 
+L 248.63 62.7 
+L 249.62 61.96 
+L 250.12 61.89 
+L 250.61 62.93 
+L 251.11 62.56 
+L 251.61 59.49 
+L 252.1 60.17 
+L 252.6 58.2 
+L 253.09 59.64 
+L 253.59 60.4 
+L 254.08 58.76 
+L 254.58 57.7 
+L 255.07 55.71 
+L 255.57 54.96 
+L 256.06 55.69 
+L 256.56 55.58 
+L 257.05 56.12 
+L 257.55 54.82 
+L 258.04 54.06 
+L 258.54 52.52 
+L 259.03 53.35 
+L 259.53 53.65 
+L 260.52 54.6 
+L 261.01 54.79 
+L 261.51 53.22 
+L 262 53.03 
+L 262.5 51.58 
+L 262.99 51.31 
+L 263.98 55.18 
+L 264.48 55.39 
+L 264.97 53.96 
+L 265.47 53.95 
+L 265.97 55.75 
+L 266.46 55.59 
+L 266.96 55.89 
+L 267.45 55.17 
+L 267.95 54.14 
+L 268.44 53.79 
+L 268.94 54.57 
+L 269.43 55.84 
+L 269.93 56.27 
+L 270.42 56.35 
+L 270.92 55.9 
+L 271.41 56.46 
+L 271.91 57.23 
+L 272.4 56.62 
+L 272.9 55.62 
+L 273.39 55.27 
+L 273.89 56.52 
+L 274.38 56.89 
+L 274.88 54.24 
+L 275.37 55.55 
+L 275.87 55.99 
+L 276.36 54.86 
+L 276.86 56.03 
+L 277.35 56.41 
+L 277.85 54.84 
+L 278.34 53.64 
+L 278.84 55.83 
+L 279.33 55.09 
+L 279.83 55.47 
+L 280.32 57.16 
+L 280.82 55.86 
+L 281.32 56.49 
+L 281.81 56.54 
+L 282.31 57.57 
+L 283.79 54.5 
+L 284.29 51.55 
+L 284.78 50.77 
+L 285.28 51.12 
+L 285.77 50.41 
+L 286.27 49.92 
+L 286.76 48.96 
+L 287.26 51.75 
+L 287.75 50.6 
+L 288.25 48.02 
+L 288.74 46.81 
+L 289.24 47.42 
+L 289.73 44.63 
+L 290.23 43.5 
+L 290.72 40.78 
+L 291.22 39.34 
+L 291.71 39.45 
+L 292.21 41.18 
+L 292.7 40.78 
+L 293.2 39.83 
+L 293.69 40.01 
+L 294.19 41.31 
+L 294.68 39.99 
+L 295.18 40.58 
+L 295.67 38.56 
+L 296.17 38.91 
+L 296.67 38.14 
+L 297.16 38.21 
+L 298.15 36.42 
+L 298.65 38.68 
+L 299.64 39.59 
+L 300.13 40.01 
+L 300.63 39.81 
+L 301.12 38.13 
+L 301.62 39.08 
+L 302.11 38.13 
+L 302.61 38.34 
+L 303.1 38.91 
+L 303.6 40.46 
+L 304.09 41.14 
+L 304.59 42.22 
+L 305.08 41.42 
+L 305.58 39.31 
+L 306.07 38.41 
+L 306.57 37.26 
+L 307.06 38.01 
+L 307.56 36.93 
+L 308.55 38.6 
+L 309.04 38.05 
+L 309.54 38.6 
+L 310.03 37.61 
+L 310.53 37.21 
+L 311.03 37.31 
+L 311.52 37.78 
+L 313.01 36.45 
+L 313.5 34.86 
+L 314 35.33 
+L 314.99 38.14 
+L 315.98 39.98 
+L 316.47 39.92 
+L 316.97 37.7 
+L 317.96 39.49 
+L 318.45 39.91 
+L 318.95 40.88 
+L 319.44 41.58 
+L 319.94 40.5 
+L 320.43 38.73 
+L 320.93 39.36 
+L 321.42 39.22 
+L 321.92 37.89 
+L 322.41 37.28 
+L 322.91 37.28 
+L 323.4 36.63 
+L 323.9 36.54 
+L 324.39 37.13 
+L 324.89 36.3 
+L 325.88 37.23 
+L 326.38 36.65 
+L 326.87 37.83 
+L 327.37 36.77 
+L 327.86 37.43 
+L 328.36 38.4 
+L 329.35 36.55 
+L 329.84 35.2 
+L 330.34 33.4 
+L 330.83 34.4 
+L 331.33 34.51 
+L 331.82 35.61 
+L 332.32 36.32 
+L 332.81 35.1 
+L 334.3 33.39 
+L 334.79 33.72 
+L 335.29 32.04 
+L 335.78 33.07 
+L 336.28 32.1 
+L 336.77 32.65 
+L 337.27 33.58 
+L 337.76 31.02 
+L 338.26 31.31 
+L 338.26 31.31 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--c8); stroke-opacity: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_28">
+    <path d="M 41.16 53.48 
+L 42.15 55 
+L 42.65 53.43 
+L 43.14 52.8 
+L 43.64 52.58 
+L 44.63 51.01 
+L 45.12 49.87 
+L 45.62 49.15 
+L 46.11 48.2 
+L 46.61 47.7 
+L 47.1 47.4 
+L 47.6 45.95 
+L 48.09 48.42 
+L 48.59 47.31 
+L 49.08 47.16 
+L 49.58 46.82 
+L 50.07 47.01 
+L 50.57 47.73 
+L 51.06 46.9 
+L 52.05 49.3 
+L 52.55 50.39 
+L 53.04 48.36 
+L 54.03 48.24 
+L 54.53 49.86 
+L 55.02 49.71 
+L 55.52 48.66 
+L 56.01 49.91 
+L 56.51 49.79 
+L 57.01 49.52 
+L 57.5 48.76 
+L 58 47.57 
+L 58.49 45.2 
+L 59.48 45.14 
+L 59.98 45.88 
+L 60.47 44.73 
+L 60.97 44.76 
+L 61.46 44.19 
+L 61.96 43.36 
+L 62.95 43.73 
+L 63.94 43.36 
+L 64.43 43.29 
+L 64.93 43.46 
+L 65.42 43.51 
+L 65.92 42.07 
+L 66.41 42.78 
+L 67.4 42.64 
+L 67.9 41.37 
+L 68.39 41.97 
+L 68.89 42.23 
+L 69.38 42.82 
+L 70.37 41.08 
+L 70.87 40.55 
+L 71.37 40.36 
+L 71.86 37.68 
+L 72.36 37.29 
+L 72.85 39.54 
+L 73.84 42.86 
+L 74.34 43.36 
+L 74.83 45.13 
+L 75.33 45.12 
+L 75.82 46.8 
+L 76.32 46.86 
+L 76.81 47.61 
+L 77.31 47.01 
+L 77.8 46.86 
+L 78.3 48.01 
+L 78.79 45.88 
+L 79.29 47.22 
+L 79.78 47.85 
+L 80.28 49.51 
+L 81.27 47.25 
+L 81.76 47.37 
+L 82.26 50.28 
+L 82.75 49.37 
+L 83.25 47.27 
+L 83.74 48.32 
+L 84.24 47.77 
+L 84.73 46.71 
+L 85.23 46.67 
+L 85.72 48.08 
+L 86.22 48.32 
+L 86.72 49.1 
+L 87.21 48.46 
+L 87.71 50.55 
+L 88.2 49.95 
+L 88.7 49.88 
+L 89.19 51.75 
+L 89.69 52.96 
+L 90.18 52.33 
+L 90.68 50.82 
+L 91.17 49.81 
+L 91.67 46.36 
+L 92.16 46.16 
+L 92.66 47.6 
+L 93.15 47.58 
+L 93.65 48.47 
+L 94.14 51.35 
+L 94.64 50.12 
+L 95.63 52.45 
+L 96.12 50.31 
+L 96.62 51.1 
+L 97.11 52.14 
+L 97.61 51.15 
+L 98.1 48.97 
+L 98.6 51.24 
+L 99.09 52.57 
+L 99.59 53.34 
+L 100.08 52.43 
+L 100.58 52.15 
+L 101.07 50.81 
+L 101.57 52.59 
+L 102.07 52.76 
+L 102.56 51.03 
+L 103.06 53.25 
+L 103.55 51.98 
+L 104.05 53.01 
+L 104.54 52.7 
+L 105.04 53.99 
+L 106.03 52.35 
+L 106.52 52.56 
+L 107.02 50.6 
+L 107.51 51.82 
+L 108.01 50.67 
+L 108.5 52.07 
+L 109.49 49.94 
+L 109.99 50.83 
+L 110.48 48.94 
+L 110.98 49.01 
+L 111.47 50.68 
+L 111.97 51.08 
+L 112.46 50 
+L 112.96 49.96 
+L 113.45 48.86 
+L 113.95 47.15 
+L 114.44 46.15 
+L 114.94 45.5 
+L 115.43 45.24 
+L 115.93 44.67 
+L 116.43 42.91 
+L 116.92 43.62 
+L 117.42 43.84 
+L 117.91 42.87 
+L 118.41 44.05 
+L 118.9 42.84 
+L 119.4 42.79 
+L 119.89 42.18 
+L 120.39 42.9 
+L 120.88 43.14 
+L 121.38 41.67 
+L 121.87 42.97 
+L 122.86 40.35 
+L 123.36 40.22 
+L 123.85 42.55 
+L 124.35 43.87 
+L 124.84 43.38 
+L 125.34 42.09 
+L 125.83 43.75 
+L 126.33 43.29 
+L 126.82 42.99 
+L 127.32 44.79 
+L 127.81 44.56 
+L 128.31 45.46 
+L 128.8 47.25 
+L 129.3 45.08 
+L 129.79 45.98 
+L 130.78 49.39 
+L 131.28 47.05 
+L 131.78 45.84 
+L 132.27 45.17 
+L 132.77 46.16 
+L 133.26 45.69 
+L 133.76 45.58 
+L 134.25 44.68 
+L 134.75 46.43 
+L 135.24 45.54 
+L 135.74 44.34 
+L 136.73 46.54 
+L 137.22 46.68 
+L 137.72 48.3 
+L 138.71 48.99 
+L 139.2 47.32 
+L 139.7 48.54 
+L 140.19 48.92 
+L 140.69 47.32 
+L 141.18 49.4 
+L 141.68 48.15 
+L 142.17 48.71 
+L 142.67 48 
+L 143.16 48.01 
+L 143.66 47.24 
+L 144.15 51.29 
+L 144.65 52.16 
+L 145.14 54.8 
+L 145.64 55.17 
+L 146.14 55.97 
+L 146.63 55.89 
+L 147.13 53.85 
+L 148.61 51.93 
+L 149.11 52.21 
+L 149.6 50.36 
+L 150.1 49.53 
+L 150.59 49.46 
+L 151.09 47.95 
+L 151.58 48.37 
+L 152.08 48.97 
+L 152.57 50.01 
+L 153.56 53.16 
+L 154.06 51.72 
+L 154.55 52.23 
+L 155.05 52.26 
+L 155.54 51.37 
+L 156.04 51.55 
+L 157.03 53.76 
+L 157.52 54.3 
+L 158.02 53.06 
+L 159.01 54.41 
+L 159.5 53.78 
+L 160.49 53.69 
+L 160.99 53.42 
+L 161.49 51.36 
+L 161.98 51.78 
+L 162.48 52.36 
+L 162.97 50.18 
+L 163.47 51.29 
+L 163.96 53.4 
+L 164.46 52.37 
+L 164.95 52.96 
+L 165.45 53 
+L 165.94 52.91 
+L 166.44 54.32 
+L 166.93 53.72 
+L 167.43 55.21 
+L 167.92 54.2 
+L 168.42 52.83 
+L 168.91 53.69 
+L 169.41 52.37 
+L 169.9 52.17 
+L 170.4 49.95 
+L 170.89 49.93 
+L 171.88 54.36 
+L 172.38 53.29 
+L 172.87 53.87 
+L 173.37 53.41 
+L 173.86 54.78 
+L 174.36 55.51 
+L 174.85 58.23 
+L 175.35 57.78 
+L 175.84 56.84 
+L 176.34 57.81 
+L 176.84 57.22 
+L 177.33 58.13 
+L 177.83 57.72 
+L 178.32 58.31 
+L 178.82 59.42 
+L 179.31 58.89 
+L 179.81 61.22 
+L 180.3 59.04 
+L 180.8 61.02 
+L 181.29 63.49 
+L 181.79 63.21 
+L 182.28 64.54 
+L 182.78 63.85 
+L 183.27 65.62 
+L 184.26 62.37 
+L 184.76 63.71 
+L 185.25 61.35 
+L 185.75 61.93 
+L 186.24 61.98 
+L 186.74 62.83 
+L 187.23 62.55 
+L 187.73 62.12 
+L 188.22 62.33 
+L 188.72 62.01 
+L 189.21 61.9 
+L 189.71 61.36 
+L 190.2 63.01 
+L 190.7 63.58 
+L 191.2 65.05 
+L 192.19 65.29 
+L 192.68 65.58 
+L 193.18 66.47 
+L 193.67 64.29 
+L 194.17 65.52 
+L 194.66 64.94 
+L 195.16 65.53 
+L 196.15 62.37 
+L 196.64 61.89 
+L 197.14 61.11 
+L 198.13 63.49 
+L 198.62 62.6 
+L 199.12 62.62 
+L 199.61 64.55 
+L 200.11 64.81 
+L 201.1 68.25 
+L 201.59 68.37 
+L 202.09 68.35 
+L 202.58 68.79 
+L 203.08 69.45 
+L 203.57 70.78 
+L 204.56 71.3 
+L 205.06 71.94 
+L 205.55 69.13 
+L 206.05 69.53 
+L 206.55 69.45 
+L 207.04 70.46 
+L 207.54 70.73 
+L 208.03 70.72 
+L 208.53 70.09 
+L 209.02 73.82 
+L 209.52 72.59 
+L 210.01 71.98 
+L 210.51 71.74 
+L 211 73.04 
+L 211.5 75.25 
+L 211.99 76.68 
+L 212.98 75.14 
+L 213.48 75.19 
+L 213.97 74.36 
+L 214.96 76.9 
+L 215.95 74.1 
+L 216.45 73.18 
+L 216.94 71.88 
+L 217.44 71.95 
+L 217.93 74.76 
+L 218.43 75.11 
+L 218.92 73.79 
+L 219.42 74.12 
+L 220.41 72.56 
+L 220.9 73.67 
+L 221.4 73.06 
+L 221.9 72.98 
+L 222.39 74.75 
+L 222.89 73.47 
+L 223.38 74.78 
+L 224.37 73.64 
+L 225.36 75.72 
+L 225.86 75.2 
+L 226.35 74.93 
+L 226.85 73.47 
+L 227.34 73.27 
+L 227.84 72.66 
+L 228.33 72.46 
+L 228.83 71.33 
+L 229.32 72.54 
+L 229.82 74.83 
+L 230.31 74.25 
+L 230.81 74.5 
+L 231.3 75.28 
+L 231.8 73.26 
+L 232.29 74.99 
+L 232.79 75.35 
+L 233.28 74.26 
+L 233.78 74.51 
+L 234.27 75.04 
+L 234.77 74.67 
+L 235.26 75.14 
+L 236.26 78.83 
+L 237.25 77.23 
+L 237.74 78.68 
+L 238.24 78.38 
+L 239.23 76.82 
+L 239.72 75.09 
+L 240.22 73.91 
+L 240.71 74 
+L 241.21 74.31 
+L 241.7 73.49 
+L 242.2 74.88 
+L 242.69 76.86 
+L 243.19 75.89 
+L 243.68 74.53 
+L 244.18 73.81 
+L 244.67 73.44 
+L 245.66 77.06 
+L 246.16 77.81 
+L 246.65 75.81 
+L 247.15 76.16 
+L 247.64 75.96 
+L 248.14 76.91 
+L 248.63 75.3 
+L 249.13 77.57 
+L 249.62 75.58 
+L 250.12 75.57 
+L 250.61 78.75 
+L 251.11 78.64 
+L 252.6 76.65 
+L 253.59 77.33 
+L 254.08 77.18 
+L 254.58 77.89 
+L 255.07 75.8 
+L 255.57 77.22 
+L 256.06 77.04 
+L 256.56 77.37 
+L 257.05 79.11 
+L 257.55 77.39 
+L 258.04 77.05 
+L 258.54 77.86 
+L 259.03 78.89 
+L 259.53 79.2 
+L 260.02 77.28 
+L 260.52 77 
+L 261.01 78.09 
+L 261.51 77.91 
+L 262 78.74 
+L 263.98 76.17 
+L 264.48 76.01 
+L 264.97 77.53 
+L 265.47 77.2 
+L 265.97 75.81 
+L 266.46 77.51 
+L 266.96 76.35 
+L 268.44 78.43 
+L 268.94 77.53 
+L 269.43 77.43 
+L 269.93 77.15 
+L 270.42 78.31 
+L 270.92 76.34 
+L 271.41 77.44 
+L 272.4 74.24 
+L 272.9 73.3 
+L 273.39 74.74 
+L 273.89 74.61 
+L 274.38 75.45 
+L 274.88 73.5 
+L 275.37 73.1 
+L 275.87 72.51 
+L 276.86 71.76 
+L 277.35 70.42 
+L 277.85 67.75 
+L 278.34 66.74 
+L 278.84 65.14 
+L 279.33 64.22 
+L 279.83 63.6 
+L 280.32 64.89 
+L 280.82 65.26 
+L 281.32 65.88 
+L 281.81 65.06 
+L 282.31 68.48 
+L 282.8 71 
+L 283.3 71.49 
+L 283.79 70.89 
+L 284.29 71.2 
+L 284.78 71.19 
+L 285.28 70.2 
+L 286.27 66.19 
+L 286.76 65.34 
+L 287.26 63.88 
+L 287.75 64.16 
+L 288.25 65.05 
+L 288.74 64.13 
+L 289.24 62.06 
+L 289.73 61.21 
+L 290.23 63.3 
+L 290.72 61.82 
+L 291.22 59.3 
+L 291.71 58.19 
+L 292.21 58.28 
+L 292.7 59.06 
+L 293.2 60.16 
+L 293.69 58.16 
+L 294.68 58.28 
+L 295.67 58.15 
+L 296.17 57.45 
+L 296.67 57.67 
+L 297.16 57 
+L 297.66 57.38 
+L 298.15 58.04 
+L 298.65 59.88 
+L 299.14 59.48 
+L 299.64 57.66 
+L 300.13 56.66 
+L 300.63 55.09 
+L 301.12 55.28 
+L 302.11 56.59 
+L 302.61 57.67 
+L 303.1 56.45 
+L 303.6 54.7 
+L 304.09 55.28 
+L 304.59 54.51 
+L 305.08 55.94 
+L 305.58 55.31 
+L 306.07 54.12 
+L 306.57 54.87 
+L 307.06 53.14 
+L 307.56 53.43 
+L 308.05 52.87 
+L 308.55 50.65 
+L 309.04 52.28 
+L 309.54 51.48 
+L 310.03 51.56 
+L 310.53 49.55 
+L 311.03 49.37 
+L 311.52 49.35 
+L 312.02 48.54 
+L 312.51 46.21 
+L 313.01 46.7 
+L 314 48.34 
+L 314.49 46.99 
+L 314.99 48.95 
+L 315.48 50.15 
+L 315.98 50.74 
+L 316.47 51.67 
+L 316.97 51.73 
+L 317.46 52.45 
+L 317.96 54.73 
+L 318.45 51.86 
+L 318.95 50.48 
+L 319.44 50.56 
+L 319.94 51.11 
+L 320.43 51.82 
+L 320.93 53.92 
+L 321.42 55.16 
+L 322.41 54.37 
+L 322.91 52.55 
+L 323.4 52.45 
+L 323.9 53.08 
+L 324.39 51.85 
+L 324.89 51.02 
+L 325.38 52.45 
+L 325.88 53.19 
+L 326.38 52.02 
+L 326.87 52.83 
+L 327.37 52.61 
+L 327.86 53.7 
+L 328.36 52.33 
+L 328.85 49.72 
+L 329.35 52.09 
+L 329.84 53.25 
+L 330.34 52.29 
+L 330.83 51.83 
+L 331.33 51.8 
+L 331.82 53.27 
+L 332.32 55.3 
+L 332.81 55.68 
+L 333.8 53.05 
+L 334.3 50.03 
+L 334.79 52.01 
+L 335.78 51.16 
+L 336.28 48.66 
+L 336.77 49.34 
+L 337.27 47.5 
+L 337.76 49.27 
+L 338.26 47.8 
+L 338.26 47.8 
+" clip-path="url(#pb3a192a95f)" style="fill: none; stroke:var(--c8); stroke-opacity: 0.6; stroke-linecap: round"/>
    </g>
    <g class="patch">
-    <path d="M 55.458906 297.430125 
-L 55.458906 31.318125 
-" style="fill: none; stroke: currentColor; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+    <path d="M 41.16 127.14 
+L 41.16 2.16 
+" style="fill: none; stroke:var(--axis-color); stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g class="patch">
-    <path d="M 55.458906 297.430125 
-L 321.570906 297.430125 
-" style="fill: none; stroke: currentColor; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="text_21" class="text">
-    <!-- Sample of a SDE with only diffusion -->
-    <g transform="translate(81.705531 16.318125) scale(0.12 -0.12)">
-     <defs>
-      <path id="DejaVuSans-53" d="M 3425 4513 
-L 3425 3897 
-Q 3066 4069 2747 4153 
-Q 2428 4238 2131 4238 
-Q 1616 4238 1336 4038 
-Q 1056 3838 1056 3469 
-Q 1056 3159 1242 3001 
-Q 1428 2844 1947 2747 
-L 2328 2669 
-Q 3034 2534 3370 2195 
-Q 3706 1856 3706 1288 
-Q 3706 609 3251 259 
-Q 2797 -91 1919 -91 
-Q 1588 -91 1214 -16 
-Q 841 59 441 206 
-L 441 856 
-Q 825 641 1194 531 
-Q 1563 422 1919 422 
-Q 2459 422 2753 634 
-Q 3047 847 3047 1241 
-Q 3047 1584 2836 1778 
-Q 2625 1972 2144 2069 
-L 1759 2144 
-Q 1053 2284 737 2584 
-Q 422 2884 422 3419 
-Q 422 4038 858 4394 
-Q 1294 4750 2059 4750 
-Q 2388 4750 2728 4690 
-Q 3069 4631 3425 4513 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-61" d="M 2194 1759 
-Q 1497 1759 1228 1600 
-Q 959 1441 959 1056 
-Q 959 750 1161 570 
-Q 1363 391 1709 391 
-Q 2188 391 2477 730 
-Q 2766 1069 2766 1631 
-L 2766 1759 
-L 2194 1759 
-z
-M 3341 1997 
-L 3341 0 
-L 2766 0 
-L 2766 531 
-Q 2569 213 2275 61 
-Q 1981 -91 1556 -91 
-Q 1019 -91 701 211 
-Q 384 513 384 1019 
-Q 384 1609 779 1909 
-Q 1175 2209 1959 2209 
-L 2766 2209 
-L 2766 2266 
-Q 2766 2663 2505 2880 
-Q 2244 3097 1772 3097 
-Q 1472 3097 1187 3025 
-Q 903 2953 641 2809 
-L 641 3341 
-Q 956 3463 1253 3523 
-Q 1550 3584 1831 3584 
-Q 2591 3584 2966 3190 
-Q 3341 2797 3341 1997 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-6d" d="M 3328 2828 
-Q 3544 3216 3844 3400 
-Q 4144 3584 4550 3584 
-Q 5097 3584 5394 3201 
-Q 5691 2819 5691 2113 
-L 5691 0 
-L 5113 0 
-L 5113 2094 
-Q 5113 2597 4934 2840 
-Q 4756 3084 4391 3084 
-Q 3944 3084 3684 2787 
-Q 3425 2491 3425 1978 
-L 3425 0 
-L 2847 0 
-L 2847 2094 
-Q 2847 2600 2669 2842 
-Q 2491 3084 2119 3084 
-Q 1678 3084 1418 2786 
-Q 1159 2488 1159 1978 
-L 1159 0 
-L 581 0 
-L 581 3500 
-L 1159 3500 
-L 1159 2956 
-Q 1356 3278 1631 3431 
-Q 1906 3584 2284 3584 
-Q 2666 3584 2933 3390 
-Q 3200 3197 3328 2828 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-70" d="M 1159 525 
-L 1159 -1331 
-L 581 -1331 
-L 581 3500 
-L 1159 3500 
-L 1159 2969 
-Q 1341 3281 1617 3432 
-Q 1894 3584 2278 3584 
-Q 2916 3584 3314 3078 
-Q 3713 2572 3713 1747 
-Q 3713 922 3314 415 
-Q 2916 -91 2278 -91 
-Q 1894 -91 1617 61 
-Q 1341 213 1159 525 
-z
-M 3116 1747 
-Q 3116 2381 2855 2742 
-Q 2594 3103 2138 3103 
-Q 1681 3103 1420 2742 
-Q 1159 2381 1159 1747 
-Q 1159 1113 1420 752 
-Q 1681 391 2138 391 
-Q 2594 391 2855 752 
-Q 3116 1113 3116 1747 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-6c" d="M 603 4863 
-L 1178 4863 
-L 1178 0 
-L 603 0 
-L 603 4863 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-65" d="M 3597 1894 
-L 3597 1613 
-L 953 1613 
-Q 991 1019 1311 708 
-Q 1631 397 2203 397 
-Q 2534 397 2845 478 
-Q 3156 559 3463 722 
-L 3463 178 
-Q 3153 47 2828 -22 
-Q 2503 -91 2169 -91 
-Q 1331 -91 842 396 
-Q 353 884 353 1716 
-Q 353 2575 817 3079 
-Q 1281 3584 2069 3584 
-Q 2775 3584 3186 3129 
-Q 3597 2675 3597 1894 
-z
-M 3022 2063 
-Q 3016 2534 2758 2815 
-Q 2500 3097 2075 3097 
-Q 1594 3097 1305 2825 
-Q 1016 2553 972 2059 
-L 3022 2063 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-20" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-6f" d="M 1959 3097 
-Q 1497 3097 1228 2736 
-Q 959 2375 959 1747 
-Q 959 1119 1226 758 
-Q 1494 397 1959 397 
-Q 2419 397 2687 759 
-Q 2956 1122 2956 1747 
-Q 2956 2369 2687 2733 
-Q 2419 3097 1959 3097 
-z
-M 1959 3584 
-Q 2709 3584 3137 3096 
-Q 3566 2609 3566 1747 
-Q 3566 888 3137 398 
-Q 2709 -91 1959 -91 
-Q 1206 -91 779 398 
-Q 353 888 353 1747 
-Q 353 2609 779 3096 
-Q 1206 3584 1959 3584 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-66" d="M 2375 4863 
-L 2375 4384 
-L 1825 4384 
-Q 1516 4384 1395 4259 
-Q 1275 4134 1275 3809 
-L 1275 3500 
-L 2222 3500 
-L 2222 3053 
-L 1275 3053 
-L 1275 0 
-L 697 0 
-L 697 3053 
-L 147 3053 
-L 147 3500 
-L 697 3500 
-L 697 3744 
-Q 697 4328 969 4595 
-Q 1241 4863 1831 4863 
-L 2375 4863 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-44" d="M 1259 4147 
-L 1259 519 
-L 2022 519 
-Q 2988 519 3436 956 
-Q 3884 1394 3884 2338 
-Q 3884 3275 3436 3711 
-Q 2988 4147 2022 4147 
-L 1259 4147 
-z
-M 628 4666 
-L 1925 4666 
-Q 3281 4666 3915 4102 
-Q 4550 3538 4550 2338 
-Q 4550 1131 3912 565 
-Q 3275 0 1925 0 
-L 628 0 
-L 628 4666 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-45" d="M 628 4666 
-L 3578 4666 
-L 3578 4134 
-L 1259 4134 
-L 1259 2753 
-L 3481 2753 
-L 3481 2222 
-L 1259 2222 
-L 1259 531 
-L 3634 531 
-L 3634 0 
-L 628 0 
-L 628 4666 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-77" d="M 269 3500 
-L 844 3500 
-L 1563 769 
-L 2278 3500 
-L 2956 3500 
-L 3675 769 
-L 4391 3500 
-L 4966 3500 
-L 4050 0 
-L 3372 0 
-L 2619 2869 
-L 1863 0 
-L 1184 0 
-L 269 3500 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-69" d="M 603 3500 
-L 1178 3500 
-L 1178 0 
-L 603 0 
-L 603 3500 
-z
-M 603 4863 
-L 1178 4863 
-L 1178 4134 
-L 603 4134 
-L 603 4863 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-74" d="M 1172 4494 
-L 1172 3500 
-L 2356 3500 
-L 2356 3053 
-L 1172 3053 
-L 1172 1153 
-Q 1172 725 1289 603 
-Q 1406 481 1766 481 
-L 2356 481 
-L 2356 0 
-L 1766 0 
-Q 1100 0 847 248 
-Q 594 497 594 1153 
-L 594 3053 
-L 172 3053 
-L 172 3500 
-L 594 3500 
-L 594 4494 
-L 1172 4494 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-68" d="M 3513 2113 
-L 3513 0 
-L 2938 0 
-L 2938 2094 
-Q 2938 2591 2744 2837 
-Q 2550 3084 2163 3084 
-Q 1697 3084 1428 2787 
-Q 1159 2491 1159 1978 
-L 1159 0 
-L 581 0 
-L 581 4863 
-L 1159 4863 
-L 1159 2956 
-Q 1366 3272 1645 3428 
-Q 1925 3584 2291 3584 
-Q 2894 3584 3203 3211 
-Q 3513 2838 3513 2113 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-6e" d="M 3513 2113 
-L 3513 0 
-L 2938 0 
-L 2938 2094 
-Q 2938 2591 2744 2837 
-Q 2550 3084 2163 3084 
-Q 1697 3084 1428 2787 
-Q 1159 2491 1159 1978 
-L 1159 0 
-L 581 0 
-L 581 3500 
-L 1159 3500 
-L 1159 2956 
-Q 1366 3272 1645 3428 
-Q 1925 3584 2291 3584 
-Q 2894 3584 3203 3211 
-Q 3513 2838 3513 2113 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-79" d="M 2059 -325 
-Q 1816 -950 1584 -1140 
-Q 1353 -1331 966 -1331 
-L 506 -1331 
-L 506 -850 
-L 844 -850 
-Q 1081 -850 1212 -737 
-Q 1344 -625 1503 -206 
-L 1606 56 
-L 191 3500 
-L 800 3500 
-L 1894 763 
-L 2988 3500 
-L 3597 3500 
-L 2059 -325 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-64" d="M 2906 2969 
-L 2906 4863 
-L 3481 4863 
-L 3481 0 
-L 2906 0 
-L 2906 525 
-Q 2725 213 2448 61 
-Q 2172 -91 1784 -91 
-Q 1150 -91 751 415 
-Q 353 922 353 1747 
-Q 353 2572 751 3078 
-Q 1150 3584 1784 3584 
-Q 2172 3584 2448 3432 
-Q 2725 3281 2906 2969 
-z
-M 947 1747 
-Q 947 1113 1208 752 
-Q 1469 391 1925 391 
-Q 2381 391 2643 752 
-Q 2906 1113 2906 1747 
-Q 2906 2381 2643 2742 
-Q 2381 3103 1925 3103 
-Q 1469 3103 1208 2742 
-Q 947 2381 947 1747 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-75" d="M 544 1381 
-L 544 3500 
-L 1119 3500 
-L 1119 1403 
-Q 1119 906 1312 657 
-Q 1506 409 1894 409 
-Q 2359 409 2629 706 
-Q 2900 1003 2900 1516 
-L 2900 3500 
-L 3475 3500 
-L 3475 0 
-L 2900 0 
-L 2900 538 
-Q 2691 219 2414 64 
-Q 2138 -91 1772 -91 
-Q 1169 -91 856 284 
-Q 544 659 544 1381 
-z
-M 1991 3584 
-L 1991 3584 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-73" d="M 2834 3397 
-L 2834 2853 
-Q 2591 2978 2328 3040 
-Q 2066 3103 1784 3103 
-Q 1356 3103 1142 2972 
-Q 928 2841 928 2578 
-Q 928 2378 1081 2264 
-Q 1234 2150 1697 2047 
-L 1894 2003 
-Q 2506 1872 2764 1633 
-Q 3022 1394 3022 966 
-Q 3022 478 2636 193 
-Q 2250 -91 1575 -91 
-Q 1294 -91 989 -36 
-Q 684 19 347 128 
-L 347 722 
-Q 666 556 975 473 
-Q 1284 391 1588 391 
-Q 1994 391 2212 530 
-Q 2431 669 2431 922 
-Q 2431 1156 2273 1281 
-Q 2116 1406 1581 1522 
-L 1381 1569 
-Q 847 1681 609 1914 
-Q 372 2147 372 2553 
-Q 372 3047 722 3315 
-Q 1072 3584 1716 3584 
-Q 2034 3584 2315 3537 
-Q 2597 3491 2834 3397 
-z
-" transform="scale(0.015625)"/>
-     </defs>
-     <use xlink:href="#DejaVuSans-53"/>
-     <use xlink:href="#DejaVuSans-61" transform="translate(63.476562 0)"/>
-     <use xlink:href="#DejaVuSans-6d" transform="translate(124.755859 0)"/>
-     <use xlink:href="#DejaVuSans-70" transform="translate(222.167969 0)"/>
-     <use xlink:href="#DejaVuSans-6c" transform="translate(285.644531 0)"/>
-     <use xlink:href="#DejaVuSans-65" transform="translate(313.427734 0)"/>
-     <use xlink:href="#DejaVuSans-20" transform="translate(374.951172 0)"/>
-     <use xlink:href="#DejaVuSans-6f" transform="translate(406.738281 0)"/>
-     <use xlink:href="#DejaVuSans-66" transform="translate(467.919922 0)"/>
-     <use xlink:href="#DejaVuSans-20" transform="translate(503.125 0)"/>
-     <use xlink:href="#DejaVuSans-61" transform="translate(534.912109 0)"/>
-     <use xlink:href="#DejaVuSans-20" transform="translate(596.191406 0)"/>
-     <use xlink:href="#DejaVuSans-53" transform="translate(627.978516 0)"/>
-     <use xlink:href="#DejaVuSans-44" transform="translate(691.455078 0)"/>
-     <use xlink:href="#DejaVuSans-45" transform="translate(768.457031 0)"/>
-     <use xlink:href="#DejaVuSans-20" transform="translate(831.640625 0)"/>
-     <use xlink:href="#DejaVuSans-77" transform="translate(863.427734 0)"/>
-     <use xlink:href="#DejaVuSans-69" transform="translate(945.214844 0)"/>
-     <use xlink:href="#DejaVuSans-74" transform="translate(972.998047 0)"/>
-     <use xlink:href="#DejaVuSans-68" transform="translate(1012.207031 0)"/>
-     <use xlink:href="#DejaVuSans-20" transform="translate(1075.585938 0)"/>
-     <use xlink:href="#DejaVuSans-6f" transform="translate(1107.373047 0)"/>
-     <use xlink:href="#DejaVuSans-6e" transform="translate(1168.554688 0)"/>
-     <use xlink:href="#DejaVuSans-6c" transform="translate(1231.933594 0)"/>
-     <use xlink:href="#DejaVuSans-79" transform="translate(1259.716797 0)"/>
-     <use xlink:href="#DejaVuSans-20" transform="translate(1318.896484 0)"/>
-     <use xlink:href="#DejaVuSans-64" transform="translate(1350.683594 0)"/>
-     <use xlink:href="#DejaVuSans-69" transform="translate(1414.160156 0)"/>
-     <use xlink:href="#DejaVuSans-66" transform="translate(1441.943359 0)"/>
-     <use xlink:href="#DejaVuSans-66" transform="translate(1477.148438 0)"/>
-     <use xlink:href="#DejaVuSans-75" transform="translate(1512.353516 0)"/>
-     <use xlink:href="#DejaVuSans-73" transform="translate(1575.732422 0)"/>
-     <use xlink:href="#DejaVuSans-69" transform="translate(1627.832031 0)"/>
-     <use xlink:href="#DejaVuSans-6f" transform="translate(1655.615234 0)"/>
-     <use xlink:href="#DejaVuSans-6e" transform="translate(1716.796875 0)"/>
-    </g>
+    <path d="M 41.16 127.14 
+L 338.26 127.14 
+" style="fill: none; stroke:var(--axis-color); stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="pcc40061d80">
-   <rect x="55.458906" y="31.318125" width="266.112" height="266.112"/>
+  <clipPath id="pb3a192a95f">
+   <rect x="41.16" y="2.16" width="297.099167" height="124.984167"/>
   </clipPath>
  </defs>
 </svg>

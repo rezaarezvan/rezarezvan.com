@@ -23,7 +23,7 @@ $$
 \frac{d\mathbf{x}(t)}{dt} = \mathbf{f}(\mathbf{x}(t), t), \quad \mathbf{x}(0) = \mathbf x_0,
 $$
 
-where $\mathbf{x}(t) \in \mathbb{R}^d$ represents the state of the system at time $t$ [^note-1], $\mathbf{f}: \mathbb{R}^d \times [0,T] \mapsto \mathbb{R}^d$ is the velocity field guiding the evolution, and $\mathbf x_0$ is the initial condition. Solutions to this equation yield deterministic trajectories through state space.
+where $\mathbf{x}(t) \in \mathbb{R}^d$ represents the state of the system at time $t$ [^note-1], $\mathbf{f}: \mathbb{R}^d \times [0,T] \to \mathbb{R}^d$ is the velocity field guiding the evolution, and $\mathbf x_0$ is the initial condition. Solutions to this equation yield deterministic trajectories through state space.
 
 ![Two examples of ODEs](./imgs/deterministic_ODE.svg)
 
@@ -35,7 +35,7 @@ Now, the core idea behind stochastic differential equations is not complex, "jus
 $$
 \begin{equation}
 \label{eq:sde-definition}
-dx(t) = \underbrace{f(x(t), t) \ dt}_{\text{drift}} + \underbrace{L(x(t), t) \ d\beta(t)}_{\text{diffusion}}.
+dx(t) = \underbrace{f(x(t), t) \, dt}_{\text{drift}} + \underbrace{L(x(t), t) \, d\beta(t)}_{\text{diffusion}}.
 \end{equation}
 $$
 where $x(t)$ is the **stochastic process** and $\beta(t)$ is a Brownian motion.
@@ -51,7 +51,7 @@ Essentially, Brownian motion is a (continuous-time) sequence of "random walks" t
 This compact notation is **short-hand for the following (Itô) integral**,
 
 $$
-x(t) - x(t_0) = \int_{t_0}^{t} f(x(s), s) \ ds + \int_{t_0}^{t} L(x(s), s) \ d\beta(s).
+x(t) - x(t_0) = \int_{t_0}^{t} f(x(s), s) \, ds + \int_{t_0}^{t} L(x(s), s) \, d\beta(s).
 $$
 
 ![Two examples of SDEs](./imgs/stochastic_SDE.svg)
@@ -91,7 +91,7 @@ and let its norm be $|P| = \underset{i}{\max}(t_{i + 1} - t_i)$.
 
 Thus, if the limit exists, the Riemann integral is defined as,
 $$
-\int_{a}^{b} f(t) \ dt \triangleq \lim_{\substack{n \to \infty \newline |P| \to 0}} \sum_{i = 0}^{n - 1} (t_{i + 1} - t_i) f(t_i^{\star}),
+\int_{a}^{b} f(t) \, dt \triangleq \lim_{\substack{n \to \infty \newline |P| \to 0}} \sum_{i = 0}^{n - 1} (t_{i + 1} - t_i) f(t_i^{\star}),
 $$
 for any $t_i^{\star} \in [t_i, t_{i + 1}]$.
 :::
@@ -153,7 +153,7 @@ We will mainly focus on the **mean square** sense, as it is the most common in t
 :::definition[Continuous random functions (in mean square sense)]
 The random function is continuous **in mean square** at $t$ if,
 $$
-\underset{h \to 0}{\text{l.i.m}} \ x(t + h) = x(t),
+\underset{h \to 0}{\text{l.i.m}}\, x(t + h) = x(t),
 $$
 where $\text{l.i.m}$ is *limits in mean square* meaning,
 $$
@@ -172,7 +172,7 @@ $$
 $$
 :::
 
-Consider $x(t) = a \ sin(t + \phi)$ where $a \sim \text{unif}[1, 2]$ and $\phi \sim \text{unif}[0, 2\pi]$.
+Consider $x(t) = a \sin(t + \phi)$ where $a \sim \text{unif}[1, 2]$ and $\phi \sim \text{unif}[0, 2\pi]$.
 
 The random function is **differentiable**.
 Note that the derivative is itself random.
@@ -186,16 +186,16 @@ $$
 and let its norm be $|P| = \underset{i}{\max}(t_{i+1} - t_i)$.
 If the limit exists, the mean square Riemann integral is,
 $$
-\int_{a}^{b} x(t) \ dt \triangleq \underset{\substack{n \to \infty \newline |P| \to 0}}{\text{l.i.m}} \sum_{i=0}^{n-1} (t_{i+1} - t_i) x(t^{\star}_i),
+\int_{a}^{b} x(t) \, dt \triangleq \underset{\substack{n \to \infty \newline |P| \to 0}}{\text{l.i.m}} \sum_{i=0}^{n-1} (t_{i+1} - t_i) x(t^{\star}_i),
 $$
 
 for any $t^{\star}_i \in [t_i, t_{i+1}]$.
 :::
 
-For $x(t) = a \ sin(t + \phi)$, consider the integral,
+For $x(t) = a \sin(t + \phi)$, consider the integral,
 
 $$
-\int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} x(t) \ dt.
+\int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} x(t) \, dt.
 $$
 
 Note, the integral is a random variable.
@@ -227,7 +227,7 @@ As we have seen previously, we can show that a random sequence is continuous (in
 
 $$
 \begin{align*}
-\underset{h \to 0}{\text{l.i.m}} \ \beta(t + h) & = \beta(t), \newline
+\underset{h \to 0}{\text{l.i.m}} \, \beta(t + h) & = \beta(t), \newline
 \lim_{h \to 0} \mathbb{E}[\Vert \beta(t + h) - \beta(t) \Vert^2] & = 0.
 \end{align*}
 $$
@@ -246,7 +246,7 @@ Hence, $\beta(t)$ is continuous.
 Let's now investigate if $\beta(t)$ is differentiable.
 
 $$
-\underset{h \to 0}{\text{l.i.m}} \ \frac{\beta(t + h) - \beta(t)}{h} = \dot{\beta}(t),
+\underset{h \to 0}{\text{l.i.m}} \, \frac{\beta(t + h) - \beta(t)}{h} = \dot{\beta}(t),
 $$
 
 which is equivalent to,
@@ -265,7 +265,7 @@ Let's first recall the definition of the Riemann integral,
 :::definition[Riemann integral]
 If the limit exists, and is the same for any $t^{\star}_i \in [t_i, t_{i+1}]$, the Riemann integral is defined as [^note-4],
 $$
-\int_{a}^{b} f(t) \ dt \triangleq \lim_{\substack{n \to \infty \newline |P| \to 0}} \sum_{i=0}^{n-1} (t_{i+1} - t_i) f(t^{\star}_i).
+\int_{a}^{b} f(t) \, dt \triangleq \lim_{\substack{n \to \infty \newline |P| \to 0}} \sum_{i=0}^{n-1} (t_{i+1} - t_i) f(t^{\star}_i).
 $$
 :::
 
@@ -304,7 +304,7 @@ $$
 \sum_{i=0}^{n-1} f(t^{\star}_i)(\beta(t_{i + 1}) - \beta(t_i)).
 $$
 
-Since we now have a random sequence, we need to take the limit in mean square, or in other words, is $\underset{n \to \infty}{\text{l.i.m}} \ R(n) - L(n) = 0$?
+Since we now have a random sequence, we need to take the limit in mean square, or in other words, is $\underset{n \to \infty}{\text{l.i.m}} \, R(n) - L(n) = 0$?
 
 Again, we let $\Delta \beta_i = \beta(t_{i + 1}) - \beta(t_i) \sim \mathcal{N}(0, \Delta t)$, and we have,
 
@@ -323,13 +323,13 @@ Finally, let's consider the case when $f(t) = \beta(t)$, we compare,
 $$
 \begin{align*}
 L(n) & = \sum_{i=0}^{n-1} \beta(t_i) \Delta \beta_i, \newline
-R(n) & = \sum_{i=0}^{n-1} \beta(t_{i + 1}) \Delta \beta_i, \newline
+R(n) & = \sum_{i=0}^{n-1} \beta(t_{i + 1}) \Delta \beta_i,
 \end{align*}
 $$
 
 where $\Delta \beta_i = \beta(t_{i + 1}) - \beta(t_i) \sim \mathcal{N}(0, \Delta t)$.
 
-Is $\underset{n \to \infty}{\text{l.i.m}} \ R(n) - L(n) = 0$?
+Is $\underset{n \to \infty}{\text{l.i.m}} \, R(n) - L(n) = 0$?
 
 We have,
 $$
@@ -346,13 +346,13 @@ $$
 Thus, as $n \to \infty$, $R(n) - L(n) \to b - a$ and it is not mean square Riemann(-Stieltjes) integrable.
 
 ### The Itô Integral
-Riemann(-Stieltjes) sums cannot define $\int \beta(t) \ d\beta(t)$ since the limit depends on $t^{\star}_i$.
+Riemann(-Stieltjes) sums cannot define $\int \beta(t) \, d\beta(t)$ since the limit depends on $t^{\star}_i$.
 
 Instead, we define the Itô integral as,
 :::definition[Itô integrals]
 We define the Itô integral (of the diffusion term) as,
 $$
-\int_{t_0}^{t} L(x(s), s) \ d\beta(s) = \underset{\substack{n \to \infty \newline |P| \to 0}}{\text{l.i.m}} \sum_{i=0}^{n-1} L(x(t_i), t_i) (\beta(t_{i + 1}) - \beta(t_i)).
+\int_{t_0}^{t} L(x(s), s) \, d\beta(s) = \underset{\substack{n \to \infty \newline |P| \to 0}}{\text{l.i.m}} \sum_{i=0}^{n-1} L(x(t_i), t_i) (\beta(t_{i + 1}) - \beta(t_i)).
 $$
 :::
 
@@ -361,7 +361,7 @@ The difference compared to using Riemann(-Stieltjes) sums is that $t^{\star}_i =
 We finally have our definition of our SDEs,
 
 $$
-x(t) - x(t_0) = \underbrace{\int_{t_0}^t f(x(s), s) \ ds}_{\text{mean square Riemann integral}} + \underbrace{\int_{t_0}^t L(x(s), s) \ d\beta(s)}_{\text{Itô integral}}.
+x(t) - x(t_0) = \underbrace{\int_{t_0}^t f(x(s), s) \, ds}_{\text{mean square Riemann integral}} + \underbrace{\int_{t_0}^t L(x(s), s) \, d\beta(s)}_{\text{Itô integral}}.
 $$
 
 Now, it might seem quite arbitrary to always evaluate at the left endpoint.
@@ -375,14 +375,14 @@ It is generally intractable to exactly simulate a process $x(t)$ described by an
 $$
 \begin{equation}
 \label{eq:euler-maruyama-sde}
-dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t).
+dx(t) = f(x(t), t) \, dt + L(x(t), t) \, d\beta(t).
 \end{equation}
 $$
 
 The Euler-Maruyama method corresponds to the approximation,
 
 $$
-dx(t) \approx f(x(t_i), t_i) \ dt + L(x(t_i), t_i) \ d\beta(t), \quad \forall t_i \in [t_i, t_{i + 1}].
+dx(t) \approx f(x(t_i), t_i) \, dt + L(x(t_i), t_i) \, d\beta(t), \quad \forall t_i \in [t_i, t_{i + 1}].
 $$
 
 :::definition[The Euler-Maruyama method]
@@ -448,8 +448,8 @@ Suppose $x(t)$ satisfies the (same) ODE,
 
 $$
 \begin{align*}
-dx(t) & = f(x(t)) \ dt, \newline
-x(t) - x(t_0) & = \int_{t_0}^{t} f(x(s)) \ ds.
+dx(t) & = f(x(t)) \, dt, \newline
+x(t) - x(t_0) & = \int_{t_0}^{t} f(x(s)) \, ds.
 \end{align*}
 $$
 
@@ -457,9 +457,9 @@ $$
 If $\phi(x)$ is a differentiable function, then,
 $$
 \begin{align*}
-\phi(x(t)) - \phi(x(0)) & = \int_{0}^{t} \frac{d \phi(x(s))}{ds} \ ds = \int_{0}^{t} \phi^{\prime}(x(s)) dx(s) \newline
-& = \int_{0}^{t} \phi^{\prime}(x(s)) f(x(s)) \ ds \newline
-d \phi(x(t)) & = \phi^{\prime}(x(t)) \ dx(t) = \phi^{\prime}(x(t)) f(x(t)) \ dt.
+\phi(x(t)) - \phi(x(0)) & = \int_{0}^{t} \frac{d \phi(x(s))}{ds} \, ds = \int_{0}^{t} \phi^{\prime}(x(s)) dx(s) \newline
+& = \int_{0}^{t} \phi^{\prime}(x(s)) f(x(s)) \, ds \newline
+d \phi(x(t)) & = \phi^{\prime}(x(t)) \, dx(t) = \phi^{\prime}(x(t)) f(x(t)) \, dt.
 \end{align*}
 $$
 :::
@@ -486,16 +486,16 @@ $$
 
 Thus, we conclude that,
 $$
-\phi(x(b)) - \phi(x(a)) = \sum_{i=0}^{n-1} \phi^{\prime}(x(t_i)) f(x(t_i)) \Delta t  = \int_{a}^{b} \phi^{\prime}(x(t)) f(x(t)) \ dt.
+\phi(x(b)) - \phi(x(a)) = \sum_{i=0}^{n-1} \phi^{\prime}(x(t_i)) f(x(t_i)) \Delta t  = \int_{a}^{b} \phi^{\prime}(x(t)) f(x(t)) \, dt.
 $$
 
-Recall that the ODE $dx(t) = f(x(t)) \ dt$ and that all $\mathcal{O}(\Delta t^2)$ terms can be ignored, as $n \to \infty$,
+Recall that the ODE $dx(t) = f(x(t)) \, dt$ and that all $\mathcal{O}(\Delta t^2)$ terms can be ignored, as $n \to \infty$,
 
 $$
 \begin{align*}
-d\phi(x(t)) & = \phi^{\prime}(x(t)) \ dx(t) + \frac{1}{2} \phi^{\prime \prime}(x(t)) (dx(t))^2 + \mathcal{O}((dx(t))^3) \newline
-& = \phi^{\prime}(x(t)) \ dx(t) \newline
-& = \phi^{\prime}(x(t)) f(x(t)) \ dt.
+d\phi(x(t)) & = \phi^{\prime}(x(t)) \, dx(t) + \frac{1}{2} \phi^{\prime \prime}(x(t)) (dx(t))^2 + \mathcal{O}((dx(t))^3) \newline
+& = \phi^{\prime}(x(t)) \, dx(t) \newline
+& = \phi^{\prime}(x(t)) f(x(t)) \, dt.
 \end{align*}
 $$
 
@@ -504,20 +504,20 @@ The chain rule is useful in various contexts, but we note that it yields **a new
 
 $$
 \begin{align*}
-dx(t) & = f(x(t)) \ dt, \newline
-d\phi(x(t)) & = \phi^{\prime}(x(t)) \ dx(t) \newline
-& = \phi^{\prime}(x(t)) f(x(t)) \ dt.
+dx(t) & = f(x(t)) \, dt, \newline
+d\phi(x(t)) & = \phi^{\prime}(x(t)) \, dx(t) \newline
+& = \phi^{\prime}(x(t)) f(x(t)) \, dt.
 \end{align*}
 $$
 
 We can use this to solve ODEs.
 
 ::::exercise[Linear ODE via the chain rule]
-Solve $dx(t) = -cx(t) \ dt$ with $x(0) = 1$.
+Solve $dx(t) = -cx(t) \, dt$ with $x(0) = 1$.
 :::answer
 Introduce $\phi(x(t)) = \log x(t)$. The chain rule gives
 $$
-d\phi(x(t)) = \frac{dx(t)}{x(t)} = -c \ dt.
+d\phi(x(t)) = \frac{dx(t)}{x(t)} = -c \, dt.
 $$
 Therefore $\phi(x(t)) = -ct$, and exponentiating yields
 $$
@@ -530,7 +530,7 @@ $$
 Suppose $x(t)$ is described (in the Itô sense) by the SDE,
 
 $$
-dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t).
+dx(t) = f(x(t), t) \, dt + L(x(t), t) \, d\beta(t).
 $$
 
 The "chain rule" for $\phi(x(t))$ is called the **Itô formula**.
@@ -538,13 +538,13 @@ The "chain rule" for $\phi(x(t))$ is called the **Itô formula**.
 To present a short derivation, we recall that,
 
 $$
-\int_{a}^{b} g(t) \ (d\beta(t))^2 = \int_{a}^{b} g(t) \ dt.
+\int_{a}^{b} g(t) \ (d\beta(t))^2 = \int_{a}^{b} g(t) \, dt.
 $$
 
 It is also easy to verify that all other higher-order terms vanish, e.g.,
 
 $$
-\int_{a}^{b} g(t) \ dt \ d\beta(t) = 0.
+\int_{a}^{b} g(t) \, dt \, d\beta(t) = 0.
 $$
 
 #### The Itô Formula
@@ -552,8 +552,8 @@ $$
 
 $$
 \begin{align*}
-d \phi(x(t)) & = \phi^{\prime}(x(t)) \ dx(t) + \frac{1}{2} \phi^{\prime \prime}(x(t)) (dx(t))^2 + \mathcal{O}((dx(t))^3) \newline
-& = \phi^{\prime}(x(t)) \left( f(x(t), t) \ dt + L(x(t), t) \ d\beta(t) \right) + \frac{1}{2} \phi^{\prime \prime}(x(t)) (L(x(t), t))^2 dt
+d \phi(x(t)) & = \phi^{\prime}(x(t)) \, dx(t) + \frac{1}{2} \phi^{\prime \prime}(x(t)) (dx(t))^2 + \mathcal{O}((dx(t))^3) \newline
+& = \phi^{\prime}(x(t)) \left( f(x(t), t) \, dt + L(x(t), t) \, d\beta(t) \right) + \frac{1}{2} \phi^{\prime \prime}(x(t)) (L(x(t), t))^2 dt
 \end{align*}
 $$
 
@@ -564,7 +564,7 @@ Let's present a scalar version where $\phi$ depends on state and time, i.e., $\p
 :::definition[The Itô formula]
 Suppose $x(t)$ is a scalar Itô process that obeys the SDE,
 $$
-dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t).
+dx(t) = f(x(t), t) \, dt + L(x(t), t) \, d\beta(t).
 $$
 The scalar function $\phi(x(t), t)$ can then be described by the SDE,
 $$
@@ -575,11 +575,11 @@ $$
 We can use this to solve SDEs.
 
 ::::exercise[Linear multiplicative-noise SDE]
-Solve $dx(t) = -cx(t) \ dt + x(t) \ d\beta(t)$ with $x(0) = 1$.
+Solve $dx(t) = -cx(t) \, dt + x(t) \, d\beta(t)$ with $x(0) = 1$.
 :::answer
 Introduce $\phi(x(t)) = \log x(t)$. The Itô formula gives
 $$
-d \phi(x(t)) = \frac{dx(t)}{x(t)} - \frac{(dx(t))^2}{2 (x(t))^2} = -c \ dt + d\beta(t) - \frac{1}{2} dt.
+d \phi(x(t)) = \frac{dx(t)}{x(t)} - \frac{(dx(t))^2}{2 (x(t))^2} = -c \, dt + d\beta(t) - \frac{1}{2} dt.
 $$
 Therefore $\phi(x(t)) = -(c + \frac{1}{2}) t + \beta(t)$, and hence
 $$
@@ -594,7 +594,7 @@ Suppose $x(0) = 0$ and $dx(t) = d\beta(t)$, so $x(t) = \beta(t)$. Apply Itô's f
 :::answer
 Since $\phi'(x) = 2x$ and $\phi''(x) = 2$, Itô's formula gives
 $$
-d \phi(x(t)) = 2 x(t) \ dx(t) + (dx(t))^2 = 2 \beta(t) d\beta(t) + dt.
+d \phi(x(t)) = 2 x(t) \, dx(t) + (dx(t))^2 = 2 \beta(t) d\beta(t) + dt.
 $$
 $$
 \Rightarrow \int_{0}^{t} d \phi(x(s)) = \beta^2(t) = \int_{0}^{t} 2 \beta(s) d\beta(s) + t.
@@ -651,6 +651,7 @@ So from here on, the main object is $p(x, t)$ rather than an individual realizat
 
 #### SDE with Only Drift
 ![SDE with only drift (an ODE)](./imgs/SDE_only_drift.svg)
+
 Suppose $f(x(t), t) = 2, L(x(t), t) = 0 \Rightarrow \frac{dx}{dt} = 2.$
 
 We also assume that $x(t_0 = 0) \sim \mathcal{N}(0, 1)$.
@@ -666,13 +667,14 @@ But, more formally we know that,
 $$
 \begin{align*}
 x(t) & = \underbrace{x(0)}_{\mathcal{N}(0, 1)} + 2t \newline
-& \Rightarrow x(t) \sim \mathcal{N}(2t, 1) \newline
+& \Rightarrow x(t) \sim \mathcal{N}(2t, 1)
 \end{align*}
 $$
 
 
 #### SDE with Only Diffusion
 ![SDE with only diffusion](./imgs/SDE_only_diffusion.svg)
+
 Suppose $f(x(t), t) = 0, L(x(t), t) = 2 \Rightarrow dx = 2 d\beta(t)$.
 
 We also assume that $x(t_0 = 0) \sim \mathcal{N}(0, 1)$.
@@ -701,10 +703,10 @@ Mathematically, both viewpoints are describing the same family of intermediate m
 ### Fokker-Planck-Kolmogorov Equation
 The Fokker-Planck-Kolmogorov equation describes the evolution of the probability distribution of a stochastic process over time,
 
-:::definition[Fokker-Planck-Kolmogorov Equation in $\ \mathbb{R}^d$]
+:::definition[Fokker-Planck-Kolmogorov Equation in $\mathbb{R}^d$]
 The probability density $p(\mathbf{x}, t)$ of the solution of the SDE,
 $$
-d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \ dt + \mathbf{L}(\mathbf{x}(t), t) \ d \beta(t),
+d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \, dt + \mathbf{L}(\mathbf{x}(t), t) \, d\beta(t),
 $$
 solves the partial differential equation,
 $$
@@ -714,10 +716,10 @@ $$
 
 In physics literature, this is often called the **Fokker-Planck equation**, while in stochastics, it is called the **forward Kolmogorov equation**.
 
-:::definition[Fokker-Planck-Kolmogorov Equation in $\ \mathbb{R}$]
+:::definition[Fokker-Planck-Kolmogorov Equation in $\mathbb{R}$]
 The probability density $p(x, t)$ of the solution of the SDE,
 $$
-dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t),
+dx(t) = f(x(t), t) \, dt + L(x(t), t) \, d\beta(t),
 $$
 solves the partial differential equation,
 $$
@@ -747,7 +749,7 @@ We will prove the Fokker-Planck-Kolmogorov PDE, but let's first understand some 
 
 :::note[Integration by parts]
 $$
-\int_{a}^{b} u^{\prime}(x) v(x) \ dx = [u(x) v(x)]_{a}^{b} - \int_{a}^{b} u(x) v^{\prime}(x) \ dx
+\int_{a}^{b} u^{\prime}(x) v(x) \, dx = [u(x) v(x)]_{a}^{b} - \int_{a}^{b} u(x) v^{\prime}(x) \, dx
 $$
 :::
 
@@ -758,11 +760,11 @@ In higher dimensions it is known as the **divergence theorem** or **Gauss's theo
 :::note[The Itô Formula]
 Suppose $x(t)$ is a scalar Itô process that obeys the SDE,
 $$
-dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t),
+dx(t) = f(x(t), t) \, dt + L(x(t), t) \, d\beta(t),
 $$
 The scalar function $\phi(x)$ (with no explicit dependence on $t$) can then be described by the SDE,
 $$
-d\phi(x) = \frac{\partial \phi}{\partial x} dx + \frac{1}{2} \frac{\partial^2 \phi}{\partial x^2} L(x, t)^2 \ dt
+d\phi(x) = \frac{\partial \phi}{\partial x} dx + \frac{1}{2} \frac{\partial^2 \phi}{\partial x^2} L(x, t)^2 \, dt
 $$
 :::
 
@@ -776,15 +778,15 @@ Now, let's prove the Fokker-Planck-Kolmogorov PDE.
 By Itô's formula, we have,
 
 $$
-d \phi(x) = \phi^{\prime}(x) \ dx + \frac{1}{2} \phi^{\prime \prime}(x) L(x, t)^2 \ dt
+d \phi(x) = \phi^{\prime}(x) \, dx + \frac{1}{2} \phi^{\prime \prime}(x) L(x, t)^2 \, dt
 $$
 
 Substituting $dx$ into the above equation gives,
 
 $$
 \begin{align*}
-d \phi(x) & = \phi^{\prime}(x) f(x, t) \ dt + \phi^{\prime}(x) L(x, t) \ d\beta(t) + \frac{1}{2} \phi^{\prime \prime}(x) L(x, t)^2 \ dt \newline
-d \phi(x) & = \left[f(x, t) \phi^{\prime}(x) + \frac{1}{2} L(x, t)^2 \phi^{\prime \prime}(x) \right] dt + \underbrace{L(x, t) \phi^{\prime}(x) d\beta(t)}_{\mathbb{E}[ \cdot ] = 0} \newline
+d \phi(x) & = \phi^{\prime}(x) f(x, t) \, dt + \phi^{\prime}(x) L(x, t) \, d\beta(t) + \frac{1}{2} \phi^{\prime \prime}(x) L(x, t)^2 \, dt \newline
+d \phi(x) & = \left[f(x, t) \phi^{\prime}(x) + \frac{1}{2} L(x, t)^2 \phi^{\prime \prime}(x) \right] dt + \underbrace{L(x, t) \phi^{\prime}(x) d\beta(t)}_{\mathbb{E}[ \cdot ] = 0}
 \end{align*}
 $$
 
@@ -797,12 +799,12 @@ $$
 By using the density representation of the expectation, we can write,
 
 $$
-\frac{d}{dt} \int \phi(x) p(x, t) \ dx = \int f(x, t) \phi^{\prime}(x) p(x, t) \ dx + \frac{1}{2} \int L(x, t)^2 \phi^{\prime \prime}(x) p(x, t) \ dx.
+\frac{d}{dt} \int \phi(x) p(x, t) \, dx = \int f(x, t) \phi^{\prime}(x) p(x, t) \, dx + \frac{1}{2} \int L(x, t)^2 \phi^{\prime \prime}(x) p(x, t) \, dx.
 $$
 
 Let's rewrite our right-hand side terms.
 
-##### First term: $\int f(x, t) \phi^\prime (x) p(x, t) \ dx$
+##### First term: $\int f(x, t) \phi^\prime (x) p(x, t) \, dx$
 By letting,
 
 $$
@@ -812,16 +814,16 @@ $$
 and using integration by parts, we have,
 
 $$
-\int f(x, t) \phi^{\prime}(x) p(x, t) \ dx = [f(x, t) p(x, t) \phi(x)] - \int \phi(x) \frac{\partial}{\partial x} [f(x, t) p(x, t)] \ dx,
+\int f(x, t) \phi^{\prime}(x) p(x, t) \, dx = [f(x, t) p(x, t) \phi(x)] - \int \phi(x) \frac{\partial}{\partial x} [f(x, t) p(x, t)] \, dx,
 $$
 
 we'll assume that the first term vanishes at the boundaries, thus,
 
 $$
-\int f(x, t) \phi^{\prime}(x) p(x, t) \ dx = - \int \phi(x) \frac{\partial}{\partial x} [f(x, t) p(x, t)] \ dx.
+\int f(x, t) \phi^{\prime}(x) p(x, t) \, dx = - \int \phi(x) \frac{\partial}{\partial x} [f(x, t) p(x, t)] \, dx.
 $$
 
-##### Second term: $\int L(x, t)^2 \phi^{\prime\prime} (x) p(x, t) \ dx$
+##### Second term: $\int L(x, t)^2 \phi^{\prime\prime} (x) p(x, t) \, dx$
 Here we'll need to use integration by parts twice. First, we have,
 
 $$
@@ -831,13 +833,13 @@ $$
 Then we have,
 
 $$
-\int L(x, t)^2 \phi^{\prime \prime}(x) p(x, t) \ dx = [L(x, t)^2 p(x, t) \phi^\prime (x)] - \int \phi^\prime (x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)] \ dx,
+\int L(x, t)^2 \phi^{\prime \prime}(x) p(x, t) \, dx = [L(x, t)^2 p(x, t) \phi^\prime (x)] - \int \phi^\prime (x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)] \, dx,
 $$
 
 Again, we'll assume that the first term vanishes at the boundaries, thus,
 
 $$
-\int L(x, t)^2 \phi^{\prime \prime}(x) p(x, t) \ dx = - \int \phi^\prime (x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)] \ dx.
+\int L(x, t)^2 \phi^{\prime \prime}(x) p(x, t) \, dx = - \int \phi^\prime (x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)] \, dx.
 $$
 
 Now, for the second integration by parts, we have,
@@ -849,20 +851,20 @@ $$
 and we can write,
 
 $$
-\int \phi^\prime (x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)] \ dx = [\phi(x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)]] - \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \ dx,
+\int \phi^\prime (x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)] \, dx = [\phi(x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)]] - \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \, dx,
 $$
 
 and again, we'll assume that the first term vanishes at the boundaries, thus,
 
 $$
-\int \phi^\prime (x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)] \ dx = - \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \ dx.
+\int \phi^\prime (x) \frac{\partial}{\partial x} [L(x, t)^2 p(x, t)] \, dx = - \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \, dx.
 $$
 
 Now, we can combine the two terms to get,
 $$
 \begin{align*}
-\int L(x, t)^2 \phi^{\prime \prime}(x) p(x, t) \ dx & = -\left[- \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \ dx \right] \newline
-& = \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \ dx.
+\int L(x, t)^2 \phi^{\prime \prime}(x) p(x, t) \, dx & = -\left[- \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \, dx \right] \newline
+& = \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \, dx.
 \end{align*}
 $$
 
@@ -870,15 +872,15 @@ $$
 Now, we can combine the two terms to get,
 $$
 \begin{align*}
-\frac{d}{dt} \int \phi(x) p(x, t) \ dx & = - \int \phi(x) \frac{\partial}{\partial x} [f(x, t) p(x, t)] \ dx + \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \ dx \newline
-& = \int \phi(x) \left[- \frac{\partial}{\partial x} [f(x, t) p(x, t)] + \frac{1}{2} \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \right] \ dx.
+\frac{d}{dt} \int \phi(x) p(x, t) \, dx & = - \int \phi(x) \frac{\partial}{\partial x} [f(x, t) p(x, t)] \, dx + \int \phi(x) \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \, dx \newline
+& = \int \phi(x) \left[- \frac{\partial}{\partial x} [f(x, t) p(x, t)] + \frac{1}{2} \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \right] \, dx.
 \end{align*}
 $$
 
 We can rewrite the left-hand side as,
 
 $$
-\frac{d}{dt} \int \phi(x) p(x, t) \ dx = \int \phi(x) \frac{\partial}{\partial t} p(x, t) \ dx.
+\frac{d}{dt} \int \phi(x) p(x, t) \, dx = \int \phi(x) \frac{\partial}{\partial t} p(x, t) \, dx.
 $$
 
 since our $\phi(x)$ does not depend on $t$.
@@ -886,7 +888,7 @@ since our $\phi(x)$ does not depend on $t$.
 Now we can rewrite the entire equation as,
 
 $$
-\int \phi(x) \left[\frac{\partial}{\partial t} p(x, t) + \frac{\partial}{\partial x} [f(x, t) p(x, t)] - \frac{1}{2} \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \right] \ dx = 0.
+\int \phi(x) \left[\frac{\partial}{\partial t} p(x, t) + \frac{\partial}{\partial x} [f(x, t) p(x, t)] - \frac{1}{2} \frac{\partial^2}{\partial x^2} [L(x, t)^2 p(x, t)] \right] \, dx = 0.
 $$
 
 But, our $\phi(x)$ is arbitrary, therefore the term in the brackets must be zero, i.e.,
@@ -903,7 +905,7 @@ which is precisely the Fokker-Planck-Kolmogorov equation!
 ::::exercise[Write the Fokker-Planck equation for the Benes SDE]
 For the SDE
 $$
-dx(t) = \tanh(x(t)) \ dt + d \beta(t),
+dx(t) = \tanh(x(t)) \, dt + d \beta(t),
 $$
 compute the corresponding Fokker-Planck-Kolmogorov PDE.
 :::answer
@@ -926,11 +928,11 @@ Recall,
 :::note[The Itô Formula]
 Suppose $x(t)$ is a scalar Itô process that obeys the SDE,
 $$
-dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t),
+dx(t) = f(x(t), t) \, dt + L(x(t), t) \, d\beta(t),
 $$
 The scalar function $\phi(x)$ (with no explicit dependence on $t$) can then be described by the SDE,
 $$
-d\phi(x) = \frac{\partial \phi}{\partial x} dx + \frac{1}{2} \frac{\partial^2 \phi}{\partial x^2} L(x, t)^2 \ dt
+d\phi(x) = \frac{\partial \phi}{\partial x} dx + \frac{1}{2} \frac{\partial^2 \phi}{\partial x^2} L(x, t)^2 \, dt
 $$
 :::
 
@@ -954,9 +956,9 @@ $$
 Then we have,
 $$
 \begin{align*}
-\mathbb{E}\left[\frac{\partial \phi}{\partial t} \right] & = 0 \quad \text{(no explicit dependence on $t$)} \newline
+\mathbb{E}\left[\frac{\partial \phi}{\partial t} \right] & = 0 \quad \text{(no explicit dependence on } t \text{)} \newline
 \mathbb{E}\left[ \frac{\partial \phi}{\partial x}\right] & = 1 \newline
-\mathbb{E}\left[ \frac{\partial^2 \phi}{\partial x^2} \right] & = 0 \newline
+\mathbb{E}\left[ \frac{\partial^2 \phi}{\partial x^2} \right] & = 0
 \end{align*}
 $$
 
@@ -985,7 +987,7 @@ $$
 \begin{align*}
 \mathbb{E}\left[\frac{\partial \phi}{\partial t} \right] & = 2 (x - m(t)) \frac{d m(t)}{dt} \quad \text{(using chain rule)} \newline
 \mathbb{E}\left[ \frac{\partial \phi}{\partial x}\right] & = 2 (x - m(t)) \newline
-\mathbb{E}\left[ \frac{\partial^2 \phi}{\partial x^2} \right] & = 2 \newline
+\mathbb{E}\left[ \frac{\partial^2 \phi}{\partial x^2} \right] & = 2
 \end{align*}
 $$
 
@@ -1018,7 +1020,7 @@ $$
 ::::exercise[Mean and covariance of the Ornstein-Uhlenbeck process]
 Consider the SDE
 $$
-dx(t) = -\lambda x(t) \ dt + \sigma \ d\beta(t), \quad x(0) = 0,
+dx(t) = -\lambda x(t) \, dt + \sigma \, d\beta(t), \quad x(0) = 0,
 $$
 where $\lambda > 0$ and $\beta$ is Brownian motion with diffusion/std. deviation $\sigma$. Derive the ODEs for the mean and variance.
 :::answer
@@ -1059,7 +1061,7 @@ In the linear-Gaussian case, the first two moments characterize the solution.
 Let the transition probability function be denoted,
 
 $$
-p(x(\tau) | x(t)) = p_{x(\tau) | x(t)}(y, \tau; x, t) = p(y, \tau | x, t) \text{ with } \tau \geq t.
+p(x(\tau) \mid x(t)) = p_{x(\tau) \mid x(t)}(y, \tau; x, t) = p(y, \tau \mid x, t) \text{ with } \tau \geq t.
 $$
 
 Then, one can similarly derive the **Kolmogorov backward equation**,
@@ -1077,12 +1079,12 @@ This is the key to generative modeling via denoising diffusion processes @cite:s
 Consider the Itô process,
 
 $$
-dx(t) = f(x(t), t) \ dt + L(x(t), t) \ d\beta(t),
+dx(t) = f(x(t), t) \, dt + L(x(t), t) \, d\beta(t),
 $$
 
 Then, there exists a reverse Itô process of the form @cite:anderson1982reverse,
 $$
-dx(t) = \bar{f}(x(t), t) \ dt + \bar{L}(x(t), t) \ d\bar{\beta}(t),
+dx(t) = \bar{f}(x(t), t) \, dt + \bar{L}(x(t), t) \, d\bar{\beta}(t),
 $$
 
 defined in some region $t \leq T$.
@@ -1090,13 +1092,13 @@ defined in some region $t \leq T$.
 $x(T)$ is a random variable independent of $\bar{\beta}$ and the above is shorthand for,
 
 $$
-x(T) - x(t) = \int_{t}^{T} \bar{f}(x(s), s) \ ds + \int_{t}^{T} \bar{L}(x(s), s) \ d\bar{\beta}(s),
+x(T) - x(t) = \int_{t}^{T} \bar{f}(x(s), s) \, ds + \int_{t}^{T} \bar{L}(x(s), s) \, d\bar{\beta}(s),
 $$
 
 Lastly, consider the Itô process of the probabilistic denoising diffusion model,
 
 $$
-d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \ dt + \sigma(t) \ d\beta(t),
+d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \, dt + \sigma(t) \, d\beta(t),
 $$
 
 Then, the reverse Itô process is given by @cite:anderson1982reverse,
@@ -1118,25 +1120,25 @@ In words, the score tells us which direction increases density the fastest, so i
 In the forward SDE,
 
 $$
-dx = f(x(t), t) \ dt + L(t) \ d \beta(t),
+dx = f(x(t), t) \, dt + L(t) \, d\beta(t),
 $$
 
 we simulate forward in time using Euler-Maruyama method, also note that $L(t)$ does not depend on the state $x(t)$,
 
 $$
-x_{n + 1} = x_n + f(x_n, t_n) \Delta t + L(t_n) \sqrt{\Delta t} \ \xi_n.
+x_{n + 1} = x_n + f(x_n, t_n) \Delta t + L(t_n) \sqrt{\Delta t} \, \xi_n.
 $$
 
 For the reverse SDE @cite:anderson1982reverse,
 
 $$
-dx = [f(x(t), t) - L(t)^2 \nabla_x \log p(x(t), t)] dt + L(t) \ d \bar{\beta}(t),
+dx = [f(x(t), t) - L(t)^2 \nabla_x \log p(x(t), t)] dt + L(t) \, d\bar{\beta}(t),
 $$
 
 we simulate **backward in time** with,
 
 $$
-x_{n - 1} = x_n - [f(x_n, t_n) - L(t_n)^2 \nabla_x \log p(x_n, t_n)] \Delta t - L(t_n) \sqrt{\Delta t} \ \xi_n.
+x_{n - 1} = x_n - [f(x_n, t_n) - L(t_n)^2 \nabla_x \log p(x_n, t_n)] \Delta t - L(t_n) \sqrt{\Delta t} \, \xi_n.
 $$
 
 The **score function** $\nabla_x \log p(x(t), t)$ must be estimated or known.
@@ -1145,7 +1147,7 @@ The **score function** $\nabla_x \log p(x(t), t)$ must be estimated or known.
 ::::exercise[Reverse Euler-Maruyama for the Ornstein-Uhlenbeck process]
 Consider the forward SDE
 $$
-dx = -\lambda x(t) \ dt + \sigma \ d \beta(t), \quad x(0) = 0.
+dx = -\lambda x(t) \, dt + \sigma \, d\beta(t), \quad x(0) = 0.
 $$
 Compute its score and plug it into the reverse-time Euler-Maruyama update.
 :::answer
@@ -1164,7 +1166,7 @@ $$
 $$
 Plugging this into the reverse-time Euler-Maruyama method gives
 $$
-x_{n - 1} = x_n - \left[-\lambda x_n + \frac{\sigma^2 x_n}{\mathrm{Var}[x_n]} \right] \Delta t - \sigma \sqrt{\Delta t} \ \xi_n,
+x_{n - 1} = x_n - \left[-\lambda x_n + \frac{\sigma^2 x_n}{\mathrm{Var}[x_n]} \right] \Delta t - \sigma \sqrt{\Delta t} \, \xi_n,
 $$
 :::
 ::::
@@ -1180,7 +1182,7 @@ DDPMs make that story concrete, design a forward noising process with simple mar
 How do you design a scalar SDE of the form,
 
 $$
-dx(t) = f(x(t), t) \ dt + L(t) \ d \beta(t),
+dx(t) = f(x(t), t) \, dt + L(t) \, d\beta(t),
 $$
 
 that produces a process $x(t)$ with,
@@ -1234,25 +1236,25 @@ $$
 Thus, we have the linear SDE of the form,
 
 $$
-dx(t) = \left(\frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \right) dt + L(t) \ d \beta(t).
+dx(t) = \left(\frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \right) dt + L(t) \, d\beta(t).
 $$
 
 Now, one can check that the mean condition is satisfied by this SDE, but we also have a variance condition to satisfy, thus, let's consider the linear SDE of the form,
 
 $$
-dx(t) = \left(\frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \right) dt + \underbrace{\alpha(t)}_{\text{new}} L(t) \ d \beta(t).
+dx(t) = \left(\frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \right) dt + \underbrace{\alpha(t)}_{\text{new}} L(t) \, d\beta(t).
 $$
 
 The solution to this SDE is,
 
 $$
-x(t) = \alpha(t) \underbrace{\left(x_0 + \int_0^t L(s) \ d \beta(s) \right)}_{y(t)}.
+x(t) = \alpha(t) \underbrace{\left(x_0 + \int_0^t L(s) \, d\beta(s) \right)}_{y(t)}.
 $$
 
 Thus,
 
 $$
-d(y(t)) = L(t) \ d \beta(t),
+d(y(t)) = L(t) \, d\beta(t),
 $$
 
 By definition of the variance,
@@ -1262,7 +1264,7 @@ $$
 \mathrm{Var}[x(t)] & = \mathbb{E}[(\underbrace{x(t)}_{= \alpha(t) y(t)} - \underbrace{\mathbb{E}[x(t)]}_{= \alpha(t) x_0})^2] \newline
 & = \mathbb{E}[(\alpha(t) y(t) - \alpha(t) x_0)^2] \newline
 & = \mathbb{E}[((\underbrace{\alpha(t)}_{\text{deterministic}})(y(t) - \underbrace{x_0}_{\text{deterministic}}))^2] \newline
-& = \alpha(t)^2 \int_0^t L(s)^2 \ ds \newline
+& = \alpha(t)^2 \int_0^t L(s)^2 \, ds
 \end{align*}
 $$
 
@@ -1270,10 +1272,10 @@ In our case, we want our variance to be $\sigma(t)^2$, thus we can set,
 
 $$
 \begin{align*}
-\alpha(t)^2 \int_0^t L(s)^2 \ ds & = \sigma(t)^2 \newline
-\int_0^t L(s)^2 \ ds & = \frac{\sigma(t)^2}{\alpha(t)^2} \newline
+\alpha(t)^2 \int_0^t L(s)^2 \, ds & = \sigma(t)^2 \newline
+\int_0^t L(s)^2 \, ds & = \frac{\sigma(t)^2}{\alpha(t)^2} \newline
 L(t)^2 & = \frac{d}{dt} \left(\frac{\sigma(t)^2}{\alpha(t)^2}\right) \newline
-L(t) & = \sqrt{\frac{d}{dt} \left(\frac{\sigma(t)^2}{\alpha(t)^2}\right)} \newline
+L(t) & = \sqrt{\frac{d}{dt} \left(\frac{\sigma(t)^2}{\alpha(t)^2}\right)}
 \end{align*}
 $$
 
@@ -1286,7 +1288,7 @@ To construct an SDE with,
 We use the SDE,
 
 $$
-dx(t) = \left(\frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \right) dt + \sqrt{\frac{d}{dt} \left(\frac{\sigma(t)^2}{\alpha(t)^2}\right)} \ d \beta(t).
+dx(t) = \left(\frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \right) dt + \sqrt{\frac{d}{dt} \left(\frac{\sigma(t)^2}{\alpha(t)^2}\right)} \, d\beta(t).
 $$
 
 This guarantees that the process $x(t)$ is Gaussian with the desired mean and variance.
@@ -1295,7 +1297,7 @@ This guarantees that the process $x(t)$ is Gaussian with the desired mean and va
 ::::exercise[Recover an SDE from target moments]
 Suppose we are given an SDE of the form
 $$
-dx(t) = \frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \ dt + \alpha(t) L(t) \ d \beta(t), \quad x(0) = x_0,
+dx(t) = \frac{\dot{\alpha}(t)}{\alpha(t)} x(t) \, dt + \alpha(t) L(t) \, d\beta(t), \quad x(0) = x_0,
 $$
 with
 
@@ -1310,7 +1312,7 @@ $$
 $$
 Thus, the SDE becomes
 $$
-dx(t) = -\frac{1}{1 - t} x(t) \ dt + (1 - t) L(t) \ d \beta(t).
+dx(t) = -\frac{1}{1 - t} x(t) \, dt + (1 - t) L(t) \, d\beta(t).
 $$
 By doing the same trick as before, we find that
 $$
@@ -1332,7 +1334,7 @@ $$
 $$
 Hence the SDE becomes
 $$
-dx(t) = -\frac{1}{1 - t} x(t) \ dt + \sqrt{\frac{2t}{(1 - t)}} \ d \beta(t).
+dx(t) = -\frac{1}{1 - t} x(t) \, dt + \sqrt{\frac{2t}{(1 - t)}} \, d\beta(t).
 $$
 This form is valid for $t < 1$, and it produces
 
@@ -1354,7 +1356,7 @@ Flow matching keeps the same high-level goal, moving a simple distribution into 
 Consider the SDE in $\mathbb{R}^d$,
 
 $$
-d \mathbf{x}(t) = \mathbf{f}^{\theta}(\mathbf{x}(t), t) \ dt + \sigma_t \ d \beta(t),
+d \mathbf{x}(t) = \mathbf{f}^{\theta}(\mathbf{x}(t), t) \, dt + \sigma_t \, d\beta(t),
 $$
 
 Our **goal** is to, given $\mathbf{x}(0) \sim p_{\text{init}}(\mathbf{x}(0))$, make sure that $\mathbf{x}(1) \sim p_{\text{data}}(\mathbf{x}(1))$.
@@ -1380,10 +1382,10 @@ We can then sample from $p_{\text{init}}$, run it through the SDE, and obtain a 
 
 #### Method Overview
 The idea has four steps.
-1. Start by constructing a probability path $p_t(\cdot | \mathbf{z})$ for individual samples $\mathbf{z}$ which interpolates from noise $p_0(\cdot | \mathbf{z}) = p_{\text{init}}(\cdot)$ to the data sample $\mathbf{z}$, $p_1(\cdot | \mathbf{z}) = \delta_{\mathbf{z}}(\cdot)$.
+1. Start by constructing a probability path $p_t(\cdot \mid \mathbf{z})$ for individual samples $\mathbf{z}$ which interpolates from noise $p_0(\cdot \mid \mathbf{z}) = p_{\text{init}}(\cdot)$ to the data sample $\mathbf{z}$, $p_1(\cdot \mid \mathbf{z}) = \delta_{\mathbf{z}}(\cdot)$.
 2. Marginalization gives us,
 $$
-p_t(\mathbf{x}) = \int p_t(\mathbf{x} | \mathbf{z}) p_{\text{data}}(\mathbf{z}) \ d \mathbf{z}.
+p_t(\mathbf{x}) = \int p_t(\mathbf{x} \mid \mathbf{z}) p_{\text{data}}(\mathbf{z}) \, d\mathbf{z}.
 $$
 3. Construct target dynamics that simulate $p_t$.
 4. Train a neural network that approximates this SDE.
@@ -1392,28 +1394,28 @@ $$
 Start by constructing,
 
 $$
-p_t(\cdot | \mathbf{z}),
+p_t(\cdot \mid \mathbf{z}),
 $$
 
 for individual samples $\mathbf{z}$ from the data distribution with conditions,
 
 $$
-p_0(\cdot | \mathbf{z}) = p_{\text{init}}(\cdot) \text{ and } p_1(\cdot | \mathbf{z}) = \delta_{\mathbf{z}}(\cdot) \text{ for all } \mathbf{z} \in \mathbb{R}^d.
+p_0(\cdot \mid \mathbf{z}) = p_{\text{init}}(\cdot) \text{ and } p_1(\cdot \mid \mathbf{z}) = \delta_{\mathbf{z}}(\cdot) \text{ for all } \mathbf{z} \in \mathbb{R}^d.
 $$
 
-Such a path $p_t(\cdot | \mathbf{z})$ is called a **conditional probability path** [^note-7].
+Such a path $p_t(\cdot \mid \mathbf{z})$ is called a **conditional probability path** [^note-7].
 
 #### Step 2: Marginalization
 Each conditional path induces a **marginal probability path**,
 
 $$
-p_t(\mathbf{x}) = \int p_t(\mathbf{x} | \mathbf{z}) p_{\text{data}}(\mathbf{z}) \ d \mathbf{z}.
+p_t(\mathbf{x}) = \int p_t(\mathbf{x} \mid \mathbf{z}) p_{\text{data}}(\mathbf{z}) \, d\mathbf{z}.
 $$
 
 We can sample from $p_t$ via,
 
 $$
-\mathbf{z} \sim p_{\text{data}}, \quad \mathbf{x} \sim p_t(\cdot | \mathbf{z}) \implies \mathbf{x} \sim p_t.
+\mathbf{z} \sim p_{\text{data}}, \quad \mathbf{x} \sim p_t(\cdot \mid \mathbf{z}) \implies \mathbf{x} \sim p_t.
 $$
 
 Note that we do not know the density values of $p_t(\mathbf{x})$ as the integral is intractable.
@@ -1429,7 +1431,7 @@ Pick a Gaussian path that starts at noise and ends at a data sample $\mathbf{z}$
 :::answer
 Define
 $$
-p_t(\cdot | \mathbf{z}) = \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d),
+p_t(\cdot \mid \mathbf{z}) = \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d),
 $$
 with $\alpha_0 = \sigma_1 = 0$ and $\alpha_1 = \sigma_0 = 1$, so we move from $\mathcal{N}(0, 1)$ to $\mathcal{N}(\mathbf{z}, 0)$.
 
@@ -1447,14 +1449,14 @@ First, we construct **analytically** dynamics for simulating the conditional pro
 
 Then, via the so-called "marginalization trick", we obtain dynamics for the marginal probability path.
 
-We will write these in the general SDE form $d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \ dt + L(t) d \ \beta(t)$, with flow matching as the special case $L(t) = 0$.
+We will write these in the general SDE form $d\mathbf{x}(t) = \mathbf{f}(\mathbf{x}(t), t) \, dt + L(t) \, d\beta(t)$, with flow matching as the special case $L(t) = 0$.
 
 ::::exercise[Gaussian dynamics for the conditional path]
 For the Gaussian path above, write down dynamics whose marginals match it.
 :::answer
 For the path
 $$
-p_t(\cdot | \mathbf{z}) = \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d),
+p_t(\cdot \mid \mathbf{z}) = \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d),
 $$
 with $\alpha_0 = \sigma_1 = 0$ and $\alpha_1 = \sigma_0 = 1$, the following ODE
 $$
@@ -1470,9 +1472,9 @@ We can check this either from
 What are the target dynamics for the marginal path?
 
 :::tip[Marginalization Trick]
-If the ODE with vector field $\mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z})$ yields the conditional path $p_t(\mathbf{x}(t) \mid \mathbf{z})$ then the marginal field,
+If the ODE with vector field $\mathbf{f}^{\text{target}}(\mathbf{x}(t), t \mid \mathbf{z})$ yields the conditional path $p_t(\mathbf{x}(t) \mid \mathbf{z})$ then the marginal field,
 $$
-\mathbf{f}^{\text{target}}(\mathbf{x}(t), t) = \int \mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z}) \underbrace{\frac{p_t(\mathbf{x}(t) | \mathbf{z}) p_{\text{data}}(\mathbf{z})}{p_t(\mathbf{x}(t))}}_{p_t(\mathbf{z} | \mathbf{x}(t))} \ d \mathbf{z},
+\mathbf{f}^{\text{target}}(\mathbf{x}(t), t) = \int \mathbf{f}^{\text{target}}(\mathbf{x}(t), t \mid \mathbf{z}) \underbrace{\frac{p_t(\mathbf{x}(t) \mid \mathbf{z}) p_{\text{data}}(\mathbf{z})}{p_t(\mathbf{x}(t))}}_{p_t(\mathbf{z} \mid \mathbf{x}(t))} \, d\mathbf{z},
 $$
 :::
 
@@ -1495,7 +1497,7 @@ For,
 $$
 \begin{align*}
 \mathcal{L}_{FM} & = \mathbb{E}_{t \sim \text{Unif}, \mathbf{x}(t) \sim p_t} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t) \Vert^2  \right], \newline
-\mathcal{L}_{CFM} & = \mathbb{E}_{t \sim \text{Unif}, \mathbf{z} \sim p_{\text{data}}, \mathbf{x} \sim p_t(\cdot | \mathbf{z})} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z}) \Vert^2  \right],
+\mathcal{L}_{CFM} & = \mathbb{E}_{t \sim \text{Unif}, \mathbf{z} \sim p_{\text{data}}, \mathbf{x} \sim p_t(\cdot \mid \mathbf{z})} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t \mid \mathbf{z}) \Vert^2  \right],
 \end{align*}
 $$
 it holds that $\nabla_{\theta} \mathcal{L}_{FM} = \nabla_{\theta} \mathcal{L}_{CFM}$.
@@ -1506,17 +1508,17 @@ Hence, we can use $\mathcal{L}_{CFM}$ to train $\mathbf{f}^{\theta}(\mathbf{x}(t
 ::::exercise[Gaussian conditional flow matching loss]
 Specialize the conditional flow matching loss to the Gaussian path with $\alpha(t) = t$ and $\sigma(t) = 1 - t$.
 :::answer
-The path $p_t(\cdot | \mathbf{z}) = \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d)$ is simulated via the ODE with vector field
+The path $p_t(\cdot \mid \mathbf{z}) = \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d)$ is simulated via the ODE with vector field
 $$
-\mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z}) = (\dot{\alpha}_t - \frac{\dot{\sigma}_t}{\sigma_t} \alpha_t) \mathbf{z} + \frac{\dot{\sigma}_t}{\sigma_t} \mathbf{x}(t).
+\mathbf{f}^{\text{target}}(\mathbf{x}(t), t \mid \mathbf{z}) = (\dot{\alpha}_t - \frac{\dot{\sigma}_t}{\sigma_t} \alpha_t) \mathbf{z} + \frac{\dot{\sigma}_t}{\sigma_t} \mathbf{x}(t).
 $$
 A natural choice is $\alpha(t) = t$ and $\sigma(t) = 1 - t$, which gives $\dot{\alpha}(t) = 1$ and $\dot{\sigma}(t) = -1$.
 
 It yields the loss function
 $$
 \begin{align*}
-\mathcal{L}_{CFM} & = \mathbb{E}_{t \sim \text{Unif}, \mathbf{z} \sim p_{\text{data}}, \mathbf{x} \sim \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d)} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t | \mathbf{z}) \Vert^2  \right] \newline
-& = \mathbb{E}_{t \sim \text{Unif}, \mathbf{z} \sim p_{\text{data}}, \epsilon \sim \mathcal{N}(\mathbf{0}, \mathbf{I}_d)} \left[ \Vert \mathbf{f}^{\theta}(t \mathbf{z} + (1 - t) \epsilon, t) - (\mathbf{z} - \epsilon) \Vert^2  \right] \newline
+\mathcal{L}_{CFM} & = \mathbb{E}_{t \sim \text{Unif}, \mathbf{z} \sim p_{\text{data}}, \mathbf{x} \sim \mathcal{N}(\alpha_t \mathbf{z}, \sigma_t^2 \mathbf{I}_d)} \left[ \Vert \mathbf{f}^{\theta}(\mathbf{x}(t), t) - \mathbf{f}^{\text{target}}(\mathbf{x}(t), t \mid \mathbf{z}) \Vert^2  \right] \newline
+& = \mathbb{E}_{t \sim \text{Unif}, \mathbf{z} \sim p_{\text{data}}, \epsilon \sim \mathcal{N}(\mathbf{0}, \mathbf{I}_d)} \left[ \Vert \mathbf{f}^{\theta}(t \mathbf{z} + (1 - t) \epsilon, t) - (\mathbf{z} - \epsilon) \Vert^2  \right]
 \end{align*}
 $$
 where we have used $\mathbf{x}(t) = t \mathbf{z} + (1 - t) \epsilon$.
@@ -1543,7 +1545,7 @@ $$
 However, since we do not have $p_t(x_t)$ or $u_t(x_t)$, we can't compute the expectation above.
 
 $$
-\mathbb{E}_{x_t \sim p_t(x_t)} \left[ \Vert v_t(x_t) \Vert^2 - 2 v_t(x_t) \cdot u_t(x_t) + \Vert u_t(x_t) \Vert^2 \right] \newline
+\mathbb{E}_{x_t \sim p_t(x_t)} \left[ \Vert v_t(x_t) \Vert^2 - 2 v_t(x_t) \cdot u_t(x_t) + \Vert u_t(x_t) \Vert^2 \right]
 $$
 
 We know that $\mathbb{E}_{p(x)} = \int p(x) dx$, so we can rewrite the middle term as,
@@ -1555,56 +1557,56 @@ $$
 By marginalizing $u_t(x_t)$,
 
 $$
-u_t(x_t) = \int u_t(x_t | x_1) \frac{p_t(x_t | x_1) q(x_1)}{p_t(x_t)} dx_1.
+u_t(x_t) = \int u_t(x_t \mid x_1) \frac{p_t(x_t \mid x_1) q(x_1)}{p_t(x_t)} dx_1.
 $$
 
 Thus,
 
 $$
-\mathbb{E}_{x_t \sim p_t(x_t)} \left[2 v_t(x_t) \cdot u_t(x_t) \right] = 2 \int v_t(x_t) \cdot \frac{\int u_t(x_t | x_1) \frac{p_t(x_t | x_1) q(x_1)}{p_t(x_t)} dx_1}{p_t(x_t)} p_t(x_t) dx_t.
+\mathbb{E}_{x_t \sim p_t(x_t)} \left[2 v_t(x_t) \cdot u_t(x_t) \right] = 2 \int v_t(x_t) \cdot \frac{\int u_t(x_t \mid x_1) \frac{p_t(x_t \mid x_1) q(x_1)}{p_t(x_t)} dx_1}{p_t(x_t)} p_t(x_t) dx_t.
 $$
 
 By Fubini's Theorem,
 
 $$
-\mathbb{E}_{x_t \sim p_t(x_t)} \left[2 v_t(x_t) \cdot u_t(x_t) \right] = 2 \int \int v_t(x_t) \cdot u_t(x_t | x_1) p_t(x_t | x_1) q(x_1) dx_1 dx_t.
+\mathbb{E}_{x_t \sim p_t(x_t)} \left[2 v_t(x_t) \cdot u_t(x_t) \right] = 2 \int \int v_t(x_t) \cdot u_t(x_t \mid x_1) p_t(x_t \mid x_1) q(x_1) dx_1 dx_t.
 $$
 
 Written as an expectation,
 
 $$
-2 \mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[v_t(x_t) \cdot u_t(x_t | x_1) \right].
+2 \mathbb{E}_{x_t \sim p_t(x_t \mid x_1), x_1 \sim q(x_1)} \left[v_t(x_t) \cdot u_t(x_t \mid x_1) \right].
 $$
 
 Plugging this back into our objective,
 
 $$
-\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) \Vert^2 - 2 v_t(x_t) \cdot u_t(x_t | x_1) + \Vert u_t(x_t) \Vert^2 \right] \newline
+\mathbb{E}_{x_t \sim p_t(x_t \mid x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) \Vert^2 - 2 v_t(x_t) \cdot u_t(x_t \mid x_1) + \Vert u_t(x_t) \Vert^2 \right]
 $$
 
 Now, let's do the classic $+c - c$ trick,
 
 $$
-\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) \Vert^2 - 2 v_t(x_t) \cdot u_t(x_t | x_1) + \Vert u_t(x_t) \Vert^2 + \Vert u_t(x_t | x_1) \Vert^2 - \Vert u_t(x_t | x_1) \Vert^2 \right] \newline
+\mathbb{E}_{x_t \sim p_t(x_t \mid x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) \Vert^2 - 2 v_t(x_t) \cdot u_t(x_t \mid x_1) + \Vert u_t(x_t) \Vert^2 + \Vert u_t(x_t \mid x_1) \Vert^2 - \Vert u_t(x_t \mid x_1) \Vert^2 \right]
 $$
 
 Now, we can rewrite this, using our algebraic identity, as our first step,
 
 $$
-\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) - u_t(x_t | x_1) \Vert^2 + \Vert u_t(x_t) \Vert^2 - \Vert u_t(x_t | x_1) \Vert^2 \right] \newline
+\mathbb{E}_{x_t \sim p_t(x_t \mid x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) - u_t(x_t \mid x_1) \Vert^2 + \Vert u_t(x_t) \Vert^2 - \Vert u_t(x_t \mid x_1) \Vert^2 \right]
 $$
 
 Since expectation is a linear operator, we can split our expectation,
 
 $$
-\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) - u_t(x_t | x_1) \Vert^2 \right] + \ldots
+\mathbb{E}_{x_t \sim p_t(x_t \mid x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) - u_t(x_t \mid x_1) \Vert^2 \right] + \ldots
 $$
 
 The other terms are constants (since we are training $v_t$), so we can ignore them when minimizing the objective.
 
 What we started with, $\mathbb{E}_{x_t \sim p_t(x_t)} \left[ \Vert v_t(x_t) - u_t(x_t) \Vert^2 \right]$, is the **flow matching objective**.
 
-What we ended up with, $\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) - u_t(x_t | x_1) \Vert^2 \right]$, is the **conditional flow matching objective**.
+What we ended up with, $\mathbb{E}_{x_t \sim p_t(x_t \mid x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) - u_t(x_t \mid x_1) \Vert^2 \right]$, is the **conditional flow matching objective**.
 
 Recall that the flow function is defined as,
 
@@ -1641,13 +1643,13 @@ $$
 Thus, we can rewrite our objective as,
 
 $$
-\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) - \frac{d}{dt} \psi_t(x_0 \mid x_1) \Vert^2 \right]
+\mathbb{E}_{x_t \sim p_t(x_t \mid x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(x_t) - \frac{d}{dt} \psi_t(x_0 \mid x_1) \Vert^2 \right]
 $$
 
 We can reparameterize this as,
 
 $$
-\mathbb{E}_{x_t \sim p_t(x_t | x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(\psi_t(x_0 \mid x_1)) - \frac{d}{dt} \psi_t(x_0 \mid x_1) \Vert^2 \right]
+\mathbb{E}_{x_t \sim p_t(x_t \mid x_1), x_1 \sim q(x_1)} \left[ \Vert v_t(\psi_t(x_0 \mid x_1)) - \frac{d}{dt} \psi_t(x_0 \mid x_1) \Vert^2 \right]
 $$
 
 The derivative of $\psi_t(x_0 \mid x_1)$ is,
