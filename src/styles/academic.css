@@ -135,6 +135,12 @@
   }
 }
 
+/* KaTeX defaults to 1.21em, sized for tall-x-height sans faces; Computer
+   Modern already out-measures EB Garamond (x-height 0.431 vs 0.405 em). */
+.katex {
+  font-size: 1em;
+}
+
 .prose .astro-figure {
   display: flex;
   flex-direction: column;
@@ -159,7 +165,6 @@
   margin-block-start: 0.5rem;
   color: var(--muted-foreground);
   font-size: var(--step--1);
-  font-style: italic;
   text-align: center;
 }
 

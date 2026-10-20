@@ -8,23 +8,34 @@ import { cn } from '@/lib/utils'
 import Icon from '@/components/Icon.astro'
 import { Image } from 'astro:assets'
 import afaEpisodeFigure from './_afa-episode.svg'
-import claudesLensFigure from './_claudeslens-logo.png'
-import causalityFigure from './_diffusion-causality-overview.svg'
+import afaItdFigure from './_afa-itd.svg'
+import afaLoopFigure from './_afa-loop.svg'
+import causalityFigure from './_causality-delta.svg'
+import claudesLensFigure from './_claudeslens.svg'
+import semlaItoFigure from './_semla-ito.svg'
+import { renderInlineMath } from '@/lib/math-utils'
 
 const projects = [
   {
-    title: 'A Deeper Understanding of Active Feature Acquisition',
-    image: null,
-    imageAlt: '',
-    imageCaption: '',
+    title: 'Active Feature Acquisition With Incomplete Training Data',
+    image: afaItdFigure,
+    imageAlt:
+      'An incomplete training matrix and the instances usable under aliasing, filtering, and generative restoration.',
+    imageCaption:
+      'Usable training instances under MCAR with $p = 0.3$: aliasing uses all $n$ instances but ignores the missingness mask, filtering only uses the $n(1-p)^d$ complete instances, and generative restoration uses all $n$ instances after generating the missing values.',
     highlight: null,
-    wideFigure: false,
-    body: 'My MSc thesis studied active feature acquisition as sequential decision-making under costly and missing information. We developed AFABench as a modular evaluation framework and extended the AFA POMDP to missing data during training, showing how missing data can distort both beliefs and the acquisition routes a policy learns to value.',
+    body: 'Active Feature Acquisition (AFA) formalizes the trade-off between feature cost and predictive performance during sequential feature selection. However, prior AFA work largely assumes access to complete training data, an assumption that is often violated in practice. In this work, we study AFA with incomplete training data and show that under missing completely at random (MCAR) data, one-step acquisition values remain unchanged, whereas multi-step values can decrease. We analyze three approaches to learning from incomplete data: aliasing, filtering, and generative restoration, and find that missingness mainly damages methods that exploit multi-step acquisitions, while generative restoration is able to recover lost performance in many experiments.',
     links: [
       {
-        href: 'https://odr.chalmers.se/items/998015d3-6673-44db-b73a-47c46421b7c3',
-        label: 'Thesis',
+        href: 'https://arxiv.org/abs/2609.32325',
+        label: 'arXiv',
         icon: 'lucide:file-text',
+        external: true,
+      },
+      {
+        href: 'https://github.com/MachineLearning-DecisionMaking/AFABench/tree/missing-data',
+        label: 'Code',
+        icon: 'lucide:code',
         external: true,
       },
     ],
@@ -35,13 +46,13 @@ const projects = [
     image: afaEpisodeFigure,
     imageAlt:
       'An AFABench episode where a policy sequentially acquires features before prediction.',
-    imageCaption: 'AFABench evaluation episode.',
+    imageCaption:
+      'An AFABench episode: the initializer reveals some features, after which the policy acquires features (here, block 2) until it stops and the classifier predicts.',
     highlight: {
       title: 'Accepted to KDD 2026',
       body: 'Datasets & Benchmarks Track. 513 complete submissions, with an overall acceptance rate of about 29%.',
     },
-    wideFigure: true,
-    body: 'AFABench is a generic framework for benchmarking active feature acquisition in classification. It standardizes episode interfaces, budget protocols, datasets, methods, and diagnostics so myopic, subset-based, and reinforcement-learning policies can be compared under the same cost-performance trade-off.',
+    body: 'AFA methods sequentially select which features to acquire for each instance, balancing predictive performance against acquisition cost. In this work, we introduce AFABench, the first benchmark framework for AFA, consisting of synthetic and real-world datasets, static, myopic, and reinforcement learning-based methods, and a modular design for adding new methods and tasks. We also introduce CUBE-NM, a synthetic dataset where myopic acquisition fails, to test whether methods are able to plan ahead.',
     links: [
       {
         href: 'https://arxiv.org/abs/2508.14734',
@@ -56,7 +67,7 @@ const projects = [
         external: true,
       },
       {
-        href: 'https://github.com/Linusaronsson/AFA-Benchmark',
+        href: 'https://github.com/MachineLearning-DecisionMaking/AFABench',
         label: 'Code',
         icon: 'lucide:code',
         external: true,
@@ -64,13 +75,32 @@ const projects = [
     ],
   },
   {
-    title: 'Scaling Generative Models for Molecular Dynamics',
-    image: null,
-    imageAlt: '',
-    imageCaption: '',
+    title: 'A Deeper Understanding of Active Feature Acquisition',
+    image: afaLoopFigure,
+    imageAlt:
+      'The AFA loop: a policy either acquires a feature at a cost and updates its state, or stops and predicts.',
+    imageCaption:
+      'The AFA loop: the policy $\\pi$ either acquires a feature $x_a$ at cost $c_a$ and updates the state, or stops and predicts.',
     highlight: null,
-    wideFigure: false,
-    body: 'At AIMLeNS, I worked on scaling generative models for molecular dynamics. This project shaped how I think about generative modeling in scientific settings, where useful models must respect geometry, sampling behavior, robustness, and the physical structure of the system being studied.',
+    body: 'My <a href="https://odr.chalmers.se/items/998015d3-6673-44db-b73a-47c46421b7c3" target="_blank" rel="noopener noreferrer">MSc thesis</a>, together with <a href="https://www.uu.se/en/contact-and-organisation/staff?query=N26-2337" target="_blank" rel="noopener noreferrer">Han Wu</a> and supervised by <a href="https://www.cse.chalmers.se/~haghir/" target="_blank" rel="noopener noreferrer">Morteza Haghir Chehreghani</a>, studied AFA as sequential decision-making under costly and missing information. Our contributions are twofold: AFABench, and an extension of the partially observable Markov decision process (POMDP) formulation of AFA to the missing data setting, which became the basis of our work on AFA with incomplete training data.',
+    links: [
+      {
+        href: 'https://odr.chalmers.se/items/998015d3-6673-44db-b73a-47c46421b7c3',
+        label: 'Thesis',
+        icon: 'lucide:file-text',
+        external: true,
+      },
+    ],
+  },
+  {
+    title: 'Semla-ITO: Flow Matching for Molecular Dynamics',
+    image: semlaItoFigure,
+    imageAlt:
+      'Alanine dipeptide at two times, and a Semla-based flow matching model generating the later state from noise conditioned on the earlier one.',
+    imageCaption:
+      'Semla-ITO learns the transition $\\mathbf x_{\\mathfrak t} \\mapsto \\mathbf x_{\\mathfrak t + \\tau}$ of alanine dipeptide with a Semla-based flow matching model, conditioned on the current state and the time lag $\\tau$. The molecules are frames from a molecular dynamics trajectory, $\\tau = 400$ ps apart.',
+    highlight: null,
+    body: 'During the summer of 2025, I worked with <a href="https://www.chalmers.se/personer/simonols/" target="_blank" rel="noopener noreferrer">Simon Olsson</a> at <a href="https://psolsson.github.io/" target="_blank" rel="noopener noreferrer">AIMLeNS</a> on generative models for molecular dynamics. We built Semla-ITO, which replaces the ChiroPaiNN and diffusion backbone of the <a href="https://arxiv.org/abs/2305.18046" target="_blank" rel="noopener noreferrer">ITO</a> model with the equivariant layers of <a href="https://arxiv.org/abs/2406.07266" target="_blank" rel="noopener noreferrer">SemlaFlow</a> and flow matching, and evaluated it on alanine dipeptide using torsion-angle and VAMP-2 metrics.',
     links: [
       {
         href: 'https://psolsson.github.io/',
@@ -85,11 +115,11 @@ const projects = [
       'Causality-Δ: Jacobian-Based Dependency Analysis in Flow Matching Models',
     image: causalityFigure,
     imageAlt:
-      'Overview of Jacobian-based dependency analysis in flow matching models.',
-    imageCaption: 'Jacobian-based dependency analysis in flow matching.',
+      'Latent perturbations transported by a flow matching model, and the attribute dependencies exposed by a Jacobian-vector product.',
+    imageCaption:
+      'Perturbed latents $\\mathbf x_0 + \\varepsilon \\mathbf z$ are transported by the flow $\\mathbf f_\\theta$, and the attribute-level JVP $\\mathbf J_{\\mathbf C_\\theta \\circ \\mathbf f_\\theta}(\\mathbf x_0)\\, \\mathbf z$ exposes the dependencies between attributes.',
     highlight: null,
-    wideFigure: true,
-    body: 'Causality-Δ studies how local derivative information can expose dependency structure in flow-matching generative models. We use Jacobian-vector products to trace how latent perturbations propagate through learned dynamics, giving a practical way to inspect model geometry while keeping a clear boundary between local dependence and causal intervention.',
+    body: 'In this work, together with <a href="https://www.math.chalmers.se/~smoritz/" target="_blank" rel="noopener noreferrer">Moritz Schauer</a> and <a href="https://torkar.github.io/" target="_blank" rel="noopener noreferrer">Richard Torkar</a>, we study how small perturbations in the latent space propagate through flow matching models. We use Jacobian-vector products (JVPs) to analyze the dependencies between generated features, and derive closed-form expressions for the optimal drift and its Jacobian in the Gaussian and mixture-of-Gaussians settings. On MNIST and CelebA, composing the flow with an attribute classifier gives an attribute-level JVP estimator that recovers the empirical correlations between attributes. However, this is a local dependency analysis and not a formal intervention.',
     links: [
       {
         href: 'https://arxiv.org/abs/2602.02793',
@@ -108,11 +138,12 @@ const projects = [
   {
     title: 'ClaudesLens: Uncertainty Quantification in Computer Vision Models',
     image: claudesLensFigure,
-    imageAlt: 'ClaudesLens project logo.',
-    imageCaption: 'ClaudesLens project logo.',
+    imageAlt:
+      'A fixed input passed through repeatedly weight-perturbed networks, giving a distribution of predictions and its entropy.',
+    imageCaption:
+      'The weights $\\mathbf W$ of a trained network are perturbed $N$ times, and the entropy $H_\\sigma(\\mathbf x)$ of the resulting predictions for a fixed input $\\mathbf x$ gives the metrics $\\pi_\\sigma$ and $\\psi_\\sigma$.',
     highlight: null,
-    wideFigure: false,
-    body: 'My BSc thesis studied uncertainty quantification in computer vision models using Shannon entropy as a practical measure of predictive uncertainty. We focused on how confidence changes under perturbations and when a model output should be treated with caution rather than accepted as a reliable prediction.',
+    body: 'My <a href="https://arxiv.org/abs/2406.13008" target="_blank" rel="noopener noreferrer">BSc thesis</a>, supervised by <a href="https://www.math.chalmers.se/~smoritz/" target="_blank" rel="noopener noreferrer">Moritz Schauer</a>, studied uncertainty quantification in computer vision models. We perturb the weights of a trained network with Gaussian noise and treat each prediction for a fixed input as a random experiment. The Shannon entropy of the resulting predictions then quantifies the uncertainty of the model, which we summarize in two metrics: the Perturbation Index $(\\pi_\\sigma)$ and the Perturbation Stability Index $(\\psi_\\sigma)$.',
     links: [
       {
         href: 'https://arxiv.org/abs/2406.13008',
@@ -137,7 +168,7 @@ const projects = [
 ]
 ---
 
-<Layout class="max-w-3xl">
+<Layout class="max-w-3xl" math>
   <PageHead slot="head" title="Research" />
   <Breadcrumbs items={[{ label: 'Research', icon: 'lucide:flask-conical' }]} />
 
@@ -146,18 +177,26 @@ const projects = [
       <div class="prose">
         <h1>Research</h1>
         <p>
-          I am primarily interested in multi-agent sequential decision-making
-          and reinforcement learning. I want to understand how systems can learn
-          from experience, plan ahead, and reason about the consequences of
-          actions in realistic settings with partial observability, uncertainty,
-          and risk constraints.
+          My research lies within the intersection of multi-agent systems and
+          sequential decision-making, through both reinforcement learning and
+          planning. Many real-world systems are best modeled with multiple
+          decision makers, such as fleets of drones, autonomous vehicles, or
+          robots sharing a common energy budget, all acting under uncertainty,
+          partial observability, and risk.
+        </p>
+        <p>
+          In particular, I am interested in how systematic risk (i.e., common
+          external factors) and systemic risk (i.e., failure due to
+          interconnection) affect planning and learning in multi-agent systems:
+          when do the risk and uncertainty guarantees that hold for individual
+          agents break down at the system level?
         </p>
       </div>
     </section>
 
     <section class="research-projects">
       <h2>Selected Projects</h2>
-      {projects.map((project) => (
+      {projects.map((project, index) => (
           <article class="research-project">
             <div class="research-project-copy">
             <h3>{project.title}</h3>
@@ -195,29 +234,19 @@ const projects = [
                 </div>
               )}
               <div class="prose">
-                <p>{project.body}</p>
+                <p set:html={renderInlineMath(project.body, false)} />
               </div>
             </div>
 
-            {project.image && (
-              <figure class="research-figure">
-                <Image
-                  src={project.image}
-                  alt={project.imageAlt}
-                  width={1200}
-                  height={560}
-                  class={cn(
-                    'research-figure-image',
-                    project.wideFigure ? 'is-wide' : 'is-contained',
-                  )}
-                />
-                {project.imageCaption && (
-                  <figcaption>
-                    {project.imageCaption}
-                  </figcaption>
-                )}
+            <div class="prose">
+              <figure class="astro-figure">
+                <Image src={project.image} alt={project.imageAlt} />
+                <figcaption>
+                  <span class="figure-number">Figure {index + 1}:</span>{' '}
+                  <span set:html={renderInlineMath(project.imageCaption)} />
+                </figcaption>
               </figure>
-            )}
+            </div>
           </article>
         ))}
     </section>
@@ -225,6 +254,14 @@ const projects = [
 </Layout>
 
 <style>
+  .research-project :global(.astro-figure) {
+    margin-block: 0;
+  }
+
+  .research-project :global(.astro-figure img) {
+    width: 100%;
+  }
+
   .research-page,
   .research-intro,
   .research-projects,
@@ -303,36 +340,5 @@ const projects = [
 
   .research-highlight-body {
     color: var(--muted-foreground);
-  }
-
-  .research-figure {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    background-color: white;
-    padding: var(--space-s);
-    text-align: center;
-  }
-
-  .research-figure-image {
-    width: 100%;
-    height: auto;
-    margin-inline: auto;
-    object-fit: contain;
-  }
-
-  .research-figure-image.is-contained {
-    max-height: 20rem;
-  }
-
-  .research-figure figcaption {
-    max-width: 24rem;
-    margin-block-start: var(--space-xs);
-    color: var(--muted-foreground);
-    font-size: var(--step--1);
   }
 </style>

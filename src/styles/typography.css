@@ -13,7 +13,11 @@
   --tracking-caps: 0.08em;
   --leading-offset: 0.65rem;
 
-  --prose-foreground: color-mix(in oklab, var(--foreground) 80%, transparent);
+  /* Light ink at 80% already reads at APCA Lc 88; dark needs 90% to clear Lc 75. */
+  --prose-foreground: light-dark(
+    color-mix(in oklab, var(--foreground) 80%, transparent),
+    color-mix(in oklab, var(--foreground) 90%, transparent)
+  );
   --prose-marker:     color-mix(in oklab, var(--foreground) 30%, transparent);
 
   --measure: 40rem;

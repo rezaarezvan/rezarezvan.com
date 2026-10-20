@@ -16,7 +16,8 @@ export function hasInlineMath(value = ''): boolean {
   return new RegExp(inlineMath.source, inlineMath.flags).test(value)
 }
 
-export function renderInlineMath(value = ''): string {
+export function renderInlineMath(value = '', escape = true): string {
+  const text = escape ? escapeHtml : (part: string) => part
   const pattern = new RegExp(inlineMath.source, inlineMath.flags)
   let html = ''
   let cursor = 0
@@ -24,7 +25,7 @@ export function renderInlineMath(value = ''): string {
   for (const match of value.matchAll(pattern)) {
     const prefix = match[1] ?? ''
     const start = (match.index ?? 0) + prefix.length
-    html += escapeHtml(value.slice(cursor, start))
+    html += text(value.slice(cursor, start))
     html += katex.renderToString(match[2], {
       strict: 'ignore',
       throwOnError: false,
@@ -32,7 +33,7 @@ export function renderInlineMath(value = ''): string {
     cursor = (match.index ?? 0) + match[0].length
   }
 
-  return html + escapeHtml(value.slice(cursor))
+  return html + text(value.slice(cursor))
 }
 
 export function plainInlineMath(value = ''): string {
