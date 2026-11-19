@@ -1,8 +1,8 @@
 .prose {
   :is(h1, h2, h3, h4, h5, h6) {
     margin-block: 1.5em 0.5em;
-    font-family: var(--font-serif);
-    font-weight: var(--font-weight-normal);
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-display);
     font-synthesis-weight: none;
     line-height: calc(var(--leading-offset) + 1em);
     color: var(--foreground);

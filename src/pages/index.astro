@@ -77,7 +77,7 @@ const news = await Promise.all(
           <span lang="fa">(رضا رضوان)</span>
         </h1>
         <p>
-          I'm currently a PhD student in the
+          I am a first-year PhD student at the
           <a
             href="https://www.chalmers.se/en/departments/cse/our-research/data-science-and-ai/"
             target="_blank"
@@ -85,19 +85,29 @@ const news = await Promise.all(
             class="home-link"
             >Data Science and AI division</a
           >
-          at Chalmers University of Technology under the supervision of
+          at Chalmers University of Technology. I am fortunate to be advised by
           <a
             href="https://annalouisegautier.com/"
             target="_blank"
             rel="noopener noreferrer"
             class="home-link"
             >Anna Gautier</a
+          >
+          in the
+          <a
+            href="https://annalouisegautier.com/optima/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="home-link"
+            >OPTIMA research group</a
           >.
         </p>
         <p>
-          My research interests lie within multi-agent sequential
-          decision-making, through both reinforcement learning and planning,
-          with a particular focus on uncertainty and risk.
+          Broadly, I am interested in multi-agent decision-making in uncertain
+          and risk-critical environments, where agents must learn or plan. In
+          particular, I study the design of mechanisms and algorithms for such
+          settings, often drawing on machine learning and reinforcement
+          learning.
         </p>
         <p>
           Previously, I received my MSc in
@@ -127,15 +137,14 @@ const news = await Promise.all(
             class="home-link"
             >Ericsson</a
           >
-          and
+          and twice at
           <a
             href="https://www.huawei.com/en"
             target="_blank"
             rel="noopener noreferrer"
             class="home-link"
             >Huawei</a
-          >
-          (twice).
+          >.
         </p>
       </div>
     </div>
@@ -281,12 +290,16 @@ const news = await Promise.all(
 
   .home-title {
     margin: 0;
-    font-size: var(--step-2);
-    font-weight: var(--font-weight-normal);
+    font-size: var(--step-3);
+    font-weight: var(--font-weight-display);
+  }
+
+  .home-profile-email tt {
+    font-family: var(--font-mono);
   }
 
   .home-title-name {
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-display);
   }
 
   .home-link,
@@ -312,8 +325,8 @@ const news = await Promise.all(
 
   .home-section-title {
     margin: 0;
-    font-size: var(--step-1);
-    font-weight: var(--font-weight-medium);
+    font-size: var(--step-2);
+    font-weight: var(--font-weight-display);
   }
 
   .home-news-list {
@@ -342,7 +355,7 @@ const news = await Promise.all(
 
   .home-news-content {
     font-size: var(--step--1);
-    line-height: 1.35;
+    line-height: 1.5;
   }
 
   .home-news-content :global(p) {

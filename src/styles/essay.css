@@ -12,10 +12,10 @@
   margin-bottom: 0.5rem;
   padding-block: 0.5rem;
   scroll-margin-top: 7.75rem;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: calc(var(--step-3) * 1.15);
   line-height: 1.2;
-  font-weight: var(--font-weight-normal);
+  font-weight: var(--font-weight-display);
   font-synthesis-weight: none;
   text-wrap: balance;
 }
@@ -46,7 +46,7 @@
 .prose[data-essay] > p:first-of-type::first-letter {
   -webkit-initial-letter: 3;
   initial-letter: 3;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: var(--font-weight-normal);
   color: var(--primary);
   margin-inline-end: 0.12em;

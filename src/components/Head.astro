@@ -1,5 +1,6 @@
 ---
-import ebGaramondUrl from '@/assets/fonts/EBGaramond-Latin-VariableFont_wght.woff2?url'
+import plexSansUrl from '@/assets/fonts/ibm-plex-sans-latin-wght-normal.woff2?url'
+import cormorantUrl from '@/assets/fonts/cormorant-latin-wght-normal.woff2?url'
 import { SITE } from '@/consts'
 import Favicons from './Favicons.astro'
 ---
@@ -35,7 +36,14 @@ import Favicons from './Favicons.astro'
 
   <link
     rel="preload"
-    href={ebGaramondUrl}
+    href={plexSansUrl}
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+  <link
+    rel="preload"
+    href={cormorantUrl}
     as="font"
     type="font/woff2"
     crossorigin
